@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<locators>
+<C4C>
+<Username>id=username</Username>
+<Password>id=password</Password>
+<Loginbutton>//*[@type='submit']</Loginbutton>
+<Userinfo>//*[@id="gen_menu_6"]</Userinfo>
+<skipwarning>//a[text()='Continue']</skipwarning>
+</C4C>
+<Explore>
+<Username>id=userId</Username>
+<Password>id=password</Password>
+<Loginbutton>id=Submit</Loginbutton>
+<Userinfo>//*[@id="gen_menu_6"]</Userinfo>
+<skipwarning>//a[text()='Continue']</skipwarning>
+</Explore>
+<CPQ>
+<Username>//*[@name="SWEUserName"]</Username>
+<Password>id=s_swepi_2</Password>
+<Loginbutton>//*[@id="s_swepi_22"]</Loginbutton>
+<!--<SiebelUserinfo>//*[@id="gen_menu_6"]</SiebelUserinfo>-->
+<AccountSettingButton>//li[@title="Settings"]</AccountSettingButton>
+<Logout>//button[text()="Logout"]</Logout>
+</CPQ>
+<Sieble>
+<Username>//*[@id="s_swepi_1"]</Username>
+<Password>name=SWEPassword</Password>
+<Loginbutton>//*[@id="s_swepi_22"]</Loginbutton>
+<!--<SiebelUserinfo>//*[@id="gen_menu_6"]</SiebelUserinfo>-->
+<AccountSettingButton>//li[@title="Settings"]</AccountSettingButton>
+<Logout>//button[text()="Logout"]</Logout>
+</Sieble>
+<CustomerSection>//h1[text()='Customers']</CustomerSection>
+<Accountlink>//a[text()='Accounts']</Accountlink>
+<OCN>//span[text()='100119208']/parent::*/parent::*/following-sibling::*/div/a</OCN>
+<OpportunuityTab>//div[text()='Opportunities']</OpportunuityTab>
+<Opportunuitynumber>//span[text()='265293']/parent::*/parent::*/following-sibling::*/div/a</Opportunuitynumber>
+<QuoteTab>//div[text()='Quotes']</QuoteTab>
+<AddQuote>//bdi[text()='Add']</AddQuote>
+<StandrdQuote>id=readonly_1_quoteType_t</StandrdQuote>
+<LoadingDailog>//*[@id='loading-mask']</LoadingDailog>
+<AddProduct>//a[text()='Add Product']</AddProduct>
+<Ethernetfamily>//a[text()='Ethernet']</Ethernetfamily>
+<EthernetProductP2P>//a[text()='Ethernet Line']</EthernetProductP2P>
+<Asite>id=siteAddressAEnd</Asite>
+<Bsite>id=siteAddressBEnd</Bsite>
+<GoogleMapifram>id=siteAddressLink</GoogleMapifram>
+<Messages>//span[text()='Connected via Colt']</Messages>
+<ConnectivitiCheck>//td[text()='Next']</ConnectivitiCheck>
+<SiteDetailTab>//span[text()='Site Details']</SiteDetailTab>
+<Contractterm>id=contractTermInYears</Contractterm>
+<ServiceBandwidth>id=serviceBandwidth</ServiceBandwidth>
+<ServiceResilence>id=resiliencyServiceLevel</ServiceResilence>
+<SelectOnnetAsite>xpath=(//div[text()='On-Net'])[1]</SelectOnnetAsite>
+<SelectOnnetBsite>xpath=(//div[text()='On-Net'])[1]</SelectOnnetBsite>
+<AsiteOnnet>//*[@id="onNetA"]/table/tbody/tr[2]/td[1]</AsiteOnnet>
+<BsiteOnnet>//*[@id="onNetB"]/table/tbody/tr[2]/td[1]</BsiteOnnet>
+<FeaturesTab>//span[text()='Features']</FeaturesTab>
+<FastTrackAddon>id=fasttrackAddon_true</FastTrackAddon>
+<AddtoTransaction>id=add_to_transaction</AddtoTransaction>
+<Technicalcontactname>id=nameTchnicalContacts_t</Technicalcontactname>
+<Technicalcontactlname>id=lastNameTechnicalContacts_t</Technicalcontactlname>
+<Technicalcontactemail>id=emailTechnicalContacts_t</Technicalcontactemail>
+<Technicalcontactphone>id=phoneNumberTechnicalContacts_t</Technicalcontactphone>
+<Alllineitem>name=_line_item_list_all</Alllineitem>
+<BillingInfobutton>//a[text()='Billing Information']</BillingInfobutton>
+<customerreferece>id=bCNCustomerRefNumberQuote_t</customerreferece>
+<po>id=bCNPOReferenceQuote_t</po>
+<bcn>name=radioBCNTable</bcn>
+<applybutton>//a[text()='Apply']</applybutton>
+<LoadingDailog2>//*[@id='loading-dialog']</LoadingDailog2>
+<ApprovalTab>(//span[text()='Approval'])[1]</ApprovalTab>
+<SubmitetoApproval>//a[text()='Submit to Approval']</SubmitetoApproval>
+<customersignatureTab>//span[text()='CUSTOMER SIGNATURE']</customersignatureTab>
+<GenrateProposal>//a[text()='Generate Proposal']</GenrateProposal>
+<ForCustomerSignature>//*[@name='finalizeProposalCheck_t']</ForCustomerSignature>
+<Mod>//select[@name='workflow_t']</Mod>
+<to>//*[@id='toRecepient_t']</to>
+<SendtoCustomer>//a[text()='Send Proposal']</SendtoCustomer>
+<OrderTab>//span[text()='ORDER']</OrderTab>
+<QuoteAction>name=quoteActionAcceptOrReject_t</QuoteAction>
+<Reasone>name=reasonForStatusWon_t</Reasone>
+<FileBrowse>id=_file_acceptanceDocument_t</FileBrowse>
+<Fileuploaded>//*[@id='_name_acceptanceDocument_t' and contains(text(),'.pdf')]</Fileuploaded>
+<CustomerSignedDate>id=customerSignedDate_t</CustomerSignedDate>
+<ConfirQuoteAction>//a[text()='Confirm Quote Action']</ConfirQuoteAction>
+<AdditionalinfomrationTab>//*[text()='Additional Quote Information']</AdditionalinfomrationTab>
+<Accordian>//button[@class='accordion']</Accordian>
+<Asitecomponey>name=aEndCompanyName</Asitecomponey>
+<BSitecom>name=bEndCompanyName</BSitecom>
+<SaveInfo>//a[text()='Save Quote Information']</SaveInfo>
+<CreateOrder>//*[text()='Create Order']</CreateOrder>
+</locators>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<locators>
+
+<SupportStartDate>//div[@id='colt-s-order-connection-attributes']//span[text()='Support Start Date']/following-sibling::input</SupportStartDate>
+<SupportEndDate>//div[@id='colt-s-order-connection-attributes']//span[text()='Support End Date']/following-sibling::input</SupportEndDate>
+<SaveSupport>//a[text()='Save' and contains(@style,'inline')]</SaveSupport>
+<tabDropdown>//select[@id='j_s_vctrl_div_tabScreen']</tabDropdown>
+<tableHeader>//div[@id='s_S_A3_div']//thead//th</tableHeader>
+<DocumnetTypeOther>//div[@id='s_S_A3_div']//table[@class='ui-jqgrid-btable']//tr//td[text()='Other']</DocumnetTypeOther>
+<FileUpload>//input[@name='s_SweFileName' and @title='Attachments:New File']</FileUpload>
+
+<DocumentTypeDropdown>//div[@id='s_S_A3_div']//table[@class='ui-jqgrid-btable']//tr//td//span[@class='siebui-icon-dropdown']</DocumentTypeDropdown>
+<DownArrow>//span[@class='siebui-icon-dropdown']</DownArrow>
+<DoucmentTypeSelection>//ul[contains(@style,'block')]//li[text()='SOW']</DoucmentTypeSelection>
+<AttachmentTabSelection>//div[@id='s_vctrl_div_tabScreen']//ul//li//a[text()='Attachments']</AttachmentTabSelection>
+<OrderDatesTab>//div[@id='s_vctrl_div_tabScreen']//ul//li//a[text()='Order Dates']</OrderDatesTab>
+<BillingTab>//div[@id='s_vctrl_div_tabScreen']//ul//li//a[text()='Billing']</BillingTab>
+<ContractTerm>//input[@aria-label='Contract Term']</ContractTerm>
+<BillingStartDate>//input[@aria-label='Billing Start Date']</BillingStartDate>
+<BillingEndDate>//input[@aria-label='Billing End Date']</BillingEndDate>
+<POStartDate>//input[@aria-label='PO Start Date']</POStartDate>
+<POEndDate>//input[@aria-label='PO End Date']</POEndDate>
+<ContractRenewalFlag>//input[@aria-label='Contract Renewal Flag']</ContractRenewalFlag>
+<OrderedSignedDate>//input[@aria-label='Order Signed Date']</OrderedSignedDate>
+<OrderedReceivedDate>//input[@aria-label='Order Received Date']</OrderedReceivedDate>
+<ExpandAll>//button[@title='Service Charges:Expand All']</ExpandAll>
+<BilltabExpandRows>//table[@summary='Service Charges']//tr[@data-leaf='true']</BilltabExpandRows>
+<BilltabAmount>//table[@summary='Service Charges']//tr[@data-leaf='true'][index]//td[7]</BilltabAmount>
+<BilltabAmountInput>//table[@summary='Service Charges']//tr[@data-leaf='true'][index]//td[7]//input</BilltabAmountInput>
+<BilltabBCN>//table[@summary='Service Charges']//tr[@data-leaf='true'][index]//td[8]</BilltabBCN>
+<BilltabBCNInput>//table[@summary='Service Charges']//tr[@data-leaf='true'][index]//td[8]//span</BilltabBCNInput>
+<BcnSearchInput>//input[@aria-labelledby='PopupQuerySrchspec_Label']</BcnSearchInput>
+<BcnSearchGo>/td[@class='siebui-popup-filter']//button[@title='Billing Profile:Go' ]</BcnSearchGo>
+<BcnSearchOK>//button[@title='Billing Profile:OK' ]</BcnSearchOK>
+<ClickheretoSaveAccess>//div[@class='colt-loading-panel colt-noedit-panel']//a</ClickheretoSaveAccess>
+
+</locators>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<locators>
+<SaveButton>//a[@class="colt-primary-btn colt-s-order-save-btn"]</SaveButton>
+<SupportStarDate>//span[text()='Support Start Date']/parent::*//input</SupportStarDate>
+<SupprtEndDate>//span[text()='Support End Date']/parent::*//input</SupprtEndDate>
+<RecurringchargeMRC>//table[@summary="Service Charges"]/tbody/tr[5]/td[5]</RecurringchargeMRC>
+<TotalOnoffclick>//td[@role="gridcell"]/div/div[@class="ui-icon ui-icon-triangle-1-s tree-minus treeclick"]</TotalOnoffclick>
+<OneoffCharge>(//tr[@role="row"])[7]//td[5]</OneoffCharge>
+<OneNetOffChargeInput>(//tr[@role="row"])[7]//td[5]/input</OneNetOffChargeInput>
+<BCN>(//tr[@role="row"])[7]//td[6]</BCN>
+<BcnClick>(//tr[@role="row"])[7]//td[6]//span[@class="siebui-icon-pick"]</BcnClick>
+<BcnOk>//button[@title="Billing Profile:OK"]</BcnOk>
+
+
+
+
+<AmmountFilling>(//tr[@role='row']/following-sibling::tr[@data-level='1']/td[7])[Value]</AmmountFilling>
+<AmountFillingInput>(//tr[@role='row']/following-sibling::tr[@data-level='1']/td[7])[Value]/input</AmountFillingInput>
+<BCNClick>(//tr[@role='row']/following-sibling::tr[@data-level='1']/td[8])[Value]</BCNClick>
+<BCNSearchClick>(//tr[@role='row']/following-sibling::tr[@data-level='1']/td[8])[Value]/span</BCNSearchClick>
+<BCNInstallationChargeNRCInput>//input[@aria-labelledby="PopupQuerySrchspec_Label"]</BCNInstallationChargeNRCInput> 
+  <BCNNRCSearch>//td[@class="siebui-popup-filter"]//button[@title="Billing Profile:Go"]</BCNNRCSearch> 
+  <BCNNRCSubmit>//button[@aria-label="Billing Profile:OK"]</BCNNRCSubmit> 
+
+
+<ModifyButton>//button[@aria-label="Service Order List:Modify"]</ModifyButton>
+
+<ManualV>(//span[contains(text(), 'Manual Validation')])[1]</ManualV>
+<SubMenu>//select[@aria-label="Third Level View Bar"]</SubMenu>
+<SubmenuInstall>//select[@class="siebui-nav-links siebui-nav-viewlist"]/option[text()='Installation and test']</SubmenuInstall>
+<Install>//a[text()='Installation and Test']</Install>
+<PrimartTestingDropdown>//input[@aria-labelledby='COLT_Self_Service_Test_Label']/following-sibling::span</PrimartTestingDropdown>
+<NotRequired>//li[text()='Not Required']</NotRequired>
+
+
+
+<SelectCancelValidation>//li[text()='Cancelled']</SelectCancelValidation>
+
+
+<CeaseButton>//button[@title="Service Order List:Cease"]</CeaseButton>
+<CeaseReasonButton>//span[text()='Cease Reason']/ancestor::tr/following::tr[2]/td[2]//span</CeaseReasonButton>
+<CeaseandResposive>//li[text()='Cease And Reprovide']</CeaseandResposive>
+<CeassationCharge>//input[@aria-label="Cessation Charge Applicable"]</CeassationCharge>
+
+
+
+
+
+</locators>
