@@ -855,6 +855,12 @@ public void Clickonoutofviewportwithstring(String locator) throws Exception {
 	return(formatter.format(date));
 
 	}
+	
+	public String TimeStamp()
+	{
+		String timeStamp = new SimpleDateFormat("yyyyMMddHHmm'.txt'").format(new Date());
+		return timeStamp;
+	}
 }
 
 
