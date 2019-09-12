@@ -30,7 +30,7 @@ import org.apache.poi.xssf.streaming.examples.SavePasswordProtectedXlsx;
 public class NewOrderOnnetHelper extends DriverHelper {
 
 	
-	
+	String timeStamp = TimeStamp();
 	
 	public NewOrderOnnetHelper(WebDriver dr) {
 		super(dr);
@@ -759,7 +759,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 	public void VoiceConfigTab(Object[] Inputdata) throws Exception {
 		if(Inputdata[0].toString().equals("Voice Line V")) {
 		Clickon(getwebelement(xml.getlocator("//locators/TrunkName")));
-		SendKeys(getwebelement(xml.getlocator("//locators/TrunkName")),"Trunk1");
+		SendKeys(getwebelement(xml.getlocator("//locators/TrunkName")),"Trunk"+timeStamp+"");
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on TrunkName");
 		WaitforElementtobeclickable(xml.getlocator("//locators/AccessLineTypeDropDown"));
 		Clickon(getwebelement(xml.getlocator("//locators/AccessLineTypeDropDown")));
