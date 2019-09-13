@@ -222,7 +222,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		//Clickon(getwebelement(xml.getlocator("//locators/SubmitContract")));
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Submit Contract");
 		Thread.sleep(5000);
-		if(!Inputdata[8].toString().equals("Cloud Unified Communications")&& !Inputdata[8].toString().equals("IP Voice Solutions") && !Inputdata[8].toString().equals("Professional Services")) {
+		if(!Inputdata[8].toString().equals("Cloud Unified Communications")|| !Inputdata[8].toString().equals("IP Voice Solutions") || !Inputdata[8].toString().equals("Professional Services")) {
 		WaitforElementtobeclickable(xml.getlocator("//locators/NetworkReferenceSearch"));
 		Clickon(getwebelement(xml.getlocator("//locators/NetworkReferenceSearch")));
 		Clickon(getwebelement(xml.getlocator("//locators/NetworkPlusSign")));
