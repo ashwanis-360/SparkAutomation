@@ -364,6 +364,7 @@ public class DriverHelper {
 			
 			
 		el.click();
+		Log.info("Clicking on element with using try block click");
 		
 		}
 		catch(WebDriverException e)
@@ -374,6 +375,7 @@ public class DriverHelper {
 			{
 				Thread.sleep(3000);
 				el.click();
+				Log.info("Clicking on element with using catch block click");
 			}
 		}
 	}
