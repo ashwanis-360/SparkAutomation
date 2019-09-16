@@ -24,6 +24,12 @@ public class NewOrders extends DriverTestcase {
 		newOrderOnnnet.get().openServiceOrderNumber();
 
 		newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);
+		//add specifically for Wave and Ethernet Line and won't run for other products
+		newOrderOnnnet.get().addSiteADetails(Data);//added new
+		newOrderOnnnet.get().addSiteBDetails(Data);//added new
+		newOrderOnnnet.get().ASiteCustomize(Data);//added new
+		newOrderOnnnet.get().BSiteCustomize(Data);//added new
+		//End of methods spesific for Wave and Ethernet Line ------>		
 		newOrderOnnnet.get().enterMandatoryDetailsInMiddleApplet(Data);
 		newOrderOnnnet.get().VoiceConfigTab(Data);
 		newOrderOnnnet.get().VoiceFeatureTab(Data);
@@ -43,6 +49,7 @@ public class NewOrders extends DriverTestcase {
 		newOrderOnnnet.get().clickOnManualValidationB();
 		newOrderOnnnet.get().DeliveryValidation(Data);
 		newOrderOnnnet.get().clickOnManualValidationA();
+		newOrderOnnnet.get().getReferenceNo(Data);//added new
 	    newOrderOnnnet.get().CompletedValidation(Data);
 		
 	}
