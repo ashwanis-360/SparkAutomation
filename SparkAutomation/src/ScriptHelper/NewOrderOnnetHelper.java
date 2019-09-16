@@ -222,7 +222,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		//Clickon(getwebelement(xml.getlocator("//locators/SubmitContract")));
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Submit Contract");
 		Thread.sleep(5000);
-		if(!Inputdata[8].toString().equals("Cloud Unified Communications")|| !Inputdata[8].toString().equals("IP Voice Solutions") || !Inputdata[8].toString().equals("Professional Services")) {
+		if(!Inputdata[8].toString().equals("Cloud Unified Communications")&& !Inputdata[8].toString().equals("IP Voice Solutions") && !Inputdata[8].toString().equals("Professional Services") &&(!Inputdata[8].toString().equalsIgnoreCase("Wave") && !Inputdata[8].toString().equalsIgnoreCase("Ethernet Line"))) {
 		WaitforElementtobeclickable(xml.getlocator("//locators/NetworkReferenceSearch"));
 		Clickon(getwebelement(xml.getlocator("//locators/NetworkReferenceSearch")));
 		Clickon(getwebelement(xml.getlocator("//locators/NetworkPlusSign")));
@@ -252,6 +252,9 @@ public class NewOrderOnnetHelper extends DriverHelper {
 //		savePage();
 //		Thread.sleep(10000);
 		Thread.sleep(5000);
+		if(!Inputdata[8].toString().equalsIgnoreCase("Wave") && !Inputdata[8].toString().equalsIgnoreCase("Ether Line")) // added shivananda
+		{
+
 		WaitforElementtobeclickable(xml.getlocator("//locators/MaintenancePartySearch"));
 		waitforPagetobeenable();
 		Clickon(getwebelement(xml.getlocator("//locators/MaintenancePartySearch")));
@@ -301,6 +304,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			waitForpageload();
 			System.out.println("page load succesfuuly now come to middle applet");
 			waitforPagetobeenable();
+		}
 		}
 		}
 	}
