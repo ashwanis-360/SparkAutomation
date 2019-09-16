@@ -70,7 +70,7 @@ public class InFlightOrderHelper extends DriverHelper {
 				//Search Service Order
 				waitandForElementDisplay(xml.getlocator("//locators/InputServiceOrder"), 5);
 				Clickon(getwebelement(xml.getlocator("//locators/InputServiceOrder")));
-				SendKeys(getwebelement(xml.getlocator("//locators/InputServiceOrder")),"871536295/190816-0028");
+				SendKeys(getwebelement(xml.getlocator("//locators/InputServiceOrder")),ServiceOrder.get().toString());
 				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Send Service Order Number");
 				Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderGo")));
 				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Service Go");
