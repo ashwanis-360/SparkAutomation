@@ -20,13 +20,16 @@ import org.testng.annotations.BeforeTest;
 
 import ScriptHelper.CancelHelper;
 import ScriptHelper.CeasHelper;
+import ScriptHelper.InFlightOrderHelper;
 //import ScriptHelper.AbandonedOrderOfAllThreeProducts;
 //import ScriptHelper.InFlightForIPAccess;
 import ScriptHelper.LoginHelper;
 //import ScriptHelper.ModifyComOrdersOfAllProductsHelper;
 
 import ScriptHelper.NewOrderOnnetHelper;
-//import Testscript.InflightOrderCompletion;
+import ScriptHelper.OMPScriptHelper;
+
+
 
 public class DriverTestcase {
 
@@ -36,8 +39,12 @@ public class DriverTestcase {
 
 	public static final ThreadLocal<LoginHelper> Login = new InheritableThreadLocal<>();
 	public static final ThreadLocal<NewOrderOnnetHelper> newOrderOnnnet = new InheritableThreadLocal<>();
-public static final ThreadLocal<CancelHelper> Cancel = new InheritableThreadLocal<>();
-public static final ThreadLocal<CeasHelper> Cease = new InheritableThreadLocal<>();
+	public static final ThreadLocal<CancelHelper> Cancel = new InheritableThreadLocal<>();
+	public static final ThreadLocal<CeasHelper> Cease = new InheritableThreadLocal<>();
+	public static final ThreadLocal<OMPScriptHelper> OmpOrder = new InheritableThreadLocal<>();
+	public static final ThreadLocal<InFlightOrderHelper>inFlightGeneric = new InheritableThreadLocal<>();
+
+
 //	public static final ThreadLocal<InFlightForIPAccess>inFlight = new InheritableThreadLocal<>();
 //	public static ThreadLocal<String> QuoteID = new InheritableThreadLocal<>();
 	public static Listners.TestListener Testlistener;
@@ -80,7 +87,20 @@ if (method.getName().equals("EndtoEndOrderOnnet")) {
 //		    Object[] st= (Object[]) data[itr][0];
 			Log.info(st[st.length - 2].toString());
 			ctx.setAttribute("testName", st[st.length - 2].toString());
-		} else
+		}else if (method.getName().equals("inFlightGeneric")) {
+//	   		DataReader dt=new DataReader();
+//	   		Object[][] data=dt.ipreader();
+//		    Object[] st= (Object[]) data[itr][0];
+			Log.info(st[st.length - 2].toString());
+			ctx.setAttribute("testName", st[st.length - 2].toString());
+		} else if (method.getName().equals("OMPGenric")) {
+//	   		DataReader dt=new DataReader();
+//	   		Object[][] data=dt.ipreader();
+//		    Object[] st= (Object[]) data[itr][0];
+			Log.info(st[st.length - 2].toString());
+			ctx.setAttribute("testName", st[st.length - 2].toString());
+		} 	
+		else
 			ctx.setAttribute("testName", method.getName());
 		Log.info(ctx.getAttribute("testName").toString());
 	}
@@ -119,6 +139,8 @@ if (method.getName().equals("EndtoEndOrderOnnet")) {
 		Thread.sleep(3000);
 		LoginHelper LN = new LoginHelper(getwebdriver());
 		NewOrderOnnetHelper NEWO = new NewOrderOnnetHelper(getwebdriver());
+		OMPScriptHelper OMP = new OMPScriptHelper(getwebdriver());
+		InFlightOrderHelper InFlightOrder = new InFlightOrderHelper(getwebdriver());
 		CeasHelper CL = new CeasHelper(getwebdriver());
 		CancelHelper CN = new CancelHelper(getwebdriver());
 		NewOrderOnnetHelper noo = new NewOrderOnnetHelper(getwebdriver());
@@ -130,6 +152,10 @@ if (method.getName().equals("EndtoEndOrderOnnet")) {
 		newOrderOnnnet.set(NEWO);
 		Cancel.set(CN);
 		Cease.set(CL);
+		inFlightGeneric.set(InFlightOrder);
+		OmpOrder.set(OMP);
+
+
 //		modifyOrdersCom.set(mooc);
 //		abandonedOrder.set(aoop);
 //		inFlight.set(ioc);
