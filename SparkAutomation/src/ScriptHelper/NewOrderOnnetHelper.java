@@ -3354,10 +3354,14 @@ case "Voice Line V": {
 			Clear(getwebelement(xml.getlocator("//locators/PrimaryTestingMethod")));
 			SendKeys(getwebelement(xml.getlocator("//locators/PrimaryTestingMethod")), "Not Required");
 			SendkeaboardKeys(getwebelement(xml.getlocator("//locators/PrimaryTestingMethod")), Keys.TAB);
+			savePage();
 			Thread.sleep(3000);
+			if(!Inputdata[8].toString().equalsIgnoreCase("Wave") && !Inputdata[8].toString().equalsIgnoreCase("Ethernet Line"))
+			{
 			Clickon(getwebelement(xml.getlocator("//locators/SaveOrderContinue")));
 			waitforPagetobeenable();
 			Thread.sleep(3000);
+			}
 		}
 	}	
 		
