@@ -1,5 +1,5 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite thread-count="1"  data-provider-thread-count="2" verbose="1" name="CPQ End to End Order" annotations="JDK">
+<suite thread-count="1"  data-provider-thread-count="2" verbose="1" name="Spark End to End Order" annotations="JDK">
 	  <listeners>
 	  <listener class-name="Listners.TestListener"/>
 	  
