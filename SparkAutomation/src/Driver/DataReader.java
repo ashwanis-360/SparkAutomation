@@ -95,7 +95,7 @@ public class DataReader {
 		FileInputStream file = new FileInputStream(new File("src//Data//InputData.xlsx"));
 		//FileInputStream file = new FileInputStream(new File("C:\\Users\\ASharma19-adm\\git\\Spark\\SparkAutomation\\src\\Data\\EtherNetP2PNewOrder.xlsx"));
 		 XSSFWorkbook workbook = new XSSFWorkbook(file);
-		 XSSFSheet sheet = workbook.getSheetAt(1);
+		 XSSFSheet sheet = workbook.getSheetAt(2);
 		 XSSFRow r1=sheet.getRow(0);
 		 XSSFRow r;
 		 int rowindex=0;
@@ -167,7 +167,7 @@ public class DataReader {
 		FileInputStream file = new FileInputStream(new File("src//Data//InputData.xlsx"));
 		//FileInputStream file = new FileInputStream(new File("C:\\Users\\ASharma19-adm\\git\\Spark\\SparkAutomation\\src\\Data\\EtherNetP2PNewOrder.xlsx"));
 		 XSSFWorkbook workbook = new XSSFWorkbook(file);
-		 XSSFSheet sheet = workbook.getSheetAt(2);
+		 XSSFSheet sheet = workbook.getSheetAt(1);
 		 XSSFRow r1=sheet.getRow(0);
 		 XSSFRow r;
 		 int rowindex=0;
