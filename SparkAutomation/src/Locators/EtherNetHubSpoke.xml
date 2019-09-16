@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+ <locators>
+  <Accounts>//a[text()='Accounts']</Accounts> 
+  <AccountAdministration>//a[text()='Accounts Administration']</AccountAdministration> 
+  <AccountsDropdown>//div[@class="siebui-btn-grp-search"]//span[@class="siebui-icon-dropdown applet-form-combo applet-list-combo"]</AccountsDropdown> 
+  <SelectAccountNo>//li[text()='Account Number (#)']</SelectAccountNo> 
+  <InputAccountNo>//input[@aria-labelledby="QuerySrchSpec_Label"]</InputAccountNo> 
+  <AccountGoButton>//input[@aria-labelledby="QuerySrchSpec_Label"]/following-sibling::*</AccountGoButton> 
+  <OCNfield>//input[@aria-label='Account Number(OCN)']</OCNfield> 
+  <SparkAccountName>//input[@aria-label='Account Name']</SparkAccountName>
+  <GoButton>//span[text()='Go']</GoButton> 
+  <AccountName>//a[text()='ZZZZ ES TEST']</AccountName>
+  <PickAccntArrow>//*[@id="s_6_1_155_0_icon"]</PickAccntArrow>
+  <PickAddressArrow>//*[@id="s_13_1_155_0_icon"]</PickAddressArrow> 
+  <InstalledAssetNew>//*[@id="s_1_1_34_0_Ctrl"]</InstalledAssetNew> 
+  <OpportunityNo>//*[(@aria-labelledby='Opportunity_Number_Label')]</OpportunityNo> 
+  <RequestReceivedDate>//*[(@aria-label='Request Received Date')]</RequestReceivedDate> 
+  <DeliveryChannel>//*[(@aria-labelledby='COLT_Delivery_Channel_Label')]</DeliveryChannel> 
+  <OrderingPartySearch>//input[@aria-labelledby='Ordering_Party_Label']/..//span</OrderingPartySearch> 
+  <SaveOrderChanges>//a[text()='Click here to save your order changes.']</SaveOrderChanges>
+  <PartySearchPopupDropdown>//*[@class='siebui-popup-button']//*[@class='siebui-icon-dropdown applet-form-combo applet-list-combo']</PartySearchPopupDropdown> 
+  <PartyName>//*[@class='ui-menu-item'][text()='Party Name']</PartyName>
+  <PartyUid>//*[@class='ui-menu-item'][text()='Party UId']</PartyUid>
+  <EmailAdress>//*[@class='ui-menu-item'][text()='Email Addresss']</EmailAdress> 
+  <OrderingPartyStreetName>//*[@class='ui-menu-item'][text()='Street Name']</OrderingPartyStreetName>
+  <DropDownOptionType>//input[@aria-labelledby='PopupQueryCombobox_Label']</DropDownOptionType>
+ <DropDownSearchbtn>//*[@class='siebui-popup-button']//*[@class='siebui-ctrl-btn siebui-icon-find s_3_1_157_0 appletButton']</DropDownSearchbtn>
+  <InputPartyname>//input[@aria-labelledby='PopupQuerySrchspec_Label']</InputPartyname> 
+  <PickAccntOk>//button[@title="Pick Account:OK"]</PickAccntOk>
+  <PickAddrOk>//button[@title="Pick Address:OK"]</PickAddrOk> 
+  <OrderingParty>//*[(@aria-labelledby='Ordering_Party_Label')]</OrderingParty>
+ 
+  <OrderingPartyAddrSearch>//input[@aria-labelledby='COLT_Ordering_Account_Address_Name_Label']/..//span</OrderingPartyAddrSearch> 
+  <OrderingPartyAddrSearchDropdown>//*[@class='siebui-popup-button']//*[@class='siebui-icon-dropdown applet-form-combo applet-list-combo']</OrderingPartyAddrSearchDropdown> 
+  <PartyAddr>//*[@class='ui-menu-item'][text()='Street Name']</PartyAddr> 
+  <InputPartyAddr>//input[@aria-labelledby='PopupQuerySrchspec_Label']</InputPartyAddr> 
+  <PickAccoutSearch>//td[@class="siebui-popup-filter"]//button[@title="Pick Account:Go"]</PickAccoutSearch>
+  <PickAddrSearch>//td[@class="siebui-popup-filter"]//button[@title="Pick Address:Go"]</PickAddrSearch>
+  <PickContactSearch>//td[@class="siebui-popup-filter"]//button[@title="Pick Contact:Go"]</PickContactSearch> 
+  <PickAddrSubmit1>//button[@title="Pick Address:OK"]</PickAddrSubmit1> 
+  <PickAccnt>//*[contains(@title,"13869")]</PickAccnt> 
+  <OrderingPartyContactSearch>//input[@aria-labelledby='COLT_Ordering_Contact_Full_Name_Label']/..//span</OrderingPartyContactSearch> 
+  <PartyContactPopupDropdown>//*[@class='siebui-popup-button']//*[@class='siebui-icon-dropdown applet-form-combo applet-list-combo']</PartyContactPopupDropdown> 
+  <LastName>//li[text()='Last Name']</LastName> 
+  <InputFirstname>//*[@aria-labelledby='PopupQuerySrchspec_Label']</InputFirstname> 
+  <FirstnameSubmit>//button[@title="Pick Contact:OK"]</FirstnameSubmit> 
+  <SalesChannel>//*[(@aria-labelledby='COLT_Sales_Channel_Label')]</SalesChannel> 
+  <NewServiceOrder>//*[(@aria-label='Line Items:New Service Order')]</NewServiceOrder> 
+  <AddEthernetLine>//button[@id='addButton1']</AddEthernetLine>
+  <AddIPDomain>//div[text()='IP Domain']/..//button</AddIPDomain> 
+  <AddIpAccess>//div[text()='IP Access']/..//button</AddIpAccess> 
+  <capacitycheckreference>//div[@id='colt-s-order-connection-attributes']/div[1]/input[1]</capacitycheckreference> 
+  <Routertype>//span[text()='Router Type']/..//input</Routertype> 
+  <RouterTypeDropdownAccess>(//span[text()='Router Type']/..//span)[3]</RouterTypeDropdownAccess> 
+  <RouterTechnologyDropdownAccess>(//span[text()='Router Technology']/..//span)[3]</RouterTechnologyDropdownAccess> 
+  <SelectRouterTypeDropDownAccess>//li[text()='Managed Router']</SelectRouterTypeDropDownAccess> 
+  <SelectRouterTechnologyDropDownAccess>//li[text()='Managed Virtual Router']</SelectRouterTechnologyDropDownAccess> 
+  <Inputossplatformflag>//span[text()='OSS Platform Flag']/..//input</Inputossplatformflag> 
+  <Inputlayer3resillence>//span[text()='Layer 3 Resilience']/..//input</Inputlayer3resillence> 
+  <Layer3ResillanceDropdownAccess>(//span[text()='Layer 3 Resilience']/..//span)[3]</Layer3ResillanceDropdownAccess> 
+  <Layer3ResillanceSelectDropdownAccess>//li[text()='No Resilience']</Layer3ResillanceSelectDropdownAccess> 
+  <RouterTechnologyAccess>//span[text()='Router Technology']/..//input</RouterTechnologyAccess> 
+  <ServiceBandwidthIPAccess>//span[text()='Service Bandwidth']/..//input</ServiceBandwidthIPAccess> 
+  <ServiceBandwidthDropdownAccess>(//span[text()='Service Bandwidth']/..//span)[3]</ServiceBandwidthDropdownAccess> 
+  <ServiceBandwidthSelectAccess>//li[text()='1 Mbps']</ServiceBandwidthSelectAccess> 
+  <Buildingtype>(//div[@class='colt-component-header'])[1]/..//div[3]/span/..//input</Buildingtype> 
+  <BuildingTypeDropdownAccess>(//span[text()='Building Type']/..//span)[3]</BuildingTypeDropdownAccess> 
+  <BuildingTypeSelectAccess>//li[text()='Existing Building']</BuildingTypeSelectAccess> 
+  <Dualcustomerpowersource>//span[text()='Dual Customer Power Source']/..//input</Dualcustomerpowersource> 
+   <CustomerSitePopStatusDropdownAccess>(//span[text()='Customer Site Pop Status']/..//span)[3]</CustomerSitePopStatusDropdownAccess> 
+  <CustomerSitePopStatusSelectAccess>//li[text()='Existing']</CustomerSitePopStatusSelectAccess> 
+  <BCPReference>//span[text()='BCP Reference']/..//input</BCPReference> 
+  <cabinettype>//span[text()='Cabinet Type']/..//input</cabinettype> 
+  <CabinetTypeDropdownAccess>(//span[text()='Cabinet Type']/..//span)[3]</CabinetTypeDropdownAccess> 
+  <CabinetTypeSelectAccess>//li[text()='Existing Colt Cabinet']</CabinetTypeSelectAccess> 
+  <shelfid>//span[text()='Shelf ID']/..//input</shelfid> 
+  <CabinetId>//a[contains(@name,'Cabinet ID')]/following-sibling::*//input</CabinetId> 
+  <SlotID>//a[contains(@name,'Slot ID')]/following-sibling::*//input</SlotID> 
+  <PhysicalPortID>//a[contains(@name,'Physical Port ID')]/following-sibling::*//input</PhysicalPortID>
+  <VLAN>//a[text()='VLAN'][@href="javascript:void(0);"]</VLAN>
+<Vlannew>//div/a[text()='VLAN'][@href="javascript:void(0);"]</Vlannew>
+<VLANTaggingMode>//a[contains(@name,'VLAN Tagging Mode')]/following-sibling::*//select</VLANTaggingMode>
+<VlanTagId>//a[contains(@name,'VLAN Tag ID')]/following-sibling::*//input</VlanTagId>
+<PortRoleBEnd>//a[contains(@name,'Port Role')]/following-sibling::*//select</PortRoleBEnd> 
+  <PhysicalInterface>//span[text()='Presentation Interface']/..//input</PhysicalInterface> 
+  <PresentationInterfaceDropdownAccess>(//span[text()='Presentation Interface']/..//span)[3]</PresentationInterfaceDropdownAccess> 
+  <PresentationInterfaceSelectAccess>//li[text()='1000BASE-LX']</PresentationInterfaceSelectAccess> 
+  <Connectortype>//span[text()='Connector Type']/..//input</Connectortype> 
+  <ConnectorTypeDropdownAccess>(//span[text()='Connector Type']/..//span)[3]</ConnectorTypeDropdownAccess> 
+  <ConnectorTypeSelectAccess>//li[text()='LC']</ConnectorTypeSelectAccess> 
+  <Fibretype>//span[text()='Fibre Type']/..//input</Fibretype> 
+  <FibreTypeDropdownAccess>(//span[text()='Fibre Type']/..//span)[3]</FibreTypeDropdownAccess> 
+  <FibreTypeSelectAccess>//li[text()='SingleMode 1310nm']</FibreTypeSelectAccess> 
+  <Diversitytype>//span[text()='Diversity Type']/..//input</Diversitytype> 
+  <Customerdedicatedaccessring>//span[text()='Customer Dedicated Access Ring']/..//input</Customerdedicatedaccessring> 
+  <Accesstimewindow>//span[text()='Access Time Window']/..//input</Accesstimewindow> 
+  <routermodel>//span[text()='Router Model']/..//input</routermodel> 
+  <RouterSiteNameAccess>//span[text()='Site Name']/parent::*//input</RouterSiteNameAccess> 
+  <RouterSiteNameDropdownAccess>(//span[text()='Site Name']/..//span)[3]</RouterSiteNameDropdownAccess> 
+  <RouterSiteNameSelectAccess>//li[text()='IE_D03-DA06_EAST WALL ROAD_UNIT 15-16_1_NODE']</RouterSiteNameSelectAccess> 
+  <RouterCountryAccess>(//span[text()='Router Country']/..//input)[1]</RouterCountryAccess> 
+  <ClickShowFullInfoAccess>//a[@id='colt-s-order-enabledfeatures-showfullinfo']</ClickShowFullInfoAccess> 
+  <IPAdressingFormatAccess>//span[text()='IP Addressing Format']/..//input</IPAdressingFormatAccess> 
+  <IPAdressingFormatDropdownAccess>(//span[text()='IP Addressing Format']/..//span)[3]</IPAdressingFormatDropdownAccess> 
+  <IPAdressingFormatSelectAccess>//li[text()='IPv4 format only']</IPAdressingFormatSelectAccess> 
+  <IPV4AdressingTypeAccess>(//span[contains(text(),'Addressing Type')]/..//input)[1]</IPV4AdressingTypeAccess> 
+  <IPV4AdressingTypeDropdownAccess>(//span[contains(text(),'Addressing Type')]/..//span)[3]</IPV4AdressingTypeDropdownAccess> 
+  <IPV4AdressingTypeSelectAccess>//li[text()='Provider Aggregated IP (PA)']</IPV4AdressingTypeSelectAccess> 
+  <NumberIPV4AdressAccess>//span[contains(text(),'Number of IPv')]/..//input</NumberIPV4AdressAccess> 
+  <Crossbuttonforipaccess>//span[text()='IP Access']/..//button</Crossbuttonforipaccess> 
+  <SelectSiteSearchAccess>//span[text()='Select a site:']//span</SelectSiteSearchAccess> 
+  <StreetNameAccess>//span[text()='Street Name']/..//input</StreetNameAccess> 
+  <CountryAccess>//span[text()='Country']/..//input</CountryAccess> 
+  <CityTownAccess>//span[text()='City / Town']/..//input</CityTownAccess> 
+  <PostalCodeAccess>//span[text()='Postal Code']/..//input</PostalCodeAccess> 
+  <PremisesAccess>//span[text()='Premises']/..//input</PremisesAccess> 
+  <SearchButtonAccess>//button[text()='Search']</SearchButtonAccess> 
+  <SelectPickAddressAccess>(//tr[@class='colt-siteselection-datarow'])[1]</SelectPickAddressAccess> 
+  <PickAddressButtonAccess>//button[text()='Pick Address']</PickAddressButtonAccess> 
+  <SelectPickBuildingAccess>(//tr[@class='colt-siteselection-datarow'])[1]</SelectPickBuildingAccess> 
+  <PickBuildingButtonAccess>//button[text()='Pick Building']</PickBuildingButtonAccess> 
+  <SelectPickSiteAccess>(//tr[@class='colt-siteselection-datarow'])[1]</SelectPickSiteAccess> 
+  <PickSiteButtonAccess>//button[text()='Pick Site']</PickSiteButtonAccess> 
+  <ServicePartySearchAccess>//span[text()='Service Party']/..//span[2]</ServicePartySearchAccess> 
+  <ServicePartyDropdownAccess>//input[@aria-labelledby='PopupQueryCombobox_Label']/../span</ServicePartyDropdownAccess> 
+  <PartyNameAccess>//li[text()='Party Name']</PartyNameAccess> 
+  <InputPartyNameAccess>//input[@aria-labelledby='PopupQuerySrchspec_Label']</InputPartyNameAccess> 
+  <PartyNameSearchAccess>//td[@class='siebui-popup-filter']//button</PartyNameSearchAccess> 
+  <PartyNameSubmitAccess>//button[@aria-label='Pick Account:OK']</PartyNameSubmitAccess> 
+  <SiteContactSearchAccess>//span[text()='Site Contact']/..//span[2]</SiteContactSearchAccess> 
+  <SiteContactDropdownAccess>//input[@aria-labelledby='PopupQueryCombobox_Label']/parent::*/span</SiteContactDropdownAccess> 
+  <SiteLastNameAccess>//li[text()='Last Name']</SiteLastNameAccess> 
+  <InputSiteNameAccess>//input[@aria-labelledby='PopupQuerySrchspec_Label']</InputSiteNameAccess> 
+  <LastNameSiteSearchAccess>//td[@class='siebui-popup-filter']//button</LastNameSiteSearchAccess> 
+  <LastNameSiteSubmitAccess>//button[@aria-label='Pick Contact:OK']</LastNameSiteSubmitAccess>
+  <AddEthernetHub>//button[@class='add-product siebui-icon-addtocart HideAddItemButton'][@id='addButton5']</AddEthernetHub> 
+  <AddEthernetSpoke>//div[text()='Ethernet Spoke']/following-sibling::*</AddEthernetSpoke> 
+  <ServiceOrderReferenceNo>//a[@name='Order Number']</ServiceOrderReferenceNo> 
+  <SearchAddressSiteA>//img[@id="imgSelectAddressSiteA"]</SearchAddressSiteA> 
+  <SearchAddressSiteB>//img[@id="imgSelectAddressSiteB"]</SearchAddressSiteB> 
+  <Searchbutton>//span[@class='search_img']/img</Searchbutton> 
+  <StreetName>//input[@id='txtStreetName']</StreetName> 
+  <Country>//select[@class='ctrlClasstype'][@id='ddlCountry']</Country> 
+  <City>//input[@class='ctrlClasstype'][@id='txtCityTown']</City> 
+  <PostalCode>//input[@class='ctrlClasstype'][@id='txtPostalCode']</PostalCode> 
+  <Premises>//input[@class='ctrlClasstype'][@id='txtPremises']</Premises> 
+  <Search>//input[@value='Search']</Search> 
+  <pickAddress>//div[@id="PopupDiv"]//table[@id='address_table']/tbody/tr[1]</pickAddress> 
+  <PickAddress>//table[@id='address_table']/tbody/tr[2]</PickAddress> 
+  <Pick>//div[@id="PopupDiv"]//input[@value='Pick']</Pick> 
+  <pickBuilding>//div[@id="PopupDiv"]//table[@id='address_table']/tbody/tr[3]</pickBuilding> 
+  <PickBulding>//table[@id='address_table']/tbody/tr</PickBulding> 
+  <PickSite>//div[@id="PopupDiv"]//table[@id='address_table']/tbody/tr[1]</PickSite> 
+  <ServicePartySearchSiteA>//div[@id="SiteAddress_A"]//img[@name="Service Party"]</ServicePartySearchSiteA> 
+  <ServicePartySearchSiteB>//div[@id="SiteAddress_B"]//img[@name="Service Party"]</ServicePartySearchSiteB> 
+  <ServicePartySearch>//img[@name="Service Party"]</ServicePartySearch> 
+  <SelectServiceParty>//select[@id='ddlSearchData']</SelectServiceParty> 
+  <InputServicePartyName>//input[@id="txtSearchInput"]</InputServicePartyName> 
+  <SearchServicePartyName>//img[@title="Search"][@id="imgSearchContactData"]</SearchServicePartyName> 
+  <pickServiceParty>//div[@id="divAddressList"]//table[@id="address_table"]/tbody/tr[1]</pickServiceParty> 
+  <PickServiceParty>//table[@id="address_table"]/tbody/tr[1]</PickServiceParty> 
+  <PickButton>//input[@value="Pick"][@id="PickAccount"]</PickButton> 
+  <SiteContactSearchSiteA>//div[@id="SiteAddress_A"]//img[@name="Site Contact"]</SiteContactSearchSiteA> 
+  <SiteContactSearchSiteB>//div[@id="SiteAddress_B"]//img[@name="Site Contact"]</SiteContactSearchSiteB> 
+  <SiteContactSearch>//img[@name="Site Contact"]</SiteContactSearch> 
+  <InputContactName>//input[@id="txtSearchInput"]</InputContactName> 
+  <SearchContactName>//img[@id="imgSearchContactData"]</SearchContactName> 
+  <pickContactName>//div[@id="divAddressList"]//table[@id='address_table']/tbody/tr[1]</pickContactName> 
+  <PickContactName>//table[@id='address_table']/tbody/tr[1]</PickContactName> 
+  <PickContact>//input[@id="PickContact"]</PickContact> 
+  <SiteDetailCustomize>//button[@id="btnSiteCustom"][@data-lineid="1-1HQOZH7"]</SiteDetailCustomize> 
+  <SiteDetailCustomizeSiteA>//div[@id="SiteinfoA"]//button[@id="btnSiteCustom"]</SiteDetailCustomizeSiteA> 
+  <CustomizeButton>//button[@id="btnMiddleCustom"]</CustomizeButton> 
+  <EthernetlineLink>//a[text()='Ethernet Line']</EthernetlineLink> 
+  <Coverage>//a[contains(@name,'Coverage')]//following-sibling::*//select</Coverage> 
+  <CoverageSpoke>//table[@id="customtable"]//select[@name="Coverage"]</CoverageSpoke> 
+  <ServiceBandwidth>//a[contains(@name,'Service Bandwidth')]//following-sibling::*//select</ServiceBandwidth> 
+  <ServiceBandwidthSpoke>//table[@id="customtable"]//select[@name="Service Bandwidth"]</ServiceBandwidthSpoke> 
+  <AEndResilienceOption>//a[contains(@name,'A End Resilience Option')]//following-sibling::*//select</AEndResilienceOption> 
+  <BEndResilienceOption>//a[contains(@name,'B End Resilience Option')]//following-sibling::*//select</BEndResilienceOption> 
+  <ResilienceSpoke>//table[@id="customtable"]//select[@name="Resilience Option"]</ResilienceSpoke> 
+  <Resilience>//a[contains(@name,'Resilience Option')]//following-sibling::*//select</Resilience> 
+  <AEndSite>//a[text()="A End Site"][@href="javascript:void(0);"]</AEndSite> 
+  <BEndSite>//a[text()="B End Site"][@href="javascript:void(0);"]</BEndSite> 
+  <InstallationTimeLink>//a[text()="Installation Time"][@href="javascript:void(0);"]</InstallationTimeLink>
+  <InstallTime>//a[contains(@name,'Install Time')]//following-sibling::*//select</InstallTime>  
+  <InstallTimeDropdownAccess>(//span[text()='Install Time']/..//span)[3]</InstallTimeDropdownAccess> 
+  <InstallTimeSelectAccess>//li[text()='Business Hours']</InstallTimeSelectAccess> 
+  <InstallTimeBEnd>//a[contains(@name,'Install Time')]//following-sibling::*//select</InstallTimeBEnd> 
+  <ThirdPartyAccessProviderSearch>//div[@class="cxEdit siebui-ecfg-editfield"]//span[@class="siebui-icon-icon_pick "]/img</ThirdPartyAccessProviderSearch> 
+  <ThirdPartyAccessProviderSelect>//table[@summary="Select Third Party Access Provider"]/tbody/tr[2]</ThirdPartyAccessProviderSelect> 
+  <ThirdPartyAccessProviderSubmit>//button[@title="Select Third Party Access Provider:OK"]</ThirdPartyAccessProviderSubmit> 
+  <AccessTechnologySearch>//div[@class="cxEdit"]//span[@class="siebui-icon-icon_pick "]/img</AccessTechnologySearch> 
+  <AccessTechnologyInput>//input[@aria-labelledby="PopupQuerySrchspec_Label"]</AccessTechnologyInput> 
+  <AccessTechnologySelect>//tr[@id="3"]//td[text()='Ethernet over NGN']</AccessTechnologySelect> 
+  <AccessTechnologySubmit>//button[@title="Select Access Technology:OK"]</AccessTechnologySubmit> 
+  <CustomerSitePopStatusselect>(//div[text()='Customer Site Pop Status']/following::select)[1]</CustomerSitePopStatusselect>
+  <CustomerSitePopStatus>//a[contains(@name,'Customer Site Pop Status')]//following-sibling::*//select</CustomerSitePopStatus> 
+  <CustomerSitePopStatusBEnd>//a[contains(@name,'Customer Site Pop Status')]//following-sibling::*//select</CustomerSitePopStatusBEnd> 
+  <BuildingType>//a[contains(@name,'Building Type')]//following-sibling::*//select</BuildingType> 
+  <BuildingtypeBEnd>//a[contains(@name,'Building Type')]//following-sibling::*//select</BuildingtypeBEnd> 
+  <CPEInformationLink>//a[text()='CPE Information'][@href="javascript:void(0);"]</CPEInformationLink> 
+  <CabinetType>//a[contains(@name,'Cabinet Type')]/following-sibling::*//select</CabinetType> 
+  <CabinetTypeBEnd>//a[contains(@name,'Cabinet Type')]/following-sibling::*//select</CabinetTypeBEnd> 
+  <CabinetIdBEnd>//a[contains(@name,'Cabinet ID')]/following-sibling::*//input</CabinetIdBEnd> 
+  <ShelfID>//a[contains(@name,'Shelf ID')]/following-sibling::*//input</ShelfID> 
+  <AccessPortLink>//table[@class="siebui-ecfg-module-content"]//a[text()='Access Port']</AccessPortLink> 
+  <PortRole>//a[contains(@name,'Port Role')]/following-sibling::*//select</PortRole> 
+  <VLAN>//a[text()='VLAN'][@href="javascript:void(0);"]</VLAN> 
+  <VLANTaggingMode>//a[contains(@name,'VLAN Tagging Mode')]/following-sibling::*//select</VLANTaggingMode> 
+  <VlanTagId>//a[contains(@name,'VLAN Tag ID')]/following-sibling::*//input</VlanTagId> 
+  <PortRoleBEnd>//a[contains(@name,'Port Role')]/following-sibling::*//select</PortRoleBEnd> 
+  <PresentationInterfaceSearch>//img[@class="siebui-ctrl-img "]</PresentationInterfaceSearch> 
+  <SelectPresentationInterface>//tr[@id="5"]//td[text()='LC/PC']</SelectPresentationInterface> 
+  <SelectPresentationInterfaceSpoke>//tr[@id="3"]//td[text()='LC/PC']</SelectPresentationInterfaceSpoke> 
+  <SelectPresentationInterfaceHub>//tr[@id='2']//td[text()='LC/PC']</SelectPresentationInterfaceHub> 
+  <PickPresentationInterface>//table[@summary="Select Presentation Interface-Connector Type"]/tbody/tr[2]</PickPresentationInterface> 
+  <SubmitPresentationInterface>//button[@data-display="OK"]</SubmitPresentationInterface> 
+  <EthernetHubLink>//a[text()='Ethernet Hub']</EthernetHubLink>
+  <Getreferencebutton>//input[@value='Get Reference']</Getreferencebutton> 
+  <SelectServiceBandwidth>//a[contains(@name,'Service Bandwidth')]//following-sibling::*//select</SelectServiceBandwidth> 
+  <SelectResilienceOption>//a[contains(@name,'Resilience Option')]//following-sibling::*//select</SelectResilienceOption> 
+  <EthernetConnectionLink>//a[text()="Ethernet Connection"][@href="javascript:void(0);"]</EthernetConnectionLink> 
+  <HubSiteLink>//a[text()="Hub Site"]</HubSiteLink> 
+  <SpokeSiteLink>//a[text()='Spoke Site']</SpokeSiteLink> 
+  <SelectAccessTechnology>//table[@summary="Select Access Technology"]/tbody/tr[2]</SelectAccessTechnology> 
+  <SubmitAccessTechnology>//button[@title="Select Access Technology:OK"]</SubmitAccessTechnology> 
+  <DoneEthernetConnection>//button[text()='Done']</DoneEthernetConnection>
+   <ReferenceInput>//input[@id='txtReferenceInput'] </ReferenceInput>
+   
+  <OrderSubTypeSearch>//div[@class="mceGridField siebui-value mceField"]/span[@aria-label="Multiple Selection Field"]</OrderSubTypeSearch> 
+  <AddOrderSubType>//button[@title="Service Order Sub Type:New"]</AddOrderSubType> 
+  <OrderSubTypeDropDown>//td[@id="1_s_5_l_COLT_Order_Item_Sub_Type"]/span</OrderSubTypeDropDown> 
+  <SelectNew>//li[text()='New']</SelectNew> 
+  <InputOrderSubType>//input[@name="COLT_Order_Item_Sub_Type"]</InputOrderSubType> 
+  <SubmitSubOrderType>//button[@title="Service Order Sub Type:OK"]</SubmitSubOrderType> 
+  <ContractSearch>//table[@class="GridBack"]//tr[11]/td[2]/div/span[@aria-label="Selection Field"]</ContractSearch> 
+  <SelectContract>//table[@summary="Pick Contract"]/tbody/tr[2]</SelectContract> 
+  <SubmitContract>//button[@title="Pick Contract:OK"]</SubmitContract> 
+  <NetworkReferenceSearch>//table[@class="GridBack"]//tr[11]/td[4]/div/span</NetworkReferenceSearch> 
+  <AddNetworkReferenceSearch>//button[@title="Pick Network Reference:New"]</AddNetworkReferenceSearch> 
+  <SelectNetworkReference>//table[@summary="Pick Network Reference"]/tbody/tr[2]</SelectNetworkReference> 
+  <SubmitNetworkReference>//button[@title="Pick Network Reference:OK"]</SubmitNetworkReference> 
+  <SearchNetworkReference>//td[@class="siebui-popup-filter"]//button[@title="Pick Network Reference:Go"]</SearchNetworkReference> 
+  <InputNetworkReference>//input[@aria-labelledby="PopupQuerySrchspec_Label"]</InputNetworkReference> 
+  <NetworkReference>//input[@aria-labelledby="COLT_Network_Reference_Label"]</NetworkReference> 
+  <TextNetworkReference>//table[@summary="Pick Network Reference"]//tr[2]/td[2]</TextNetworkReference> 
+  <OrderDates>//a[text()='Order Dates']</OrderDates> 
+  <OrderSignedDate>//input[@aria-label="Order Signed Date"]</OrderSignedDate> 
+  <ColtActualDate>//input[@aria-labelledby="COLT_Actual_RFS_Date_Label"]</ColtActualDate> 
+  <OrderReceivedDate>//input[@aria-labelledby="COLT_Order_Received_Date_Label"]</OrderReceivedDate> 
+  <Billing>//a[text()='Billing']</Billing> 
+  <ExpandAllButton>//button[@title="Service Charges:Expand All"]</ExpandAllButton> 
+  <InstallationChargeNRC>//table[@summary="Service Charges"]/tbody/tr[3]/td[5]</InstallationChargeNRC> 
+  <RouterInstallationChargeNRC>//table[@summary="Service Charges"]/tbody/tr[4]/td[5]</RouterInstallationChargeNRC> 
+  <RInputinstallationChargeNRC>//table[@summary="Service Charges"]/tbody/tr[4]/td[5]/input</RInputinstallationChargeNRC> 
+  <InputinstallationChargeNRC>//table[@summary="Service Charges"]/tbody/tr[3]/td[5]/input</InputinstallationChargeNRC> 
+  <RecurringChargeMRC>//table[@summary="Service Charges"]/tbody/tr[5]/td[5]</RecurringChargeMRC> 
+  <RecurringChargeMRCAccess>//table[@summary="Service Charges"]/tbody/tr[6]/td[5]</RecurringChargeMRCAccess> 
+  <RouterRecurringChargeMRCAccess>//table[@summary="Service Charges"]/tbody/tr[7]/td[5]</RouterRecurringChargeMRCAccess> 
+  <InputRecurringChargeMRC>//table[@summary="Service Charges"]/tbody/tr[5]/td[5]/input</InputRecurringChargeMRC> 
+  <InputRecurringChargeMRCAccess>//table[@summary="Service Charges"]/tbody/tr[6]/td[5]/input</InputRecurringChargeMRCAccess> 
+  <InputRoRecurringChargeMRCAccess>//table[@summary="Service Charges"]/tbody/tr[7]/td[5]/input</InputRoRecurringChargeMRCAccess> 
+  <BCNInstallationChargeNRC>//table[@summary="Service Charges"]/tbody/tr[3]/td[6]</BCNInstallationChargeNRC> 
+  <BCNInstallationChargeNRCSearch>//table[@summary="Service Charges"]/tbody/tr[3]/td[6]/span</BCNInstallationChargeNRCSearch> 
+  <BCNRInstallationChargeNRC>//table[@summary="Service Charges"]/tbody/tr[4]/td[6]</BCNRInstallationChargeNRC> 
+  <BCNRInstallationChargeNRCSearch>//table[@summary="Service Charges"]/tbody/tr[4]/td[6]/span</BCNRInstallationChargeNRCSearch> 
+  <BCNRInstallationChargeNRCInput>//input[@aria-labelledby="PopupQuerySrchspec_Label"]</BCNRInstallationChargeNRCInput> 
+  <BCNInstallationChargeNRCInput>//input[@aria-labelledby="PopupQuerySrchspec_Label"]</BCNInstallationChargeNRCInput> 
+  <BCNNRCSearch>//td[@class="siebui-popup-filter"]//button[@title="Billing Profile:Go"]</BCNNRCSearch> 
+  <BCNNRCSubmit>//button[@aria-label="Billing Profile:OK"]</BCNNRCSubmit> 
+- <!-- <BCNNRCSubmit>//button[@title="Billing Profile:OK"]</BCNNRCSubmit>
+  --> 
+  <BCNRecurringChargeMRC>//table[@summary="Service Charges"]/tbody/tr[5]/td[6]</BCNRecurringChargeMRC> 
+  <BCNRecurringChargeMRCAccess>//table[@summary="Service Charges"]/tbody/tr[6]/td[6]</BCNRecurringChargeMRCAccess> 
+  <BCNRoRecurringChargeMRCAccess>//table[@summary="Service Charges"]/tbody/tr[7]/td[6]</BCNRoRecurringChargeMRCAccess> 
+  <BCNRecurringChargeMRCSearch>//table[@summary="Service Charges"]/tbody/tr[5]/td[6]/span</BCNRecurringChargeMRCSearch> 
+  <BCNRecurringChargeMRCSearchAccess>//table[@summary="Service Charges"]/tbody/tr[6]/td[6]/span</BCNRecurringChargeMRCSearchAccess> 
+  <BCNRoRecurringChargeMRCSearchAccess>//table[@summary="Service Charges"]/tbody/tr[7]/td[6]/span</BCNRoRecurringChargeMRCSearchAccess> 
+  <BCNRecurringChargeMRCInput>//input[@aria-labelledby="PopupQuerySrchspec_Label"]</BCNRecurringChargeMRCInput> 
+  <ContractTerm>//input[@aria-label="Contract Term"]</ContractTerm> 
+  <SelectContractTerm>//li[text()='12']</SelectContractTerm> 
+  <ContractRenewalFlag>//input[@aria-label="Contract Renewal Flag"]</ContractRenewalFlag> 
+  <SelectContractRenewalFlag>//ul[@role='combobox']/li[text()='No']</SelectContractRenewalFlag> 
+  <BillCustomer>//input[@aria-labelledby="COLT_Customer_Reference/_PO_#_Label"]</BillCustomer> 
+  <OrderStatus>//input[@aria-label="Order Status"]</OrderStatus> 
+  <OrderStatusDropdown>//input[@aria-label='Order Status']/..//span</OrderStatusDropdown> 
+  <SelectTechnicalValidation>//li[text()='Technical Validation']</SelectTechnicalValidation> 
+  <SelectDeliveryValidation>//li[text()='Delivery']</SelectDeliveryValidation> 
+  <SelectCommercialValidation>//ul[@role='combobox']/li[text()='Commercial Validation']</SelectCommercialValidation> 
+  <SelectCompleted>//li[text()='Completed']</SelectCompleted> 
+  <BDWREVWCheckbox /> 
+  <TriggerTRButton>//button[text()='Trigger TR']</TriggerTRButton> 
+  <TriggerTRButtonCheckbox>//input[@data-queue='BDWREVW']</TriggerTRButtonCheckbox> 
+  
+  <ManualValidation>(//button[@aria-label='Service Orders:Manual Validation'])[1]</ManualValidation> 
+<manualvalidation2>(//button[@aria-label='Service Orders:Manual Validation'])[2]</manualvalidation2> 
+  <InstalltionDropdown>//select[@aria-label='Third Level View Bar']</InstalltionDropdown> 
+  <ExistingCapacityLeadTimePrimary>//input[@aria-labelledby="COLT_Existing_Capacity_Lead_Time_Code_Label"]</ExistingCapacityLeadTimePrimary> 
+  <OSSPlatformFlag>//select[@name="COLT OSS Platform Flag"]</OSSPlatformFlag> 
+  <PrimaryTestCompleted /> 
+  <ExistingCapacity /> 
+  <SubmitTechnicalOrder>//button[text()='SubmitTechnicalOrder']</SubmitTechnicalOrder> 
+  <CircuitReference>//input[@name="Circuit Reference"]</CircuitReference> 
+  <TechnicalOrderTab>//a[text()='Technical Orders']</TechnicalOrderTab> 
+  <TechnicalOrderStatus>//td[@id="1_s_5_l_COLT_Technical_Order_Status"]</TechnicalOrderStatus> 
+  <TechnicalOrderStatus1>//td[@title="Completed" and @id="1_s_5_l_COLT_Technical_Order_Status"]</TechnicalOrderStatus1> 
+  <DropDown>//*[@aria-label='Third Level View Bar']</DropDown> 
+  <InstallationAndTestTab>//a[text()='Installation and Test']</InstallationAndTestTab> 
+  <PrimaryTestingMethod>//input[@aria-label="Primary Testing Method"]</PrimaryTestingMethod> 
+  <OrderComplete>//button[text()="Yes"]</OrderComplete> 
+  <ServiceOrderTab>//a[text()='Service Order']</ServiceOrderTab> 
+  <InputOrderNo>//input[@aria-labelledby="QuerySrchSpec_Label"]</InputOrderNo> 
+  <SearchOrderNo>//div[@class="AppletButtons siebui-applet-buttons"]//button[@title="Service Order List:Go"]</SearchOrderNo> 
+  <ClickOrderNo>//a[@name="COLT Service Order Num"]</ClickOrderNo> 
+  <WarningOk>//span[text()='Ok']</WarningOk> 
+  <InputContractId>//tr//input[@aria-label='Starting with']</InputContractId> 
+  <ContractIdSearch>//td[@class="siebui-popup-filter"]//button[@title='Pick Contract:Go']</ContractIdSearch> 
+  <NetworkPlusSign>//button[@title='Pick Network Reference:New']</NetworkPlusSign> 
+  <MaintenancePartySearch>//input[@aria-label='Maintenance Party']/..//span</MaintenancePartySearch> 
+  <MaintenancePartyContact>//input[@aria-label='Maintenance Party Contact']/..//span</MaintenancePartyContact> 
+  <MaintenancePartyAddress>//input[@aria-label='Maintenance Party Address']/..//span</MaintenancePartyAddress> 
+  <AccountStatus>//li[text()='Account Status']</AccountStatus> 
+  <MaintenancePartyPopupDropdown>//input[@aria-labelledby='PopupQueryCombobox_Label']/../span</MaintenancePartyPopupDropdown> 
+  <InputAccountStatus>//input[@aria-labelledby='PopupQuerySrchspec_Label']</InputAccountStatus> 
+  <AccountStatusSearch>.siebui-popup-filter span +span+span+span+span button</AccountStatusSearch> 
+  <AccountStatusSubmit>//button[@aria-label='Pick Account:OK']</AccountStatusSubmit> 
+  <MaintenancePartyContactPopupDropdown>//input[@aria-labelledby='PopupQueryCombobox_Label']/../span</MaintenancePartyContactPopupDropdown> 
+  <MaintenanceLastName>//li[text()='Last Name']</MaintenanceLastName> 
+  <InputMaintenanceLastName>//input[@aria-labelledby='PopupQuerySrchspec_Label']</InputMaintenanceLastName> 
+  <InputMaintenanceLastNameSearch>.siebui-popup-filter span +span+span+span+span button</InputMaintenanceLastNameSearch> 
+  <MaintenancePartyContactSubmit>//button[@aria-label='Pick Contact:OK']</MaintenancePartyContactSubmit> 
+  <MaintenancePartyAddresPopupDropdown>//input[@aria-labelledby='PopupQueryCombobox_Label']/../span</MaintenancePartyAddresPopupDropdown> 
+  <PartyAddresStreetName>//li[text()='Street Name']</PartyAddresStreetName> 
+  <InputPartyAddresStreetName>//input[@aria-labelledby='PopupQuerySrchspec_Label']</InputPartyAddresStreetName> 
+  <InputPartyAddresStreetNameSearch>.siebui-popup-filter span +span+span+span+span button</InputPartyAddresStreetNameSearch> 
+  <MaintenancePartyAddressSubmit>//button[@aria-label='Pick Address:OK']</MaintenancePartyAddressSubmit> 
+  MiddleAppletIPDomain 
+  <Clicktoshowfullinfomiddle>//div[@id='colt-s-order-enabledfeatures-content']</Clicktoshowfullinfomiddle> 
+  <Domainname>(//div[@class='colt-child-wrapper']//div[2]//following::div//span//following::input)[1]</Domainname> 
+  <Domainordertype>(//input[@class='colt-attribute-input siebui-ctrl-input ui-autocomplete-input'])[1]/..//span[2]</Domainordertype> 
+  <DomainordertypeData>//li[text()='Update']</DomainordertypeData> 
+  <DNStype>//span[text()='DNS Type']/following-sibling::span</DNStype> 
+  <DNSTypeInput>//li[contains(text(),'Colt Primary')]</DNSTypeInput> 
+  <Crossbutton>(//button[@title='Close'])[4]</Crossbutton> 
+  <SaveButtonClick>(//a[text()='Save'])[2]</SaveButtonClick> 
+  <AlertingNotification>//div[@id='colt-s-order-connection-attributes']//div[1]//input</AlertingNotification> 
+  <Automigration>//div[@id='colt-s-order-connection-attributes']//div[2]/input</Automigration> 
+  <Customerdnsresolve>//div[@id='colt-s-order-connection-attributes']//div[3]//input</Customerdnsresolve> 
+  <IpguardianVariant>//div[@id='colt-s-order-connection-attributes']//div[4]//input</IpguardianVariant> 
+  <Colttechnicaltestcalls>//div[@id='colt-s-order-connection-attributes']//div[5]//input</Colttechnicaltestcalls> 
+  <servicebandwidth>//div[@id='colt-s-order-connection-attributes']//div[6]//input</servicebandwidth> 
+  <Testwindowipaccess>//span[text()='Test Window']/..//input</Testwindowipaccess> 
+  <CircuitipaddressClick>//a[text()='Click to Show Full info']</CircuitipaddressClick> 
+  <CircuitIPAddressInput>//span[text()='Circuit IP Address']/..//input</CircuitIPAddressInput> 
+  <CrossButtonGurdian>//span[text()='IP Guardian']/..//button</CrossButtonGurdian> 
+  <IpRange>//span[text()='IP Range']/..//input</IpRange> 
+  <IpGurdianSave>//a[@class="colt-primary-btn colt-s-order-save-btn"]</IpGurdianSave> 
+  <IpGurdianShow>//a[@id="colt-s-order-enabledfeatures-showfullinfo"]</IpGurdianShow> 
+  <SaveOrderContinue>//a[@class='colt-noedit-config-save']</SaveOrderContinue> 
+  <ProductSelectionArrow>//i[@class='fa fa-arrow-circle-o-right']</ProductSelectionArrow> 
+  <AddIPGuardian>//div[text()='IP Guardian']/..//button</AddIPGuardian> 
+  <Accesstype>//span[text()='Access Type']/..//input</Accesstype> 
+  <AccessTypeDropdownAccess>(//span[text()='Access Type']/..//span)[3]</AccessTypeDropdownAccess> 
+  <SaveProductConfiguraton>//a[text()='Click here to save your product configuration.']</SaveProductConfiguraton>
+  <AccessTypeSelectAccess>//li[text()='Colt Fibre']</AccessTypeSelectAccess> 
+  <Accesstechnology>//span[text()='Access Technology']/..//input</Accesstechnology> 
+  <AccesstechnologyDropdownAccess>(//span[text()='Access Technology']/..//span)[3]</AccesstechnologyDropdownAccess> 
+  <AccesstechnologySelectAccess>//li[text()='Ethernet over MSP']</AccesstechnologySelectAccess> 
+  <Thirdpartyaccessprovider>//span[text()='Third Party Access Provider']/..//input</Thirdpartyaccessprovider> 
+  <Thirdpartyconectionreference>//span[text()='3rd Party Connection Reference']/..//input</Thirdpartyconectionreference> 
+  <Thirdpartyslrtier>//span[text()='Third Party SLA Tier']/..//input</Thirdpartyslrtier> 
+  <InputServiceOrder>//input[@aria-label='Starting with']</InputServiceOrder> 
+  <ServiceOrderGo>(//button[@aria-label='Service Order List:Go'])[2]</ServiceOrderGo> 
+  <ServiceOrderClickOn>//a[@name='Order Number']</ServiceOrderClickOn> 
+  <ClickheretoSaveAccess>//a[text()='Click here to save your product configuration.']</ClickheretoSaveAccess> 
+  <AlertAccept>//span[text()='Ok']</AlertAccept> 
+  <CircuitReferenceAccess>//button[@id='colt-circuitref-button']</CircuitReferenceAccess> 
+  <BillingStartDateAccess>//input[@aria-label='Billing Start Date']</BillingStartDateAccess> 
+  <POStartDateAccess>//input[@aria-label='PO Start Date']</POStartDateAccess> 
+  <POEndDateAccess>//input[@aria-label='PO End Date']</POEndDateAccess>
+  
+   
+  <AddNumberHosting>//div[text()='Number Hosting']/parent::*//button</AddNumberHosting>
+  <ClickDropdown>(//span[text()='Value']/parent::*//span)[3]</ClickDropdown>
+  <NewPageDropdown>((//span[text()='Value'])[3]/parent::*//span)[3]</NewPageDropdown>
+  <SearchInput>(//span[text()='Value']/parent::*//span)[3]</SearchInput>
+  <SelectValueDropdown>(//li[text()='Value'])</SelectValueDropdown>
+  <TextInput>//span[text()='Value']/parent::*//input</TextInput>
+  <BCNFilling>(//tr[@role='row']/following-sibling::tr[@data-level='1']/td[7])[Value]</BCNFilling>
+  <ClickLink>//a[text()='Value']</ClickLink>
+  <PopUpDropdown>//input[@aria-labelledby='PopupQueryCombobox_Label']/../span</PopUpDropdown>
+  <PopUpInput>//input[@aria-labelledby='PopupQuerySrchspec_Label']</PopUpInput>
+  <PopUpSearch>//td[@class='siebui-popup-filter']//button</PopUpSearch>
+  <PopUpSubmit>//button[@data-display="OK"]</PopUpSubmit>
+  <ClickPlus>(//span[@style='padding-bottom: 5px'])[6]</ClickPlus>
+  <OtherTabClick>(//li[@aria-controls="s_vctrl_div_tabView_noop"])[2]</OtherTabClick>
+  <ServiceGroupPlus>//button[@title="Service Group:New"]</ServiceGroupPlus>
+  <ServiceGroupSearch>//input[@name="COLT_Service_Group_Reference"]/parent::*//span</ServiceGroupSearch>
+  <CrossforHosting>//span[text()='Number Hosting']/parent::*//button</CrossforHosting>
+  <CrossButtonTrunk>(//span[text()='Close']/ancestor::*/button)[4]</CrossButtonTrunk>
+  <AmmountFilling>(//tr[@role='row']/following-sibling::tr[@data-level='1']/td[7])[Value]</AmmountFilling>
+<AmountFillingInput>(//tr[@role='row']/following-sibling::tr[@data-level='1']/td[7])[Value]/input</AmountFillingInput>
+<BCNClick>(//tr[@role='row']/following-sibling::tr[@data-leaf='true']/td[8])[Value]</BCNClick>
+<BCNSearchClick>(//tr[@role='row']/following-sibling::tr[@data-leaf='true']/td[8])[Value]/span</BCNSearchClick>
+<BCNInstallationChargeNRCInput>//input[@aria-labelledby="PopupQuerySrchspec_Label"]</BCNInstallationChargeNRCInput> 
+  <BCNNRCSearch>//td[@class="siebui-popup-filter"]//button[@title="Billing Profile:Go"]</BCNNRCSearch> 
+  <BCNNRCSubmit>//button[@aria-label="Billing Profile:OK"]</BCNNRCSubmit> 
+  <CustomerOrderInput>//input[@aria-labelledby="Order_Number_Label"]</CustomerOrderInput>
+  <CustomerOrderSearch>//button[@title="Search:Go"]</CustomerOrderSearch>
+  <CustomerOrderClick>//a[@name='Order Number']</CustomerOrderClick>
+  <ModifyButtonClick>//span[text()='Modify']</ModifyButtonClick>
+
+  ***********************Abandone************************
+  
+  <OrderStatusAbandoned>//li[text()='Abandoned']</OrderStatusAbandoned>
+  <StatusReasonAbandoned>//input[@aria-label='Status Reason']</StatusReasonAbandoned>
+    <StatusReasonValue>//li[text()='value']</StatusReasonValue>
+  <StatusReasonDropdown>//input[@aria-labelledby='COLT_Status_Reason_Code_Label']/following-sibling::span</StatusReasonDropdown>
+  <SelectAbandonedFromDropdown>//li[text()='value']</SelectAbandonedFromDropdown>
+   <AbandonYes>//button[text()='Yes - Abandon']</AbandonYes>
+    <ServiceTab>//a[text()='Service Order']</ServiceTab>
+<VerifyAbandoned>//td[text()='Abandond']</VerifyAbandoned>
+  <ServiceOrderSearch>//input[@aria-label='Starting wih']</ServiceOrderSearch>
+  
+  ********************************************************************************************
+  
+  *****Spark*********
+  <SparkAccountName>//*[text()='Account Name']</SparkAccountName>
+  <OcnAccountName>//a[text()='ZZZZ DE TEST']</OcnAccountName>
+  
+  
+  
+  </locators>
