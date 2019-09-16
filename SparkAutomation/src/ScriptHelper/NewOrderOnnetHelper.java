@@ -3437,7 +3437,14 @@ case "Voice Line V": {
 		 		{
 		 		WaitforElementtobeclickable((xml.getlocator("//locators/AlertAccept")));
 		 		Clickon(getwebelement(xml.getlocator("//locators/AlertAccept")));
-		 		}   
+		 		} 
+		         if(Inputdata[8].toString().equalsIgnoreCase("Wave") || Inputdata[8].toString().equalsIgnoreCase("Ethernet Line"))
+		         { 
+		         Thread.sleep(5000);      
+		         Clickon(getwebelement(xml.getlocator("//locators/TriggerTRButton")));
+		         ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Trigger TR Button");
+		         Thread.sleep(10000);
+		         }
 	}
 	
 	
