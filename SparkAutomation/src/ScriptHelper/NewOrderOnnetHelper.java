@@ -43,7 +43,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 	XMLReader xml = new XMLReader("src\\Locators\\SiebelOrder.xml");
 	XMLReader xml2= new XMLReader("src\\Locators\\CloudUc.xml");
 	XMLReader xmlIP = new XMLReader("src\\Locators\\IPVoiceSolution.xml");
-	
+	XMLReader xml3 = new XMLReader("src\\Locators\\SiebelOrderEtherline.xml"); //added by shivananda 
 	
 	
 	
@@ -3252,6 +3252,8 @@ case "Voice Line V": {
 		Clickon(getwebelement(xml.getlocator("//locators/ExpandAllButton")));
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Expand All Button");
 		Thread.sleep(3000);
+		if(!Inputdata[8].toString().equalsIgnoreCase("Wave") && !Inputdata[8].toString().equalsIgnoreCase("Ethernet Line"))
+		{ 
 		while(!Getattribute(getwebelement(xml.getlocator("//locators/BillingLastRow")),"class").contains("highlight"))
 		{
 
@@ -3301,7 +3303,40 @@ case "Voice Line V": {
 		 waitforPagetobeenable();
 		 Thread.sleep(5000);
 		}
+		}
+		if(Inputdata[8].toString().equalsIgnoreCase("Wave") || Inputdata[8].toString().equalsIgnoreCase("Ethernet Line"))//Added by shiva for Wave and Ethernet Line product specific.
+		{ 
+		Clickon(getwebelement(xml3.getlocator("//locators/InstallationChargeNRC")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Installation Charge NRC");
+		getwebelement(xml3.getlocator("//locators/InputinstallationChargeNRC")).clear();
+		SendKeys(getwebelement(xml3.getlocator("//locators/InputinstallationChargeNRC")),Inputdata[23].toString());
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Installation Charge NRC");
+		Clickon(getwebelement(xml3.getlocator("//locators/RecurringChargeMRC")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Recurring Charge MRC");
+		getwebelement(xml3.getlocator("//locators/InputRecurringChargeMRC")).clear();
+		SendKeys(getwebelement(xml3.getlocator("//locators/InputRecurringChargeMRC")),Inputdata[24].toString());
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Recurring Charge MRC");
+		Clickon(getwebelement(xml3.getlocator("//locators/BCNInstallationChargeNRC")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on BCN Installation Charge NRC");
+		Thread.sleep(1000);
+		safeJavaScriptClick(getwebelement(xml3.getlocator("//locators/BCNInstallationChargeNRCSearch")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on BCN Installation Charge NRC Search");
 
+		SendKeys(getwebelement(xml3.getlocator("//locators/BCNInstallationChargeNRCInput")),Inputdata[25].toString());
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter BCN Installation Charge NRC Input");
+		Clickon(getwebelement(xml3.getlocator("//locators/BCNNRCSubmit")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on BCN NRC Submit");
+		Clickon(getwebelement(xml3.getlocator("//locators/BCNRecurringChargeMRC")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on BCN Recurring Charge MRC");
+		Thread.sleep(1000);
+		safeJavaScriptClick(getwebelement(xml3.getlocator("//locators/BCNRecurringChargeMRCSearch")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on BCN Recurring Charge MRC Search");
+		SendKeys(getwebelement(xml3.getlocator("//locators/BCNRecurringChargeMRCInput")),Inputdata[26].toString());
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter BCN Recurring Charge MRC Input");
+		Clickon(getwebelement(xml3.getlocator("//locators/BCNNRCSubmit")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on BCN NRC Submit");
+		Thread.sleep(5000); 
+		}
 
 		}
 
