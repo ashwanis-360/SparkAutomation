@@ -417,7 +417,7 @@
     <StatusReasonValue>//li[text()='value']</StatusReasonValue>
   <StatusReasonDropdown>//input[@aria-labelledby='COLT_Status_Reason_Code_Label']/following-sibling::span</StatusReasonDropdown>
   <SelectAbandonedFromDropdown>//li[text()='value']</SelectAbandonedFromDropdown>
-  <ServiceOrderSearch>//input[@aria-label='Starting wih']</ServiceOrderSearch>
+  <ServiceOrderSearch>//input[@aria-label='Starting with']</ServiceOrderSearch>
   
   <!-- Ayush's Locators for the Interconnect New orders -->
   
