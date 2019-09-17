@@ -3166,7 +3166,7 @@ case "Voice Line V": {
 		waitforPagetobeenable();
 		WaitforElementtobeclickable((xml.getlocator("//locators/CustomerRequestedDate")));
 		Clear(getwebelement(xml.getlocator("//locators/CustomerRequestedDate")));
-		SendKeys(getwebelement(xml.getlocator("//locators/CustomerRequestedDate")), Inputdata[71].toString());
+		SendKeys(getwebelement(xml.getlocator("//locators/CustomerRequestedDate")), CurrentDate());
 		WaitforElementtobeclickable(xml.getlocator("//locators/OrderSignedDate"));
 		SendKeys(getwebelement(xml.getlocator("//locators/OrderSignedDate")), Inputdata[18].toString());
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Order Signed Date");
