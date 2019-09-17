@@ -158,7 +158,38 @@ public class NewOrders extends DriverTestcase {
 		newOrderOnnnet.get().DeliveryValidation(Data);
 		newOrderOnnnet.get().clickOnManualValidationA();
 	    newOrderOnnnet.get().CompletedValidation(Data);
-		// Code for Mod
+		if(Data[Data.length-1].toString().contains("Com"))
+		{
+			newOrderOnnnet.get().ServiceTab(Data);
+			newOrderOnnnet.get().EnterDateInFooter(Data);
+			newOrderOnnnet.get().EnterBillingDateInFooter(Data);
+			newOrderOnnnet.get().EnterServiceChargeInFooter(Data,"4");
+			newOrderOnnnet.get().CommercialValidation(Data);
+			newOrderOnnnet.get().TechnicalValidation(Data);
+			newOrderOnnnet.get().clickOnManualValidationB();
+			newOrderOnnnet.get().DeliveryValidation(Data);
+			newOrderOnnnet.get().clickOnManualValidationA();
+			newOrderOnnnet.get().EnterInstallationChargeInFooter(Data);
+			newOrderOnnnet.get().CompletedValidation(Data);
+		}
+		else if(Data[Data.length-1].toString().contains("Tech"))
+		{
+			newOrderOnnnet.get().ServiceTab(Data);
+			modHelper.get().ModTech(Data);
+			newOrderOnnnet.get().EnterDateInFooter(Data);
+			newOrderOnnnet.get().EnterBillingDateInFooter(Data);
+			newOrderOnnnet.get().EnterServiceChargeInFooter(Data,"4");
+			newOrderOnnnet.get().SelectAttachmentTab(Data);
+			newOrderOnnnet.get().UploadDocument(Data);
+			newOrderOnnnet.get().CommercialValidation(Data);
+			newOrderOnnnet.get().TechnicalValidation(Data);
+			newOrderOnnnet.get().clickOnManualValidationB();
+			newOrderOnnnet.get().DeliveryValidation(Data);
+			newOrderOnnnet.get().clickOnManualValidationA();
+			newOrderOnnnet.get().EnterInstallationChargeInFooter(Data);
+			newOrderOnnnet.get().CompletedValidation(Data);
+			
+		}
 	}
 	@Test(dataProviderClass=DataReader.class,dataProvider="OmpDatereader")
 	public void OMPGenric (Object[] Data) throws Exception

@@ -210,6 +210,27 @@ public class DriverHelper {
 			System.out.println("Something went wrong. Proposal has not be generated");
 		}
 	}
+	public void Waitforvisibilityofelement(final String locator) throws InterruptedException {
+		waitForpageload();
+		if (locator.startsWith("//") || locator.startsWith("(")) {
+
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locator)));
+			// getwebelement(xml.getlocator("//locators/StandrdQuote"));
+			System.out.println("Code for Loading");
+			Thread.sleep(2000);
+		} else if (locator.startsWith("name")) {
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.name(locator.split("=")[1])));
+			// getwebelement(xml.getlocator("//locators/StandrdQuote"));
+			System.out.println("Code for Loading");
+			Thread.sleep(2000);
+
+		} else if (locator.startsWith("id")) {
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(locator.split("=")[1])));
+			// getwebelement(xml.getlocator("//locators/StandrdQuote"));
+			System.out.println("Code for Loading");
+			Thread.sleep(2000);
+		}
+	}
 	public void Switchtotabandsignthequote() throws Exception
 	{   String parentWinHandle = driver.getWindowHandle();
 		Set<String> totalopenwindow=driver.getWindowHandles();

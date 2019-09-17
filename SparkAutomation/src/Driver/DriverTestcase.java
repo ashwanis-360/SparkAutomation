@@ -25,7 +25,7 @@ import ScriptHelper.InFlightOrderHelper;
 //import ScriptHelper.InFlightForIPAccess;
 import ScriptHelper.LoginHelper;
 //import ScriptHelper.ModifyComOrdersOfAllProductsHelper;
-
+import ScriptHelper.ModHelper;
 import ScriptHelper.NewOrderOnnetHelper;
 import ScriptHelper.OMPScriptHelper;
 
@@ -43,7 +43,9 @@ public class DriverTestcase {
 	public static final ThreadLocal<CeasHelper> Cease = new InheritableThreadLocal<>();
 	public static final ThreadLocal<OMPScriptHelper> OmpOrder = new InheritableThreadLocal<>();
 	public static final ThreadLocal<InFlightOrderHelper>inFlightGeneric = new InheritableThreadLocal<>();
-
+	public static final ThreadLocal<ModHelper>modHelper = new InheritableThreadLocal<>();
+	
+	
 
 //	public static final ThreadLocal<InFlightForIPAccess>inFlight = new InheritableThreadLocal<>();
 //	public static ThreadLocal<String> QuoteID = new InheritableThreadLocal<>();
@@ -74,7 +76,13 @@ if (method.getName().equals("EndtoEndOrderOnnet")) {
 			Log.info(st[st.length - 2].toString());
 			ctx.setAttribute("testName", st[st.length - 2].toString());
 		}
-
+		else if (method.getName().equals("Mod")) {
+//			DataReader dt=new DataReader();
+//			Object[][] data=dt.ipreader();
+//    		Object[] st= (Object[]) data[itr][0];
+			Log.info(st[st.length - 2].toString());
+			ctx.setAttribute("testName", st[st.length - 2].toString());
+} 
 		else if (method.getName().equals("Cancel")) {
 //	   		DataReader dt=new DataReader();
 //	   		Object[][] data=dt.ipreader();
@@ -143,6 +151,7 @@ if (method.getName().equals("EndtoEndOrderOnnet")) {
 		InFlightOrderHelper InFlightOrder = new InFlightOrderHelper(getwebdriver());
 		CeasHelper CL = new CeasHelper(getwebdriver());
 		CancelHelper CN = new CancelHelper(getwebdriver());
+		ModHelper MD = new ModHelper(getwebdriver());
 		NewOrderOnnetHelper noo = new NewOrderOnnetHelper(getwebdriver());
 //		ModifyComOrdersOfAllProductsHelper mooc = new ModifyComOrdersOfAllProductsHelper(getwebdriver());
 //		AbandonedOrderOfAllThreeProducts aoop = new AbandonedOrderOfAllThreeProducts(getwebdriver());
@@ -154,6 +163,7 @@ if (method.getName().equals("EndtoEndOrderOnnet")) {
 		Cease.set(CL);
 		inFlightGeneric.set(InFlightOrder);
 		OmpOrder.set(OMP);
+		modHelper.set(MD);
 
 
 //		modifyOrdersCom.set(mooc);

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+ <locators>
+<PopContinue>//button[text()='Continue']</PopContinue>
+<PopYes>//button[text()='Yes']</PopYes>
+
+<BillingRow>//table[@summary="Service Charges"]/parent::*//tr</BillingRow>
+		  <BillingRowAmount>(//table[@summary="Service Charges"]/parent::*//tr[@tabindex='-1']//td[7])[Value]</BillingRowAmount>
+		  <BillingRowAmountInput>//table[@summary="Service Charges"]/parent::*//tr[@tabindex='-1']//td[7]//input</BillingRowAmountInput>
+		   <BillingRowBCNInput>//table[@summary="Service Charges"]/parent::*//tr[@tabindex='-1']//td[8]//input</BillingRowBCNInput>
+		  <BillingRowBCN>(//table[@summary="Service Charges"]/parent::*//tr[@tabindex='-1']//td[8])[Value]</BillingRowBCN>
+		  <BillingLastRow>//table[@summary="Service Charges"]/parent::*//tr[last()]</BillingLastRow>
+		  <BCNSearchClick>//table[@summary="Service Charges"]/parent::*//tr[@tabindex='-1']//td[8]/span</BCNSearchClick>
+		  <FirstLineitem>(//table[@summary="Service Charges"]/parent::*//tr)[2]</FirstLineitem>
+		  <ClickNextPage>(//span[@title="Next record set"])[1]</ClickNextPage>
+
+
+<TotalDDi>(//input[@class='colt-attribute-input siebui-ctrl-input colt-attribute-validate'])</TotalDDi>
+
+<SaveButton>//a[@class="colt-primary-btn colt-s-order-save-btn"]</SaveButton>
+<SupportStarDate>//span[text()='Support Start Date']/parent::*//input</SupportStarDate>
+<SupprtEndDate>//span[text()='Support End Date']/parent::*//input</SupprtEndDate>
+<RecurringchargeMRC>//table[@summary="Service Charges"]/tbody/tr[5]/td[5]</RecurringchargeMRC>
+<TotalOnoffclick>//td[@role="gridcell"]/div/div[@class="ui-icon ui-icon-triangle-1-s tree-minus treeclick"]</TotalOnoffclick>
+<OneoffCharge>(//tr[@role="row"])[7]//td[5]</OneoffCharge>
+<OneNetOffChargeInput>(//tr[@role="row"])[7]//td[5]/input</OneNetOffChargeInput>
+<BCN>(//tr[@role="row"])[7]//td[6]</BCN>
+<BcnClick>(//tr[@role="row"])[7]//td[6]//span[@class="siebui-icon-pick"]</BcnClick>
+<BcnOk>//button[@title="Billing Profile:OK"]</BcnOk>
+
+
+
+
+<AmmountFilling>(//tr[@role='row']/following-sibling::tr[@data-level='1']/td[7])[Value]</AmmountFilling>
+<AmountFillingInput>(//tr[@role='row']/following-sibling::tr[@data-level='1']/td[7])[Value]/input</AmountFillingInput>
+<BCNClick>(//tr[@role='row']/following-sibling::tr[@data-level='1']/td[8])[Value]</BCNClick>
+
+<BCNInstallationChargeNRCInput>//input[@aria-labelledby="PopupQuerySrchspec_Label"]</BCNInstallationChargeNRCInput> 
+  <BCNNRCSearch>//td[@class="siebui-popup-filter"]//button[@title="Billing Profile:Go"]</BCNNRCSearch> 
+  <BCNNRCSubmit>//button[@aria-label="Billing Profile:OK"]</BCNNRCSubmit> 
+
+
+<ModifyButton>//button[@aria-label="Service Order List:Modify"]</ModifyButton>
+
+<ManualV>(//span[contains(text(), 'Manual Validation')])[1]</ManualV>
+<SubMenu>//select[@aria-label="Third Level View Bar"]</SubMenu>
+<SubmenuInstall>//select[@class="siebui-nav-links siebui-nav-viewlist"]/option[text()='Installation and test']</SubmenuInstall>
+<Install>//a[text()='Installation and Test']</Install>
+<PrimartTestingDropdown>//input[@aria-labelledby='COLT_Self_Service_Test_Label']/following-sibling::span</PrimartTestingDropdown>
+<NotRequired>//li[text()='Not Required']</NotRequired>
+
+
+
+<SelectCancelValidation>//li[text()='Cancelled']</SelectCancelValidation>
+
+
+<CeaseButton>//button[@title="Service Order List:Cease"]</CeaseButton>
+<CeaseReasonButton>//span[text()='Cease Reason']/ancestor::tr/following::tr[2]/td[2]//span</CeaseReasonButton>
+<CeaseandResposive>//li[text()='Cease And Reprovide']</CeaseandResposive>
+<CeassationCharge>//input[@aria-label="Cessation Charge Applicable"]</CeassationCharge>
+<SaveButton>//a[@class="colt-primary-btn colt-s-order-save-btn"]</SaveButton>
+<SupportStarDate>//span[text()='Support Start Date']/parent::*//input</SupportStarDate>
+<SupprtEndDate>//span[text()='Support End Date']/parent::*//input</SupprtEndDate>
+<RecurringchargeMRC>//table[@summary="Service Charges"]/tbody/tr[5]/td[5]</RecurringchargeMRC>
+<TotalOnoffclick>//td[@role="gridcell"]/div/div[@class="ui-icon ui-icon-triangle-1-s tree-minus treeclick"]</TotalOnoffclick>
+<OneoffCharge>(//tr[@role="row"])[7]//td[5]</OneoffCharge>
+<OneNetOffChargeInput>(//tr[@role="row"])[7]//td[5]/input</OneNetOffChargeInput>
+<BCN>(//tr[@role="row"])[7]//td[6]</BCN>
+<BcnClick>(//tr[@role="row"])[7]//td[6]//span[@class="siebui-icon-pick"]</BcnClick>
+<BcnOk>//button[@title="Billing Profile:OK"]</BcnOk>
+
+
+
+
+<AmmountFilling>(//tr[@role='row']/following-sibling::tr[@data-level='1']/td[7])[Value]</AmmountFilling>
+<AmountFillingInput>(//tr[@role='row']/following-sibling::tr[@data-level='1']/td[7])[Value]/input</AmountFillingInput>
+<BCNClick>(//tr[@role='row']/following-sibling::tr[@data-level='1']/td[8])[Value]</BCNClick>
+
+<BCNInstallationChargeNRCInput>//input[@aria-labelledby="PopupQuerySrchspec_Label"]</BCNInstallationChargeNRCInput> 
+  <BCNNRCSearch>//td[@class="siebui-popup-filter"]//button[@title="Billing Profile:Go"]</BCNNRCSearch> 
+  <BCNNRCSubmit>//button[@aria-label="Billing Profile:OK"]</BCNNRCSubmit> 
+
+
+<ModifyButton>//button[@aria-label="Service Order List:Modify"]</ModifyButton>
+
+<ManualV>(//span[contains(text(), 'Manual Validation')])[1]</ManualV>
+<SubMenu>//select[@aria-label="Third Level View Bar"]</SubMenu>
+<SubmenuInstall>//select[@class="siebui-nav-links siebui-nav-viewlist"]/option[text()='Installation and test']</SubmenuInstall>
+<Install>//a[text()='Installation and Test']</Install>
+<PrimartTestingDropdown>//input[@aria-labelledby='COLT_Self_Service_Test_Label']/following-sibling::span</PrimartTestingDropdown>
+<NotRequired>//li[text()='Not Required']</NotRequired>
+
+
+
+<SelectCancelValidation>//li[text()='Cancelled']</SelectCancelValidation>
+
+
+<CeaseButton>//button[@title="Service Order List:Cease"]</CeaseButton>
+<CeaseReasonButton>//span[text()='Cease Reason']/ancestor::tr/following::tr[2]/td[2]//span</CeaseReasonButton>
+<CeaseandResposive>//li[text()='Cease And Reprovide']</CeaseandResposive>
+<CeassationCharge>//input[@aria-label="Cessation Charge Applicable"]</CeassationCharge>
+
+
+
+
+
+<ProductSelectionArrow>//*[@id='coltGoToNextSet']/a/i</ProductSelectionArrow>
+<SIPTrunkingProduct>//*[@id='addImg20']</SIPTrunkingProduct>
+<NewVoiceServiceCountry>//li[text()='United Kingdom']</NewVoiceServiceCountry>
+<DropDownCountry>//*[@id='ui-id-1663']</DropDownCountry>
+
+<CallAdmissionControl>((//input[@class='colt-attribute-input siebui-ctrl-input colt-attribute-validate'])[1])</CallAdmissionControl>
+<NumberOfSignallingTrunks>((//*[@class='colt-attribute-input siebui-ctrl-input colt-attribute-validate'])[2])</NumberOfSignallingTrunks>
+
+
+<InvlidCLITreatmet>(//*[@value='Allow'])</InvlidCLITreatmet>
+<DropDownInvlidCLITreatmet>//*[@id='ui-id-2144']</DropDownInvlidCLITreatmet>
+<VoiceConfigReference>((//*[@class='colt-attribute-input siebui-ctrl-input'])[3])</VoiceConfigReference>
+<TotalNumberDDIs>((//*[@class='colt-attribute-input siebui-ctrl-input colt-attribute-validate'])[3])</TotalNumberDDIs>
+<IncomingDDIs>((//*[@class='colt-attribute-input siebui-ctrl-input ui-autocomplete-input'])[4])</IncomingDDIs>
+<RoutingSequence>((//*[@class='colt-attribute-input siebui-ctrl-input ui-autocomplete-input'])[5])</RoutingSequence>
+<RoutingSequenceDropdown>//*[@id='ui-id-2149']</RoutingSequenceDropdown>
+<CLIBillingChkBox>(//*[@class='siebui-ctrl-checkbox colt-attribute-checkbox'])</CLIBillingChkBox>
+
+<FirstCodec>((//*[@class='colt-attribute-input siebui-ctrl-input ui-autocomplete-input'])[6])</FirstCodec>
+<FirstCodecValue>//*[@id='ui-id-391']</FirstCodecValue>
+<ShowMoreLink>//*[@id='colt-codec-link']</ShowMoreLink>
+<SecondCodec>//*[@id='attr_1-20RLBZT']/span[2]</SecondCodec>
+<SecondCodecValue>//*[@id='ui-id-399']</SecondCodecValue>
+
+<ThirdCodec>//*[@id='attr_1-20RLBZU']/span[2]</ThirdCodec>
+<ThirdCodecValue>//*[@id='ui-id-400']</ThirdCodecValue>
+
+<FourthCodec>//*[@id='attr_1-20RLBZV']/span[2]</FourthCodec>
+<FourthCodecValue>//*[@id='ui-id-408']</FourthCodecValue>
+
+<FifthCodec>//*[@id='attr_1-20RLBZW']/span[2]</FifthCodec>
+<FifthCodecValue>//*[@id='ui-id-416']</FifthCodecValue>
+
+<SixthCodec>//*[@id='attr_1-20RLBZX']/span[2]</SixthCodec>
+<SixthCodecValue>//*[@id='ui-id-431']</SixthCodecValue>
+
+<ClickToShowFullInfo>//*[@id='colt-s-order-enabledfeatures-showfullinfo']</ClickToShowFullInfo>
+<TextBoxSiteContact>((//*[@class='colt-attribute-input siebui-ctrl-input siebui-input-popup'])[2])</TextBoxSiteContact>
+
+<SIPSiteContact>((//*[@class='siebui-icon-pick applet-form-pick applet-list-pick'])[33])</SIPSiteContact>
+<FirstRecordSelection>(//*[@id='1_s_16_l_First_Name'])</FirstRecordSelection>
+<ClickOK>(//*[@id='s_13_1_406_0_Ctrl'])</ClickOK>
+<ServiceParty>((//*[@class='siebui-icon-pick applet-form-pick applet-list-pick'])[37])</ServiceParty>
+<ServicePartyRecordSelect>(//*[@id='1_s_17_l_Account_Name'])</ServicePartyRecordSelect>
+<OKSelection>(//*[@id='s_14_1_406_0_Ctrl'])</OKSelection>
+<SIPDeliveryTeamNewCountry>((//*[@class='colt-attribute-input siebui-ctrl-input ui-autocomplete-input'])[21])</SIPDeliveryTeamNewCountry>
+<SIPDeliveryTeamNewCity>((//*[@class='colt-attribute-input siebui-ctrl-input ui-autocomplete-input'])[22])</SIPDeliveryTeamNewCity>
+<WLECInvoicingRadioButton>((//*[@class='colt-component-check-available fa fa-circle-o'])[4])</WLECInvoicingRadioButton>
+<SIPWLECInvoicing>(//span[@class='colt-component-check-available fa fa-circle-o'])[5]</SIPWLECInvoicing>
+<CloseSymbol>((//*[@class='ui-button-icon-primary ui-icon ui-icon-closethick'])[4])</CloseSymbol>
+<Save>//*[@id='colt-s-order-connection-header-btns']/a</Save>
+ 
+<PopContinue>//button[text()='Continue']</PopContinue>
+<PopYes>//button[text()='Yes']</PopYes>
+
+ <BillingRow>//table[@summary="Service Charges"]/parent::*//tr</BillingRow>
+		  <BillingRowAmount>(//table[@summary="Service Charges"]/parent::*//tr[@tabindex='-1']//td[7])[Value]</BillingRowAmount>
+		  <BillingRowAmountInput>//table[@summary="Service Charges"]/parent::*//tr[@tabindex='-1']//td[7]//input</BillingRowAmountInput>
+		   <BillingRowBCNInput>//table[@summary="Service Charges"]/parent::*//tr[@tabindex='-1']//td[8]//input</BillingRowBCNInput>
+		  <BillingRowBCN>(//table[@summary="Service Charges"]/parent::*//tr[@tabindex='-1']//td[8])[Value]</BillingRowBCN>
+		  <BillingLastRow>//table[@summary="Service Charges"]/parent::*//tr[last()]</BillingLastRow>
+		  <BCNSearchClick>//table[@summary="Service Charges"]/parent::*//tr[@tabindex='-1']//td[8]/span</BCNSearchClick>
+		  <FirstLineitem>(//table[@summary="Service Charges"]/parent::*//tr)[2]</FirstLineitem>
+		  <ClickNextPage>(//span[@title="Next record set"])[1]</ClickNextPage>
+		  </locators>

@@ -3576,7 +3576,7 @@ Thread.sleep(5000);
 				//System.out.println(part1);
 				//System.out.println(part2);
 				Clickon(getwebelement(xml.getlocator("//locators/InputServiceOrder")));
-				SendKeys(getwebelement(xml.getlocator("//locators/InputServiceOrder")),"871572919/190904-0162");
+				SendKeys(getwebelement(xml.getlocator("//locators/InputServiceOrder")),ServiceOrder.get().toString());
 				Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderGo")));
 				waitforPagetobeenable();
 				Thread.sleep(6000);
@@ -3618,7 +3618,8 @@ Thread.sleep(5000);
 //				Thread.sleep(2000);
 				//WaitforElementtobeclickable((xml.getlocator("//locators/ClickheretoSaveAccess")));
 				//Clickon(getwebelement(xml.getlocator("//locators/ClickheretoSaveAccess")));
-				
+				if(!Inputdata[8].toString().equalsIgnoreCase("Wave") && !Inputdata[8].toString().equalsIgnoreCase("Ether Line")) // added shivananda
+				{
 				WaitforElementtobeclickable(xml.getlocator("//locators/MaintenancePartySearch"));
 				waitforPagetobeenable();
 				Clickon(getwebelement(xml.getlocator("//locators/MaintenancePartySearch")));
@@ -3633,7 +3634,7 @@ Thread.sleep(5000);
 				waitforPagetobeenable();
 				Clickon(getwebelement(xml.getlocator("//locators/AccountStatusSubmit")));
 				Thread.sleep(3000);
-				
+				}
 				savePage();
 				waitforPagetobeenable();
 	}
