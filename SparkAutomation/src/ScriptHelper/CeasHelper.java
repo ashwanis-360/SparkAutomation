@@ -25,15 +25,7 @@ public class CeasHelper extends DriverHelper{
 	}
 	public void Cease(Object[] InputData) throws Exception
 	{
-	Thread.sleep(10000);
-	System.out.println("Page to be refresed");
-
-	do {
-	Pagerefresh();
-	System.out.println("Page to be refresed");
-	Thread.sleep(20000);
-	} while (!isElementPresent("//a[text()='My Orders']"));
-
+	Thread.sleep(5000);
 	try {
 	WaitforElementtobeclickable(xml.getlocator("//locators/ServiceTab"));
 	Clickon(getwebelement(xml.getlocator("//locators/ServiceTab")));
