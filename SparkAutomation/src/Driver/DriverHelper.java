@@ -98,7 +98,7 @@ public class DriverHelper {
 	public static ThreadLocal<String> RootWINumber= new ThreadLocal<>();
 	public static ThreadLocal<String> AbandonedStatusPopUp= new ThreadLocal<>();
 	public static ThreadLocal<String> ReferenceInput= new ThreadLocal<>(); //Added by Vikram for HubNSpoke
-	
+	public static ThreadLocal<String> NetworkReferenceIPVPN=new ThreadLocal<>();
 	public DriverHelper(WebDriver dr)
 	{
 		driver=dr;
