@@ -1013,23 +1013,23 @@
 
 <RefreshButton>//span[text()='Refresh']</RefreshButton>
 
-<BillingRow>//table[@summary="Service Charges"]/parent::*//tr</BillingRow>
 
-<BillingRowAmount>(//table[@summary="Service Charges"]/parent::*//tr[@tabindex='-1']//td[7])[Value]</BillingRowAmount>
 
-<BillingRowAmountInput>//table[@summary="Service Charges"]/parent::*//tr[@tabindex='-1']//td[7]//input</BillingRowAmountInput>
 
-<BillingRowBCNInput>//table[@summary="Service Charges"]/parent::*//tr[@tabindex='-1']//td[8]//input</BillingRowBCNInput>
 
-<BillingRowBCN>(//table[@summary="Service Charges"]/parent::*//tr[@tabindex='-1']//td[8])[Value]</BillingRowBCN>
 
-<BillingLastRow>//table[@summary="Service Charges"]/parent::*//tr[last()]</BillingLastRow>
 
-<BCNSearchClick>//table[@summary="Service Charges"]/parent::*//tr[@tabindex='-1']//td[8]/span</BCNSearchClick>
 
-<FirstLineitem>(//table[@summary="Service Charges"]/parent::*//tr)[2]</FirstLineitem>
 
-<ClickNextPage>(//span[@title="Next record set"])[1]</ClickNextPage>
+
+
+
+
+
+
+
+
+
 
 <SIPCeaseButton>(.//*[normalize-space(text()) and normalize-space(.)='Modify Data'])[1]/preceding::span[2]</SIPCeaseButton>
   
