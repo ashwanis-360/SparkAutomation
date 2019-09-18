@@ -154,7 +154,7 @@ public class NewOrders extends DriverTestcase {
 	   Cancel.get().AbandonedOrder(Data);
 	   Cancel.get().verifyOrderAbandoned();
 	}
-	@Test(dataProviderClass=DataReader.class,dataProvider="Mod")
+	@Test(dataProviderClass=DataReader.class,dataProvider="Mode")
 	public void Mod(Object[] Data) throws Exception
 	{
 	
