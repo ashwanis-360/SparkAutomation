@@ -17,7 +17,7 @@ public class ModHelper extends DriverHelper{
 	
 	
 	WebElement el;
-	XMLReader xml=new XMLReader("src\\Locators\\Login.xml");
+	XMLReader xml=new XMLReader("src\\Locators\\SiebelOrder.xml");
 	XMLReader xml2= new XMLReader("src\\Locators\\VLV.xml");
 	public ModHelper(WebDriver parentdriver)
 	{
