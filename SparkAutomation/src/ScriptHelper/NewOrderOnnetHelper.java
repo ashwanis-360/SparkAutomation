@@ -3532,12 +3532,14 @@ case "Voice Line V": {
 
 		///////////// SERVICE CHARGE
 	public void EnterServiceChargeInFooter(Object[] Inputdata,String Amount) throws Exception {
+		if(!Inputdata[8].toString().equalsIgnoreCase("IP VPN Service"))
+		{
 		WaitforElementtobeclickable(xml.getlocator("//locators/ExpandAllButton")); 
 		Clickon(getwebelement(xml.getlocator("//locators/ExpandAllButton")));
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Expand All Button");
 		Thread.sleep(3000);
-		if(!Inputdata[8].toString().equalsIgnoreCase("Wave") && !Inputdata[8].toString().equalsIgnoreCase("Ethernet Line"))
-		{ 
+		//if(!Inputdata[8].toString().equalsIgnoreCase("Wave") && !Inputdata[8].toString().equalsIgnoreCase("Ethernet Line"))
+		//{ 
 		while(!Getattribute(getwebelement(xml.getlocator("//locators/BillingLastRow")),"class").contains("highlight"))
 		{
 
@@ -3573,7 +3575,7 @@ case "Voice Line V": {
 		Clickon(getwebelement(xml.getlocator("//locators/BCNNRCSearch")));
 		waitforPagetobeenable();
 		Thread.sleep(3000);
-		//Clickon(getwebelement(xml.getlocator("//locators/BCNNRCSubmit")));//Should add in BSW enviroment
+		Clickon(getwebelement(xml.getlocator("//locators/BCNNRCSubmit")));//Should add in BSW enviroment
 		waitforPagetobeenable();
 		 }
 		 else
@@ -3588,7 +3590,8 @@ case "Voice Line V": {
 		 Thread.sleep(5000);
 		}
 		}
-		if(Inputdata[8].toString().equalsIgnoreCase("Wave") || Inputdata[8].toString().equalsIgnoreCase("Ethernet Line"))//Added by shiva for Wave and Ethernet Line product specific.
+		//}
+	/*	if(Inputdata[8].toString().equalsIgnoreCase("Wave") || Inputdata[8].toString().equalsIgnoreCase("Ethernet Line"))//Added by shiva for Wave and Ethernet Line product specific.
 		{ 
 		Clickon(getwebelement(xml3.getlocator("//locators/InstallationChargeNRC")));
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Installation Charge NRC");
@@ -3620,7 +3623,7 @@ case "Voice Line V": {
 		Clickon(getwebelement(xml3.getlocator("//locators/BCNNRCSubmit")));
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on BCN NRC Submit");
 		Thread.sleep(5000); 
-		}
+		}*/
 
 		}
 
