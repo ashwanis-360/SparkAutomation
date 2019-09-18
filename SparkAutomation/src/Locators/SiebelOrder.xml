@@ -621,6 +621,26 @@
 <ServiceorderOk>//button[@title='Pick Service Orders:OK']</ServiceorderOk>
 <RefreshButton>//span[text()='Refresh']</RefreshButton>
 <Voiceconfigtab>//a[text()='Voice Config']</Voiceconfigtab>
+ <LinkType>//span[text()='Link Type']/..//input</LinkType>
+ <ServiceBandwidthValue>//span[text()='Service Bandwidth']/..//input</ServiceBandwidthValue>
+ <ResilienceOptionValue>//span[text()='Resilience Option']/..//input</ResilienceOptionValue>
+<PortRoleDropDown>(//span[text()='Port Role']/parent::*//span)[3]</PortRoleDropDown>
+<PortValue>//li[text()='Physical Port']</PortValue>
+<sitename>//span[text()='Site Name']/..//input</sitename>
+<sitenamevalue>//li[text()='AT_1010_KARNTNER RING_12_EG_NODE']</sitenamevalue>
+<LinkTypeDropDown>(//span[text()='Link Type']/parent::*//span)[3]</LinkTypeDropDown>
+<LinkTYpeValue>//li[text()='E-VPN Primary']</LinkTYpeValue>
+<ResilenceOptionDropDown>(//span[text()='Resilience Option']/parent::*//span)[3]</ResilenceOptionDropDown>
+<ResilienceValue>//li[text()='Unprotected']</ResilienceValue>
+<OSSPlatformDropDown>(//span[text()='OSS Platform Flag']/parent::*//span)[3]</OSSPlatformDropDown>
+<OSSplatformValue>//li[text()='Legacy']</OSSplatformValue>
+<CircuitReferenceValue>//input[@class='colt-attribute-input siebui-ctrl-input colt-popup-link-ctrl']</CircuitReferenceValue>
+ <AccessTypeSelectAccess>//li[text()='Colt Fibre']</AccessTypeSelectAccess>
+ <VerifyAbandoned>//td[text()='Abandoned']</VerifyAbandoned>
+ <PresentationInterfaceSelect>//li[text()='10GBaseER']</PresentationInterfaceSelect>
+ <ServiceBandwidthSelect>//li[text()='2 Gbps']</ServiceBandwidthSelect>
+ <ConnectorTypeSelect>//li[text()='FC/PC']</ConnectorTypeSelect>
+ <FibreTypeSelect>//li[text()='SingleMode 1550nm']</FibreTypeSelect>
   
   
   <!--Gaury's Locators for SIP truncking -->
