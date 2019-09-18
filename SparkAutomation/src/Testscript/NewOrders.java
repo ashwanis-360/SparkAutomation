@@ -92,7 +92,35 @@ public class NewOrders extends DriverTestcase {
 		newOrderOnnnet.get().createCustomerOrder(Data);
 		newOrderOnnnet.get().productSelectionHelper(Data);
 		newOrderOnnnet.get().openServiceOrderNumber();
-
+		if(Data[8].toString().equalsIgnoreCase("Ethernet Hub"))
+		{
+			newOrderOnnnet.get().addEthernetSiteHub(Data); //MethodAdded
+			newOrderOnnnet.get().hubSiteCustomize(Data); //MethodAdded
+			newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);//Updated
+			newOrderOnnnet.get().EnterDateInFooter(Data); //No change 
+			newOrderOnnnet.get().EnterBillingDateInFooter(Data); //No change 
+			newOrderOnnnet.get().installationCharges(Data);  //Method added
+			newOrderOnnnet.get().CommercialValidation(Data);  //No Change
+			newOrderOnnnet.get().TechnicalValidation(Data); //Updated
+			newOrderOnnnet.get().DeliveryValidation(Data); //No Change
+			newOrderOnnnet.get().OrderCompleteEthernetHubSpoke(Data); //MethodAdded 
+		}
+		else if(Data[8].toString().equalsIgnoreCase("Ethernet Spoke"))
+		{
+			newOrderOnnnet.get().addEthernetSiteSpoke(Data);//MethodAdded
+			newOrderOnnnet.get().spokeSiteCustomize(Data);//MethodAdded
+			newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);//Updated for spoke also
+			newOrderOnnnet.get().EnterDateInFooter(Data); //No change
+		    newOrderOnnnet.get().EnterBillingDateInFooter(Data); //No change
+			newOrderOnnnet.get().installationCharges(Data);  //Method added same as hub and updated if condition for spoke
+		
+			newOrderOnnnet.get().CommercialValidation(Data);  //No Change
+			newOrderOnnnet.get().TechnicalValidation(Data); //Updated for spoke also
+			newOrderOnnnet.get().DeliveryValidation(Data); //No Change
+			newOrderOnnnet.get().OrderCompleteEthernetHubSpoke(Data);//updated same as hub
+		}
+		else
+		{
 		newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);
 		newOrderOnnnet.get().enterMandatoryDetailsInMiddleApplet(Data);
 		newOrderOnnnet.get().VoiceConfigTab(Data);
@@ -115,6 +143,7 @@ public class NewOrders extends DriverTestcase {
 		newOrderOnnnet.get().clickOnManualValidationA();
 	    newOrderOnnnet.get().CompletedValidation(Data);
 		// Code for Cease
+		}
 		   Cease.get().Cease(Data);
 	}
 	@Test(dataProviderClass=DataReader.class,dataProvider="Cancel")
@@ -127,7 +156,35 @@ public class NewOrders extends DriverTestcase {
 		newOrderOnnnet.get().createCustomerOrder(Data);
 		newOrderOnnnet.get().productSelectionHelper(Data);
 		newOrderOnnnet.get().openServiceOrderNumber();
-
+		if(Data[8].toString().equalsIgnoreCase("Ethernet Hub"))
+		{
+			newOrderOnnnet.get().addEthernetSiteHub(Data); //MethodAdded
+			newOrderOnnnet.get().hubSiteCustomize(Data); //MethodAdded
+			newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);//Updated
+			newOrderOnnnet.get().EnterDateInFooter(Data); //No change 
+			newOrderOnnnet.get().EnterBillingDateInFooter(Data); //No change 
+			newOrderOnnnet.get().installationCharges(Data);  //Method added
+			newOrderOnnnet.get().CommercialValidation(Data);  //No Change
+			newOrderOnnnet.get().TechnicalValidation(Data); //Updated
+			newOrderOnnnet.get().DeliveryValidation(Data); //No Change
+			newOrderOnnnet.get().OrderCompleteEthernetHubSpoke(Data); //MethodAdded 
+		}
+		else if(Data[8].toString().equalsIgnoreCase("Ethernet Spoke"))
+		{
+			newOrderOnnnet.get().addEthernetSiteSpoke(Data);//MethodAdded
+			newOrderOnnnet.get().spokeSiteCustomize(Data);//MethodAdded
+			newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);//Updated for spoke also
+			newOrderOnnnet.get().EnterDateInFooter(Data); //No change
+		    newOrderOnnnet.get().EnterBillingDateInFooter(Data); //No change
+			newOrderOnnnet.get().installationCharges(Data);  //Method added same as hub and updated if condition for spoke
+		
+			newOrderOnnnet.get().CommercialValidation(Data);  //No Change
+			newOrderOnnnet.get().TechnicalValidation(Data); //Updated for spoke also
+			newOrderOnnnet.get().DeliveryValidation(Data); //No Change
+			newOrderOnnnet.get().OrderCompleteEthernetHubSpoke(Data);//updated same as hub
+		}
+		else
+		{
 		newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);
 		newOrderOnnnet.get().enterMandatoryDetailsInMiddleApplet(Data);
 		newOrderOnnnet.get().VoiceConfigTab(Data);
@@ -149,7 +206,8 @@ public class NewOrders extends DriverTestcase {
 		newOrderOnnnet.get().DeliveryValidation(Data);
 		newOrderOnnnet.get().clickOnManualValidationA();
 	    newOrderOnnnet.get().CompletedValidation(Data);
-		// Code for Cancel
+		}
+	    // Code for Cancel
 	   Cancel.get().statusReason(Data);
 	   Cancel.get().AbandonedOrder(Data);
 	   Cancel.get().verifyOrderAbandoned();
