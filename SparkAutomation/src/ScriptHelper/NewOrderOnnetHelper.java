@@ -3894,10 +3894,17 @@ Thread.sleep(5000);
 				Thread.sleep(3000);
 				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Add Order Sub Type");
 				//---> Condition need to be added for mod com and mod tech
-				//SendKeys(getwebelement(xml.getlocator("//locators/InputOrderSubType")),"Upgrade Bandwith");
-				SendKeys(getwebelement(xml.getlocator("//locators/InputOrderSubType")),"BCN Change");
-				SendkeaboardKeys(getwebelement(xml.getlocator("//locators/InputOrderSubType")), Keys.ENTER);
-
+				
+				if(Inputdata[Inputdata.length-1].toString().contains("Com")) //Added by Dipesh
+					{
+				SendKeys(getwebelement(xml.getlocator("//locators/InputOrderSubType")),"BCN Change");//Specific for mod com
+				}
+				else if (Inputdata[Inputdata.length-1].toString().contains("Tech"))
+				{
+					SendKeys(getwebelement(xml.getlocator("//locators/InputOrderSubType")),"Upgrade Bandwith"); // specific for mod tech
+				}
+					SendkeaboardKeys(getwebelement(xml.getlocator("//locators/InputOrderSubType")), Keys.ENTER);
+				
 				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Order Sub Type DropDown");
 
 				
