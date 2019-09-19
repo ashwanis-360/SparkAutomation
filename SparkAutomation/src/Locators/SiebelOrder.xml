@@ -424,6 +424,59 @@
 <CallAdmissionControl>//span[contains(text(),'Call Admission Control ')]/parent::*//input</CallAdmissionControl>
 <NumberOfSignallingTrunks>//span[text()='Number of Signalling Trunks']/parent::*//input</NumberOfSignallingTrunks>
 <SaveButton>//a[@class="colt-primary-btn colt-s-order-save-btn"]</SaveButton>
+<!-- ********************CPE SOLUTION SITE LOCATORS *********************-->
+  <CPESolutionService>
+  <ScrollDownAend>//span[text()='A End Resilience Option']</ScrollDownAend>
+  <AendResillenceOption>//span[text()='A End Resilience Option']/..//input/following-sibling::span</AendResillenceOption>
+  <BendResillenceOption>//span[text()='B End Resilience Option']/..//input/following-sibling::span</BendResillenceOption>
+  <NetworkTopology>//span[text()='Network Topology']/..//input/following-sibling::span</NetworkTopology>
+  <ServiceBandwidthCpe>//span[text()='Service Bandwidth']/..//input/following-sibling::span</ServiceBandwidthCpe>
+  <ServiceTypecpe>//span[text()='Service Type']/..//input/following-sibling::span</ServiceTypecpe>
+  <ValuesInsideDropdownWithIndex>(//li[text()='Data'])[value]</ValuesInsideDropdownWithIndex>
+  <ValueInsideDropdown>//li[text()='Data']</ValueInsideDropdown>
+   <ServiceTypecpe>//span[text()='Service Type']/..//input/following-sibling::span</ServiceTypecpe>
+   </CPESolutionService>
+  
+  *****************************Ethernet access********************************
+ <R4>
+  <SiteADropdownClick>//div[@id='colt-site-left']//span[text()='Value']/following-sibling::span</SiteADropdownClick> 
+  <SiteABSelection>//ul[contains(@style,'block')]//li[text()='Value']</SiteABSelection> 
+  <SiteBDropdownClick>//div[@id='colt-site-right']//span[text()='Value']/following-sibling::span</SiteBDropdownClick> 
+  <SiteAInput>//div[@id='colt-site-left']//span[text()='Value']/parent::div/input</SiteAInput> 
+  <SiteBInput>//div[@id='colt-site-right']//span[text()='Value']/parent::div/input</SiteBInput> 
+  <ShowFullinfo>//a[text()='Click to Show Full info']</ShowFullinfo> 
+  <PopDropdownClick>//div[contains(@style,'block')]//span[text()='Value']/following-sibling::span</PopDropdownClick> 
+  <PopInput>//div[contains(@style,'block')]//span[text()='Value']/parent::div/input</PopInput> 
+  <PopClose>//div[contains(@style,'block')]//button[@title='Close']</PopClose> 
+  <Save>//div[@id='colt-s-order-connection-header']//a[text()='Save']</Save> 
+  <LeftSiteSearch>//div[@id='colt-site-left']//span[@title='Select a site']</LeftSiteSearch> 
+  <RightSiteSearch>//div[@id='colt-site-right']//span[@title='Select a site']</RightSiteSearch> 
+  <SearchInput>//span[text()='Value']/parent::div/input</SearchInput> 
+  <SearchDropdown>//span[text()='Value']/following-sibling::span</SearchDropdown> 
+  <SearchButton>//button[@class='colt-siteselection-button colt-primary-btn']</SearchButton> 
+  <SearchAddressRowSelection>//div[@id='colt-site-selection-popup-content']//tr[@class='colt-siteselection-datarow'][1]</SearchAddressRowSelection> 
+  <BuildingRowSelection>//table[@id='colt-siteselection-result-table']//tr[1]</BuildingRowSelection> 
+  <PickAddress>//button[text()='Pick Address']</PickAddress> 
+  <PickBuilding>//button[text()='Pick Building']</PickBuilding> 
+  <PickSite>//button[text()='Pick Site']</PickSite> 
+  <InsideDropdownValues>//li[text()='Data']</InsideDropdownValues>
+  <CoverageEthernetAccess>//span[text()='Coverage']/..//input/following-sibling::span</CoverageEthernetAccess>
+  </R4>
+  
+  
+  *************for abandoned******
+  <ServiceTab>//a[text()='Service Order']</ServiceTab>
+   <ServiceOrderSearch>//input[@aria-label='Starting with']</ServiceOrderSearch>
+  <ServiceOrderArrow>//input[@aria-label='Starting with']/..//button[1]</ServiceOrderArrow>
+  <VerifyAbandoned>//td[text()='Abandoned']</VerifyAbandoned>
+  <ServiceOrderNumber>//span[text()='Service Order: ']/following-sibling::span</ServiceOrderNumber>
+  *****************for cease**********************
+  <CeaseOrder>//span[text()='Cease']</CeaseOrder>
+  <CeaseReason>//input[@aria-labelledby='COLT_Cease_Order_Reason_Code_Label']</CeaseReason>
+  <BillingCompletedVerify>//td[text()='COMPLETE']</BillingCompletedVerify>
+  <ServiceOrderModifyNumber>//table[@class='ui-jqgrid-btable']//a</ServiceOrderModifyNumber>
+
+
  <!-- Rekha Locators for the VLV New orders -->
  <VoiceServiceCountryDropdownAccess>(//span[text()='Voice Service Country']/parent::*//span)[3]</VoiceServiceCountryDropdownAccess>
 <VoiceServiceCountry>//li[text()='Austria']</VoiceServiceCountry>

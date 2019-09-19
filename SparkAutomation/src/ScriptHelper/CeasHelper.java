@@ -39,10 +39,19 @@ public class CeasHelper extends DriverHelper{
 	e1.printStackTrace();
 	}
 	}
-	SendKeys(getwebelement(xml.getlocator("//locators/ServiceOrderSearch")),"871587303/190909-0132");
+	
+	SendKeys(getwebelement(xml.getlocator("//locators/ServiceOrderSearch")),ServiceOrder.get());
 	Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderArrow")));
-
-
+	
+	for (int i=0;i<8;i++) {
+		Thread.sleep(1200000);
+		Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderArrow")));
+	}
+	
+	Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderArrow")));
+	System.out.println("service order click");
+    
+	
 	safeJavaScriptClick(getwebelement(xml.getlocator("//locators/CeaseOrder")));
 	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on cease order number");
 	waitForpageload();
