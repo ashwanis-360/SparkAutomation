@@ -6564,6 +6564,48 @@ public class NewOrderOnnetHelper extends DriverHelper {
     {
     switch(Inputdata[8].toString())
     {
+    case "Ethernet Spoke":
+    {
+    Clickon(getwebelement(xmlHns.getlocator("//locators/CustomizeButton")));
+    ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Customize Button");
+    Thread.sleep(5000);
+    safeJavaScriptClick(getwebelement(xmlHns.getlocator("//locators/EthernetConnectionLink")));
+    ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Ethernet Connection Link");
+
+    safeJavaScriptClick(getwebelement(xmlHns.getlocator("//locators/SpokeSiteLink")));
+    ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Spoke Site Link");
+
+    Clickon(getwebelement(xmlHns.getlocator("//locators/InstallationTimeLink")));
+    ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Installation Time Link");
+
+    Select(getwebelement(xmlHns.getlocator("//locators/InstallTime")),Inputdata[112].toString());
+    ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Install Time");
+    Clickon(getwebelement(xmlHns.getlocator("//locators/DoneEthernetConnection")));
+    Thread.sleep(20000);
+    break;
+    }
+    case "Ethernet Hub":
+    {
+    Clickon(getwebelement(xmlHns.getlocator("//locators/CustomizeButton")));
+    Thread.sleep(30000);
+    ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Clicked on Customize button");
+    Thread.sleep(5000);
+
+    safeJavaScriptClick(getwebelement(xmlHns.getlocator("//locators/EthernetConnectionLink")));
+    ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Ethernet Connection link");
+    Thread.sleep(10000);
+    safeJavaScriptClick(getwebelement(xmlHns.getlocator("//locators/HubSiteLink")));
+    ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Aend Site link");
+    Thread.sleep(10000);
+    Clickon(getwebelement(xmlHns.getlocator("//locators/InstallationTimeLink")));
+    ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Installation Time link");
+    SendKeys(getwebelement(xmlHns.getlocator("//locators/InstallTime")),Inputdata[95].toString());
+    ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Update the Installation time");
+    safeJavaScriptClick(getwebelement(xmlHns.getlocator("//locators/DoneEthernetConnection")));
+    ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Ethernet Connection link");
+    Thread.sleep(10000);
+    break;
+    }
     case "Ethernet Line":
     {
     Clickon(getwebelement(xml3.getlocator("//locators/CustomizeButton")));
