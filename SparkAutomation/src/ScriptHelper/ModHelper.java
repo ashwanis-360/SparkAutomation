@@ -193,10 +193,28 @@ public class ModHelper extends DriverHelper{
 				
 				break;
 			}
-			case "IP Access": {
+			/* Code Merged for Rekha*/
+			case "Ethernet VPN Access": {
 
-				
-				
+				/*Clickon(getwebelement(xml3.getlocator("//locators/CustomizeServiceBandwidth")));
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Clicked on Service Bandwidth");
+				Select(getwebelement(xml3.getlocator("//locators/CustomizeServiceBandwidth")),Inputdata[11].toString());
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Picked the updated bandwidth");
+				savePage();*/
+				Thread.sleep(5000);
+
+				Clickon(getwebelement(xml.getlocator("//locators/ServiceBandwidthIPAccess")));
+				Clear(getwebelement(xml.getlocator("//locators/ServiceBandwidthIPAccess")));
+				SendKeys(getwebelement(xml.getlocator("//locators/ServiceBandwidthIPAccess")),Inputdata[11].toString());
+				SendkeaboardKeys((getwebelement(xml.getlocator("//locators/ServiceBandwidthIPAccess"))), Keys.TAB);
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on ServiceBandwidth");
+				Thread.sleep(5000);
+				savePage();
+				Thread.sleep(5000);
+				break;
+				}
+			/* Code Merged for Rekha*/
+			case "IP Access": {
 				getwebelement(xml.getlocator("//locators/capacitycheckreference")).clear();
 				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Clear capicity check reference");
 				Clickon(getwebelement(xml.getlocator("//locators/capacitycheckreference")));
