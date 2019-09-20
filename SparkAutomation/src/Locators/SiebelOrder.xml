@@ -421,9 +421,82 @@
   
   <!-- Ayush's Locators for the Interconnect New orders -->
   
-<CallAdmissionControl>//span[contains(text(),'Call Admission Control ')]/parent::*//input</CallAdmissionControl>
-<NumberOfSignallingTrunks>//span[text()='Number of Signalling Trunks']/parent::*//input</NumberOfSignallingTrunks>
+<SecondCodecInput>//span[text()='Second Codec']/..//input</SecondCodecInput>
+  <ThirdCodecInput>//span[text()='Third Codec']/..//input</ThirdCodecInput>
+   <FourthCodecInput>//span[text()='Fourth Codec']/..//input</FourthCodecInput>
+    <FIfthCodecInput>//span[text()='Fifth Codec']/..//input</FIfthCodecInput>
+     <SixthCodecInput>//span[text()='Sixth Codec']/..//input</SixthCodecInput>
+  <VoiceServiceCountry>//span[text()='Voice Service Country']/following-sibling::span</VoiceServiceCountry>
+<VoiceServiceCountryValue>//li[text()='value']</VoiceServiceCountryValue>
+<VoiceServiceCountryValue1>//li[text()='value'][index]</VoiceServiceCountryValue1>
+<VoiceServiceCountryValue2>//li[text()=' value']</VoiceServiceCountryValue2>
+<CallAdmissionControl>//span[contains(text(),'Call Admission Control ')]/..//input</CallAdmissionControl>
+<NumberOfSignallingTrunks>//span[text()='Number of Signalling Trunks']/..//input</NumberOfSignallingTrunks>
+<VoiceConfigurationReference>//span[text()='Voice Configuration Reference']/..//input</VoiceConfigurationReference>
+<TrafficDirection>//span[text()='Traffic Direction']/following-sibling::span</TrafficDirection>
+<FirstCodec>//span[text()='First Codec']/following-sibling::span</FirstCodec>
+<ShowMore>//a[text()='Show More']</ShowMore>
+<SecondCodec>//span[text()='Second Codec']/following-sibling::span</SecondCodec>
+<ThirdCodec>//span[text()='Third Codec']/following-sibling::span</ThirdCodec>
+<FourthCodec>//span[text()='Fourth Codec']/following-sibling::span</FourthCodec>
+<FifthCodec>//span[text()='Fifth Codec']/following-sibling::span</FifthCodec>
+<SixthCodec>//span[text()='Sixth Codec']/following-sibling::span</SixthCodec>
 <SaveButton>//a[@class="colt-primary-btn colt-s-order-save-btn"]</SaveButton>
+
+<ClickToShowFullInfo>//a[@id="colt-s-order-enabledfeatures-showfullinfo"]</ClickToShowFullInfo>
+<SiteContact>//span[text()='Site Contact']/following-sibling::span</SiteContact>
+<OkButton>//button[@aria-label='Pick Contact:OK']</OkButton>
+<ServiceParty>//span[text()='Service Party']/following-sibling::span</ServiceParty>
+<OkButtonService>//button[@aria-label='Pick Account:OK']</OkButtonService>
+<DelieveryTeamCountry>//span[text()='Delivery Team Country']/following-sibling::span</DelieveryTeamCountry>
+<DeliveryTeamCity>//span[text()='Delivery Team City']/..//input</DeliveryTeamCity>
+<CrossButton>(//span[text()='Interconnect']/..//button)[2]</CrossButton>
+<SaveButton>//a[@class="colt-primary-btn colt-s-order-save-btn"]</SaveButton>
+<TrunkSequence>//span[text()='Trunk Sequence']/..//input</TrunkSequence>
+<TrunkConfiguration>//span[text()='Trunk Configuration']</TrunkConfiguration>
+<TrunkName>//span[text()='Trunk Name']/..//input</TrunkName>
+<AccessLineType>//span[text()='Access Line Type']/following-sibling::span</AccessLineType>*************replace***
+<AccessServiceID>//span[text()='Access Service ID']/following-sibling::span</AccessServiceID>***replace******
+<OkButtonAccess>//button[@aria-label='Pick Service:OK']</OkButtonAccess>
+<OKButtonCompleted>//span[text()='Ok']</OKButtonCompleted>
+<ShowFullInfoTrunk>//a[text()='Show full info']</ShowFullInfoTrunk>
+<ClickOnPlusButton>//button[@aria-label='Service Group:New']</ClickOnPlusButton>
+<CustomerOriginatingIP4Address>(//span[text()='Customer Originating IPv4 Address Range'])[3]/..//input</CustomerOriginatingIP4Address>
+<CustomerOriginatingIP6Address>(//span[text()='Customer Originating IPv6 Address Range'])[3]/..//input</CustomerOriginatingIP6Address>
+<CustomerTerminatingIP4Address>(//span[text()='Customer Terminating IPv4 Address'])[3]/..//input</CustomerTerminatingIP4Address>
+<CustomerTerminatingIP6Address>(//span[text()='Customer Terminating IPv6 Address'])[3]/..//input</CustomerTerminatingIP6Address>
+
+<SignallingTransportProtocol>(//span[text()='Signalling Transport Protocol'])[3]/following-sibling::span</SignallingTransportProtocol>
+<VoipProtocol>(//span[text()='VoIP Protocol'])[3]/following-sibling::span</VoipProtocol>
+<EncryptionProtocol>(//span[text()='Encryption Type'])[3]/following-sibling::span</EncryptionProtocol>
+<TLSCipherSuite>(//span[text()='TLS Cipher Suite'])[3]/following-sibling::span</TLSCipherSuite>
+<TLSCertificateSupplier>(//span[text()='TLS Certificate Supplier'])[3]/following-sibling::span</TLSCertificateSupplier>
+<NATRequired>(//span[text()='NAT Required?'])[3]/..//input</NATRequired>******sendkeys
+<TextInput>//span[text()='Value']/parent::*//input</TextInput>
+<ClickLink>//a[text()='Value']</ClickLink>
+<ClickDropdown>(//span[text()='Value']/parent::*//span)[3]</ClickDropdown>
+ <SelectValueDropdown>(//li[text()='Value'])</SelectValueDropdown>
+ 
+********************VOICE CALL ADMISSION CONTROL****************
+<CallAdmissionControl>(//span[text()='Call Admission Control'])[3]</CallAdmissionControl>
+<InboundOutboundSplit>(//span[text()='Inbound Outbound Split'])[3]/..//input</InboundOutboundSplit> ***sendkeys
+<TypeOfCAC>(//span[text()='Type of CAC'])[3]/following-sibling::span</TypeOfCAC> 
+<CrossButtonTrunk>(//span[text()='Close']/ancestor::button)[4]</CrossButtonTrunk>
+<SaveButton>//a[@class="colt-primary-btn colt-s-order-save-btn"]</SaveButton>
+
+
+************************************Voice feature tab*********
+<VoiceTab>//a[text()='Voice Features']</VoiceTab>
+<Resillence>//span[text()='Resilience']/following-sibling::span</Resillence>
+<SaveButton>//a[@class="colt-primary-btn colt-s-order-save-btn"]</SaveButton>
+
+************************Service group****************
+<ServiceGroupTab>//a[text()='Service Group']</ServiceGroupTab>
+<ClickOnPlusButtonService>//button[@aria-label='Service Group:New']</ClickOnPlusButtonService>
+<AddButtonTrunk>(//span[@style='padding-bottom: 5px'])[6]</AddButtonTrunk>
+<ServiceGroupReference>//input[@name='COLT_Service_Group_Reference']/following-sibling::span</ServiceGroupReference>*****click
+
+<ClickOkButton>//button[@aria-label='Add/Pick Service Group:OK']</ClickOkButton>
 <!-- ********************CPE SOLUTION SITE LOCATORS *********************-->
   <CPESolutionService>
   <ScrollDownAend>//span[text()='A End Resilience Option']</ScrollDownAend>

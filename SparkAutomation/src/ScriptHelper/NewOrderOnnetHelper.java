@@ -72,75 +72,90 @@ public class NewOrderOnnetHelper extends DriverHelper {
 
 	public void createCustomerOrder(Object[] Inputdata) throws Exception {
 		
+		System.out.println("enter into new order loop");
 		SendKeys(getwebelement(xml.getlocator("//locators/OpportunityNo")), Inputdata[1].toString());
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Opportunity No");
-		SendKeys(getwebelement(xml.getlocator("//locators/RequestReceivedDate")),CurrentDate());
+		
+		SendKeys(getwebelement(xml.getlocator("//locators/RequestReceivedDate")), CurrentDate());
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Request Received Date");
-		
-		
 		SendKeys(getwebelement(xml.getlocator("//locators/DeliveryChannel")), Inputdata[3].toString());
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Delivery Channel");
-		//System.out.println("Hello");
+		
+		
+		WaitforElementtobeclickable(xml.getlocator("//locators/OrderingPartySearch"));
 		Clickon(getwebelement(xml.getlocator("//locators/OrderingPartySearch")));
 		waitforPagetobeenable();
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Ordering Party Search");
+		WaitforElementtobeclickable(xml.getlocator("//locators/PartySearchPopupDropdown"));
 		Clickon(getwebelement(xml.getlocator("//locators/PartySearchPopupDropdown")));
+	
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Party Search Popup Dropdown");
+		WaitforElementtobeclickable(xml.getlocator("//locators/PartyName"));
 		Clickon(getwebelement(xml.getlocator("//locators/PartyName")));
+		
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Party Name");
 		SendKeys(getwebelement(xml.getlocator("//locators/InputPartyname")), Inputdata[4].toString());
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Party Name");
-		Clickon(getwebelement(xml.getlocator("//locators/PickAccoutSearch")));
+		WaitforElementtobeclickable(xml.getlocator("//locators/PickAccntOk"));
+		Clickon(getwebelement(xml.getlocator("//locators/PickAccntOk")));
+	
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Pick Account Ok");
 		waitforPagetobeenable();
-		//Clickon(getwebelement(xml.getlocator("//locators/PickAccntOk")));
-		waitforPagetobeenable();
+		WaitforElementtobeclickable(xml.getlocator("//locators/OrderingPartyAddrSearch"));
 		Clickon(getwebelement(xml.getlocator("//locators/OrderingPartyAddrSearch")));
 		waitforPagetobeenable();
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Odering Party Address Search");
+		WaitforElementtobeclickable(xml.getlocator("//locators/OrderingPartyAddrSearchDropdown"));
 		Clickon(getwebelement(xml.getlocator("//locators/OrderingPartyAddrSearchDropdown")));
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Ordering Party Address Search Dropdown");
+		WaitforElementtobeclickable(xml.getlocator("//locators/PartyAddr"));
 		Clickon(getwebelement(xml.getlocator("//locators/PartyAddr")));
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Ordering Party Address");
 		SendKeys(getwebelement(xml.getlocator("//locators/InputPartyAddr")), Inputdata[5].toString());
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Input Party Address");
-		//Thread.sleep(3000);
+		Thread.sleep(3000);
+		WaitforElementtobeclickable(xml.getlocator("//locators/PickAddrSearch"));
 		Clickon(getwebelement(xml.getlocator("//locators/PickAddrSearch")));
 		waitforPagetobeenable();
-		
 		Thread.sleep(2000);
+		WaitforElementtobeclickable(xml.getlocator("//locators/PickAddrSubmit1"));
 		Clickon(getwebelement(xml.getlocator("//locators/PickAddrSubmit1")));
 		
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Pick Address Submit");
 		Thread.sleep(2000);
+		WaitforElementtobeclickable(xml.getlocator("//locators/OrderingPartyContactSearch"));
 		Clickon(getwebelement(xml.getlocator("//locators/OrderingPartyContactSearch")));
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Ordering Party Contact Search");
+		WaitforElementtobeclickable(xml.getlocator("//locators/PartyContactPopupDropdown"));
 		Clickon(getwebelement(xml.getlocator("//locators/PartyContactPopupDropdown")));
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Party Contact Popup Dropdown");
 		waitforPagetobeenable();
-		WaitforElementtobeclickable(xml.getlocator("//locators/LastName"));
-		safeJavaScriptClick(getwebelement(xml.getlocator("//locators/LastName")));
+		waitForpageload();
+		System.out.println("page load successfully of party contact");
 		
-		//Thread.sleep(6000);
+		
+		WaitforElementtobeclickable(xml.getlocator("//locators/LastName"));
+		
+		safeJavaScriptClick(getwebelement(xml.getlocator("//locators/LastName")));
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on First Name");
 		SendKeys(getwebelement(xml.getlocator("//locators/InputFirstname")), Inputdata[6].toString());
-		Clickon(getwebelement(xml.getlocator("//locators/PickContactSearch")));
-		waitforPagetobeenable();
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Input First Name");
+		Clickon(getwebelement(xml.getlocator("//locators/PickContactSearch")));
+		WaitforElementtobeclickable(xml.getlocator("//locators/FirstnameSubmit"));
 		Clickon(getwebelement(xml.getlocator("//locators/FirstnameSubmit")));
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on First Name Submit");
-		
+		System.out.println("Sales Channel Print");
 		Thread.sleep(4000);
 		SendKeys(getwebelement(xml.getlocator("//locators/SalesChannel")), Inputdata[7].toString());
 		
 		
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Sales Channel");
-		waitforPagetobeenable();
-		//Thread.sleep(5000);
+		Thread.sleep(5000);
+		WaitforElementtobeclickable(xml.getlocator("//locators/NewServiceOrder"));
 		Clickon(getwebelement(xml.getlocator("//locators/NewServiceOrder")));
-		waitforPagetobeenable();
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on New Service Order");
-		Thread.sleep(10000);
+	  waitForpageload();
+	  waitforPagetobeenable();
 	}
 
 	public void productSelectionHelper(Object[] Inputdata) throws InterruptedException, DocumentException {
@@ -169,6 +184,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		Log.info(ServiceOrder.get());
 	
 		Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderReferenceNo")));
+		waitForpageload(); //added by Ayush
 		waitforPagetobeenable();
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Service Order Reference No");
 		Thread.sleep(5000);
@@ -176,7 +192,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 
 
 	public void enterMandatoryFieldsInHeader(Object[] Inputdata) throws Exception {
-		
+
 		WaitforElementtobeclickable(xml.getlocator("//locators/OrderSubTypeSearch"));
 		Clickon(getwebelement(xml.getlocator("//locators/OrderSubTypeSearch")));
 		System.out.println("Enter New Order");
@@ -199,59 +215,60 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		WaitforElementtobeclickable(xml.getlocator("//locators/ContractSearch"));
 		Clickon(getwebelement(xml.getlocator("//locators/ContractSearch")));
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Contract Search");
-		
+		WaitforElementtobeclickable(xml.getlocator("//locators/InputContractId")); //new added by ayush
 		SendKeys(getwebelement(xml.getlocator("//locators/InputContractId")), Inputdata[10].toString());
+		WaitforElementtobeclickable((xml.getlocator("//locators/ContractIdSearch"))); //add by ayush for abandoned
 		Clickon(getwebelement(xml.getlocator("//locators/ContractIdSearch")));
 		waitforPagetobeenable();
 		//Clickon(getwebelement(xml.getlocator("//locators/ContractIdSubmit")));
-		
+
 		//Clickon(getwebelement(
-				//"//table[@summary='Pick Contract']//tr//td[text()='" + Inputdata[52 + 12].toString() + "']"));
+		//"//table[@summary='Pick Contract']//tr//td[text()='" + Inputdata[52 + 12].toString() + "']"));
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step:  Select Contract");
 		//Clickon(getwebelement(xml.getlocator("//locators/SubmitContract")));
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Submit Contract");
 		Thread.sleep(5000);
 		/*added by-Vikram 
-		 * for Hub product to store Ntwrk reference in a variable
-		 * for Spoke to take Hub Ntwrk Refrn nmbr 
-		 */
+		* for Hub product to store Ntwrk reference in a variable
+		* for Spoke to take Hub Ntwrk Refrn nmbr 
+		*/
 		if(Inputdata[8].toString().equals("Ethernet Hub"))
-				{
-			Clickon(getwebelement(xml.getlocator("//locators/NetworkReferenceSearch")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Network Reference Search");
-			Clickon(getwebelement(xml.getlocator("//locators/AddNetworkReferenceSearch")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Add Network Reference Search");
-			Thread.sleep(3000);
-			HubNetworkReference.set(Gettext(getwebelement(xml.getlocator("//locators/TextNetworkReference"))));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Generated Hub Network Reference No: "+HubNetworkReference.get());
-			Log.info(HubNetworkReference.get());
-			Clickon(getwebelement(xml.getlocator("//locators/SubmitNetworkReference")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Submit Network Reference");
-			waitforPagetobeenable();
-			Thread.sleep(3000);
-				}
-			else if(Inputdata[8].toString().equals("Ethernet Spoke"))
 		{
-			Clickon(getwebelement(xml.getlocator("//locators/NetworkReferenceSearch")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Network Reference Search");
-			Thread.sleep(1000);
-			SendKeys(getwebelement(xml.getlocator("//locators/InputNetworkReference")),Inputdata[121].toString());
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Network reference from Existing Hub");
-			Thread.sleep(1000);
-			Clickon(getwebelement(xml.getlocator("//locators/SearchNetworkReference")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Network Reference");
-			Thread.sleep(1000);
+		Clickon(getwebelement(xml.getlocator("//locators/NetworkReferenceSearch")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Network Reference Search");
+		Clickon(getwebelement(xml.getlocator("//locators/AddNetworkReferenceSearch")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Add Network Reference Search");
+		Thread.sleep(3000);
+		HubNetworkReference.set(Gettext(getwebelement(xml.getlocator("//locators/TextNetworkReference"))));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Generated Hub Network Reference No: "+HubNetworkReference.get());
+		Log.info(HubNetworkReference.get());
+		Clickon(getwebelement(xml.getlocator("//locators/SubmitNetworkReference")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Submit Network Reference");
+		waitforPagetobeenable();
+		Thread.sleep(3000);
+		}
+		else if(Inputdata[8].toString().equals("Ethernet Spoke"))
+		{
+		Clickon(getwebelement(xml.getlocator("//locators/NetworkReferenceSearch")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Network Reference Search");
+		Thread.sleep(1000);
+		SendKeys(getwebelement(xml.getlocator("//locators/InputNetworkReference")),Inputdata[121].toString());
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Network reference from Existing Hub");
+		Thread.sleep(1000);
+		Clickon(getwebelement(xml.getlocator("//locators/SearchNetworkReference")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Network Reference");
+		Thread.sleep(1000);
 
-			Clickon(getwebelement(xml.getlocator("//locators/SubmitNetworkReference")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Submit Network Reference");
-			waitforPagetobeenable();
-			Thread.sleep(3000);
-			
+		Clickon(getwebelement(xml.getlocator("//locators/SubmitNetworkReference")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Submit Network Reference");
+		waitforPagetobeenable();
+		Thread.sleep(3000);
+
 		}
 		else if(Inputdata[8].toString().equals("HNS"))
 		{
-			SendKeys(getwebelement(xml.getlocator("//locators/InputNetworkReference")),HubNetworkReference.get());
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Network reference from New Hub");
+		SendKeys(getwebelement(xml.getlocator("//locators/InputNetworkReference")),HubNetworkReference.get());
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Network reference from New Hub");
 
 		}
 		if(!Inputdata[8].toString().equals("Cloud Unified Communications")&& !Inputdata[8].toString().equals("IP Voice Solutions") && !Inputdata[8].toString().equals("Professional Services") &&(!Inputdata[8].toString().equalsIgnoreCase("Wave") && !Inputdata[8].toString().equalsIgnoreCase("Ethernet Line") && !Inputdata[8].toString().equals("Ethernet Spoke") && !Inputdata[8].toString().equals("Ethernet Hub"))) {
@@ -261,7 +278,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		Clickon(getwebelement(xml.getlocator("//locators/SelectNetworkReference")));
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Network Reference Search");
 		//SendKeys(getwebelement(xml.getlocator("//locators/InputNetworkReference")), HubNetworkReference.get());
-//SendKeys(getwebelement(xml.getlocator("//locators/InputNetworkReference")),"HNS-871331328");
+		//SendKeys(getwebelement(xml.getlocator("//locators/InputNetworkReference")),"HNS-871331328");
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Input Network Reference");
 		//Clickon(getwebelement(xml.getlocator("//locators/SearchNetworkReference")));
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Network Reference");
@@ -276,53 +293,66 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		if(!Inputdata[8].toString().equals("Voice Line V")) {
 		WaitforElementtobeclickable(xml.getlocator("//locators/ExistingCapacityLeadTimePrimary"));
 		SendKeys(getwebelement(xml.getlocator("//locators/ExistingCapacityLeadTimePrimary")),
-				Inputdata[12].toString());
+		Inputdata[12].toString());
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Existing Capacity Lead Time Primary");
 		SendkeaboardKeys(getwebelement(xml.getlocator("//locators/ExistingCapacityLeadTimePrimary")), Keys.ENTER);
 		SendkeaboardKeys(getwebelement(xml.getlocator("//locators/ExistingCapacityLeadTimePrimary")), Keys.TAB);
 		waitforPagetobeenable();
-//		savePage();
-//		Thread.sleep(10000);
+		// savePage();
+		// Thread.sleep(10000);
 		Thread.sleep(5000);
 		if(!Inputdata[8].toString().equalsIgnoreCase("Wave") && !Inputdata[8].toString().equalsIgnoreCase("Ethernet Spoke") &&  !Inputdata[8].toString().equalsIgnoreCase("Ethernet Hub")) // added shivananda
 		{
 
 		WaitforElementtobeclickable(xml.getlocator("//locators/MaintenancePartySearch"));
 		waitforPagetobeenable();
+
 		Clickon(getwebelement(xml.getlocator("//locators/MaintenancePartySearch")));
+		WaitforElementtobeclickable(xml.getlocator("//locators/MaintenancePartyPopupDropdown")); //add by ayush
 		Clickon(getwebelement(xml.getlocator("//locators/MaintenancePartyPopupDropdown")));
-		Clickon(getwebelement(xml.getlocator("//locators/AccountStatus")));
+		safeJavaScriptClick(getwebelement(xml.getlocator("//locators/AccountStatus")));
+		WaitforElementtobeclickable(xml.getlocator("//locators/InputAccountStatus"));
 		SendKeys(getwebelement(xml.getlocator("//locators/InputAccountStatus")), Inputdata[13].toString());
+		WaitforElementtobeclickable(xml.getlocator("//locators/AccountStatusSearch"));  //add by ayush
 		Clickon(getwebelement(xml.getlocator("//locators/AccountStatusSearch")));
 		waitforPagetobeenable();
 		Thread.sleep(4000);
+		WaitforElementtobeclickable(xml.getlocator("//locators/AccountStatusSubmit"));
 		Clickon(getwebelement(xml.getlocator("//locators/AccountStatusSubmit")));
 		Thread.sleep(3000);
-		
-		
+
+
 		WaitforElementtobeclickable(xml.getlocator("//locators/MaintenancePartyContact"));
 		Clickon(getwebelement(xml.getlocator("//locators/MaintenancePartyContact")));
 		waitforPagetobeenable();
+		WaitforElementtobeclickable(xml.getlocator("//locators/MaintenancePartyContactPopupDropdown")); //add by ayush
 		Clickon(getwebelement(xml.getlocator("//locators/MaintenancePartyContactPopupDropdown")));
 		waitandForElementDisplay((xml.getlocator("//locators/MaintenanceLastName")),5);
 		safeJavaScriptClick(getwebelement(xml.getlocator("//locators/MaintenanceLastName")));
-		
-		SendKeys(getwebelement(xml.getlocator("//locators/InputMaintenanceLastName")), Inputdata[14].toString());
+		WaitforElementtobeclickable(xml.getlocator("//locators/InputMaintenanceLastName"));
+		SendKeys(getwebelement(xml.getlocator("//locators/InputMaintenanceLastName")), Inputdata[14].toString()); //add by ayush
+		WaitforElementtobeclickable(xml.getlocator("//locators/InputMaintenanceLastNameSearch"));
 		Clickon(getwebelement(xml.getlocator("//locators/InputMaintenanceLastNameSearch")));
 		waitforPagetobeenable();
 		Thread.sleep(2000);
+		WaitforElementtobeclickable(xml.getlocator("//locators/MaintenancePartyContactSubmit"));
 		Clickon(getwebelement(xml.getlocator("//locators/MaintenancePartyContactSubmit")));
 		Thread.sleep(3000);
-		
+
 		WaitforElementtobeclickable(xml.getlocator("//locators/MaintenancePartyAddress"));
 		Clickon(getwebelement(xml.getlocator("//locators/MaintenancePartyAddress")));
 		waitforPagetobeenable();
+		WaitforElementtobeclickable(xml.getlocator("//locators/MaintenancePartyAddresPopupDropdown"));//add by ayush
 		Clickon(getwebelement(xml.getlocator("//locators/MaintenancePartyAddresPopupDropdown")));
-		Clickon(getwebelement(xml.getlocator("//locators/PartyAddresStreetName")));
+		WaitforElementtobeclickable(xml.getlocator("//locators/PartyAddresStreetName")); // add by ayush
+		safeJavaScriptClick(getwebelement(xml.getlocator("//locators/PartyAddresStreetName"))); 
+		WaitforElementtobeclickable(xml.getlocator("//locators/InputPartyAddresStreetName")); // add by ayush
 		SendKeys(getwebelement(xml.getlocator("//locators/InputPartyAddresStreetName")), Inputdata[15].toString());
+		WaitforElementtobeclickable(xml.getlocator("//locators/InputPartyAddresStreetNameSearch"));
 		Clickon(getwebelement(xml.getlocator("//locators/InputPartyAddresStreetNameSearch")));
 		waitforPagetobeenable();
 		Thread.sleep(2000);
+		WaitforElementtobeclickable(xml.getlocator("//locators/MaintenancePartyAddressSubmit")); //add by ayush
 		Clickon(getwebelement(xml.getlocator("//locators/MaintenancePartyAddressSubmit")));
 		waitforPagetobeenable();
 		Thread.sleep(3000);
@@ -338,8 +368,9 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			waitforPagetobeenable();
 		}
 		}
-		}
 	}
+	}
+
 	public void VoiceFeatureTab(Object[] Inputdata) throws Exception {
 		if(Inputdata[8].toString().equals("Voice Line V")) {
 		Thread.sleep(5000);	
@@ -5355,6 +5386,59 @@ Thread.sleep(5000);
 		NetworkReferenceIPVPN.set(GetText(getwebelement(xml.getlocator("//locators/NetworkReference"))));
 		
 	}
+	
+	public void serviceGroupReference() throws Exception
+	{
+		
+		if(isElementPresent(xml.getlocator("//locators/ServiceGroupTab")))
+		{
+			System.out.println("go to if loop of service group tab");
+			WaitforElementtobeclickable(xml.getlocator("//locators/ServiceGroupTab"));
+			Clickon(getwebelement(xml.getlocator("//locators/ServiceGroupTab")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step:Click on service tab");	
+		}
+		else
+		{
+			System.out.println("service group tab present in dropdown");
+			Select(getwebelement(xml.getlocator("//locators/InstalltionDropdown")), "Service Group");
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Installation Dropdown button and Select Installation and Test");
+			
+			waitforPagetobeenable();
+			waitForpageload();
+		}
+		Thread.sleep(2000);
+		if(isElementPresent(xml.getlocator("//locators/ServiceOrderCheck")))
+		{
+		
+			System.out.println("Element is present");
+		Boolean t=isElementPresent(xml.getlocator("//locators/ServiceOrderCheck"));
+		System.out.println(t);
+		if (t==true) {
+			System.out.println("Service Record already exist!");
+		}
+		}
+		else {
+			System.out.println("Service Record not exist!");
+			waitandForElementDisplay(xml.getlocator("//locators/ClickOnPlusButtonService"), 5);
+			WaitforElementtobeclickable(xml.getlocator("//locators/ClickOnPlusButtonService"));
+			Clickon(getwebelement(xml.getlocator("//locators/ClickOnPlusButtonService")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step:Click on plus button");
+			waitforPagetobeenable();
+			
+			waitandForElementDisplay(xml.getlocator("//locators/ServiceGroupReference"), 5);
+			WaitforElementtobeclickable(xml.getlocator("//locators/ServiceGroupReference"));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step:Click on service reference");
+			Clickon(getwebelement(xml.getlocator("//locators/ServiceGroupReference")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step:Click on plus button");
+			waitforPagetobeenable();
+			
+			WaitforElementtobeclickable(xml.getlocator("//locators/ClickOkButton"));
+			Clickon(getwebelement(xml.getlocator("//locators/ClickOkButton")));
+			waitforPagetobeenable();
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step:Click on ok button");	
+		}
+		
+		}
 	
 	
 }
