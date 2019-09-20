@@ -19,6 +19,7 @@ public class ModHelper extends DriverHelper{
 	WebElement el;
 	XMLReader xml=new XMLReader("src\\Locators\\SiebelOrder.xml");
 	XMLReader xml2= new XMLReader("src\\Locators\\VLV.xml");
+	XMLReader xml3 = new XMLReader("src\\Locators\\SiebelOrderEtherline.xml");        //added by shivananda 
 	public ModHelper(WebDriver parentdriver)
 	{
 		super(parentdriver);
@@ -64,6 +65,83 @@ public class ModHelper extends DriverHelper{
 		{
 			switch(Inputdata[8].toString())
 			{
+			case "Ethernet Line":
+			 {
+			Clickon(getwebelement(xml3.getlocator("//locators/CustomizeButton")));
+			Thread.sleep(30000);
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Clicked on Customize button");
+			Clickon(getwebelement(xml3.getlocator("//locators/CustomizeServiceBandwidth")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Clicked on Service Bandwidth");
+			Select(getwebelement(xml3.getlocator("//locators/CustomizeServiceBandwidth")),Inputdata[11].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Picked the updated bandwidth");
+			savePage();
+			Thread.sleep(5000);
+
+			safeJavaScriptClick(getwebelement(xml3.getlocator("//locators/Connectionlink")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Ethernet Connection link");
+			Thread.sleep(10000);
+			safeJavaScriptClick(getwebelement(xml3.getlocator("//locators/AendSiteLink")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Aend Site link");
+			Thread.sleep(10000);
+			Clickon(getwebelement(xml3.getlocator("//locators/InstallationTimeLink")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Installation Time link");
+			SendKeys(getwebelement(xml3.getlocator("//locators/InstallTime")),Inputdata[95].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Update the Installation time");
+			safeJavaScriptClick(getwebelement(xml3.getlocator("//locators/Connectionlink")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Ethernet Connection link");
+			Thread.sleep(10000);
+			safeJavaScriptClick(getwebelement(xml3.getlocator("//locators/BendSiteLink")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Aend Site link");
+			Thread.sleep(10000);
+			Clickon(getwebelement(xml3.getlocator("//locators/InstallationTimeLink")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Installation Time link");
+			SendKeys(getwebelement(xml3.getlocator("//locators/InstallTime")),Inputdata[112].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Update Installation time");
+			Thread.sleep(10000);
+			savePage();
+			Clickon(getwebelement(xml3.getlocator("//locators/DoneEthernetConnection")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Done Ethernet Connection");
+			Thread.sleep(60000);
+			break;
+			}
+			case "Wave": {
+			Clickon(getwebelement(xml3.getlocator("//locators/CustomizeButton")));
+			Thread.sleep(30000);
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Clicked on Customize button");
+			Clickon(getwebelement(xml3.getlocator("//locators/CustomizeServiceBandwidth")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Clicked on Service Bandwidth");
+			Select(getwebelement(xml3.getlocator("//locators/CustomizeServiceBandwidth")),Inputdata[11].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Picked the updated bandwidth");
+			savePage();
+			Thread.sleep(5000);
+
+			safeJavaScriptClick(getwebelement(xml3.getlocator("//locators/Connectionlink")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Ethernet Connection link");
+			Thread.sleep(10000);
+			safeJavaScriptClick(getwebelement(xml3.getlocator("//locators/AendSiteLink")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Aend Site link");
+			Thread.sleep(10000);
+			Clickon(getwebelement(xml3.getlocator("//locators/InstallationTimeLink")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Installation Time link");
+			SendKeys(getwebelement(xml3.getlocator("//locators/InstallTime")),Inputdata[95].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Update the Installation time");
+			safeJavaScriptClick(getwebelement(xml3.getlocator("//locators/Connectionlink")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Ethernet Connection link");
+			Thread.sleep(10000);
+			safeJavaScriptClick(getwebelement(xml3.getlocator("//locators/BendSiteLink")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Aend Site link");
+			Thread.sleep(10000);
+			Clickon(getwebelement(xml3.getlocator("//locators/InstallationTimeLink")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Installation Time link");
+			SendKeys(getwebelement(xml3.getlocator("//locators/InstallTime")),Inputdata[112].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Update Installation time");
+			Thread.sleep(10000);
+			savePage();
+			Clickon(getwebelement(xml3.getlocator("//locators/DoneEthernetConnection")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Done Ethernet Connection");
+			Thread.sleep(60000);
+			break;
+			}
 			case "IP Guardian": {
 
 				javascriptexecutor(getwebelement(xml.getlocator("//locators/IPGuardianText")));
@@ -165,6 +243,7 @@ public class ModHelper extends DriverHelper{
 				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on BCN Recurring Charge MRC Search");
 				Thread.sleep(10000);
 				System.out.println("middle applet end");
+				break;
 			}
 			case "SIP Trunking":
 			{
