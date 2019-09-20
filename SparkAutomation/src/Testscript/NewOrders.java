@@ -215,67 +215,88 @@ public class NewOrders extends DriverTestcase {
 	@Test(dataProviderClass=DataReader.class,dataProvider="Mode")
 	public void Mod(Object[] Data) throws Exception
 	{
-	
-		Login.get().Login("Sieble");
-		//Login.get().VerifySuccessLogin("Sieble");
-		newOrderOnnnet.get().accountTabDetails(Data);
-		newOrderOnnnet.get().createCustomerOrder(Data);
-		newOrderOnnnet.get().productSelectionHelper(Data);
-		newOrderOnnnet.get().openServiceOrderNumber();
+	Login.get().Login("Sieble");
+	//Login.get().VerifySuccessLogin("Sieble");
+	newOrderOnnnet.get().accountTabDetails(Data);
+	newOrderOnnnet.get().createCustomerOrder(Data);
+	newOrderOnnnet.get().productSelectionHelper(Data);
+	newOrderOnnnet.get().openServiceOrderNumber();
 
-		newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);
-		newOrderOnnnet.get().enterMandatoryDetailsInMiddleApplet(Data);
-		newOrderOnnnet.get().VoiceConfigTab(Data);
-		newOrderOnnnet.get().VoiceFeatureTab(Data);
-		newOrderOnnnet.get().NumberManagementTab(Data);
-		newOrderOnnnet.get().EnterDateInFooter(Data);
-		newOrderOnnnet.get().EnterBillingDateInFooter(Data);
-		newOrderOnnnet.get().EnterServiceChargeInFooter(Data,"2");
-		
-		newOrderOnnnet.get().SelectAttachmentTab(Data);
-		newOrderOnnnet.get().UploadDocument(Data);
-		newOrderOnnnet.get().SelectServiceGroupTab(Data);
-		newOrderOnnnet.get().OperationAttribute(Data);
-		newOrderOnnnet.get().EnterInstallationChargeInFooter(Data);
-		newOrderOnnnet.get().MandatoryFields(Data);
-		newOrderOnnnet.get().CommercialValidation(Data);
-		newOrderOnnnet.get().TechnicalValidation(Data);
-		newOrderOnnnet.get().clickOnManualValidationB();
-		newOrderOnnnet.get().DeliveryValidation(Data);
-		newOrderOnnnet.get().clickOnManualValidationA();
-	    newOrderOnnnet.get().CompletedValidation(Data);
-		if(Data[Data.length-1].toString().contains("Com"))
-		{
-			newOrderOnnnet.get().ServiceTab(Data);
-			newOrderOnnnet.get().EnterDateInFooter(Data);
-			newOrderOnnnet.get().EnterBillingDateInFooter(Data);
-			newOrderOnnnet.get().EnterServiceChargeInFooter(Data,"4");
-			newOrderOnnnet.get().CommercialValidation(Data);
-			newOrderOnnnet.get().TechnicalValidation(Data);
-			newOrderOnnnet.get().clickOnManualValidationB();
-			newOrderOnnnet.get().DeliveryValidation(Data);
-			newOrderOnnnet.get().clickOnManualValidationA();
-			newOrderOnnnet.get().EnterInstallationChargeInFooter(Data);
-			newOrderOnnnet.get().CompletedValidation(Data);
-		}
-		else if(Data[Data.length-1].toString().contains("Tech"))
-		{
-			newOrderOnnnet.get().ServiceTab(Data);
-			modHelper.get().ModTech(Data);
-			newOrderOnnnet.get().EnterDateInFooter(Data);
-			newOrderOnnnet.get().EnterBillingDateInFooter(Data);
-			newOrderOnnnet.get().EnterServiceChargeInFooter(Data,"4");
-			newOrderOnnnet.get().SelectAttachmentTab(Data);
-			newOrderOnnnet.get().UploadDocument(Data);
-			newOrderOnnnet.get().CommercialValidation(Data);
-			newOrderOnnnet.get().TechnicalValidation(Data);
-			newOrderOnnnet.get().clickOnManualValidationB();
-			newOrderOnnnet.get().DeliveryValidation(Data);
-			newOrderOnnnet.get().clickOnManualValidationA();
-			newOrderOnnnet.get().EnterInstallationChargeInFooter(Data);
-			newOrderOnnnet.get().CompletedValidation(Data);
-			
-		}
+	newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);
+	//add specifically for Wave and Ethernet Line and won't run for other products
+	newOrderOnnnet.get().addSiteADetails(Data);//added new  - updated 
+	newOrderOnnnet.get().addSiteBDetails(Data);//added new
+	newOrderOnnnet.get().ASiteCustomize(Data);//added new
+	newOrderOnnnet.get().BSiteCustomize(Data);//added new
+	//End of methods spesific for Wave and Ethernet Line ------> 
+	newOrderOnnnet.get().enterMandatoryDetailsInMiddleApplet(Data);
+	newOrderOnnnet.get().VoiceConfigTab(Data);
+	newOrderOnnnet.get().VoiceFeatureTab(Data);
+	newOrderOnnnet.get().NumberManagementTab(Data);
+	newOrderOnnnet.get().EnterDateInFooter(Data);
+	newOrderOnnnet.get().EnterBillingDateInFooter(Data);
+	newOrderOnnnet.get().EnterServiceChargeInFooter(Data,"2");
+
+	newOrderOnnnet.get().SelectAttachmentTab(Data);
+	newOrderOnnnet.get().UploadDocument(Data);
+	newOrderOnnnet.get().SelectServiceGroupTab(Data);
+	newOrderOnnnet.get().OperationAttribute(Data);
+	newOrderOnnnet.get().EnterInstallationChargeInFooter(Data);
+	newOrderOnnnet.get().MandatoryFields(Data);
+	newOrderOnnnet.get().CommercialValidation(Data);
+	newOrderOnnnet.get().TechnicalValidation(Data);
+	newOrderOnnnet.get().clickOnManualValidationB();
+	newOrderOnnnet.get().DeliveryValidation(Data);
+	newOrderOnnnet.get().clickOnManualValidationA();
+	newOrderOnnnet.get().getReferenceNo(Data);//added new
+	newOrderOnnnet.get().CompletedValidation(Data);
+
+	if(Data[Data.length-1].toString().contains("Carnor"))
+	{
+	newOrderOnnnet.get().ServiceTab(Data);
+	newOrderOnnnet.get().installationTimeUpdate(Data); // added by shivananda for carnor scenario
+	newOrderOnnnet.get().EnterDateInFooter(Data);
+	newOrderOnnnet.get().EnterBillingDateInFooter(Data);
+	newOrderOnnnet.get().EnterServiceChargeInFooter(Data,"4");
+	newOrderOnnnet.get().CommercialValidation(Data);
+
+	newOrderOnnnet.get().Carnor(Data);
+	newOrderOnnnet.get().EnterInstallationChargeInFooter(Data);
+	newOrderOnnnet.get().TechnicalValidation(Data);
+	newOrderOnnnet.get().clickOnManualValidationB();
+	newOrderOnnnet.get().DeliveryValidation(Data);
+	newOrderOnnnet.get().clickOnManualValidationA();
+	newOrderOnnnet.get().getReferenceNo(Data);//added new
+	newOrderOnnnet.get().CompletedValidation(Data);
+	}
+	if(Data[Data.length-1].toString().contains("Com"))
+	{
+	newOrderOnnnet.get().ServiceTab(Data);
+	newOrderOnnnet.get().EnterDateInFooter(Data);
+	newOrderOnnnet.get().EnterBillingDateInFooter(Data);
+	newOrderOnnnet.get().EnterServiceChargeInFooter(Data,"4");
+	newOrderOnnnet.get().CommercialValidation(Data);
+	newOrderOnnnet.get().getReferenceNo(Data);//added new
+	newOrderOnnnet.get().CompletedValidation(Data);//updated
+	}
+	else if(Data[Data.length-1].toString().contains("Tech"))
+	{
+	newOrderOnnnet.get().ServiceTab(Data);
+	modHelper.get().ModTech(Data);
+	newOrderOnnnet.get().EnterDateInFooter(Data);
+	newOrderOnnnet.get().EnterBillingDateInFooter(Data);
+	newOrderOnnnet.get().EnterServiceChargeInFooter(Data,"4");
+	newOrderOnnnet.get().SelectAttachmentTab(Data);
+	newOrderOnnnet.get().UploadDocument(Data);
+	newOrderOnnnet.get().CommercialValidation(Data);
+	newOrderOnnnet.get().TechnicalValidation(Data); //updated
+	newOrderOnnnet.get().clickOnManualValidationB();
+	newOrderOnnnet.get().DeliveryValidation(Data);
+	newOrderOnnnet.get().clickOnManualValidationA();
+	newOrderOnnnet.get().EnterInstallationChargeInFooter(Data);
+	newOrderOnnnet.get().CompletedValidation(Data);//updated
+
+	}
 	}
 	@Test(dataProviderClass=DataReader.class,dataProvider="OmpDatereader")
 	public void OMPGenric (Object[] Data) throws Exception

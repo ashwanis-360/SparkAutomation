@@ -3731,7 +3731,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		waitforPagetobeenable();
 		savePage();
 		Thread.sleep(5000);
-		if (isElementPresent((xml.getlocator("//locators/AlertAccept")))) {
+		if (isDisplayed((xml.getlocator("//locators/AlertAccept")))) {
 			WaitforElementtobeclickable((xml.getlocator("//locators/AlertAccept")));
 			Clickon(getwebelement(xml.getlocator("//locators/AlertAccept")));
 		}
@@ -3836,7 +3836,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		Thread.sleep(10000);
 		savePage();
 		Thread.sleep(10000);
-		if (isElementPresent(xml.getlocator("//locators/AlertAccept"))) {
+		if (isDisplayed(xml.getlocator("//locators/AlertAccept"))) {
 			System.out.println("");
 			System.out.println("Alert Present");
 			WaitforElementtobeclickable((xml.getlocator("//locators/AlertAccept")));
@@ -6552,4 +6552,128 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		ExtentTestManager.getTest().log(LogStatus.PASS," Step: Select NAT Range Required : Private " /* + InputData[154].toString()*/);
 		waitforPagetobeenable();
     }
+   
+    /*
+    * created by : Shivananda Rai
+    * Date : 14/09/2019
+    * purpose : in order to create car-nor order we should update install time on modify car-nor order 
+    * based on product please update the code in case 
+    * checked
+    */
+    public void installationTimeUpdate(Object[] Inputdata) throws Exception
+    {
+    switch(Inputdata[8].toString())
+    {
+    case "Ethernet Line":
+    {
+    Clickon(getwebelement(xml3.getlocator("//locators/CustomizeButton")));
+    Thread.sleep(30000);
+    ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Clicked on Customize button");
+    Thread.sleep(5000);
+    safeJavaScriptClick(getwebelement(xml3.getlocator("//locators/Connectionlink")));
+    ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Ethernet Connection link");
+    Thread.sleep(10000);
+    safeJavaScriptClick(getwebelement(xml3.getlocator("//locators/AendSiteLink")));
+    ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Aend Site link");
+    Thread.sleep(10000);
+    Clickon(getwebelement(xml3.getlocator("//locators/InstallationTimeLink")));
+    ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Installation Time link");
+    SendKeys(getwebelement(xml3.getlocator("//locators/InstallTime")),Inputdata[95].toString());
+    ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Update the Installation time");
+    safeJavaScriptClick(getwebelement(xml3.getlocator("//locators/Connectionlink")));
+    ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Ethernet Connection link");
+    Thread.sleep(10000);
+    safeJavaScriptClick(getwebelement(xml3.getlocator("//locators/BendSiteLink")));
+    ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Aend Site link");
+    Thread.sleep(10000);
+    Clickon(getwebelement(xml3.getlocator("//locators/InstallationTimeLink")));
+    ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Installation Time link");
+    SendKeys(getwebelement(xml3.getlocator("//locators/InstallTime")),Inputdata[112].toString());
+    ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Update Installation time");
+    Thread.sleep(10000);
+    savePage();
+    Clickon(getwebelement(xml3.getlocator("//locators/DoneEthernetConnection")));
+    ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Done Ethernet Connection");
+    Thread.sleep(60000);
+    break;
+    }
+    case "Wave": {
+    Clickon(getwebelement(xml3.getlocator("//locators/CustomizeButton")));
+    Thread.sleep(30000);
+    safeJavaScriptClick(getwebelement(xml3.getlocator("//locators/Connectionlink")));
+    ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Ethernet Connection link");
+    Thread.sleep(10000);
+    safeJavaScriptClick(getwebelement(xml3.getlocator("//locators/AendSiteLink")));
+    ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Aend Site link");
+    Thread.sleep(10000);
+    Clickon(getwebelement(xml3.getlocator("//locators/InstallationTimeLink")));
+    ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Installation Time link");
+    SendKeys(getwebelement(xml3.getlocator("//locators/InstallTime")),Inputdata[95].toString());
+    ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Update the Installation time");
+    safeJavaScriptClick(getwebelement(xml3.getlocator("//locators/Connectionlink")));
+    ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Ethernet Connection link");
+    Thread.sleep(10000);
+    safeJavaScriptClick(getwebelement(xml3.getlocator("//locators/BendSiteLink")));
+    ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Aend Site link");
+    Thread.sleep(10000);
+    Clickon(getwebelement(xml3.getlocator("//locators/InstallationTimeLink")));
+    ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Installation Time link");
+    SendKeys(getwebelement(xml3.getlocator("//locators/InstallTime")),Inputdata[112].toString());
+    ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Update Installation time");
+    Thread.sleep(10000);
+    savePage();
+    Clickon(getwebelement(xml3.getlocator("//locators/DoneEthernetConnection")));
+    ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Done Ethernet Connection");
+    Thread.sleep(60000);
+    break;
+    }
+    default:
+    {
+    break;
+    }
+    }
+  }
+    //Added by Rekha
+    public void Carnor(Object[] Inputdata) throws Exception
+    {
+    WaitforElementtobeclickable(xml.getlocator("//locators/CarReason"));
+    Clickon(getwebelement(xml.getlocator("//locators/CarReason")));
+    ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on cease reason field");
+    SendKeys(getwebelement(xml.getlocator("//locators/CarReason")), "Access Line Change");
+    SendkeaboardKeys(getwebelement(xml.getlocator("//locators/CarReason")), Keys.TAB);
+    Thread.sleep(10000);
+    Clickon(getwebelement(xml.getlocator("//locators/CarNorRunFlag")));
+    Thread.sleep(5000);
+    Clickon(getwebelement(xml.getlocator("//locators/CarNorRunFlagValue")));
+    ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Entered carnorFlag Value");
+    Thread.sleep(10000);
+    WaitforElementtobeclickable(xml.getlocator("//locators/ExistingCapacityLeadTimePrimary"));
+    SendKeys(getwebelement(xml.getlocator("//locators/ExistingCapacityLeadTimePrimary")),Inputdata[12].toString());
+    ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Existing Capacity Lead Time Primary");
+    SendkeaboardKeys(getwebelement(xml.getlocator("//locators/ExistingCapacityLeadTimePrimary")), Keys.ENTER);
+    SendkeaboardKeys(getwebelement(xml.getlocator("//locators/ExistingCapacityLeadTimePrimary")), Keys.TAB);
+    waitforPagetobeenable();
+    savePage();
+    Thread.sleep(10000);
+    Clickon(getwebelement(xml.getlocator("//locators/CarNorButton")));
+    Thread.sleep(5000);
+    Thread.sleep(20000);
+    SendkeaboardKeys(getwebelement(xml.getlocator("//locators/ExistingCapacityLeadTimePrimary")), Keys.F5);
+    waitforPagetobeenable();
+    savePage();
+
+    //below lines of code will work based on  product / please update the as per your product
+    if(Inputdata[8].toString().equalsIgnoreCase("Wave") || Inputdata[8].toString().equalsIgnoreCase("Ethernet Line")) {
+    CarNorOrderNumber.set(Getattribute(getwebelement(xml.getlocator("//locators/carnorOrderReferencevalue")), "title"));
+    ExtentTestManager.getTest().log(LogStatus.PASS,
+    " Step: Generated Service Order Reference No: " + CarNorOrderNumber.get());
+    Log.info("Carnor order No:"+CarNorOrderNumber.get());
+    }
+     if(Inputdata[8].toString().equalsIgnoreCase("Ethernet VPN Access"))
+     {
+     CarNorOrderNumber.set(Gettext(getwebelement(xml.getlocator("//locators/Carnororder"))));
+     ExtentTestManager.getTest().log(LogStatus.PASS,
+       " Step: Generated Cornor Order Number: " + CarNorOrderNumber.get());
+     }  
+      }
 }
