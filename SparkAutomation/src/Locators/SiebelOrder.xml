@@ -1178,5 +1178,90 @@
 
 
 <SIPCeaseButton>(.//*[normalize-space(text()) and normalize-space(.)='Modify Data'])[1]/preceding::span[2]</SIPCeaseButton>
-  
+ <!-- Start Devesh Locators -->
+<R4>
+
+<PickAccountField>//div[contains(@style,'block')]//input[@aria-labelledby='PopupQueryCombobox_Label']</PickAccountField>
+
+<PickAccountDropdown>//div[contains(@style,'block')]//input[@aria-labelledby='PopupQueryCombobox_Label']/following-sibling::span</PickAccountDropdown>
+
+<PickAccountValue>//div[contains(@style,'block')]//input[@aria-labelledby='PopupQuerySrchspec_Label']</PickAccountValue>
+
+<PickAccountGo>(//div[contains(@style,'block')]//button[@title='Pick Account:Go'])[2]</PickAccountGo>
+
+<PickAccountOk>//div[contains(@style,'block')]//button[@title='Pick Account:OK']</PickAccountOk>
+
+<PickContactGo>(//div[contains(@style,'block')]//button[@title='Pick Contact:Go'])[2]</PickContactGo>
+
+<PickContactOk>//div[contains(@style,'block')]//button[@title='Pick Contact:OK']</PickContactOk>
+
+<SiteADropdownClick>//div[@id='colt-site-left']//span[text()='Value']/following-sibling::span</SiteADropdownClick>
+
+<SiteABSelection>//ul[contains(@style,'block')]//li[text()='Value']</SiteABSelection>
+
+<SiteBDropdownClick>//div[@id='colt-site-right']//span[text()='Value']/following-sibling::span</SiteBDropdownClick>
+
+<SiteAInput>//div[@id='colt-site-left']//span[text()='Value']/parent::div/input</SiteAInput>
+
+<SiteBInput>//div[@id='colt-site-right']//span[text()='Value']/parent::div/input</SiteBInput>
+
+<ShowFullinfo>//a[text()='Click to Show Full info']</ShowFullinfo>
+
+<PopDropdownClick>//div[contains(@style,'block')]//span[text()='Value']/following-sibling::span</PopDropdownClick>
+
+<PopInput>//div[contains(@style,'block')]//span[text()='Value']/parent::div/input</PopInput>
+
+<PopClose>//div[contains(@style,'block')]//button[@title='Close']</PopClose>
+
+<Save>//div[@id='colt-s-order-connection-header']//a[text()='Save']</Save>
+
+<LeftSiteSearch>//div[@id='colt-site-left']//span[@title='Select a site']</LeftSiteSearch>
+
+<RightSiteSearch>//div[@id='colt-site-right']//span[@title='Select a site']</RightSiteSearch>
+
+<SearchInput>//span[text()='Value']/parent::div/input</SearchInput>
+
+<SearchDropdown>//span[text()='Value']/following-sibling::span</SearchDropdown>
+
+<SearchButton>//button[@class='colt-siteselection-button colt-primary-btn']</SearchButton>
+
+<SearchAddressRowSelection>//div[@id='colt-site-selection-popup-content']//tr[@class='colt-siteselection-datarow'][1]</SearchAddressRowSelection>
+
+<BuildingRowSelection>//table[@id='colt-siteselection-result-table']//tr[1]</BuildingRowSelection>
+
+<PickAddress>//button[text()='Pick Address']</PickAddress>
+
+<PickBuilding>//button[text()='Pick Building']</PickBuilding>
+
+<PickSite>//button[text()='Pick Site']</PickSite>
+
+<GetReference>//button[text()='Get Reference']</GetReference>
+
+</R4>
+<!-- Start Devesh Locators -->
+<!-- Start Aman Locators -->
+<DarkFiber>
+
+<MiddleDropDown>//span[text()='Value']/parent::*/span[2]</MiddleDropDown>
+
+<MiddleLi>//ul[contains(@style,'block')]//li[text()='Value']</MiddleLi>
+
+<SaveButton>//div/a[text()='Save']</SaveButton>
+
+<AEndSiteDropDown>//div[@id='colt-site-left']//span[text()='Value']/following-sibling::span</AEndSiteDropDown>
+
+<AEndSiteInput>(//span[text()='Value']/parent::div/input)[1]</AEndSiteInput>
+
+<AList>//ul[contains(@style,'block')]//li[text()='Value']</AList>
+
+<SelectSiteSearchAccess>//span[text()='Select a site:']//span</SelectSiteSearchAccess>
+
+<BEndSiteDropDown>//div[@id="colt-site-right"]//span[text()='Value']/following-sibling::span</BEndSiteDropDown>
+
+<BEndSiteInput>(//span[text()='Value']/parent::div/input)[2]</BEndSiteInput>
+
+<BList>//ul[contains(@style,'block')]//li[text()='Value']</BList>
+
+</DarkFiber> 
+ <!-- Start Aman Locators -->
   </locators>
