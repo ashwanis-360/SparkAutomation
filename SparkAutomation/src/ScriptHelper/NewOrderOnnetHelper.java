@@ -5338,71 +5338,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 
 	}
 
-	/* Added by Abhay for IPVPNService */
-	public void IPVPNService(Object[] inputData) throws Exception {
-		String[] x = inputData[11].toString().split("/");
-		if (x[0].contains("IP VPN Plus") || x[1].contains("IP VPN Access")) {
-			WaitforElementtobeclickable(
-					xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Service Type"));
-			Clickon(getwebelement(
-					xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Service Type")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on service type dropdown");
-
-			Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value",
-					inputData[27].toString())));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step:Select value from service type dropdown");
-
-			WaitforElementtobeclickable(
-					xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Network Topology"));
-			Clickon(getwebelement(
-					xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Service Type")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Network Topology Dropdown");
-
-			Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value",
-					inputData[27].toString())));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step:Select value from network topology");
-
-			WaitforElementtobeclickable(
-					xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Contains Wholesale NNIs"));
-			Clear(getwebelement(
-					xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Contains Wholesale NNIs")));
-			ExtentTestManager.getTest().log(LogStatus.PASS,
-					" Step: Clear service type value from contains NNIs wholesale field");
-
-			SendKeys(getwebelement(
-					xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Contains Wholesale NNIs")),
-					"No");
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter value in contains NNIs wholesale");
-
-			WaitforElementtobeclickable(xml.getlocator("//locators/IPVPNSite/IpGurdianSave"));
-			Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/IpGurdianSave")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on save button");
-			waitForpageload();
-			waitforPagetobeenable();
-			// ************************Sub vpn configuration**********************//
-
-			SendKeys(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value", "Customer Alias")),
-					"Abhay");
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step:Enter value in customer alias");
-			Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value",
-					"IP Addressing Format")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step:Click on dropdown IP Addressing format");
-
-			Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value",
-					inputData[28].toString())));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select value from IP Addressing format dropdown");
-
-			WaitforElementtobeclickable(xml.getlocator("//locators/IPVPNService/IpGurdianSave"));
-			Clickon(getwebelement(xml.getlocator("//locators/IPVPNService/IpGurdianSave")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on save button");
-			waitForpageload();
-			waitforPagetobeenable();
-		} else if (x[2].equals("IP VPN Wholesale")) {
-
-		}
-		NetworkReferenceIPVPN.set(GetText(getwebelement(xml.getlocator("//locators/NetworkReference"))));
-
-	}
+	
+	
 
 	public void serviceGroupReference() throws Exception {
 
@@ -6718,4 +6655,103 @@ public class NewOrderOnnetHelper extends DriverHelper {
        " Step: Generated Cornor Order Number: " + CarNorOrderNumber.get());
      }  
       }
+    //Created by Abhay
+    public void IPVPNServicePlusAccess(Object[] Inputdata) throws Exception 
+    {
+    WaitforElementtobeclickable(xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Service Type"));
+    Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Service Type")));
+    ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on service type dropdown");
+
+
+    Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[11].toString())));
+    ExtentTestManager.getTest().log(LogStatus.PASS, " Step:Select value from service type dropdown");
+
+    WaitforElementtobeclickable((xml.getlocator("//locators/IPVPNSite/ClickheretoSaveAccess")));
+    Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickheretoSaveAccess")));
+    ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on save"); 
+    waitforPagetobeenable();
+
+    SendKeys(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value","Customer Alias")), "Abhay");
+    ExtentTestManager.getTest().log(LogStatus.PASS, " Step:Enter value in customer alias");
+    Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "IP Addressing Format")));
+    ExtentTestManager.getTest().log(LogStatus.PASS, " Step:Click on dropdown IP Addressing format");
+
+    Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[28].toString())));
+    ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select value from IP Addressing format dropdown");
+
+    WaitforElementtobeclickable((xml.getlocator("//locators/IPVPNSite/ClickheretoSaveAccess")));
+    Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickheretoSaveAccess")));
+    ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on save"); 
+    waitforPagetobeenable();
+    Thread.sleep(4000);
+
+
+    }
+    //Created by Abhay
+    public void IPVPNServicePlusAccess1(Object[] Inputdata) throws Exception 
+    {
+
+    WaitforElementtobeclickable(xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Network Topology"));
+    Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Service Type")));
+    ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Network Topology Dropdown");
+
+    Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[27].toString())));
+    ExtentTestManager.getTest().log(LogStatus.PASS, " Step:Select value from network topology");
+
+    WaitforElementtobeclickable(xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Contains Wholesale NNIs"));
+    Clear(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Contains Wholesale NNIs")));
+    ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Clear service type value from contains NNIs wholesale field");
+
+    SendKeys(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Contains Wholesale NNIs")), "No");
+    ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter value in contains NNIs wholesale");
+
+    WaitforElementtobeclickable((xml.getlocator("//locators/IPVPNSite/ClickheretoSaveAccess")));
+    Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickheretoSaveAccess")));
+    ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on save"); 
+    waitforPagetobeenable();
+    Thread.sleep(4000);
+
+
+    }
+    //************************Sub vpn configuration**********************//
+    // Created By: Abhay
+
+    public void IPVPNServiceNetworkReference(Object[] inputData) throws Exception
+    {
+
+    System.out.println(xml.getlocator("//locators/IPVPNSite/NetworkReference"));
+    Thread.sleep(5000);
+
+
+    String NetworkReference=null;
+    String NetworkReference2 = null;
+    try 
+    {
+    NetworkReference =getwebelement2(xml.getlocator("//locators/IPVPNSite/NetworkReference")).getAttribute("value") ;
+    System.out.println("try block using value"+NetworkReference);
+    }
+    catch (Exception e)
+    {
+    System.out.println("Catch block using value"+NetworkReference);
+    e.printStackTrace();
+
+    }
+    try {
+    NetworkReference2 =getwebelement2(xml.getlocator("//locators/IPVPNSite/NetworkReference")).getAttribute("innerHTML");
+    System.out.println("try using inner html"+NetworkReference2); 
+    }
+    catch (Exception e)
+    {
+    e.printStackTrace();
+    System.out.println("Catch using inner html"+NetworkReference2);
+    }
+
+
+
+    System.out.println(NetworkReference);
+    NetworkReferenceIPVPN.set(NetworkReference);
+    System.out.println("Final Value"+NetworkReferenceIPVPN.get().toString());
+
+    }
+    
 }
