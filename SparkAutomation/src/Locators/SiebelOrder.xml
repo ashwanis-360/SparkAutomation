@@ -1151,12 +1151,12 @@
   <IPVPNSite>
   <ClickDropdown>(//span[text()='Value']/parent::*/span)[2]</ClickDropdown>
   <SearchInput>(//span[text()='Value']/parent::*/span)[2]</SearchInput>
-  <SelectValueDropdown>//li[text()='Value']</SelectValueDropdown>
+  <SelectValueDropdown>//ul[contains(@style,'block')]//li[text()='Value']</SelectValueDropdown>
   <TextInput>//span[text()='Value']/parent::*//input</TextInput>
   <ClickLink>//a[text()='Value']</ClickLink>
   <IPDetailsPlus>//span[contains(@class,'fa-plus-square-o')]</IPDetailsPlus>
   <SubVPNID>//span[@id='Sub VPN ID']</SubVPNID>
-  <NetworkReferenceInput>//input[@aria-labelledby="PopupQuerySrchspec_Label"]</NetworkReferenceInput>
+  <NetworkReferenceInput>//input[@aria-labelledby="COLT_Network_Reference_Label"]</NetworkReferenceInput>
   <NetworkReferenceSearchin>(//button[@title="Pick Network Reference:Go"])[2]</NetworkReferenceSearchin>
   <NetworkReferenceGo>//button[@aria-label="Pick Network Reference:OK"]</NetworkReferenceGo>
   <IpGurdianSave>//a[@class="colt-primary-btn colt-s-order-save-btn"]</IpGurdianSave>
@@ -1164,8 +1164,6 @@
   <SelectSubVPNList>//td[@id='Sub VPN ID']</SelectSubVPNList>
   <SubmitSubVPNList>//i[contains(@class,'fa-OK')]</SubmitSubVPNList>
   <NetworkReference>//input[@aria-labelledby='COLT_Network_Reference_Label']</NetworkReference>
-  
-     
   </IPVPNSite>
  <!--   Abhay locator End -->
 

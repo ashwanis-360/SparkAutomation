@@ -258,6 +258,18 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Network reference from New Hub");
 
 		}
+		else if(Inputdata[8].toString().equals("IP VPN Site"))
+		{
+			WaitforElementtobeclickable(xml.getlocator("//locators/NetworkReferenceSearch"));
+			Clickon(getwebelement(xml.getlocator("//locators/NetworkReferenceSearch")));
+			SendKeys(getwebelement(xml.getlocator("//locators/IPVPNSite/NetworkReferenceInput")),NetworkReferenceIPVPN.get().toString());
+			Thread.sleep(2000);
+			Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/NetworkReferenceSearchin")));
+			waitforPagetobeenable();
+			Thread.sleep(3000);
+			Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/NetworkReferenceGo")));
+			Thread.sleep(3000);
+		}
 		if (!Inputdata[8].toString().equals("Cloud Unified Communications")
 				&& !Inputdata[8].toString().equals("IP Voice Solutions")
 				&& !Inputdata[8].toString().equals("Professional Services")
@@ -3445,6 +3457,23 @@ public class NewOrderOnnetHelper extends DriverHelper {
 
 			break;
 		}
+		case "IP VPN Service": {
+			if(Inputdata[11].toString().equalsIgnoreCase("IP VPN Plus")||Inputdata[11].toString().equalsIgnoreCase("IP VPN Access"))
+			{
+			IPVPNServicePlusAccess(Inputdata);
+			IPVPNServicePlusAccess1(Inputdata);
+			IPVPNServiceNetworkReference(Inputdata);
+			}
+			else if(Inputdata[11].toString().equalsIgnoreCase("IP VPN Wholesale"))
+			{
+			IPVPNServicePlusAccess(Inputdata);
+			IPVPNServiceNetworkReference(Inputdata);
+			}
+
+			break;
+			}
+
+
 
 		default:
 			System.out.println("Above product is not exist in current list");
