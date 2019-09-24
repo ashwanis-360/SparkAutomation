@@ -104,7 +104,7 @@ public class DriverHelper {
 	{
 		driver=dr;
 		wait = new FluentWait<WebDriver>(driver) 
-				.withTimeout(120, TimeUnit.SECONDS)    
+				.withTimeout(180, TimeUnit.SECONDS)    //as per Ayush
 				.pollingEvery(20, TimeUnit.SECONDS)    
 		.ignoring(NoSuchElementException.class)
 				.ignoring(StaleElementReferenceException.class);
@@ -840,7 +840,7 @@ public void Clickonoutofviewportwithstring(String locator) throws Exception {
 	public void clickUsingAction(WebElement el)
 	{
 		Actions act=new Actions(driver);
-		act.moveToElement(el).click().build().perform();
+		act.moveToElement(el).click(el).build().perform();//as per Ayush
 	}
 	
 	public void waitforPagetobeenable() throws InterruptedException
