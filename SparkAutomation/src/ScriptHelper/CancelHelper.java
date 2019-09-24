@@ -54,7 +54,7 @@ public class CancelHelper extends DriverHelper{
 	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Clcik on Order Status dropdown");
 
 
-	Moveon(getwebelement(xml.getlocator("//locators/OrderStatusAbandoned"))); //these do all move and click//
+	clickUsingAction(getwebelement(xml.getlocator("//locators/OrderStatusAbandoned"))); //these do all move and click//
 	waitforPagetobeenable();
 	System.out.println("1st page enable of order status abandon");
 	waitForpageload();
