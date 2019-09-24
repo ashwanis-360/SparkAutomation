@@ -3871,10 +3871,21 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			WaitforElementtobeclickable((xml.getlocator("//locators/AlertAccept")));
 			Clickon(getwebelement(xml.getlocator("//locators/AlertAccept")));
 		}
+		
 		// Pagerefresh();
-		// Thread.sleep(5000);
-
-		System.out.println("Order complete");
+		 Thread.sleep(5000);
+		//=======================Added by Rekha ==================== difft pop up was arriving for Ethernet VPN Access=====================
+			if(isElementPresent(xml.getlocator("//locators/SubnetworkPopUP")))
+			{
+			System.out.println("");
+			System.out.println("Alert Present");
+			WaitforElementtobeclickable((xml.getlocator("//locators/SubnetworkPopUP")));
+			Clickon(getwebelement(xml.getlocator("//locators/SubnetworkPopUP")));
+			}
+		//============================================================================================================
+			System.out.println("Order complete");
+			Thread.sleep(5000);
+		
 
 	}
 
@@ -3906,6 +3917,12 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderGo")));
 		waitforPagetobeenable();
 		Thread.sleep(6000);
+		//================= added Rekha=======Need Modification as endless loop
+		do {
+			Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderGo")));
+			Thread.sleep(20000);
+			} while (!isElementPresent("//*[text()='COMPLETE']"));
+		//------------end of Rekha code============
 		Clickon(getwebelement(xml.getlocator("//locators/ModifyButtonClick")));
 		waitforPagetobeenable();
 		Thread.sleep(3000);
@@ -3926,7 +3943,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Add Order Sub Type");
 		// ---> Condition need to be added for mod com and mod tech
 
-		if (Inputdata[Inputdata.length - 1].toString().contains("Com")) // Added by Dipesh
+		if (Inputdata[Inputdata.length - 1].toString().contains("Com")|| Inputdata[Inputdata.length - 1].toString().contains("Cornor") ) // Added by Dipesh
 		{
 			SendKeys(getwebelement(xml.getlocator("//locators/InputOrderSubType")), "BCN Change");// Specific for mod
 																									// com
@@ -4636,6 +4653,25 @@ public class NewOrderOnnetHelper extends DriverHelper {
 					" Step: Reference Input No: " + Circuitreferencenumber.get());
 			Log.info("Reference Input value: " + Circuitreferencenumber.get());
 		}
+		//===================== Rekha==================
+				if(Inputdata[8].toString().equalsIgnoreCase("Ethernet VPN Access"))
+				{
+				WaitforElementtobeclickable((xml.getlocator("//locators/CircuitReferenceAccess")));
+				Clickon(getwebelement(xml.getlocator("//locators/CircuitReferenceAccess")));
+				Thread.sleep(25000);
+
+				savePage();
+				waitforPagetobeenable();
+				Thread.sleep(8000);
+
+				Circuitreferencenumber.set(Gettext(getwebelement(xml.getlocator("//locators/CircuitReferenceValue']"))));
+				ExtentTestManager.getTest().log(LogStatus.PASS,
+				" Step: Generated Service Order Reference No: " + Circuitreferencenumber.get());
+
+
+
+				}
+
 	}
 
 	/*
