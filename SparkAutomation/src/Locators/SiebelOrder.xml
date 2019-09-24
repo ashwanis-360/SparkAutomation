@@ -476,6 +476,21 @@
 <ClickLink>//a[text()='Value']</ClickLink>
 <ClickDropdown>(//span[text()='Value']/parent::*//span)[3]</ClickDropdown>
  <SelectValueDropdown>(//li[text()='Value'])</SelectValueDropdown>
+ <BillingEndDate>//input[@aria-labelledby='COLTBillingEndDate_Label']</BillingEndDate>//newly added by ayush
+<ServiceOrderSearchForAll>//input[@aria-label='Starting with']</ServiceOrderSearchForAll> // added by Ayush
+
+<SaveEthernetAccess>//div[@id='colt-s-order-connection-header']//a[text()='Save']</SaveEthernetAccess> // added by Ayush
+<ServiceTypeEthernetAccess>(//span[text()='Service Type'])[2]/following-sibling::span</ServiceTypeEthernetAccess>
+  <PickAccountValue>//div[contains(@style,'block')]//input[@aria-labelledby='PopupQuerySrchspec_Label']</PickAccountValue>
+  <PickAccountGo>(//div[contains(@style,'block')]//button[@title='Pick Account:Go'])[2]</PickAccountGo>
+  <PickContactOk>//div[contains(@style,'block')]//button[@title='Pick Contact:OK']</PickContactOk>
+  <PickContactGo>(//div[contains(@style,'block')]//button[@title='Pick Contact:Go'])[2]</PickContactGo>
+  <PickAccountDropdown>//div[contains(@style,'block')]//input[@aria-labelledby='PopupQueryCombobox_Label']/following-sibling::span</PickAccountDropdown>
+   <NetworkTopology>//span[text()='Topology']/..//input</NetworkTopology>
+   <CircuitReference>//span[text()='Circuit Reference']/..//input</CircuitReference>
+   <ClickDropdown>//span[text()='Value']/following-sibling::span</ClickDropdown>
+   <SettingsButton>//div[@id='colt-s-order-connection-header-btns']//span</SettingsButton> //ethernet access
+   <AttributeValueEthernetAccess>//td[text()='NC Technical Service Id']/..//td/following-sibling::td/following-sibling::td/input</AttributeValueEthernetAccess>
  
 ********************VOICE CALL ADMISSION CONTROL****************
 <CallAdmissionControl>(//span[text()='Call Admission Control'])[3]</CallAdmissionControl>
@@ -734,7 +749,7 @@
 <FileUpload>//input[@name='s_SweFileName' and @title='Attachments:New File']</FileUpload>
 <DocumentTypeDropdown>//div[@id='s_S_A3_div']//table[@class='ui-jqgrid-btable']//tr//td//span[@class='siebui-icon-dropdown']</DocumentTypeDropdown>
 <DownArrow>//span[@class='siebui-icon-dropdown']</DownArrow>
-<DoucmentTypeSelection>//ul[contains(@style,'block')]//li[text()='SOW']</DoucmentTypeSelection>
+<DoucmentTypeSelection>//ul[contains(@style,'block')]//li[text()='Filetype']</DoucmentTypeSelection>
 <DocumentTypeCallBaringForm>//ul[contains(@style,'block')]//li[text()='Call Barring Form']</DocumentTypeCallBaringForm>
 <DocumentTypeDisaster>//ul[contains(@style,'block')]//li[text()='Disaster Recovery Documents']</DocumentTypeDisaster>
 <DocumnetTypeOther>//div[@id='s_S_A3_div']//table[@class='ui-jqgrid-btable']//tr//td[text()='Other']</DocumnetTypeOther>
@@ -1485,7 +1500,7 @@
 <BEndSiteInput>(//span[text()='Value']/parent::div/input)[2]</BEndSiteInput>
 
 <BList>//ul[contains(@style,'block')]//li[text()='Value']</BList>
-
+<ServicePartyA>(//span[text()='Value'])[1]/parent::div/span[2]</ServicePartyA>
 </DarkFiber> 
  <!-- Start Aman Locators -->
   </locators>
