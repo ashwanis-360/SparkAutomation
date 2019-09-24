@@ -36,8 +36,16 @@ public class NewOrderOnnetHelper extends DriverHelper {
 
 	public void accountTabDetails(Object[] Inputdata) throws Exception {
 
-		// Thread.sleep(10000);
+		Thread.sleep(8000);
+		System.out.println("Page to be refresed");
+
+		do {
+			Pagerefresh();
+			System.out.println("Page to be refresed");
+			Thread.sleep(20000);
+		} while (!isElementPresent("//a[text()='My Orders']"));
 		waitforPagetobeenable();
+		Thread.sleep(10000);
 		try {
 			Clickon(getwebelement(xml.getlocator("//locators/Accounts")));
 		} catch (Exception e) {
