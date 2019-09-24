@@ -25,7 +25,8 @@ public class CeasHelper extends DriverHelper{
 	}
 	public void Cease(Object[] InputData) throws Exception
 	{
-	Thread.sleep(5000);
+	Thread.sleep(8000);
+	Pagerefresh();
 	try {
 	WaitforElementtobeclickable(xml.getlocator("//locators/ServiceTab"));
 	Clickon(getwebelement(xml.getlocator("//locators/ServiceTab")));
@@ -39,12 +40,13 @@ public class CeasHelper extends DriverHelper{
 	e1.printStackTrace();
 	}
 	}
+	Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderSearchForAll")));
+	System.out.println("click service order search field");
+	SendKeys(getwebelement(xml.getlocator("//locators/ServiceOrderSearchForAll")),ServiceOrder.get().toString());
+	System.out.println("enter data order search field");
 	
-	SendKeys(getwebelement(xml.getlocator("//locators/ServiceOrderSearch")),ServiceOrder.get());
-	Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderArrow")));
-	
-	for (int i=0;i<8;i++) {
-		Thread.sleep(1200000);
+	for (int i=0;i<6;i++) {
+		Thread.sleep(120000);
 		Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderArrow")));
 	}
 	
@@ -118,7 +120,7 @@ public class CeasHelper extends DriverHelper{
 	System.out.println("BILLING TAB");
 	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Billing");
 
-	SendKeys(getwebelement(xml.getlocator("//locators/BillingEndDate")), "24/9/2019");
+	SendKeys(getwebelement(xml.getlocator("//locators/BillingEndDate")), "30/9/2019");
 	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Contract Term"); 
 	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Contract Term"); 
 	SendkeaboardKeys(getwebelement(xml.getlocator("//locators/BillingEndDate")), Keys.TAB);
