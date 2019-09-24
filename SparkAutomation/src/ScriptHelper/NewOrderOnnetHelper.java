@@ -1960,11 +1960,12 @@ public class NewOrderOnnetHelper extends DriverHelper {
 
 			WaitforElementtobeclickable(xml.getlocator("//locators/VoiceServiceCountryDropdownAccess"));
 			Clickon(getwebelement(xml.getlocator("//locators/VoiceServiceCountryDropdownAccess")));
-			WaitforElementtobeclickable(xml.getlocator("//locators/VoiceServiceCountry"));
-			Clickon(getwebelement(xml.getlocator("//locators/VoiceServiceCountry")));
+			WaitforElementtobeclickable(xml.getlocator("//locators/VoiceServiceInputValue"));
+			Clickon(getwebelement(xml.getlocator("//locators/VoiceServiceInputValue")));
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Voice Service Country");
 			Thread.sleep(5000);
-
+			
+				
 			WaitforElementtobeclickable(xml.getlocator("//locators/EgressNumberFormatDropDownAccess"));
 			Clickon(getwebelement(xml.getlocator("//locators/EgressNumberFormatDropDownAccess")));
 			WaitforElementtobeclickable(xml.getlocator("//locators/EgreeNUmberFormat"));
@@ -1984,6 +1985,15 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			SendkeaboardKeys(getwebelement(xml.getlocator("//locators/TotalDDi")), Keys.ENTER);
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Total DDI");
 			Thread.sleep(5000);
+			
+			
+			WaitforElementtobeclickable(xml.getlocator("//locators/CustomerdefaultNumber"));
+			Clickon(getwebelement(xml.getlocator("//locators/CustomerdefaultNumber")));
+			Clear(getwebelement(xml.getlocator("//locators/CustomerdefaultNumber")));
+			SendKeys(getwebelement(xml.getlocator("//locators/CustomerdefaultNumber")), "1234");
+			SendkeaboardKeys(getwebelement(xml.getlocator("//locators/CustomerdefaultNumber")), Keys.ENTER);
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on CustomerdefaultNumber");
+			Thread.sleep(5000);
 
 			WaitforElementtobeclickable((xml.getlocator("//locators/ClickheretoSaveAccess")));
 			// WaitforElementtobeclickable(xml.getlocator("//locators/IpGurdianSave"));
@@ -1997,7 +2007,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			Clickon(getwebelement(xml.getlocator("//locators/SiteContactlookup")));
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Site Contact Search");
 			Thread.sleep(5000);
-			Clickon(getwebelement(xml.getlocator("//locators/SiteContact")));
+			Clickon(getwebelement(xml.getlocator("//locators/Site_Contact")));
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Submit Site Contact");
 			Thread.sleep(5000);
 			Clickon(getwebelement(xml.getlocator("//locators/ServicePartsearch")));
@@ -3734,7 +3744,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			UploadSOWTypeDocument(Inputdata, "SOW");
 		} else if (Inputdata[8].toString().equals("Voice Line V")) {
 			UploadSOWTypeDocument(Inputdata, "Call Barring Form");
-			UploadSOWTypeDocument(Inputdata, "Disaster Recovery Documents");
+			//UploadSOWTypeDocument(Inputdata, "Disaster Recovery Documents");
 		}
 	}
 
@@ -3951,7 +3961,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Add Order Sub Type");
 		// ---> Condition need to be added for mod com and mod tech
 
-		if (Inputdata[Inputdata.length - 1].toString().contains("Com")|| Inputdata[Inputdata.length - 1].toString().contains("Cornor") ) // Added by Dipesh
+		if (Inputdata[Inputdata.length - 1].toString().contains("Com")|| Inputdata[Inputdata.length - 1].toString().contains("Carnor") ) // Added by Dipesh
+			
 		{
 			SendKeys(getwebelement(xml.getlocator("//locators/InputOrderSubType")), "BCN Change");// Specific for mod
 																									// com

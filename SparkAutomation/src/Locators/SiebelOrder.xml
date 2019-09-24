@@ -251,7 +251,11 @@
   <BCNRInstallationChargeNRCInput>//input[@aria-labelledby="PopupQuerySrchspec_Label"]</BCNRInstallationChargeNRCInput> 
   <BCNInstallationChargeNRCInput>//input[@aria-labelledby="PopupQuerySrchspec_Label"]</BCNInstallationChargeNRCInput> 
   <BCNNRCSearch>//td[@class="siebui-popup-filter"]//button[@title="Billing Profile:Go"]</BCNNRCSearch> 
-  <BCNNRCSubmit>//button[@aria-label="Billing Profile:OK"]</BCNNRCSubmit> 
+  <BCNNRCSubmit>//button[@aria-label="Billing Profile:OK"]</BCNNRCSubmit>
+  
+<CustomerdefaultNumber>//span[text()='Customer Default Number']/..//input</CustomerdefaultNumber>
+<CrossButton1>(//button[@title='Close'])[4]</CrossButton1>
+<ClickSaveConfig>(//a[text()='Click here to save your product configuration.'])[2]</ClickSaveConfig> 
 - <!-- <BCNNRCSubmit>//button[@title="Billing Profile:OK"]</BCNNRCSubmit>
   --> 
   <BCNRecurringChargeMRC>//table[@summary="Service Charges"]/tbody/tr[5]/td[6]</BCNRecurringChargeMRC> 
@@ -566,7 +570,7 @@
 
 
  <!-- Rekha Locators for the VLV New orders -->
- <VoiceServiceCountryDropdownAccess>(//span[text()='Voice Service Country']/parent::*//span)[3]</VoiceServiceCountryDropdownAccess>
+ <VoiceServiceCountryDropdownAccess>(//span[text()='Voice Service Country']/..//span)[3]</VoiceServiceCountryDropdownAccess>
 <VoiceServiceCountry>//li[text()='Austria']</VoiceServiceCountry>
 <EgressNumberFormatDropDownAccess>(//span[text()='Egress Number Format']/..//span)[3]</EgressNumberFormatDropDownAccess>
 <EgreeNUmberFormat>//li[text()='E.164 All International with +']</EgreeNUmberFormat>
@@ -606,7 +610,7 @@
 <OperationAttribute1>(//span[@class='colt-oa-btn colt-oa-std-btn'])[2]</OperationAttribute1>
 <AttributeValue1>//input[@name='COLT_Attribute_Value']</AttributeValue1>
 <OperationAttribute2>(//span[@class='colt-oa-btn colt-oa-std-btn'])[3]</OperationAttribute2>
-
+<VoiceServiceInputValue>//li[text()='Austria']</VoiceServiceInputValue>
 <PortIDDropDown>(//span[text()='Port ID']/..//span)[3]</PortIDDropDown>
 <PortId>//li[text()='Port 1']</PortId>
 <TrafficDirectionDropDown>(//span[text()='Traffic Direction']/..//span)[3]</TrafficDirectionDropDown>
@@ -642,14 +646,15 @@
 <POrtInDDIRanges>(//span[@class='colt-component-check-available fa fa-circle-o'])[1]</POrtInDDIRanges>
 <ResellerConfiguration>(//span[@class='colt-component-check-available fa fa-circle-o'])</ResellerConfiguration>
 <UnratedCDRs>//span[@class='colt-component-check-available fa fa-circle-o']</UnratedCDRs>
-<NOofsingleColtDDIs>(//input[@class='colt-attribute-input siebui-ctrl-input colt-attribute-validate'])[4]</NOofsingleColtDDIs>
-<Noof10ColtDDIs>(//input[@class='colt-attribute-input siebui-ctrl-input colt-attribute-validate'])[5]</Noof10ColtDDIs>
-<Noof100coltDDIs>(//input[@class='colt-attribute-input siebui-ctrl-input colt-attribute-validate'])[6]</Noof100coltDDIs>
-<Noof1000coldDDIs>(//input[@class='colt-attribute-input siebui-ctrl-input colt-attribute-validate'])[7]</Noof1000coldDDIs>
-<NoOfsinglePOrtedDDIs>(//input[@class='colt-attribute-input siebui-ctrl-input colt-attribute-validate'])[8]</NoOfsinglePOrtedDDIs>
-<Noof10PortedDDIs>(//input[@class='colt-attribute-input siebui-ctrl-input colt-attribute-validate'])[9]</Noof10PortedDDIs>
-<NOof100PortedDDIs>(//input[@class='colt-attribute-input siebui-ctrl-input colt-attribute-validate'])[10]</NOof100PortedDDIs>
-<Noof1000PortedDDIs>(//input[@class='colt-attribute-input siebui-ctrl-input colt-attribute-validate'])[11]</Noof1000PortedDDIs>
+<Site_Contact>//button[@title="Pick Contact:OK"]</Site_Contact>
+<NOofsingleColtDDIs>//span[text()='Number of single Colt DDIs']/..//input</NOofsingleColtDDIs>
+<Noof10ColtDDIs>//span[text()='Number of 10 Colt DDI Ranges']/..//input</Noof10ColtDDIs>
+<Noof100coltDDIs>//span[text()='Number of 100 Colt DDI Ranges']/..//input</Noof100coltDDIs>
+<Noof1000coldDDIs>//span[text()='Number of 1000 Colt DDI Ranges']/..//input</Noof1000coldDDIs>
+<NoOfsinglePOrtedDDIs>//span[text()='Number of single Ported In DDIs']/..//input</NoOfsinglePOrtedDDIs>
+<Noof10PortedDDIs>//span[text()='Number of 10 Ported In DDI Ranges']/..//input</Noof10PortedDDIs>
+<NOof100PortedDDIs>//span[text()='Number of 100 Ported In DDI Ranges']/..//input</NOof100PortedDDIs>
+<Noof1000PortedDDIs>//span[text()='Number of 1000 Ported In DDI Ranges']/..//input</Noof1000PortedDDIs>
 
 <VoicefeaturesTab>//a[text()='Voice Features']</VoicefeaturesTab>
 <ByPassNumber>(//span[@class='colt-component-check-available fa fa-circle-o'])[1]</ByPassNumber>
