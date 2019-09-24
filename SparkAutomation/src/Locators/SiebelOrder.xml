@@ -510,7 +510,7 @@
 <ClickOnPlusButtonService>//button[@aria-label='Service Group:New']</ClickOnPlusButtonService>
 <AddButtonTrunk>(//span[@style='padding-bottom: 5px'])[6]</AddButtonTrunk>
 <ServiceGroupReference>//input[@name='COLT_Service_Group_Reference']/following-sibling::span</ServiceGroupReference>*****click
-
+<Language>//span[text()='Language']/..//input</Language> ****new added by ayush
 <ClickOkButton>//button[@aria-label='Add/Pick Service Group:OK']</ClickOkButton>
 <!-- ********************CPE SOLUTION SITE LOCATORS *********************-->
   <CPESolutionService>
