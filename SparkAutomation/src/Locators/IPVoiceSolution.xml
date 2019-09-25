@@ -11,7 +11,7 @@
 
 <DocumentTypeDropdown>//div[@id='s_S_A3_div']//table[@class='ui-jqgrid-btable']//tr//td//span[@class='siebui-icon-dropdown']</DocumentTypeDropdown>
 <DownArrow>//span[@class='siebui-icon-dropdown']</DownArrow>
-<DoucmentTypeSelection>//ul[contains(@style,'block')]//li[text()='SOW']</DoucmentTypeSelection>
+<DoucmentTypeSelection>//ul[contains(@style,'block')]//li[text()='Filetype']</DoucmentTypeSelection>
 <AttachmentTabSelection>//div[@id='s_vctrl_div_tabScreen']//ul//li//a[text()='Attachments']</AttachmentTabSelection>
 <OrderDatesTab>//div[@id='s_vctrl_div_tabScreen']//ul//li//a[text()='Order Dates']</OrderDatesTab>
 <BillingTab>//div[@id='s_vctrl_div_tabScreen']//ul//li//a[text()='Billing']</BillingTab>

@@ -1482,7 +1482,7 @@
 <GetReference>//button[text()='Get Reference']</GetReference>
 
 </R4>
-<!-- Start Devesh Locators -->
+<!-- End Devesh Locators -->
 <!-- Start Aman Locators -->
 <DarkFiber>
 
@@ -1505,7 +1505,9 @@
 <BEndSiteInput>(//span[text()='Value']/parent::div/input)[2]</BEndSiteInput>
 
 <BList>//ul[contains(@style,'block')]//li[text()='Value']</BList>
-<ServicePartyA>(//span[text()='Value'])[1]/parent::div/span[2]</ServicePartyA>
+
+<BEndSingleInput>//span[text()='AWS Account Number']/parent::div/input</BEndSingleInput>
+
 </DarkFiber> 
  <!-- Start Aman Locators -->
   </locators>

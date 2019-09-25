@@ -290,6 +290,7 @@ public class NewOrders extends DriverTestcase {
 	newOrderOnnnet.get().UploadDocument(Data);
 	newOrderOnnnet.get().CommercialValidation(Data);
 	newOrderOnnnet.get().TechnicalValidation(Data); //updated
+	modHelper.get().LeadCapacity(Data);
 	newOrderOnnnet.get().clickOnManualValidationB();
 	newOrderOnnnet.get().DeliveryValidation(Data);
 	newOrderOnnnet.get().clickOnManualValidationA();

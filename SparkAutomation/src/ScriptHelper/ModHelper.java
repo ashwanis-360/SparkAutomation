@@ -1,5 +1,8 @@
 package ScriptHelper;
 
+import java.io.IOException;
+
+import org.dom4j.DocumentException;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -28,9 +31,88 @@ public class ModHelper extends DriverHelper{
 		super(parentdriver);
 	}
 
-	
+	//Added By Devesh
+	public void LeadCapacity(Object[] InputData) throws InterruptedException, DocumentException, IOException
+	{
+		waitforPagetobeenable();
+		String ProductName = InputData[8].toString();
+		if (ProductName.equalsIgnoreCase("Private Ethernet"))
+		{
+		WaitforElementtobeclickable(xml.getlocator("//locators/ExistingCapacityLeadTimePrimary"));
+		SendKeys(getwebelement(xml.getlocator("//locators/ExistingCapacityLeadTimePrimary")),
+				InputData[12].toString());
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Existing Capacity Lead Time Primary");
+		SendkeaboardKeys(getwebelement(xml.getlocator("//locators/ExistingCapacityLeadTimePrimary")), Keys.ENTER);
+		SendkeaboardKeys(getwebelement(xml.getlocator("//locators/ExistingCapacityLeadTimePrimary")), Keys.TAB);
+		waitforPagetobeenable();
+		//ClickHereSave();
+	    savePage();
+		}
+	}
+    
+	//Added By Devesh
+	public void ModTechR4(Object[] InputData) throws InterruptedException, DocumentException
+	{
+		WaitforElementtobeclickable(
+				xml.getlocator("//locators/DarkFiber/MiddleDropDown").replace("Value", "Service Bandwidth"));
+		Clickon(getwebelement(
+				xml.getlocator("//locators/DarkFiber/MiddleDropDown").replace("Value", "Service Bandwidth")));
+		Clickon(getwebelement(
+				xml.getlocator("//locators/DarkFiber/MiddleLi").replace("Value", InputData[35].toString())));
+		ExtentTestManager.getTest().log(LogStatus.PASS,
+				" Step: Select Service Bandwidth : " + InputData[35].toString());
 
-		public void ModTechforcommanproduct(Object[] Inputdata) throws Exception
+		WaitforElementtobeclickable(
+				xml.getlocator("//locators/DarkFiber/MiddleDropDown").replace("Value", "A End Resilience Option"));
+		Clickon(getwebelement(
+				xml.getlocator("//locators/DarkFiber/MiddleDropDown").replace("Value", "A End Resilience Option")));
+		Clickon(getwebelement(
+				xml.getlocator("//locators/DarkFiber/MiddleLi").replace("Value", InputData[75].toString())));
+		ExtentTestManager.getTest().log(LogStatus.PASS,
+				" Step: Select A End Resilience Option : " + InputData[75].toString());
+
+		waitForpageload();
+		Thread.sleep(7000);
+	}
+	
+	//Added By Devesh
+	public void ModTechPrivateEthernet(Object[] InputData) throws InterruptedException, DocumentException
+		{
+		String ProductName = InputData[8].toString();
+		if (ProductName.equalsIgnoreCase("Private Ethernet")||ProductName.equalsIgnoreCase("DCA Ethernet")) {
+	
+	//Site A
+	WaitforElementtobeclickable(
+			xml.getlocator("//locators/R4/SiteADropdownClick").replace("Value", "Install Time"));
+	Clickon(getwebelement(xml.getlocator("//locators/R4/SiteADropdownClick").replace("Value", "Install Time")));
+	Clickon(getwebelement(
+			xml.getlocator("//locators/R4/SiteABSelection").replace("Value", InputData[95].toString())));
+	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Install Time : " + InputData[95].toString());
+	Thread.sleep(7000);
+	waitforPagetobeenable();
+
+	//Site B
+	WaitforElementtobeclickable(
+			xml.getlocator("//locators/R4/SiteBDropdownClick").replace("Value", "Install Time"));
+	Clickon(getwebelement(xml.getlocator("//locators/R4/SiteBDropdownClick").replace("Value", "Install Time")));
+	Clickon(getwebelement(
+			xml.getlocator("//locators/R4/SiteABSelection").replace("Value", InputData[112].toString())));
+	ExtentTestManager.getTest().log(LogStatus.PASS,
+			" Step: Select Install Time : " + InputData[112].toString());
+	Thread.sleep(7000);
+	waitforPagetobeenable();
+}
+}
+	
+	//Added By Devesh
+	public void Save() throws InterruptedException, DocumentException {
+		WaitforElementtobeclickable(xml.getlocator("//locators/R4/Save"));
+		Clickon(getwebelement(xml.getlocator("//locators/R4/Save")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click  on Save");
+		waitforPagetobeenable();
+	}
+
+	public void ModTechforcommanproduct(Object[] Inputdata) throws Exception
 		{System.out.println("middle applet start");
 		Waitforvisibilityofelement(xml2.getlocator("//locators/SupportStarDate"));
 		WaitforElementtobeclickable(xml2.getlocator("//locators/SupportStarDate"));
@@ -64,7 +146,7 @@ public class ModHelper extends DriverHelper{
 		System.out.println("middle applet end");
 				
 		}
-		public void ModTech(Object[] Inputdata) throws Exception
+	public void ModTech(Object[] Inputdata) throws Exception
 		{
 			switch(Inputdata[8].toString())
 			{
@@ -144,6 +226,13 @@ public class ModHelper extends DriverHelper{
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Done Ethernet Connection");
 			Thread.sleep(60000);
 			break;
+			}
+			case "Private Ethernet":
+			{
+				ModTechR4(Inputdata);
+				ModTechPrivateEthernet(Inputdata);
+				Save();
+				break;
 			}
 			case "IP Guardian": {
 
