@@ -14,7 +14,7 @@
 			</class>
 		</classes>	
 	</test>
-	<!--  <test name="Siebel Ceas" junit="false" preserve-order="true">
+	 <test name="Siebel Ceas" junit="false" preserve-order="true">
 		<classes>
 			<class name="Testscript.NewOrders">	
 				<methods>
@@ -36,14 +36,14 @@
 	</test>
 	<test name="Siebel Mod" junit="false" preserve-order="true">
 		<classes>
-			<class name="Testscript.NewOrderOnnet">	
+			<class name="Testscript.NewOrders">	
 				<methods>
 					
-				 <include name="ModifyNewOrder"/>   
+				 <include name="Mod"/>   
 				</methods>	
 			</class>
 		</classes>	
-	</test>   -->
+	</test>   
 	
 	
 </suite>
