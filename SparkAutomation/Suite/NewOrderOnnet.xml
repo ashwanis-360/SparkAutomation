@@ -14,7 +14,7 @@
 			</class>
 		</classes>	
 	</test>
-	 <test name="Siebel Ceas" junit="false" preserve-order="true">
+	 <test name="Siebel Cease" junit="false" preserve-order="true">
 		<classes>
 			<class name="Testscript.NewOrders">	
 				<methods>
