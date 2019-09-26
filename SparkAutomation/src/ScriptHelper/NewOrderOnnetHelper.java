@@ -7942,7 +7942,9 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				Clickon(getwebelement(xml.getlocator("//locators/PrivateWaveService/OperationalAttributeDropdown")));
 				WaitforElementtobeclickable(xml.getlocator("//locators/SelectValueDropdown").replace("Value", Inputdata[7].toString()));
 				Clickon(getwebelement(xml.getlocator("//locators/SelectValueDropdown").replace("Value", Inputdata[7].toString())));
-				
+				WaitforElementtobeclickable(xml.getlocator("//locators/R4/OkButtonOperationalAttribute"));
+				Clickon(getwebelement(xml.getlocator("//locators/R4/OkButtonOperationalAttribute")));
+
 				
 			}
 		}
