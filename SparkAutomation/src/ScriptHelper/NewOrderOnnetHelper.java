@@ -3668,13 +3668,13 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		Clear(getwebelement(xml.getlocator("//locators/CustomerRequestedDate")));
 		SendKeys(getwebelement(xml.getlocator("//locators/CustomerRequestedDate")), CurrentDate());
 		WaitforElementtobeclickable(xml.getlocator("//locators/OrderSignedDate"));
-		SendKeys(getwebelement(xml.getlocator("//locators/OrderSignedDate")), Inputdata[18].toString());
+		SendKeys(getwebelement(xml.getlocator("//locators/OrderSignedDate")), CurrentDate());
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Order Signed Date");
 		WaitforElementtobeclickable(xml.getlocator("//locators/ColtActualDate"));
-		SendKeys(getwebelement(xml.getlocator("//locators/ColtActualDate")), Inputdata[19].toString());
+		SendKeys(getwebelement(xml.getlocator("//locators/ColtActualDate")), CurrentDate());
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Colt Actual Date");
 		WaitforElementtobeclickable(xml.getlocator("//locators/OrderReceivedDate"));
-		SendKeys(getwebelement(xml.getlocator("//locators/OrderReceivedDate")), Inputdata[20].toString());
+		SendKeys(getwebelement(xml.getlocator("//locators/OrderReceivedDate")), CurrentDate());
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Order Received Date");// savePage();
 
 //
@@ -3730,7 +3730,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 
 	///////////// SERVICE CHARGE
 	public void EnterServiceChargeInFooter(Object[] Inputdata, String Amount) throws Exception {
-		if (!Inputdata[8].toString().equalsIgnoreCase("IP VPN Service")) {
+		if (!Inputdata[8].toString().equalsIgnoreCase("IP VPN Service") &&  !Inputdata[8].toString().equalsIgnoreCase("Ethernet Access")) {
 			WaitforElementtobeclickable(xml.getlocator("//locators/ExpandAllButton"));
 			Clickon(getwebelement(xml.getlocator("//locators/ExpandAllButton")));
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Expand All Button");
@@ -3976,7 +3976,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				|| Inputdata[8].toString().equalsIgnoreCase("Private Ethernet")
 				|| Inputdata[8].toString().equalsIgnoreCase("Ethernet Line")
 				|| Inputdata[8].toString().equalsIgnoreCase("Ethernet Hub")
-				|| Inputdata[8].toString().equalsIgnoreCase("Ethernet Spoke") 
+				|| Inputdata[8].toString().equalsIgnoreCase("Ethernet Spoke")
+				|| Inputdata[8].toString().equalsIgnoreCase("Ethernet Access")
 				|| Inputdata[8].toString().equalsIgnoreCase("Ultra Low Latency")
 				|| Inputdata[8].toString().equalsIgnoreCase("Dark Fibre")) {
 			Thread.sleep(5000);
@@ -4064,8 +4065,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		}
 	}
 
-	public void clickOnManualValidationB() throws Exception {
-		if (isDisplayed(xml.getlocator("//locators/manualvalidation2"))) {
+	public void clickOnManualValidationB() throws Exception {	//changes as per Ayush
+		/*if (isDisplayed(xml.getlocator("//locators/manualvalidation2"))) {
 
 			// Waitforvisibilityofelement(xml.getlocator("//locators/manualvalidation"));
 			WaitforElementtobeclickable(xml.getlocator("//locators/manualvalidation2"));
@@ -4074,6 +4075,24 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			waitforPagetobeenable();
 
 			Thread.sleep(5000);
+		}*/
+		try 
+		{
+		 if(isElementPresent(xml.getlocator("//locators/manualvalidation2")))
+		{
+			System.out.println("go to else if loop1");
+			WaitforElementtobeclickable(xml.getlocator("//locators/manualvalidation2"));
+		Clickon(getwebelement(xml.getlocator("//locators/manualvalidation2")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click Manual Validation Button");
+		}
+		 else 
+		 {
+			 System.out.println("Manual validation button is not present"); 
+		 }
+	}
+		catch(Exception e)
+		{
+			System.out.println("Manual validation button is not present in catch block");
 		}
 	}
 
