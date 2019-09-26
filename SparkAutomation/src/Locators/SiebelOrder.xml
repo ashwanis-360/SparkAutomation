@@ -483,18 +483,6 @@
  <BillingEndDate>//input[@aria-labelledby='COLTBillingEndDate_Label']</BillingEndDate>//newly added by ayush
 <ServiceOrderSearchForAll>//input[@aria-label='Starting with']</ServiceOrderSearchForAll> // added by Ayush
 
-<SaveEthernetAccess>//div[@id='colt-s-order-connection-header']//a[text()='Save']</SaveEthernetAccess> // added by Ayush
-<ServiceTypeEthernetAccess>(//span[text()='Service Type'])[2]/following-sibling::span</ServiceTypeEthernetAccess>
-  <PickAccountValue>//div[contains(@style,'block')]//input[@aria-labelledby='PopupQuerySrchspec_Label']</PickAccountValue>
-  <PickAccountGo>(//div[contains(@style,'block')]//button[@title='Pick Account:Go'])[2]</PickAccountGo>
-  <PickContactOk>//div[contains(@style,'block')]//button[@title='Pick Contact:OK']</PickContactOk>
-  <PickContactGo>(//div[contains(@style,'block')]//button[@title='Pick Contact:Go'])[2]</PickContactGo>
-  <PickAccountDropdown>//div[contains(@style,'block')]//input[@aria-labelledby='PopupQueryCombobox_Label']/following-sibling::span</PickAccountDropdown>
-   <NetworkTopology>//span[text()='Topology']/..//input</NetworkTopology>
-   <CircuitReference>//span[text()='Circuit Reference']/..//input</CircuitReference>
-   <ClickDropdown>//span[text()='Value']/following-sibling::span</ClickDropdown>
-   <SettingsButton>//div[@id='colt-s-order-connection-header-btns']//span</SettingsButton> //ethernet access
-   <AttributeValueEthernetAccess>//td[text()='NC Technical Service Id']/..//td/following-sibling::td/following-sibling::td/input</AttributeValueEthernetAccess>
  
 ********************VOICE CALL ADMISSION CONTROL****************
 <CallAdmissionControl>(//span[text()='Call Admission Control'])[3]</CallAdmissionControl>
@@ -531,6 +519,7 @@
   
   *****************************Ethernet access********************************
  <R4>
+ <SearchInputEthernetAccess>//span[text()='Value']/parent::div/input</SearchInputEthernetAccess>	<!-- // Added by Ayush -->
   <SiteADropdownClick>//div[@id='colt-site-left']//span[text()='Value']/following-sibling::span</SiteADropdownClick> 
   <SiteABSelection>//ul[contains(@style,'block')]//li[text()='Value']</SiteABSelection> 
   <SiteBDropdownClick>//div[@id='colt-site-right']//span[text()='Value']/following-sibling::span</SiteBDropdownClick> 
@@ -553,9 +542,28 @@
   <PickSite>//button[text()='Pick Site']</PickSite> 
   <InsideDropdownValues>//li[text()='Data']</InsideDropdownValues>
   <CoverageEthernetAccess>//span[text()='Coverage']/..//input/following-sibling::span</CoverageEthernetAccess>
+  
+<SaveEthernetAccess>//div[@id='colt-s-order-connection-header']//a[text()='Save']</SaveEthernetAccess> // added by Ayush
+<ServiceTypeEthernetAccess>(//span[text()='Service Type'])[2]/following-sibling::span</ServiceTypeEthernetAccess>
+  <PickAccountValue>//div[contains(@style,'block')]//input[@aria-labelledby='PopupQuerySrchspec_Label']</PickAccountValue>
+  <PickAccountGo>(//div[contains(@style,'block')]//button[@title='Pick Account:Go'])[2]</PickAccountGo>
+  <PickContactOk>//div[contains(@style,'block')]//button[@title='Pick Contact:OK']</PickContactOk>
+  <PickContactGo>(//div[contains(@style,'block')]//button[@title='Pick Contact:Go'])[2]</PickContactGo>
+  <PickAccountDropdown>//div[contains(@style,'block')]//input[@aria-labelledby='PopupQueryCombobox_Label']/following-sibling::span</PickAccountDropdown>
+   <NetworkTopology>//span[text()='Topology']/..//input</NetworkTopology>
+   <CircuitReference>//span[text()='Circuit Reference']/..//input</CircuitReference>
+   <ClickDropdown>//span[text()='Value']/following-sibling::span</ClickDropdown>
+   <SettingsButton>//div[@id='colt-s-order-connection-header-btns']//span</SettingsButton> //ethernet access
+   <AttributeValueEthernetAccess>//td[text()='NC Technical Service Id']/..//td/following-sibling::td/following-sibling::td/input</AttributeValueEthernetAccess>
+ <OkButtonOperationalAttribute>//button[@aria-label='Operational Attributes:OK']</OkButtonOperationalAttribute>
   </R4>
   
+  <PrivateWaveService>
+  <!--  <OperationalAttribueClick>(//table[@summary="Operational Attributes"]//tr[contains(@class,'mandatory')]//td[3])</OperationalAttribueClick> -->
+  <OperationalAttribueClick>(//table[@summary="Operational Attributes"]//tr[contains(@class,'mandatory')]//td[3])[index]</OperationalAttribueClick>
+  <OperationalAttributeDropdown>//table[@summary="Operational Attributes"]//tr[contains(@class,'mandatory')]//td[3]/span</OperationalAttributeDropdown>
   
+  </PrivateWaveService>
   *************for abandoned******
   <ServiceTab>//a[text()='Service Order']</ServiceTab>
    <ServiceOrderSearch>//input[@aria-label='Starting with']</ServiceOrderSearch>
@@ -1180,7 +1188,6 @@
   <NetworkReferenceSearchin>(//button[@title="Pick Network Reference:Go"])[2]</NetworkReferenceSearchin>
   <NetworkReferenceGo>//button[@aria-label="Pick Network Reference:OK"]</NetworkReferenceGo>
   <IpGurdianSave>//a[@class="colt-primary-btn colt-s-order-save-btn"]</IpGurdianSave>
-  <ClickheretoSaveAccess>(//a[text()='Click here to save your product configuration.'])[1]</ClickheretoSaveAccess>
   <SelectSubVPNList>//td[@id='Sub VPN ID']</SelectSubVPNList>
   <SubmitSubVPNList>//i[contains(@class,'fa-OK')]</SubmitSubVPNList>
   <NetworkReference>//input[@aria-labelledby='COLT_Network_Reference_Label']</NetworkReference>
