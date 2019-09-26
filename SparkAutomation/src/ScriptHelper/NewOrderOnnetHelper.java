@@ -3735,7 +3735,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 	}
 
 	public void SelectAttachmentTab(Object[] Inputdata) throws IOException, InterruptedException, DocumentException {
-		if (Inputdata[8].toString().equals("IP Voice Solutions") || Inputdata[8].toString().equals("Voice Line V")) {
+		if (Inputdata[8].toString().equals("IP Voice Solutions") || Inputdata[8].toString().equals("Voice Line V") || Inputdata[8].toString().equals("Managed Virtual Firewall")) {
 			Select(getwebelement(xmlIP.getlocator("//locators/tabDropdown")), "Attachments");
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Attachments Tab Selected");
 			Clickon(getwebelement(xmlIP.getlocator("//locators/AttachmentTabSelection")));
@@ -3751,20 +3751,56 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			UploadSOWTypeDocument(Inputdata, "Call Barring Form");
 			//UploadSOWTypeDocument(Inputdata, "Disaster Recovery Documents");
 		}
+		else if(Inputdata[8].toString().equals("Managed Virtual Firewall"))
+	    {
+	    	UploadSOWTypeDocument(Inputdata, "Security Policy");
+	    	//UploadSOWTypeDocument(Inputdata, "Documents");
+	    }
 	}
 
 	public void UploadSOWTypeDocument(Object[] Inputdata, String Filetype) throws Exception {
 
-		System.out.println(xmlIP.getlocator("//locators//FileUpload"));
-		// WaitforElementtobeclickable(xmlIP.getlocator("//locators//FileUpload"));
-		uploadafile(xmlIP.getlocator("//locators//FileUpload"), "test.txt");
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Test File Uploaded");
-		Thread.sleep(10000);
-		Clickon(getwebelement(xmlIP.getlocator("//locators/DocumnetTypeOther")));
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Other File Type Clicked");
-		Clickon(getwebelement(xmlIP.getlocator("//locators/DownArrow")));
-		Clickon(getwebelement(xmlIP.getlocator("//locators/DoucmentTypeSelection").replace("Filetype", Filetype)));
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: SOW File Type Selected");
+		if(Inputdata[8].toString().equals("Voice Line V"))	//Added by Rekha
+		{
+           	System.out.println(xml.getlocator("//locators//FileUpload"));
+	    	//WaitforElementtobeclickable(xmlIP.getlocator("//locators//FileUpload"));
+	    	uploadafile(xml.getlocator("//locators//FileUpload"),"test.txt");
+	    	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Test File Uploaded");
+	    	Thread.sleep(10000);
+	    	Clickon(getwebelement(xml.getlocator("//locators/DocumnetTypeOther")));
+	    	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Other File Type Clicked");
+	    	Clickon(getwebelement(xml.getlocator("//locators/DownArrow")));
+	    	Clickon(getwebelement(xml.getlocator("//locators/DocumentTypeCallBaringForm")));
+	    	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: CallBarring Form File Type Selected");
+	    	System.out.println(xml.getlocator("//locators//FileUpload"));
+	    	//WaitforElementtobeclickable(xmlIP.getlocator("//locators//FileUpload"));
+	    	uploadafile(xml.getlocator("//locators//FileUpload"),"test1.txt");
+	    	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Test File Uploaded");
+	    	Thread.sleep(10000);
+	    	Clickon(getwebelement(xml.getlocator("//locators/DocumnetTypeOther")));
+	    	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Other File Type Clicked");
+	    	Clickon(getwebelement(xml.getlocator("//locators/DownArrow")));
+	    	Clickon(getwebelement(xml.getlocator("//locators/DocumentTypeDisaster")));
+	    	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Disaster File Type Selected");
+	    
+	}
+		else {
+		
+			System.out.println(xmlIP.getlocator("//locators//FileUpload"));
+			
+					// WaitforElementtobeclickable(xmlIP.getlocator("//locators//FileUpload"));
+					uploadafile(xmlIP.getlocator("//locators//FileUpload"), "test.txt");
+					ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Test File Uploaded");
+					Thread.sleep(10000);
+					Clickon(getwebelement(xmlIP.getlocator("//locators/DocumnetTypeOther")));
+					ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Other File Type Clicked");
+					Clickon(getwebelement(xmlIP.getlocator("//locators/DownArrow")));
+					Clickon(getwebelement(xmlIP.getlocator("//locators/DoucmentTypeSelection").replace("Filetype", Filetype)));
+					ExtentTestManager.getTest().log(LogStatus.PASS, " Step: SOW File Type Selected");
+
+			}
+		//--> end of Rekha's code
+		
 
 	}
 
@@ -3793,6 +3829,15 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				|| Inputdata[8].toString().equalsIgnoreCase("Ethernet Hub")
 				|| Inputdata[8].toString().equalsIgnoreCase("Ethernet Spoke")) {
 			Thread.sleep(5000);
+			Clickon(getwebelement(xml.getlocator("//locators/TriggerTRButton")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Trigger TR Button");
+			Thread.sleep(10000);
+		}
+		if (Inputdata[8].toString().equalsIgnoreCase("IP Domain"))	//Added by Rekha
+		{
+			Thread.sleep(5000);
+	        Clickon(getwebelement(xml.getlocator("//locators/TriggerTRButtonCheckbox")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click On Check Box");
 			Clickon(getwebelement(xml.getlocator("//locators/TriggerTRButton")));
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Trigger TR Button");
 			Thread.sleep(10000);
@@ -3954,6 +3999,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		SendKeys(getwebelement(xml.getlocator("//locators/RequestReceivedDate")), CurrentDate());
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Request Received Date");
 		Thread.sleep(3000);
+		ModifiedServiceOrder.set(Gettext(getwebelement(xml.getlocator("//locators/ModifyOrderNumber"))));//Added by Rekha
+		ExtentTestManager.getTest().log(LogStatus.PASS," Step: Generated Modify Order Reference No: " + ModifiedServiceOrder.get());//Added by Rekha
 		Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderClickOn")));
 		waitforPagetobeenable();
 		WaitforElementtobeclickable(xml.getlocator("//locators/OrderSubTypeSearch"));
@@ -6872,7 +6919,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
     " Step: Generated Service Order Reference No: " + CarNorOrderNumber.get());
     Log.info("Carnor order No:"+CarNorOrderNumber.get());
     }
-     if(Inputdata[8].toString().equalsIgnoreCase("Ethernet VPN Access"))
+     if(Inputdata[8].toString().equalsIgnoreCase("Ethernet VPN Access") || Inputdata[8].toString().equalsIgnoreCase("IP Guardian")||Inputdata[8].toString().equals("CPE Solutions Service")||Inputdata[8].toString().equals("Managed Dedicated Firewall")||Inputdata[8].toString().equalsIgnoreCase("IP Domain")|| Inputdata[8].toString().equalsIgnoreCase("Managed Virtual Firewall"))
      {
      CarNorOrderNumber.set(Gettext(getwebelement(xml.getlocator("//locators/Carnororder"))));
      ExtentTestManager.getTest().log(LogStatus.PASS,
