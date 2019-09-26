@@ -368,7 +368,7 @@
   <BilligEndDate>//input[@aria-label='Billing End Date']</BilligEndDate>
   <POStartDateAccess>//input[@aria-label='PO Start Date']</POStartDateAccess> 
   <POEndDateAccess>//input[@aria-label='PO End Date']</POEndDateAccess>
-  
+  <BDWREVW_CheckBox>//div[@id='colt-workflows-selection-popup-content']//input</BDWREVW_CheckBox>
    
   <AddNumberHosting>//div[text()='Number Hosting']/parent::*//button</AddNumberHosting>
   <ClickDropdown>(//span[text()='Value']/parent::*//span)[3]</ClickDropdown>
@@ -1484,28 +1484,44 @@
 </R4>
 <!-- End Devesh Locators -->
 <!-- Start Aman Locators -->
+ 
+ 
+ <PrivateWaveNode>
+    <OKButton>//button[@aria-label="Operational Attributes:OK"]</OKButton>
+ 	<InputValuesVendor>(//td[text()='Vendor Platform']//following::input)[1]</InputValuesVendor>
+ 	<InputvaluesTechonolgy>(//td[text()='Technology']//following::td)[1]</InputvaluesTechonolgy>
+ 	<SettingsButton>//div[@id='colt-s-order-connection-header-btns']//span</SettingsButton> 
+ </PrivateWaveNode>
+
+ <OrderDateField>
+ 	<CalendrButton>//div/input[@aria-label="Value"]/parent::div/span</CalendrButton>
+ 	<CustomerRequestdate>//div/input[@aria-label="Customer Requested Date" and @aria-labelledby="Customer_Requested_Date1_Label"]/parent::div/span</CustomerRequestdate>
+ 	<NowButton>//div/button[@class="ui-datepicker-current ui-state-default ui-priority-secondary ui-corner-all"]</NowButton>
+ 	<Date>//div/button[@class="ui-datepicker-close ui-state-default ui-priority-primary ui-corner-all"]</Date>
+</OrderDateField>
+
 <DarkFiber>
+	<SettingButton>//span[@class="colt-oa-btn colt-oa-std-btn"]</SettingButton>
+	<MiddleDropDown>//span[text()='Value']/parent::*/span[2]</MiddleDropDown>
+	<ClicktoShowFulls>//a[text()='Click to Show Full info']</ClicktoShowFulls>
+	<MiddleLi>//ul[contains(@style,'block')]//li[text()='Value']</MiddleLi>
+	
+	<SaveButton>//div/a[text()='Save']</SaveButton>
+	
+	<AEndSiteDropDown>//div[@id='colt-site-left']//span[text()='Value']/following-sibling::span</AEndSiteDropDown>
+	
+	<AEndSiteInput>(//span[text()='Value']/parent::div/input)[1]</AEndSiteInput>
+	
+	<AList>//ul[contains(@style,'block')]//li[text()='Value']</AList>
 
-<MiddleDropDown>//span[text()='Value']/parent::*/span[2]</MiddleDropDown>
-
-<MiddleLi>//ul[contains(@style,'block')]//li[text()='Value']</MiddleLi>
-
-<SaveButton>//div/a[text()='Save']</SaveButton>
-
-<AEndSiteDropDown>//div[@id='colt-site-left']//span[text()='Value']/following-sibling::span</AEndSiteDropDown>
-
-<AEndSiteInput>(//span[text()='Value']/parent::div/input)[1]</AEndSiteInput>
-
-<AList>//ul[contains(@style,'block')]//li[text()='Value']</AList>
-
-<SelectSiteSearchAccess>//span[text()='Select a site:']//span</SelectSiteSearchAccess>
-
-<BEndSiteDropDown>//div[@id="colt-site-right"]//span[text()='Value']/following-sibling::span</BEndSiteDropDown>
-
-<BEndSiteInput>(//span[text()='Value']/parent::div/input)[2]</BEndSiteInput>
-
-<BList>//ul[contains(@style,'block')]//li[text()='Value']</BList>
-<ServicePartyA>(//span[text()='Value'])[1]/parent::div/span[2]</ServicePartyA>
+	<SelectSiteSearchAccess>//span[text()='Select a site:']//span</SelectSiteSearchAccess>
+	
+	<BEndSiteDropDown>//div[@id="colt-site-right"]//span[text()='Value']/following-sibling::span</BEndSiteDropDown>
+	<OkButton>//button[@title="Pick Account:OK" or @aria-label="Pick Contact:OK"]</OkButton>
+	<BEndSiteInput>(//span[text()='Value']/parent::div/input)[2]</BEndSiteInput>
+	<ServicePartyB>(//span[text()='Value'])[2]/parent::div/span[2]</ServicePartyB>
+	<BList>//ul[contains(@style,'block')]//li[text()='Value']</BList>
+	<ServicePartyA>(//span[text()='Value'])[1]/parent::div/span[2]</ServicePartyA>
 </DarkFiber> 
- <!-- Start Aman Locators -->
+ <!-- End Aman Locators -->
   </locators>
