@@ -1500,6 +1500,13 @@
  	<Date>//div/button[@class="ui-datepicker-close ui-state-default ui-priority-primary ui-corner-all"]</Date>
 </OrderDateField>
 
+<ManagedDedicatedFirewall>
+	<CPECombinationIDGeneric>//span[text()='Value']/parent::div//input</CPECombinationIDGeneric>
+	<HighAvailabilityRequired>(//span[text()='Value']/parent::*//span)[3]</HighAvailabilityRequired>
+	<HighAvailabilityRequiredli>//li[text()='Yes']</HighAvailabilityRequiredli>
+	<SaveButton>//div/a[text()='Save']</SaveButton>
+ </ManagedDedicatedFirewall> 
+
 <DarkFiber>
 	<SettingButton>//span[@class="colt-oa-btn colt-oa-std-btn"]</SettingButton>
 	<MiddleDropDown>//span[text()='Value']/parent::*/span[2]</MiddleDropDown>
