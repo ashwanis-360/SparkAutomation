@@ -1248,9 +1248,9 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			Save();
 			SearchSiteA(Inputdata);
 			SearchSiteAEntry(Inputdata);
-			AEndSite(Inputdata);
-			SiteAInstallationTime(Inputdata);
-			SiteATerminationTime(Inputdata);
+			AEndSitePUD(Inputdata);
+			SiteAInstallationTimePUD(Inputdata);
+			SiteATerminationTimePUD(Inputdata);
 			ClickHereSave();
 		break;
 		}
@@ -1273,14 +1273,14 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			SearchSiteAEntry(Inputdata);
 			SearchSiteB(Inputdata);
 			SearchSiteBEntry(Inputdata);
-			AEndSite(Inputdata);
-			BEndSite(Inputdata);
-			SiteAInstallationTime(Inputdata);
-			SiteBInstallationTime(Inputdata);
-			SiteATerminationTime(Inputdata);
-			SiteBTerminationTime(Inputdata);
-			SiteAAccessPort(Inputdata);
-			SiteBAccessPort(Inputdata);
+			AEndSitePUD(Inputdata);
+			BEndSitePUD(Inputdata);
+			SiteAInstallationTimePUD(Inputdata);
+			SiteBInstallationTimePUD(Inputdata);
+			SiteATerminationTimePUD(Inputdata);
+			SiteBTerminationTimePUD(Inputdata);
+			SiteAAccessPortPUD(Inputdata);
+			SiteBAccessPortPUD(Inputdata);
 			ClickHereSave();
 			break;
 			}
@@ -1319,22 +1319,22 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			//ClickHereSave();//as per Aman's
 			//savePage();//as per Aman's
 			//waitforPagetobeenable();//as per Aman's
-			AEndSite(Inputdata);
+			AEndSitePUD(Inputdata);
 			//as per Aman's ClickHereSave();
 			//as per Aman's savePage();
 			//as per Aman's waitforPagetobeenable();
-			BEndSite(Inputdata);
+			BEndSitePUD(Inputdata);
 			//as per Aman's ClickHereSave();
-			SiteAInstallationTime(Inputdata); //as per Aman's
-			SiteBInstallationTime(Inputdata);
+			SiteAInstallationTimePUD(Inputdata); //as per Aman's
+			SiteBInstallationTimePUD(Inputdata);
 			//as per Aman's ClickHereSave();
-			SiteATerminationTime(Inputdata);
+			SiteATerminationTimePUD(Inputdata);
 			//as per Aman's ClickHereSave();
-			SiteBTerminationTime(Inputdata);
+			SiteBTerminationTimePUD(Inputdata);
 			//as per Aman's ClickHereSave();
-			SiteAAccessPort(Inputdata);
+			SiteAAccessPortPUD(Inputdata);
 			//as per Aman's ClickHereSave();
-			SiteBAccessPort(Inputdata);
+			SiteBAccessPortPUD(Inputdata);
 			ClickHereSave();
 			break;
 		}
