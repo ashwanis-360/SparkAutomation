@@ -1347,7 +1347,10 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		switch (Inputdata[8].toString()) {
 		case  "Private Wave Node": {				//Added by Aman
 			middleAppletPrivateWaveNode(Inputdata);
-			settingPrivateWaveNode(Inputdata);
+			OperationalAttributes(Inputdata);
+			//settingPrivateWaveNode(Inputdata); //as per ayush
+			GetReference();
+			Save();
 			SiteAServiceParty(Inputdata);
 			PickServiceParty(Inputdata);
 			SiteASiteContact(Inputdata);
@@ -1402,6 +1405,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			ShowfullInfo();
 			DiversityCircuitEntry(Inputdata);
 			Save();
+			GetReference();
+			Save();
 			SiteAServiceParty(Inputdata);
 			PickServiceParty(Inputdata);
 			SiteBServiceParty(Inputdata);
@@ -1443,6 +1448,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			ShowfullInfo();
 			//PrivateEthernetEntry(Inputdata);//as per Aman's
 			DiversityCircuitEntry(Inputdata);
+			Save();
+			GetReference();
 			Save();
 			SiteAServiceParty(Inputdata);
 			PickServiceParty(Inputdata);
