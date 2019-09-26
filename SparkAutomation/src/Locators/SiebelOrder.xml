@@ -795,6 +795,7 @@
  <ServiceBandwidthSelect>//li[text()='2 Gbps']</ServiceBandwidthSelect>
  <ConnectorTypeSelect>//li[text()='FC/PC']</ConnectorTypeSelect>
  <FibreTypeSelect>//li[text()='SingleMode 1550nm']</FibreTypeSelect>
+<SubnetworkPopUP>//button[@class='colt-primary-btn']</SubnetworkPopUP>
  <!--  added for carnor --> 
 <CarReason>//input[@aria-labelledby="COLT_Customer_Order_For_Code_Label"]</CarReason>
 <CarNorRunFlag>(//span[@class='siebui-icon-dropdown applet-form-combo applet-list-combo'])[7]</CarNorRunFlag>
