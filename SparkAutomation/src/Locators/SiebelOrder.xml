@@ -519,6 +519,13 @@
   
   *****************************Ethernet access********************************
  <R4>
+ <SiteASetting>//div[@id='colt-site-left']//span[@class='colt-oa-btn colt-oa-std-btn colt-oa-Primary-Child']</SiteASetting>
+ <SiteBSetting>//div[@id='colt-site-right']//span[@class='colt-oa-btn colt-oa-std-btn colt-oa-Primary-Child']</SiteBSetting>
+ <PopPlus>//div[@title='Operational Attributes List Applet']//button[@title='Operational Attributes:New']</PopPlus>
+ <PopAttributeDrodown>//div[@title='Operational Attributes List Applet']//span[@class='siebui-icon-dropdown']</PopAttributeDrodown>
+ <AttributeValue>//div[@title='Operational Attributes List Applet']//input[@name='COLT_Attribute_Value']</AttributeValue>
+ <AttributeName>//div[@title='Operational Attributes List Applet']//input[@name='COLT_Attribute_Name']</AttributeName>
+ <SiteASettingOK>//div[@title='Operational Attributes List Applet']//button[@title='Operational Attributes:OK']</SiteASettingOK>
  <SearchInputEthernetAccess>//span[text()='Value']/parent::div/input</SearchInputEthernetAccess>	<!-- // Added by Ayush -->
   <SiteADropdownClick>//div[@id='colt-site-left']//span[text()='Value']/following-sibling::span</SiteADropdownClick> 
   <SiteABSelection>//ul[contains(@style,'block')]//li[text()='Value']</SiteABSelection> 
