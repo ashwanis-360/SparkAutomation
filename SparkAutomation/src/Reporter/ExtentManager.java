@@ -6,7 +6,7 @@ import java.util.Date;
 import com.relevantcodes.extentreports.ExtentReports;
 
 public class ExtentManager {
-	public static String timeStmp = new SimpleDateFormat("yyyyMMddHHmm'.txt'").format(new Date());
+	public static String timeStmp = new SimpleDateFormat("yyyyMMddHHmm").format(new Date());
 	 private static ExtentReports extent;
 
 	  public synchronized static ExtentReports getReporter(){
