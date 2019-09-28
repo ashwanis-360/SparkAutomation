@@ -282,6 +282,7 @@ public class NewOrders extends DriverTestcase {
 	}
 	else if(Data[Data.length-1].toString().contains("Tech"))
 	{
+		//newOrderOnnnet.get().Check(Data);
 	newOrderOnnnet.get().ServiceTab(Data);
 	modHelper.get().ModTech(Data);
 	newOrderOnnnet.get().EnterDateInFooter(Data);

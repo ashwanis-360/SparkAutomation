@@ -4,7 +4,7 @@
 	  <listener class-name="Listners.TestListener"/>
 	  
     </listeners>
-	 <test name="Siebel New Order" junit="false" preserve-order="true">
+	< <test name="Siebel New Order" junit="false" preserve-order="true">
 		<classes>
 			<class name="Testscript.NewOrders">	
 				<methods>
@@ -33,7 +33,7 @@
 				</methods>	
 			</class>
 		</classes>	
-	</test>
+	</test>  
 	<test name="Siebel Mod" junit="false" preserve-order="true">
 		<classes>
 			<class name="Testscript.NewOrders">	
