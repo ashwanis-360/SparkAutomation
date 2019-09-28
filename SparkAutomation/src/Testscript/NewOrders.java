@@ -18,6 +18,7 @@ public class NewOrders extends DriverTestcase {
 	
 		Login.get().Login("Sieble");
 		//Login.get().VerifySuccessLogin("Sieble");
+		//newOrderOnnnet.get().Check(Data);
 		newOrderOnnnet.get().accountTabDetails(Data);
 		newOrderOnnnet.get().createCustomerOrder(Data);
 		newOrderOnnnet.get().productSelectionHelper(Data);

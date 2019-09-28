@@ -1554,8 +1554,12 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			System.out.println("Site B Starting");
 			BEndSite(Inputdata);
 			System.out.println("Site B Entrede");
+			savePage();
 			SiteASettingClick();
-			CSPInterconnectEntry();
+			CSPInterconnectSiteAEntry();
+			savePage();
+			SiteBSettingClick();
+			CSPInterconnectSiteBEntry();
 		/*	SiteADiversityCircuitConfig(Inputdata);
 			SiteBDiversityCircuitConfig(Inputdata);
 			ClickHereSave();*/
@@ -1572,6 +1576,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			SiteBVLan(Inputdata);
 			ClickHereSave();
 			SiteBDedicatedCloudAccess(Inputdata);
+			ClickHereSave();
+			GetReference();
 			ClickHereSave();
 			break;
 		}
@@ -4093,7 +4099,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				|| Inputdata[8].toString().equalsIgnoreCase("Ethernet Spoke")
 				|| Inputdata[8].toString().equalsIgnoreCase("Ethernet Access")
 				|| Inputdata[8].toString().equalsIgnoreCase("Ultra Low Latency")
-				|| Inputdata[8].toString().equalsIgnoreCase("Dark Fibre")) {
+				|| Inputdata[8].toString().equalsIgnoreCase("Dark Fibre")
+				|| Inputdata[8].toString().equalsIgnoreCase("DCA Ethernet")) {
 			Thread.sleep(5000);
 			// as per Aman added try catch
 			try
@@ -4400,7 +4407,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		}
 		}
 		WaitforElementtobeclickable(xml.getlocator("//locators/InputServiceOrder"));
-		SendKeys(getwebelement(xml.getlocator("//locators/InputServiceOrder")), "871608486/190918-0064");
+		SendKeys(getwebelement(xml.getlocator("//locators/InputServiceOrder")), "871640685/190927-0231");
 		Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderGo")));
 		Thread.sleep(6000);
 		Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderClickOn")));
@@ -7667,6 +7674,16 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				WaitforElementtobeclickable(xml.getlocator("//locators/DarkFiber/AList").replace("Value", InputData[81].toString()));
 				Clickon(getwebelement(xml.getlocator("//locators/DarkFiber/AList").replace("Value",InputData[81].toString())));
 				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Demarcation Device Required : " + InputData[81].toString());
+				
+				//Site Type
+				WaitforElementtobeclickable(
+						xml.getlocator("//locators/DarkFiber/AEndSiteDropDown").replace("Value", "Site Type"));
+				Clickon(getwebelement(
+						xml.getlocator("//locators/DarkFiber/AEndSiteDropDown").replace("Value", "Site Type")));
+
+				WaitforElementtobeclickable(xml.getlocator("//locators/R4/SiteABSelection").replace("Value", InputData[92].toString()));
+				Clickon(getwebelement(xml.getlocator("//locators/R4/SiteABSelection").replace("Value", InputData[92].toString())));
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Access Type : " + InputData[92].toString());
 			}
 			
 			WaitforElementtobeclickable(
@@ -8175,8 +8192,11 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			//Routing Domain
 			WaitforElementtobeclickable(xml.getlocator("//locators/R4/SiteBDropdownClick").replace("Value","Routing Domain"));
 			Clickon(getwebelement(xml.getlocator("//locators/R4/SiteBDropdownClick").replace("Value","Routing Domain")));
+			
+			WaitforElementtobeclickable(xml.getlocator("//locators/R4/SiteABSelection").replace("Value", InputData[133].toString()));
 			Clickon(getwebelement(xml.getlocator("//locators/R4/SiteABSelection").replace("Value", InputData[133].toString())));
-			ExtentTestManager.getTest().log(LogStatus.PASS," Step: Select NAT Range Required : "+InputData[133].toString());
+			//Clickon(getwebelement(xml.getlocator("//locators/SelectValueDropdown").replace("Value", InputData[133].toString())));
+			ExtentTestManager.getTest().log(LogStatus.PASS," Step: Select Routing Domain : "+InputData[133].toString());
 
 			//S VLAN Tag ID
 			WaitforElementtobeclickable(xml.getlocator("//locators/R4/SiteBInput").replace("Value", "S VLAN Tag ID"));
@@ -8231,14 +8251,16 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			ExtentTestManager.getTest().log(LogStatus.PASS," Step: enter  on  VLAN Tag ID : " + InputData[59].toString());
 	    }
 
+	    // Today(27/09/2019) Work
 	    public void SiteASettingClick() throws InterruptedException, DocumentException 
 		   {
 			   WaitforElementtobeclickable(xml.getlocator("//locators/R4/SiteASetting"));
-			   clickUsingAction(getwebelement(xml.getlocator("//locators/R4/SiteASetting")));
+			   //clickUsingAction(getwebelement(xml.getlocator("//locators/R4/SiteASetting")));
 			  // javascriptexecutor(el);
-			   //Clickon(getwebelement(xml.getlocator("//locators/R4/SiteASetting")));
+			   Clickon(getwebelement(xml.getlocator("//locators/R4/SiteASetting")));
 			   ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Site A Setting Click");
 			   waitforPagetobeenable();
+			   Thread.sleep(15000);
 		   } 
 	    public void SiteBSettingClick() throws InterruptedException, DocumentException 
 		   {
@@ -8248,8 +8270,9 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			   ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Site B Setting Click");
 			   waitforPagetobeenable();
 		   } 
-		public void CSPInterconnectEntry() throws InterruptedException, DocumentException 
+		public void CSPInterconnectSiteAEntry() throws InterruptedException, DocumentException 
 		   {
+			   waitforPagetobeenable();
 			   WaitforElementtobeclickable(xml.getlocator("//locators/R4/PopPlus"));
 			   Clickon(getwebelement(xml.getlocator("//locators/R4/PopPlus")));
 			   ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click Add Sign");
@@ -8257,18 +8280,18 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			   //Attribute
 			   WaitforElementtobeclickable(xml.getlocator("//locators/R4/PopAttributeDrodown"));
 			   Clickon(getwebelement(xml.getlocator("//locators/R4/PopAttributeDrodown")));
-			   Clickon(getwebelement(xml.getlocator("//locators/R4/SiteBDropdownClick").replace("Value", "CSP interconnect A-end")));
-			   Clickon(getwebelement(xml.getlocator("//locators/R4/PopDropdownClick").replace("Value","CSP interconnect A-end")));
-			   SendkeaboardKeys(getwebelement(xml.getlocator("//locators/R4/AttributeName")), Keys.ENTER);
+			   Clickon(getwebelement(xml.getlocator("//locators/DarkFiber/MiddleLi").replace("Value", "CSP interconnect A-end")));
+			   //Clickon(getwebelement(xml.getlocator("//locators/DarkFiber/MiddleLi").replace("Value","CSP interconnect A-end")));
+			  // SendkeaboardKeys(getwebelement(xml.getlocator("//locators/R4/AttributeName")), Keys.ENTER);
 			   SendkeaboardKeys(getwebelement(xml.getlocator("//locators/R4/AttributeName")), Keys.TAB);
 			   ExtentTestManager.getTest().log(LogStatus.PASS," Step: Select Attribute Name : CSP interconnect A-end");
 			   
 			 //Attribute
 			   WaitforElementtobeclickable(xml.getlocator("//locators/R4/PopAttributeDrodown"));
 			   Clickon(getwebelement(xml.getlocator("//locators/R4/PopAttributeDrodown")));
-			   Clickon(getwebelement(xml.getlocator("//locators/R4/SiteBDropdownClick").replace("Value", "Dedicated Port")));
-			   Clickon(getwebelement(xml.getlocator("//locators/R4/PopDropdownClick").replace("Value","Dedicated Port")));
-			   SendkeaboardKeys(getwebelement(xml.getlocator("//locators/R4/AttributeValue")), Keys.ENTER);
+			   Clickon(getwebelement(xml.getlocator("//locators/DarkFiber/MiddleLi").replace("Value", "Dedicated Port")));
+			   //Clickon(getwebelement(xml.getlocator("//locators/R4/PopDropdownClick").replace("Value","Dedicated Port")));
+			  // SendkeaboardKeys(getwebelement(xml.getlocator("//locators/R4/AttributeValue")), Keys.ENTER);
 			   SendkeaboardKeys(getwebelement(xml.getlocator("//locators/R4/AttributeValue")), Keys.TAB);
 			   ExtentTestManager.getTest().log(LogStatus.PASS," Step: Select Attribute Value : Dedicated Port");
 			   
@@ -8281,5 +8304,40 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			   waitForpageload();
 			   
 		   }
-		  
+
+		public void CSPInterconnectSiteBEntry() throws InterruptedException, DocumentException 
+		   {
+			  /* waitforPagetobeenable();
+			   WaitforElementtobeclickable(xml.getlocator("//locators/R4/PopPlus"));
+			   Clickon(getwebelement(xml.getlocator("//locators/R4/PopPlus")));
+			   ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click Add Sign");
+			   waitforPagetobeenable();
+			   //Attribute
+			   WaitforElementtobeclickable(xml.getlocator("//locators/R4/PopAttributeDrodown"));
+			   Clickon(getwebelement(xml.getlocator("//locators/R4/PopAttributeDrodown")));
+			   Clickon(getwebelement(xml.getlocator("//locators/DarkFiber/MiddleLi").replace("Value", "CSP interconnect A-end")));
+			   //Clickon(getwebelement(xml.getlocator("//locators/DarkFiber/MiddleLi").replace("Value","CSP interconnect A-end")));
+			  // SendkeaboardKeys(getwebelement(xml.getlocator("//locators/R4/AttributeName")), Keys.ENTER);
+			   SendkeaboardKeys(getwebelement(xml.getlocator("//locators/R4/AttributeName")), Keys.TAB);
+			   ExtentTestManager.getTest().log(LogStatus.PASS," Step: Select Attribute Name : CSP interconnect A-end");*/
+			   
+			 //Attribute
+			   WaitforElementtobeclickable(xml.getlocator("//locators/R4/PopAttributeDrodown"));
+			   Clickon(getwebelement(xml.getlocator("//locators/R4/PopAttributeDrodown")));
+			   Clickon(getwebelement(xml.getlocator("//locators/DarkFiber/MiddleLi").replace("Value", "Dedicated Port")));
+			   //Clickon(getwebelement(xml.getlocator("//locators/R4/PopDropdownClick").replace("Value","Dedicated Port")));
+			  // SendkeaboardKeys(getwebelement(xml.getlocator("//locators/R4/AttributeValue")), Keys.ENTER);
+			   SendkeaboardKeys(getwebelement(xml.getlocator("//locators/R4/AttributeValue")), Keys.TAB);
+			   ExtentTestManager.getTest().log(LogStatus.PASS," Step: Select Attribute Value : Dedicated Port");
+			   
+			   waitforPagetobeenable();
+			   
+			   WaitforElementtobeclickable(xml.getlocator("//locators/R4/SiteASettingOK"));
+			   Clickon(getwebelement(xml.getlocator("//locators/R4/SiteASettingOK")));
+			   ExtentTestManager.getTest().log(LogStatus.PASS, " Step: OK Clicked");
+			   waitforPagetobeenable();
+			   waitForpageload();
+			   
+		   }
+
 }
