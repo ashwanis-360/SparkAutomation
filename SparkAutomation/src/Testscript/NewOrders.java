@@ -146,6 +146,14 @@ public class NewOrders extends DriverTestcase {
 		// Code for Cease
 		}
 		   Cease.get().Cease(Data);
+		   newOrderOnnnet.get().SelectAttachmentTab(Data);	//added as per Ayush
+			newOrderOnnnet.get().UploadDocument(Data);	//added as per Ayush
+		   newOrderOnnnet.get().CommercialValidation(Data);	//added as per Ayush
+		   newOrderOnnnet.get().clickOnManualValidationB();	//added as per Ayush
+		   newOrderOnnnet.get().DeliveryValidation(Data);	//added as per Ayush
+		   newOrderOnnnet.get().clickOnManualValidationA();	//added as per Ayush
+		   newOrderOnnnet.get().CompletedValidation(Data);	//added as per Ayush
+
 	}
 	@Test(dataProviderClass=DataReader.class,dataProvider="Cancel")
 	public void Cancel(Object[] Data) throws Exception
