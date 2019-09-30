@@ -1193,6 +1193,7 @@
 
  <!--   Abhay locator Start -->
   <IPVPNSite>
+   <OperationalAttribueCount>(//table[@summary="Operational Attributes"]//tr[contains(@class,'mandatory')]//td[3])</OperationalAttribueCount>
   <ClickDropdown>(//span[text()='Value']/parent::*/span)[2]</ClickDropdown>
   <SearchInput>(//span[text()='Value']/parent::*/span)[2]</SearchInput>
   <SelectValueDropdown>//ul[contains(@style,'block')]//li[text()='Value']</SelectValueDropdown>
