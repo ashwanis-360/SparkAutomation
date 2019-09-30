@@ -40,13 +40,16 @@ public class CeasHelper extends DriverHelper{
 	e1.printStackTrace();
 	}
 	}
-	Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderSearchForAll")));
+	clickUsingAction(getwebelement(xml.getlocator("//locators/ServiceOrderSearchForAll")));	//as per Ayush
 	System.out.println("click service order search field");
 	SendKeys(getwebelement(xml.getlocator("//locators/ServiceOrderSearchForAll")),ServiceOrder.get().toString());
 	System.out.println("enter data order search field");
-	
-	for (int i=0;i<6;i++) {
-		Thread.sleep(120000);
+	WaitforElementtobeclickable(xml.getlocator("//locators/ServiceOrderArrow"));
+	Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderArrow")));
+	//Need some modification 
+	for (int i=0;i<3;i++) {
+		Thread.sleep(60000);
+		WaitforElementtobeclickable(xml.getlocator("//locators/ServiceOrderArrow"));
 		Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderArrow")));
 	}
 	

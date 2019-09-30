@@ -564,12 +564,20 @@
    <AttributeValueEthernetAccess>//td[text()='NC Technical Service Id']/..//td/following-sibling::td/following-sibling::td/input</AttributeValueEthernetAccess>
  <OkButtonOperationalAttribute>//button[@aria-label='Operational Attributes:OK']</OkButtonOperationalAttribute>
   </R4>
-  
+  <!-- ************************* Private Wave Service *********************** -->
   <PrivateWaveService>
   <!--  <OperationalAttribueClick>(//table[@summary="Operational Attributes"]//tr[contains(@class,'mandatory')]//td[3])</OperationalAttribueClick> -->
   <OperationalAttribueClick>(//table[@summary="Operational Attributes"]//tr[contains(@class,'mandatory')]//td[3])[index]</OperationalAttribueClick>
   <OperationalAttributeDropdown>//table[@summary="Operational Attributes"]//tr[contains(@class,'mandatory')]//td[3]/span</OperationalAttributeDropdown>
-  
+  <InputValuesProtection>(//td[text()='Protection Type']//following::input)[1]</InputValuesProtection>//already click
+  <VendorValuecell>(//td[text()='Vendor Platform']//following::td)[1]</VendorValuecell>
+  <InputValuesVendor>(//td[text()='Vendor Platform']//following::input)[1]</InputValuesVendor>
+ 	<TechonolgyValuecell>(//td[text()='Technology']//following::td)[1]</TechonolgyValuecell>
+ 	<InputvaluesTechonolgy>(//td[text()='Technology']//following::input)[1]</InputvaluesTechonolgy>
+ 	<OKButton>//button[@aria-label="Operational Attributes:OK"]</OKButton>
+ 	<BendResillenceOption>(//span[text()='B End Resilience Option']/..//input/following-sibling::span)[2]</BendResillenceOption>
+ 	 <NetworkTopologyPrivateWave>(//span[text()='Network Topology']/..//input/following-sibling::span)[2]</NetworkTopologyPrivateWave>
+ 	 <ServiceTypePrivate>(//span[text()='Service Type']/..//input/following-sibling::span)[2]</ServiceTypePrivate>
   </PrivateWaveService>
   *************for abandoned******
   <ServiceTab>//a[text()='Service Order']</ServiceTab>
