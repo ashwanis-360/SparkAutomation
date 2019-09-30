@@ -3776,20 +3776,20 @@ public class NewOrderOnnetHelper extends DriverHelper {
 
 			break;
 		}
-		case "IP VPN Service": {
-			if (!Inputdata[11].toString().equalsIgnoreCase("IP VPN Wholesale")) {
-				IPVPNServicePlusAccess(Inputdata);
-				NetworkReferenceFillService(Inputdata);
-				IPVPNServicePlusAccess1(Inputdata);
-				IPVPNServiceNetworkReference(Inputdata);
-			} else {
-				IPVPNServicePlusAccess(Inputdata);
-				NetworkReferenceFillService(Inputdata);
-				IPVPNServiceNetworkReference(Inputdata);
+		case "IP VPN Service": 
+			 {
+					
+					IPVPNServicePlusAccess(Inputdata);
+					NetworkReferenceFillService(Inputdata);
+					IPVPNServicePlusAccess1(Inputdata);
+					IPVPNServiceNetworkReference(Inputdata);
+				
+				
+
+				break;
 			}
 
-			break;
-		}
+			
 
 		default:
 			System.out.println("Above product is not exist in current list");
@@ -8815,9 +8815,9 @@ public class NewOrderOnnetHelper extends DriverHelper {
 	}
 
 	// --- Added By Abhay- 28Sep-2019
-	// --- Added By Abhay- 28Sep-2019
+	
 	public void IPVPNServicePlusAccess1(Object[] Inputdata) throws Exception {
-
+		if (!Inputdata[11].toString().equalsIgnoreCase("IP VPN Wholesale")) {
 		WaitforElementtobeclickable(
 				xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Network Topology"));
 		Clickon(getwebelement(
@@ -8844,7 +8844,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on save");
 		waitforPagetobeenable();
 		Thread.sleep(4000);
-
+		}
 		if (Inputdata[11].toString().equalsIgnoreCase("IP VPN Wholesale")) {
 			WaitforElementtobeclickable(
 					xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Business 1 DSCP"));
