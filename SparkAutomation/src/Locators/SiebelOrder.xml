@@ -1529,7 +1529,7 @@
  <PrivateWaveNode>
     <OKButton>//button[@aria-label="Operational Attributes:OK"]</OKButton>
  	<InputValuesVendor>(//td[text()='Vendor Platform']//following::input)[1]</InputValuesVendor>
- 	<InputvaluesTechonolgy>(//td[text()='Technology']//following::td)[1]</InputvaluesTechonolgy>
+ 	<InputvaluesTechonolgy>(//td[text()='Technology']//following::input)[1]</InputvaluesTechonolgy>
  	<SettingsButton>//div[@id='colt-s-order-connection-header-btns']//span</SettingsButton> 
  </PrivateWaveNode>
 
