@@ -407,7 +407,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 	}
 
 	public void VoiceFeatureTab(Object[] Inputdata) throws Exception {
-		if (Inputdata[8].toString().equals("Voice Line V") || Inputdata[8].toString().equals("SIP Trunking")) {
+		if (Inputdata[8].toString().equals("Voice Line V")) {
 			Thread.sleep(5000);
 			Clickon(getwebelement(xml.getlocator("//locators/VoicefeaturesTab")));
 			Thread.sleep(5000);
@@ -591,10 +591,79 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on DisasterRecoveryOk");
 			Thread.sleep(5000);
 		}
+		else if(Inputdata[8].toString().equals("SIP Trunking")) {	//added as per Gauri
+			Thread.sleep(5000);
+			Clickon(getwebelement(xml.getlocator("//locators/VoicefeaturesTab")));
+			Thread.sleep(5000);
+			WaitforElementtobeclickable((xml.getlocator("//locators/ClickheretoSaveAccess")));
+			Clickon(getwebelement(xml.getlocator("//locators/ClickheretoSaveAccess")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on SaveAccess");
+			waitforPagetobeenable();
+			Thread.sleep(30000);
+			Thread.sleep(5000);
+			Clickon(getwebelement(xml.getlocator("//locators/showfullinfo")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Show full Info");
+			Thread.sleep(5000);
+			Clickon(getwebelement(xml.getlocator("//locators/ByPassNumber")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on BypassNumber");
+			Thread.sleep(5000);
+			Clickon(getwebelement(xml.getlocator("//locators/CallBarring")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on CallBarring");
+			Thread.sleep(5000);
+			WaitforElementtobeclickable(xml.getlocator("//locators/CallBarringDropDown"));
+			Clickon(getwebelement(xml.getlocator("//locators/CallBarringDropDown")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on CallBarringDropDown");
+			// Thread.sleep(5000);
+			WaitforElementtobeclickable(xml.getlocator("//locators/Callbarringvalue"));
+			Clickon(getwebelement(xml.getlocator("//locators/Callbarringvalue")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on CallBarringValue");
+
+			Thread.sleep(5000);
+			WaitforElementtobeclickable(xml.getlocator("//locators/DisasterRecovery"));
+			safeJavaScriptClick(getwebelement(xml.getlocator("//locators/DisasterRecovery")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on DisasterRecovery");
+			Thread.sleep(5000);
+			WaitforElementtobeclickable(xml.getlocator("//locators/NumberOfDrPlans"));
+			Clickon(getwebelement(xml.getlocator("//locators/NumberOfDrPlans")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on NumberOfDRPlans");
+			// Thread.sleep(5000);
+			WaitforElementtobeclickable(xml.getlocator("//locators/NumberofDRplansValue"));
+			Clickon(getwebelement(xml.getlocator("//locators/NumberofDRplansValue")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on NoofDrValues");
+			Thread.sleep(5000);
+			Clickon(getwebelement(xml.getlocator("//locators/CrossButton1")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on CrossButton");
+			Thread.sleep(5000);
+			Clickon(getwebelement(xml.getlocator("//locators/DisasterRecoveryContact")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on DisasterRecoveryContact");
+			Thread.sleep(5000);
+			WaitforElementtobeclickable((xml.getlocator("//locators/ClickSaveConfig")));
+			Clickon(getwebelement(xml.getlocator("//locators/ClickSaveConfig")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on ClickSaveConfig");
+			waitforPagetobeenable();
+			Thread.sleep(30000);
+			Clickon(getwebelement(xml.getlocator("//locators/DisasterRecoveryContact")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on DisasterRecoveryContact");
+			Thread.sleep(5000);
+			Clickon(getwebelement(xml.getlocator("//locators/DisasterRecoveryAdd")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on DisasterRecoveryAdd");
+			Thread.sleep(5000);
+			Clickon(getwebelement(xml.getlocator("//locators/DisasterAdd2")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on DisasterAdd2");
+			Thread.sleep(5000);
+			Clickon(getwebelement(xml.getlocator("//locators/DisasterRecoveryAdd")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on DisasterRecoveryAdd");
+			Thread.sleep(5000);
+			Clickon(getwebelement(xml.getlocator("//locators/DisasterRecoveryOk")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on DisasterRecoveryOk");
+			Thread.sleep(5000);
+
+
+			}
 	}
 
 	public void MandatoryFields(Object[] Inputdata) throws Exception {
-		if (Inputdata[8].toString().equals("Voice Line V")) {
+		if (Inputdata[8].toString().equals("Voice Line V")||Inputdata[8].toString().equals("SIP Trunking")) {
 
 			Clickon(getwebelement(xml.getlocator("//locators/NumberManagementTab")));
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on NumberManagementTab");
@@ -930,13 +999,13 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			WaitforElementtobeclickable(xml.getlocator("//locators/NumberRangeStatusValue"));
 			Clickon(getwebelement(xml.getlocator("//locators/NumberRangeStatusValue")));
 			Thread.sleep(5000);
-			Clickon(getwebelement(xml.getlocator("//locators/PortGroupId")));
-			Thread.sleep(5000);
-			WaitforElementtobeclickable(xml.getlocator("//locators/PortGroupIdLookup"));
-			Clickon(getwebelement(xml.getlocator("//locators/PortGroupIdLookup")));
+			//Clickon(getwebelement(xml.getlocator("//locators/PortGroupId")));
+			//Thread.sleep(5000);
+			//WaitforElementtobeclickable(xml.getlocator("//locators/PortGroupIdLookup"));
+			//Clickon(getwebelement(xml.getlocator("//locators/PortGroupIdLookup")));
 			// Thread.sleep(5000);
-			Clickon(getwebelement(xml.getlocator("//locators/PortGroupOk")));
-			Thread.sleep(5000);
+			//Clickon(getwebelement(xml.getlocator("//locators/PortGroupOk")));
+			//Thread.sleep(5000);
 			Clickon(getwebelement(xml.getlocator("//locators/addressUid")));
 			Thread.sleep(5000);
 			WaitforElementtobeclickable(xml.getlocator("//locators/addressUidLookup"));
