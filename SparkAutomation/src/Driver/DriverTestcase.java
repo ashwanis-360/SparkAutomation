@@ -29,28 +29,24 @@ import ScriptHelper.ModHelper;
 import ScriptHelper.NewOrderOnnetHelper;
 import ScriptHelper.OMPScriptHelper;
 
-
-
 public class DriverTestcase {
 
 	public static final ThreadLocal<WebDriver> WEB_DRIVER_THREAD_LOCAL = new InheritableThreadLocal<>();
-	// public static final ThreadLocal<RemoteWebDriver> WEB_DRIVER_THREAD_LOCAL =
-	// new InheritableThreadLocal<>();
+// public static final ThreadLocal<RemoteWebDriver> WEB_DRIVER_THREAD_LOCAL =
+// new InheritableThreadLocal<>();
 
 	public static final ThreadLocal<LoginHelper> Login = new InheritableThreadLocal<>();
 	public static final ThreadLocal<NewOrderOnnetHelper> newOrderOnnnet = new InheritableThreadLocal<>();
 	public static final ThreadLocal<CancelHelper> Cancel = new InheritableThreadLocal<>();
 	public static final ThreadLocal<CeasHelper> Cease = new InheritableThreadLocal<>();
 	public static final ThreadLocal<OMPScriptHelper> OmpOrder = new InheritableThreadLocal<>();
-	public static final ThreadLocal<InFlightOrderHelper>inFlightGeneric = new InheritableThreadLocal<>();
-	public static final ThreadLocal<ModHelper>modHelper = new InheritableThreadLocal<>();
-	
-	
+	public static final ThreadLocal<InFlightOrderHelper> inFlightGeneric = new InheritableThreadLocal<>();
+	public static final ThreadLocal<ModHelper> modHelper = new InheritableThreadLocal<>();
 
-//	public static final ThreadLocal<InFlightForIPAccess>inFlight = new InheritableThreadLocal<>();
-//	public static ThreadLocal<String> QuoteID = new InheritableThreadLocal<>();
+// public static final ThreadLocal<InFlightForIPAccess>inFlight = new InheritableThreadLocal<>();
+// public static ThreadLocal<String> QuoteID = new InheritableThreadLocal<>();
 	public static Listners.TestListener Testlistener;
-	// public static CarNorOrderHelper CarNorOrderhelper;
+// public static CarNorOrderHelper CarNorOrderhelper;
 	public ThreadLocal<String> TestName = new ThreadLocal();
 	public static SessionId session_id;
 	public static ChromeDriver driver;
@@ -59,63 +55,94 @@ public class DriverTestcase {
 	@BeforeMethod
 	public void BeforeMethod(Method method, ITestContext ctx, Object[] data) throws IOException, Exception {
 		setup();
-		Object[] st = null;
-
+		Object[] st1 = null;
+		System.out.println(data.length);
 		try
 
 		{
-			st = (Object[]) data[0];
+			st1 = (Object[]) data[0];
+			System.out.println("Lenghth of Complete Data provided by DP" + st1.length);
+			System.out.println("First Coulum in Data provider for :" + st1[(st1.length) - 2]);
 		} catch (Exception e) {
-			st = new Object[][] { { "" } };
+			st1 = new Object[] { "" };
+			System.out.println("Exception Thrown:" + e.getMessage());
 		}
+		Object[] st = null;
+		try
 
-if (method.getName().equals("EndtoEndOrderOnnet")) {
-//	   		DataReader dt=new DataReader();
-//	   		Object[][] data=dt.ipreader();
-//		    Object[] st= (Object[]) data[itr][0];
-			Log.info(st[st.length - 2].toString());
-			ctx.setAttribute("testName", st[st.length - 2].toString());
+		{
+			st = (Object[]) st1;
+			System.out.println("Length of First Data provided by DP" + st.length);
+			System.out.println("First Coulum in Data provider for :" + st[(st.length) - 2]);
+		} catch (Exception e) {
+			st = new Object[] { "" };
+			System.out.println(e.getMessage());
 		}
-		else if (method.getName().equals("Mod")) {
-//			DataReader dt=new DataReader();
-//			Object[][] data=dt.ipreader();
-//    		Object[] st= (Object[]) data[itr][0];
+		TestName.set(st[st.length - 2].toString());
+		System.out.println(
+				"Name for current Thread" + Thread.currentThread().getId() + "is " + TestName.get().toString());
+		if (method.getName().equals("EndtoEndOrderOnnet")) {
+//   DataReader dt=new DataReader();
+//   Object[][] data=dt.ipreader();
+//    Object[] st= (Object[]) data[itr][0];
 			Log.info(st[st.length - 2].toString());
-			ctx.setAttribute("testName", st[st.length - 2].toString());
-} 
-		else if (method.getName().equals("Cancel")) {
-//	   		DataReader dt=new DataReader();
-//	   		Object[][] data=dt.ipreader();
-//		    Object[] st= (Object[]) data[itr][0];
+			System.out.println(st[st.length - 2].toString());
+// ctx.getCurrentXmlTest()ctx.getCurrentXmlTest().set
+
+			ctx.setAttribute("testName", TestName.get().toString());
+		} else if (method.getName().equals("Mod")) {
+//   DataReader dt=new DataReader();
+//   Object[][] data=dt.ipreader();
+//    Object[] st= (Object[]) data[itr][0];
 			Log.info(st[st.length - 2].toString());
-			ctx.setAttribute("testName", st[st.length - 2].toString());
+			System.out.println(st[st.length - 2].toString());
+// ctx.getCurrentXmlTest()ctx.getCurrentXmlTest().set
+
+			ctx.setAttribute("testName", TestName.get().toString());
+		} else if (method.getName().equals("Cancel")) {
+//   DataReader dt=new DataReader();
+//   Object[][] data=dt.ipreader();
+//    Object[] st= (Object[]) data[itr][0];
+			Log.info(st[st.length - 2].toString());
+			System.out.println(st[st.length - 2].toString());
+// ctx.getCurrentXmlTest()ctx.getCurrentXmlTest().set
+
+			ctx.setAttribute("testName", TestName.get().toString());
 		} else if (method.getName().equals("Cease")) {
-//	   		DataReader dt=new DataReader();
-//	   		Object[][] data=dt.ipreader();
-//		    Object[] st= (Object[]) data[itr][0];
+//   DataReader dt=new DataReader();
+//   Object[][] data=dt.ipreader();
+//    Object[] st= (Object[]) data[itr][0];
 			Log.info(st[st.length - 2].toString());
-			ctx.setAttribute("testName", st[st.length - 2].toString());
-		}else if (method.getName().equals("inFlightGeneric")) {
-//	   		DataReader dt=new DataReader();
-//	   		Object[][] data=dt.ipreader();
-//		    Object[] st= (Object[]) data[itr][0];
+			System.out.println(st[st.length - 2].toString());
+// ctx.getCurrentXmlTest()ctx.getCurrentXmlTest().set
+
+			ctx.setAttribute("testName", TestName.get().toString());
+		} else if (method.getName().equals("inFlightGeneric")) {
+//   DataReader dt=new DataReader();
+//   Object[][] data=dt.ipreader();
+//    Object[] st= (Object[]) data[itr][0];
 			Log.info(st[st.length - 2].toString());
-			ctx.setAttribute("testName", st[st.length - 2].toString());
+			System.out.println(st[st.length - 2].toString());
+// ctx.getCurrentXmlTest()ctx.getCurrentXmlTest().set
+
+			ctx.setAttribute("testName", TestName.get().toString());
 		} else if (method.getName().equals("OMPGenric")) {
-//	   		DataReader dt=new DataReader();
-//	   		Object[][] data=dt.ipreader();
-//		    Object[] st= (Object[]) data[itr][0];
+//   DataReader dt=new DataReader();
+//   Object[][] data=dt.ipreader();
+//    Object[] st= (Object[]) data[itr][0];
 			Log.info(st[st.length - 2].toString());
-			ctx.setAttribute("testName", st[st.length - 2].toString());
-		} 	
-		else
+			System.out.println(st[st.length - 2].toString());
+// ctx.getCurrentXmlTest()ctx.getCurrentXmlTest().set
+
+			ctx.setAttribute("testName", TestName.get().toString());
+		} else
 			ctx.setAttribute("testName", method.getName());
 		Log.info(ctx.getAttribute("testName").toString());
 	}
 
-	//@BeforeTest
+//@BeforeTest
 	public void setup() throws IOException, InterruptedException {
-		// Open Browser
+// Open Browser
 		WebDriver dr = null;
 		PropertyReader pr = new PropertyReader();
 		String targatedbrowser = pr.readproperty("browser");
@@ -124,10 +151,10 @@ if (method.getName().equals("EndtoEndOrderOnnet")) {
 		if (targatedbrowser.equals("chrome")) {
 			DesiredCapabilities capabilities = DesiredCapabilities.chrome();
 			Map<String, Object> prefs = new HashMap<String, Object>();
-			// Set the notification setting it will override the default setting
+// Set the notification setting it will override the default setting
 			prefs.put("profile.default_content_setting_values.notifications", 2);
 
-			// Create object of ChromeOption class
+// Create object of ChromeOption class
 			ChromeOptions options = new ChromeOptions();
 			options.setExperimentalOption("prefs", prefs);
 			capabilities.setCapability(CapabilityType.PAGE_LOAD_STRATEGY, "none");
@@ -153,9 +180,9 @@ if (method.getName().equals("EndtoEndOrderOnnet")) {
 		CancelHelper CN = new CancelHelper(getwebdriver());
 		ModHelper MD = new ModHelper(getwebdriver());
 		NewOrderOnnetHelper noo = new NewOrderOnnetHelper(getwebdriver());
-//		ModifyComOrdersOfAllProductsHelper mooc = new ModifyComOrdersOfAllProductsHelper(getwebdriver());
-//		AbandonedOrderOfAllThreeProducts aoop = new AbandonedOrderOfAllThreeProducts(getwebdriver());
-//		InFlightForIPAccess ioc = new InFlightForIPAccess(getwebdriver());
+// ModifyComOrdersOfAllProductsHelper mooc = new ModifyComOrdersOfAllProductsHelper(getwebdriver());
+// AbandonedOrderOfAllThreeProducts aoop = new AbandonedOrderOfAllThreeProducts(getwebdriver());
+// InFlightForIPAccess ioc = new InFlightForIPAccess(getwebdriver());
 
 		Login.set(LN);
 		newOrderOnnnet.set(NEWO);
@@ -165,10 +192,9 @@ if (method.getName().equals("EndtoEndOrderOnnet")) {
 		OmpOrder.set(OMP);
 		modHelper.set(MD);
 
-
-//		modifyOrdersCom.set(mooc);
-//		abandonedOrder.set(aoop);
-//		inFlight.set(ioc);
+// modifyOrdersCom.set(mooc);
+// abandonedOrder.set(aoop);
+// inFlight.set(ioc);
 	}
 
 	@org.testng.annotations.BeforeSuite
@@ -177,15 +203,16 @@ if (method.getName().equals("EndtoEndOrderOnnet")) {
 		DOMConfigurator.configure("log4j.xml");
 	}
 
-	//@AfterTest
+//@AfterTest
 	public void Teardown() {
 
-//		dr.close();
+		//dr.close();
 	}
+
 	@AfterMethod
 	public void Teardown2() {
-		getwebdriver().close();;
-//		dr.close();
+		getwebdriver().close();
+		// dr.close();
 	}
 
 	public WebDriver getwebdriver() {
