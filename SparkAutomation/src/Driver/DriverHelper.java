@@ -887,6 +887,21 @@ public void Clickonoutofviewportwithstring(String locator) throws Exception {
 		String timeStamp = new SimpleDateFormat("yyyyMMddHHmm'.txt'").format(new Date());
 		return timeStamp;
 	}
+	
+	/*
+	 * Created by: Ashwani
+	 */
+	public void waitforAttributeloader() throws InterruptedException
+	 { 
+		Thread.sleep(2000);
+		 //WebElement el=driver.findElement(By.xpath("));
+		Thread.sleep(2000);
+		 while(isDisplayed("//i[contains(@class,'colt-status-spinner') and contains(@class,'colt-attr-status-icon') and contains(@class,'fa-spinner')]"))
+				
+		 {
+			 Thread.sleep(1000);
+		 }
+	 }
 }
 
 
