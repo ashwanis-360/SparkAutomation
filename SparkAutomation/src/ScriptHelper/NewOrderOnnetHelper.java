@@ -307,6 +307,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				&& !Inputdata[8].toString().equals("DCA Ethernet")
 				&& !Inputdata[8].toString().equals("Ultra Low Latency")
 				&& !Inputdata[8].toString().equals("Ethernet Access")
+				&& !Inputdata[8].toString().equals("Private Wave Node")
 				&& !Inputdata[8].toString().equals("IP VPN Service")) {
 			WaitforElementtobeclickable(xml.getlocator("//locators/NetworkReferenceSearch"));
 			Clickon(getwebelement(xml.getlocator("//locators/NetworkReferenceSearch")));
@@ -401,6 +402,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				Thread.sleep(3000);
 				savePage();
 				waitforPagetobeenable();
+				savePage();//as per aman
 				Thread.sleep(8000);
 				if (isElementPresent(xml.getlocator("//locators/SaveOrderChanges"))) {
 					WaitforElementtobeclickable(xml.getlocator("//locators/SaveOrderChanges"));
@@ -1471,15 +1473,13 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		}
 		case "Private Wave Node": { // Added by Aman
 			middleAppletPrivateWaveNode(Inputdata);
-			OperationalAttributes(Inputdata);
-			// settingPrivateWaveNode(Inputdata); //as per ayush
-			GetReference();
-			Save();
+			settingPrivateWaveNode(Inputdata); 
 			SiteAServiceParty(Inputdata);
 			PickServiceParty(Inputdata);
 			SiteASiteContact(Inputdata);
 			PickSiteContactParty(Inputdata);
-			Save();
+			alertPopUp();
+			ClickHereSave();
 			SearchSiteA(Inputdata);
 			SearchSiteAEntry(Inputdata);
 			AEndSitePUD(Inputdata);
@@ -1544,11 +1544,16 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		}
 		case "Ultra Low Latency": {
 			middleUltraLowLatency(Inputdata);
+			OperationalAttributeUltra(Inputdata);
+			alertPopUp();
+			//OperationalAttributes(Inputdata);
 			ShowfullInfo();
 			DiversityCircuitEntry(Inputdata);
 			Save();
-			GetReference();
-			Save();
+			
+			waitForpageload();
+	    	waitforPagetobeenable();
+	    	 savePage();
 			SiteAServiceParty(Inputdata);
 			PickServiceParty(Inputdata);
 			SiteBServiceParty(Inputdata);
@@ -1571,6 +1576,11 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			SiteAAccessPortPUD(Inputdata);
 			SiteBAccessPortPUD(Inputdata);
 			ClickHereSave();
+			GetReference();
+			ClickHereSave();
+			waitForpageload();
+	    	waitforPagetobeenable();
+			
 			break;
 		}
 		case "Cloud Unified Communications": {
@@ -1587,11 +1597,10 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		}
 		case "Dark Fibre": {
 			middleAppletDarkFibre(Inputdata);
+			OperationalAttributeUltra(Inputdata);
+			alertPopUp();
 			ShowfullInfo();
-			// PrivateEthernetEntry(Inputdata);//as per Aman's
 			DiversityCircuitEntry(Inputdata);
-			Save();
-			GetReference();
 			Save();
 			SiteAServiceParty(Inputdata);
 			PickServiceParty(Inputdata);
@@ -1606,27 +1615,21 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			SearchSiteAEntry(Inputdata);
 			SearchSiteB(Inputdata);
 			SearchSiteBEntry(Inputdata);
-
-			// ClickHereSave();//as per Aman's
-			// savePage();//as per Aman's
-			// waitforPagetobeenable();//as per Aman's
 			AEndSitePUD(Inputdata);
-			// as per Aman's ClickHereSave();
-			// as per Aman's savePage();
-			// as per Aman's waitforPagetobeenable();
 			BEndSitePUD(Inputdata);
-			// as per Aman's ClickHereSave();
-			SiteAInstallationTimePUD(Inputdata); // as per Aman's
+			SiteAInstallationTimePUD(Inputdata); //as per Aman's
 			SiteBInstallationTimePUD(Inputdata);
-			// as per Aman's ClickHereSave();
 			SiteATerminationTimePUD(Inputdata);
-			// as per Aman's ClickHereSave();
 			SiteBTerminationTimePUD(Inputdata);
-			// as per Aman's ClickHereSave();
 			SiteAAccessPortPUD(Inputdata);
-			// as per Aman's ClickHereSave();
 			SiteBAccessPortPUD(Inputdata);
 			ClickHereSave();
+			waitForpageload();
+	    	waitforPagetobeenable();
+			GetReference();
+			ClickHereSave();
+			waitForpageload();
+	    	waitforPagetobeenable();
 			break;
 		}
 
@@ -4203,6 +4206,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		Clickon(getwebelement(xml.getlocator("//locators/OrderStatusDropdown")));
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Entered Order Status Technical Validation");
 		Thread.sleep(3000);
+		WaitforElementtobeclickable(xml.getlocator("//locators/SelectTechnicalValidation"));
 		Clickon(getwebelement(xml.getlocator("//locators/SelectTechnicalValidation")));
 		waitforPagetobeenable();
 		// savePage();
@@ -4514,9 +4518,30 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			Thread.sleep(20000);
 		} while (!isElementPresent("//*[text()='COMPLETE']"));
 		// ------------end of Rekha code============
-		Clickon(getwebelement(xml.getlocator("//locators/ModifyButtonClick")));
+		
+		
+		//Clickon(getwebelement(xml.getlocator("//locators/ModifyButtonClick")));
 		waitforPagetobeenable();
 		Thread.sleep(3000);
+	
+		
+		try				// By   Aman Gupta
+		{
+			WaitforElementtobeclickable(xml.getlocator("//locators/ModifyButtonClick"));
+			Clickon(getwebelement(xml.getlocator("//locators/ModifyButtonClick")));
+		}
+		catch(Exception e)
+		{
+			
+			WaitforElementtobeclickable(xml.getlocator("//locators/ModifyBtn"));
+			Clickon(getwebelement(xml.getlocator("//locators/ModifyBtn")));
+			
+		}
+		
+		waitforPagetobeenable();
+		Thread.sleep(3000);
+		
+		
 		SendKeys(getwebelement(xml.getlocator("//locators/OpportunityNo")), Inputdata[1].toString());
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Opportunity No");
 		SendKeys(getwebelement(xml.getlocator("//locators/RequestReceivedDate")), CurrentDate());
@@ -5902,6 +5927,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 
 	/* Added by Devesh for R4 Products */
 	public void SearchSiteA(Object[] InputData) throws InterruptedException, DocumentException {
+		waitForpageload();
+		waitforPagetobeenable();
 		WaitforElementtobeclickable(xml.getlocator("//locators/R4/LeftSiteSearch"));
 		Clickon(getwebelement(xml.getlocator("//locators/R4/LeftSiteSearch")));
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click Search Site A ");
@@ -5911,6 +5938,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 
 	/* Added by Devesh for R4 Products */
 	public void SearchSiteB(Object[] InputData) throws InterruptedException, DocumentException {
+		waitForpageload();
+		waitforPagetobeenable();
 		WaitforElementtobeclickable(xml.getlocator("//locators/R4/RightSiteSearch"));
 		Clickon(getwebelement(xml.getlocator("//locators/R4/RightSiteSearch")));
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click Search Site B ");
@@ -5981,6 +6010,10 @@ public class NewOrderOnnetHelper extends DriverHelper {
 
 	/* Added by Devesh for R4 Products */
 	public void SiteAServiceParty(Object[] InputData) throws Exception {
+		if (isDisplayed((xml.getlocator("//locators/AlertAccept")))) {
+			WaitforElementtobeclickable((xml.getlocator("//locators/AlertAccept")));
+			Clickon(getwebelement(xml.getlocator("//locators/AlertAccept")));
+		}
 		WaitforElementtobeclickable(
 				xml.getlocator("//locators/R4/SiteADropdownClick").replace("Value", "Service Party"));
 		safeJavaScriptClick(
@@ -7333,24 +7366,34 @@ public class NewOrderOnnetHelper extends DriverHelper {
 
 	public void settingPrivateWaveNode(Object[] Inputdata) throws Exception {
 		waitForpageload();
-		waitforPagetobeenable();
-		WaitforElementtobeclickable(xml.getlocator("//locators/PrivateWaveNode/SettingsButton"));
-		safeJavaScriptClick(getwebelement(xml.getlocator("//locators/PrivateWaveNode/SettingsButton")));
-		// waitforPagetobeenable();
-		Thread.sleep(10000);
+    	waitforPagetobeenable();
+    	 savePage();
+    	WaitforElementtobeclickable(xml.getlocator("//locators/PrivateWaveNode/SettingsButton"));
+    	Thread.sleep(1000);
+    	
+    		//Clickon(getwebelement(xml.getlocator("//locators/PrivateWaveService/Dipesh")));	
+    	
+    	
+    	//clickUsingAction(getwebelement(xml.getlocator("//locators/PrivateWaveNode/SettingsButton")));
+    	safeJavaScriptClick(getwebelement(xml.getlocator("//locators/PrivateWaveNode/SettingsButton")));
+		  // waitforPagetobeenable();
+		   Thread.sleep(10000); 
+		   
+    	WaitforElementtobeclickable(xml.getlocator("//locators/PrivateWaveNode/InputValuesVendor"));
+    	 Clickon(getwebelement(xml.getlocator("//locators/PrivateWaveNode/InputValuesVendor")));
+    	SendKeys(getwebelement2(xml.getlocator("//locators/PrivateWaveNode/InputValuesVendor")), "ADVA");
+    	SendkeaboardKeys(getwebelement(xml.getlocator("//locators/PrivateWaveNode/InputValuesVendor")),Keys.TAB);
+    	
+    	
+    	WaitforElementtobeclickable(xml.getlocator("//locators/PrivateWaveNode/TechonolgyValuecell"));
+    	 Clickon(getwebelement(xml.getlocator("//locators/PrivateWaveNode/TechonolgyValuecell")));
+    	 WaitforElementtobeclickable(xml.getlocator("//locators/PrivateWaveNode/InputvaluesTechonolgy"));
+    	 SendKeys(getwebelement2(xml.getlocator("//locators/PrivateWaveNode/InputvaluesTechonolgy")), "CWDM");
+    	 SendkeaboardKeys(getwebelement(xml.getlocator("//locators/PrivateWaveNode/InputvaluesTechonolgy")),Keys.TAB);
 
-		WaitforElementtobeclickable(xml.getlocator("//locators/PrivateWaveNode/InputValuesVendor"));
-		Clickon(getwebelement(xml.getlocator("//locators/PrivateWaveNode/InputValuesVendor")));
-		SendKeys(getwebelement2(xml.getlocator("//locators/PrivateWaveNode/InputValuesVendor")), "ADVA");
-		SendkeaboardKeys(getwebelement(xml.getlocator("//locators/PrivateWaveNode/InputValuesVendor")), Keys.TAB);
-
-		WaitforElementtobeclickable(xml.getlocator("//locators/PrivateWaveNode/InputvaluesTechonolgy"));
-		Clickon(getwebelement(xml.getlocator("//locators/PrivateWaveNode/InputvaluesTechonolgy")));
-		SendKeys(getwebelement2(xml.getlocator("//locators/PrivateWaveNode/InputvaluesTechonolgy")), "CWDM");
-		SendkeaboardKeys(getwebelement(xml.getlocator("//locators/PrivateWaveNode/InputvaluesTechonolgy")), Keys.TAB);
-
-		WaitforElementtobeclickable(xml.getlocator("//locators/PrivateWaveNode/OKButton"));
-		Clickon(getwebelement(xml.getlocator("//locators/PrivateWaveNode/OKButton")));
+    	 Thread.sleep(5000);
+    	 WaitforElementtobeclickable(xml.getlocator("//locators/PrivateWaveNode/OKButton"));
+    	 Clickon(getwebelement(xml.getlocator("//locators/PrivateWaveNode/OKButton")));
 	}
 
 	/*
@@ -7421,6 +7464,10 @@ public class NewOrderOnnetHelper extends DriverHelper {
 	 * Added by Ayush
 	 */
 	public void OperationalAttributes(Object[] Inputdata) throws Exception {
+		
+		waitForpageload();
+		savePage();
+		waitforPagetobeenable();
 		WaitforElementtobeclickable(xml.getlocator("//locators/R4/SettingsButton"));
 		Thread.sleep(10000);
 		Clickon(getwebelement(xml.getlocator("//locators/R4/SettingsButton")));
@@ -9247,6 +9294,84 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		}
 		Thread.sleep(3000);
 	}
+	//Added by aman gupta
+		public void alertPopUp() throws DocumentException, InterruptedException
+		{
+			if (isDisplayed((xml.getlocator("//locators/AlertAccept")))) {
+				WaitforElementtobeclickable((xml.getlocator("//locators/AlertAccept")));
+				Clickon(getwebelement(xml.getlocator("//locators/AlertAccept")));
+			}
+		}
+		
+	/*
+	 * Created by Aman
+	 */
+		
+		public void settingUltraLowLatency(Object[] Inputdata) throws Exception
+	    {
+		  
+	    	waitForpageload();
+	    	waitforPagetobeenable();
+	    	 savePage();
+	    	WaitforElementtobeclickable(xml.getlocator("//locators/PrivateWaveNode/SettingsButton"));
+	    	Thread.sleep(1000);
+	    	safeJavaScriptClick(getwebelement(xml.getlocator("//locators/PrivateWaveNode/SettingsButton")));
+	    	Thread.sleep(10000); 
+			   
+	    	WaitforElementtobeclickable(xml.getlocator("//locators/PrivateWaveNode/InputValuesVendor"));
+	    	 Clickon(getwebelement(xml.getlocator("//locators/PrivateWaveNode/InputValuesVendor")));
+	    	SendKeys(getwebelement2(xml.getlocator("//locators/PrivateWaveNode/InputValuesVendor")), "ADVA");
+	    	SendkeaboardKeys(getwebelement(xml.getlocator("//locators/PrivateWaveNode/InputValuesVendor")),Keys.TAB);
+	    	
+	    	
+	    	WaitforElementtobeclickable(xml.getlocator("//locators/PrivateWaveNode/TechonolgyValuecell"));
+	    	 Clickon(getwebelement(xml.getlocator("//locators/PrivateWaveNode/TechonolgyValuecell")));
+	    	 WaitforElementtobeclickable(xml.getlocator("//locators/PrivateWaveNode/InputvaluesTechonolgy"));
+	    	 SendKeys(getwebelement2(xml.getlocator("//locators/PrivateWaveNode/InputvaluesTechonolgy")), "CWDM");
+	    	 SendkeaboardKeys(getwebelement(xml.getlocator("//locators/PrivateWaveNode/InputvaluesTechonolgy")),Keys.TAB);
 	
+	    	 Thread.sleep(5000);
+	    	 WaitforElementtobeclickable(xml.getlocator("//locators/PrivateWaveNode/OKButton"));
+	    	 Clickon(getwebelement(xml.getlocator("//locators/PrivateWaveNode/OKButton")));
+		}
+		
+	/*
+	 * Created by Aman
+	 */
+		
+		public void OperationalAttributeUltra(Object[] Inputdata) throws Exception {
+			   waitForpageload();
+		    	waitforPagetobeenable();
+		    	 savePage();
+		    	WaitforElementtobeclickable(xml.getlocator("//locators/PrivateWaveNode/SettingsButton"));
+		    	Thread.sleep(1000);
+		    	
+		    	safeJavaScriptClick(getwebelement(xml.getlocator("//locators/PrivateWaveNode/SettingsButton")));
+				  
+				Thread.sleep(4000);
+				waitforPagetobeenable();
+				Thread.sleep(5000);
+				int count = getwebelementscount(xml.getlocator("//locators/IPVPNSite/OperationalAttribueCount"));
+				System.out.println(count);
+				for (int i = 0; i < count; i++) {
+
+			    	
+					////////////////////////////////////
+					WaitforElementtobeclickable(xml.getlocator("//locators/IPVPNSite/OperationalAttribueClick").replace("index",
+							String.valueOf(i + 1)));
+					Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/OperationalAttribueClick").replace("index",
+							String.valueOf(i + 1))));
+					WaitforElementtobeclickable(xml.getlocator("//locators/IPVPNSite/OperationalAttributeText"));
+					Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/OperationalAttributeText")));
+//						WaitforElementtobeclickable(xml.getlocator("//locators/SelectValueDropdown").replace("Value", Inputdata[7].toString()));
+//						Clickon(getwebelement(xml.getlocator("//locators/SelectValueDropdown").replace("Value", Inputdata[7].toString())));
+					SendKeys(getwebelement(xml.getlocator("//locators/IPVPNSite/OperationalAttributeText")), "Test1");
+
+				}
+				Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/OperationalAttributeOK")));
+				savePage();
+				Thread.sleep(5000);
+			}
+	   
 	
 }
