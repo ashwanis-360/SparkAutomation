@@ -5305,22 +5305,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 					" Step: Reference Input No: " + Circuitreferencenumber.get());
 			Log.info("Reference Input value: " + Circuitreferencenumber.get());
 		}
-		// ===================== Rekha==================
-		if (Inputdata[8].toString().equalsIgnoreCase("Ethernet VPN Access")) {
-			WaitforElementtobeclickable((xml.getlocator("//locators/CircuitReferenceAccess")));
-			Clickon(getwebelement(xml.getlocator("//locators/CircuitReferenceAccess")));
-			Thread.sleep(25000);
-
-			savePage();
-			waitforPagetobeenable();
-			Thread.sleep(8000);
-
-			Circuitreferencenumber.set(Gettext(getwebelement(xml.getlocator("//locators/CircuitReferenceValue']"))));
-			ExtentTestManager.getTest().log(LogStatus.PASS,
-					" Step: Generated Service Order Reference No: " + Circuitreferencenumber.get());
-
-		}
-
+		// removed else condition as created new method as per Rekha
+		
 	}
 
 	/*
@@ -9372,6 +9358,52 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				savePage();
 				Thread.sleep(5000);
 			}
+	/*
+	 * Created by Rekha
+	 */
+		public void Carnor_getReferenceNo(Object[] Inputdata) throws Exception, Exception {
+			if (Inputdata[8].toString().equalsIgnoreCase("Ethernet VPN Access")
+			|| Inputdata[8].toString().equalsIgnoreCase("Dark Fibre")
+			|| Inputdata[8].toString().equalsIgnoreCase("Ultra Low Latency")
+			|| Inputdata[8].toString().equalsIgnoreCase("Private Ethernet")
+			|| Inputdata[8].toString().equalsIgnoreCase("DCA Ethernet")
+			|| Inputdata[8].toString().equalsIgnoreCase("Private Wave Service")
+			|| Inputdata[8].toString().equalsIgnoreCase("IP Access")
+			|| Inputdata[8].toString().equalsIgnoreCase("IP VPN Service"))
+			{
+			WaitforElementtobeclickable((xml.getlocator("//locators/CircuitReferenceAccess")));
+			Clickon(getwebelement(xml.getlocator("//locators/CircuitReferenceAccess")));
+			Thread.sleep(25000);
+
+			savePage();
+			waitforPagetobeenable();
+			Thread.sleep(8000);
+
+			Circuitreferencenumber.set(Gettext(getwebelement(xml.getlocator("//locators/CircuitReferenceValue']"))));
+			ExtentTestManager.getTest().log(LogStatus.PASS,
+			" Step: Generated Service Order Reference No: " + Circuitreferencenumber.get());
+
+			}
+			
+			 
+			 //for enter value in circuit reference
+			 else if(Inputdata[8].toString().contains("Ethernet Access"))
+			 {
+				 Thread.sleep(3000);
+				 Clickon(getwebelement(xml.getlocator("//locators/R4/NetworkTopology")));
+				 ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click network topology");
+				 SendkeaboardKeys(getwebelement(xml.getlocator("//locators/R4/NetworkTopology")), Keys.TAB);
+			 SendKeys(getwebelement(xml.getlocator("//locators/R4/CircuitReference")),"2");
+			 ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter value in circuit reference");
+			 SendkeaboardKeys(getwebelement(xml.getlocator("//locators/R4/CircuitReference")), Keys.TAB);
+			 Thread.sleep(25000);
+
+				savePage();
+				waitforPagetobeenable();
+				Thread.sleep(8000);
+			 }
+			
+	}
 	   
 	
 }

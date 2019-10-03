@@ -276,6 +276,7 @@ public class NewOrders extends DriverTestcase {
 	newOrderOnnnet.get().DeliveryValidation(Data);
 	newOrderOnnnet.get().clickOnManualValidationA();
 	newOrderOnnnet.get().getReferenceNo(Data);//added new
+	newOrderOnnnet.get().Carnor_getReferenceNo(Data);
 	newOrderOnnnet.get().CompletedValidation(Data);
 	}
 	if(Data[Data.length-1].toString().contains("Com"))
