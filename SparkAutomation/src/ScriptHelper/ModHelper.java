@@ -24,12 +24,26 @@ public class ModHelper extends DriverHelper {
 	public ModHelper(WebDriver parentdriver) {
 		super(parentdriver);
 	}
+	public void ClickHereSave() throws InterruptedException, DocumentException {
+		try {		//Added by Ayush
+			WaitforElementtobeclickable((xml.getlocator("//locators/ClickheretoSaveAccess")));
+			Clickon(getwebelement(xml.getlocator("//locators/ClickheretoSaveAccess")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on SaveAccess");
+			waitforPagetobeenable();
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		
+	}
 
+	
 	// Added By Devesh
 	public void LeadCapacity(Object[] InputData) throws InterruptedException, DocumentException, IOException {
 		waitforPagetobeenable();
 		String ProductName = InputData[8].toString();
-		if (ProductName.equalsIgnoreCase("Private Ethernet")) {
+		if (ProductName.equalsIgnoreCase("Private Ethernet")||ProductName.equalsIgnoreCase("DCA Ethernet")) {
 			WaitforElementtobeclickable(xml.getlocator("//locators/ExistingCapacityLeadTimePrimary"));
 			SendKeys(getwebelement(xml.getlocator("//locators/ExistingCapacityLeadTimePrimary")),
 					InputData[12].toString());
@@ -75,6 +89,7 @@ public class ModHelper extends DriverHelper {
 					xml.getlocator("//locators/DarkFiber/MiddleLi").replace("Value", InputData[29].toString())));
 			ExtentTestManager.getTest().log(LogStatus.PASS,
 					" Step: Select Hard Modify Flag Type : " + InputData[29].toString());
+			
 		}
 
 	}
@@ -117,6 +132,7 @@ public class ModHelper extends DriverHelper {
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Access Type : " + InputData[84].toString());
 
 			// Setting A
+			ClickHereSave();
 			savePage();
 
 			WaitforElementtobeclickable(xml.getlocator("//locators/R4/SiteASetting"));
@@ -163,7 +179,7 @@ public class ModHelper extends DriverHelper {
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: OK Clicked");
 			waitforPagetobeenable();
 			waitForpageload();
-
+			ClickHereSave();
 			// Setting B
 			savePage();
 			WaitforElementtobeclickable(xml.getlocator("//locators/R4/SiteBSetting"));
@@ -209,6 +225,9 @@ public class ModHelper extends DriverHelper {
 			WaitforElementtobeclickable(xml.getlocator("//locators/R4/SiteASettingOK"));
 			Clickon(getwebelement(xml.getlocator("//locators/R4/SiteASettingOK")));
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: OK Clicked");
+			waitforPagetobeenable();
+			waitForpageload();
+			ClickHereSave();
 			waitforPagetobeenable();
 			waitForpageload();
 
@@ -373,7 +392,7 @@ public class ModHelper extends DriverHelper {
 		case "DCA Ethernet": {
 			ModTechR4(Inputdata);
 			ModTechPrivateEthernet(Inputdata);
-			Save();
+			//Save();
 			break;
 		}
 

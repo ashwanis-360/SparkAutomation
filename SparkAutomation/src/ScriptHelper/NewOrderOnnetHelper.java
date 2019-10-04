@@ -7716,6 +7716,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 	public void AEndSite(Object[] InputData) throws InterruptedException, DocumentException, IOException {
 		waitForpageload();
 		waitforPagetobeenable();
+		ExtentTestManager.getTest().log(LogStatus.PASS, "SiteA <-------- Entry Started -------->");
 		String ProductName = InputData[8].toString();
 		if (ProductName.equalsIgnoreCase("DCA Ethernet") || ProductName.equalsIgnoreCase("Ethernet Access")) {
 			// Access Type
@@ -7832,10 +7833,12 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				InputData[77].toString());
 		ExtentTestManager.getTest().log(LogStatus.PASS,
 				" Step: enter  on Site Name Alias : " + InputData[77].toString());
+		ExtentTestManager.getTest().log(LogStatus.PASS, "SiteA <-------- Entry Ended -------->");
 	}
 
 	public void BEndSite(Object[] InputData) throws InterruptedException, DocumentException, IOException {
 		String ProductName = InputData[8].toString();
+		ExtentTestManager.getTest().log(LogStatus.PASS, "SiteB <-------- Entry Started -------->");
 		if (ProductName.equalsIgnoreCase("DCA Ethernet")) {
 			// Access Type
 			// WaitforElementtobeclickable(xml.getlocator("//locators/DarkFiber/BEndSiteDropDown").replace("Value",
@@ -7943,6 +7946,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				xml.getlocator("//locators/DarkFiber/BList").replace("Value", InputData[150].toString())));
 		ExtentTestManager.getTest().log(LogStatus.PASS,
 				" Step: Select DSL SLA Class Type :" + InputData[150].toString());
+		ExtentTestManager.getTest().log(LogStatus.PASS, "SiteB <-------- Entry Ended -------->");
 	}
 
 	/* Added by Devesh for R4 Products */
