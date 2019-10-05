@@ -4132,7 +4132,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 	}
 
 	public void SelectAttachmentTab(Object[] Inputdata) throws IOException, InterruptedException, DocumentException {
-		if (Inputdata[8].toString().equals("IP Voice Solutions") || Inputdata[8].toString().equals("Voice Line V")
+		if (Inputdata[8].toString().equals("IP Voice Solutions") || Inputdata[8].toString().equals("SIP Trunking") || Inputdata[8].toString().equals("Voice Line V")
 				|| Inputdata[8].toString().equals("Managed Virtual Firewall")) {
 			Select(getwebelement(xmlIP.getlocator("//locators/tabDropdown")), "Attachments");
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Attachments Tab Selected");
