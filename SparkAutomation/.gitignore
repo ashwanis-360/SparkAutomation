@@ -1,3 +1,5 @@
 /bin/
 /ExtentReports/
 /Logs/
+/test-output/
+/log4j.xml
