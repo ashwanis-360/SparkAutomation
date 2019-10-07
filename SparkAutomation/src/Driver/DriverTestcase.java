@@ -52,7 +52,7 @@ public class DriverTestcase {
 	public static SessionId session_id;
 	public static ChromeDriver driver;
 	public static int itr;
-	EOLorderCompletionHelper EOLC = new EOLorderCompletionHelper(getwebdriver());
+
 	
 
 	@BeforeMethod
@@ -182,6 +182,7 @@ public class DriverTestcase {
 		dr.manage().window().maximize();
 		WEB_DRIVER_THREAD_LOCAL.set(dr);
 		Thread.sleep(3000);
+		EOLorderCompletionHelper EOLC = new EOLorderCompletionHelper(getwebdriver());
 		LoginHelper LN = new LoginHelper(getwebdriver());
 		NewOrderOnnetHelper NEWO = new NewOrderOnnetHelper(getwebdriver());
 		OMPScriptHelper OMP = new OMPScriptHelper(getwebdriver());
