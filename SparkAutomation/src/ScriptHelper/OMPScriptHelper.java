@@ -39,7 +39,7 @@ public class OMPScriptHelper extends DriverHelper {
 //Clickon(getwebelement(xml.getlocator("//locators/CloseVideoPopup")));
 
 //Expand All Click
-		Thread.sleep(5000);
+		//Thread.sleep(5000);
 		Clickon(getwebelement(xml.getlocator("//locators/ExpandAllButton")));
 
 //Order No Verification
@@ -57,7 +57,7 @@ public class OMPScriptHelper extends DriverHelper {
 			String[] parts = ProdName.split(" ");
 			String part1 = parts[0];
 			String part2 = parts[1];
-			SendKeys(getwebelement(xml.getlocator("//locators/IPVPNSite/CustOrder")), part2);
+			//SendKeys(getwebelement(xml.getlocator("//locators/IPVPNSite/CustOrder")), part2);
 			for (int i = 0; i < parts.length; i++) {
 				Assert.assertTrue(OmpText.contains(parts[i]),
 						"Product Name : " + parts[i] + " not matched with Opened Product Name :" + OmpText);
