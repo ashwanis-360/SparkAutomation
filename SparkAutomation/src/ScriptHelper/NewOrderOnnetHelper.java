@@ -1471,21 +1471,24 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			ClickHereSave();
 			break;
 		}
-		case "Private Wave Node": { // Added by Aman
+		case "Private Wave Node": {  // Added by Aman
 			middleAppletPrivateWaveNode(Inputdata);
-			settingPrivateWaveNode(Inputdata); 
+			alertPopUp();
 			SiteAServiceParty(Inputdata);
 			PickServiceParty(Inputdata);
 			SiteASiteContact(Inputdata);
 			PickSiteContactParty(Inputdata);
 			alertPopUp();
 			ClickHereSave();
+			
 			SearchSiteA(Inputdata);
 			SearchSiteAEntry(Inputdata);
 			AEndSitePUD(Inputdata);
 			SiteAInstallationTimePUD(Inputdata);
 			SiteATerminationTimePUD(Inputdata);
 			ClickHereSave();
+			waitForpageload();
+	    	waitforPagetobeenable();
 			break;
 		}
 		case "Ethernet Access": {
@@ -1543,17 +1546,20 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			break;
 		}
 		case "Ultra Low Latency": {
-			middleUltraLowLatency(Inputdata);
+			waitForpageload();
+			waitforPagetobeenable();
+			alertPopUp();
 			OperationalAttributeUltra(Inputdata);
 			alertPopUp();
-			//OperationalAttributes(Inputdata);
+			waitforPagetobeenable();
 			ShowfullInfo();
 			DiversityCircuitEntry(Inputdata);
 			Save();
 			
-			waitForpageload();
-	    	waitforPagetobeenable();
-	    	 savePage();
+			
+			middleUltraLowLatency(Inputdata);
+			
+			alertPopUp();
 			SiteAServiceParty(Inputdata);
 			PickServiceParty(Inputdata);
 			SiteBServiceParty(Inputdata);
@@ -1562,7 +1568,10 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			PickSiteContactParty(Inputdata);
 			SiteBSiteContact(Inputdata);
 			PickSiteContactParty(Inputdata);
-			Save();
+			//Save();
+			alertPopUp();
+			ClickHereSave();
+			
 			SearchSiteA(Inputdata);
 			SearchSiteAEntry(Inputdata);
 			SearchSiteB(Inputdata);
@@ -1582,6 +1591,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 	    	waitforPagetobeenable();
 			
 			break;
+			
 		}
 		case "Cloud Unified Communications": {
 			middleApplet(Inputdata);
@@ -1592,13 +1602,19 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			break;
 		}
 		case "Managed Dedicated Firewall": { // Added by Aman
+			alertPopUp();
 			middleAppletManagedDedicatedFirewall(Inputdata);
 			break;
 		}
 		case "Dark Fibre": {
-			middleAppletDarkFibre(Inputdata);
+			waitForpageload();
+			waitforPagetobeenable();
+			alertPopUp();
 			OperationalAttributeUltra(Inputdata);
 			alertPopUp();
+			waitforPagetobeenable();
+			middleAppletDarkFibre(Inputdata);
+			
 			ShowfullInfo();
 			DiversityCircuitEntry(Inputdata);
 			Save();
@@ -1611,6 +1627,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			SiteBSiteContact(Inputdata);
 			PickSiteContactParty(Inputdata);
 			ClickHereSave();
+			
 			SearchSiteA(Inputdata);
 			SearchSiteAEntry(Inputdata);
 			SearchSiteB(Inputdata);
@@ -4133,6 +4150,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 
 	public void SelectAttachmentTab(Object[] Inputdata) throws IOException, InterruptedException, DocumentException {
 		if (Inputdata[8].toString().equals("IP Voice Solutions") || Inputdata[8].toString().equals("SIP Trunking") || Inputdata[8].toString().equals("Voice Line V")
+				|| Inputdata[8].toString().equals("Managed Dedicated Firewall")
 				|| Inputdata[8].toString().equals("Managed Virtual Firewall")) {
 			Select(getwebelement(xmlIP.getlocator("//locators/tabDropdown")), "Attachments");
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Attachments Tab Selected");
@@ -4148,7 +4166,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		} else if (Inputdata[8].toString().equals("Voice Line V") || Inputdata[8].toString().equals("SIP Trunking")) {
 			UploadSOWTypeDocument(Inputdata, "Call Barring Form");
 			// UploadSOWTypeDocument(Inputdata, "Disaster Recovery Documents");
-		} else if (Inputdata[8].toString().equals("Managed Virtual Firewall")) {
+		} else if (Inputdata[8].toString().equals("Managed Virtual Firewall")|| Inputdata[8].toString().equals("Managed Dedicated Firewall")) {
 			UploadSOWTypeDocument(Inputdata, "Security Policy");
 			// UploadSOWTypeDocument(Inputdata, "Documents");
 		}
@@ -4208,6 +4226,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		Thread.sleep(3000);
 		WaitforElementtobeclickable(xml.getlocator("//locators/SelectTechnicalValidation"));
 		Clickon(getwebelement(xml.getlocator("//locators/SelectTechnicalValidation")));
+		alertPopUp();
 		waitforPagetobeenable();
 		// savePage();
 		Thread.sleep(2000);
@@ -4238,6 +4257,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			try {
 				WaitforElementtobeclickable((xml.getlocator("//locators/TriggerTRButton")));
 				Clickon(getwebelement(xml.getlocator("//locators/TriggerTRButton")));
+				alertPopUp();
 				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Trigger TR Button");
 				Thread.sleep(10000);
 			} catch (Exception ex) {
@@ -6625,6 +6645,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		Clickon(getwebelement(xml.getlocator("//locators/ManagedDedicatedFirewall/SaveButton")));
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on  Yes");
 		waitForpageload();
+		waitforPagetobeenable();
 	}
 
 	/*
@@ -6643,9 +6664,13 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		Clickon(getwebelement(
 				xml.getlocator("//locators/DarkFiber/MiddleLi").replace("Value", "Point to Point Single Node")));
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on  Point to Point Single Node");
+		
+		OperationalAttributeUltra(Inputdata);
 		WaitforElementtobeclickable(xml.getlocator("//locators/DarkFiber/SaveButton"));
 		Clickon(getwebelement(xml.getlocator("//locators/DarkFiber/SaveButton")));
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on  Save Button ");
+		waitForpageload();
+		waitforPagetobeenable();
 	}
 
 	/*
@@ -6708,7 +6733,9 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		SendKeys(getwebelement(xml.getlocator("//locators/DarkFiber/AEndSiteInput").replace("Value", "BCP Reference")),
 				"NA"/* InputData[180].toString() */);
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter  on  BCP Reference : NA");
+		waitForpageload();
 		waitforPagetobeenable();
+		
 
 		WaitforElementtobeclickable(
 				xml.getlocator("//locators/DarkFiber/AEndSiteDropDown").replace("Value", "Customer Site Pop Status"));
@@ -6724,6 +6751,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		Clickon(getwebelement(
 				xml.getlocator("//locators/DarkFiber/AEndSiteDropDown").replace("Value", "DSL SLA Class")));
 		WaitforElementtobeclickable(xml.getlocator("//locators/DarkFiber/AList").replace("Value", "N/A"));
+		Thread.sleep(3000);
 		Clickon(getwebelement(xml.getlocator("//locators/DarkFiber/AList").replace("Value", "N/A")));
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select DSL SLA Class Type : N/A ");
 
@@ -6870,6 +6898,15 @@ public class NewOrderOnnetHelper extends DriverHelper {
 					Integer.toString(rand_int1));
 			ExtentTestManager.getTest().log(LogStatus.PASS,
 					" Step: Enter Cabinet ID  : " + Integer.toString(rand_int1));
+			
+			// Shelf ID
+						rand_int1 = rand.nextInt(1000);
+						WaitforElementtobeclickable(xml.getlocator("//locators/R4/SiteAInput").replace("Value", "Shelf ID"));
+						Clear(getwebelement(xml.getlocator("//locators/R4/SiteAInput").replace("Value", "Shelf ID")));
+						SendKeys(getwebelement(xml.getlocator("//locators/R4/SiteAInput").replace("Value", "Shelf ID")),
+								Integer.toString(rand_int1));
+						ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Shelf ID  : " + Integer.toString(rand_int1));
+						waitforPagetobeenable();
 
 			waitforPagetobeenable();
 
@@ -6897,14 +6934,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Link Aggregation Required : No");
 				waitforPagetobeenable();
 			}
-			// Shelf ID
-			rand_int1 = rand.nextInt(1000);
-			WaitforElementtobeclickable(xml.getlocator("//locators/R4/SiteAInput").replace("Value", "Shelf ID"));
-			Clear(getwebelement(xml.getlocator("//locators/R4/SiteAInput").replace("Value", "Shelf ID")));
-			SendKeys(getwebelement(xml.getlocator("//locators/R4/SiteAInput").replace("Value", "Shelf ID")),
-					Integer.toString(rand_int1));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Shelf ID  : " + Integer.toString(rand_int1));
-			waitforPagetobeenable();
+			
 		}
 	}
 
@@ -9330,9 +9360,10 @@ public class NewOrderOnnetHelper extends DriverHelper {
 	 */
 		
 		public void OperationalAttributeUltra(Object[] Inputdata) throws Exception {
-			   waitForpageload();
-		    	waitforPagetobeenable();
-		    	 savePage();
+			 savePage();
+//			   waitForpageload();
+//		    	waitforPagetobeenable();
+		    	
 		    	WaitforElementtobeclickable(xml.getlocator("//locators/PrivateWaveNode/SettingsButton"));
 		    	Thread.sleep(1000);
 		    	
@@ -9358,9 +9389,13 @@ public class NewOrderOnnetHelper extends DriverHelper {
 					SendKeys(getwebelement(xml.getlocator("//locators/IPVPNSite/OperationalAttributeText")), "Test1");
 
 				}
+				Thread.sleep(3000);
+				WaitforElementtobeclickable(xml.getlocator("//locators/IPVPNSite/OperationalAttributeOK"));
 				Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/OperationalAttributeOK")));
 				savePage();
 				Thread.sleep(5000);
+				waitForpageload();
+				waitforPagetobeenable();
 			}
 	/*
 	 * Created by Rekha

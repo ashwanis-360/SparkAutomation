@@ -754,6 +754,13 @@ public class ModHelper extends DriverHelper {
 
 			break;
 		}
+		case "PrizmNet":
+		{
+			modHeader(Inputdata);
+			modTechPrizmNetMiddleApplet(Inputdata);
+			
+			break;
+		}
 
 		default: {
 			break;
@@ -920,6 +927,30 @@ public class ModHelper extends DriverHelper {
 					Clickon(getwebelement(xml.getlocator("//locators/DarkFiber/SaveButton")));
 					ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on  Save Button ");
 				}
+				/*
+				 * Created by Aman
+				 */
+				public void modTechPrizmNetMiddleApplet(Object[] Inputdata) throws Exception {
+
+					{
+						waitForpageload();
+						waitforPagetobeenable();
+						Clickon(getwebelement(
+								xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "IP Addressing Format")));
+						ExtentTestManager.getTest().log(LogStatus.PASS, " Step:Click on dropdown IP Addressing format");
+
+						Clickon(getwebelement(
+								xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", "IPv4 and IPv6")));
+						ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select value from IP Addressing format dropdown");
+
+						WaitforElementtobeclickable((xml.getlocator("//locators/IPVPNSite/ClickheretoSaveAccess")));
+						Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickheretoSaveAccess")));
+						ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on save");
+						waitForpageload();
+						waitforPagetobeenable();
+					
+					}
+					}
 
 
 }

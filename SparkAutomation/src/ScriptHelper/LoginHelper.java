@@ -57,6 +57,7 @@ public class LoginHelper extends DriverHelper{
 		
 		SendKeys(getwebelement(xml.getlocator("//locators/"+Application+"/Password")),Getkeyvalue(Application+"_Password"));
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Password");
+		Thread.sleep(3000);		//added by Abhay
 		
 		Clickon(getwebelement(xml.getlocator("//locators/"+Application+"/Loginbutton")));
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Login Button");

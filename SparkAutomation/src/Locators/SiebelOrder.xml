@@ -1525,7 +1525,11 @@
 <!-- End Devesh Locators -->
 <!-- Start Aman Locators -->
  
- 
+<PrimaryLeadInput>//input[@aria-labelledby="COLT_Existing_Capacity_Lead_Time_Code_Label"]</PrimaryLeadInput>
+<ExistingPrimary>(//span[text()='Existing Capacity Lead Time'])[2]</ExistingPrimary>
+<ListNo>//li[text()='No']</ListNo>
+<ModifyBtn>//button[@aria-label="Service Orders:Modify"]</ModifyBtn>
+
  <PrivateWaveNode>
     <OKButton>//button[@aria-label="Operational Attributes:OK"]</OKButton>
  	<InputValuesVendor>(//td[text()='Vendor Platform']//following::input)[1]</InputValuesVendor>
