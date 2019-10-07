@@ -10,8 +10,8 @@ import Driver.DriverHelper;
 import Driver.XMLReader;
 import Reporter.ExtentTestManager;
 
-public class OMPScriptHelper extends DriverHelper {
-	public OMPScriptHelper(WebDriver dr) {
+public class MOD_OMPHelper extends DriverHelper {
+	public MOD_OMPHelper(WebDriver dr) {
 		super(dr);
 
 	}
@@ -92,9 +92,9 @@ public class OMPScriptHelper extends DriverHelper {
 //Order State Verification
 		OmpText = Gettext(getwebelement(xml.getlocator("//locators/OrderType")));
 
-		Assert.assertTrue(OmpText.equals(Inputdata[9].toString()),
-				"Order State : " + Inputdata[9].toString() + "not matched with Opened Order State :" + OmpText);
-//Assert.assertTrue(OmpText.contains("New"),"Order Type New  not matched with Opened Order State :"+OmpText);
+//Assert.assertTrue(OmpText.equals(Inputdata[9].toString()),"Order State : "+ Inputdata[9].toString() + "not matched with Opened Order State :"+OmpText);
+		Assert.assertTrue(OmpText.contains("Admin Change"),
+				"Order Type New  not matched with Opened Order State :" + OmpText);
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Order Type(" + OmpText + ") Verified in OMP Portal");
 
 		/**************/

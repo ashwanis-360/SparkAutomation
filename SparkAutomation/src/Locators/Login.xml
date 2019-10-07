@@ -30,6 +30,13 @@
 <AccountSettingButton>//li[@title="Settings"]</AccountSettingButton>
 <Logout>//button[text()="Logout"]</Logout>
 </Sieble>
+<OMP>
+<Username>id=userId</Username>
+<Password>id=password</Password>
+<Loginbutton>id=Submit</Loginbutton>
+<Userinfo>//*[@id="gen_menu_6"]</Userinfo>
+<skipwarning>//a[text()='Continue']</skipwarning>
+</OMP>
 <CustomerSection>//h1[text()='Customers']</CustomerSection>
 <Accountlink>//a[text()='Accounts']</Accountlink>
 <OCN>//span[text()='100119208']/parent::*/parent::*/following-sibling::*/div/a</OCN>

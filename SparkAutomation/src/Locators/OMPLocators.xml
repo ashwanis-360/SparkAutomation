@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<locators>
+<InputOrderNumber>//input[@id='orderNumber']</InputOrderNumber>
+<SearchServiceButton>//button[@id='searchSubmit']</SearchServiceButton>
+<ClickOrderReferance>//tr[@role='row']/parent::*//a</ClickOrderReferance>
+<CloseVideoPopup>//div[@class='modal-header']//button[@class='close marginB15']</CloseVideoPopup>
+<CloseVideoPopupNew>//div[@id='promotional-popup']//button[@class='close marginB15']</CloseVideoPopupNew>
+<OrderNumberBold>//span[@class='col-Dcyan']//b</OrderNumberBold>
+<ExpandAllButton>//div[@class='expandBlk']/parent::a</ExpandAllButton>
+<ProductName>(//h4[@class='ng-binding'])[1]</ProductName>
+<OrderStatus>(//h4[@class='ng-binding'])[2]</OrderStatus>
+<OrderType>//label[contains(text(),'Order Type ')]/parent::*/span</OrderType>
+<OCNNumber>//label[contains(text(),'OCN')]/parent::*/span</OCNNumber>
+<BCNNumber>//label[contains(text(),'BCN')]/parent::*/span</BCNNumber>
+</locators>
