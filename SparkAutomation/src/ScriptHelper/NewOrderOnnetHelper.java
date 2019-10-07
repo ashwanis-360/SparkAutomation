@@ -4156,7 +4156,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 
 	public void UploadSOWTypeDocument(Object[] Inputdata, String Filetype) throws Exception {
 
-		if (Inputdata[8].toString().equals("Voice Line V")) // Added by Rekha
+		if (Inputdata[8].toString().equals("Voice Line V") || Inputdata[8].toString().equals("SIP Trunking")) // Added by Rekha
 		{
 			System.out.println(xml.getlocator("//locators//FileUpload"));
 			// WaitforElementtobeclickable(xmlIP.getlocator("//locators//FileUpload"));

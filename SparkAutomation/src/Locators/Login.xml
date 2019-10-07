@@ -97,4 +97,12 @@
 <BSitecom>name=bEndCompanyName</BSitecom>
 <SaveInfo>//a[text()='Save Quote Information']</SaveInfo>
 <CreateOrder>//*[text()='Create Order']</CreateOrder>
+<!-- Added for Gauri's EOL -->
+<EOL>
+	<ClickHereLink>(//*[text()='Click here to enter'])</ClickHereLink>
+	<Username>id=user</Username>
+	<Password>id=pass</Password>
+	<Loginbutton>//a[text()='Login']</Loginbutton>
+	
+</EOL>
 </locators>

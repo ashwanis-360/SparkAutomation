@@ -28,6 +28,7 @@ import ScriptHelper.LoginHelper;
 import ScriptHelper.ModHelper;
 import ScriptHelper.NewOrderOnnetHelper;
 import ScriptHelper.OMPScriptHelper;
+import ScriptHelper.EOLorderCompletionHelper;
 
 public class DriverTestcase {
 
@@ -42,7 +43,7 @@ public class DriverTestcase {
 	public static final ThreadLocal<OMPScriptHelper> OmpOrder = new InheritableThreadLocal<>();
 	public static final ThreadLocal<InFlightOrderHelper> inFlightGeneric = new InheritableThreadLocal<>();
 	public static final ThreadLocal<ModHelper> modHelper = new InheritableThreadLocal<>();
-
+	public static final ThreadLocal<EOLorderCompletionHelper> EOLorderCompletionHelper= new InheritableThreadLocal<>();	//added by gauri
 // public static final ThreadLocal<InFlightForIPAccess>inFlight = new InheritableThreadLocal<>();
 // public static ThreadLocal<String> QuoteID = new InheritableThreadLocal<>();
 	public static Listners.TestListener Testlistener;
@@ -51,6 +52,8 @@ public class DriverTestcase {
 	public static SessionId session_id;
 	public static ChromeDriver driver;
 	public static int itr;
+	EOLorderCompletionHelper EOLC = new EOLorderCompletionHelper(getwebdriver());
+	
 
 	@BeforeMethod
 	public void BeforeMethod(Method method, ITestContext ctx, Object[] data) throws IOException, Exception {
@@ -135,7 +138,14 @@ public class DriverTestcase {
 // ctx.getCurrentXmlTest()ctx.getCurrentXmlTest().set
 
 			ctx.setAttribute("testName", TestName.get().toString());
-		} else
+		}
+		else if (method.getName().equals("createNewEOLOrder")) {
+//			DataReader dt=new DataReader();
+//			Object[][] data=dt.ipreader();
+//		    Object[] st= (Object[]) data[itr][0];
+			Log.info(st[st.length - 2].toString());
+			ctx.setAttribute("testName", st[st.length - 2].toString());
+		}else
 			ctx.setAttribute("testName", method.getName());
 		Log.info(ctx.getAttribute("testName").toString());
 	}
@@ -183,7 +193,7 @@ public class DriverTestcase {
 // ModifyComOrdersOfAllProductsHelper mooc = new ModifyComOrdersOfAllProductsHelper(getwebdriver());
 // AbandonedOrderOfAllThreeProducts aoop = new AbandonedOrderOfAllThreeProducts(getwebdriver());
 // InFlightForIPAccess ioc = new InFlightForIPAccess(getwebdriver());
-
+		EOLorderCompletionHelper.set(EOLC);
 		Login.set(LN);
 		newOrderOnnnet.set(NEWO);
 		Cancel.set(CN);

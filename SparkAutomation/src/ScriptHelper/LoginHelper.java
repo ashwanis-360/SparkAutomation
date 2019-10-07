@@ -103,6 +103,31 @@ public class LoginHelper extends DriverHelper{
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Login Button");
 			
 		}
+		/*
+		 * Created by: Gauri for EOL specific
+		 */
+		 public void LoginEOL(String Application) throws Exception
+			{
+				openurl(Application);
+				
+				Thread.sleep(3000);
+				Clickon(getwebelement(xml.getlocator("//locators/" + Application + "/ClickHereLink")));
+				Thread.sleep(3000);
+				//System.out.println("Done");
+				SendKeys(getwebelement(xml.getlocator("//locators/"+Application+"/Username")),Getkeyvalue(Application+"_Username"));
+				//ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter User Name");
+				Thread.sleep(3000);
+				SendKeys(getwebelement(xml.getlocator("//locators/"+Application+"/Password")),Getkeyvalue(Application+"_Password"));
+			
+				Clickon(getwebelement(xml.getlocator("//locators/"+Application+"/Loginbutton")));
+				//ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Login Button");
+				
+				System.out.println("Done");
+				Thread.sleep(60000);
+			
+			   AcceptJavaScriptMethod();
+
+			}
 
 
 }
