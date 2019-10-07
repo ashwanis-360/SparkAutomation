@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<locators>
+
+<Switchrole>(//a[text()='Switch Role'])</Switchrole>
+<SwitchIframe>//*[@id="iframeDialog"]</SwitchIframe>
+<Salesradio>(//input[@name='rdDualRole'])[2]</Salesradio>
+<Switchbutton>//a[text()='Switch']</Switchbutton>
+<Neworderbutton>//a[text()='New Order']</Neworderbutton>
+<WarningOk>//span[text()='Ok']</WarningOk>
+<AddContact>//button[@id='AddContactLegal']</AddContact>
+
+<OpportunityNumber>//input[@name='OpportunityNumber']</OpportunityNumber>
+<EOLOCN>//input[@name='OCN']</EOLOCN>
+<EOLBCN>//input[@name='BCN']</EOLBCN>
+
+<FirstNameLegal>//input[@name='FirstNameLegal']</FirstNameLegal>
+<LastNameLegal>//input[@name='LastNameLegal']</LastNameLegal>
+<TitleLegal>//select[@name='TitleLegal']</TitleLegal>
+<EmailLegal>//input[@name='EmailLegal']</EmailLegal>
+<TeleNumberLegal>//input[@name='TeleNumberLegal']</TeleNumberLegal>
+<CorrespondenceLangLegal>//select[@name='CorrespondenceLangLegal']</CorrespondenceLangLegal>
+<SaveAndSelectContactbutton>//button[@id='SaveAndSelectContactLegal']</SaveAndSelectContactbutton>
+
+<ProductName>//input[@name='Product']</ProductName>
+<ProductNameClick>//div[@id='AllData']/div[5]/div/div[2]/ul/li/mark</ProductNameClick>
+<ContractRenewal>//select[@name='ContractRenewal']</ContractRenewal>
+<Currency>//select[@name='Currency']</Currency>
+
+
+<AddAEndAddr>//button[@id='AddAEndAddr']</AddAEndAddr>
+
+<OrganizationName>//input[@name='name']</OrganizationName>
+<StreetName>//input[@name='route']</StreetName>
+<Postalcode>//input[@name='postal_code']</Postalcode>
+<Country>//input[@name='country']</Country>
+<Citytown>//input[@name='locality']</Citytown>
+<SaveAndSelectAddress>//button[@id='SaveAndSelectAddress']</SaveAndSelectAddress>
+
+
+<AendTechContAddContact>//button[@id='AendTechContAddContact']</AendTechContAddContact>
+<AendTechContFirstName>/input[@name='AendTechContFirstName']</AendTechContFirstName>
+<AendTechContLastName>//input[@name='AendTechContLastName']</AendTechContLastName>
+<AendTechContTitle>//select[@name='AendTechContTitle']</AendTechContTitle>
+<AendTechContEmail>//input[@name='AendTechContEmail']</AendTechContEmail>
+<AendTechContTeleNumber>//input[@name='AendTechContTeleNumber']</AendTechContTeleNumber>
+<AendTechContCorrespondenceLang>//select[@name='AendTechContCorrespondenceLang']</AendTechContCorrespondenceLang>
+
+<AEndTechContSave>//button[@id='AEndTechContSave']</AEndTechContSave>
+
+<AEndAccessT>//select[@name='AEndAccessT']</AEndAccessT>
+<AEndAccessTypeValue>(//*[text()='Colt Fibre'][1])</AEndAccessTypeValue>
+<ServcBand>//select[@name='ServcBand']</ServcBand>
+<ServcBandValue>(//*[text()='2 Mbps'][1])</ServcBandValue>
+<router>//select[@name='router']</router>
+<routerValue>(//*[text()='Colt Managed Router'])</routerValue>
+<Billingtype>//select[@name='Billingtype']</Billingtype>
+<BillingtypeValue>(//*[text()='FlatRate'])</BillingtypeValue>
+
+<AddContact>//button[@id='AddContact']</AddContact>
+
+<FirstName>/input[@name='FirstName']</FirstName>
+<LastName>//input[@name='LastName']</LastName>
+<Title>//select[@name='Title']</Title>
+<Email>//input[@name='Email']</Email>
+<TeleNumber>//input[@name='TeleNumber']</TeleNumber>
+<CorrespondenceLang>//select[@name='CorrespondenceLang']</CorrespondenceLang>
+<SaveAndSelectContact>//button[@id='SaveAndSelectContact']</SaveAndSelectContact>
+
+
+<InstallCharges>/input[@name='InstallCharges']</InstallCharges>
+<MonthlyCharges>/input[@name='MonthlyCharges']</MonthlyCharges>
+<ShowAddtnalCharges>//button[@id='ShowAddtnalCharges']</ShowAddtnalCharges>
+<FastTrack>/input[@name='FastTrack']</FastTrack>
+<FastTrackCharges>/input[@name='FastTrackCharges']</FastTrackCharges>
+
+
+<btnSave>//button[@id='btnSave']</btnSave>
+<btnGenerateContact>//button[@id='btnGenerateContact']</btnGenerateContact>
+<Acceptpopbutton>//span[text()='Accept']</Acceptpopbutton>
+<btnSubmitToCot>//button[@id='btnSubmitToCot']</btnSubmitToCot>
+
+
+<!-- MOD COM Locators By Gauri -->
+
+<ModComLocators>Locators</ModComLocators>
+
+<ModComOrder> //*[text()='ModCom Order']</ModComOrder>
+<ModComOCN>//*[@id="OCN"]</ModComOCN>
+<ModComBCN> //*[@id="BCN"]</ModComBCN>
+<ModComProduct>//*[@id='Product']</ModComProduct>
+<ModComOppNum> //*[@id='OppNum']</ModComOppNum>
+<ModComContractRenewal>//*[@id='ContractRenewal']</ModComContractRenewal>
+<ModComContractRenewalvalue> (//*[text()='Yes-1 Year'])</ModComContractRenewalvalue>
+<ModComLegalContact>//*[@id="AddContactLegal"]</ModComLegalContact>
+<ModComFirstName> //*[@id="FirstNameLegal"]</ModComFirstName>
+<ModComLastName> //*[@id="LastNameLegal"]</ModComLastName>
+<ModComTitle>//*[@id="TitleLegal"]</ModComTitle>
+<ModComEmail>//*[@id="EmailLegal"]</ModComEmail>
+<ModComTelephone>//*[@id="TeleNumberLegal"]</ModComTelephone>
+<ModComAddButton>//*[@id="SaveAndSelectContactLegal"]</ModComAddButton>
+<ModComCOrespondanceLanguage> //*[@id="CorrespondenceLangLegal"]</ModComCOrespondanceLanguage>
+<ModComBCNChange>//*[@id="BCNChange"]</ModComBCNChange>
+<ModComBCNChangeValue>//*[text()=' NO']</ModComBCNChangeValue>
+<ModComTariffChange>//*[@id="TariffChange"]</ModComTariffChange>
+<ModComTariffChangeValue>((//*[text()="NO"])[1])</ModComTariffChangeValue>
+<ModComOneOffCharge>//*[@id="isOneOffCharge"]</ModComOneOffCharge>
+<ModComOneoffChargeValue>((//*[text()="NO"])[2])</ModComOneoffChargeValue>
+<ModComPriceChange>//*[@id="PriceChange"]</ModComPriceChange>
+<ModComPriceChangeValue>((//*[text()="NO"])[3])</ModComPriceChangeValue>
+<ModComEffectiveBCD>//*[@id="EffBSD"]</ModComEffectiveBCD>
+<ModComOrderNumber>//*[@id="orderNum1"]</ModComOrderNumber>
+<ModComCircuitreference>//*[@id="circuitId1"]</ModComCircuitreference>
+<ModComSavebutton>//*[@id="btnSave"]</ModComSavebutton>
+<ModComSubmittoCot>//*[@id="btnSubmitToCot"]</ModComSubmittoCot>
+
+
+<!-- MODTech Locators By Gauri -->
+<ModTech>Locators</ModTech>
+
+<ModTechTab>//a[text()='ModTech Order']</ModTechTab>
+<ModTectAEName>(//*[@id='AEName'])</ModTectAEName>
+<ModTechOCN>(//*[@id='OCN'])</ModTechOCN>
+<ModTechProductName>//*[@id='Product']</ModTechProductName>
+<ModTechBCN>//*[@id='BCN']</ModTechBCN>
+<ModTechOpportunity>//*[@id='OppNum']</ModTechOpportunity>
+<ModTechContractRenewal>//*[@id='ContractRenewal']</ModTechContractRenewal>
+<ModTechContactRenewalDropDownValue>(//*[text()='Yes-1 Year'])</ModTechContactRenewalDropDownValue>
+<ModTechLegalContactDetails>(//*[@id='AddContactLegal'])</ModTechLegalContactDetails>
+<ModTechFirstName>(//*[@id='FirstNameLegal'])</ModTechFirstName>
+<ModTechLastName>(//*[@id='LastNameLegal'])</ModTechLastName>
+<ModTechTitle>//*[@id='TitleLegal']</ModTechTitle>
+<ModTechEmail>//*[@id='EmailLegal']</ModTechEmail>
+<ModTechTelephoneNumber>//*[@id='TeleNumberLegal']</ModTechTelephoneNumber>
+<ModTechCorrespondentLanguage>//*[@id='CorrespondenceLangLegal']</ModTechCorrespondentLanguage>
+<ModTechAddButton>//*[@id="SaveAndSelectContactLegal"]</ModTechAddButton>
+<ModTechProductName>//*[@id='Product']</ModTechProductName>
+<ModTechContractRenewal>//*[@id='ContractRenewal']</ModTechContractRenewal>
+<ModTechCurrency>//*[@id='Currency']</ModTechCurrency>
+<ModTechCurrencyValue>(//*[text()=' EUR - Euro'])</ModTechCurrencyValue>
+<ModTechOrderNumber>//*[@id='orderNum1']</ModTechOrderNumber>
+<ModTechCurcuitReference>//*[@id='circuitId1']</ModTechCurcuitReference>
+<ModTechInstallCharges>//*[@id='InstallCharges1']</ModTechInstallCharges>
+<ModTechMonthlyCharges>//*[@id='MonthlyCharges1']</ModTechMonthlyCharges>
+<ModTechFastTrackChkBox>//*[@id='FastTrack1']</ModTechFastTrackChkBox>
+<ModTechFastTrackInstallCharges>//*[@id='FastTrack1InstCharges']</ModTechFastTrackInstallCharges>
+<ModTechSaveBtn>//*[@id='btnSave']</ModTechSaveBtn>
+<ModTechGenerateContract>//*[@id='btnGenerateContact']</ModTechGenerateContract>
+<ModTechGenerateContrsctPopUpAccept> </ModTechGenerateContrsctPopUpAccept>
+<SubmitToCot>//*[@id='btnSubmitToCot']</SubmitToCot>
+
+
+
+
+
+</locators>

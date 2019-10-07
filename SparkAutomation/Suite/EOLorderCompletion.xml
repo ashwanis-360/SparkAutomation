@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite thread-count="1"  verbose="1" name="EOL order" annotations="JDK">
+	  <listeners>
+	  <listener class-name="Listners.TestListener"/>
+	  
+	  
+    </listeners>
+	 <test name="EOL_Order_Completion" junit="false" preserve-order="true">
+		<classes>
+			<class name="Testscript.EOLorderCompletion">	
+			<methods>
+					<include name="createNewEOLOrder"/>
+				</methods>	
+			</class>
+		</classes>	
+	</test>
+	
+</suite>
