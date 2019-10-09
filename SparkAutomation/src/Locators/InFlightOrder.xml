@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+ <locators>
+ 
+ <InflightPlusSign>//button[@aria-label='Workflow:New']</InflightPlusSign>
+  <WorkflowDropdown>//input[@aria-labelledby='Workflow_Type_Label']/../span</WorkflowDropdown>
+  <InflightVoiceSelection>//input[@aria-labelledby="COLT_Voice_Label"]</InflightVoiceSelection>
+  <WorkflowSave>//button[@aria-label="Workflow:Save"]</WorkflowSave>
+ <FieldLabel>//span[text()='ChangeFieldName']//i</FieldLabel>
+  <TextInput>//span[text()='Value']/parent::*//input</TextInput>
+  <ClickLink>//a[text()='Value']</ClickLink>
+  <ClickheretoSaveAccess>//a[text()='Click here to save your product configuration.']</ClickheretoSaveAccess> 
+   <ServiceOrderReferenceNo>//a[contains(@name,'Order Num')]</ServiceOrderReferenceNo> 
+    <InputServiceOrder>//input[@aria-label='Starting with']</InputServiceOrder> 
+  <ServiceOrderGo>(//button[@aria-label='Service Order List:Go'])[2]</ServiceOrderGo> 
+    <ServiceOrderTab>//a[text()='Service Order']</ServiceOrderTab> 
+    <SelectValueDropdown>(//li[text()='Value'])</SelectValueDropdown>
+   <ClickDropdown>(//span[text()='Value']/parent::*//span)[3]</ClickDropdown>
+   <TotalDDi>(//input[@class='colt-attribute-input siebui-ctrl-input colt-attribute-validate'])</TotalDDi>
+   <CallAdmissionControl>((//input[@class='colt-attribute-input siebui-ctrl-input colt-attribute-validate'])[1])</CallAdmissionControl> 
+ 
+ </locators>
