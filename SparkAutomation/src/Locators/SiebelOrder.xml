@@ -1222,7 +1222,7 @@
     <OperationalAttributeText>//table[@summary="Operational Attributes"]//tr[contains(@class,'mandatory')]//td[3]/input</OperationalAttributeText>
  <OperationalAttributeOK>//button[@aria-label='Operational Attributes:OK']</OperationalAttributeOK>
  <NetworkService>//td[@title='IP VPN Service']</NetworkService>
- <GOIPService>(//a[@name='COLT Service Order Num'])[1]</GOIPService>
+<GOIPService>//a[text()='Value']</GOIPService>
   </IPVPNSite>
  <!--   Abhay locator End -->
 
