@@ -851,7 +851,7 @@ public void Clickonoutofviewportwithstring(String locator) throws Exception {
 		Thread.sleep(2000);
 		 while(el.getAttribute("class").contains("siebui-busy"))
 		 {
-			 Thread.sleep(1000);
+			 Thread.sleep(2000);
 		 }
 	 }
 	

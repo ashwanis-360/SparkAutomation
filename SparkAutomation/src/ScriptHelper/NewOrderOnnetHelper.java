@@ -1128,6 +1128,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Submit Site");
 			Thread.sleep(10000);
 
+			
+			waitforPagetobeenable();
 			WaitforElementtobeclickable(xml.getlocator("//locators/PortIDDropDown"));
 			Clickon(getwebelement(xml.getlocator("//locators/PortIDDropDown")));
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click ON Port ID Drop Down");
@@ -2730,6 +2732,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			Clickon(getwebelement(xml.getlocator("//locators/RouterTypeDropdownAccess")));
 			WaitforElementtobeclickable(xml.getlocator("//locators/SelectRouterTypeDropDownAccess"));
 			Clickon(getwebelement(xml.getlocator("//locators/SelectRouterTypeDropDownAccess")));
+			waitforAttributeloader();
+			waitforPagetobeenable();
 			// Thread.sleep(4000);
 			// getwebelement(xml.getlocator("//locators/Routertype")).clear();
 			// SendKeys(getwebelement(xml.getlocator("//locators/Routertype")),Inputdata[37].toString());
@@ -2754,6 +2758,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			Clickon(getwebelement(xml.getlocator("//locators/Layer3ResillanceDropdownAccess")));
 			WaitforElementtobeclickable(xml.getlocator("//locators/Layer3ResillanceSelectDropdownAccess"));
 			Clickon(getwebelement(xml.getlocator("//locators/Layer3ResillanceSelectDropdownAccess")));
+			waitforAttributeloader();
+			waitforPagetobeenable();
 			// getwebelement(xml.getlocator("//locators/Layer3ResillanceDropdownAccess")).clear();
 			// SendKeys(getwebelement(xml.getlocator("//locators/Inputlayer3resillence")),Inputdata[39].toString());
 			// SendkeaboardKeys(getwebelement(xml.getlocator("//locators/Inputlayer3resillence")),Keys.ENTER);
@@ -2764,6 +2770,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			Clickon(getwebelement(xml.getlocator("//locators/ServiceBandwidthDropdownAccess")));
 			WaitforElementtobeclickable(xml.getlocator("//locators/ServiceBandwidthSelectAccess"));
 			Clickon(getwebelement(xml.getlocator("//locators/ServiceBandwidthSelectAccess")));
+			waitforAttributeloader();
+			waitforPagetobeenable();
 			// getwebelement(xml.getlocator("//locators/ServiceBandwidthIPAccess")).clear();
 			// SendKeys(getwebelement(xml.getlocator("//locators/ServiceBandwidthIPAccess")),Inputdata[40].toString());
 			// EnterText(xml.getlocator("//locators/ServiceBandwidthIPAccess"),Inputdata[40].toString());
@@ -2892,12 +2900,16 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			Clickon(getwebelement(xml.getlocator("//locators/AccessTypeDropdownAccess")));
 			WaitforElementtobeclickable(xml.getlocator("//locators/AccessTypeSelectAccess"));
 			Clickon(getwebelement(xml.getlocator("//locators/AccessTypeSelectAccess")));
+			waitforAttributeloader();
+			waitforPagetobeenable();
 			// Thread.sleep(4000);
 
 			WaitforElementtobeclickable(xml.getlocator("//locators/AccesstechnologyDropdownAccess"));
 			Clickon(getwebelement(xml.getlocator("//locators/AccesstechnologyDropdownAccess")));
 			WaitforElementtobeclickable(xml.getlocator("//locators/AccesstechnologySelectAccess"));
 			Clickon(getwebelement(xml.getlocator("//locators/AccesstechnologySelectAccess")));
+			waitforAttributeloader();
+			waitforPagetobeenable();
 			// getwebelement(xml.getlocator("//locators/Accesstechnology")).clear();
 			// SendKeys(getwebelement(xml.getlocator("//locators/Accesstechnology")),Inputdata[43].toString());
 			// SendkeaboardKeys((getwebelement(xml.getlocator("//locators/Accesstechnology"))),
@@ -2930,6 +2942,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			Clickon(getwebelement(xml.getlocator("//locators/BuildingTypeDropdownAccess")));
 			WaitforElementtobeclickable(xml.getlocator("//locators/BuildingTypeSelectAccess"));
 			Clickon(getwebelement(xml.getlocator("//locators/BuildingTypeSelectAccess")));
+			waitforAttributeloader();
+			waitforPagetobeenable();
 			// Clear(getwebelement(xml.getlocator("//locators/Buildingtype")));
 			// SendKeys(getwebelement(xml.getlocator("//locators/Buildingtype")),Inputdata[45].toString());
 			// SendkeaboardKeys((getwebelement(xml.getlocator("//locators/Buildingtype"))),
@@ -2940,6 +2954,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			Clickon(getwebelement(xml.getlocator("//locators/CustomerSitePopStatusDropdownAccess")));
 			WaitforElementtobeclickable(xml.getlocator("//locators/CustomerSitePopStatusSelectAccess"));
 			Clickon(getwebelement(xml.getlocator("//locators/CustomerSitePopStatusSelectAccess")));
+			waitforAttributeloader();
+			waitforPagetobeenable();
 			// getwebelement(xml.getlocator("//locators/CustomerSitePopStatus")).clear();
 			// SendKeys(getwebelement(xml.getlocator("//locators/CustomerSitePopStatus")),Inputdata[46].toString());
 			// SendkeaboardKeys((getwebelement(xml.getlocator("//locators/CustomerSitePopStatus"))),
@@ -2975,6 +2991,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			Clickon(getwebelement(xml.getlocator("//locators/CabinetTypeDropdownAccess")));
 			WaitforElementtobeclickable(xml.getlocator("//locators/CabinetTypeSelectAccess"));
 			Clickon(getwebelement(xml.getlocator("//locators/CabinetTypeSelectAccess")));
+			waitforAttributeloader();
+			waitforPagetobeenable();
 			// Clear(getwebelement(xml.getlocator("//locators/cabinettype")));
 			// SendKeys(getwebelement(xml.getlocator("//locators/cabinettype")),
 			// Inputdata[48].toString());
@@ -2987,11 +3005,15 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			SendKeys(getwebelement(xml.getlocator("//locators/CabinetID")), Inputdata[49].toString());
 			SendkeaboardKeys((getwebelement(xml.getlocator("//locators/CabinetID"))), Keys.TAB);
 			Thread.sleep(4000);
+			waitforAttributeloader();
+			waitforPagetobeenable();
 
 			WaitforElementtobeclickable(xml.getlocator("//locators/shelfid"));
 			Clear(getwebelement(xml.getlocator("//locators/shelfid")));
 			SendKeys(getwebelement(xml.getlocator("//locators/shelfid")), Inputdata[50].toString());
 			SendkeaboardKeys(getwebelement(xml.getlocator("//locators/shelfid")), Keys.TAB);
+			waitforAttributeloader();
+			waitforPagetobeenable();
 
 			// waitandForElementDisplay((xml.getlocator("//locators/ClickheretoSaveAccess")),8);
 			// WaitforElementtobeclickable(xml.getlocator("//locators/IpGurdianSave"));
@@ -3009,18 +3031,24 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			Clear(getwebelement(xml.getlocator("//locators/Slotid")));
 			SendKeys(getwebelement(xml.getlocator("//locators/Slotid")), Inputdata[51].toString());
 			SendkeaboardKeys((getwebelement(xml.getlocator("//locators/Slotid"))), Keys.TAB);
+			waitforAttributeloader();
+			waitforPagetobeenable();
 			// Thread.sleep(4000);
 
 			WaitforElementtobeclickable(xml.getlocator("//locators/Physicalportid"));
 			Clear(getwebelement(xml.getlocator("//locators/Physicalportid")));
 			SendKeys(getwebelement(xml.getlocator("//locators/Physicalportid")), Inputdata[52].toString());
 			SendkeaboardKeys((getwebelement(xml.getlocator("//locators/Physicalportid"))), Keys.TAB);
+			waitforAttributeloader();
+			waitforPagetobeenable();
 			// Thread.sleep(4000);
 
 			WaitforElementtobeclickable(xml.getlocator("//locators/PresentationInterfaceDropdownAccess"));
 			Clickon(getwebelement(xml.getlocator("//locators/PresentationInterfaceDropdownAccess")));
 			WaitforElementtobeclickable(xml.getlocator("//locators/PresentationInterfaceSelectAccess"));
 			Clickon(getwebelement(xml.getlocator("//locators/PresentationInterfaceSelectAccess")));
+			waitforAttributeloader();
+			waitforPagetobeenable();
 			// Clear(getwebelement(xml.getlocator("//locators/PhysicalInterface")));
 			// SendKeys(getwebelement(xml.getlocator("//locators/PhysicalInterface")),
 			// Inputdata[53].toString());
@@ -3032,6 +3060,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			Clickon(getwebelement(xml.getlocator("//locators/ConnectorTypeDropdownAccess")));
 			WaitforElementtobeclickable(xml.getlocator("//locators/ConnectorTypeSelectAccess"));
 			Clickon(getwebelement(xml.getlocator("//locators/ConnectorTypeSelectAccess")));
+			waitforAttributeloader();
+			waitforPagetobeenable();
 			// Clear(getwebelement(xml.getlocator("//locators/Connectortype")));
 			// SendKeys(getwebelement(xml.getlocator("//locators/Connectortype")),
 			// Inputdata[54].toString());
@@ -3051,6 +3081,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			Clickon(getwebelement(xml.getlocator("//locators/FibreTypeDropdownAccess")));
 			WaitforElementtobeclickable(xml.getlocator("//locators/FibreTypeSelectAccess"));
 			Clickon(getwebelement(xml.getlocator("//locators/FibreTypeSelectAccess")));
+			waitforAttributeloader();
+			waitforPagetobeenable();
 			// Clickon(getwebelement(xml.getlocator("//locators/Fibretype")));
 			// Clear(getwebelement(xml.getlocator("//locators/Fibretype")));
 			// SendKeys(getwebelement(xml.getlocator("//locators/Fibretype")),
@@ -3081,6 +3113,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			Clickon(getwebelement(xml.getlocator("//locators/InstallTimeDropdownAccess")));
 			WaitforElementtobeclickable(xml.getlocator("//locators/InstallTimeSelectAccess"));
 			Clickon(getwebelement(xml.getlocator("//locators/InstallTimeSelectAccess")));
+			waitforAttributeloader();
+			waitforPagetobeenable();
 			// Clear(getwebelement(xml.getlocator("//locators/installtime")));
 			// SendKeys(getwebelement(xml.getlocator("//locators/installtime")),
 			// Inputdata[56].toString());
@@ -3092,6 +3126,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			Clear(getwebelement(xml.getlocator("//locators/Accesstimewindow")));
 			SendKeys(getwebelement(xml.getlocator("//locators/Accesstimewindow")), Inputdata[57].toString());
 			SendkeaboardKeys((getwebelement(xml.getlocator("//locators/Accesstimewindow"))), Keys.TAB);
+			waitforAttributeloader();
+			waitforPagetobeenable();
 			// Thread.sleep(4000);
 			WaitforElementtobeclickable((xml.getlocator("//locators/ClickheretoSaveAccess")));
 			// WaitforElementtobeclickable(xml.getlocator("//locators/IpGurdianSave"));
@@ -3111,11 +3147,15 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			Clear(getwebelement(xml.getlocator("//locators/RouterCountryAccess")));
 			SendKeys(getwebelement(xml.getlocator("//locators/RouterCountryAccess")), Inputdata[58].toString());
 			SendkeaboardKeys(getwebelement(xml.getlocator("//locators/RouterCountryAccess")), Keys.TAB);
+			waitforAttributeloader();
+			waitforPagetobeenable();
 			Thread.sleep(10000);
 			WaitforElementtobeclickable(xml.getlocator("//locators/routermodel"));
 			Clear(getwebelement(xml.getlocator("//locators/routermodel")));
 			SendKeys(getwebelement(xml.getlocator("//locators/routermodel")), Inputdata[59].toString());
 			SendkeaboardKeys(getwebelement(xml.getlocator("//locators/routermodel")), Keys.TAB);
+			waitforAttributeloader();
+			waitforPagetobeenable();
 
 //					WaitforElementtobeclickable(xml.getlocator("//locators/RouterSiteNameAccess"));
 //					Clear(getwebelement(xml.getlocator("//locators/RouterSiteNameAccess")));
@@ -3126,9 +3166,13 @@ public class NewOrderOnnetHelper extends DriverHelper {
 
 			WaitforElementtobeclickable(xml.getlocator("//locators/RouterSiteNameDropdownAccess"));
 			Clickon(getwebelement(xml.getlocator("//locators/RouterSiteNameDropdownAccess")));
+			waitforAttributeloader();
+			waitforPagetobeenable();
 			Thread.sleep(5000);
 			WaitforElementtobeclickable(xml.getlocator("//locators/RouterSiteNameSelectAccess"));
 			Clickon(getwebelement(xml.getlocator("//locators/RouterSiteNameSelectAccess")));
+			waitforAttributeloader();
+			waitforPagetobeenable();
 			Thread.sleep(5000);
 
 			WaitforElementtobeclickable((xml.getlocator("//locators/ClickheretoSaveAccess")));
@@ -3144,6 +3188,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			Clickon(getwebelement(xml.getlocator("//locators/IPAdressingFormatDropdownAccess")));
 			WaitforElementtobeclickable((xml.getlocator("//locators/IPAdressingFormatSelectAccess")));
 			Clickon(getwebelement(xml.getlocator("//locators/IPAdressingFormatSelectAccess")));
+			waitforAttributeloader();
+			waitforPagetobeenable();
 			Thread.sleep(5000);
 			// Clear(getwebelement(xml.getlocator("//locators/IPAdressingFormatAccess")));
 			// SendKeys(getwebelement(xml.getlocator("//locators/IPAdressingFormatAccess")),
@@ -3158,6 +3204,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			Clickon(getwebelement(xml.getlocator("//locators/IPV4AdressingTypeDropdownAccess")));
 			WaitforElementtobeclickable((xml.getlocator("//locators/IPV4AdressingTypeSelectAccess")));
 			Clickon(getwebelement(xml.getlocator("//locators/IPV4AdressingTypeSelectAccess")));
+			waitforAttributeloader();
+			waitforPagetobeenable();
 			Thread.sleep(5000);
 			// Clear(getwebelement(xml.getlocator("//locators/NumberIPV4AdressAccess")));
 			// SendKeys(getwebelement(xml.getlocator("//locators/NumberIPV4AdressAccess")),
@@ -3186,6 +3234,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			Clickon(getwebelement(xml.getlocator("//locators/RouterTechnologyDropdownAccess")));
 			WaitforElementtobeclickable(xml.getlocator("//locators/SelectRouterTechnologyDropDownAccess"));
 			Clickon(getwebelement(xml.getlocator("//locators/SelectRouterTechnologyDropDownAccess")));
+			waitforAttributeloader();
+			waitforPagetobeenable();
 
 			WaitforElementtobeclickable((xml.getlocator("//locators/ClickheretoSaveAccess")));
 			// WaitforElementtobeclickable(xml.getlocator("//locators/IpGurdianSave"));
@@ -3195,6 +3245,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 
 			WaitforElementtobeclickable((xml.getlocator("//locators/CircuitReferenceAccess")));
 			Clickon(getwebelement(xml.getlocator("//locators/CircuitReferenceAccess")));
+			waitforAttributeloader();
+			waitforPagetobeenable();
 			Thread.sleep(25000);
 
 			savePage();
