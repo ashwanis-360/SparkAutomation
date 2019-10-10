@@ -73,7 +73,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		waitforPagetobeenable();
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Installed Asset New");
 
-	}
+}
 
 	public void createCustomerOrder(Object[] Inputdata) throws Exception {
 
