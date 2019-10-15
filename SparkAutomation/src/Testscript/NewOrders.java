@@ -268,7 +268,7 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().EnterBillingDateInFooter(Data);
 			newOrderOnnnet.get().EnterServiceChargeInFooter(Data, "4");
 			newOrderOnnnet.get().CommercialValidation(Data);
-			newOrderOnnnet.get().getReferenceNo(Data);// added new
+			//newOrderOnnnet.get().getReferenceNo(Data);// added new
 			newOrderOnnnet.get().CompletedValidation(Data);// updated
 		} else if (Data[Data.length - 1].toString().contains("Tech")) {
 			// newOrderOnnnet.get().Check(Data);

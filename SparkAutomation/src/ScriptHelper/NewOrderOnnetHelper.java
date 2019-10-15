@@ -4044,7 +4044,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		SendKeys(getwebelement(xml.getlocator("//locators/POEndDateAccess")), CurrentDate());
 
 		Thread.sleep(5000);
-
+		savePage();
+		waitforPagetobeenable();
 		// System.out.println("Billing Date Done!");
 	}
 
@@ -9520,6 +9521,90 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			 }
 			
 	}
+		//Added by Aman
+		public void CheckServiceTab(Object[] Inputdata) throws Exception {
+			waitforPagetobeenable();
+			Thread.sleep(3000);
+		
+			
+			try				// By   Aman Gupta
+			{
+				WaitforElementtobeclickable(xml.getlocator("//locators/ModifyButtonClick"));
+				Clickon(getwebelement(xml.getlocator("//locators/ModifyButtonClick")));
+			}
+			catch(Exception e)
+			{
+				
+				WaitforElementtobeclickable(xml.getlocator("//locators/ModifyBtn"));
+				Clickon(getwebelement(xml.getlocator("//locators/ModifyBtn")));
+				
+			}
+			
+			waitforPagetobeenable();
+			Thread.sleep(3000);
+			
+			
+			SendKeys(getwebelement(xml.getlocator("//locators/OpportunityNo")), Inputdata[1].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Opportunity No");
+			SendKeys(getwebelement(xml.getlocator("//locators/RequestReceivedDate")), CurrentDate());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Request Received Date");
+			Thread.sleep(3000);
+			ModifiedServiceOrder.set(Gettext(getwebelement(xml.getlocator("//locators/ModifyOrderNumber"))));// Added by
+																												// Rekha
+			ExtentTestManager.getTest().log(LogStatus.PASS,
+					" Step: Generated Modify Order Reference No: " + ModifiedServiceOrder.get());// Added by Rekha
+			Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderClickOn")));
+			waitforPagetobeenable();
+			WaitforElementtobeclickable(xml.getlocator("//locators/OrderSubTypeSearch"));
+			Clickon(getwebelement(xml.getlocator("//locators/OrderSubTypeSearch")));
+			// System.out.println("Enter New Order");
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Order Sub Type Search");
+			Clickon(getwebelement(xml.getlocator("//locators/AddOrderSubType")));
+			waitforPagetobeenable();
+			Thread.sleep(3000);
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Add Order Sub Type");
+			// ---> Condition need to be added for mod com and mod tech
+
+			if (Inputdata[Inputdata.length - 1].toString().contains("Com")
+					|| Inputdata[Inputdata.length - 1].toString().contains("Carnor")) // Added by Dipesh
+
+			{
+				SendKeys(getwebelement(xml.getlocator("//locators/InputOrderSubType")), "BCN Change");// Specific for mod
+																										// com
+			} else if (Inputdata[Inputdata.length - 1].toString().contains("Tech")) {
+				SendKeys(getwebelement(xml.getlocator("//locators/InputOrderSubType")), "Upgrade Bandwith"); // specific for
+																												// mod tech
+			}
+			SendkeaboardKeys(getwebelement(xml.getlocator("//locators/InputOrderSubType")), Keys.ENTER);
+
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Order Sub Type DropDown");
+
+			Clickon(getwebelement(xml.getlocator("//locators/SubmitSubOrderType")));
+			waitforPagetobeenable();
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Submit Sub Order Type");
+			Thread.sleep(2000);
+
+			if (!Inputdata[8].toString().equalsIgnoreCase("Wave")
+					&& !Inputdata[8].toString().equalsIgnoreCase("Ether Line")) // added shivananda
+			{
+				WaitforElementtobeclickable(xml.getlocator("//locators/MaintenancePartySearch"));
+				waitforPagetobeenable();
+				Clickon(getwebelement(xml.getlocator("//locators/MaintenancePartySearch")));
+				Clickon(getwebelement(xml.getlocator("//locators/MaintenancePartyPopupDropdown")));
+				Clickon(getwebelement(xml.getlocator("//locators/SelectValueDropdown").replace("Value", "Party Name")));
+				SendKeys(getwebelement(xml.getlocator("//locators/InputAccountStatus")), "Colt");
+				safeJavaScriptClick(getwebelement(xml.getlocator("//locators/AccountStatusSearch")));
+				Thread.sleep(2000);
+				Clickon(getwebelement(xml.getlocator("//locators/AccountStatusSearch")));
+				waitforPagetobeenable();
+				Thread.sleep(4000);
+				waitforPagetobeenable();
+				Clickon(getwebelement(xml.getlocator("//locators/AccountStatusSubmit")));
+				Thread.sleep(3000);
+			}
+			savePage();
+			waitforPagetobeenable();
+		}
 	   
 	
 }
