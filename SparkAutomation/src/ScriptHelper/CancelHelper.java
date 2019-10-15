@@ -31,9 +31,9 @@ public class CancelHelper extends DriverHelper{
 	WaitforElementtobeclickable(xml.getlocator("//locators/StatusReasonDropdown"));
 	Clickon(getwebelement(xml.getlocator("//locators/StatusReasonDropdown")));
 	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on status reason dropdown");
-
-	Clickon(getwebelement(xml.getlocator("//locators/StatusReasonValue").replace("value",InputData[90].toString())));
-	System.out.println(InputData[90].toString());
+	Thread.sleep(10000);
+	Clickon(getwebelement(xml.getlocator("//locators/StatusReasonValue").replace("value",InputData[74].toString())));
+	System.out.println(InputData[74].toString());
 	//SendKeys(getwebelement(xml.getlocator("//locators/StatusReasonAbandoned")), InputData[75].toString());
 	System.out.println("status reason");
 	//ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on abandoned status popup");
@@ -41,6 +41,7 @@ public class CancelHelper extends DriverHelper{
 	//SendkeaboardKeys(getwebelement(xml.getlocator("//locators/StatusReasonAbandoned")), Keys.ENTER);
 	// Thread.sleep(4000);
 	SendkeaboardKeys(getwebelement(xml.getlocator("//locators/StatusReasonAbandoned")), Keys.ENTER);
+	Thread.sleep(2000);
 	SendkeaboardKeys(getwebelement(xml.getlocator("//locators/StatusReasonAbandoned")), Keys.TAB);
 	System.out.println("enter tab");
 
@@ -48,10 +49,11 @@ public class CancelHelper extends DriverHelper{
 	}
 	
 	public void AbandonedOrder(Object[] Inputdata) throws Exception {
-
+		Thread.sleep(4000);
 	WaitforElementtobeclickable(xml.getlocator("//locators/OrderStatusDropdown"));
+	Thread.sleep(4000);
 	Clickon(getwebelement(xml.getlocator("//locators/OrderStatusDropdown")));
-	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Clcik on Order Status dropdown");
+	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Order Status dropdown");
 
 
 	clickUsingAction(getwebelement(xml.getlocator("//locators/OrderStatusAbandoned"))); //these do all move and click//
@@ -75,7 +77,7 @@ public class CancelHelper extends DriverHelper{
 	WaitforElementtobeclickable(xml.getlocator("//locators/ServiceTab"));
 	safeJavaScriptClick(getwebelement(xml.getlocator("//locators/ServiceTab")));
 	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on service tab");
-	Thread.sleep(3000);
+	Thread.sleep(5000);
 	WaitforElementtobeclickable(xml.getlocator("//locators/ServiceOrderSearch"));
 	Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderSearch")));//yha click o tha
 	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on service order search field");
@@ -83,9 +85,10 @@ public class CancelHelper extends DriverHelper{
 	SendKeys(getwebelement(xml.getlocator("//locators/ServiceOrderSearch")), ServiceOrder.get());
 	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter value in servie field");
 	WaitforElementtobeclickable(xml.getlocator("//locators/ServiceOrderArrow"));
+	Thread.sleep(8000);
 	Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderArrow")));
 	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on service order arrow");
-
+	Thread.sleep(8000);
 	String expected = Gettext(getwebelement(xml.getlocator("//locators/VerifyAbandoned")));
 	System.out.println(expected);
 	String actual="Abandoned";
