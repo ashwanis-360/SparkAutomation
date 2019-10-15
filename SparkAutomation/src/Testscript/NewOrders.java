@@ -161,6 +161,9 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().TechnicalValidation(Data); // Updated
 			newOrderOnnnet.get().DeliveryValidation(Data); // No Change
 			newOrderOnnnet.get().OrderCompleteEthernetHubSpoke(Data); // MethodAdded
+			Cancel.get().statusReason(Data);
+			Cancel.get().AbandonedOrder(Data);
+			Cancel.get().verifyOrderAbandoned();
 		} else if (Data[8].toString().equalsIgnoreCase("Ethernet Spoke")) {
 			newOrderOnnnet.get().addEthernetSiteSpoke(Data);// MethodAdded
 			newOrderOnnnet.get().spokeSiteCustomize(Data);// MethodAdded
@@ -174,21 +177,24 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().TechnicalValidation(Data); // Updated for spoke also
 			newOrderOnnnet.get().DeliveryValidation(Data); // No Change
 			newOrderOnnnet.get().OrderCompleteEthernetHubSpoke(Data);// updated same as hub
+			Cancel.get().statusReason(Data);
+			Cancel.get().AbandonedOrder(Data);
+			Cancel.get().verifyOrderAbandoned();
 		} else {
 			newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);
-			newOrderOnnnet.get().enterMandatoryDetailsInMiddleApplet(Data);
-			newOrderOnnnet.get().VoiceConfigTab(Data);
-			newOrderOnnnet.get().VoiceFeatureTab(Data);
-			newOrderOnnnet.get().NumberManagementTab(Data);
-			newOrderOnnnet.get().EnterDateInFooter(Data);
-			newOrderOnnnet.get().EnterBillingDateInFooter(Data);
-			newOrderOnnnet.get().EnterServiceChargeInFooter(Data, "2");
+			//newOrderOnnnet.get().enterMandatoryDetailsInMiddleApplet(Data);
+			//newOrderOnnnet.get().VoiceConfigTab(Data);
+			//newOrderOnnnet.get().VoiceFeatureTab(Data);
+			//newOrderOnnnet.get().NumberManagementTab(Data);
+			//newOrderOnnnet.get().EnterDateInFooter(Data);
+			//newOrderOnnnet.get().EnterBillingDateInFooter(Data);
+			//newOrderOnnnet.get().EnterServiceChargeInFooter(Data, "2");
 
-			newOrderOnnnet.get().SelectAttachmentTab(Data);
-			newOrderOnnnet.get().UploadDocument(Data);
-			newOrderOnnnet.get().SelectServiceGroupTab(Data);
-			newOrderOnnnet.get().OperationAttribute(Data);
-			newOrderOnnnet.get().EnterInstallationChargeInFooter(Data);
+			//newOrderOnnnet.get().SelectAttachmentTab(Data);
+			//newOrderOnnnet.get().UploadDocument(Data);
+			//newOrderOnnnet.get().SelectServiceGroupTab(Data);
+			//newOrderOnnnet.get().OperationAttribute(Data);
+			//newOrderOnnnet.get().EnterInstallationChargeInFooter(Data);
 			newOrderOnnnet.get().MandatoryFields(Data);
 			newOrderOnnnet.get().CommercialValidation(Data);
 			Cancel.get().statusReason(Data);
