@@ -1539,12 +1539,16 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			SaveAndCloseMask();
 			//Start site B
 			SearchSiteB(Inputdata);
-			ClickHereSave();
 			SearchSiteBEntry(Inputdata);
+			SiteBServiceParty(Inputdata);
+			PickServiceParty(Inputdata);
+			SiteBSiteContact(Inputdata);
+			PickSiteContactParty(Inputdata);
 			BEndSitePUD(Inputdata);
 			SiteBInstallationTimePUD(Inputdata);
 			SiteBTerminationTimePUD(Inputdata);
 			SiteBAccessPortPUD(Inputdata);
+			SaveAndCloseMask();
 			GetReference();	
 			break;
 		}
@@ -6499,7 +6503,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 	/* Added by Devesh for R4 Products */
 	public void SiteAInstallationTime(Object[] InputData) throws InterruptedException, DocumentException, IOException {
 		String ProductName = InputData[8].toString();
-		if (ProductName.equalsIgnoreCase("Private Ethernet") || ProductName.equalsIgnoreCase("DCA Ethernet")) {
+		if (ProductName.equalsIgnoreCase("Private Ethernet") || ProductName.equalsIgnoreCase("DCA Ethernet") ||ProductName.equalsIgnoreCase("Ethernet Access")) {
 			// Entering Install Time
 
 			WaitforElementtobeclickable(
@@ -6940,19 +6944,20 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		Clickon(getwebelement(xml.getlocator("//locators/DarkFiber/BList").replace("Value", "N/A")));
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select DSL SLA Class Type : N/A ");
 		
-		 if(InputData[8].toString().contains("Private Wave Service") )  {	//as per Ayush
-					   WaitforElementtobeclickable(xml.getlocator("//locators/DarkFiber/AEndSiteInput").replace("Value", "Node Site Name"));
-					   Clickon(getwebelement(xml.getlocator("//locators/DarkFiber/AEndSiteInput").replace("Value", "Node Site Name")));
-					   Clear(getwebelement(xml.getlocator("//locators/DarkFiber/AEndSiteInput").replace("Value", "Node Site Name")));
-					   SendKeys(getwebelement(xml.getlocator("//locators/DarkFiber/AEndSiteInput").replace("Value", "Node Site Name")),"NA"/*InputData[180].toString()*/);
-					   ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter  onNode Site Name: NA");
-					 
-						  WaitforElementtobeclickable(xml.getlocator("//locators/DarkFiber/AEndSiteInput").replace("Value", "Node Service ID"));
-						  Clickon(getwebelement(xml.getlocator("//locators/DarkFiber/AEndSiteInput").replace("Value", "Node Service ID")));
-						  Clear(getwebelement(xml.getlocator("//locators/DarkFiber/AEndSiteInput").replace("Value", "Node Service ID")));
-						  SendKeys(getwebelement(xml.getlocator("//locators/DarkFiber/AEndSiteInput").replace("Value", "Node Service ID")),"BIGT14124"/*InputData[180].toString()*/);
-						  ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter  on Node Service ID: BIGT14124");
-						   }
+		 if(InputData[8].toString().contains("Private Wave Service") )  {		//as per ayush updates
+            WaitforElementtobeclickable(xml.getlocator("//locators/DarkFiber/BEndSiteInput").replace("Value", "Node Site Name"));
+			Clickon(getwebelement(xml.getlocator("//locators/DarkFiber/BEndSiteInput").replace("Value", "Node Site Name")));
+			Clear(getwebelement(xml.getlocator("//locators/DarkFiber/BEndSiteInput").replace("Value", "Node Site Name")));
+			SendKeys(getwebelement(xml.getlocator("//locators/DarkFiber/BEndSiteInput").replace("Value", "Node Site Name")),"NA"/*InputData[180].toString()*/);
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter  onNode Site Name: NA");
+			
+			WaitforElementtobeclickable(xml.getlocator("//locators/DarkFiber/BEndSiteInput").replace("Value", "Node Service ID"));
+			Clickon(getwebelement(xml.getlocator("//locators/DarkFiber/BEndSiteInput").replace("Value", "Node Service ID")));
+			Clear(getwebelement(xml.getlocator("//locators/DarkFiber/BEndSiteInput").replace("Value", "Node Service ID")));
+			SendKeys(getwebelement(xml.getlocator("//locators/DarkFiber/BEndSiteInput").replace("Value", "Node Service ID")),"BIGT14124"/*InputData[180].toString()*/);
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter  on Node Service ID: BIGT14124");
+
+     }
 	}
 	/*
 	 * Aman created
@@ -6967,6 +6972,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 
 		if ((ProductName.equalsIgnoreCase("Private Ethernet")) || (ProductName.equalsIgnoreCase("Dark Fibre"))
 				|| (ProductName.equalsIgnoreCase("Ultra Low Latency"))
+				|| (ProductName.equalsIgnoreCase("Private Wave Service"))
 				|| (ProductName.equalsIgnoreCase("Private Wave Node"))) {
 			// CabinetID
 			int rand_int1 = rand.nextInt(1000);
@@ -7045,7 +7051,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			waitforPagetobeenable();
 
 			if (!(InputData[8].toString().contains("Ultra Low Latency"))
-					&& !(InputData[8].toString().contains("Dark Fibre"))) {
+					&& !(InputData[8].toString().contains("Dark Fibre"))
+					&& !(InputData[8].toString().contains("Private Wave Service"))) {
 				// LinkAggregationRequired
 				WaitforElementtobeclickable(xml.getlocator("//locators/R4/SiteBDropdownClick").replace("Value",
 						"Link Aggregation Required"));
@@ -7211,6 +7218,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		String ProductName = InputData[8].toString();
 
 		if ((ProductName.equalsIgnoreCase("Private Ethernet")) || (ProductName.equalsIgnoreCase("Dark Fibre"))
+				|| (ProductName.equalsIgnoreCase("Private Wave Service"))
 				|| (ProductName.equalsIgnoreCase("Ultra Low Latency"))) {
 			// Connector Type
 			WaitforElementtobeclickable(
@@ -8094,7 +8102,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			waitforPagetobeenable();
 
 			// LinkAggregationRequired
-
+			if(!InputData[8].toString().contains("Ethernet Access"))
+			{
 			WaitforElementtobeclickable(
 					xml.getlocator("//locators/R4/SiteADropdownClick").replace("Value", "Link Aggregation Required"));
 			Clickon(getwebelement(
@@ -8102,7 +8111,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			Clickon(getwebelement(xml.getlocator("//locators/R4/SiteABSelection").replace("Value", "No")));
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Link Aggregation Required : No");
 			waitforPagetobeenable();
-
+			}
 			// Shelf ID
 			rand_int1 = rand.nextInt(1000);
 			WaitforElementtobeclickable(xml.getlocator("//locators/R4/SiteAInput").replace("Value", "Shelf ID"));
