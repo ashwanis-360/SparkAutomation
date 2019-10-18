@@ -68,6 +68,11 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().clickOnManualValidationB();
 			newOrderOnnnet.get().DeliveryValidation(Data);
 			newOrderOnnnet.get().clickOnManualValidationA();
+			if (Data[28].toString().equals("Offnet"))
+			{
+			newOrderOnnnet.get().CEOS_Offnet(Data);
+			newOrderOnnnet.get().LaunchingCEOSApplication(Data);
+			}
 			newOrderOnnnet.get().getReferenceNo(Data);// added new
 			newOrderOnnnet.get().CompletedValidation(Data);
 		}
@@ -260,12 +265,16 @@ public class NewOrders extends DriverTestcase {
 
 			newOrderOnnnet.get().Carnor(Data);
 			newOrderOnnnet.get().EnterInstallationChargeInFooter(Data);
+			newOrderOnnnet.get().SelectServiceGroupTab(Data);
+			newOrderOnnnet.get().SelectAttachmentTab(Data);
+			newOrderOnnnet.get().UploadDocument(Data);
 			newOrderOnnnet.get().TechnicalValidation(Data);
 			newOrderOnnnet.get().clickOnManualValidationB();
 			newOrderOnnnet.get().DeliveryValidation(Data);
 			newOrderOnnnet.get().clickOnManualValidationA();
 			newOrderOnnnet.get().getReferenceNo(Data);// added new
 			newOrderOnnnet.get().Carnor_getReferenceNo(Data);
+			newOrderOnnnet.get().OperationAttribute_Carnor(Data);
 			newOrderOnnnet.get().CompletedValidation(Data);
 		}
 		if (Data[Data.length - 1].toString().contains("Com")) {
