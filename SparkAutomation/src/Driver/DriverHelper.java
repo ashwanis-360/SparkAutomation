@@ -902,6 +902,39 @@ public void Clickonoutofviewportwithstring(String locator) throws Exception {
 			 Thread.sleep(1000);
 		 }
 	 }
+	
+	/* Created by Rekha 
+	
+	 * purpose : it is used for select the value from the dropdown.
+	 * it works only for ceos application , others scenarios we didnt check.
+	 */
+	public void PickValue(String value) {
+		
+		WebElement el = driver.findElement(By.xpath("//td[text()='"+value+"']/parent::*"));
+		Moveon(el);
+		SendkeyusingAction(Keys.ENTER);
+		/* need to check this code*/
+		//el.click();
+		
+//		String actual1=el.getText().toUpperCase().toString();
+		//return actual;
+	}
+	/* created by Rekha
+	 * Purpose : It is used to select drop down value by Index */
+	public void SelectByIndex(WebElement el, int Index) throws IOException, InterruptedException
+	{ //Thread.sleep(3000);
+		Select s1=new Select(el);
+		s1.selectByIndex(Index);
+		//Thread.sleep(3000);
+	}
+	
+	public void SendkeyusingAction(Keys k)
+	{
+		Actions keyAction = new Actions(driver);     
+		keyAction.sendKeys(k).perform();
+		}
+	
+	
 }
 
 
