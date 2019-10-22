@@ -63,4 +63,13 @@
 			</class>
 		</classes>	
 	</test>  
+	<test name="Premise" junit="false" preserve-order="true">
+		<classes>
+			<class name="Testscript.NewOrders">	
+				<methods>
+				 <include name="PremiseMaster"/>   
+				</methods>	
+			</class>
+		</classes>	
+	</test> 
 </suite>
