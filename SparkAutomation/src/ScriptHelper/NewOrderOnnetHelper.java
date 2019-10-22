@@ -4944,6 +4944,13 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			Clickon(getwebelement(xml3.getlocator("//locators/Pick")));
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Pick");
 			Thread.sleep(10000);
+			if(isElementPresent(xml3.getlocator("//locators/buttonaccept")))
+			{
+			getwebelement(xml3.getlocator("//locators/buttonaccept")).click();
+			Clickon(getwebelement(xml3.getlocator("//locators/Pick")));
+			Thread.sleep(10000);
+			}
+
 			safeJavaScriptClick(getwebelement(xml3.getlocator("//locators/ServicePartySearchSiteA")));
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Service Party Search SiteA");
 			Select(getwebelement(xml3.getlocator("//locators/SelectServiceParty")), "Party Name");
@@ -5094,9 +5101,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			safeJavaScriptClick(getwebelement(xml3.getlocator("//locators/AccessTechnologySearch")));
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Access Technology Search");
 			Thread.sleep(20000);
-			safeJavaScriptClick(getwebelement(
-					"(//table[@summary='Select Access Technology']//tr//td[text()='Colt Fibre']/following-sibling::td[text()='"
-							+ Inputdata[119].toString() + "'])[1]"));
+			safeJavaScriptClick(getwebelement("//table[@summary='Select Access Technology']//tr//td[text()='"+ Inputdata[119].toString() + "']")); 
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Access Technology value");
 			Clickon(getwebelement(xml3.getlocator("//locators/AccessTechnologySubmit")));
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Access Technology Submit");
@@ -5240,6 +5245,14 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				safeJavaScriptClick(getwebelement(xml3.getlocator("//locators/AccessPortLink")));
 				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Access Port Link");
 				Thread.sleep(10000);
+				
+				safeJavaScriptClick(getwebelement(xml3.getlocator("//locators/PresentationInterfaceSearch")));
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Presentation Interface Search");
+				Clickon(getwebelement("//table[@summary='Select Presentation Interface-Connector Type']//tr//td[text()='"+ Inputdata[99].toString() + "']"));
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Select Presentation Interface");
+				Clickon(getwebelement(xml3.getlocator("//locators/SubmitPresentationInterface")));
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Submit Presentation Interface");
+				Thread.sleep(10000);
 
 				getwebelement(xml3.getlocator("//locators/SlotID")).clear();
 				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Clear Slot Id");
@@ -5284,9 +5297,11 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Access Technology Search");
 			Thread.sleep(10000);
 
-			safeJavaScriptClick(getwebelement(
-					"(//table[@summary='Select Access Technology']//tr//td[text()='Colt Fibre']/following-sibling::td[text()='"
-							+ Inputdata[120].toString() + "'])[1]"));
+			safeJavaScriptClick(getwebelement("//table[@summary='Select Access Technology']//tr//td[text()='"+ Inputdata[120].toString() + "']")); 
+			/* This one working in bsw */
+			//safeJavaScriptClick(getwebelement(
+					//"(//table[@summary='Select Access Technology']//tr//td[text()='Colt Fibre']/following-sibling::td[text()='"
+							//+ Inputdata[120].toString() + "'])[1]"));
 
 			// Clickon(getwebelement("//table[@summary='Select Access
 			// Technology']//tr//td[text()='"+Inputdata[28+64].toString()+"']"));
@@ -5439,6 +5454,13 @@ public class NewOrderOnnetHelper extends DriverHelper {
 
 				safeJavaScriptClick(getwebelement(xml3.getlocator("//locators/AccessPortLink")));
 				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Access Port Link");
+				Thread.sleep(10000);
+				safeJavaScriptClick(getwebelement(xml3.getlocator("//locators/PresentationInterfaceSearch")));
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Presentation Interface Search");
+				Clickon(getwebelement("//table[@summary='Select Presentation Interface-Connector Type']//tr//td[text()='"+ Inputdata[99].toString() + "']"));
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Select Presentation Interface");
+				Clickon(getwebelement(xml3.getlocator("//locators/SubmitPresentationInterface")));
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Submit Presentation Interface");
 				Thread.sleep(10000);
 
 				getwebelement(xml3.getlocator("//locators/SlotID")).clear();

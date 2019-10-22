@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
  <locators>
+ <buttonaccept>//button[@id='btn-accept']</buttonaccept>  
  <Getreferencebutton>//input[@value='Get Reference']</Getreferencebutton>
  <Modifybutton>//span[text()='Modify']</Modifybutton>
  <ReferenceInput>//input[@id='txtReferenceInput'] </ReferenceInput>
@@ -207,7 +208,7 @@
   <ThirdPartyAccessProviderSearch>//div[@class="cxEdit siebui-ecfg-editfield"]//span[@class="siebui-icon-icon_pick "]/img</ThirdPartyAccessProviderSearch> 
   <ThirdPartyAccessProviderSelect>//table[@summary="Select Third Party Access Provider"]/tbody/tr[2]</ThirdPartyAccessProviderSelect> 
   <ThirdPartyAccessProviderSubmit>//button[@title="Select Third Party Access Provider:OK"]</ThirdPartyAccessProviderSubmit> 
-  <AccessTechnologySearch>//div[@class="cxEdit"]//span[@class="siebui-icon-icon_pick "]/img</AccessTechnologySearch> 
+  <AccessTechnologySearch>(//div[text()='Access Technology']/following::span[@class="siebui-icon-icon_pick "]/img)[1]</AccessTechnologySearch> 
   <AccessTechnologyInput>//input[@aria-labelledby="PopupQuerySrchspec_Label"]</AccessTechnologyInput>
   <AccessTechnologySelect>//tr[@id="3"]//td[text()='Ethernet over NGN']</AccessTechnologySelect> 
   <AccessTechnologySubmit>//button[@title="Select Access Technology:OK"]</AccessTechnologySubmit> 
@@ -215,7 +216,7 @@
   <CustomerSitePopStatusBEnd>//a[contains(@name,'Customer Site Pop Status')]//following-sibling::*//select</CustomerSitePopStatusBEnd> 
   <BuildingType>//a[contains(@name,'Building Type')]//following-sibling::*//select</BuildingType> 
   <BuildingtypeBEnd>//a[contains(@name,'Building Type')]//following-sibling::*//select</BuildingtypeBEnd> 
-  
+
   
   <subseaWorkerpath>//a[contains(@name,'Sub Sea Cable System (Worker Path)')]//following-sibling::*//select</subseaWorkerpath>
  <subseaprotectedpath>//a[contains(@name,'Sub Sea Cable System (Protected Path)')]//following-sibling::*//select</subseaprotectedpath>
