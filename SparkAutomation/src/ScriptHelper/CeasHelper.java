@@ -8,6 +8,8 @@ import com.relevantcodes.extentreports.LogStatus;
 import Driver.DriverHelper;
 import Driver.XMLReader;
 
+import org.dom4j.DocumentException;
+
 import Reporter.ExtentTestManager;
 
 
@@ -83,6 +85,10 @@ public class CeasHelper extends DriverHelper{
 	SendkeaboardKeys(getwebelement(xml.getlocator("//locators/InputOrderSubType")), Keys.ENTER);
 	SendkeaboardKeys(getwebelement(xml.getlocator("//locators/InputOrderSubType")), Keys.TAB);
 	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Order Sub Type DropDown");
+	
+	Thread.sleep(10000);
+	alertPopUp();
+	
 	WaitforElementtobeclickable(xml.getlocator("//locators/SubmitSubOrderType"));
 	Clickon(getwebelement(xml.getlocator("//locators/SubmitSubOrderType")));
 	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Submit Sub Order Type");
@@ -146,5 +152,11 @@ public class CeasHelper extends DriverHelper{
 
 	}
 
-
+	public void alertPopUp() throws DocumentException, InterruptedException
+	{
+		if (isDisplayed((xml.getlocator("//locators/AlertAccept")))) {
+			WaitforElementtobeclickable((xml.getlocator("//locators/AlertAccept")));
+			Clickon(getwebelement(xml.getlocator("//locators/AlertAccept")));
+		}
+	}
 }
