@@ -17,6 +17,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
+import ScriptHelper.PremiseMasterHelper;
 
 import ScriptHelper.CancelHelper;
 import ScriptHelper.CeasHelper;
@@ -43,6 +44,7 @@ public class DriverTestcase {
 	public static final ThreadLocal<OMPScriptHelper> OmpOrder = new InheritableThreadLocal<>();
 	public static final ThreadLocal<InFlightOrderHelper> inFlightGeneric = new InheritableThreadLocal<>();
 	public static final ThreadLocal<ModHelper> modHelper = new InheritableThreadLocal<>();
+	public static final ThreadLocal<PremiseMasterHelper> premiseHelper = new InheritableThreadLocal<>();
 	public static final ThreadLocal<EOLorderCompletionHelper> EOLorderCompletionHelper= new InheritableThreadLocal<>();	//added by gauri
 // public static final ThreadLocal<InFlightForIPAccess>inFlight = new InheritableThreadLocal<>();
 // public static ThreadLocal<String> QuoteID = new InheritableThreadLocal<>();
@@ -190,6 +192,7 @@ public class DriverTestcase {
 		CeasHelper CL = new CeasHelper(getwebdriver());
 		CancelHelper CN = new CancelHelper(getwebdriver());
 		ModHelper MD = new ModHelper(getwebdriver());
+		PremiseMasterHelper PM = new PremiseMasterHelper(getwebdriver());
 		NewOrderOnnetHelper noo = new NewOrderOnnetHelper(getwebdriver());
 // ModifyComOrdersOfAllProductsHelper mooc = new ModifyComOrdersOfAllProductsHelper(getwebdriver());
 // AbandonedOrderOfAllThreeProducts aoop = new AbandonedOrderOfAllThreeProducts(getwebdriver());
@@ -202,7 +205,7 @@ public class DriverTestcase {
 		inFlightGeneric.set(InFlightOrder);
 		OmpOrder.set(OMP);
 		modHelper.set(MD);
-
+		premiseHelper.set(PM);
 // modifyOrdersCom.set(mooc);
 // abandonedOrder.set(aoop);
 // inFlight.set(ioc);
