@@ -846,277 +846,7 @@
   <!--Gaury's Locators for SIP truncking -->
   
 
-<!-- 
-<ProductSelectionArrow>//*[@id='coltGoToNextSet']/a/i</ProductSelectionArrow>
-<SIPTrunkingProduct>//*[@id='addImg20']</SIPTrunkingProduct>
-<NewVoiceServiceCountry>//li[text()='United Kingdom']</NewVoiceServiceCountry>
-<DropDownCountry>//*[@id='ui-id-1663']</DropDownCountry>
 
-<CallAdmissionControl>((//input[@class='colt-attribute-input siebui-ctrl-input colt-attribute-validate'])[1])</CallAdmissionControl>
-<NumberOfSignallingTrunks>((//*[@class='colt-attribute-input siebui-ctrl-input colt-attribute-validate'])[2])</NumberOfSignallingTrunks>
-
-
-<InvlidCLITreatmet>(//*[@value='Allow'])</InvlidCLITreatmet>
-<DropDownInvlidCLITreatmet>//*[@id='ui-id-2144']</DropDownInvlidCLITreatmet>
-<VoiceConfigReference>((//*[@class='colt-attribute-input siebui-ctrl-input'])[3])</VoiceConfigReference>
-<TotalNumberDDIs>((//*[@class='colt-attribute-input siebui-ctrl-input colt-attribute-validate'])[3])</TotalNumberDDIs>
-<IncomingDDIs>((//*[@class='colt-attribute-input siebui-ctrl-input ui-autocomplete-input'])[4])</IncomingDDIs>
-<RoutingSequence>((//*[@class='colt-attribute-input siebui-ctrl-input ui-autocomplete-input'])[5])</RoutingSequence>
-<RoutingSequenceDropdown>//*[@id='ui-id-2149']</RoutingSequenceDropdown>
-<CLIBillingChkBox>(//*[@class='siebui-ctrl-checkbox colt-attribute-checkbox'])</CLIBillingChkBox>
-
-<FirstCodec>((//*[@class='colt-attribute-input siebui-ctrl-input ui-autocomplete-input'])[6])</FirstCodec>
-<FirstCodecValue>//*[@id='ui-id-391']</FirstCodecValue>
-<ShowMoreLink>//*[@id='colt-codec-link']</ShowMoreLink>
-<SecondCodec>//*[@id='attr_1-20RLBZT']/span[2]</SecondCodec>
-<SecondCodecValue>//*[@id='ui-id-399']</SecondCodecValue>
-
-<ThirdCodec>//*[@id='attr_1-20RLBZU']/span[2]</ThirdCodec>
-<ThirdCodecValue>//*[@id='ui-id-400']</ThirdCodecValue>
-
-<FourthCodec>//*[@id='attr_1-20RLBZV']/span[2]</FourthCodec>
-<FourthCodecValue>//*[@id='ui-id-408']</FourthCodecValue>
-
-<FifthCodec>//*[@id='attr_1-20RLBZW']/span[2]</FifthCodec>
-<FifthCodecValue>//*[@id='ui-id-416']</FifthCodecValue>
-
-<SixthCodec>//*[@id='attr_1-20RLBZX']/span[2]</SixthCodec>
-<SixthCodecValue>//*[@id='ui-id-431']</SixthCodecValue>
-
-<ClickToShowFullInfo>//*[@id='colt-s-order-enabledfeatures-showfullinfo']</ClickToShowFullInfo>
-<TextBoxSiteContact>((//*[@class='colt-attribute-input siebui-ctrl-input siebui-input-popup'])[2])</TextBoxSiteContact>
-
-<SIPSiteContact>((//*[@class='siebui-icon-pick applet-form-pick applet-list-pick'])[33])</SIPSiteContact>
-<FirstRecordSelection>(//*[@id='1_s_16_l_First_Name'])</FirstRecordSelection>
-<ClickOK>(//*[@id='s_13_1_406_0_Ctrl'])</ClickOK>
-<ServiceParty>((//*[@class='siebui-icon-pick applet-form-pick applet-list-pick'])[37])</ServiceParty>
-<ServicePartyRecordSelect>(//*[@id='1_s_17_l_Account_Name'])</ServicePartyRecordSelect>
-<OKSelection>(//*[@id='s_14_1_406_0_Ctrl'])</OKSelection>
-<SIPDeliveryTeamNewCountry>((//*[@class='colt-attribute-input siebui-ctrl-input ui-autocomplete-input'])[21])</SIPDeliveryTeamNewCountry>
-<SIPDeliveryTeamNewCity>((//*[@class='colt-attribute-input siebui-ctrl-input ui-autocomplete-input'])[22])</SIPDeliveryTeamNewCity>
-<WLECInvoicingRadioButton>((//*[@class='colt-component-check-available fa fa-circle-o'])[4])</WLECInvoicingRadioButton>
-<SIPWLECInvoicing>(//span[@class='colt-component-check-available fa fa-circle-o'])[5]</SIPWLECInvoicing>
-<CloseSymbol>((//*[@class='ui-button-icon-primary ui-icon ui-icon-closethick'])[4])</CloseSymbol>
-<Save>//*[@id='colt-s-order-connection-header-btns']/a</Save>
- 
-
-<SIPVoiceConfigTab>((//*[@class='ui-tabs-anchor'])[20])</SIPVoiceConfigTab>
-
-<SIPVoiceConfigExpandSymbol>(//*[@class='colt-site-component-collapse fa fa-plus-square-o'])</SIPVoiceConfigExpandSymbol>
-
-<SIPTrunkSequence>((//*[@class='colt-attribute-input siebui-ctrl-input colt-attribute-validate'])[4])</SIPTrunkSequence>
-<SIPTrunkName>((//*[@class='colt-attribute-input siebui-ctrl-input'])[4])</SIPTrunkName>
-<SIPAccessLineType>((//*[@class='colt-attribute-input siebui-ctrl-input ui-autocomplete-input'])[12])</SIPAccessLineType>
-<SIPAccessLineTypeDropdown>(//span[text()='Access Line Type']/..//span)[3]</SIPAccessLineTypeDropdown>
-<SIPAccessLineTypeValue>//*[@id='ui-id-3952']</SIPAccessLineTypeValue>
-<SIPAccessServieId>((//*[@class='siebui-icon-pick'])[2])</SIPAccessServieId>
-<SearchServiceIDbox>((//*[@class="siebui-ctrl-select siebui-input-popup siebui-align-left siebui-input-align-left ui-autocomplete-input"])[19])</SearchServiceIDbox>
-<SearchText>(//*[@class='siebui-ctrl-input siebui-align-left siebui-input-align-left s_15_1_404_0'])</SearchText>
-<SearchButtonProcess>(//*[@class='siebui-ctrl-btn siebui-icon-find s_15_1_405_0 appletButton'])</SearchButtonProcess>
-<SearchServiceIdOKButton>(//*[@class='siebui-ctrl-btn siebui-icon-pickrecord s_15_1_406_0 appletButton'])</SearchServiceIdOKButton>
-
-
-<SIPServieordereReference>//*[@id='1_s_7_l_COLT_Service_Order_Reference']</SIPServieordereReference>
-<SIPClickOk>//*[@id='s_7_1_406_0_Ctrl']</SIPClickOk>
-<SIPExternalAccessServiceRef>//*[@id='attr_1-20QGOBV']/input</SIPExternalAccessServiceRef>
-<SIPCustomerOriginatingIPv4>((//*[@class='colt-attribute-input siebui-ctrl-input'])[8])</SIPCustomerOriginatingIPv4>
-<SIPCustomerOriginatingIPv6>((//*[@class='colt-attribute-input siebui-ctrl-input'])[9])</SIPCustomerOriginatingIPv6>
-
-
-<SIPCustomerTerminatingIPv4>((//*[@class='colt-attribute-input siebui-ctrl-input'])[10])</SIPCustomerTerminatingIPv4>
-<SIPCustomerTerminatingIPv6>((//*[@class='colt-attribute-input siebui-ctrl-input'])[11])</SIPCustomerTerminatingIPv6>
-
-<SIPSignalingTransportProtocol>((//*[@class='siebui-icon-dropdown applet-form-combo applet-list-combo'])[24])</SIPSignalingTransportProtocol>
-<SIPSignalingTransportProtocolDropdown>(//li[text()='TCP'])</SIPSignalingTransportProtocolDropdown>
-
-<SIPvoIPProtocol>((//*[@class='siebui-icon-dropdown applet-form-combo applet-list-combo'])[25])</SIPvoIPProtocol>
-<SIPvoIPProtocolDropDown>(//li[text()='SIP'])</SIPvoIPProtocolDropDown>
-
-<SIPEncryptionType>((//*[@class='colt-attribute-input siebui-ctrl-input ui-autocomplete-input'])[15])</SIPEncryptionType>
-
-<SIPEncryptionDropdownValue>(//li[text()='TLS on, SRTP off'])</SIPEncryptionDropdownValue>
-
-<SIPProportionPercent>((//*[@class='colt-attribute-input siebui-ctrl-input colt-attribute-validate'])[6])</SIPProportionPercent>
-<SIPTrunkSiteNameAlias>((//*[@class='colt-attribute-input siebui-ctrl-input'])[12])</SIPTrunkSiteNameAlias>
-
-<SIPTLSCipherSuiteDropdown>((//*[@class='colt-attribute-input siebui-ctrl-input ui-autocomplete-input'])[16])</SIPTLSCipherSuiteDropdown>
-
-<SIPTLSCipherSuiteDropDownValue>(//li[text()='TLS_RSA_WITH_AES_128_CBC_SHA (Priority 1)'])</SIPTLSCipherSuiteDropDownValue>
-
-<SIPTLSCertifiedSupplier>((//*[@class='colt-attribute-input siebui-ctrl-input ui-autocomplete-input'])[17])</SIPTLSCertifiedSupplier>
-
-<SIPNATRequired>((//*[@class='colt-attribute-input siebui-ctrl-input ui-autocomplete-input'])[18])</SIPNATRequired>
-
-<SIPNNIWANIPv4Address>((//*[@class='colt-attribute-input siebui-ctrl-input'])[15])</SIPNNIWANIPv4Address>
-
-<SIPNNIWANIPv6Address>((//*[@class='colt-attribute-input siebui-ctrl-input'])[16])</SIPNNIWANIPv6Address>
-<SIPIPv4AddressRangeNAT>((//*[@class='colt-attribute-input siebui-ctrl-input colt-attribute-validate'])[7])</SIPIPv4AddressRangeNAT>
-<SIPVLANStartEndRange>((//*[@class='colt-attribute-input siebui-ctrl-input'])[17])</SIPVLANStartEndRange>
-<SIPVLANID>((//*[@class='colt-attribute-input siebui-ctrl-input colt-attribute-validate'])[8])</SIPVLANID>
-<SIPASNumber>((//*[@class='colt-attribute-input siebui-ctrl-input'])[18])</SIPASNumber>
-
-<SIPColtHostEquipmentIPv4Address>((//*[@class='colt-attribute-input siebui-ctrl-input'])[19])</SIPColtHostEquipmentIPv4Address>
-<SIPColtHostEquipmentIPv6Address>(//input[@value=''])[134]</SIPColtHostEquipmentIPv6Address>
-
-<SIPTrunkMaxNumberofSimoultaniousCalls>((//*[@class='colt-attribute-input siebui-ctrl-input colt-attribute-validate'])[9])</SIPTrunkMaxNumberofSimoultaniousCalls>
-<SIPTrunkInboundOutboundSplit>(//input[@value='-'])[13]</SIPTrunkInboundOutboundSplit>
-
-<SIPTrunkMaxInboundCalls>(//input[@value=''])[135]</SIPTrunkMaxInboundCalls>
-<SIPTrunkOverCallLimitForTrunk>(//input[@value=''])[136]</SIPTrunkOverCallLimitForTrunk>
-<SIPTrunkIncallLimitForTrunk>(//input[@value=''])[137]</SIPTrunkIncallLimitForTrunk>
-<SIPTrunkOutCallLimitForTrunk>(//input[@value=''])[138]</SIPTrunkOutCallLimitForTrunk>
-<SIPTrunkTypeofCAC>(//input[@value='-'])[14]</SIPTrunkTypeofCAC>
-<SIPTrunkTypeofCACDropDown>(.//*[normalize-space(text()) and normalize-space(.)='OPAT Pop Up Applet'])[1]/preceding::span[1]</SIPTrunkTypeofCACDropDown>
-<SIPTrunkTypeofCACDropDownSelect>(.//*[normalize-space(text()) and normalize-space(.)='OPAT Pop Up Applet'])[1]/preceding::span[1]</SIPTrunkTypeofCACDropDownSelect>
-<SIPTrunkShowFullInfo>//*[@id='colt-site-right']/div/div[1]/a</SIPTrunkShowFullInfo>
-
-
-
-<CustomerIPPBXIDLocators>Below is Customer IPBX Locators</CustomerIPPBXIDLocators>
-
-<SIPCustomerIPPbxIdTab>//a[text()='Customer IP PBX']</SIPCustomerIPPbxIdTab>
-<SIPAddrecordSymbolIPPBX>(.//*[normalize-space(text()) and normalize-space(.)='Edit'])[2]/preceding::button[1]</SIPAddrecordSymbolIPPBX>
-<SIPPBXTestingREquiredChkBox>(//*[@class='customelement siebui-ctrl-checkbox siebui-align-left siebui-input-align-left s_2_2_24_0'])</SIPPBXTestingREquiredChkBox>
-<SIPIPPBXAliasName>//td[contains(text(),'COLT_Alias_Name')]</SIPIPPBXAliasName>
-<SIPIPPBXAliasNameInputField>//input[contains(text(),'COLT_Alias_Name')]</SIPIPPBXAliasNameInputField>
-<SIPIPPBXTextfieldInput>(//*[@class='siebui-list-ctrl siebui-ctrl-input siebui-align-left siebui-input-align-left s_2_2_14_0'])</SIPIPPBXTextfieldInput>
-<SIPIPPBXModel>//td[contains(text(),'COLT_PBX_MODEL')]</SIPIPPBXModel>
-<SIPIPPBXModelInput>//td[contains(text(),'COLT_PBX_MODEL']/input</SIPIPPBXModelInput>
-<SIPIPPBXMOdelInputValue>(//*[@class='siebui-list-ctrl siebui-ctrl-input siebui-align-left siebui-input-align-left s_2_2_17_0'])</SIPIPPBXMOdelInputValue>
-<SIPIPPBXVendor>//td[contains(text(),'COLT_PBX_Vendor')]</SIPIPPBXVendor>
-<SIPIPPBXVendorInput>//td[contains(text(),'COLT_PBX_Vendor')]/input</SIPIPPBXVendorInput>
-
-<SIPSOftwareVersionField>//td[contains(text(),'COLT_Software_Version')]</SIPSOftwareVersionField>
-<SIPSoftwareVersionInput>//td[contains(text(),'COLT_Software_Version')]/input</SIPSoftwareVersionInput>
-
-<SIPIPPBXAddressUID>//td[contains(text(),'COLT_Address_UID')]</SIPIPPBXAddressUID>
-<SIPIPPBXLookupoptionClick>//td[contains(text(),'COLT_Address_UID')]/span</SIPIPPBXLookupoptionClick>
-
-<SIPIPPBXAddressUIDStreetName>//input[@name='streetName']</SIPIPPBXAddressUIDStreetName>
-<SIPIPPBXAddressUIDCountryName>//input[@name='country']</SIPIPPBXAddressUIDCountryName>
-
-<SIPIPPBXAddressUIDCountryNameDropDownArrow>((//*[@class='siebui-icon-dropdown applet-form-combo applet-list-combo'])[14])</SIPIPPBXAddressUIDCountryNameDropDownArrow>
-<SIPIPPBXAddressUIDCountryNameDropDownValue>(//li[text()='United Kingdom'])</SIPIPPBXAddressUIDCountryNameDropDownValue>
-
-<SIPIPPBXAddressUIDCityName>//input[@name='cityTown']</SIPIPPBXAddressUIDCityName>
-<SIPIPPBXAddressUIDPostalCode>//input[@name='postalZipCode']</SIPIPPBXAddressUIDPostalCode>
-<SIPIPPBXAddressUIDPremiseCode>//input[@name='premisesNumber']</SIPIPPBXAddressUIDPremiseCode>
-<SIPAddressUIDSearchButton>//div[@id='colt-site-selection-btn-bar']/button</SIPAddressUIDSearchButton>
-<SIPSelectAddressRecord>//table[@id='colt-siteselection-result-table']/tbody/tr[2]/td[2]</SIPSelectAddressRecord>
-<SIPPickAddressButtonForUID>//div[@id='colt-site-selection-btn-bar']/button[3]</SIPPickAddressButtonForUID>
-
-<SIPPBXTechnicalContact>//td[contains(text(),'COLT_Tech_Contact')]</SIPPBXTechnicalContact>
-<SIPPBXTecnicalContactLookup>//td[contains(text(),'COLT_Tech_Contact')]/span</SIPPBXTecnicalContactLookup>
-<SIPPBXTechnicalContactLookupOKButton>//button[@id='s_9_1_33_0_Ctrl']/span </SIPPBXTechnicalContactLookupOKButton>
-
-
-<SIPVoiceconfigSubtTabTRUNK>((//*[@class='ui-tabs-anchor'])[34])</SIPVoiceconfigSubtTabTRUNK>
-<SIPReClickToIPPBXLookUp>//div[@id='attr_1-24L9OHX']/span[2]</SIPReClickToIPPBXLookUp> 
-<SIPOKSelectionButton>//button[@id='s_8_1_403_0_Ctrl']/span</SIPOKSelectionButton>
-
-<SIPVoiceConfigTab>//a[contains(text(),'Voice Config')]</SIPVoiceConfigTab> 
-<BelowAreOtherTabLocators > Other Tab Locators </BelowAreOtherTabLocators>
-
-
-<SIPOtherTab>//a[contains(text(),'Other')]</SIPOtherTab>
-<SIPVoiceConfigOthersTabShowFullInfo>//a[contains(text(),'Show full info')]/SIPVoiceConfigOthersTabShowFullInfo></SIPVoiceConfigOthersTabShowFullInfo>
-<SIPVoiceConfigOthersTabColtDDIRanges>(.//*[normalize-space(text()) and normalize-space(.)='Colt DDI Ranges'])[1]/preceding::span[1]</SIPVoiceConfigOthersTabColtDDIRanges>
-<SIPNumberOfSingleColtDDIs>(.//*[normalize-space(text()) and normalize-space(.)='Number of 100 Colt DDI Ranges'])[1]/preceding::input[2]</SIPNumberOfSingleColtDDIs>
-<SIPNumberOf10ColtDDIRanges>(.//*[normalize-space(text()) and normalize-space(.)='Number of 1000 Colt DDI Ranges'])[1]/preceding::input[2]</SIPNumberOf10ColtDDIRanges>
-<SIPNumberOf100ColtDDIRanges>(.//*[normalize-space(text()) and normalize-space(.)='Port In DDI Ranges'])[1]/preceding::input[2]</SIPNumberOf100ColtDDIRanges>
-<SIPNumberOf1000ColtDDIRanges>(.//*[normalize-space(text()) and normalize-space(.)='Reseller Configuration'])[1]/preceding::input[1]</SIPNumberOf1000ColtDDIRanges>
-<SIPVoiceConfigOthersTabColtDDIRangesCloseWindow>(.//*[normalize-space(text()) and normalize-space(.)='Colt DDI Ranges'])[2]/preceding::span[4]</SIPVoiceConfigOthersTabColtDDIRangesCloseWindow>
-
-<BelowAreNumberManagementTabLocators > Below Are NumberManagement Tab Locators </BelowAreNumberManagementTabLocators>
-
-
-<SIPNumberManagementTab>//a[text()='Number Management']</SIPNumberManagementTab>
-<SIPNumberManagementNumberRangeListPlusButton>(.//*[normalize-space(text()) and normalize-space(.)='Delete'])[1]/preceding::button[1]</SIPNumberManagementNumberRangeListPlusButton>
-<SIPNumberManagementMainNumber>//td[contains(text(),'Main_Number')]</SIPNumberManagementMainNumber> 
-<SIPNumberManagementMainNumberInput>//td[contains(text(),'Main_Number')]/input</SIPNumberManagementMainNumberInput>
-
-<SIPNumberManagementNumberOfDDI>///td[contains(text(),'Number_of_DDI')]</SIPNumberManagementNumberOfDDI>
-<SIPNumberManagementNumberOfDDIInput>//td[contains(text(),'Number_of_DDI')]</SIPNumberManagementNumberOfDDIInput>
-
-<SIPNumberManagementNumberPlan>//td[contains(text(),'Number_Plan')]</SIPNumberManagementNumberPlan>
-<SIPNumberManagementNumberPlanDropDownArrow>(.//*[normalize-space(text()) and normalize-space(.)='United Kingdom (44)'])[1]/preceding::span[1]</SIPNumberManagementNumberPlanDropDownArrow>
-<SIPNumberManagementNumberPlanDropDownSelect>(.//*[normalize-space(text()) and normalize-space(.)='Ported Numbers'])[1]/preceding::li[2]</SIPNumberManagementNumberPlanDropDownSelect>
-<SIPTelephoneDirectory>//*[@id=1_Telephone_Directory_Entry_Required]</SIPTelephoneDirectory>
-
-<SIPNumberManagementLocalAreaCode>//td[contains(text(),'Local_Area_Code')]</SIPNumberManagementLocalAreaCode>
-<SIPNumberManagementLocalAreaCodeInput>//td[contains(text(),'Local_Area_Code')]/input</SIPNumberManagementLocalAreaCodeInput>
-
-<SIPNumberManagementNumberRangeStart>//td[contains(text(),'Number_Range_Start')]</SIPNumberManagementNumberRangeStart>
-<SIPNumberManagementNumberRangeStartInput>//td[contains(text(),'Number_Range_Start')]/input</SIPNumberManagementNumberRangeStartInput>
-<SIPNumberManagementNumberRangeEnd>//td[contains(text(),'Number_Range_End')]</SIPNumberManagementNumberRangeEnd>
-<SIPNumberManagementNumberRangeEndInput>//td[contains(text(),'Number_Range_End')]/input</SIPNumberManagementNumberRangeEndInput>
-
-<SIPNumberManagementEstimatedDeliveryDate>//td[contains(text(),'Estimated_delivery_Date')]</SIPNumberManagementEstimatedDeliveryDate>
-<SIPNumberManagementCalenderClickforEstimateDeliveryDate>(.//*[normalize-space(text()) and normalize-space(.)='-'])[1]/preceding::span[1]</SIPNumberManagementCalenderClickforEstimateDeliveryDate>
-
-<SIPNumberManagementCalenderClickforEstimateDeliveryDateDoneButton>(.//*[normalize-space(text()) and normalize-space(.)='Now'])[1]/following::button[1]</SIPNumberManagementCalenderClickforEstimateDeliveryDateDoneButton>
-
-<SIPNumberManagementServicePartyInput>//td[contains(text(),'COLT_Service_Party')]/input</SIPNumberManagementServicePartyInput>
-<SIPNumberManagementServicePartyInputLookup>(.//*[normalize-space(text()) and normalize-space(.)='-'])[1]/preceding::span[1]</SIPNumberManagementServicePartyInputLookup>
-<SIPNumberManagementServicePartyInputLookupOkButton>(.//*[normalize-space(text()) and normalize-space(.)='Active'])[9]/following::span[17]</SIPNumberManagementServicePartyInputLookupOkButton>
-
-<SIPNumberManagementAddressUID>//td[contains(text(),'COLT_Address_UID')]/input</SIPNumberManagementAddressUID>
-<SIPNumberManagementAddressUIDLookUp>(.//*[normalize-space(text()) and normalize-space(.)='-'])[1]/preceding::span[1]</SIPNumberManagementAddressUIDLookUp>
-
-
-<SIPNumberManagementNumberRangeStatus>//td[contains(text(),'Number_Range_Status')]/input</SIPNumberManagementNumberRangeStatus>
-
-<SIPNumberManagementNumberRangeStatusDropDownArrow>(.//*[normalize-space(text()) and normalize-space(.)='CKUMAR2'])[2]/preceding::span[1]</SIPNumberManagementNumberRangeStatusDropDownArrow>
-
-
-<SIPNumberManagementNumberRangeStatusDropDownValue>(.//*[normalize-space(text()) and normalize-space(.)='Port In'])[1]/preceding::li[2]</SIPNumberManagementNumberRangeStatusDropDownValue>
-
-<SIPNumberMangementBCN>//td[contains(text(),'Hours_Porting_Charge_BCN')]</SIPNumberMangementBCN>
-<SIPNumberManagementBCNLookUp>(.//*[normalize-space(text()) and normalize-space(.)='parker'])[1]/preceding::span[1]</SIPNumberManagementBCNLookUp>
-
-<SIPNumberManagementBCNLookUpOkButton>(.//*[normalize-space(text()) and normalize-space(.)='Cancel'])[6]/preceding::span[1]</SIPNumberManagementBCNLookUpOkButton>
-
-<SIPNumberManagementColtNumberReservationRef>//td[contains(text(),'Colt_Number_Reservation_Reference')]/input</SIPNumberManagementColtNumberReservationRef>
-
-<SIPServiceParty>//*[@id='1_COLT_Service_Party']</SIPServiceParty>
-<SIPServicePartyLookUp>//*[@id='s_1_2_31_0_icon']</SIPServicePartyLookUp>
-<SIPFirstLookUp>//*[@id='1_s_6_l_Party_UId']</SIPFirstLookUp>
-<SIPLookUpOKButton>//*[@id='s_6_1_67_0_Ctrl']</SIPLookUpOKButton>
-<SIPAddressUID>//*[@id=1_COLT_Address_UID]</SIPAddressUID>
-<SIPAddressUIDLookUp>//*[@id='s_1_2_18_0_icon']</SIPAddressUIDLookUp>
-<SIPAddressUIDStreetName>//*[@id='colt-siteselection-mandatory-fieldset']/div[1]/input</SIPAddressUIDStreetName>
-<SIPAddressUIDPostalCode>//*[@id='colt-siteselection-mandatory-fieldset']/div[4]/input</SIPAddressUIDPostalCode>
-<SIPAddressUIDPremises>//*[@id='colt-siteselection-mandatory-fieldset']/div[5]/input</SIPAddressUIDPremises>
-<SIPAddressUIDSerachButton>//*[@id='colt-site-selection-btn-bar']/button</SIPAddressUIDSerachButton>
-<SIPPickAddressButton>//*[@id='colt-site-selection-btn-bar']/button[2]</SIPPickAddressButton>
-<SIPNumberListBCN>//*[@id='1_Out_of_Hours_Porting_Charge_BCN']</SIPNumberListBCN>
-<SIPOKButtonBCN>//*[@id='s_9_1_68_0_Ctrl']</SIPOKButtonBCN>
-<SIPEndCustomerBCN>//*[@id='1_End_Customer_Out_of_Hours_Porting_Charge_BCN']</SIPEndCustomerBCN>
-<SIPLookUpEndCustomerBCN>//*[@id='s_1_2_61_0_icon']</SIPLookUpEndCustomerBCN>
-<SIPOKButtonEndCustomerBCN>//*[@id='s_10_1_68_0_Ctrl']/span</SIPOKButtonEndCustomerBCN>
-<SIPColtReservationReferenceNumber>//*[@id='1_Colt_Number_Reservation_Reference']</SIPColtReservationReferenceNumber>
-<SIPNewFileAttachmentButton>//*[@id='s_3_1_3_0s_SweFileName']</SIPNewFileAttachmentButton>
-
-<SIPVoiceFeaturesTab>//a[contains(text(),'Voice Features')]</SIPVoiceFeaturesTab>
-<SIPVoiceFeaturesTabShowFullInfo>//a[contains(text(),'Show full info')]</SIPVoiceFeaturesTabShowFullInfo>
-
-
-<SIPCallBarring>(.//*[normalize-space(text()) and normalize-space(.)='Disaster Recovery'])[1]/preceding::span[4]</SIPCallBarring>
-<SIPCallBarringOptionDropDown>(.//*[normalize-space(text()) and normalize-space(.)='Disaster Recovery'])[1]/preceding::span[4]</SIPCallBarringOptionDropDown>
-<SIPCallBarringValue>//li[text()='Profile 9']</SIPCallBarringValue>
-<SIPDisasterRecovery>//span[text()='Disaster Recovery']/parent::div/span[1]</SIPDisasterRecovery>
-
-<SIPDisasterRecoveryDropDown>(.//*[normalize-space(text()) and normalize-space(.)='Number of DR Plans'])[2]/preceding::span[3]</SIPDisasterRecoveryDropDown>
-
-<SIPDisasterRecoveryDropDownValue>//li[@id='ui-id-809']</SIPDisasterRecoveryDropDownValue>
-(.//*[normalize-space(text()) and normalize-space(.)='Number of DR Plans'])[2]/following::span[1]
-<SIPDisasterRecoveryNoOfDRPlans>(.//*[normalize-space(text()) and normalize-space(.)='Number of DR Plans'])[2]/following::span[1]</SIPDisasterRecoveryNoOfDRPlans>
-
-<SIPConnectivity>(//span[@class='colt-component-check-available fa fa-circle-o'])[1]</SIPConnectivity>
-<SIPCOnnectivityInternalCabling>//*[@id='interactive_item_1-21SHU0W']/div[1]/span[1]</SIPCOnnectivityInternalCabling>
-
-<SIPCloseWindowButton>(.//*[normalize-space(text()) and normalize-space(.)='Ok'])[1]/following::span[16]</SIPCloseWindowButton>
- -->
 <tabDropdown>//select[@id='j_s_vctrl_div_tabScreen']</tabDropdown>
 
 
@@ -1248,226 +978,10 @@
   </IPVPNSite>
  <!--   Abhay locator End -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <SIPCeaseButton>(.//*[normalize-space(text()) and normalize-space(.)='Modify Data'])[1]/preceding::span[2]</SIPCeaseButton>
 
  <!-- SIP Trunking Locators Shared By Gauri -->
- <!-- 
-<ProductSelectionArrow>//*[@id='coltGoToNextSet']/a/i</ProductSelectionArrow>
-<SIPTrunkingProduct>//*[@id='addImg20']</SIPTrunkingProduct>
-<NewVoiceServiceCountry>//li[text()='United Kingdom']</NewVoiceServiceCountry>
-<DropDownCountry>//*[@id='ui-id-1663']</DropDownCountry>
-
-<CallAdmissionControl>((//input[@class='colt-attribute-input siebui-ctrl-input colt-attribute-validate'])[1])</CallAdmissionControl>
-<NumberOfSignallingTrunks>((//*[@class='colt-attribute-input siebui-ctrl-input colt-attribute-validate'])[2])</NumberOfSignallingTrunks>
-
-
-<InvlidCLITreatmet>(//*[@value='Allow'])</InvlidCLITreatmet>
-<DropDownInvlidCLITreatmet>//*[@id='ui-id-2144']</DropDownInvlidCLITreatmet>
-<VoiceConfigReference>((//*[@class='colt-attribute-input siebui-ctrl-input'])[3])</VoiceConfigReference>
-<TotalNumberDDIs>((//*[@class='colt-attribute-input siebui-ctrl-input colt-attribute-validate'])[3])</TotalNumberDDIs>
-<IncomingDDIs>((//*[@class='colt-attribute-input siebui-ctrl-input ui-autocomplete-input'])[4])</IncomingDDIs>
-<RoutingSequence>((//*[@class='colt-attribute-input siebui-ctrl-input ui-autocomplete-input'])[5])</RoutingSequence>
-<RoutingSequenceDropdown>//*[@id='ui-id-2149']</RoutingSequenceDropdown>
-<CLIBillingChkBox>(//*[@class='siebui-ctrl-checkbox colt-attribute-checkbox'])</CLIBillingChkBox>
-
-<FirstCodec>((//*[@class='colt-attribute-input siebui-ctrl-input ui-autocomplete-input'])[6])</FirstCodec>
-<FirstCodecValue>//*[@id='ui-id-391']</FirstCodecValue>
-<ShowMoreLink>//*[@id='colt-codec-link']</ShowMoreLink>
-<SecondCodec>((//*[@class='colt-attribute-input siebui-ctrl-input ui-autocomplete-input'])[7])</SecondCodec>
-
-<SecondCodecValue>//ul[@id='ui-id-1697']/li[3]</SecondCodecValue>
-
-<ThirdCodec>((//*[@class='colt-attribute-input siebui-ctrl-input ui-autocomplete-input'])[8])</ThirdCodec>
-<ThirdCodecValue>//ul[@id='ui-id-1699']/li[4]</ThirdCodecValue>
-
-<FourthCodec>((//*[@class='colt-attribute-input siebui-ctrl-input ui-autocomplete-input'])[9])</FourthCodec>
-<FourthCodecValue>//ul[@id='ui-id-1693']/li[5]</FourthCodecValue>
-
-<FifthCodecTextBox>((//*[@class='colt-attribute-input siebui-ctrl-input ui-autocomplete-input'])[10])</FifthCodecTextBox>
-
-<FifthCodec>(.//*[normalize-space(text()) and normalize-space(.)='Fifth Codec'])[1]/following::span[1]</FifthCodec>
-<FifthCodecValue>((//*[text()='G.729a'])[5])</FifthCodecValue>
-
-<SixhCodecTextBox>((//*[@class='colt-attribute-input siebui-ctrl-input ui-autocomplete-input'])[11])</SixhCodecTextBox>
-
-<SixthCodec>(.//*[normalize-space(text()) and normalize-space(.)='Sixth Codec'])[1]/following::span[1]</SixthCodec>
-<SixthCodecValue>(//*[text()='iLBC end to end IP only'])</SixthCodecValue>
-
-<ClickToShowFullInfo>//*[@id='colt-s-order-enabledfeatures-showfullinfo']</ClickToShowFullInfo>
-<TextBoxSiteContact>((//*[@class='colt-attribute-input siebui-ctrl-input siebui-input-popup'])[2])</TextBoxSiteContact>
-
-<SIPSiteContact>((//*[@class='siebui-icon-pick applet-form-pick applet-list-pick'])[33])</SIPSiteContact>
-<FirstRecordSelection>(//*[@id='1_s_16_l_First_Name'])</FirstRecordSelection>
-<ClickOK>(//*[@id='s_13_1_406_0_Ctrl'])</ClickOK>
-<ServiceParty>((//*[@class='siebui-icon-pick applet-form-pick applet-list-pick'])[37])</ServiceParty>
-<ServicePartyRecordSelect>(//*[@id='1_s_17_l_Account_Name'])</ServicePartyRecordSelect>
-<OKSelection>(//*[@id='s_14_1_406_0_Ctrl'])</OKSelection>
-<SIPDeliveryTeamNewCountry>((//*[@class='colt-attribute-input siebui-ctrl-input ui-autocomplete-input'])[21])</SIPDeliveryTeamNewCountry>
-<SIPDeliveryTeamNewCity>((//*[@class='colt-attribute-input siebui-ctrl-input ui-autocomplete-input'])[22])</SIPDeliveryTeamNewCity>
-<WLECInvoicingRadioButton>((//*[@class='colt-component-check-available fa fa-circle-o'])[4])</WLECInvoicingRadioButton>
-<SIPShowMore>//*[@id="colt-codec-link"]</SIPShowMore>
-<SIPWLECInvoicing>(//span[@class='colt-component-check-available fa fa-circle-o'])[5]</SIPWLECInvoicing>
-<CloseSymbol>((//*[@class='ui-button-icon-primary ui-icon ui-icon-closethick'])[4])</CloseSymbol>
-<Save>//*[@id='colt-s-order-connection-header-btns']/a</Save>
- <ClickDropdown>(//span[text()='Value']/parent::*//span)[3]</ClickDropdown>
- <SelectValueDropdown>(//li[text()='Value'])</SelectValueDropdown>
-<TextInput>//span[text()='Value']/parent::*//input</TextInput>
-<SIPVoiceConfigTab>((//*[@class='ui-tabs-anchor'])[20])</SIPVoiceConfigTab>
-
-<SIPVoiceConfigExpandSymbol>(//*[@class='colt-site-component-collapse fa fa-plus-square-o'])</SIPVoiceConfigExpandSymbol>
-
-<SIPTrunkSequence>((//*[@class='colt-attribute-input siebui-ctrl-input colt-attribute-validate'])[4])</SIPTrunkSequence>
-<SIPTrunkName>((//*[@class='colt-attribute-input siebui-ctrl-input'])[4])</SIPTrunkName>
-<SIPAccessLineType>((//*[@class='colt-attribute-input siebui-ctrl-input ui-autocomplete-input'])[12])</SIPAccessLineType>
-<SIPAccessLineTypeDropdown>(//span[text()='Access Line Type']/..//span)[3]</SIPAccessLineTypeDropdown>
-<SIPAccessLineTypeValue>//*[@id='ui-id-3952']</SIPAccessLineTypeValue>
-<SIPAccessServieId>((//*[@class='siebui-icon-pick'])[2])</SIPAccessServieId>
-<SearchServiceIDbox>((//*[@class="siebui-ctrl-select siebui-input-popup siebui-align-left siebui-input-align-left ui-autocomplete-input"])[19])</SearchServiceIDbox>
-<SearchText>(//*[@class='siebui-ctrl-input siebui-align-left siebui-input-align-left s_15_1_404_0'])</SearchText>
-<SearchButtonProcess>(//*[@class='siebui-ctrl-btn siebui-icon-find s_15_1_405_0 appletButton'])</SearchButtonProcess>
-<SearchServiceIdOKButton>(//*[@class='siebui-ctrl-btn siebui-icon-pickrecord s_15_1_406_0 appletButton'])</SearchServiceIdOKButton>
-
-
-<SIPServieordereReference>//*[@id='1_s_7_l_COLT_Service_Order_Reference']</SIPServieordereReference>
-<SIPClickOk>//*[@id='s_7_1_406_0_Ctrl']</SIPClickOk>
-<SIPExternalAccessServiceRef>//*[@id='attr_1-20QGOBV']/input</SIPExternalAccessServiceRef>
-<SIPCustomerOriginatingIPv4>((//*[@class='colt-attribute-input siebui-ctrl-input'])[7])</SIPCustomerOriginatingIPv4>
-<SIPCustomerOriginatingIPv6>((//*[@class='colt-attribute-input siebui-ctrl-input'])[8])</SIPCustomerOriginatingIPv6>
-
-
-<SIPCustomerTerminatingIPv4>((//*[@class='colt-attribute-input siebui-ctrl-input'])[9])</SIPCustomerTerminatingIPv4>
-<SIPCustomerTerminatingIPv6>((//*[@class='colt-attribute-input siebui-ctrl-input'])[10])</SIPCustomerTerminatingIPv6>
-
-<SIPSignalingTransportProtocol>((//*[@class='siebui-icon-dropdown applet-form-combo applet-list-combo'])[25])</SIPSignalingTransportProtocol>
-<SIPSignalingTransportProtocolDropdown>(//li[text()='TCP'])</SIPSignalingTransportProtocolDropdown>
-
-<SIPvoIPProtocol>((//*[@class='siebui-icon-dropdown applet-form-combo applet-list-combo'])[24])</SIPvoIPProtocol>
-<SIPvoIPProtocolDropDown>(//li[text()='SIP'])</SIPvoIPProtocolDropDown>
-
-<SIPEncryptionType>((//*[@class='colt-attribute-input siebui-ctrl-input ui-autocomplete-input'])[16])</SIPEncryptionType>
-
-<SIPEncryptionDropdownValue>(//li[text()='TLS on, SRTP off'])</SIPEncryptionDropdownValue>
-
-<SIPProportionPercent>((//*[@class='colt-attribute-input siebui-ctrl-input colt-attribute-validate'])[6])</SIPProportionPercent>
-<SIPTrunkSiteNameAlias>((//*[@class='colt-attribute-input siebui-ctrl-input'])[16])</SIPTrunkSiteNameAlias>
-
-<SIPTLSCipherSuiteDropdown>((//*[@class='colt-attribute-input siebui-ctrl-input ui-autocomplete-input'])[17])</SIPTLSCipherSuiteDropdown>
-
-<SIPTLSCipherSuiteDropDownValue>(//li[text()='TLS_RSA_WITH_AES_128_CBC_SHA (Priority 1)'])</SIPTLSCipherSuiteDropDownValue>
-
-<SIPTLSCertifiedSupplier>((//*[@class='colt-attribute-input siebui-ctrl-input ui-autocomplete-input'])[18])</SIPTLSCertifiedSupplier>
-
-<SIPNATRequired>((//*[@class='colt-attribute-input siebui-ctrl-input ui-autocomplete-input'])[15])</SIPNATRequired>
-
-<SIPNNIWANIPv4Address>((//*[@class='colt-attribute-input siebui-ctrl-input'])[17])</SIPNNIWANIPv4Address>
-
-<SIPNNIWANIPv6Address>((//*[@class='colt-attribute-input siebui-ctrl-input'])[18])</SIPNNIWANIPv6Address>
-
-
-<SIPIPv4AddressRangeNAT>((//*[@class='colt-attribute-input siebui-ctrl-input'])[14])</SIPIPv4AddressRangeNAT>
-<SIPVLANStartEndRange>((//*[@class='colt-attribute-input siebui-ctrl-input'])[19])</SIPVLANStartEndRange>
-<SIPVLANID>((//*[@class='colt-attribute-input siebui-ctrl-input colt-attribute-validate'])[7])</SIPVLANID>
-<SIPASNumber>((//*[@class='colt-attribute-input siebui-ctrl-input'])[20])</SIPASNumber>
-
-<SIPColtHostEquipmentIPv4Address>((//*[@class='colt-attribute-input siebui-ctrl-input'])[12])</SIPColtHostEquipmentIPv4Address>
-
-
-<SIPColtHostEquipmentIPv6Address>((//*[@class='colt-attribute-input siebui-ctrl-input'])[13])</SIPColtHostEquipmentIPv6Address>
-
-<SIPTrunkMaxNumberofSimoultaniousCalls>((//*[@class='colt-attribute-input siebui-ctrl-input colt-attribute-validate'])[9])</SIPTrunkMaxNumberofSimoultaniousCalls>
-<SIPTrunkInboundOutboundSplit>((//*[@class='colt-attribute-input siebui-ctrl-input ui-autocomplete-input'])[19])</SIPTrunkInboundOutboundSplit>
-
-<SIPTrunkMaxInboundCalls>(//input[@value=''])[135]</SIPTrunkMaxInboundCalls>
-<SIPTrunkOverCallLimitForTrunk>((//input[@value=''])[136])</SIPTrunkOverCallLimitForTrunk>
-<SIPTrunkIncallLimitForTrunk>((//input[@value=''])[137])</SIPTrunkIncallLimitForTrunk>
-<SIPTrunkOutCallLimitForTrunk>((//input[@value=''])[138])</SIPTrunkOutCallLimitForTrunk>
-<SIPTrunkTypeofCAC>((//*[@class='colt-attribute-input siebui-ctrl-input ui-autocomplete-input'])[20])</SIPTrunkTypeofCAC>
-
-<SIPTrunkTypeofCACDropDown>(.//*[normalize-space(text()) and normalize-space(.)='OPAT Pop Up Applet'])[1]/preceding::span[1]</SIPTrunkTypeofCACDropDown>
-<SIPTrunkTypeofCACDropDownSelect>(.//*[normalize-space(text()) and normalize-space(.)='OPAT Pop Up Applet'])[1]/preceding::span[1]</SIPTrunkTypeofCACDropDownSelect>
-<SIPTrunkShowFullInfo>//*[@id='colt-site-right']/div/div[1]/a</SIPTrunkShowFullInfo>
-
-
-
-<CustomerIPPBXIDLocators>Below is Customer IP PBX Locators</CustomerIPPBXIDLocators>
-
-<SIPCustomerIPPbxIdTab>(//a[text()='Customer IP PBX'])</SIPCustomerIPPbxIdTab>
-<SIPAddrecordSymbolIPPBX>(.//*[normalize-space(text()) and normalize-space(.)='Edit'])[2]/preceding::button[1]</SIPAddrecordSymbolIPPBX>
-<SIPPBXTestingREquiredChkBox>(//*[@class='customelement siebui-ctrl-checkbox siebui-align-left siebui-input-align-left s_2_2_24_0'])</SIPPBXTestingREquiredChkBox>
-<SIPIPPBXAliasName>(//*[@id='1_s_2_l_COLT_Alias_Name'])</SIPIPPBXAliasName>
-
-<SIPIPPBXAliasNameInputField>//input[@id='1_COLT_Alias_Name']</SIPIPPBXAliasNameInputField>
-<SIPIPPBXTextfieldInput>(//*[@class='siebui-list-ctrl siebui-ctrl-input siebui-align-left siebui-input-align-left s_2_2_14_0'])</SIPIPPBXTextfieldInput>
-<SIPIPPBXModel>(//*[@id='1_s_2_l_COLT_PBX_MODEL'])</SIPIPPBXModel>
-
-<SIPIPPBXModelInput>(//*[@id='1_COLT_PBX_MODEL'])</SIPIPPBXModelInput>
-
-<SIPIPPBXMOdelInputValue>(//*[@class='siebui-list-ctrl siebui-ctrl-input siebui-align-left siebui-input-align-left s_2_2_17_0'])</SIPIPPBXMOdelInputValue>
-
-<SIPIPPBXVendor>(//*[@id='1_s_2_l_COLT_PBX_Vendor'])</SIPIPPBXVendor>
-
-<SIPIPPBXVendorInput>(//*[@id='1_COLT_PBX_Vendor'])</SIPIPPBXVendorInput>
-
-<SIPSOftwareVersionField>(//*[@id='1_s_2_l_COLT_Software_Version'])</SIPSOftwareVersionField>
-
-<SIPSoftwareVersionInput>(//*[@id='1_COLT_Software_Version'])</SIPSoftwareVersionInput>
-
-<SIPIPPBXAddressUID>(//*[@id='1_s_2_l_COLT_Address_UID'])</SIPIPPBXAddressUID>
-<SIPIPPBXLookupoptionClick>(//*[@class='siebui-icon-pick'])</SIPIPPBXLookupoptionClick>
-
-<SIPIPPBXAddressUIDStreetName>(//*[@name='streetName'])</SIPIPPBXAddressUIDStreetName>
-<SIPIPPBXAddressUIDCountryName>(//input[@name='country'])</SIPIPPBXAddressUIDCountryName>
-
-<SIPIPPBXAddressUIDCountryNameDropDownArrow>((//*[@class='siebui-icon-dropdown applet-form-combo applet-list-combo'])[14])</SIPIPPBXAddressUIDCountryNameDropDownArrow>
-<SIPIPPBXAddressUIDCountryNameDropDownValue>(//li[text()='United Kingdom'])</SIPIPPBXAddressUIDCountryNameDropDownValue>
-
-<SIPIPPBXAddressUIDCityName>(//input[@name='cityTown'])</SIPIPPBXAddressUIDCityName>
-<SIPIPPBXAddressUIDPostalCode>(//input[@name='postalZipCode'])</SIPIPPBXAddressUIDPostalCode>
-<SIPIPPBXAddressUIDPremiseCode>(//input[@name='premisesNumber'])</SIPIPPBXAddressUIDPremiseCode>
-<SIPAddressUIDSearchButton>//div[@id='colt-site-selection-btn-bar']/button</SIPAddressUIDSearchButton>
-<SIPSelectAddressRecord>//table[@id='colt-siteselection-result-table']/tbody/tr[2]/td[2]</SIPSelectAddressRecord>
-<SIPPickAddressButtonForUID>//div[@id='colt-site-selection-btn-bar']/button[3]</SIPPickAddressButtonForUID>
-
-<SIPPBXTechnicalContact>(//*[@id='1_s_2_l_COLT_Tech_Contact'])</SIPPBXTechnicalContact>
-<SIPPBXTecnicalContactLookup>//*[@class='siebui-icon-pick']</SIPPBXTecnicalContactLookup>
-<SIPPBXTechnicalContactLookupOKButton>(//*[@class='siebui-ctrl-btn appletButton siebui-icon-pickrecord s_5_1_33_0'])</SIPPBXTechnicalContactLookupOKButton>
-
-
-<SIPVoiceconfigSubtTabTRUNK>(//a[text()='Voice Config'])</SIPVoiceconfigSubtTabTRUNK>
-<SIPVoiceConfigExpandSymbolIPPBXSelewction>(//*[@class='colt-site-component-collapse fa fa-plus-square-o'])</SIPVoiceConfigExpandSymbolIPPBXSelewction>
-<SIPReClickToIPPBXLookUp>((//*[@class='siebui-icon-pick'])[3])</SIPReClickToIPPBXLookUp> 
-<SIPOKSelectionButton>(//*[@class='siebui-ctrl-btn appletButton siebui-icon-pickrecord s_7_1_403_0'])</SIPOKSelectionButton>
-
-<SIPVoiceConfigTab>//a[contains(text(),'Voice Config')]</SIPVoiceConfigTab> 
-<BelowAreOtherTabLocators> Other Tab Locators </BelowAreOtherTabLocators>
-
-<SIPOtherTab>//a[contains(text(),'Other')]</SIPOtherTab>
-<SIPVoiceConfigOthersTabShowFullInfo>(//a[contains(text(),'Show full info')])</SIPVoiceConfigOthersTabShowFullInfo>
-<SIPVoiceConfigOthersTabColtDDIRanges>(.//*[normalize-space(text()) and normalize-space(.)='Colt DDI Ranges'])[1]/preceding::span[1]</SIPVoiceConfigOthersTabColtDDIRanges>
-<SIPNumberOfSingleColtDDIs>(.//*[normalize-space(text()) and normalize-space(.)='Number of 100 Colt DDI Ranges'])[1]/preceding::input[2]</SIPNumberOfSingleColtDDIs>
-<SIPNumberOf10ColtDDIRanges>(.//*[normalize-space(text()) and normalize-space(.)='Number of 1000 Colt DDI Ranges'])[1]/preceding::input[2]</SIPNumberOf10ColtDDIRanges>
-<SIPNumberOf100ColtDDIRanges>(.//*[normalize-space(text()) and normalize-space(.)='Port In DDI Ranges'])[1]/preceding::input[2]</SIPNumberOf100ColtDDIRanges>
-<SIPNumberOf1000ColtDDIRanges>(.//*[normalize-space(text()) and normalize-space(.)='Reseller Configuration'])[1]/preceding::input[1]</SIPNumberOf1000ColtDDIRanges>
-<SIPVoiceConfigOthersTabColtDDIRangesCloseWindow>//html/body/div[10]/div[1]/button/span[1]</SIPVoiceConfigOthersTabColtDDIRangesCloseWindow>
-
--->
-<!-- MVF Locators -->
+ <!-- MVF Locators -->
 
  <!-- Managed Virtual Firewall locators -->
 
@@ -1632,10 +1146,10 @@
 <TextBoxSiteContact>((//*[@class='colt-attribute-input siebui-ctrl-input siebui-input-popup'])[2])</TextBoxSiteContact>
 <SIPSiteContact>((//*[@class='siebui-icon-pick applet-form-pick applet-list-pick'])[33])</SIPSiteContact>
 <FirstRecordSelection>(//*[@id='1_s_16_l_First_Name'])</FirstRecordSelection>
-<ClickOK>(//*[@id='s_13_1_406_0_Ctrl'])</ClickOK>
+<ClickOK>(//button[@title="Pick Contact:OK"])</ClickOK>
 <ServiceParty>((//*[@class='siebui-icon-pick applet-form-pick applet-list-pick'])[37])</ServiceParty>
 <ServicePartyRecordSelect>(//*[@id='1_s_17_l_Account_Name'])</ServicePartyRecordSelect>
-<OKSelection>(//*[@id='s_14_1_406_0_Ctrl'])</OKSelection>
+<OKSelection>(//button[@title="Pick Account:OK"])</OKSelection>
 <SIPDeliveryTeamNewCountry>((//*[@class='colt-attribute-input siebui-ctrl-input ui-autocomplete-input'])[19])</SIPDeliveryTeamNewCountry>
 <SIPDeliveryTeamNewCity>((//*[@class='colt-attribute-input siebui-ctrl-input ui-autocomplete-input'])[20])</SIPDeliveryTeamNewCity>
 <WLECInvoicingRadioButton>((//*[@class='colt-component-check-available fa fa-circle-o'])[4])</WLECInvoicingRadioButton>
@@ -1646,7 +1160,6 @@
  <ClickDropdown>(//span[text()='Value']/parent::*//span)[3]</ClickDropdown>
  <SelectValueDropdown>(//li[text()='Value'])</SelectValueDropdown>
 <TextInput>//span[text()='Value']/parent::*//input</TextInput>
-<SIPVoiceConfigTab>((//*[@class='ui-tabs-anchor'])[20])</SIPVoiceConfigTab>
 <SIPVoiceConfigExpandSymbol>(//*[@class='colt-site-component-collapse fa fa-plus-square-o'])</SIPVoiceConfigExpandSymbol>
 <SIPTrunkSequence>((//*[@class='colt-attribute-input siebui-ctrl-input colt-attribute-validate'])[4])</SIPTrunkSequence>
 <SIPTrunkName>((//*[@class='colt-attribute-input siebui-ctrl-input'])[4])</SIPTrunkName>
@@ -1655,9 +1168,9 @@
 <SIPAccessLineTypeValue>//*[@id='ui-id-3952']</SIPAccessLineTypeValue>
 <SIPAccessServieId>((//*[@class='siebui-icon-pick'])[2])</SIPAccessServieId>
 <SearchServiceIDbox>((//*[@class='siebui-ctrl-select siebui-input-popup siebui-align-left siebui-input-align-left ui-autocomplete-input'])[19])</SearchServiceIDbox>
-<SearchText>(//*[@class='siebui-ctrl-input siebui-align-left siebui-input-align-left s_15_1_404_0'])</SearchText>
-<SearchButtonProcess>(//*[@class='siebui-ctrl-btn siebui-icon-find s_15_1_405_0 appletButton'])</SearchButtonProcess>
-<SearchServiceIdOKButton>(//*[@class='siebui-ctrl-btn siebui-icon-pickrecord s_15_1_406_0 appletButton'])</SearchServiceIdOKButton>
+<SearchText>//td[@class="siebui-popup-filter"]/span[4]/input</SearchText>
+<SearchButtonProcess>//td[@class="siebui-popup-filter"]/span[5]/button</SearchButtonProcess>
+<SearchServiceIdOKButton>//button[@title="Pick Service:OK"]</SearchServiceIdOKButton>
 <SIPServieordereReference>//*[@id='1_s_7_l_COLT_Service_Order_Reference']</SIPServieordereReference>
 <SIPClickOk>//*[@id='s_7_1_406_0_Ctrl']</SIPClickOk>
 <SIPExternalAccessServiceRef>//*[@id='attr_1-20QGOBV']/input</SIPExternalAccessServiceRef>
@@ -1732,7 +1245,7 @@
 <SIPOKSelectionButton>(//*[@class='siebui-ctrl-btn appletButton siebui-icon-pickrecord s_7_1_403_0'])</SIPOKSelectionButton>
 <SIPVoiceConfigTab>//a[contains(text(),'Voice Config')]</SIPVoiceConfigTab> 
 
-        <!--  Other Tab Locators --> 
+<!--  Other Tab Locators --> 
 
 <SIPOtherTab>//a[contains(text(),'Other')]</SIPOtherTab>
 <SIPVoiceConfigOthersTabShowFullInfo>(//a[contains(text(),'Show full info')])</SIPVoiceConfigOthersTabShowFullInfo>
@@ -1743,8 +1256,13 @@
 <SIPNumberOf1000ColtDDIRanges>(.//*[normalize-space(text()) and normalize-space(.)='Reseller Configuration'])[1]/preceding::input[1]</SIPNumberOf1000ColtDDIRanges>
 <SIPVoiceConfigOthersTabColtDDIRangesCloseWindow>//html/body/div[10]/div[1]/button/span[1]</SIPVoiceConfigOthersTabColtDDIRangesCloseWindow>
 
-
-
 <!-- Gauri's Locator for Sip End -->
- <!-- End Aman Locators -->
+<!-- Dipesh Locator -->
+<DropDown>//td[@class="siebui-popup-filter"]/span[2]/span</DropDown>
+<SIPCheckBox>(//span[@class="colt-component-check-available fa fa-circle-o"])[value]</SIPCheckBox>
+<SIPCheckBoxCount>(//span[@class="colt-component-check-available fa fa-circle-o"])</SIPCheckBoxCount>
+<SIPVoiceFeatureInput>//span[text()="value"]//following-sibling::input</SIPVoiceFeatureInput>
+<attribute>//*[text()='fieldsname']/parent::*</attribute>
+<FooterClass>//a[text()='Values']</FooterClass>
+<!-- End Dipesh Locators -->
   </locators>
