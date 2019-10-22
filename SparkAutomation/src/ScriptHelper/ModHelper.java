@@ -505,7 +505,7 @@ public class ModHelper extends DriverHelper {
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Clear capicity check reference");
 			Clickon(getwebelement(xml.getlocator("//locators/capacitycheckreference")));
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step:  click on Capicityreference");
-			SendKeys(getwebelement(xml.getlocator("//locators/capacitycheckreference")), Inputdata[34].toString());
+			SendKeys(getwebelement(xml.getlocator("//locators/capacitycheckreference")), Inputdata[36].toString());
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step:  Input on Capicityreference");
 
 			Thread.sleep(4000);
