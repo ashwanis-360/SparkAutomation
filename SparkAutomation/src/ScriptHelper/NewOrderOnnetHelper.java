@@ -4307,7 +4307,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 	}
 
 	public void EnterInstallationChargeInFooter(Object Inputdata[]) throws Exception {
-		if (!Inputdata[8].toString().equals("Cloud UC")) {
+		if (!Inputdata[8].toString().equals("Cloud UC")&& !Inputdata[8].toString().equalsIgnoreCase("Ethernet Hub")) {
 			Select(getwebelement(xml.getlocator("//locators/InstalltionDropdown")), "Installation and Test");
 			ExtentTestManager.getTest().log(LogStatus.PASS,
 					" Step: Click on Installation Dropdown button and Select Installation and Test");
@@ -6810,6 +6810,81 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			Thread.sleep(60000);
 			break;
 		}
+		case "Private Ethernet": {
+
+			WaitforElementtobeclickable(
+					xml.getlocator("//locators/R4/SiteADropdownClick").replace("Value", "Install Time"));
+			Clickon(getwebelement(xml.getlocator("//locators/R4/SiteADropdownClick").replace("Value", "Install Time")));
+			Clickon(getwebelement(
+					xml.getlocator("//locators/R4/SiteABSelection").replace("Value", Inputdata[95].toString())));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Install Time : " + Inputdata[95].toString());
+			Thread.sleep(7000);
+			waitforPagetobeenable();
+
+			WaitforElementtobeclickable(
+					xml.getlocator("//locators/R4/SiteBDropdownClick").replace("Value", "Install Time"));
+			Clickon(getwebelement(xml.getlocator("//locators/R4/SiteBDropdownClick").replace("Value", "Install Time")));
+			Clickon(getwebelement(
+					xml.getlocator("//locators/R4/SiteABSelection").replace("Value", Inputdata[112].toString())));
+			ExtentTestManager.getTest().log(LogStatus.PASS,
+					" Step: Select Install Time : " + Inputdata[112].toString());
+			Thread.sleep(7000);
+			waitforPagetobeenable();
+			Save();
+			waitforPagetobeenable();
+			savePage();
+			break;
+		}
+		case "Ultra Low Latency": {
+
+			WaitforElementtobeclickable(
+					xml.getlocator("//locators/R4/SiteADropdownClick").replace("Value", "Install Time"));
+			Clickon(getwebelement(xml.getlocator("//locators/R4/SiteADropdownClick").replace("Value", "Install Time")));
+			Clickon(getwebelement(
+					xml.getlocator("//locators/R4/SiteABSelection").replace("Value", Inputdata[95].toString())));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Install Time : " + Inputdata[95].toString());
+			Thread.sleep(7000);
+			waitforPagetobeenable();
+
+			WaitforElementtobeclickable(
+					xml.getlocator("//locators/R4/SiteBDropdownClick").replace("Value", "Install Time"));
+			Clickon(getwebelement(xml.getlocator("//locators/R4/SiteBDropdownClick").replace("Value", "Install Time")));
+			Clickon(getwebelement(
+					xml.getlocator("//locators/R4/SiteABSelection").replace("Value", Inputdata[112].toString())));
+			ExtentTestManager.getTest().log(LogStatus.PASS,
+					" Step: Select Install Time : " + Inputdata[112].toString());
+			Thread.sleep(7000);
+			waitforPagetobeenable();
+			Save();
+			waitforPagetobeenable();
+			savePage();
+			break;
+		}
+		case "Dark Fibre": {
+
+			WaitforElementtobeclickable(
+					xml.getlocator("//locators/R4/SiteADropdownClick").replace("Value", "Install Time"));
+			/*Clickon(getwebelement(xml.getlocator("//locators/R4/SiteADropdownClick").replace("Value", "Install Time")));
+			Clickon(getwebelement(
+					xml.getlocator("//locators/R4/SiteABSelection").replace("Value", Inputdata[95].toString())));*/
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Install Time : " + Inputdata[95].toString());
+			Thread.sleep(7000);
+			waitforPagetobeenable();
+
+			WaitforElementtobeclickable(
+					xml.getlocator("//locators/R4/SiteBDropdownClick").replace("Value", "Install Time"));
+			/*Clickon(getwebelement(xml.getlocator("//locators/R4/SiteBDropdownClick").replace("Value", "Install Time")));
+			Clickon(getwebelement(
+					xml.getlocator("//locators/R4/SiteABSelection").replace("Value", Inputdata[112].toString())));*/
+			ExtentTestManager.getTest().log(LogStatus.PASS,
+					" Step: Select Install Time : " + Inputdata[112].toString());
+			Thread.sleep(7000);
+			waitforPagetobeenable();
+			Save();
+			waitforPagetobeenable();
+			savePage();
+			break;
+		}
 		case "Wave": {
 			Clickon(getwebelement(xml3.getlocator("//locators/CustomizeButton")));
 			Thread.sleep(30000);
@@ -6878,7 +6953,10 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		// below lines of code will work based on product / please update the as per
 		// your product
 		if (Inputdata[8].toString().equalsIgnoreCase("Wave")
-				|| Inputdata[8].toString().equalsIgnoreCase("Ethernet Line")) {
+				|| Inputdata[8].toString().equalsIgnoreCase("Ethernet Line")
+				|| Inputdata[8].toString().equalsIgnoreCase("Private Ethernet")
+				|| Inputdata[8].toString().equalsIgnoreCase("Ultra Low Latency")
+				|| Inputdata[8].toString().equalsIgnoreCase("Dark Fibre")) {
 			CarNorOrderNumber
 					.set(Getattribute(getwebelement(xml.getlocator("//locators/carnorOrderReferencevalue")), "title"));
 			ExtentTestManager.getTest().log(LogStatus.PASS,
