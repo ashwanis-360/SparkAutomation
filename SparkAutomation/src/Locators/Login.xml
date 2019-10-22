@@ -30,6 +30,13 @@
 <AccountSettingButton>//li[@title="Settings"]</AccountSettingButton>
 <Logout>//button[text()="Logout"]</Logout>
 </Sieble>
+<PremiseMaster>
+<Username>//input[@id='j_username']</Username>
+<Password>//input[@id='j_password']</Password>
+<Loginbutton>//input[@name='submit']</Loginbutton>
+<AccountSettingButton>//li[@title="Settings"]</AccountSettingButton>
+<Logout>//button[text()="Logout"]</Logout>
+</PremiseMaster>
 <OMP>
 <Username>id=userId</Username>
 <Password>id=password</Password>
