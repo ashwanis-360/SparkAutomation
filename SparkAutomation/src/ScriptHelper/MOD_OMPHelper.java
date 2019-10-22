@@ -20,15 +20,49 @@ public class MOD_OMPHelper extends DriverHelper {
 	XMLReader xml = new XMLReader("src\\Locators\\OMPLocators.xml");
 
 	public void verficationOfProduct(Object[] Inputdata) throws Exception {
-		Thread.sleep(4000);
-		Clickon(getwebelement(xml.getlocator("//locators/InputOrderNumber")));
+		
+		Thread.sleep(10000);
+		
+		
+//		for(int i=0;i<5;i++)
+//		{
+//			Clickon(getwebelement(xml.getlocator("//locators/InputOrderNumber")));
+//			Clear(getwebelement(xml.getlocator("//locators/InputOrderNumber")));// Inputdata[0].toString());
+//			SendKeys(getwebelement(xml.getlocator("//locators/InputOrderNumber")), ServiceOrder.get().toString());// Inputdata[0].toString());
+//			Clickon(getwebelement(xml.getlocator("//locators/SearchServiceButton")));
+//			Thread.sleep(1000*60*2);
+//				
+//		}
+		
+		for(int i=0;i<5;i++)
+		{
+			
+			Clickon(getwebelement(xml.getlocator("//locators/InputOrderNumber")));
+			Clear(getwebelement(xml.getlocator("//locators/InputOrderNumber")));// Inputdata[0].toString());
+			SendKeys(getwebelement(xml.getlocator("//locators/InputOrderNumber")), ServiceOrder.get().toString());// Inputdata[0].toString());
+			//SendKeys(getwebelement(xml.getlocator("//locators/InputOrderNumber")), "871537549/190816-0099");// Inputdata[0].toString());
+			
+			Clickon(getwebelement(xml.getlocator("//locators/SearchServiceButton")));
+			Thread.sleep(5000);
+			if(isDisplayed(xml.getlocator("//locators/ClickOrderReferance")))//&& isDisplayed("//td[text()='Completed']"))
+			{
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Order Number");
+				break;
+				
+			}
+			else
+				Thread.sleep(1000*60*2);
+			Thread.sleep(1000*30);
+			
+		}
+		
 
 //SendKeys(getwebelement(xml.getlocator("//locators/InputOrderNumber")), Inputdata[0].toString());
-		SendKeys(getwebelement(xml.getlocator("//locators/InputOrderNumber")), ServiceOrder.get().toString());// Inputdata[0].toString());
+		/*SendKeys(getwebelement(xml.getlocator("//locators/InputOrderNumber")), ServiceOrder.get().toString());// Inputdata[0].toString());
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Order Number");
 		Clickon(getwebelement(xml.getlocator("//locators/SearchServiceButton")));
 		Thread.sleep(5000);
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on service search");
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on service search");*/
 //Reference Click
 		Clickon(getwebelement(xml.getlocator("//locators/ClickOrderReferance")));
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on service Referance");
@@ -39,7 +73,7 @@ public class MOD_OMPHelper extends DriverHelper {
 //Clickon(getwebelement(xml.getlocator("//locators/CloseVideoPopup")));
 
 //Expand All Click
-		Thread.sleep(5000);
+		//Thread.sleep(5000);
 		Clickon(getwebelement(xml.getlocator("//locators/ExpandAllButton")));
 
 //Order No Verification
@@ -55,9 +89,9 @@ public class MOD_OMPHelper extends DriverHelper {
 		if (!Inputdata[8].toString().equalsIgnoreCase("IP VPN Service")) {
 			String ProdName = Inputdata[8].toString();
 			String[] parts = ProdName.split(" ");
-			String part1 = parts[0];
-			String part2 = parts[1];
-			SendKeys(getwebelement(xml.getlocator("//locators/IPVPNSite/CustOrder")), part2);
+			//String part1 = parts[0];
+			//String part2 = parts[1];
+			
 			for (int i = 0; i < parts.length; i++) {
 				Assert.assertTrue(OmpText.contains(parts[i]),
 						"Product Name : " + parts[i] + " not matched with Opened Product Name :" + OmpText);
@@ -66,11 +100,11 @@ public class MOD_OMPHelper extends DriverHelper {
 			}
 
 		} else {
-			String ProdName = Inputdata[11].toString();
+			String ProdName = Inputdata[8].toString();
 			String[] parts = ProdName.split(" ");
 			String part1 = parts[0];
 			String part2 = parts[1];
-			SendKeys(getwebelement(xml.getlocator("//locators/IPVPNSite/CustOrder")), part2);
+			
 			for (int i = 0; i < parts.length; i++) {
 				Assert.assertTrue(OmpText.contains(parts[i]),
 						"Product Name : " + parts[i] + " not matched with Opened Product Name :" + OmpText);
