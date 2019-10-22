@@ -163,9 +163,9 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().EnterBillingDateInFooter(Data); // No change
 			newOrderOnnnet.get().installationCharges(Data); // Method added
 			newOrderOnnnet.get().CommercialValidation(Data); // No Change
-			newOrderOnnnet.get().TechnicalValidation(Data); // Updated
-			newOrderOnnnet.get().DeliveryValidation(Data); // No Change
-			newOrderOnnnet.get().OrderCompleteEthernetHubSpoke(Data); // MethodAdded
+			//newOrderOnnnet.get().TechnicalValidation(Data); // Updated
+			//newOrderOnnnet.get().DeliveryValidation(Data); // No Change
+			//newOrderOnnnet.get().OrderCompleteEthernetHubSpoke(Data); // MethodAdded
 			Cancel.get().statusReason(Data);
 			Cancel.get().AbandonedOrder(Data);
 			Cancel.get().verifyOrderAbandoned();
@@ -173,15 +173,15 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().addEthernetSiteSpoke(Data);// MethodAdded
 			newOrderOnnnet.get().spokeSiteCustomize(Data);// MethodAdded
 			newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);// Updated for spoke also
-			newOrderOnnnet.get().EnterDateInFooter(Data); // No change
-			newOrderOnnnet.get().EnterBillingDateInFooter(Data); // No change
-			newOrderOnnnet.get().installationCharges(Data); // Method added same as hub and updated if condition for
+			//newOrderOnnnet.get().EnterDateInFooter(Data); // No change
+			//newOrderOnnnet.get().EnterBillingDateInFooter(Data); // No change
+			//newOrderOnnnet.get().installationCharges(Data); // Method added same as hub and updated if condition for
 															// spoke
 
 			newOrderOnnnet.get().CommercialValidation(Data); // No Change
-			newOrderOnnnet.get().TechnicalValidation(Data); // Updated for spoke also
-			newOrderOnnnet.get().DeliveryValidation(Data); // No Change
-			newOrderOnnnet.get().OrderCompleteEthernetHubSpoke(Data);// updated same as hub
+			//newOrderOnnnet.get().TechnicalValidation(Data); // Updated for spoke also
+			//newOrderOnnnet.get().DeliveryValidation(Data); // No Change
+			//newOrderOnnnet.get().OrderCompleteEthernetHubSpoke(Data);// updated same as hub
 			Cancel.get().statusReason(Data);
 			Cancel.get().AbandonedOrder(Data);
 			Cancel.get().verifyOrderAbandoned();
