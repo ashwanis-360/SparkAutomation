@@ -646,7 +646,18 @@ public void Clickonoutofviewportwithstring(String locator) throws Exception {
 		
 		//Thread.sleep(3000);
 	}
-	
+	//Added By Devesh
+	public void ClearSendKeys(WebElement el,String value) throws InterruptedException, IOException {
+		//Thread.sleep(3000);
+		//el.
+		//System.out.println(el.getRect().getHeight()+"-"+el.getRect().getWidth()+"-"+el.getRect().x+"-"+el.getRect().x);
+		//ExtentTestManager.getTest().log(LogStatus.PASS,ExtentTestManager.getTest().addBase64ScreenShot(capturescreenshotforelement(el)));
+		el.clear();
+		
+		el.sendKeys(value);
+		
+		//Thread.sleep(3000);
+	}
 
 	public void SendkeaboardKeys(WebElement el,Keys k) throws InterruptedException {
 		//Thread.sleep(3000);
