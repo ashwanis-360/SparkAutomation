@@ -25,6 +25,7 @@ import ScriptHelper.InFlightOrderHelper;
 //import ScriptHelper.AbandonedOrderOfAllThreeProducts;
 //import ScriptHelper.InFlightForIPAccess;
 import ScriptHelper.LoginHelper;
+import ScriptHelper.MOD_OMPHelper;
 //import ScriptHelper.ModifyComOrdersOfAllProductsHelper;
 import ScriptHelper.ModHelper;
 import ScriptHelper.NewOrderOnnetHelper;
@@ -42,6 +43,7 @@ public class DriverTestcase {
 	public static final ThreadLocal<CancelHelper> Cancel = new InheritableThreadLocal<>();
 	public static final ThreadLocal<CeasHelper> Cease = new InheritableThreadLocal<>();
 	public static final ThreadLocal<OMPScriptHelper> OmpOrder = new InheritableThreadLocal<>();
+	public static final ThreadLocal<MOD_OMPHelper> OmpMOdOrder = new InheritableThreadLocal<>();
 	public static final ThreadLocal<InFlightOrderHelper> inFlightGeneric = new InheritableThreadLocal<>();
 	public static final ThreadLocal<ModHelper> modHelper = new InheritableThreadLocal<>();
 	public static final ThreadLocal<PremiseMasterHelper> premiseHelper = new InheritableThreadLocal<>();
@@ -147,7 +149,22 @@ public class DriverTestcase {
 //		    Object[] st= (Object[]) data[itr][0];
 			Log.info(st[st.length - 2].toString());
 			ctx.setAttribute("testName", st[st.length - 2].toString());
-		}else
+		}
+		else if (method.getName().equals("OMPMod")) {
+//			DataReader dt=new DataReader();
+//			Object[][] data=dt.ipreader();
+//		    Object[] st= (Object[]) data[itr][0];
+			Log.info(st[st.length - 2].toString());
+			ctx.setAttribute("testName", st[st.length - 2].toString());
+		}
+		else if (method.getName().equals("PremiseMaster")) {
+//			DataReader dt=new DataReader();
+//			Object[][] data=dt.ipreader();
+//		    Object[] st= (Object[]) data[itr][0];
+			Log.info(st[st.length - 2].toString());
+			ctx.setAttribute("testName", st[st.length - 2].toString());
+		}
+		else
 			ctx.setAttribute("testName", method.getName());
 		Log.info(ctx.getAttribute("testName").toString());
 	}
@@ -188,6 +205,8 @@ public class DriverTestcase {
 		LoginHelper LN = new LoginHelper(getwebdriver());
 		NewOrderOnnetHelper NEWO = new NewOrderOnnetHelper(getwebdriver());
 		OMPScriptHelper OMP = new OMPScriptHelper(getwebdriver());
+		MOD_OMPHelper OMPMod = new MOD_OMPHelper(getwebdriver());
+		
 		InFlightOrderHelper InFlightOrder = new InFlightOrderHelper(getwebdriver());
 		CeasHelper CL = new CeasHelper(getwebdriver());
 		CancelHelper CN = new CancelHelper(getwebdriver());
@@ -205,6 +224,7 @@ public class DriverTestcase {
 		inFlightGeneric.set(InFlightOrder);
 		OmpOrder.set(OMP);
 		modHelper.set(MD);
+		OmpMOdOrder.set(OMPMod);
 		premiseHelper.set(PM);
 // modifyOrdersCom.set(mooc);
 // abandonedOrder.set(aoop);

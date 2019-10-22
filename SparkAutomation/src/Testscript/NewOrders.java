@@ -469,7 +469,7 @@ public class NewOrders extends DriverTestcase {
 
 		}
 		Login.get().Login("OMP");
-		OmpOrder.get().verficationOfProduct(Data);
+		OmpMOdOrder.get().verficationOfProduct(Data);
 	}
 
 	@Test(dataProviderClass = DataReader.class, dataProvider = "PreMaster")
@@ -479,7 +479,7 @@ public class NewOrders extends DriverTestcase {
 		newOrderOnnnet.get().accountTabDetails(Data);
 		newOrderOnnnet.get().createCustomerOrder(Data);
 		newOrderOnnnet.get().productSelectionHelper(Data);
-		// newOrderOnnnet.get().Check(Data);
+		newOrderOnnnet.get().openServiceOrderNumber();
 		newOrderOnnnet.get().SearchSiteA(Data);
 		premiseHelper.get().AddSiteAndBuilding(Data);
 		String SiteId = premiseHelper.get().SiteidReference();

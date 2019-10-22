@@ -102,8 +102,8 @@ public class MOD_OMPHelper extends DriverHelper {
 		} else {
 			String ProdName = Inputdata[8].toString();
 			String[] parts = ProdName.split(" ");
-			String part1 = parts[0];
-			String part2 = parts[1];
+			//String part1 = parts[0];
+			//String part2 = parts[1];
 			
 			for (int i = 0; i < parts.length; i++) {
 				Assert.assertTrue(OmpText.contains(parts[i]),

@@ -42,6 +42,10 @@
 <Submit>//input[@name='submit']</Submit>
 <BuildingID>(//td[@class='form formtext']//span//strong)[2]</BuildingID>
 </CreateSite>
+<EditSite>
+<EditLink>//td[@class='onlineData']//a</EditLink>
+
+</EditSite>
 <SearchSite>
 <SearchType>//select[@id='searchType']</SearchType>
 <SearchValue>//input[@id='searchTextBox']</SearchValue>

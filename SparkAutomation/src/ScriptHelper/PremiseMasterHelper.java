@@ -223,9 +223,10 @@ public class PremiseMasterHelper extends DriverHelper
 	
 	public String SiteidReference() throws IOException, InterruptedException, DocumentException 
 	{
-		//String SiteId=Getattribute(getwebelement(xml.getlocator("//locators/Siebel/SiteID")),"innerHTML");
-		String SiteId=Gettext(getwebelement(xml.getlocator("//locators/Siebel/SiteID")));
-		System.out.println("Site Id : "+ SiteId);
+		String SiteId=Getattribute(getwebelement(xml.getlocator("//locators/Siebel/SiteID")),"innerHTML");
+		String[] parts=SiteId.split("<");
+		//String SiteId=Gettext(getwebelement(xml.getlocator("//locators/Siebel/SiteID")));
+		System.out.println("Site Id : "+ parts[0]);
 		return SiteId;
 	} 
 	public void ClickSearch() throws InterruptedException, DocumentException
@@ -432,6 +433,24 @@ public class PremiseMasterHelper extends DriverHelper
 		String Id=Gettext(getwebelement(xml.getlocator("//locators/SearchSite/SearchResultId")));
 		assertTrue(SiteID.equalsIgnoreCase(Id), "Search ID : "+BuildingID+"!="+Id);
 		ExtentTestManager.getTest().log(LogStatus.PASS," Step: Verified Search ID :"+SiteID+"=="+Id );
+		
+		
+	}
+	
+	public void EditSite() throws InterruptedException, DocumentException
+	{
+		Clickon(getwebelement(xml.getlocator("//locators/SearchSite/SearchResultId")));
+		ExtentTestManager.getTest().log(LogStatus.PASS," Step: Click on Site ID " );
+		
+		waitForpageload();
+		waitforPagetobeenable();
+		
+		WaitforElementtobeclickable(xml.getlocator("//locators/EditSite/EditLink"));
+		Clickon(getwebelement(xml.getlocator("//locators/EditSite/EditLink")));
+		ExtentTestManager.getTest().log(LogStatus.PASS," Step: Click Edit Site Link " );
+		
+		waitForpageload();
+		
 	}
 	
 }
