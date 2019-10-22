@@ -461,7 +461,31 @@ public class NewOrders extends DriverTestcase {
 		Login.get().Login("OMP");
 		OmpOrder.get().verficationOfProduct(Data);
 	}
-
+	@Test(dataProviderClass = DataReader.class, dataProvider = "PreMaster")
+	public void PremiseMaster(Object[] Data) throws Exception {
+		
+		Login.get().Login("Sieble");
+		newOrderOnnnet.get().accountTabDetails(Data);
+		newOrderOnnnet.get().createCustomerOrder(Data);
+		newOrderOnnnet.get().productSelectionHelper(Data);
+		//newOrderOnnnet.get().Check(Data);
+		newOrderOnnnet.get().SearchSiteA(Data);
+		premiseHelper.get().AddSiteAndBuilding(Data);
+		String SiteId=premiseHelper.get().SiteidReference();
+		System.out.println("Site Id : "+ SiteId);
+		Login.get().Login("PremiseMaster");
+		// Login.get().VerifySuccessLogin("Sieble");
+		premiseHelper.get().ClickIcon();
+		//premiseHelper.get().ClickTopMeu("Manage Site");
+		//premiseHelper.get().SearchSite(Data);
+		//premiseHelper.get().ClickSearch();
+		//premiseHelper.get().CreateSite();
+		//premiseHelper.get().EnterSiteDetails(Data);
+		premiseHelper.get().SearchSiteAndVerified(SiteId);
+	
+		// Search Sites
+		
+	}
 	@Test(dataProviderClass = DataReader.class, dataProvider = "InFlightOrder")
 	public void InflightMod(Object[] Data) throws Exception {
 
