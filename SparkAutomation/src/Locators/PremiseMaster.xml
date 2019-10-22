@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Locator>
+<locators>
 <LoginPage>
 <Userid>//input[@id='j_username']</Userid>
 <Password>//input[@id='j_password']</Password>
@@ -11,7 +11,7 @@
 <AdvanceSearch>//ul[@id='menu']//ul//li//a[text()='Advanced Search']</AdvanceSearch>
 </HomePage>
 <SearchLocation>
-<Dropdown>//select[@id='country']</Dropdown>
+<Country>//select[@id='country']</Country>
 <City>//Input[@id='cityNameEnglish']</City>
 <HouseNo>//Input[@id='houseNumber']</HouseNo>
 <BuildingName>//Input[@id='buildingName']</BuildingName>
@@ -23,6 +23,7 @@
 <SearchAgain>//Input[@id='searchAgain']</SearchAgain>
 </SearchLocation>
 <CreateSite>
+<Create>//td[@class='onlineData']//a</Create>
 <BuildingType>//select[@id='buildingTypeSelectID']</BuildingType>
 <BuildingStatus>//select[@id='buildingStatusSelectID']</BuildingStatus>
 <AccessType>//select[@id='accessTypeSelectID']</AccessType>
@@ -39,6 +40,27 @@
 <CityID>//select[@id='manCityId']</CityID>
 <AccessID>//select[@id='siteAccessID']</AccessID>
 <Submit>//input[@name='submit']</Submit>
+<BuildingID>(//td[@class='form formtext']//span//strong)[2]</BuildingID>
 </CreateSite>
-</Locator>
-<Locator>
+<SearchSite>
+<SearchType>//select[@id='searchType']</SearchType>
+<SearchValue>//input[@id='searchTextBox']</SearchValue>
+<Submit>//input[@type='submit']</Submit>
+<SearchResultId>//table[@id='DomainTable']//tr//td//a[@class='overlay'][1]</SearchResultId>
+</SearchSite>
+<Siebel>
+<SiteID>//div[@id='colt-site-left']//span[@class='colt-site-top-id']</SiteID>
+<AddressNotFound>//i[@class='fa fa-search']/parent::button</AddressNotFound>
+<Addaddress>//i[@class='fa fa-plus']/parent::button</Addaddress>
+<SaveAddress>//i[@class='fa fa-check']/parent::button</SaveAddress>
+<Street>//input[@name='streetName']</Street>
+<CountryDropdown>//span[text()='Country']/following-sibling::span</CountryDropdown>
+<CountrySelection>//ul[contains(@style,'block')]//li[text()='Value']</CountrySelection>
+<City>//input[@name='cityTown']</City>
+<Postal>//input[@name='postalZipCode']</Postal>
+<Premise>//input[@name='premisesNumber']</Premise>
+<BuildingName>//input[@name='buildingName']</BuildingName>
+<RoomName>//input[@name='roomName']</RoomName>
+<Floor>//input[@name='floor']</Floor>
+</Siebel>
+</locators>
