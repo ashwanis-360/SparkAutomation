@@ -219,7 +219,7 @@ public class NewOrders extends DriverTestcase {
 	}
 
 	@Test(dataProviderClass = DataReader.class, dataProvider = "Mode")
-	public void Mod(Object[] Data) throws Exception {
+	public void Mod(Object[] Data) throws Throwable {
 		Login.get().Login("Sieble");
 		// Login.get().VerifySuccessLogin("Sieble");
 		newOrderOnnnet.get().accountTabDetails(Data);
@@ -319,7 +319,7 @@ public class NewOrders extends DriverTestcase {
 		}
 
 		}
-	}
+	
 
 	@Test(dataProviderClass = DataReader.class, dataProvider = "OmpDatereader")
 	public void OMPGenric(Object[] Data) throws Exception {

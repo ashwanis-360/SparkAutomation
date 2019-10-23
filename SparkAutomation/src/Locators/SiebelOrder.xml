@@ -718,7 +718,7 @@
 <LanguageValue>//li[text()='English']</LanguageValue>
 <TelephoneDirectoryServices>//span[text()='Telephone Directory Services']/parent::div/span[1]</TelephoneDirectoryServices>
 <DisasterRecoveryContact>//a[text()='Disaster Recovery Contacts']</DisasterRecoveryContact>
-<DisasterRecoveryAdd>(//*[@id="s_6_1_403_0_Ctrl"])[1]</DisasterRecoveryAdd>
+<DisasterRecoveryAdd>//button[@title="Add DR Contact:New"]</DisasterRecoveryAdd>
 <DisasterAdd2>//*[@id="3_s_7_l_Last_Name"]</DisasterAdd2>
 <DisasterRecoveryOk>(//button[@class='siebui-ctrl-btn siebui-icon-closeapplet s_6_1_406_0 appletButton'])[1]</DisasterRecoveryOk>
 <NumberManagementTab>//a[text()='Number Management']</NumberManagementTab>
