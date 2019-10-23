@@ -301,8 +301,22 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().clickOnManualValidationB();
 			newOrderOnnnet.get().DeliveryValidation(Data);
 			newOrderOnnnet.get().clickOnManualValidationA();
+			/*below changes as per Aman*/
 			newOrderOnnnet.get().EnterInstallationChargeInFooter(Data);
+			modHelper.get().ProductSpecificCompleted(Data);
+			if(!(Data[11].toString().equalsIgnoreCase("IP VPN Access")) && 
+					!(Data[11].toString().equalsIgnoreCase("IP VPN Plus"))&& 
+					
+					!(Data[11].toString().equalsIgnoreCase("IP VPN Wholesale")) &&
+					
+					!(Data[11].toString().equalsIgnoreCase("PrizmNet")) )
+					
+					
+			{
 			newOrderOnnnet.get().CompletedValidation(Data);// updated
+			}
+
+		}
 
 		}
 	}

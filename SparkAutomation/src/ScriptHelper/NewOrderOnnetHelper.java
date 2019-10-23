@@ -305,6 +305,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				&& !Inputdata[8].toString().equals("Private Wave Service")
 				&& !Inputdata[8].toString().equals("DCA Ethernet")
 				&& !Inputdata[8].toString().equals("Ultra Low Latency")
+				&& !Inputdata[8].toString().equals("Ethernet Spoke")
 				&& !Inputdata[8].toString().equals("Ethernet Access")
 				&& !Inputdata[8].toString().equals("Private Wave Node")
 				&& !Inputdata[8].toString().equals("IP VPN Service")
@@ -1639,6 +1640,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			break;
 		}
 		case "Ultra Low Latency": {
+			savePage();
 			waitForpageload();
 			waitforPagetobeenable();
 			alertPopUp();
@@ -1649,7 +1651,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			DiversityCircuitEntry(Inputdata);
 			Save();
 			
-			
+			waitforPagetobeenable();
 			middleUltraLowLatency(Inputdata);
 			
 			alertPopUp();
@@ -1684,6 +1686,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 	    	waitforPagetobeenable();
 			
 			break;
+			
 			
 		}
 		case "Cloud Unified Communications": {
@@ -4141,7 +4144,6 @@ public class NewOrderOnnetHelper extends DriverHelper {
 	/////////// BILLING DATE
 
 	public void EnterBillingDateInFooter(Object Inputdata[]) throws Exception {
-
 		Clickon(getwebelement(xml.getlocator("//locators/Billing")));
 		waitforPagetobeenable();
 		// System.out.println("BILLING TAB");
@@ -4153,15 +4155,15 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			Clickon(getwebelement(xml.getlocator("//locators/ClickheretoSaveAccess")));
 			waitforPagetobeenable();
 		}
-
+		WaitforElementtobeclickable((xml.getlocator("//locators/ContractRenewalFlag")));
 		Clear(getwebelement(xml.getlocator("//locators/ContractRenewalFlag")));
 		SendKeys(getwebelement(xml.getlocator("//locators/ContractRenewalFlag")), Inputdata[22].toString());
 		// System.out.println("contract renewal flag");
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Contract Renewal Flag");
-		// SendkeaboardKeys(getwebelement(xml.getlocator("//locators/ContractRenewalFlag")),
-		// Keys.TAB);
+		 SendkeaboardKeys(getwebelement(xml.getlocator("//locators/ContractRenewalFlag")),
+		 Keys.TAB);
 		Thread.sleep(4000);
-
+		WaitforElementtobeclickable((xml.getlocator("//locators/ContractTerm")));
 		Clear(getwebelement(xml.getlocator("//locators/ContractTerm")));
 		SendKeys(getwebelement(xml.getlocator("//locators/ContractTerm")), Inputdata[21].toString());
 		Clickon(getwebelement(xml.getlocator("//locators/SelectContractTerm")));
@@ -4179,10 +4181,11 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		WaitforElementtobeclickable((xml.getlocator("//locators/POEndDateAccess")));
 		Clear(getwebelement(xml.getlocator("//locators/POEndDateAccess")));
 		SendKeys(getwebelement(xml.getlocator("//locators/POEndDateAccess")), CurrentDate());
-
-		Thread.sleep(5000);
 		savePage();
 		waitforPagetobeenable();
+
+		Thread.sleep(5000);
+
 		// System.out.println("Billing Date Done!");
 	}
 
@@ -4307,7 +4310,10 @@ public class NewOrderOnnetHelper extends DriverHelper {
 	}
 
 	public void EnterInstallationChargeInFooter(Object Inputdata[]) throws Exception {
-		if (!Inputdata[8].toString().equals("Cloud UC")&& !Inputdata[8].toString().equalsIgnoreCase("Ethernet Hub")) {
+		if (!Inputdata[8].toString().equals("Cloud Unified Communications") 
+				&& !Inputdata[8].toString().equals("Number Hosting") 
+				&& !Inputdata[8].toString().equals("Professional Services") 
+				&& !Inputdata[8].toString().equalsIgnoreCase("Ethernet Hub")) {
 			Select(getwebelement(xml.getlocator("//locators/InstalltionDropdown")), "Installation and Test");
 			ExtentTestManager.getTest().log(LogStatus.PASS,
 					" Step: Click on Installation Dropdown button and Select Installation and Test");
@@ -4320,12 +4326,21 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			waitforPagetobeenable();
 			Thread.sleep(3000);
 			if (!Inputdata[8].toString().equalsIgnoreCase("Wave")
+					&& !Inputdata[8].toString().equalsIgnoreCase("Interconnect")
+					&& !Inputdata[8].toString().equalsIgnoreCase("Ethernet Spoke")
+					&& !Inputdata[8].toString().equalsIgnoreCase("SWIFTNet")
+					&& !Inputdata[8].toString().equalsIgnoreCase("SIP Trunking")
+					&& !Inputdata[11].toString().equalsIgnoreCase("IP VPN Wholesale")
 					&& !Inputdata[8].toString().equalsIgnoreCase("Ethernet Line")) {
 				Clickon(getwebelement(xml.getlocator("//locators/SaveOrderContinue")));
 				waitforPagetobeenable();
 				Thread.sleep(3000);
 			}
+			alertPopUp();
 		}
+		alertPopUp();
+		savePage();
+		waitforPagetobeenable();
 	}
 
 	public void CommercialValidation(Object[] Inputdata) throws Exception {
@@ -4345,7 +4360,9 @@ public class NewOrderOnnetHelper extends DriverHelper {
 	}
 
 	public void SelectAttachmentTab(Object[] Inputdata) throws IOException, InterruptedException, DocumentException {
-		if (Inputdata[8].toString().equals("IP Voice Solutions") || Inputdata[8].toString().equals("SIP Trunking") || Inputdata[8].toString().equals("Voice Line V")
+		if (Inputdata[8].toString().equals("IP Voice Solutions") 
+				|| Inputdata[8].toString().equals("SIP Trunking") 
+				|| Inputdata[8].toString().equals("Voice Line V")
 				|| Inputdata[8].toString().equals("Managed Dedicated Firewall")
 				|| Inputdata[8].toString().equals("Managed Virtual Firewall")) {
 			Select(getwebelement(xmlIP.getlocator("//locators/tabDropdown")), "Attachments");
@@ -4448,6 +4465,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				|| Inputdata[8].toString().equalsIgnoreCase("Ultra Low Latency")
 				|| Inputdata[8].toString().equalsIgnoreCase("Dark Fibre")
 				|| Inputdata[8].toString().equalsIgnoreCase("DCA Ethernet")
+				|| Inputdata[8].toString().equalsIgnoreCase("SWIFTNet")
 				|| Inputdata[8].toString().equalsIgnoreCase("Ethernet VPN Access")
 				|| Inputdata[8].toString().equalsIgnoreCase("IP Access")) 
 		{
