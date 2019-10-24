@@ -945,6 +945,11 @@ public void Clickonoutofviewportwithstring(String locator) throws Exception {
 		keyAction.sendKeys(k).perform();
 		}
 	
+	public void EnterText2(Keys k){
+		Actions keyAction = new Actions(driver);     
+		keyAction.sendKeys(k).perform();
+	}
+	
 	
 }
 

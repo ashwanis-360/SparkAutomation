@@ -1,21 +1,38 @@
-<?xml version="1.0" encoding="UTF-8" ?> 
- <locators>
- 
- <InflightPlusSign>//button[@aria-label='Workflow:New']</InflightPlusSign>
-  <WorkflowDropdown>//input[@aria-labelledby='Workflow_Type_Label']/../span</WorkflowDropdown>
-  <InflightVoiceSelection>//input[@aria-labelledby="COLT_Voice_Label"]</InflightVoiceSelection>
-  <WorkflowSave>//button[@aria-label="Workflow:Save"]</WorkflowSave>
- <FieldLabel>//span[text()='ChangeFieldName']//i</FieldLabel>
-  <TextInput>//span[text()='Value']/parent::*//input</TextInput>
-  <ClickLink>//a[text()='Value']</ClickLink>
+<locators>
+
+*********************Added by Ayush*********************
+  <InflightPlusSign>//button[@aria-label='Workflow:New']</InflightPlusSign> 
+  <WorkflowDropdown>//input[@aria-labelledby='Workflow_Type_Label']/../span</WorkflowDropdown> 
+  <WorkflowInput>//input[@aria-labelledby='Workflow_Type_Label']</WorkflowInput> 
+  <InflightVoiceSelection>//input[@aria-labelledby="COLT_Voice_Label"]</InflightVoiceSelection> 
+  <WorkflowSave>//button[@aria-label="Workflow:Save"]</WorkflowSave> 
+  <FieldLabel>//span[text()='ChangeFieldName']//i</FieldLabel> 
+  <TextInput>//span[text()='Value']/parent::*//input</TextInput> 
+  <ClickLink>//a[text()='Value']</ClickLink> 
   <ClickheretoSaveAccess>//a[text()='Click here to save your product configuration.']</ClickheretoSaveAccess> 
-   <ServiceOrderReferenceNo>//a[contains(@name,'Order Num')]</ServiceOrderReferenceNo> 
-    <InputServiceOrder>//input[@aria-label='Starting with']</InputServiceOrder> 
+  <ServiceOrderReferenceNo>//a[contains(@name,'Order Num')]</ServiceOrderReferenceNo> 
+  <InputServiceOrder>//input[@aria-label='Starting with']</InputServiceOrder> 
   <ServiceOrderGo>(//button[@aria-label='Service Order List:Go'])[2]</ServiceOrderGo> 
-    <ServiceOrderTab>//a[text()='Service Order']</ServiceOrderTab> 
-    <SelectValueDropdown>(//li[text()='Value'])</SelectValueDropdown>
-   <ClickDropdown>(//span[text()='Value']/parent::*//span)[3]</ClickDropdown>
-   <TotalDDi>(//input[@class='colt-attribute-input siebui-ctrl-input colt-attribute-validate'])</TotalDDi>
-   <CallAdmissionControl>((//input[@class='colt-attribute-input siebui-ctrl-input colt-attribute-validate'])[1])</CallAdmissionControl> 
- 
- </locators>
+  <ServiceOrderTab>//a[text()='Service Order']</ServiceOrderTab> 
+  <SelectValueDropdown>(//li[text()='Value'])</SelectValueDropdown> 
+  <ClickDropdown>(//span[text()='Value']/parent::*//span)[3]</ClickDropdown> 
+  <TotalDDi>(//input[@class='colt-attribute-input siebui-ctrl-input colt-attribute-validate'])</TotalDDi> 
+  <CallAdmissionControl>((//input[@class='colt-attribute-input siebui-ctrl-input colt-attribute-validate'])[1])</CallAdmissionControl> 
+  ********************************Ethernet Spoke,line ,hub and wave*********************** 
+  <FieldLabelR1>//label[text()='ChangeFieldName']/following-sibling::span</FieldLabelR1> 
+  <ResillienceOptionSpoke>//select[contains(@name,'Resilience Option')]</ResillienceOptionSpoke> 
+  <ApplyChangesSpoke>//button[text()='Apply Changes']</ApplyChangesSpoke> 
+  <ResillienceOptionLine>//select[contains(@name,'A End Resilience Option')]</ResillienceOptionLine> 
+  *******************************IP Access*********************************** 
+  <BandwidthIPAccess>//input[@aria-labelledby='A-End_Primary_Bandwidth_Label']</BandwidthIPAccess> 
+  *************************Private ethernet,Dark fibre,DCA Ethernet,Ultra low latency****************************** 
+  <AccessPortAend>//div[@id='colt-site-left']//span[text()='Access Port']</AccessPortAend> 
+  <BandwidthBend>//input[@aria-labelledby='B-End_Primary_Bandwidth_Label']</BandwidthBend> 
+  <FieldLabelR4>//div[@id='colt-site-left']//span[text()='ChangeFieldName']//i</FieldLabelR4> 
+  <TextInputR4>//div[@id='colt-site-left']//span[text()='Value']/parent::*//input</TextInputR4> 
+  **************************Private wave node************************** 
+  <TerminationInformationAEnd>//div[@id='colt-site-left']//span[text()='Termination Information']</TerminationInformationAEnd> 
+  *************************Swiftnet,prizmnet,ip vpn plus,access,wholesale********************* 
+  <FieldLabelSwift>(//span[text()='ChangeFieldName'])[1]//i</FieldLabelSwift> 
+  <TextInputSwift>(//span[text()='Customer Alias'])[1]/parent::*//input</TextInputSwift> 
+  </locators>

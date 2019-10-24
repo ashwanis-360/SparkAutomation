@@ -124,7 +124,7 @@ public class DriverTestcase {
 // ctx.getCurrentXmlTest()ctx.getCurrentXmlTest().set
 
 			ctx.setAttribute("testName", TestName.get().toString());
-		} else if (method.getName().equals("inFlightGeneric")) {
+		} else if (method.getName().equals("InflightMod")) {
 //   DataReader dt=new DataReader();
 //   Object[][] data=dt.ipreader();
 //    Object[] st= (Object[]) data[itr][0];

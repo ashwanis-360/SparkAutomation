@@ -72,4 +72,15 @@
 			</class>
 		</classes>	
 	</test> 
+	
+	  <test name="Siebel InFlight " junit="false" preserve-order="true">
+		<classes>
+			<class name="Testscript.NewOrders">	
+				<methods>
+					
+				 <include name="InflightMod"/>   
+				</methods>	
+			</class>
+		</classes>	
+	</test> 
 </suite>
