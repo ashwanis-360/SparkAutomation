@@ -1242,7 +1242,7 @@
 <SIPVoiceconfigSubtTabTRUNK>(//a[text()='Voice Config'])</SIPVoiceconfigSubtTabTRUNK>
 <SIPVoiceConfigExpandSymbolIPPBXSelewction>(//*[@class='colt-site-component-collapse fa fa-plus-square-o'])</SIPVoiceConfigExpandSymbolIPPBXSelewction>
 <SIPReClickToIPPBXLookUp>((//*[@class='siebui-icon-pick'])[3])</SIPReClickToIPPBXLookUp> 
-<SIPOKSelectionButton>(//*[@class='siebui-ctrl-btn appletButton siebui-icon-pickrecord s_7_1_403_0'])</SIPOKSelectionButton>
+<SIPOKSelectionButton>//button[@title="COLT IP PBX Pick Applet:OK"]</SIPOKSelectionButton>
 <SIPVoiceConfigTab>//a[contains(text(),'Voice Config')]</SIPVoiceConfigTab> 
 
 <!--  Other Tab Locators --> 
@@ -1264,5 +1264,7 @@
 <SIPVoiceFeatureInput>//span[text()="value"]//following-sibling::input</SIPVoiceFeatureInput>
 <attribute>//*[text()='fieldsname']/parent::*</attribute>
 <FooterClass>//a[text()='Values']</FooterClass>
+<SiteInfo>//span[@class="colt-site-top-addr"]</SiteInfo>
+<PortGroup>//table[@summary="Port Group"]//tr[@id=1]//following-sibling::td[value]</PortGroup>
 <!-- End Dipesh Locators -->
   </locators>
