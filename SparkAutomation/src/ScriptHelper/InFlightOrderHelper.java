@@ -39,7 +39,6 @@ public class InFlightOrderHelper extends DriverHelper {
 
 	WebElement el;
 	
-	
 	XMLReader xml = new XMLReader("src\\Locators\\InFlightOrder.xml");
 	
 	public void ServiceTabInFlight(Object[] Inputdata) throws Exception {
