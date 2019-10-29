@@ -101,6 +101,7 @@ public class DriverHelper {
 	public static ThreadLocal<String> NetworkReferenceIPVPN=new ThreadLocal<>();
 	public static ThreadLocal<String>CarNorOrderNumber=new ThreadLocal<>(); //added by Rekha
 	public static ThreadLocal<String>ServiceOrder2=new ThreadLocal<>(); //added by Abhay 28-sep-2019
+	public static ThreadLocal<String> CeosOrder= new ThreadLocal<>();//added by Rekha
 	public DriverHelper(WebDriver dr)
 	{
 		driver=dr;
