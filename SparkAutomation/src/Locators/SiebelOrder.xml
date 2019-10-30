@@ -619,7 +619,7 @@
 <AccessServiceIdlookup>(//span[@class='siebui-icon-pick'])[2]</AccessServiceIdlookup>
 <PickServiceSubmit>//button[@title='Pick Service:OK']</PickServiceSubmit>
 <showfullinfo>//a[text()='Show full info']</showfullinfo>
-<TrunkConfigurationplus>(//span[@class='colt-site-component-collapse fa fa-plus-square-o'])[2]</TrunkConfigurationplus>
+<TrunkConfigurationplus>(//span[@class='colt-site-component-collapse fa fa-plus-square-o'])[3]</TrunkConfigurationplus>
 <outsidebuissnesshourinstallation>(//span[@class='colt-component-check-available fa fa-circle-o'])[3]</outsidebuissnesshourinstallation>
 <TrunckConfigplus>(//span[@class='colt-site-component-collapse fa fa-plus-square-o'])[1]</TrunckConfigplus>
 <OperationAttribute>//span[@class='colt-oa-btn colt-oa-std-btn']</OperationAttribute>
@@ -841,9 +841,6 @@
 <Searchbtn>//div[text()='Search']</Searchbtn>
 <AccessNotificationPeriod>//span[text()='Access Notification Period']/..//input</AccessNotificationPeriod>
  <InstalltimeBside>(//span[text()='Install Time']/..//span)[6]</InstalltimeBside>
- <CEOSRecord>//*[@class='OffnetSortClass']</CEOSRecord>
- <Layer3ResillancePartialSelectDropdownAccess>//li[text()='Dual Access Load Shared']</Layer3ResillancePartialSelectDropdownAccess>
- <Secondarybtn>//a[text()='Secondary']</Secondarybtn>
  <!--   rekha locator End --> 
   
   <!--Gaury's Locators for SIP truncking -->
