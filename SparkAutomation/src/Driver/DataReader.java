@@ -19,6 +19,7 @@ public class DataReader {
 	@DataProvider(name="NewOrderOnnet", parallel=true)
 	public static Object[][] NewOrder() throws IOException
 	{
+	
 		FileInputStream file = new FileInputStream(new File("src//Data//InputData.xlsx"));
 		//FileInputStream file = new FileInputStream(new File("C:\\Users\\ASharma19-adm\\git\\Spark\\SparkAutomation\\src\\Data\\EtherNetP2PNewOrder.xlsx"));
 		 XSSFWorkbook workbook = new XSSFWorkbook(file);

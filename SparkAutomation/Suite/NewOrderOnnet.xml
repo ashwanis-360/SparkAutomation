@@ -18,6 +18,7 @@
 			<class name="Testscript.NewOrders">	
 				<methods>
 					<include name="Cease"/>
+			  
 				</methods>	
 			</class>
 		</classes>	
