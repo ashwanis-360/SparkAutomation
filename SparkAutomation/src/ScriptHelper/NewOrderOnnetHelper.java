@@ -134,11 +134,9 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		WaitforElementtobeclickable(xml.getlocator("//locators/OrderingPartyContactSearch"));
 		Clickon(getwebelement(xml.getlocator("//locators/OrderingPartyContactSearch")));
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Ordering Party Contact Search");
-		waitforPagetobeenable();
-		waitForpageload();
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		WaitforElementtobeclickable(xml.getlocator("//locators/PartyContactPopupDropdown"));
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		Clickon(getwebelement(xml.getlocator("//locators/PartyContactPopupDropdown")));
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Party Contact Popup Dropdown");
 		waitforPagetobeenable();
@@ -2396,28 +2394,6 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			SendKeys(getwebelement(xml.getlocator("//locators/SIPNumberOf1000ColtDDIRanges")), "1");
 			ExtentTestManager.getTest().log(LogStatus.PASS, "Enter Number of Colt Ranges ");
 			Thread.sleep(3000);
-			
-			
-			WaitforElementtobeclickable(xml.getlocator("//locators/SIPCheckBoxCount"));
-			Clickon(getwebelement(xml.getlocator("//locators/SIPCheckBoxCount")));
-			Thread.sleep(5000);
-			
-			Clickon(getwebelement(xml.getlocator("//locators/SIPVoiceFeatureInput").replace("value", "Number of single Ported In DDIs")));
-			Clear(getwebelement(xml.getlocator("//locators/SIPVoiceFeatureInput").replace("value", "Number of single Ported In DDIs")));
-			SendKeys((getwebelement(xml.getlocator("//locators/SIPVoiceFeatureInput").replace("value", "Number of single Ported In DDIs"))),"12");
-			
-			Clickon(getwebelement(xml.getlocator("//locators/SIPVoiceFeatureInput").replace("value", "Number of 10 Ported In DDI Ranges")));
-			Clear(getwebelement(xml.getlocator("//locators/SIPVoiceFeatureInput").replace("value", "Number of 10 Ported In DDI Ranges")));
-			SendKeys((getwebelement(xml.getlocator("//locators/SIPVoiceFeatureInput").replace("value", "Number of 10 Ported In DDI Ranges"))),"12");
-
-			Clickon(getwebelement(xml.getlocator("//locators/SIPVoiceFeatureInput").replace("value", "Number of 100 Ported In DDI Ranges")));
-			Clear(getwebelement(xml.getlocator("//locators/SIPVoiceFeatureInput").replace("value", "Number of 100 Ported In DDI Ranges")));
-			SendKeys((getwebelement(xml.getlocator("//locators/SIPVoiceFeatureInput").replace("value", "Number of 100 Ported In DDI Ranges"))),"12");
-
-			Clickon(getwebelement(xml.getlocator("//locators/SIPVoiceFeatureInput").replace("value", "Number of 1000 Ported In DDI Ranges")));
-			Clear(getwebelement(xml.getlocator("//locators/SIPVoiceFeatureInput").replace("value", "Number of 1000 Ported In DDI Ranges")));
-			SendKeys((getwebelement(xml.getlocator("//locators/SIPVoiceFeatureInput").replace("value", "Number of 1000 Ported In DDI Ranges"))),"12");
-			
 			WaitforElementtobeclickable(xml.getlocator("//locators/SIPVoiceConfigOthersTabColtDDIRangesCloseWindow"));
 			Clickon(getwebelement(xml.getlocator("//locators/SIPVoiceConfigOthersTabColtDDIRangesCloseWindow")));
 			ExtentTestManager.getTest().log(LogStatus.PASS, "Colt DDI Ranges window closed");
@@ -3723,31 +3699,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			Clickon(getwebelement(xml.getlocator("//locators/OtherTabClick")));
 			waitForpageload();
 			waitforPagetobeenable();
-			WaitforElementtobeclickable(xml.getlocator("//locators/ShowFullInfoTrunk"));
-			Clickon(getwebelement(xml.getlocator("//locators/ShowFullInfoTrunk")));
-			WaitforElementtobeclickable(xml.getlocator("//locators/SIPCheckBox").replace("value","2"));
-			Clickon(getwebelement(xml.getlocator("//locators/SIPCheckBox").replace("value","2")));
-			
-			Clickon(getwebelement(xml.getlocator("//locators/SIPVoiceFeatureInput").replace("value", "Number of single Hosted DDIs")));
-			Clear(getwebelement(xml.getlocator("//locators/SIPVoiceFeatureInput").replace("value", "Number of single Hosted DDIs")));
-			SendKeys((getwebelement(xml.getlocator("//locators/SIPVoiceFeatureInput").replace("value", "Number of single Hosted DDIs"))),"12");
-			
-			Clickon(getwebelement(xml.getlocator("//locators/SIPVoiceFeatureInput").replace("value", "Number of 10 Hosted DDI Ranges")));
-			Clear(getwebelement(xml.getlocator("//locators/SIPVoiceFeatureInput").replace("value", "Number of 10 Hosted DDI Ranges")));
-			SendKeys((getwebelement(xml.getlocator("//locators/SIPVoiceFeatureInput").replace("value", "Number of 10 Hosted DDI Ranges"))),"12");
-			
-			Clickon(getwebelement(xml.getlocator("//locators/SIPVoiceFeatureInput").replace("value", "Number of 100 Hosted DDI Ranges")));
-			Clear(getwebelement(xml.getlocator("//locators/SIPVoiceFeatureInput").replace("value", "Number of 100 Hosted DDI Ranges")));
-			SendKeys((getwebelement(xml.getlocator("//locators/SIPVoiceFeatureInput").replace("value", "Number of 100 Hosted DDI Ranges"))),"12");
-			
-			Clickon(getwebelement(xml.getlocator("//locators/SIPVoiceFeatureInput").replace("value", "Number of 1000 Hosted DDI Ranges")));
-			Clear(getwebelement(xml.getlocator("//locators/SIPVoiceFeatureInput").replace("value", "Number of 1000 Hosted DDI Ranges")));
-			SendKeys((getwebelement(xml.getlocator("//locators/SIPVoiceFeatureInput").replace("value", "Number of 1000 Hosted DDI Ranges"))),"12");
-			Thread.sleep(1000);			
-			WaitforElementtobeclickable(xml.getlocator("//locators/CrossButton1"));
-			Clickon(getwebelement(xml.getlocator("//locators/CrossButton1")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on CrossButton");
-			Thread.sleep(5000);			
+
 			SendKeys(getwebelement(xml.getlocator("//locators/TextInput").replace("Value", "Internal Routing Prefix")),
 					"45");
 			Thread.sleep(3000);
