@@ -48,7 +48,7 @@ public class InFlightOrderHelper extends DriverHelper {
 		String Product_Name1=Inputdata[11].toString();
 
 		
-		        Thread.sleep(15000);
+		       // Thread.sleep(15000);
 				//Service Tab Click
 				try 
 				{

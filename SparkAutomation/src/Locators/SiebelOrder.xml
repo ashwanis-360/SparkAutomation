@@ -1265,9 +1265,4 @@
 <attribute>//*[text()='fieldsname']/parent::*</attribute>
 <FooterClass>//a[text()='Values']</FooterClass>
 <!-- End Dipesh Locators -->
-
-************For offnet******************************************
-<ThirdPartyconnectionreferenceUltra>(//span[text()='3rd Party Connection Reference']/..//input)[value]</ThirdPartyconnectionreferenceUltra>
-<ThirdpartySLATiervalueultra>//li[text()='Tier 1'][value]</ThirdpartySLATiervalueultra>
-<ThirdpartyaccessproviderDropDown>(//span[text()='Third Party Access Provider']/..//span)[3]</ThirdpartyaccessproviderDropDown>
   </locators>
