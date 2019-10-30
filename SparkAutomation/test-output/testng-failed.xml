@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite thread-count="1" name="Failed suite [Spark End to End Order]" data-provider-thread-count="1">
+<suite thread-count="1" name="Failed suite [CPQ End to End Order]" data-provider-thread-count="2">
   <listeners>
     <listener class-name="Listners.TestListener"/>
   </listeners>
-  <test name="Siebel InFlight (failed)">
+  <test name="Siebel New Order Onnet(failed)">
     <classes>
       <class name="Testscript.NewOrders">
         <methods>
+          <include name="EndtoEndOrderOnnet" invocation-numbers="1 0 2 3 4 5 6"/>
           <include name="BeforeMethod"/>
           <include name="Teardown2"/>
           <include name="BeforeSuite"/>
-          <include name="InflightMod" invocation-numbers="0 1 2 4 5 6 7 9 10 11 12 13 14 16 17 18 19 20 21"/>
         </methods>
       </class> <!-- Testscript.NewOrders -->
     </classes>
-  </test> <!-- Siebel InFlight (failed) -->
-</suite> <!-- Failed suite [Spark End to End Order] -->
+  </test> <!-- Siebel New Order Onnet(failed) -->
+</suite> <!-- Failed suite [CPQ End to End Order] -->
