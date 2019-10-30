@@ -44,13 +44,46 @@
 </CreateSite>
 <EditSite>
 <EditLink>//td[@class='onlineData']//a</EditLink>
-
+<EditBuilding>//a[@class='overlay'][text()='Edit']</EditBuilding>
+<BuildingUpdateMessage>//td[@class='form formtext']</BuildingUpdateMessage>
+<SiteType>//select[@id='siteTypeId']</SiteType>
+<Status>//select[@id='siteStatusId']</Status>
+<UpdateSite>//input[@name='updateSiteInfoButton']</UpdateSite>
+<UpdateSiteId>//table[@id='DomainTable']//tbody//tr[1]/td[1]</UpdateSiteId>
 </EditSite>
+<Hub>
+ <HubSiteB>//img[@id='imgSelectAddressSiteB']</HubSiteB>
+ <HubSiteA>//img[@id='imgSelectAddressSiteA']</HubSiteA>
+ <Street>//input[@id='txtStreetName']</Street>
+ <Country>//select[@id='ddlCountry']</Country>
+ <City>//input[@id='txtCityTown']</City>
+ <Postal>//input[@id='txtPostalCode']</Postal>
+ <Premises>//input[@id='txtPremises']</Premises>
+ <Search>//input[@id='btnSearchAddress']</Search>
+ <AddressRow>//table[@id='address_table']//tr[@class='row'][1]</AddressRow>
+ <BuildingRow>//table[@id='address_table']//tr[@class='row'][-100]</BuildingRow>
+ <GridRowHeader>//table[@id='address_table']//th</GridRowHeader>
+ <TotalRow>//table[@id='address_table']//tr[@class='row']</TotalRow>
+ <GridBuildingRow>//table[@id='address_table']//tr[@class='row'][-100]//td[-200]</GridBuildingRow>
+ <Addbuilding>//img[@id='imgAddBuilding']</Addbuilding>
+ <Pick>//input[@id='PickAddress']</Pick>
+ <PickBuilding>//input[@id='PickBuilding']</PickBuilding>
+ <PickSite>//input[@id='PickSite']</PickSite>
+ <BuildingName>//input[@id='txtBuildingName']</BuildingName>
+ <SaveBuilding>//input[@id='btnSaveBuilding']</SaveBuilding>
+ <RoomNo>//input[@id='txtRoomName']</RoomNo>
+ <Floor>//input[@id='txtFloor']</Floor>
+ <SaveSite>//input[@id='btnSaveSite']</SaveSite>
+ <SiteIDB>//span[@id='selected_siteB']</SiteIDB>
+  <SiteIDA>//span[@id='selected_siteA']</SiteIDA>
+ 
+</Hub>
 <SearchSite>
 <SearchType>//select[@id='searchType']</SearchType>
 <SearchValue>//input[@id='searchTextBox']</SearchValue>
 <Submit>//input[@type='submit']</Submit>
 <SearchResultId>//table[@id='DomainTable']//tr//td//a[@class='overlay'][1]</SearchResultId>
+<BuildingId>//input[@id='buildingId']/preceding-sibling::input</BuildingId>
 </SearchSite>
 <Siebel>
 <SiteID>//div[@id='colt-site-left']//span[@class='colt-site-top-id']</SiteID>
@@ -66,5 +99,9 @@
 <BuildingName>//input[@name='buildingName']</BuildingName>
 <RoomName>//input[@name='roomName']</RoomName>
 <Floor>//input[@name='floor']</Floor>
+<SiteGridHeader>//table[@id='colt-siteselection-result-table']//th</SiteGridHeader>
+<SiteGridDataRow>//table[@id='colt-siteselection-result-table']//tr[@class='colt-siteselection-datarow']</SiteGridDataRow>
+<SiteGridTD>//table[@id='colt-siteselection-result-table']//tr[@class='colt-siteselection-datarow'][-100]/td[-200]</SiteGridTD>
+<SiteGridRow>//table[@id='colt-siteselection-result-table']//tr[@class='colt-siteselection-datarow'][-100]</SiteGridRow>
 </Siebel>
 </locators>
