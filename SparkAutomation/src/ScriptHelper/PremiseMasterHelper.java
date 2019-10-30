@@ -12,7 +12,9 @@ import org.testng.Assert;
 import com.relevantcodes.extentreports.LogStatus;
 import Driver.DriverHelper;
 import Driver.XMLReader;
-
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import Reporter.ExtentTestManager;
 import java.util.Random;
 
@@ -117,7 +119,274 @@ public class PremiseMasterHelper extends DriverHelper
 				
 	}
 	
-	public void AddSiteAndBuilding(Object[] InputData) throws InterruptedException, DocumentException, IOException {
+	public void SearchBuildingAndEdit(String BulidingID,Object[] InputData) throws Exception
+	{
+		waitForpageload();
+		ClickTopMeu("Search");
+		
+		waitForpageload();
+		System.out.println(BulidingID);
+		
+		WaitforElementtobeclickable(xml.getlocator("//locators/SearchSite/SearchType"));		
+		Select2(getwebelement(xml.getlocator("//locators/SearchSite/SearchType")), "BUILDING");
+		ExtentTestManager.getTest().log(LogStatus.PASS," Step: Select Search Type >> Building");
+		
+		ClearSendKeys(getwebelement(xml.getlocator("//locators/SearchSite/SearchValue")), BulidingID);
+		ExtentTestManager.getTest().log(LogStatus.PASS," Step: Enter Search Value >> "+BulidingID);
+		
+		WaitforElementtobeclickable(xml.getlocator("//locators/SearchSite/Submit"));		
+		Clickon(getwebelement(xml.getlocator("//locators/SearchSite/Submit")));
+		ExtentTestManager.getTest().log(LogStatus.PASS," Step: Click On Search ");
+		
+		waitForpageload();
+		
+		WaitforElementtobeclickable(xml.getlocator("//locators/EditSite/EditBuilding"));		
+		Clickon(getwebelement(xml.getlocator("//locators/EditSite/EditBuilding")));
+		ExtentTestManager.getTest().log(LogStatus.PASS," Step: Click On Edit Link ");
+		waitforPagetobeenable();
+		waitForpageload();
+		
+		//Updating Building Type
+		WaitforElementtobeclickable(xml.getlocator("//locators/CreateSite/BuildingType"));		
+		Select2(getwebelement(xml.getlocator("//locators/CreateSite/BuildingType")), InputData[23].toString());
+		ExtentTestManager.getTest().log(LogStatus.PASS," Step: Select Building Type >> "+InputData[23].toString());
+		waitforPagetobeenable();
+		
+		// Status 
+		System.out.println(InputData[24].toString());
+		WaitforElementtobeclickable(xml.getlocator("//locators/CreateSite/BuildingStatus"));		
+		Select2(getwebelement(xml.getlocator("//locators/CreateSite/BuildingStatus")), InputData[24].toString());
+		ExtentTestManager.getTest().log(LogStatus.PASS," Step: Select Building Status Type >> "+InputData[24].toString());
+		waitforPagetobeenable();
+				
+		//Access Type
+		System.out.println(InputData[25].toString());
+		WaitforElementtobeclickable(xml.getlocator("//locators/CreateSite/AccessType"));		
+		Select2(getwebelement(xml.getlocator("//locators/CreateSite/AccessType")), InputData[25].toString());
+		ExtentTestManager.getTest().log(LogStatus.PASS," Step: Select Access Type >> "+InputData[25].toString());
+		waitforPagetobeenable();
+		
+		//Building Category
+		System.out.println(InputData[26].toString());
+		WaitforElementtobeclickable(xml.getlocator("//locators/CreateSite/BuildingCategory"));		
+		Select2(getwebelement(xml.getlocator("//locators/CreateSite/BuildingCategory")), InputData[26].toString());
+		ExtentTestManager.getTest().log(LogStatus.PASS," Step: Select Building Category Type >> "+InputData[26].toString());
+		waitforPagetobeenable();
+		
+		WaitforElementtobeclickable(xml.getlocator("//locators/CreateSite/Submit"));		
+		Clickon(getwebelement(xml.getlocator("//locators/CreateSite/Submit")));
+		ExtentTestManager.getTest().log(LogStatus.PASS," Step: Click On Update Bulding");
+		
+		waitForpageload();
+		waitforPagetobeenable();
+		
+		String Message=GetText(getwebelement(xml.getlocator("//locators/EditSite/BuildingUpdateMessage")));
+		Message=Message.toUpperCase();
+		System.out.println("Building Updated Message : "+Message);
+		ExtentTestManager.getTest().log(LogStatus.PASS," Step: Bulding Update : "+Message);
+		Assert.assertTrue(Message.contains("BUILDING UPDATED SUCCESSFULLY WITH ID")&& Message.contains(BulidingID), "Error in Building Updation");
+	
+	}
+	public void SearchSiteAndEdit(String SiteID,Object[] InputData) throws Exception
+	{
+		
+		waitForpageload();
+		ClickTopMeu("Search");
+		
+		waitForpageload();
+		System.out.println(SiteID);
+		
+		WaitforElementtobeclickable(xml.getlocator("//locators/SearchSite/SearchType"));		
+		Select2(getwebelement(xml.getlocator("//locators/SearchSite/SearchType")), "SITE");
+		ExtentTestManager.getTest().log(LogStatus.PASS," Step: Select Search Type >> Site");
+		
+		ClearSendKeys(getwebelement(xml.getlocator("//locators/SearchSite/SearchValue")), SiteID);
+		ExtentTestManager.getTest().log(LogStatus.PASS," Step: Enter Search Site Value >> "+SiteID);
+		
+		WaitforElementtobeclickable(xml.getlocator("//locators/SearchSite/Submit"));		
+		Clickon(getwebelement(xml.getlocator("//locators/SearchSite/Submit")));
+		ExtentTestManager.getTest().log(LogStatus.PASS," Step: Click On Create Bulding and Site ");
+		
+		waitForpageload();
+		
+		WaitforElementtobeclickable(xml.getlocator("//locators/EditSite/EditBuilding"));		
+		Clickon(getwebelement(xml.getlocator("//locators/EditSite/EditBuilding")));
+		ExtentTestManager.getTest().log(LogStatus.PASS," Step: Click On Edit Link ");
+		waitforPagetobeenable();
+		waitForpageload();
+		
+		//Site Type
+		System.out.println(InputData[27].toString());
+		WaitforElementtobeclickable(xml.getlocator("//locators/EditSite/SiteType"));		
+		Select2(getwebelement(xml.getlocator("//locators/EditSite/SiteType")), InputData[27].toString());
+		ExtentTestManager.getTest().log(LogStatus.PASS," Step: Select Site Type >> "+InputData[27].toString());
+		waitForpageload();
+		waitforPagetobeenable();
+		
+		//Man City Code
+		System.out.println(InputData[32].toString());
+		WaitforElementtobeclickable(xml.getlocator("//locators/CreateSite/CityID"));		
+		Select(getwebelement(xml.getlocator("//locators/CreateSite/CityID")), InputData[32].toString());
+		ExtentTestManager.getTest().log(LogStatus.PASS," Step: Select CityID >> "+InputData[32].toString());
+		waitforPagetobeenable();
+		
+		//Status 
+		System.out.println(InputData[28].toString());
+		WaitforElementtobeclickable(xml.getlocator("//locators/EditSite/Status"));		
+		Select2(getwebelement(xml.getlocator("//locators/EditSite/Status")), InputData[28].toString());
+		ExtentTestManager.getTest().log(LogStatus.PASS," Step: Select Status Type >> "+InputData[28].toString());
+		waitforPagetobeenable();
+		
+		WaitforElementtobeclickable(xml.getlocator("//locators/EditSite/UpdateSite"));		
+		Clickon(getwebelement(xml.getlocator("//locators/EditSite/UpdateSite")));
+		ExtentTestManager.getTest().log(LogStatus.PASS," Step: Click On Update Site info");
+		
+		waitForpageload();
+		waitforPagetobeenable();
+	
+	}
+	
+	public String GetUpdateSiteId(String BulidingID) throws Exception 
+	{
+		waitForpageload();
+		ClickTopMeu("Search");
+		
+		waitForpageload();
+		System.out.println(BulidingID);
+		
+		WaitforElementtobeclickable(xml.getlocator("//locators/SearchSite/SearchType"));		
+		Select2(getwebelement(xml.getlocator("//locators/SearchSite/SearchType")), "BUILDING");
+		ExtentTestManager.getTest().log(LogStatus.PASS," Step: Select Search Type >> Building");
+		
+		ClearSendKeys(getwebelement(xml.getlocator("//locators/SearchSite/SearchValue")), BulidingID);
+		ExtentTestManager.getTest().log(LogStatus.PASS," Step: Enter Search Value >> "+BulidingID);
+		
+		WaitforElementtobeclickable(xml.getlocator("//locators/SearchSite/Submit"));		
+		Clickon(getwebelement(xml.getlocator("//locators/SearchSite/Submit")));
+		ExtentTestManager.getTest().log(LogStatus.PASS," Step: Click On Search ");
+		
+		waitForpageload();
+		
+		WaitforElementtobeclickable(xml.getlocator("//locators/EditSite/EditBuilding"));		
+		Clickon(getwebelement(xml.getlocator("//locators/EditSite/EditBuilding")));
+		ExtentTestManager.getTest().log(LogStatus.PASS," Step: Click On Edit Link ");
+		waitforPagetobeenable();
+		waitForpageload();
+		
+		String Id=Gettext(getwebelement2(xml.getlocator("//locators/EditSite/UpdateSiteId"))).trim();
+		ExtentTestManager.getTest().log(LogStatus.PASS," Step: Updated Site ID Fetched : "+ Id);
+		return Id;
+		
+	} 
+	
+	public HashMap<String, String> AddSiteAndBuilding(Object[] InputData) throws InterruptedException, DocumentException, IOException {
+		
+		HashMap<String, String> SiteValues=new HashMap<>();
+		String ProductName = InputData[8].toString();
+		if(ProductName.equalsIgnoreCase("Ethernet Spoke")||ProductName.equalsIgnoreCase("Ethernet Hub"))
+		{
+			WaitforElementtobeclickable(xml.getlocator("//locators/Hub/Street"));
+			ClearSendKeys(getwebelement(xml.getlocator("//locators/Hub/Street")),InputData[19].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Street: " + InputData[19].toString());
+			waitforPagetobeenable();
+			
+			WaitforElementtobeclickable(xml.getlocator("//locators/Hub/Country"));
+			Select(getwebelement(xml.getlocator("//locators/Hub/Country")), InputData[16].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Country: " + InputData[16].toString());
+			waitforPagetobeenable();
+			
+			WaitforElementtobeclickable(xml.getlocator("//locators/Hub/City"));
+			ClearSendKeys(getwebelement(xml.getlocator("//locators/Hub/City")),InputData[17].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter City/Town : " + InputData[17].toString());
+			waitforPagetobeenable();
+			
+			WaitforElementtobeclickable(xml.getlocator("//locators/Hub/Postal"));
+			ClearSendKeys(getwebelement(xml.getlocator("//locators/Hub/Postal")),InputData[21].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Postal Code : " + InputData[21].toString());
+			waitforPagetobeenable();
+			
+			WaitforElementtobeclickable(xml.getlocator("//locators/Hub/Premises"));
+			ClearSendKeys(getwebelement(xml.getlocator("//locators/Hub/Premises")),InputData[22].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Premises : " + InputData[22].toString());
+			waitforPagetobeenable();
+			
+			WaitforElementtobeclickable(xml.getlocator("//locators/Hub/Search"));
+			Clickon(getwebelement(xml.getlocator("//locators/Hub/Search")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Search");
+			waitforPagetobeenable();
+
+			WaitforElementtobeclickable(xml.getlocator("//locators/Hub/AddressRow"));
+			Clickon(getwebelement(xml.getlocator("//locators/Hub/AddressRow")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Selcet Row");
+			waitforPagetobeenable();
+			waitForpageload();
+			
+			WaitforElementtobeclickable(xml.getlocator("//locators/Hub/Pick"));
+			Clickon(getwebelement(xml.getlocator("//locators/Hub/Pick")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Pick");
+			waitforPagetobeenable();
+			
+			WaitforElementtobeclickable(xml.getlocator("//locators/Hub/Addbuilding"));
+			Clickon(getwebelement(xml.getlocator("//locators/Hub/Addbuilding")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Add Building");
+			waitforPagetobeenable();
+			
+			//Building  Name
+			if(InputData[20].toString().equals(null)||InputData[20].toString().equals("")) 
+			{
+				temp=BuildingGeneration();
+				ExtentTestManager.getTest().log(LogStatus.PASS," Step: Building Name Generated >> "+temp);
+			}
+			else
+			{
+				temp=InputData[20].toString()+"-"+ String.valueOf(rnd.nextInt(1000));
+			}
+			SiteValues.put("BuildingName", temp);
+			ClearSendKeys(getwebelement(xml.getlocator("//locators/Hub/BuildingName")), temp);
+			ExtentTestManager.getTest().log(LogStatus.PASS," Step: Building Name Entered >> "+temp);
+			waitforPagetobeenable();
+			
+			WaitforElementtobeclickable(xml.getlocator("//locators/Hub/SaveBuilding"));
+			Clickon(getwebelement(xml.getlocator("//locators/Hub/SaveBuilding")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Save");
+			waitforPagetobeenable();
+		
+			//Fill Building Details
+			//House Number
+			if(InputData[18].toString().equals(null)||InputData[18].toString().equals("")) 
+			{
+				temp=HouseNoGeneration();
+				ExtentTestManager.getTest().log(LogStatus.PASS," Step: House Number Generated >> "+temp);
+			}
+			else
+			{
+				temp=InputData[18].toString()+"-"+ String.valueOf(rnd.nextInt(1000));
+			}
+			ClearSendKeys(getwebelement(xml.getlocator("//locators/Hub/RoomNo")), temp);
+			ExtentTestManager.getTest().log(LogStatus.PASS," Step: Room Name Entered >> "+temp);
+			waitforPagetobeenable();
+			SiteValues.put("Room", temp);
+			
+			//Floor 
+			int floor =rnd.nextInt((20 - 1) + 1) + 1;
+			System.out.println(String.valueOf(floor));
+			WaitforElementtobeclickable(xml.getlocator("//locators/Hub/Floor"));		
+			ClearSendKeys(getwebelement(xml.getlocator("//locators/Hub/Floor")), String.valueOf(floor));
+			ExtentTestManager.getTest().log(LogStatus.PASS," Step: Floor Entered >> "+String.valueOf(floor));
+			waitforPagetobeenable();
+			SiteValues.put("Floor", temp);
+			
+			WaitforElementtobeclickable(xml.getlocator("//locators/Hub/SaveSite"));
+			Clickon(getwebelement(xml.getlocator("//locators/Hub/SaveSite")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Save");
+			Thread.sleep(10000);
+			waitforPagetobeenable();
+			
+			return SiteValues;
+					
+		}
+		else
+		{
 		WaitforElementtobeclickable(xmlS.getlocator("//locators/R4/SearchInput").replace("Value", "Street Name"));
 		Clear(getwebelement(xmlS.getlocator("//locators/R4/SearchInput").replace("Value", "Street Name")));
 		SendKeys(getwebelement(xmlS.getlocator("//locators/R4/SearchInput").replace("Value", "Street Name")),
@@ -187,7 +456,7 @@ public class PremiseMasterHelper extends DriverHelper
 				{
 					temp=InputData[20].toString()+"-"+ String.valueOf(rnd.nextInt(1000));
 				}
-					
+				SiteValues.put("BuildingName", temp);
 				ClearSendKeys(getwebelement(xml.getlocator("//locators/Siebel/BuildingName")), temp);
 				ExtentTestManager.getTest().log(LogStatus.PASS," Step: Building Name Entered >> "+temp);
 				waitforPagetobeenable();
@@ -205,6 +474,7 @@ public class PremiseMasterHelper extends DriverHelper
 				ClearSendKeys(getwebelement(xml.getlocator("//locators/Siebel/RoomName")), temp);
 				ExtentTestManager.getTest().log(LogStatus.PASS," Step: Room Name Entered >> "+temp);
 				waitforPagetobeenable();
+				SiteValues.put("Room", temp);
 				
 				//Floor 
 				int floor =rnd.nextInt((20 - 1) + 1) + 1;
@@ -213,22 +483,569 @@ public class PremiseMasterHelper extends DriverHelper
 				ClearSendKeys(getwebelement(xml.getlocator("//locators/Siebel/Floor")), String.valueOf(floor));
 				ExtentTestManager.getTest().log(LogStatus.PASS," Step: Select Floor >> "+String.valueOf(floor));
 				waitforPagetobeenable();
+				SiteValues.put("Floor", temp);
+				
+				WaitforElementtobeclickable(xml.getlocator("//locators/Siebel/SaveAddress"));
+				Clickon(getwebelement(xml.getlocator("//locators/Siebel/SaveAddress")));
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Save New Building & Site");
+				Thread.sleep(10000);
+				waitforPagetobeenable();
+				
+				return SiteValues;
+		}
+				
+	}
+	//NewWith Hub And Spoke
+	public HashMap<String, String> AddSiteAndBuildingNew(Object[] InputData) throws InterruptedException, DocumentException, IOException {
+		
+		HashMap<String, String> SiteValues=new HashMap<>();
+		String StreetName=InputData[19].toString();
+		String ProductName=InputData[8].toString();
+		if(ProductName.equals("IP Voice Solutions")||ProductName.equals("IP Voice Solutions"))
+		{
+			return SiteValues;
+		}
+		else
+		{
+		WaitforElementtobeclickable(xmlS.getlocator("//locators/R4/SearchInput").replace("Value", "Street Name"));
+		if(StreetName.equals(null)||StreetName.equals(""))
+		{
+			
+		}
+		ClearSendKeys(getwebelement(xmlS.getlocator("//locators/R4/SearchInput").replace("Value", "Street Name")),
+				InputData[19].toString());
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Street: " + InputData[19].toString());
+
+		WaitforElementtobeclickable(xmlS.getlocator("//locators/R4/SearchDropdown").replace("Value", "Country"));
+		Clickon(getwebelement(xmlS.getlocator("//locators/R4/SearchDropdown").replace("Value", "Country")));
+		Clickon(getwebelement(
+				xmlS.getlocator("//locators/R4/SiteABSelection").replace("Value", InputData[16].toString())));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Country: " + InputData[16].toString());
+
+		WaitforElementtobeclickable(xmlS.getlocator("//locators/R4/SearchInput").replace("Value", "City / Town"));
+		ClearSendKeys(getwebelement(xmlS.getlocator("//locators/R4/SearchInput").replace("Value", "City / Town")),
+				InputData[17].toString());
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter City/Town : " + InputData[17].toString());
+
+		WaitforElementtobeclickable(xmlS.getlocator("//locators/R4/SearchInput").replace("Value", "Postal Code"));
+		ClearSendKeys(getwebelement(xmlS.getlocator("//locators/R4/SearchInput").replace("Value", "Postal Code")),
+				InputData[21].toString());
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Postal Code : " + InputData[21].toString());
+
+		WaitforElementtobeclickable(xmlS.getlocator("//locators/R4/SearchInput").replace("Value", "Premises"));
+		ClearSendKeys(getwebelement(xmlS.getlocator("//locators/R4/SearchInput").replace("Value", "Premises")),
+				InputData[22].toString());
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Premises : " + InputData[22].toString());
+
+		WaitforElementtobeclickable(xmlS.getlocator("//locators/R4/SearchButton"));
+		Clickon(getwebelement(xmlS.getlocator("//locators/R4/SearchButton")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Search");
+		waitforPagetobeenable();
+
+		WaitforElementtobeclickable(xml.getlocator("//locators/Siebel/AddressNotFound"));
+		Clickon(getwebelement(xml.getlocator("//locators/Siebel/AddressNotFound")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Address Not Found? Search Address Doctor");
+		waitforPagetobeenable();
+		waitForpageload();
+		
+		WaitforElementtobeclickable(xml.getlocator("//locators/Siebel/Addaddress"));
+		Clickon(getwebelement(xml.getlocator("//locators/Siebel/Addaddress")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Address Not Found? Create a new Address");
+		waitforPagetobeenable();
+		
+		WaitforElementtobeclickable(xml.getlocator("//locators/Siebel/SaveAddress"));
+		Clickon(getwebelement(xml.getlocator("//locators/Siebel/SaveAddress")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Save Address");
+		waitforPagetobeenable();
+		
+		WaitforElementtobeclickable(xml.getlocator("//locators/Siebel/Addaddress"));
+		Clickon(getwebelement(xml.getlocator("//locators/Siebel/Addaddress")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Building Not Found? Create a new Building");
+		waitforPagetobeenable();
+		
+		
+		//Fill Building Details
+		
+		//Building  Name
+				if(InputData[20].toString().equals(null)||InputData[20].toString().equals("")) 
+				{
+					temp=BuildingGeneration();
+					ExtentTestManager.getTest().log(LogStatus.PASS," Step: Building Name Generated >> "+temp);
+				}
+				else
+				{
+					temp=InputData[20].toString()+"-"+ String.valueOf(rnd.nextInt(1000));
+				}
+				SiteValues.put("BuildingName", temp);
+				ClearSendKeys(getwebelement(xml.getlocator("//locators/Siebel/BuildingName")), temp);
+				ExtentTestManager.getTest().log(LogStatus.PASS," Step: Building Name Entered >> "+temp);
+				waitforPagetobeenable();
+		
+				//House Number
+				if(InputData[18].toString().equals(null)||InputData[18].toString().equals("")) 
+				{
+					temp=HouseNoGeneration();
+					ExtentTestManager.getTest().log(LogStatus.PASS," Step: House Number Generated >> "+temp);
+				}
+				else
+				{
+					temp=InputData[18].toString()+"-"+ String.valueOf(rnd.nextInt(1000));
+				}
+				ClearSendKeys(getwebelement(xml.getlocator("//locators/Siebel/RoomName")), temp);
+				ExtentTestManager.getTest().log(LogStatus.PASS," Step: Room Name Entered >> "+temp);
+				waitforPagetobeenable();
+				SiteValues.put("Room", temp);
+				
+				//Floor 
+				int floor =rnd.nextInt((20 - 1) + 1) + 1;
+				System.out.println(String.valueOf(floor));
+				WaitforElementtobeclickable(xml.getlocator("//locators/Siebel/Floor"));		
+				ClearSendKeys(getwebelement(xml.getlocator("//locators/Siebel/Floor")), String.valueOf(floor));
+				ExtentTestManager.getTest().log(LogStatus.PASS," Step: Select Floor >> "+String.valueOf(floor));
+				waitforPagetobeenable();
+				SiteValues.put("Floor", temp);
 				
 				WaitforElementtobeclickable(xml.getlocator("//locators/Siebel/SaveAddress"));
 				Clickon(getwebelement(xml.getlocator("//locators/Siebel/SaveAddress")));
 				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Save New Building & Site");
 				waitforPagetobeenable();
-				
+				waitForpageload();
+				Thread.sleep(10000);
+				return SiteValues;
+		}	
+	}
+
+	public void BuildingVerificationInSiebel(HashMap<String, String> sitedetails,Object[] InputData) throws InterruptedException, DocumentException, IOException
+	{
+		String ProductName = InputData[8].toString();
+		if(ProductName.equalsIgnoreCase("Ethernet Spoke")||ProductName.equalsIgnoreCase("Ethernet Hub"))
+		{
+			WaitforElementtobeclickable(xml.getlocator("//locators/Hub/Street"));
+			ClearSendKeys(getwebelement(xml.getlocator("//locators/Hub/Street")),InputData[19].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Street: " + InputData[19].toString());
+			waitforPagetobeenable();
+
+			WaitforElementtobeclickable(xml.getlocator("//locators/Hub/Country"));
+			Select(getwebelement(xml.getlocator("//locators/Hub/Country")), InputData[16].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Country: " + InputData[16].toString());
+			waitforPagetobeenable();
+
+			WaitforElementtobeclickable(xml.getlocator("//locators/Hub/City"));
+			ClearSendKeys(getwebelement(xml.getlocator("//locators/Hub/City")),InputData[17].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter City/Town : " + InputData[17].toString());
+			waitforPagetobeenable();
+
+			WaitforElementtobeclickable(xml.getlocator("//locators/Hub/Postal"));
+			ClearSendKeys(getwebelement(xml.getlocator("//locators/Hub/Postal")),InputData[21].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Postal Code : " + InputData[21].toString());
+			waitforPagetobeenable();
+
+			WaitforElementtobeclickable(xml.getlocator("//locators/Hub/Premises"));
+			ClearSendKeys(getwebelement(xml.getlocator("//locators/Hub/Premises")),InputData[22].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Premises : " + InputData[22].toString());
+			waitforPagetobeenable();
+
+			WaitforElementtobeclickable(xml.getlocator("//locators/Hub/Search"));
+			Clickon(getwebelement(xml.getlocator("//locators/Hub/Search")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Search");
+			waitforPagetobeenable();
+			// Pick Row
+			 List<WebElement> HeaderList=GetWebElements(xml.getlocator("//locators/Hub/GridRowHeader"));
+			  
+			  int BuidingNameIndex=-1;
+			  int i=0;
+			  for(WebElement ele :HeaderList)
+			  {
+				 String ColText=ele.getText();
+				  if(ColText.equalsIgnoreCase("Building Name"))
+				 {
+					 BuidingNameIndex=i;
+					 break;
+				 }
+				 i++;
+			  }
+			  Assert.assertTrue(BuidingNameIndex>-1, "Column Name 'Building ID' and 'Building Name' not found");
+			  String BuildingNameAssigned=sitedetails.get("BuildingName");
+			  String BuildingNameFetched=null;
+			  int count=getwebelementscount(xml.getlocator("//locators/Hub/TotalRow"));
+			
+			  Boolean flag=false;
+			 
+			  for(int j=count-1;j>=0;j--) 
+			  {
+				  i=j+1; 
+				  temp=xml.getlocator("//locators/Hub/GridBuildingRow").replace("-100", String.valueOf(j+1)).replace("-200", String.valueOf(BuidingNameIndex+1));
+				  BuildingNameFetched=Gettext(getwebelement(temp));
+				  System.out.println("Building Name : "+BuildingNameFetched);
+				  
+				  if( BuildingNameFetched.equalsIgnoreCase(BuildingNameAssigned))
+				  {
+					  flag=true;
+					  break;
+				  }
+			  }
+			//
+			temp=xml.getlocator("//locators/Hub/BuildingRow").replace("-100", String.valueOf(i+1));
+			WaitforElementtobeclickable(temp);
+			Clickon(getwebelement(temp));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Selcet Row");
+			waitforPagetobeenable();
+			waitForpageload();
+			
+			WaitforElementtobeclickable(xml.getlocator("//locators/Hub/Pick"));
+			Clickon(getwebelement(xml.getlocator("//locators/Hub/Pick")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Pick");
+			waitforPagetobeenable();
+			
+			// Building ID and Buidling Name
+			HeaderList=GetWebElements(xml.getlocator("//locators/Hub/GridRowHeader"));
+			int BuidingIDIndex=-1;
+			BuidingNameIndex=-1;
+			i=0;
+			  for(WebElement ele :HeaderList)
+			  {
+				 String ColText=ele.getText();
+				 if(ColText.equalsIgnoreCase("Building ID"))
+				 {
+					 BuidingIDIndex=i;
+				 }
+				 else if(ColText.equalsIgnoreCase("Building Name"))
+				 {
+					 BuidingNameIndex=i;
+				 }
+				 if(BuidingIDIndex>-1&&BuidingNameIndex>-1)
+					 break;
+				 i++;
+			  }
+			  Assert.assertTrue(BuidingIDIndex>-1&&BuidingNameIndex>-1, "Column Name 'Building ID' and 'Building Name' not found");
+			  String BuildingIdAssigned=sitedetails.get("BuildingID");
+			  BuildingNameAssigned=sitedetails.get("BuildingName");
+			  
+			  String BuildingIdFetched=null;
+			  BuildingNameFetched=null;
+			  
+			  count=getwebelementscount(xml.getlocator("//locators/Hub/TotalRow"));
+			
+			  flag=false;
+			  i=0;
+			  for(int j=count-1;j>=0;j--) 
+			  {
+				  i=j+1;
+				  String temp=xml.getlocator("//locators/Hub/GridBuildingRow").replace("-100", String.valueOf(j+1)).replace("-200", String.valueOf(BuidingIDIndex+1));
+				  BuildingIdFetched=Gettext(getwebelement(temp));
+				  System.out.println("Building ID : "+BuildingIdFetched);
+				  
+				  temp=xml.getlocator("//locators/Hub/GridBuildingRow").replace("-100", String.valueOf(j+1)).replace("-200", String.valueOf(BuidingNameIndex+1));
+				  BuildingNameFetched=Gettext(getwebelement(temp));
+				  System.out.println("Building Name : "+BuildingNameFetched);
+				  
+				  if((BuildingIdFetched.equalsIgnoreCase(BuildingIdAssigned))&& (BuildingNameFetched.equalsIgnoreCase(BuildingNameAssigned)))
+				  {
+					  flag=true;
+					  break;
+				  }
+			  }
+			  Assert.assertTrue(flag,"Building ID : "+BuildingIdAssigned+ " not verified in siebel" );
+			  ExtentTestManager.getTest().log(LogStatus.PASS, "Newly Created Site("+BuildingIdAssigned+","+BuildingNameAssigned+" verified in siebel");
+			 	
+			  String temp=xml.getlocator("//locators/Hub/BuildingRow").replace("-100", String.valueOf(i));
+			  Clickon(getwebelement(temp));
+			//
+			
+			WaitforElementtobeclickable(xml.getlocator("//locators/Hub/PickBuilding"));
+			Clickon(getwebelement(xml.getlocator("//locators/Hub/PickBuilding")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Pick");
+			waitforPagetobeenable();
+		
+		}
+		else
+		{
+		/*WaitforElementtobeclickable(xmlS.getlocator("//locators/R4/SearchInput").replace("Value", "Street Name"));
+		Clear(getwebelement(xmlS.getlocator("//locators/R4/SearchInput").replace("Value", "Street Name")));
+		SendKeys(getwebelement(xmlS.getlocator("//locators/R4/SearchInput").replace("Value", "Street Name")),
+				InputData[19].toString());
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Street: " + InputData[19].toString());
+
+		WaitforElementtobeclickable(xmlS.getlocator("//locators/R4/SearchDropdown").replace("Value", "Country"));
+		Clickon(getwebelement(xmlS.getlocator("//locators/R4/SearchDropdown").replace("Value", "Country")));
+		Clickon(getwebelement(
+				xmlS.getlocator("//locators/R4/SiteABSelection").replace("Value", InputData[16].toString())));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Country: " + InputData[16].toString());
+
+		WaitforElementtobeclickable(xmlS.getlocator("//locators/R4/SearchInput").replace("Value", "City / Town"));
+		Clear(getwebelement(xmlS.getlocator("//locators/R4/SearchInput").replace("Value", "City / Town")));
+		SendKeys(getwebelement(xmlS.getlocator("//locators/R4/SearchInput").replace("Value", "City / Town")),
+				InputData[17].toString());
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter City/Town : " + InputData[17].toString());
+
+		WaitforElementtobeclickable(xmlS.getlocator("//locators/R4/SearchInput").replace("Value", "Postal Code"));
+		Clear(getwebelement(xmlS.getlocator("//locators/R4/SearchInput").replace("Value", "Postal Code")));
+		SendKeys(getwebelement(xmlS.getlocator("//locators/R4/SearchInput").replace("Value", "Postal Code")),
+				InputData[21].toString());
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Postal Code : " + InputData[21].toString());
+
+		WaitforElementtobeclickable(xmlS.getlocator("//locators/R4/SearchInput").replace("Value", "Premises"));
+		Clear(getwebelement(xmlS.getlocator("//locators/R4/SearchInput").replace("Value", "Premises")));
+		SendKeys(getwebelement(xmlS.getlocator("//locators/R4/SearchInput").replace("Value", "Premises")),
+				InputData[22].toString());
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Premises : " + InputData[22].toString());	
+		 */
+		WaitforElementtobeclickable(xmlS.getlocator("//locators/R4/SearchButton"));
+		Clickon(getwebelement(xmlS.getlocator("//locators/R4/SearchButton")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Search");
+		waitforPagetobeenable();
+		
+		waitforPagetobeenable();
+
+		WaitforElementtobeclickable(xmlS.getlocator("//locators/R4/SearchAddressRowSelection"));
+		Clickon(getwebelement(xmlS.getlocator("//locators/R4/SearchAddressRowSelection")));
+
+		WaitforElementtobeclickable(xmlS.getlocator("//locators/R4/PickAddress"));
+		Clickon(getwebelement(xmlS.getlocator("//locators/R4/PickAddress")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Row and Pick Address");
+		waitforPagetobeenable();
+		
+		
+	  List<WebElement> HeaderList=GetWebElements(xml.getlocator("//locators/Siebel/SiteGridHeader"));
+	  int BuidingIDIndex=-1;
+	  int BuidingNameIndex=-1;
+	  int i=0;
+	  for(WebElement ele :HeaderList)
+	  {
+		 String ColText=ele.getText();
+		 if(ColText.equalsIgnoreCase("Building ID"))
+		 {
+			 BuidingIDIndex=i;
+		 }
+		 else if(ColText.equalsIgnoreCase("Building Name"))
+		 {
+			 BuidingNameIndex=i;
+		 }
+		 if(BuidingIDIndex>-1&&BuidingNameIndex>-1)
+			 break;
+		 i++;
+	  }
+	  Assert.assertTrue(BuidingIDIndex>-1&&BuidingNameIndex>-1, "Column Name 'Building ID' and 'Building Name' not found");
+	  String BuildingIdAssigned=sitedetails.get("BuildingID");
+	  String BuildingNameAssigned=sitedetails.get("BuildingName");
+	  
+	  String BuildingIdFetched=null;
+	  String BuildingNameFetched=null;
+	  
+	  int count=getwebelementscount(xml.getlocator("//locators/Siebel/SiteGridDataRow"));
+	
+	  Boolean flag=false;
+	 
+	  for(int j=count-1;j>=0;j--) 
+	  {
+		  i=j+1;
+		  String temp=xml.getlocator("//locators/Siebel/SiteGridTD").replace("-100", String.valueOf(j+1)).replace("-200", String.valueOf(BuidingIDIndex+1));
+		  BuildingIdFetched=Gettext(getwebelement(temp));
+		  System.out.println("Building ID : "+BuildingIdFetched);
+		  
+		  temp=xml.getlocator("//locators/Siebel/SiteGridTD").replace("-100", String.valueOf(j+1)).replace("-200", String.valueOf(BuidingNameIndex+1));
+		  BuildingNameFetched=Gettext(getwebelement(temp));
+		  System.out.println("Building Name : "+BuildingNameFetched);
+		  
+		  if((BuildingIdFetched.equalsIgnoreCase(BuildingIdAssigned))&& (BuildingNameFetched.equalsIgnoreCase(BuildingNameAssigned)))
+		  {
+			  flag=true;
+			  break;
+		  }
+	  }
+	  Assert.assertTrue(flag,"Building ID : "+BuildingIdAssigned+ " not verified in siebel" );
+	  ExtentTestManager.getTest().log(LogStatus.PASS, "Newly Created Site("+BuildingIdAssigned+","+BuildingNameAssigned+" verified in siebel");
+	 	
+	  String temp=xml.getlocator("//locators/Siebel/SiteGridRow").replace("-100", String.valueOf(i));
+	  Clickon(getwebelement(temp));
+	  
+	  WaitforElementtobeclickable(xml.getlocator("//locators/Siebel/SaveAddress"));
+	  Clickon(getwebelement(xml.getlocator("//locators/Siebel/SaveAddress")));
+	  ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Pick Address");
+	  waitforPagetobeenable();
+		
+	  ExtentTestManager.getTest().log(LogStatus.PASS, "Buidling Verfication Done");
+	  System.out.println("Buidling Verfication Done");
+		}
+	}
+	public void ClickSitesSearch(Object[] InputData) throws InterruptedException, DocumentException {
+	
+		waitForpageload();
+		waitforPagetobeenable();
+		System.out.println(gettitle());
+		String ProductName = InputData[8].toString();
+			if(ProductName.equalsIgnoreCase("Ethernet Spoke"))
+			{
+				WaitforElementtobeclickable(xml.getlocator("//locators/Hub/HubSiteB"));
+				Clickon(getwebelement(xml.getlocator("//locators/Hub/HubSiteB")));
+			}
+			else if(ProductName.equalsIgnoreCase("Ethernet Hub"))
+			{
+			WaitforElementtobeclickable(xml.getlocator("//locators/Hub/HubSiteA"));
+			Clickon(getwebelement(xml.getlocator("//locators/Hub/HubSiteA")));
+			}
+			else
+			{
+			WaitforElementtobeclickable(xmlS.getlocator("//locators/R4/LeftSiteSearch"));
+			Clickon(getwebelement(xmlS.getlocator("//locators/R4/LeftSiteSearch")));
+			}
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click Search Site");
+			waitforPagetobeenable(); 
+	}
+	public void SearchSiteHubSpoke(Object[] InputData) throws InterruptedException, DocumentException {
+		waitForpageload();
+		waitforPagetobeenable();
+		System.out.println(gettitle());
+		String ProductName = InputData[8].toString();
+		if(ProductName.equalsIgnoreCase("Ethernet Hub"))
+		{
+			WaitforElementtobeclickable(xml.getlocator("//locators/Hub/HubSiteA"));
+			Clickon(getwebelement(xml.getlocator("//locators/Hub/HubSiteA")));
+		}
+		else
+		{
+		WaitforElementtobeclickable(xml.getlocator("//locators/Hub/HubSiteB"));
+		Clickon(getwebelement(xml.getlocator("//locators/Hub/HubSiteB")));
+		}
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click Search Site");
+		waitforPagetobeenable(); // added by Ayush
+	}
+
+	public void SiteVerifcationInSibel(Object[] InputData,String SiteID) throws DocumentException, InterruptedException, IOException 
+	{
+		String ProductName = InputData[8].toString();
+		if(ProductName.equalsIgnoreCase("Ethernet Spoke")||ProductName.equalsIgnoreCase("Ethernet Hub"))
+		{
+			WaitforElementtobeclickable(xml.getlocator("//locators/Hub/AddressRow"));
+			Clickon(getwebelement(xml.getlocator("//locators/Hub/AddressRow")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Row");
+			waitforPagetobeenable();
+			
+			WaitforElementtobeclickable(xml.getlocator("//locators/Hub/PickSite"));
+			Clickon(getwebelement(xml.getlocator("//locators/Hub/PickSite")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Pick");
+			waitforPagetobeenable();
+		}
+		else
+		{
+		  System.out.println("Site Verfication Started");
+		  ExtentTestManager.getTest().log(LogStatus.PASS, "Site Verfication Started");
+		  List<WebElement> HeaderList=GetWebElements(xml.getlocator("//locators/Siebel/SiteGridHeader"));
+		  int SiteIDIndex=-1;
+		  int SiteStatusIndex=-1;
+		  int i=0;
+		  for(WebElement ele :HeaderList)
+		  {
+			 String ColText=ele.getText();
+			 if(ColText.equalsIgnoreCase("Site ID"))
+			 {
+				 SiteIDIndex=i;
+			 }
+			 else if(ColText.equalsIgnoreCase("Site Status"))
+			 {
+				 SiteStatusIndex=i;
+			 }
+			 if(SiteIDIndex>-1&&SiteStatusIndex>-1)
+				 break;
+			 i++;
+		  }
+		  System.out.println("Site ID Index : "+SiteIDIndex);
+		  System.out.println("Site Status Index : "+SiteStatusIndex);
+		  
+		  Assert.assertTrue(SiteIDIndex>-1&&SiteStatusIndex>-1, "Column Name 'Building ID' and 'Building Name' not found");
+		  String SiteStatus=InputData[28].toString();
+		  
+		  String SiteIdFetched=null;
+		  String SiteStatusFetched=null;
+		  
+		  int count=getwebelementscount(xml.getlocator("//locators/Siebel/SiteGridDataRow"));
+			
+		  Boolean flag=false;
+		 
+		  for(int j=count-1;j>=0;j--) 
+		  {
+			  i=j+1;
+			  String temp=xml.getlocator("//locators/Siebel/SiteGridTD").replace("-100", String.valueOf(j+1)).replace("-200", String.valueOf(SiteIDIndex+1));
+			  SiteIdFetched=Gettext(getwebelement(temp));
+			  System.out.println("Building ID : "+SiteIdFetched);
+			  
+			  temp=xml.getlocator("//locators/Siebel/SiteGridTD").replace("-100", String.valueOf(j+1)).replace("-200", String.valueOf(SiteStatusIndex+1));
+			  SiteStatusFetched=Gettext(getwebelement(temp));
+			  System.out.println("Building Name : "+SiteStatusFetched);
+			  
+			  if((SiteIdFetched.equalsIgnoreCase(SiteID))&& (SiteStatusFetched.equalsIgnoreCase(SiteStatus)))
+			  {
+				  flag=true;
+				  break;
+			  }
+		  }
+		  Assert.assertTrue(flag,"Building ID : "+SiteID+ " not verified in siebel" );
+		  ExtentTestManager.getTest().log(LogStatus.PASS, "Newly Created Site("+SiteID+","+SiteStatus+" verified in siebel");
+		  
+		  String temp=xml.getlocator("//locators/Siebel/SiteGridRow").replace("-100", String.valueOf(i));
+		  Clickon(getwebelement(temp));
+		  
+		  WaitforElementtobeclickable(xml.getlocator("//locators/Siebel/SaveAddress"));
+		  Clickon(getwebelement(xml.getlocator("//locators/Siebel/SaveAddress")));
+		  ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Pick Address");
+		  waitForpageload();
+		  waitforPagetobeenable();
+		  Thread.sleep(10000);
+		}
+		  
 	}
 	
-	public String SiteidReference() throws IOException, InterruptedException, DocumentException 
+	public void SiteUpdateVerification(String PreSiteID, String SblSiteID)
 	{
-		String SiteId=Getattribute(getwebelement(xml.getlocator("//locators/Siebel/SiteID")),"innerHTML");
+		Assert.assertTrue(PreSiteID.equalsIgnoreCase(SblSiteID)," PremiseMaster SiteID: "+PreSiteID+ " not matched With Update  in siebel Site ID : "+SblSiteID );
+		ExtentTestManager.getTest().log(LogStatus.PASS, "Verified Updated PremiseMaster SiteID: "+PreSiteID+ " matched With Update  in siebel Site ID : "+SblSiteID );
+		
+	}
+	
+	
+	public String SiteidReference(Object[] InputData) throws IOException, InterruptedException, DocumentException
+	{
+		waitForpageload();
+		waitforPagetobeenable();
+		Thread.sleep(10000);
+		String SiteId=null;
+		String ProductName = InputData[8].toString();
+		if(ProductName.equalsIgnoreCase("Ethernet Spoke"))
+		{
+			SiteId=Getattribute(getwebelement(xml.getlocator("//locators/Hub/SiteIDB")),"innerHTML");
+			System.out.println("Site Id : " + SiteId);
+			ExtentTestManager.getTest().log(LogStatus.PASS," Step: Site Reference ID Generated :"+SiteId);
+			return SiteId;
+		}
+		else if(ProductName.equalsIgnoreCase("Ethernet Hub"))
+		{
+			SiteId=Getattribute(getwebelement(xml.getlocator("//locators/Hub/SiteIDA")),"innerHTML");
+			System.out.println("Site Id : " + SiteId);
+			ExtentTestManager.getTest().log(LogStatus.PASS," Step: Site Reference ID Generated :"+SiteId);
+			return SiteId;
+		}
+		else
+		{
+		SiteId=Getattribute(getwebelement(xml.getlocator("//locators/Siebel/SiteID")),"innerHTML");
+		System.out.println("Site Id : " + SiteId);
 		String[] parts=SiteId.split("<");
-		//String SiteId=Gettext(getwebelement(xml.getlocator("//locators/Siebel/SiteID")));
 		System.out.println("Site Id : "+ parts[0]);
-		return SiteId;
+		ExtentTestManager.getTest().log(LogStatus.PASS," Step: Site Reference ID Generated :"+parts[0]);
+		return parts[0];
+		}
+		
+		
+		
 	} 
+	public void PremiseMasterAppOpen()
+	{
+		ExtentTestManager.getTest().log(LogStatus.PASS,"<----------------------------- PremiseMaster Application Open----------------------------->");	
+	}
+	public void PremiseMasterAppClosed()
+	{
+		ExtentTestManager.getTest().log(LogStatus.PASS,"<----------------------------- PremiseMaster Application Closed----------------------------->");	
+	}
+	
 	public void ClickSearch() throws InterruptedException, DocumentException
 	{
 		String attribute=null;
@@ -407,9 +1224,11 @@ public class PremiseMasterHelper extends DriverHelper
 		String Id=Gettext(getwebelement(xml.getlocator("//locators/SearchSite/SearchResultId")));
 		assertTrue(BuildingID.equalsIgnoreCase(Id), "Search ID : "+BuildingID+"!="+Id);
 		ExtentTestManager.getTest().log(LogStatus.PASS," Step: Verified Search ID :"+BuildingID+"=="+Id );
+		waitForpageload();
+		
 	}
 	
-	public void SearchSiteAndVerified(String SiteID) throws Exception
+	public String SearchSiteAndVerified(String SiteID) throws Exception
 	{
 		waitForpageload();
 		ClickTopMeu("Search");
@@ -434,6 +1253,17 @@ public class PremiseMasterHelper extends DriverHelper
 		assertTrue(SiteID.equalsIgnoreCase(Id), "Search ID : "+BuildingID+"!="+Id);
 		ExtentTestManager.getTest().log(LogStatus.PASS," Step: Verified Search ID :"+SiteID+"=="+Id );
 		
+		Clickon(getwebelement(xml.getlocator("//locators/SearchSite/SearchResultId")));
+		ExtentTestManager.getTest().log(LogStatus.PASS," Step: Click on Site ID " );
+		
+		waitForpageload();
+		waitforPagetobeenable();
+		Waitforvisibilityofelement(xml.getlocator("//locators/SearchSite/BuildingId"));
+		String BuildingId=Getattribute(getwebelement2(xml.getlocator("//locators/SearchSite/BuildingId")),"value");
+		System.out.println(BuildingId);
+		ExtentTestManager.getTest().log(LogStatus.PASS," Step: Get Building ID  : "+ BuildingId );
+		
+		return BuildingId;
 		
 	}
 	
