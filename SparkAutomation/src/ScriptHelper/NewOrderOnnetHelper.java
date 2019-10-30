@@ -202,6 +202,32 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		Thread.sleep(5000);
 	}
 
+	public void OpenServiceOrder(Object[] Inputdata) throws Exception {
+		Thread.sleep(10000);
+
+		do {
+			Pagerefresh();
+			System.out.println("Page to be refresed");
+			Thread.sleep(20000);
+		} while (!isElementPresent("//a[text()='My Orders']"));
+
+		try {
+			Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderTab")));
+		} catch (Exception e) {
+			try {
+				safeJavaScriptClick(getwebelement(xml.getlocator("//locators/ServiceOrderTab")));
+			} catch (Exception e1) {
+
+				e1.printStackTrace();
+			}
+		}
+		WaitforElementtobeclickable(xml.getlocator("//locators/InputServiceOrder"));
+		SendKeys(getwebelement(xml.getlocator("//locators/InputServiceOrder")),"871684004/191025-0035" /*ServiceOrder.get().toString()*/);
+		Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderGo")));
+		Thread.sleep(6000);
+		Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderClickOn")));
+
+	}
 	public void enterMandatoryFieldsInHeader(Object[] Inputdata) throws Exception {
 
 		waitForpageload(); // as per Aman

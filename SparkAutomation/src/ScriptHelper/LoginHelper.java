@@ -6,6 +6,7 @@ import org.testng.Assert;
 import com.relevantcodes.extentreports.LogStatus;
 import Driver.DriverHelper;
 import Driver.XMLReader;
+import java.io.IOException;
 
 import Reporter.ExtentTestManager;
 
