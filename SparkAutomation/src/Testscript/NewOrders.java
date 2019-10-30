@@ -1,5 +1,7 @@
 package Testscript;
 
+import java.util.HashMap;
+
 import org.testng.annotations.Test;
 import Driver.DataReader;
 import Driver.DriverTestcase;
@@ -488,28 +490,43 @@ public class NewOrders extends DriverTestcase {
 
 	@Test(dataProviderClass = DataReader.class, dataProvider = "PreMaster")
 	public void PremiseMaster(Object[] Data) throws Exception {
-
+		HashMap<String, String> SiteDetails=new HashMap<String, String>();
+		String SiteId=null;
+		String BuildingID=null;
+		String NewSiteId=null;
+		String UpdateSiteID=null;
+		String ProductName = Data[8].toString();
 		Login.get().Login("Sieble");
+		String CurrentUrl=Login.get().GetCurrentUrl();
+		//newOrderOnnnet.get().OpenServiceOrder(Data);
 		newOrderOnnnet.get().accountTabDetails(Data);
 		newOrderOnnnet.get().createCustomerOrder(Data);
 		newOrderOnnnet.get().productSelectionHelper(Data);
 		newOrderOnnnet.get().openServiceOrderNumber();
-		newOrderOnnnet.get().SearchSiteA(Data);
-		premiseHelper.get().AddSiteAndBuilding(Data);
-		String SiteId = premiseHelper.get().SiteidReference();
-		System.out.println("Site Id : " + SiteId);
+		System.out.println("New Code");
+		premiseHelper.get().ClickSitesSearch(Data);
+		SiteDetails=premiseHelper.get().AddSiteAndBuilding(Data);
+		newOrderOnnnet.get().savePage();
+		SiteId = premiseHelper.get().SiteidReference(Data);
+		newOrderOnnnet.get().ClickHereSave();
+		premiseHelper.get().PremiseMasterAppOpen();
 		Login.get().Login("PremiseMaster");
-		// Login.get().VerifySuccessLogin("Sieble");
 		premiseHelper.get().ClickIcon();
-		// premiseHelper.get().ClickTopMeu("Manage Site");
-		// premiseHelper.get().SearchSite(Data);
-		// premiseHelper.get().ClickSearch();
-		// premiseHelper.get().CreateSite();
-		// premiseHelper.get().EnterSiteDetails(Data);
-		premiseHelper.get().SearchSiteAndVerified(SiteId);
-
-		// Search Sites
-
+		BuildingID=premiseHelper.get().SearchSiteAndVerified(SiteId);
+		SiteDetails.put("BuildingID", BuildingID);
+		premiseHelper.get().SearchBuildingAndEdit(BuildingID,Data);
+		premiseHelper.get().SearchSiteAndEdit(SiteId,Data);
+		UpdateSiteID=premiseHelper.get().GetUpdateSiteId(BuildingID);
+	    SiteDetails.put("UpdateSiteID", UpdateSiteID);
+	    premiseHelper.get().PremiseMasterAppClosed();
+	    Login.get().NavigateUrl(CurrentUrl);
+	    newOrderOnnnet.get().savePage();
+	    premiseHelper.get().ClickSitesSearch(Data);
+		premiseHelper.get().BuildingVerificationInSiebel(SiteDetails,Data);
+		premiseHelper.get().SiteVerifcationInSibel(Data,UpdateSiteID);
+	    newOrderOnnnet.get().savePage();
+	    NewSiteId = premiseHelper.get().SiteidReference(Data);
+	    premiseHelper.get().SiteUpdateVerification(UpdateSiteID,NewSiteId);
 	}
 
 	@Test(dataProviderClass = DataReader.class, dataProvider = "InFlightOrder")
