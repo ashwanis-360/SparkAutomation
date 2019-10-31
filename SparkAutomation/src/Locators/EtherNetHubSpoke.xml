@@ -410,7 +410,7 @@
   <CustomerOrderSearch>//button[@title="Search:Go"]</CustomerOrderSearch>
   <CustomerOrderClick>//a[@name='Order Number']</CustomerOrderClick>
   <ModifyButtonClick>//span[text()='Modify']</ModifyButtonClick>
-
+ <SpokeAccessProvider>(//span[@class="siebui-icon-icon_pick "]/img)[2]</SpokeAccessProvider>
   ***********************Abandone************************
   
   <OrderStatusAbandoned>//li[text()='Abandoned']</OrderStatusAbandoned>

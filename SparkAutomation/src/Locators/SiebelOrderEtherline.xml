@@ -205,7 +205,7 @@
   <InstallTimeDropdownAccess>(//span[text()='Install Time']/..//span)[3]</InstallTimeDropdownAccess> 
   <InstallTimeSelectAccess>//li[text()='Business Hours']</InstallTimeSelectAccess> 
   <InstallTimeBEnd>//a[contains(@name,'Install Time')]//following-sibling::*//select</InstallTimeBEnd> 
-  <ThirdPartyAccessProviderSearch>//div[@class="cxEdit siebui-ecfg-editfield"]//span[@class="siebui-icon-icon_pick "]/img</ThirdPartyAccessProviderSearch> 
+  <ThirdPartyAccessProviderSearch>(//span[@class="siebui-icon-icon_pick "]/img)[1]</ThirdPartyAccessProviderSearch> 
   <ThirdPartyAccessProviderSelect>//table[@summary="Select Third Party Access Provider"]/tbody/tr[2]</ThirdPartyAccessProviderSelect> 
   <ThirdPartyAccessProviderSubmit>//button[@title="Select Third Party Access Provider:OK"]</ThirdPartyAccessProviderSubmit> 
   <AccessTechnologySearch>(//div[text()='Access Technology']/following::span[@class="siebui-icon-icon_pick "]/img)[1]</AccessTechnologySearch> 
@@ -236,7 +236,7 @@
   <VlanTagId>//a[contains(@name,'VLAN Tag ID')]/following-sibling::*//input</VlanTagId> 
   <PortRoleBEnd>//a[contains(@name,'Port Role')]/following-sibling::*//select</PortRoleBEnd> 
   <PresentationInterfaceSearch>//img[@class="siebui-ctrl-img "]</PresentationInterfaceSearch> 
-  <SelectPresentationInterface>//tr[@id="5"]//td[text()='LC/PC']</SelectPresentationInterface> 
+  <SelectPresentationInterface><SelectPresentationInterface>//tr//td[contains(text(),'LC']</SelectPresentationInterface> </SelectPresentationInterface> 
   <SelectPresentationInterfaceSpoke>//tr[@id="3"]//td[text()='LC/PC']</SelectPresentationInterfaceSpoke> 
   <SelectPresentationInterfaceHub>//tr[@id='2']//td[text()='LC/PC']</SelectPresentationInterfaceHub> 
   <PickPresentationInterface>//table[@summary="Select Presentation Interface-Connector Type"]/tbody/tr[2]</PickPresentationInterface> 
@@ -442,7 +442,9 @@
   <CustomerOrderClick>//a[@name='Order Number']</CustomerOrderClick>
   <ModifyButtonClick>//span[text()='Modify']</ModifyButtonClick>
   <Continue>//button[text()='Continue']</Continue>
-  
+  <SelectAccessTechnology1>//table[@summary='Select Access Technology']//tr//td[text()='3rd Party Leased Line']</SelectAccessTechnology1>
+  <SelectAccessTechnology2>//table[@summary='Select Access Technology']//tr//td[text()='Ethernet over Fibre']</SelectAccessTechnology2>
+  <ThirdPartySlaTierValue>//option[text()='Tier 1']</ThirdPartySlaTierValue>
   ***********************Abandone************************
   
   <OrderStatusAbandoned>//li[text()='Abandoned']</OrderStatusAbandoned>

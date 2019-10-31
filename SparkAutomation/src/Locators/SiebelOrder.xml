@@ -841,6 +841,7 @@
 <Searchbtn>//div[text()='Search']</Searchbtn>
 <AccessNotificationPeriod>//span[text()='Access Notification Period']/..//input</AccessNotificationPeriod>
  <InstalltimeBside>(//span[text()='Install Time']/..//span)[6]</InstalltimeBside>
+ <OffnetTab>//a[text()='Offnet']</OffnetTab>
  <!--   rekha locator End --> 
   
   <!--Gaury's Locators for SIP truncking -->
