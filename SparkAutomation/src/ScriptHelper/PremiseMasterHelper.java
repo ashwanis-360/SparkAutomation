@@ -30,19 +30,29 @@ public class PremiseMasterHelper extends DriverHelper
 	{
 		super(parentdriver);
 	}
-	private String  HouseNoGeneration ()
+	private char RandomChar()
 	{
 		String abc = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 		char block = abc.charAt(rnd.nextInt(abc.length()));
+		return block;
+	}
+	private String RandomName()
+	{
+		String[] BuildNames= {"TestBuilding","Kenwood","RiverLine","CrossRoad","WalkStreet","TechWorld","WindBall"};
+		int index=rnd.nextInt(BuildNames.length);
+		return BuildNames[index];
+	}
+	private String  HouseNoGeneration ()
+	{
 		int HNo=rnd.nextInt(1000); 
-		String temp=  String.valueOf(block)+"-"+String.valueOf(HNo);
+		String temp=  String.valueOf(RandomChar())+"-"+String.valueOf(HNo);
 		System.out.println("Flat Number Genrated : "+ temp);
 		return temp;
 	}
 	private String  BuildingGeneration ()
 	{
 		int flatNo=rnd.nextInt(1000); 
-		temp=  "TestBuilding-"+String.valueOf(flatNo);
+		temp=  RandomName()+"-"+String.valueOf(RandomChar())+"-"+String.valueOf(flatNo);
 		System.out.println("Building Name Genrated : "+ temp);
 		return temp;
 	}
@@ -283,7 +293,7 @@ public class PremiseMasterHelper extends DriverHelper
 		
 		HashMap<String, String> SiteValues=new HashMap<>();
 		String ProductName = InputData[8].toString();
-		if(ProductName.equalsIgnoreCase("Ethernet Spoke")||ProductName.equalsIgnoreCase("Ethernet Hub"))
+		if(ProductName.equalsIgnoreCase("Ethernet Spoke")||ProductName.equalsIgnoreCase("Ethernet Hub")||ProductName.equalsIgnoreCase("Ethernet Line")||ProductName.equalsIgnoreCase("Wave"))
 		{
 			WaitforElementtobeclickable(xml.getlocator("//locators/Hub/Street"));
 			ClearSendKeys(getwebelement(xml.getlocator("//locators/Hub/Street")),InputData[19].toString());
@@ -618,7 +628,7 @@ public class PremiseMasterHelper extends DriverHelper
 	public void BuildingVerificationInSiebel(HashMap<String, String> sitedetails,Object[] InputData) throws InterruptedException, DocumentException, IOException
 	{
 		String ProductName = InputData[8].toString();
-		if(ProductName.equalsIgnoreCase("Ethernet Spoke")||ProductName.equalsIgnoreCase("Ethernet Hub"))
+		if(ProductName.equalsIgnoreCase("Ethernet Spoke")||ProductName.equalsIgnoreCase("Ethernet Hub")||ProductName.equalsIgnoreCase("Ethernet Line")||ProductName.equalsIgnoreCase("Wave"))
 		{
 			WaitforElementtobeclickable(xml.getlocator("//locators/Hub/Street"));
 			ClearSendKeys(getwebelement(xml.getlocator("//locators/Hub/Street")),InputData[19].toString());
@@ -879,10 +889,19 @@ public class PremiseMasterHelper extends DriverHelper
 				WaitforElementtobeclickable(xml.getlocator("//locators/Hub/HubSiteB"));
 				Clickon(getwebelement(xml.getlocator("//locators/Hub/HubSiteB")));
 			}
-			else if(ProductName.equalsIgnoreCase("Ethernet Hub"))
+			else if(ProductName.equalsIgnoreCase("Ethernet Hub")||ProductName.equalsIgnoreCase("Wave")||ProductName.equalsIgnoreCase("Ethernet Line"))
 			{
 			WaitforElementtobeclickable(xml.getlocator("//locators/Hub/HubSiteA"));
 			Clickon(getwebelement(xml.getlocator("//locators/Hub/HubSiteA")));
+			}
+			else if(ProductName.equalsIgnoreCase("Voice Line V"))
+			{
+				Clickon(getwebelement(xmlS.getlocator("//locators/OtherTab")));
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on OtherTab");
+				Thread.sleep(5000);
+				
+				WaitforElementtobeclickable(xmlS.getlocator("//locators/R4/RightSiteSearch"));
+				Clickon(getwebelement(xmlS.getlocator("//locators/R4/RightSiteSearch")));
 			}
 			else
 			{
@@ -914,7 +933,7 @@ public class PremiseMasterHelper extends DriverHelper
 	public void SiteVerifcationInSibel(Object[] InputData,String SiteID) throws DocumentException, InterruptedException, IOException 
 	{
 		String ProductName = InputData[8].toString();
-		if(ProductName.equalsIgnoreCase("Ethernet Spoke")||ProductName.equalsIgnoreCase("Ethernet Hub"))
+		if(ProductName.equalsIgnoreCase("Ethernet Spoke")||ProductName.equalsIgnoreCase("Ethernet Hub")||ProductName.equalsIgnoreCase("Ethernet Line")||ProductName.equalsIgnoreCase("Wave"))
 		{
 			WaitforElementtobeclickable(xml.getlocator("//locators/Hub/AddressRow"));
 			Clickon(getwebelement(xml.getlocator("//locators/Hub/AddressRow")));
@@ -1014,29 +1033,28 @@ public class PremiseMasterHelper extends DriverHelper
 		{
 			SiteId=Getattribute(getwebelement(xml.getlocator("//locators/Hub/SiteIDB")),"innerHTML");
 			System.out.println("Site Id : " + SiteId);
-			ExtentTestManager.getTest().log(LogStatus.PASS," Step: Site Reference ID Generated :"+SiteId);
-			return SiteId;
 		}
-		else if(ProductName.equalsIgnoreCase("Ethernet Hub"))
+		else if(ProductName.equalsIgnoreCase("Ethernet Hub")||ProductName.equalsIgnoreCase("Ethernet Line")||ProductName.equalsIgnoreCase("Wave"))
 		{
 			SiteId=Getattribute(getwebelement(xml.getlocator("//locators/Hub/SiteIDA")),"innerHTML");
 			System.out.println("Site Id : " + SiteId);
-			ExtentTestManager.getTest().log(LogStatus.PASS," Step: Site Reference ID Generated :"+SiteId);
-			return SiteId;
+		}
+		else if(ProductName.equalsIgnoreCase("Voice Line V"))
+		{
+			SiteId=Getattribute(getwebelement(xml.getlocator("//locators/Siebel/SiteIDB")),"innerHTML");
+			System.out.println("Site Id : " + SiteId);
 		}
 		else
 		{
 		SiteId=Getattribute(getwebelement(xml.getlocator("//locators/Siebel/SiteID")),"innerHTML");
 		System.out.println("Site Id : " + SiteId);
+		}
 		String[] parts=SiteId.split("<");
 		System.out.println("Site Id : "+ parts[0]);
 		ExtentTestManager.getTest().log(LogStatus.PASS," Step: Site Reference ID Generated :"+parts[0]);
 		return parts[0];
 		}
-		
-		
-		
-	} 
+	
 	public void PremiseMasterAppOpen()
 	{
 		ExtentTestManager.getTest().log(LogStatus.PASS,"<----------------------------- PremiseMaster Application Open----------------------------->");	

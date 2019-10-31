@@ -87,6 +87,7 @@
 </SearchSite>
 <Siebel>
 <SiteID>//div[@id='colt-site-left']//span[@class='colt-site-top-id']</SiteID>
+<SiteIDB>//div[@id='colt-site-right']//span[@class='colt-site-top-id']</SiteIDB>
 <AddressNotFound>//i[@class='fa fa-search']/parent::button</AddressNotFound>
 <Addaddress>//i[@class='fa fa-plus']/parent::button</Addaddress>
 <SaveAddress>//i[@class='fa fa-check']/parent::button</SaveAddress>
