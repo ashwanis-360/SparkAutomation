@@ -424,6 +424,8 @@
   <ServiceOrderSearch>//input[@aria-label='Starting with']</ServiceOrderSearch>
   
   <!-- Ayush's Locators for the Interconnect New orders -->
+  <OffnetTab>//a[text()='Offnet']</OffnetTab>
+<CEOSRecord>//*[@class='OffnetSortClass']</CEOSRecord>
   <SubmitTechnicalOrder>//button[text()='Submit Technical Order' or @id='colt-circuitref-button']</SubmitTechnicalOrder>
 <SecondCodecInput>//span[text()='Second Codec']/..//input</SecondCodecInput>
   <ThirdCodecInput>//span[text()='Third Codec']/..//input</ThirdCodecInput>
