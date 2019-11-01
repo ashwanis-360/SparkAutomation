@@ -430,6 +430,11 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				Clickon(getwebelement(xml.getlocator("//locators/MaintenancePartyAddressSubmit")));
 				waitforPagetobeenable();
 				Thread.sleep(3000);
+				Clickon(getwebelement("//input[@aria-labelledby='COLT_ProContact_FullName_Label']/following-sibling::span"));
+				Thread.sleep(5000);
+				WaitforElementtobeclickable("//button[@aria-label='Pick Contact:OK']");
+				Clickon(getwebelement("//button[@aria-label='Pick Contact:OK']"));
+				Thread.sleep(8000);
 				savePage();
 				waitforPagetobeenable();
 				savePage();//as per aman
@@ -10054,9 +10059,21 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		}
 			
 			public void CEOS_Offnet(Object Inputdata[]) throws Exception {
-				Select(getwebelement(xml.getlocator("//locators/InstalltionDropdown")), "Offnet");
+				
+				try
+				{
+					Select(getwebelement(xml.getlocator("//locators/InstalltionDropdown")), "Offnet");
+					ExtentTestManager.getTest().log(LogStatus.PASS,
+							" Step: Click on offnet tab");	
+				}
+				catch(Exception e)
+				{
+				WaitforElementtobeclickable(xml.getlocator("//locators/OffnetTab"));
+				Clickon(getwebelement(xml.getlocator("//locators/OffnetTab")));
+				}
+				CeosOrder.set(Gettext(getwebelement(xml.getlocator("//locators/CEOSRecord"))));// Added by Rekha
 				ExtentTestManager.getTest().log(LogStatus.PASS,
-						" Step: Click on Installation Dropdown button and Select Offnet");
+						" Step: Generated Ceos Order Reference No: " + CeosOrder.get());
 
 				Thread.sleep(5000);
 				//Moveon(getwebelement(xmlC.getlocator("//locators/OffnetTab")));
