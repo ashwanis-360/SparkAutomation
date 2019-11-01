@@ -48,7 +48,7 @@ public class InFlightOrderHelper extends DriverHelper {
 		String Product_Name1=Inputdata[11].toString();
 
 		
-		       // Thread.sleep(15000);
+		        Thread.sleep(15000);
 				//Service Tab Click
 				try 
 				{
@@ -481,18 +481,12 @@ public class InFlightOrderHelper extends DriverHelper {
 			Clickon(getwebelement(xml.getlocator("//locators/TextInputSwift").replace("Value","Customer Alias")));
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Customer Alias");
 			Clear(getwebelement(xml.getlocator("//locators/TextInputSwift").replace("Value","Customer Alias")));
-
-			for(int i=0;i<5;i++)
-			{
-			
-			EnterText2(Keys.BACK_SPACE);
-			}
-		   Thread.sleep(5000);
+		    Thread.sleep(5000);
 			SendKeys(getwebelement(xml.getlocator("//locators/TextInputSwift").replace("Value","Customer Alias")), "Ayush Moudgil");
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Customer Alias");
 			SendkeaboardKeys(getwebelement(xml.getlocator("//locators/TextInputSwift").replace("Value","Customer Alias")), Keys.TAB);
 			
-			WaitforElementtobeclickable((xml.getlocator("//locators/ClickheretoSaveAccess")));
+			WaitforElementtobeclickable(xml.getlocator("//locators/ClickheretoSaveAccess"));
 			Clickon(getwebelement(xml.getlocator("//locators/ClickheretoSaveAccess")));
 			waitforPagetobeenable();
 		
@@ -559,7 +553,7 @@ public class InFlightOrderHelper extends DriverHelper {
 			SendKeys(getwebelement(xml.getlocator("//locators/TextInputR4").replace("Value","Shelf ID")), "42");
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Physical port id");
 			SendkeaboardKeys(getwebelement(xml.getlocator("//locators/TextInputR4").replace("Value","Shelf ID")), Keys.TAB);
-			WaitforElementtobeclickable((xml.getlocator("//locators/ClickheretoSaveAccess")));
+			WaitforElementtobeclickable(xml.getlocator("//locators/ClickheretoSaveAccess"));
 			Clickon(getwebelement(xml.getlocator("//locators/ClickheretoSaveAccess")));
 			waitforPagetobeenable();
 				
@@ -577,7 +571,7 @@ public class InFlightOrderHelper extends DriverHelper {
 		Select(getwebelement2(xml.getlocator("//locators/ResillienceOptionSpoke")), Inputdata[75].toString());
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Resilience Option");
 		
-		WaitforElementtobeclickable((xml.getlocator("//locators/ApplyChangesSpoke")));
+		WaitforElementtobeclickable(xml.getlocator("//locators/ApplyChangesSpoke"));
 		Clickon(getwebelement(xml.getlocator("//locators/ApplyChangesSpoke")));
 		waitforPagetobeenable();
 		
@@ -595,7 +589,7 @@ public class InFlightOrderHelper extends DriverHelper {
 		Select(getwebelement2(xml.getlocator("//locators/ResillienceOptionLine")), Inputdata[75].toString());
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Resilience Option");
 		
-		WaitforElementtobeclickable((xml.getlocator("//locators/ApplyChangesSpoke")));
+		WaitforElementtobeclickable(xml.getlocator("//locators/ApplyChangesSpoke"));
 		Clickon(getwebelement(xml.getlocator("//locators/ApplyChangesSpoke")));
 		waitforPagetobeenable();
 		
@@ -625,7 +619,7 @@ public class InFlightOrderHelper extends DriverHelper {
 		
 		SendKeys(getwebelement(xml.getlocator("//locators/TextInput").replace("Value","Capacity Check Reference")), "1234");
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Capacity Check Reference");
-		WaitforElementtobeclickable((xml.getlocator("//locators/ClickheretoSaveAccess")));
+		WaitforElementtobeclickable(xml.getlocator("//locators/ClickheretoSaveAccess"));
 		Clickon(getwebelement(xml.getlocator("//locators/ClickheretoSaveAccess")));
 		waitforPagetobeenable();
 		
@@ -656,7 +650,7 @@ public class InFlightOrderHelper extends DriverHelper {
 		
 		SendKeys(getwebelement(xml.getlocator("//locators/TextInput").replace("Value","Trunk Name")), "abcd");
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Send Trunk Name");
-		WaitforElementtobeclickable((xml.getlocator("//locators/ClickheretoSaveAccess")));
+		WaitforElementtobeclickable(xml.getlocator("//locators/ClickheretoSaveAccess"));
 		Clickon(getwebelement(xml.getlocator("//locators/ClickheretoSaveAccess")));
 		waitforPagetobeenable();
 		
@@ -682,7 +676,7 @@ public class InFlightOrderHelper extends DriverHelper {
 		SendKeys(getwebelement(xml.getlocator("//locators/CallAdmissionControl")),"128" );
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Send value for CallAdmissionControl");
 		
-		WaitforElementtobeclickable((xml.getlocator("//locators/ClickheretoSaveAccess")));
+		WaitforElementtobeclickable(xml.getlocator("//locators/ClickheretoSaveAccess"));
 		Clickon(getwebelement(xml.getlocator("//locators/ClickheretoSaveAccess")));
 		waitforPagetobeenable();
 		
@@ -715,7 +709,7 @@ public class InFlightOrderHelper extends DriverHelper {
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Total DDI");
 		Thread.sleep(5000);
 		
-		WaitforElementtobeclickable((xml.getlocator("//locators/ClickheretoSaveAccess")));
+		WaitforElementtobeclickable(xml.getlocator("//locators/ClickheretoSaveAccess"));
 		Clickon(getwebelement(xml.getlocator("//locators/ClickheretoSaveAccess")));
 		waitforPagetobeenable();
 		
