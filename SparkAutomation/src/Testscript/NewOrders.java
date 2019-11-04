@@ -25,7 +25,7 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);// Updated
 			newOrderOnnnet.get().EnterDateInFooter(Data); // No change
 			newOrderOnnnet.get().EnterBillingDateInFooter(Data); // No change
-			newOrderOnnnet.get().installationCharges(Data); // Method added
+			newOrderOnnnet.get().EnterServiceChargeInFooter(Data, "2");
 			newOrderOnnnet.get().CommercialValidation(Data); // No Change
 			newOrderOnnnet.get().TechnicalValidation(Data); // Updated
 			newOrderOnnnet.get().DeliveryValidation(Data); // No Change
@@ -36,8 +36,7 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);// Updated for spoke also
 			newOrderOnnnet.get().EnterDateInFooter(Data); // No change
 			newOrderOnnnet.get().EnterBillingDateInFooter(Data); // No change
-			newOrderOnnnet.get().installationCharges(Data); // Method added same as hub and updated if condition for
-															// spoke
+			newOrderOnnnet.get().EnterServiceChargeInFooter(Data, "2");
 
 			newOrderOnnnet.get().CommercialValidation(Data); // No Change
 			newOrderOnnnet.get().TechnicalValidation(Data); // Updated for spoke also
@@ -94,7 +93,7 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);// Updated
 			newOrderOnnnet.get().EnterDateInFooter(Data); // No change
 			newOrderOnnnet.get().EnterBillingDateInFooter(Data); // No change
-			newOrderOnnnet.get().installationCharges(Data); // Method added
+			newOrderOnnnet.get().EnterServiceChargeInFooter(Data, "2"); // Method added
 			newOrderOnnnet.get().CommercialValidation(Data); // No Change
 			newOrderOnnnet.get().TechnicalValidation(Data); // Updated
 			newOrderOnnnet.get().DeliveryValidation(Data); // No Change
@@ -105,7 +104,7 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);// Updated for spoke also
 			newOrderOnnnet.get().EnterDateInFooter(Data); // No change
 			newOrderOnnnet.get().EnterBillingDateInFooter(Data); // No change
-			newOrderOnnnet.get().installationCharges(Data); // Method added same as hub and updated if condition for
+			newOrderOnnnet.get().EnterServiceChargeInFooter(Data, "2"); // Method added same as hub and updated if condition for
 															// spoke
 
 			newOrderOnnnet.get().CommercialValidation(Data); // No Change
@@ -162,7 +161,7 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);// Updated
 			newOrderOnnnet.get().EnterDateInFooter(Data); // No change
 			newOrderOnnnet.get().EnterBillingDateInFooter(Data); // No change
-			newOrderOnnnet.get().installationCharges(Data); // Method added
+			newOrderOnnnet.get().EnterServiceChargeInFooter(Data, "2"); // Method added
 			newOrderOnnnet.get().CommercialValidation(Data); // No Change
 			// newOrderOnnnet.get().TechnicalValidation(Data); // Updated
 			// newOrderOnnnet.get().DeliveryValidation(Data); // No Change
@@ -545,7 +544,7 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);// Updated
 			newOrderOnnnet.get().EnterDateInFooter(Data); // No change
 			newOrderOnnnet.get().EnterBillingDateInFooter(Data); // No change
-			newOrderOnnnet.get().installationCharges(Data); // Method added
+			newOrderOnnnet.get().EnterServiceChargeInFooter(Data, "2"); // Method added
 			newOrderOnnnet.get().CommercialValidation(Data); // No Change
 			newOrderOnnnet.get().TechnicalValidation(Data); // Updated
 			newOrderOnnnet.get().DeliveryValidation(Data); // No Change
@@ -556,7 +555,7 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);// Updated for spoke also
 			newOrderOnnnet.get().EnterDateInFooter(Data); // No change
 			newOrderOnnnet.get().EnterBillingDateInFooter(Data); // No change
-			newOrderOnnnet.get().installationCharges(Data); // Method added same as hub and updated if condition for
+			newOrderOnnnet.get().EnterServiceChargeInFooter(Data, "2"); // Method added same as hub and updated if condition for
 															// spoke
 
 			newOrderOnnnet.get().CommercialValidation(Data); // No Change

@@ -1254,7 +1254,7 @@
 <SIPVoiceconfigSubtTabTRUNK>(//a[text()='Voice Config'])</SIPVoiceconfigSubtTabTRUNK>
 <SIPVoiceConfigExpandSymbolIPPBXSelewction>(//*[@class='colt-site-component-collapse fa fa-plus-square-o'])</SIPVoiceConfigExpandSymbolIPPBXSelewction>
 <SIPReClickToIPPBXLookUp>((//*[@class='siebui-icon-pick'])[3])</SIPReClickToIPPBXLookUp> 
-<SIPOKSelectionButton>(//*[@class='siebui-ctrl-btn appletButton siebui-icon-pickrecord s_7_1_403_0'])</SIPOKSelectionButton>
+<SIPOKSelectionButton>//button[@title="COLT IP PBX Pick Applet:OK"]</SIPOKSelectionButton>
 <SIPVoiceConfigTab>//a[contains(text(),'Voice Config')]</SIPVoiceConfigTab> 
 
 <!--  Other Tab Locators --> 

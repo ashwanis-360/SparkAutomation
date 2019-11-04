@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.xml.DOMConfigurator;
 import org.openqa.selenium.WebDriver;
@@ -190,6 +191,7 @@ public class DriverTestcase {
 			capabilities.setCapability(ChromeOptions.CAPABILITY, options);
 			System.setProperty("webdriver.chrome.driver", ".\\lib\\chromedriver.exe");
 			dr = new ChromeDriver(capabilities);
+			dr.manage().timeouts().implicitlyWait(2,TimeUnit.SECONDS );
 		} else if (targatedbrowser.equals("ie")) {
 			Log.info("For IE inprogress");
 		}
