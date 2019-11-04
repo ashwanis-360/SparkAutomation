@@ -272,6 +272,9 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		Clickon(getwebelement(xml.getlocator("//locators/SubmitSubOrderType")));
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Submit Sub Order Type");
 		waitforPagetobeenable();
+		Thread.sleep(3000);
+		SendkeaboardKeys(getwebelement("//input[@aria-labelledby='COLT_Order_Item_Sub_Type_Label']"), Keys.TAB);
+		Thread.sleep(3000);
 		WaitforElementtobeclickable(xml.getlocator("//locators/ContractSearch"));
 		Clickon(getwebelement(xml.getlocator("//locators/ContractSearch")));
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Contract Search");
@@ -374,9 +377,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			waitforPagetobeenable();
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Submit Network Reference");
 		}
-		Thread.sleep(5000);
-		savePage();
-		Thread.sleep(10000);
+		Thread.sleep(6000);
+	
 		if (!Inputdata[8].toString().equals("Voice Line V")) {
 			WaitforElementtobeclickable(xml.getlocator("//locators/ExistingCapacityLeadTimePrimary"));
 			SendKeys(getwebelement(xml.getlocator("//locators/ExistingCapacityLeadTimePrimary")),
@@ -455,10 +457,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				WaitforElementtobeclickable("//button[@aria-label='Pick Contact:OK']");
 				Clickon(getwebelement("//button[@aria-label='Pick Contact:OK']"));
 				Thread.sleep(8000);
-				savePage();
 				waitforPagetobeenable();
-				savePage();//as per aman
-				Thread.sleep(8000);
 				if (isElementPresent(xml.getlocator("//locators/SaveOrderChanges"))) {
 					WaitforElementtobeclickable(xml.getlocator("//locators/SaveOrderChanges"));
 					Clickon(getwebelement(xml.getlocator("//locators/SaveOrderChanges")));
