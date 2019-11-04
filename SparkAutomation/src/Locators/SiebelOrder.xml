@@ -29,6 +29,7 @@
   <PickContactSearch>//td[@class="siebui-popup-filter"]//button[@title="Pick Contact:Go"]</PickContactSearch> 
   <PickAddrSubmit1>//button[@title="Pick Address:OK"]</PickAddrSubmit1> 
   <PickAccnt>//*[contains(@title,"13869")]</PickAccnt> 
+  <PopupCustomDropdown>//div[contains(@style,'block')]//span[@data-allowdblclick='true']</PopupCustomDropdown>
   <OrderingPartyContactSearch>//input[@aria-labelledby='COLT_Ordering_Contact_Full_Name_Label']/..//span</OrderingPartyContactSearch> 
   <PartyContactPopupDropdown>//*[@class='siebui-popup-button']//*[@class='siebui-icon-dropdown applet-form-combo applet-list-combo']</PartyContactPopupDropdown> 
   <LastName>//li[text()='Last Name']</LastName> 
@@ -566,6 +567,9 @@
    <AttributeValueEthernetAccess>//td[text()='NC Technical Service Id']/..//td/following-sibling::td/following-sibling::td/input</AttributeValueEthernetAccess>
  <OkButtonOperationalAttribute>//button[@aria-label='Operational Attributes:OK']</OkButtonOperationalAttribute>
   </R4>
+  <EnableFeature>//div[@id='colt-s-order-enabledfeatures-header']</EnableFeature>
+  <SectionSelection>//span[text()='Value']/preceding-sibling::span[@class='colt-component-check-available fa fa-circle-o']</SectionSelection>
+  <InputBox>(//span[text()='Value']/following-sibling::input)[-1]</InputBox>
   <!-- ************************* Private Wave Service *********************** -->
   <PrivateWaveService>
   <!--  <OperationalAttribueClick>(//table[@summary="Operational Attributes"]//tr[contains(@class,'mandatory')]//td[3])</OperationalAttribueClick> -->
