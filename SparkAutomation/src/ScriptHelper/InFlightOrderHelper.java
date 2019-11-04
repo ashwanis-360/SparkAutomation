@@ -48,50 +48,14 @@ public class InFlightOrderHelper extends DriverHelper {
 		String Product_Name1=Inputdata[11].toString();
 
 		
-		        Thread.sleep(15000);
-				//Service Tab Click
-				try 
-				{
-					Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderTab")));
-					ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Service Order Tab");
-				} 
-				catch (Exception e) 
-				{
-					try 
-					{
-						safeJavaScriptClick(getwebelement(xml.getlocator("//locators/ServiceOrderTab")));
-					} 
-					catch (Exception e1) 
-					{
-						e1.printStackTrace();
-					}
-				}
-				waitforPagetobeenable();
-				waitForpageload();
-				//******
+		        Thread.sleep(6000);
 				
-				//Search Service Order
-				waitandForElementDisplay(xml.getlocator("//locators/InputServiceOrder"), 5);
-				Clickon(getwebelement(xml.getlocator("//locators/InputServiceOrder")));
-				SendKeys(getwebelement(xml.getlocator("//locators/InputServiceOrder")),ServiceOrder.get().toString());
-				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Send Service Order2 Number");
-				Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderGo")));
-				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Service Go");
-				waitforPagetobeenable();
-				Thread.sleep(20000);
-				//*******
-				
-				//Open Reference No
-				Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderReferenceNo")));
-				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on ServiceOrderReferenceNo");
-				waitforPagetobeenable();
-				//******
-				
-				//Open Worflow Tab
+				//Open Workflow Tab
 				WaitforElementtobeclickable(xml.getlocator("//locators/ClickLink").replace("Value", "Workflows"));
 				Clickon(getwebelement(xml.getlocator("//locators/ClickLink").replace("Value","Workflows")));
 				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Workflows");
 				waitforPagetobeenable();
+				
 				//Click  Plus Sign, select dropdown and select option 
 				Clickon(getwebelement(xml.getlocator("//locators/InflightPlusSign")));
 				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on InFightPlusSign");
@@ -330,6 +294,7 @@ public class InFlightOrderHelper extends DriverHelper {
 				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Workflows Save");
 				  waitForpageload();
 				waitforPagetobeenable();
+				Thread.sleep(3000);
 	         				
 				switch(Product_Name)
 				{
@@ -478,13 +443,18 @@ public class InFlightOrderHelper extends DriverHelper {
 			
 			String Fieldtitle1=Getattribute(getwebelement2(xml.getlocator("//locators/FieldLabelSwift").replace("ChangeFieldName","Customer Alias")), "title");
 			Assert.assertTrue("Before Change In- Flight apprear for control", !Fieldtitle1.contains("flight"));
-			Clickon(getwebelement(xml.getlocator("//locators/TextInputSwift").replace("Value","Customer Alias")));
+			
+			Clickon(getwebelement(xml.getlocator("//locators/TextInputSwift")));
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Customer Alias");
-			Clear(getwebelement(xml.getlocator("//locators/TextInputSwift").replace("Value","Customer Alias")));
+			
+			Clear(getwebelement(xml.getlocator("//locators/TextInputSwift")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Clear Customer Alias");
 		    Thread.sleep(5000);
-			SendKeys(getwebelement(xml.getlocator("//locators/TextInputSwift").replace("Value","Customer Alias")), "Ayush Moudgil");
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Customer Alias");
-			SendkeaboardKeys(getwebelement(xml.getlocator("//locators/TextInputSwift").replace("Value","Customer Alias")), Keys.TAB);
+		    
+			SendKeys(getwebelement(xml.getlocator("//locators/TextInputSwift")), "Automation");
+			Thread.sleep(3000);
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step:Enter Customer Alias");
+			SendkeaboardKeys(getwebelement(xml.getlocator("//locators/TextInputSwift")), Keys.TAB);
 			
 			WaitforElementtobeclickable(xml.getlocator("//locators/ClickheretoSaveAccess"));
 			Clickon(getwebelement(xml.getlocator("//locators/ClickheretoSaveAccess")));
