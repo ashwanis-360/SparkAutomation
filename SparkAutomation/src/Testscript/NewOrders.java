@@ -594,4 +594,51 @@ public class NewOrders extends DriverTestcase {
 			// Code for InflightMod
 		}
 	}
+	@Test(dataProviderClass = DataReader.class, dataProvider = "NewOrderOnnet")
+	public void PartialDelivery(Object[] Data) throws Exception {
+
+		Login.get().Login("Sieble");
+		// Login.get().VerifySuccessLogin("Sieble");
+		// newOrderOnnnet.get().Check(Data);
+		newOrderOnnnet.get().accountTabDetails(Data);
+		newOrderOnnnet.get().createCustomerOrder(Data);
+		newOrderOnnnet.get().productSelectionHelper(Data);
+		newOrderOnnnet.get().openServiceOrderNumber();
+		
+			newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);
+			// add specifically for Wave and Ethernet Line and won't run for other products
+			newOrderOnnnet.get().addSiteADetails(Data);// added new
+			newOrderOnnnet.get().addSiteBDetails(Data);// added new
+			newOrderOnnnet.get().ASiteCustomize(Data);// added new
+			newOrderOnnnet.get().BSiteCustomize(Data);// added new
+			// End of methods spesific for Wave and Ethernet Line ------>
+			newOrderOnnnet.get().enterMandatoryDetailsInMiddleApplet(Data);
+			newOrderOnnnet.get().VoiceConfigTab(Data);
+			newOrderOnnnet.get().VoiceFeatureTab(Data);
+			newOrderOnnnet.get().NumberManagementTab(Data);
+			newOrderOnnnet.get().EnterDateInFooter(Data);
+			newOrderOnnnet.get().EnterBillingDateInFooter(Data);
+			newOrderOnnnet.get().EnterServiceChargeInFooter(Data, "2");
+
+			newOrderOnnnet.get().SelectAttachmentTab(Data);
+			newOrderOnnnet.get().UploadDocument(Data);
+			newOrderOnnnet.get().SelectServiceGroupTab(Data);
+			newOrderOnnnet.get().OperationAttribute(Data);
+			newOrderOnnnet.get().EnterInstallationChargeInFooter(Data);
+			newOrderOnnnet.get().MandatoryFields(Data);
+			newOrderOnnnet.get().CommercialValidation(Data);
+			newOrderOnnnet.get().TechnicalValidation(Data);
+			newOrderOnnnet.get().clickOnManualValidationB();
+			newOrderOnnnet.get().DeliveryValidation(Data);
+			newOrderOnnnet.get().clickOnManualValidationA();
+			
+			newOrderOnnnet.get().getReferenceNo(Data);// added new
+			newOrderOnnnet.get().PartialCompletedValidation(Data);
+		
+	}
+
+
+
+
+
 }
