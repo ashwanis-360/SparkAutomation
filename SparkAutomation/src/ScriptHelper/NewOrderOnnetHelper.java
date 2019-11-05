@@ -9683,6 +9683,12 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", "SingleMode 1310nm")));
 		waitforAttributeloader();
 		waitforPagetobeenable();
+		
+		Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Port Role")));
+		Clickon(getwebelement(
+				xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", "Physical Port")));
+		waitforAttributeloader();
+		waitforPagetobeenable();
 
 		//
 //			Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Diversity Type")));
