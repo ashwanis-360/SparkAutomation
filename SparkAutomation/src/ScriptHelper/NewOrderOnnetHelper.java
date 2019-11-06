@@ -72,6 +72,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on AccountName");
 		waitforPagetobeenable();
 		Thread.sleep(5000);
+		WaitforElementtobeclickable(xml.getlocator("//locators/InstalledAssetNew"));
 		Clickon(getwebelement(xml.getlocator("//locators/InstalledAssetNew")));
 		waitforPagetobeenable();
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Installed Asset New");
