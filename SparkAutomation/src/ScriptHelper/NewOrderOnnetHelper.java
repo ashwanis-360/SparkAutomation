@@ -8285,7 +8285,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 
 		WaitforElementtobeclickable(xml.getlocator("//locators/R4/PopDropdownClick").replace("Value", "Service Bandwidth"));
 		Clickon(getwebelement(xml.getlocator("//locators/R4/PopDropdownClick").replace("Value", "Service Bandwidth")));
-		Clickon(getwebelement(xml.getlocator("//locators/R4/InsideDropdownValues").replace("Data", "50 Mbps")));
+		Clickon(getwebelement(xml.getlocator("//locators/R4/InsideDropdownValues").replace("Data",InputData[32].toString())));
 
 		WaitforElementtobeclickable(xml.getlocator("//locators/R4/PopDropdownClick").replace("Value", "A End Resilience Option"));
 		Clickon(getwebelement(xml.getlocator("//locators/R4/PopDropdownClick").replace("Value", "A End Resilience Option")));
