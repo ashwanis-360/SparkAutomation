@@ -4002,7 +4002,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			Clickon(getwebelement(xml.getlocator("//locators/IpGurdianSave")));
 			waitforPagetobeenable();
 
-			if (Inputdata[28].toString().equals("Offnet"))
+			if (Inputdata[74].toString().equals("Offnet"))
 			{
 				/*WaitforElementtobeclickable(xml.getlocator("//locators/CustomerSitePopStatusDropdownAccess"));
 				Clickon(getwebelement(xml.getlocator("//locators/CustomerSitePopStatusDropdownAccess")));
@@ -5276,7 +5276,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			Clickon(getwebelement(xml3.getlocator("//locators/AEndSite")));
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on AEnd Site");
 			Thread.sleep(10000);
-			if (Inputdata[28].toString().equals("Offnet"))
+			if (Inputdata[74].toString().equals("Offnet"))
 			{
 			
 				waitforPagetobeenable();
@@ -5515,7 +5515,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			Clickon(getwebelement(xml3.getlocator("//locators/BEndSite")));
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on B End Site");
 
-			if (Inputdata[28].toString().equals("Offnet"))
+			if (Inputdata[74].toString().equals("Offnet"))
 			{
 			
 				waitforPagetobeenable();
@@ -6062,7 +6062,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		safeJavaScriptClick(getwebelement(xmlHns.getlocator("//locators/SpokeSiteLink")));
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Spoke Site Link");
 
-		if (Inputdata[28].toString().equals("Offnet"))
+		if (Inputdata[74].toString().equals("Offnet"))
 		{
 		
 			waitforPagetobeenable();
@@ -6392,7 +6392,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			System.out.println("Inside the case ethernet Access");
 			WaitforElementtobeclickable(xml.getlocator("//locators/R4/PopDropdownClick").replace("Value", "Coverage"));
 			Clickon(getwebelement(xml.getlocator("//locators/R4/PopDropdownClick").replace("Value", "Coverage")));
-			Clickon(getwebelement(xml.getlocator("//locators/R4/InsideDropdownValues").replace("Data", "Metro")));
+			Clickon(getwebelement(xml.getlocator("//locators/R4/InsideDropdownValues").replace("Data", InputData[138].toString())));
 		}
 
 		WaitforElementtobeclickable(
@@ -6698,8 +6698,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 
 		WaitforElementtobeclickable(xml.getlocator("//locators/R4/SearchInput").replace("Value", "Premises"));
 		Clear(getwebelement(xml.getlocator("//locators/R4/SearchInput").replace("Value", "Premises")));
-		SendKeys(getwebelement(xml.getlocator("//locators/R4/SearchInput").replace("Value", "Premises")), "1");
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Premises : 1");
+		SendKeys(getwebelement(xml.getlocator("//locators/R4/SearchInput").replace("Value", "Premises")), InputData[107].toString());
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Premises : " +InputData[107].toString());
 
 		WaitforElementtobeclickable(xml.getlocator("//locators/R4/SearchButton"));
 		Clickon(getwebelement(xml.getlocator("//locators/R4/SearchButton")));
@@ -6866,8 +6866,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			WaitforElementtobeclickable(
 					xml.getlocator("//locators/DarkFiber/MiddleDropDown").replace("Value", "Coverage"));
 			Clickon(getwebelement(xml.getlocator("//locators/DarkFiber/MiddleDropDown").replace("Value", "Coverage")));
-			Clickon(getwebelement(xml.getlocator("//locators/DarkFiber/MiddleLi").replace("Value", "Metro")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Connection Type : Metro");
+			Clickon(getwebelement(xml.getlocator("//locators/DarkFiber/MiddleLi").replace("Value", InputData[138].toString())));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Connection Type : "+InputData[138].toString());
 		}
 
 		WaitforElementtobeclickable(
@@ -7321,7 +7321,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		if (InputData[8].toString().contains("Ultra Low Latency")
 				|| (InputData[8].toString().contains("Private Wave Node"))) {
 			
-			if(InputData[28].toString().contains("Offnet"))
+			if(InputData[74].toString().contains("Offnet"))
 			{
 				//for selecting access type as 3rd party leased line//
 				//Added by Ayush//
@@ -7475,7 +7475,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 	public void BEndSitePUD(Object[] InputData) throws InterruptedException, DocumentException, IOException {
 		if (InputData[8].toString().contains("Ultra Low Latency")) {
 			
-			if(InputData[28].toString().contains("Offnet"))
+			if(InputData[74].toString().contains("Offnet"))
 			{
 				//for selecting access type as 3rd party leased line//
 				//Added by Ayush//
@@ -8499,7 +8499,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		if (ProductName.equalsIgnoreCase("DCA Ethernet") || ProductName.equalsIgnoreCase("Ethernet Access")) {
 			
 
-			if(InputData[28].toString().equalsIgnoreCase("offnet"))
+			if(InputData[74].toString().equalsIgnoreCase("offnet"))
 			{
 				WaitforElementtobeclickable(xml.getlocator("//locators/AccessTypeDropdownAccess"));
 				Clickon(getwebelement(xml.getlocator("//locators/AccessTypeDropdownAccess")));
@@ -9555,7 +9555,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		Thread.sleep(4000);
 		
 
-		if(Inputdata[28].toString().equalsIgnoreCase("Offnet"))
+		if(Inputdata[74].toString().equalsIgnoreCase("Offnet"))
 		{
 			WaitforElementtobeclickable(xml.getlocator("//locators/AccessTypeDropdownAccess"));
 			Clickon(getwebelement(xml.getlocator("//locators/AccessTypeDropdownAccess")));
