@@ -829,12 +829,12 @@
 <InstalltimeEthernetAccess>(//span[text()='Install Time']/..//span)[2]</InstalltimeEthernetAccess>
 <sitenamevalue1>//li[text()='ES_28037_CALLE DE SANTA LEONOR_55_0_NODE(ES)']</sitenamevalue1>
 <Customersitepopupstatusoffnet>//li[text()='NA']</Customersitepopupstatusoffnet>
-<AccesstypeOffnet>//li[text()='3rd Party Leased Line']</AccesstypeOffnet>
+<AccesstypeOffnet>//li[text()='AccessTypeValue']</AccesstypeOffnet>
 <ThirdpartyaccessproviderDropDown>(//span[text()='Third Party Access Provider']/..//span)[3]</ThirdpartyaccessproviderDropDown>
 <ThirdpartyaccessProvidervalue>//li[text()='VODAFONE(UK)']</ThirdpartyaccessProvidervalue>
 <Thirdpartyconectionreference>//span[text()='3rd Party Connection Reference']/..//input</Thirdpartyconectionreference>
 <ThirdpartyDropDown>(//span[text()='Third Party SLA Tier']/..//span)[3]</ThirdpartyDropDown>
-<ThirdpartySLATiervalue>//li[text()='Tier 1']</ThirdpartySLATiervalue>
+<ThirdpartySLATiervalue>//li[text()='SLAValue']</ThirdpartySLATiervalue>
 <Thirdpartyslrtier>//span[text()='Third Party SLA Tier']/..//input</Thirdpartyslrtier>
 <CeosUsername>//*[@id="username-id"]</CeosUsername>
 <CeosPwd>//input[@name='pwd']</CeosPwd>

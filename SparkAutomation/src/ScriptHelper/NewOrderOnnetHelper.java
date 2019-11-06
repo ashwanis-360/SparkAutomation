@@ -8503,9 +8503,9 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			{
 				WaitforElementtobeclickable(xml.getlocator("//locators/AccessTypeDropdownAccess"));
 				Clickon(getwebelement(xml.getlocator("//locators/AccessTypeDropdownAccess")));
-				WaitforElementtobeclickable(xml.getlocator("//locators/AccesstypeOffnet"));
-				Clickon(getwebelement(xml.getlocator("//locators/AccesstypeOffnet")));
-				
+				WaitforElementtobeclickable(xml.getlocator("//locators/AccesstypeOffnet").replace("AccessTypeValue", InputData[185].toString()));
+				Clickon(getwebelement(xml.getlocator("//locators/AccesstypeOffnet").replace("AccessTypeValue", InputData[185].toString())));
+
                 //Click on save button to populate extra fields//
 				WaitforElementtobeclickable(xml.getlocator("//locators/IpGurdianSave"));
 				Clickon(getwebelement(xml.getlocator("//locators/IpGurdianSave")));
@@ -8536,8 +8536,9 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				
 				WaitforElementtobeclickable(xml.getlocator("//locators/ThirdpartyDropDown"));
 				Clickon(getwebelement(xml.getlocator("//locators/ThirdpartyDropDown")));
-				WaitforElementtobeclickable(xml.getlocator("//locators/ThirdpartySLATiervalue"));
+				WaitforElementtobeclickable(xml.getlocator("//locators/ThirdpartySLATiervalue").replace("SLAValue", InputData[35].toString()));
 				Clickon(getwebelement(xml.getlocator("//locators/ThirdpartySLATiervalue")));
+				
 				
 				WaitforElementtobeclickable(xml.getlocator("//locators/IpGurdianSave"));
 				Clickon(getwebelement(xml.getlocator("//locators/IpGurdianSave")));
@@ -8554,10 +8555,10 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			Clickon(getwebelement(
 					xml.getlocator("//locators/DarkFiber/AEndSiteDropDown").replace("Value", "Access Type")));
 
-			WaitforElementtobeclickable(xml.getlocator("//locators/DarkFiber/AList").replace("Value", "Colt Fibre"));
+			WaitforElementtobeclickable(xml.getlocator("//locators/DarkFiber/AList").replace("Value", InputData[42].toString()));
 			Clickon(getwebelement(
-					xml.getlocator("//locators/DarkFiber/AList").replace("Value", InputData[84].toString())));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Access Type : " + InputData[84].toString());
+					xml.getlocator("//locators/DarkFiber/AList").replace("Value", InputData[42].toString())));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Access Type : " + InputData[42].toString());
 
 			// Access Tech
 			WaitforElementtobeclickable(
