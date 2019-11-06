@@ -30,6 +30,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 public class NewOrderOnnetHelper extends DriverHelper {
 
 	String timeStamp = TimeStamp();
+	String timeStamp1 = TimeStamp();
 	Random rnd = new Random();
 	public NewOrderOnnetHelper(WebDriver dr) {
 		super(dr);
