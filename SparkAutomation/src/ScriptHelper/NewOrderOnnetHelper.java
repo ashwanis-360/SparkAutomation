@@ -10491,7 +10491,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				
 				Robot r=new Robot();
 				r.keyPress(KeyEvent.VK_ENTER);
-				Thread.sleep(60000);
+				Thread.sleep(40000);
 								
 				dr.findElement(By.xpath("//label[text()='Actual Delivery (RFS) Date']/following-sibling::input")).sendKeys(CurrentDate());
 				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Actual Delivery (RFS) Date");
