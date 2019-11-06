@@ -4659,7 +4659,9 @@ public class NewOrderOnnetHelper extends DriverHelper {
 
 	public void CompletedValidation(Object[] Inputdata) throws Exception {
 		waitforPagetobeenable();
-
+		savePage();
+		waitforPagetobeenable();
+		Thread.sleep(10000);
 		if (Inputdata[8].toString().equals("IP VPN Service"))// **Start** Added By Abhay dated 28-Sep-2019
 		{
 			savePage();
@@ -4755,6 +4757,11 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			// Open the Older Order number;
 		} // **End**
 
+		Thread.sleep(5000);
+		savePage();
+		waitforPagetobeenable();
+		Thread.sleep(10000);
+		
 		WaitforElementtobeclickable(xml.getlocator("//locators/OrderStatusDropdown"));
 		Clickon(getwebelement(xml.getlocator("//locators/OrderStatusDropdown")));
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Order status drop down");
@@ -10367,7 +10374,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				//dr.get("http://navmctmohs003:8080/arsys/forms/amsceo03/CEOS%3AOff-Net+Service/Support/");
 				dr.manage().window().maximize();
 				dr.manage().timeouts().implicitlyWait(60,TimeUnit.SECONDS);
-				dr.navigate().to("http://navmctmohs003:8080/arsys/forms/amsceo02.eu.colt/CEOS%3AOff-Net+Service/Support_Web/");
+				dr.navigate().to("http://navmctmohs003:8080/arsys/forms/amsceo03/CEOS%3AOff-Net+Service/Support/");
+				//dr.navigate().to("http://navmctmohs003:8080/arsys/forms/amsceo02.eu.colt/CEOS%3AOff-Net+Service/Support_Web/");
 				//dr.get("http://navmctmohs003:8080/arsys/forms/amsceo02.eu.colt/CEOS%3AOff-Net+Service/Support_Web/");
 				Thread.sleep(3000);
 				System.out.println(dr.getTitle());
