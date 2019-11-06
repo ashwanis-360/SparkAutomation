@@ -1,8 +1,14 @@
 package ScriptHelper;
 import org.openqa.selenium.By;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 import java.util.Random;
-
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
 import org.dom4j.DocumentException;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
@@ -17,6 +23,7 @@ import Driver.Log;
 import Driver.XMLReader;
 import Reporter.ExtentTestManager;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
@@ -10348,7 +10355,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			}
 			
 			public void LaunchingCEOSApplication(Object Inputdata[]) throws Exception {
-							
+				
 				DesiredCapabilities capabilities = DesiredCapabilities.internetExplorer();
 				capabilities.setCapability(CapabilityType.BROWSER_NAME, "internet explorer");
 				capabilities.setCapability(InternetExplorerDriver.
@@ -10357,25 +10364,30 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				System.setProperty("webdriver.ie.driver",".\\lib\\IEDriverServer.exe");
 				InternetExplorerDriver dr= new InternetExplorerDriver(capabilities);
 				//dr.get("http://navmctmohs003:8080/arsys/forms/amsceo03/CEOS%3AOff-Net+Service/Support/");
-				dr.get("http://navmctmohs003:8080/arsys/forms/amsceo02.eu.colt/CEOS%3AOff-Net+Service/Support_Web/?qual=%27CEOS+Ref+No%27%3D%22CEOS00000513790%22&username=siebel&pwd=password&cacheid=92410de8");
+				dr.manage().window().maximize();
+				dr.manage().timeouts().implicitlyWait(60,TimeUnit.SECONDS);
+				dr.navigate().to("http://navmctmohs003:8080/arsys/forms/amsceo02.eu.colt/CEOS%3AOff-Net+Service/Support_Web/");
+				//dr.get("http://navmctmohs003:8080/arsys/forms/amsceo02.eu.colt/CEOS%3AOff-Net+Service/Support_Web/");
 				Thread.sleep(3000);
-				/*System.out.println(dr.getTitle());
-				//dr.findElement(By.id("username-id")).sendKeys("ajain12");
-				//Thread.sleep(3000);
+				System.out.println(dr.getTitle());
+				dr.findElement(By.id("username-id")).sendKeys("ajain12");
+				Thread.sleep(3000);
 				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter User Name");
+				dr.findElement(By.id("pwd-id")).click();
+				//dr.findElement(By.id("pwd-id")).clear();
 				dr.findElement(By.id("pwd-id")).sendKeys("password");
 				Thread.sleep(3000);
 				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Password");
 				dr.findElement(By.name("login")).click();
-				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Login Button");*/
-				//dr.findElement(By.className("text sr")).sendKeys(CeosOrder.get().toString());
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Login Button");
+				dr.findElement(By.className("text sr")).sendKeys(CeosOrder.get().toString());
 				
-				/*Clickon(getwebelement(xml.getlocator("//locators/InputServiceOrder")));
-				SendKeys(getwebelement(xml.getlocator("//locators/InputServiceOrder")), CeosOrder.get().toString());*/
-				dr.findElement(By.className("text sr")).sendKeys("CEOS00000513790");
+				//Clickon(getwebelement(xml.getlocator("//locators/InputServiceOrder")));
+				//SendKeys(getwebelement(xml.getlocator("//locators/InputServiceOrder")), CeosOrder.get().toString());*/
+				//dr.findElement(By.className("text sr")).sendKeys("CEOS00000513951");
 				//SendKeys(getwebelement(xml.getlocator("//locators/CEOSrefNo")),"CEOS00000513675");//Inputdata[1].toString());
-				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: CEOS Ref No enetered : CEOS00000513790");
-				Thread.sleep(10000);
+				//ExtentTestManager.getTest().log(LogStatus.PASS, " Step: CEOS Ref No enetered : CEOS00000513951");
+				Thread.sleep(5000);
 				//$x("//div[text()='Search']")
 				dr.findElement(By.id("TBsearchsavechanges")).click();
 				//Clickon(getwebelement(xml.getlocator("//locators/Searchbtn")));
@@ -10386,27 +10398,31 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				Thread.sleep(2000);
 				Clickon(dr.findElement(By.xpath("//label[text()='Supplier Product']/following-sibling::textarea")));
 				Thread.sleep(5000);
-				PickValue("ETHERNET");
+				Clickon(dr.findElement(By.xpath("//td[text()='ETHERNET']/parent::*")));
+				//PickValue("ETHERNET");
 				Thread.sleep(5000);
 				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Supplier Product");
-				Thread.sleep(60000);
+				//Thread.sleep(60000);
 				Clickon(dr.findElement(By.xpath("//label[text()='Bandwidth']/following-sibling::textarea")));
 				Thread.sleep(5000);
-				PickValue("10 Gbps");
+				Clickon(dr.findElement(By.xpath("//td[text()='1 Gbps']/parent::*")));
+				//PickValue("10 Gbps");
 				Thread.sleep(5000);
 				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Bandwidth");
 				Thread.sleep(2000);
-				dr.findElement(By.xpath("//label[text()='Interface']/following-sibling::textarea"));
-				PickValue("N/A");
+				Clickon(dr.findElement(By.xpath("//label[text()='Interface']/following-sibling::textarea")));
+				Thread.sleep(5000);
+				Clickon(dr.findElement(By.xpath("//td[text()='N/A']/parent::*")));
+				Thread.sleep(5000);
+				//PickValue("N/A");
 				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Interface");
 				Thread.sleep(2000);
-				dr.findElement(By.xpath("//label[text()='Connector']/following-sibling::textarea"));
-				PickValue("N/A");
+				Clickon(dr.findElement(By.xpath("//label[text()='Connector']/following-sibling::textarea")));
+				Thread.sleep(5000);
+				Clickon(dr.findElement(By.xpath("//td[text()='N/A']/parent::*")));
+				Thread.sleep(5000);
+				//PickValue("N/A");
 				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Connector");
-				Thread.sleep(2000);
-				dr.findElement(By.xpath("//label[text()='Supplier Circuit ID']/following-sibling::textarea")).sendKeys("12345678");
-				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Supplier Circuit ID");
-				Thread.sleep(2000);
 				dr.findElement(By.xpath("//label[text()='Supplier Ordering Reference']/following-sibling::textarea")).sendKeys("2345678");
 				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Supplier Ordering Reference");
 				Thread.sleep(2000);
@@ -10425,17 +10441,27 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				dr.findElement(By.xpath("//label[text()='Confirmed Delivery Date']/following-sibling::input")).sendKeys(CurrentDate());
 				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Confirmed Delivery Date");
 				Thread.sleep(2000);
-				dr.findElement(By.xpath("//label[text()='Tariff']/following-sibling::textarea"));
-				PickValue("flat");
+				Clickon(dr.findElement(By.xpath("//label[text()='Tariff']/following-sibling::textarea")));
+				Thread.sleep(5000);
+				Clickon(dr.findElement(By.xpath("//td[text()='flat']/parent::*")));
+				Thread.sleep(5000);
+				//PickValue("flat");
 				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Tariff");
 				Thread.sleep(2000);
-				dr.findElement(By.xpath("//label[text()='OLO Use']/following-sibling::div/input"));
-				PickValue("Customer access");
+				Clickon(dr.findElement(By.xpath("//label[text()='OLO Use']/following-sibling::div/input")));
+				Thread.sleep(5000);
+				Clickon(dr.findElement(By.xpath("//td[text()='Customer access ']/parent::*")));
+				Thread.sleep(5000);
+				//PickValue("Customer access");
 				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter OLO Use");
 				Thread.sleep(2000);
+				Clickon(dr.findElement(By.xpath("//label[text()='Install Cost']/following-sibling::input")));
+				Clear((dr.findElement(By.xpath("//label[text()='Install Cost']/following-sibling::input"))));
 				dr.findElement(By.xpath("//label[text()='Install Cost']/following-sibling::input")).sendKeys("1.00");
 				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Install Cost");
 				Thread.sleep(2000);
+				Clickon(dr.findElement(By.xpath("//label[text()='Recurring Cost']/following-sibling::input")));
+				Clear((dr.findElement(By.xpath("//label[text()='Recurring Cost']/following-sibling::input"))));
 				dr.findElement(By.xpath("//label[text()='Recurring Cost']/following-sibling::input")).sendKeys("1.00");
 				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Recurring Cost");
 				Thread.sleep(2000);
@@ -10448,22 +10474,45 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				dr.findElement(By.xpath("//label[text()='Supplier Invoice Start Date']/following-sibling::input")).sendKeys(CurrentDate());
 				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Supplier Invoice Start Date");
 				Thread.sleep(2000);
-				dr.findElement(By.xpath("//label[text()='Currency']/following-sibling::textarea")).sendKeys("SGD");
+				//dr.findElement(By.xpath("//label[text()='Currency']/following-sibling::textarea")).sendKeys("SGD");
 				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Currency");
 				Thread.sleep(2000);
-				dr.findElement(By.xpath("//div[text()='Save']")).click();
+				Clickon(dr.findElement(By.xpath("(//div[text()='Save'])[2]")));
 				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click Save");
 				Thread.sleep(10000);
-				dr.findElement(By.xpath("//a[text()='Interconnect Details']")).click();
+				
+				Clickon(dr.findElement(By.xpath("//a[text()='Interconnect Details']")));
 				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Interconnect Details Tab");
-				Thread.sleep(2000);
-				dr.findElement(By.xpath("(//input[@type='checkbox'])[3]")).click();
+				Thread.sleep(5000);
+				
+				Clickon(dr.findElement(By.xpath("(//input[@type='checkbox'])[3]")));
 				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter I/C Not Required checkbox");
+				Thread.sleep(10000);
+				
+				Robot r=new Robot();
+				r.keyPress(KeyEvent.VK_ENTER);
+				Thread.sleep(60000);
+				
+				
+				dr.findElement(By.xpath("//label[text()='Actual Delivery (RFS) Date']/following-sibling::input")).sendKeys(CurrentDate());
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Actual Delivery (RFS) Date");
 				Thread.sleep(2000);
-				dr.findElement(By.xpath("//div[text()='Yes']")).click();
-				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click Yes Button");
+				
+				dr.findElement(By.xpath("//label[text()='Expected delivery date']/following-sibling::input")).sendKeys(CurrentDate());
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Expected delivery date");
 				Thread.sleep(2000);
+				
+				dr.findElement(By.xpath("//label[text()='Supplier HandOver Date']/following-sibling::input")).sendKeys(CurrentDate());
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Supplier HandOver Date");
+				Thread.sleep(2000);
+				
+				Clickon(dr.findElement(By.xpath("(//div[text()='Save'])[2]")));
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click Save");
+				Thread.sleep(10000);
+				
+				
 			}
+		
 		//Added by Aman
 		public void CheckServiceTab(Object[] Inputdata) throws Exception {
 			waitforPagetobeenable();
