@@ -10492,8 +10492,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				Robot r=new Robot();
 				r.keyPress(KeyEvent.VK_ENTER);
 				Thread.sleep(60000);
-				
-				
+								
 				dr.findElement(By.xpath("//label[text()='Actual Delivery (RFS) Date']/following-sibling::input")).sendKeys(CurrentDate());
 				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Actual Delivery (RFS) Date");
 				Thread.sleep(2000);
@@ -10509,8 +10508,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				Clickon(dr.findElement(By.xpath("(//div[text()='Save'])[2]")));
 				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click Save");
 				Thread.sleep(10000);
-				
-				
+								
 			}
 		
 		//Added by Aman
