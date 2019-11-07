@@ -106,4 +106,15 @@
 		</classes>	
 	</test>
 	
+<test name="Siebel New OffnetOrder" junit="false" preserve-order="true">
+		<classes>
+			<class name="Testscript.NewOrders">	
+				<methods>
+					<include name="EndtoEndOrderOffnet"/>
+			  
+				</methods>	
+			</class>
+		</classes>	
+	</test> 
+	
 </suite>

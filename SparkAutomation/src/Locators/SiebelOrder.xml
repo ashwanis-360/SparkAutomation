@@ -855,7 +855,7 @@
  <Layer3ResillancePartialSelectDropdownAccess>//li[text()='Dual Access Load Shared']</Layer3ResillancePartialSelectDropdownAccess>
  <Secondarybtn>//a[text()='Secondary']</Secondarybtn>
  <Alertyes>//div[text()='Yes']</Alertyes>
- 
+ <ProceedButton>//button[text()='Proceed']</ProceedButton>
   <!--   rekha locator End --> 
   
   <!--Gaury's Locators for SIP truncking -->
