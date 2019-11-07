@@ -424,10 +424,10 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				waitforPagetobeenable();
 				WaitforElementtobeclickable(xml.getlocator("//locators/MaintenancePartyContactPopupDropdown")); // add
 																												// by
-																												// ayush
+				Thread.sleep(4000);																								// ayush
 				Clickon(getwebelement(xml.getlocator("//locators/MaintenancePartyContactPopupDropdown")));
-				WaitforElementtobeclickable(xml.getlocator("//locators/DropDown")); // add by dipesh
-				Clickon(getwebelement(xml.getlocator("//locators/DropDown")));// add by dipesh
+				//WaitforElementtobeclickable(xml.getlocator("//locators/DropDown")); // add by dipesh
+				//Clickon(getwebelement(xml.getlocator("//locators/DropDown")));// add by dipesh
 				waitandForElementDisplay((xml.getlocator("//locators/MaintenanceLastName")), 5);
 				safeJavaScriptClick(getwebelement(xml.getlocator("//locators/MaintenanceLastName")));
 				WaitforElementtobeclickable(xml.getlocator("//locators/InputMaintenanceLastName"));
@@ -8516,6 +8516,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
                 //Click on save button to populate extra fields//
 				WaitforElementtobeclickable(xml.getlocator("//locators/IpGurdianSave"));
 				Clickon(getwebelement(xml.getlocator("//locators/IpGurdianSave")));
+				waitForpageload();
+				waitforPagetobeenable();
 				Thread.sleep(7000);
 
 				// Access Tech
@@ -8544,7 +8546,12 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				WaitforElementtobeclickable(xml.getlocator("//locators/ThirdpartyDropDown"));
 				Clickon(getwebelement(xml.getlocator("//locators/ThirdpartyDropDown")));
 				WaitforElementtobeclickable(xml.getlocator("//locators/ThirdpartySLATiervalue").replace("SLAValue", InputData[35].toString()));
-				Clickon(getwebelement(xml.getlocator("//locators/ThirdpartySLATiervalue")));
+				Clickon(getwebelement(xml.getlocator("//locators/ThirdpartySLATiervalue").replace("SLAValue", InputData[35].toString())));
+				
+				WaitforElementtobeclickable(xml.getlocator("//locators/SiteTypeDropDown"));
+				Clickon(getwebelement(xml.getlocator("//locators/SiteTypeDropDown")));
+				WaitforElementtobeclickable(xml.getlocator("//locators/SiteTypeDropDownvalue"));
+				Clickon(getwebelement(xml.getlocator("//locators/SiteTypeDropDownvalue")));
 				
 				
 				WaitforElementtobeclickable(xml.getlocator("//locators/IpGurdianSave"));
