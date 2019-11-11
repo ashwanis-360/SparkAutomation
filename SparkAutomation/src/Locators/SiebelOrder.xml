@@ -835,6 +835,8 @@
 <Thirdpartyconectionreference>//span[text()='3rd Party Connection Reference']/..//input</Thirdpartyconectionreference>
 <ThirdpartyDropDown>(//span[text()='Third Party SLA Tier']/..//span)[3]</ThirdpartyDropDown>
 <ThirdpartySLATiervalue>//li[text()='SLAValue']</ThirdpartySLATiervalue>
+<SiteTypeDropDown>(//span[text()='Site Type']/..//span)[3]</SiteTypeDropDown>
+<SiteTypeDropDownvalue>//li[text()='Customer']</SiteTypeDropDownvalue>
 <Thirdpartyslrtier>//span[text()='Third Party SLA Tier']/..//input</Thirdpartyslrtier>
 <CeosUsername>//*[@id="username-id"]</CeosUsername>
 <CeosPwd>//input[@name='pwd']</CeosPwd>
@@ -853,7 +855,7 @@
  <Layer3ResillancePartialSelectDropdownAccess>//li[text()='Dual Access Load Shared']</Layer3ResillancePartialSelectDropdownAccess>
  <Secondarybtn>//a[text()='Secondary']</Secondarybtn>
  <Alertyes>//div[text()='Yes']</Alertyes>
- 
+ <ProceedButton>//button[text()='Proceed']</ProceedButton>
   <!--   rekha locator End --> 
   
   <!--Gaury's Locators for SIP truncking -->
