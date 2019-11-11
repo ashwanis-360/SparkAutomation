@@ -11347,5 +11347,62 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				Thread.sleep(5000);
 
 			}
+		 
+			/* Purpose: To open assest
+			 * Created By: Dipesh Jain
+			 */
+				 
+			public void openAsset() throws InterruptedException, DocumentException, IOException {
+				waitForpageload();
+				waitforPagetobeenable();
+				WaitforElementtobeclickable(xml.getlocator("//locators/AssetButton"));
+				Clickon(getwebelement(xml.getlocator("//locators/AssetButton")));
+				String Order="871687415/191107-0020";//ServiceOrder.get();
+				String[] Order1=Order.split("/");
+				WaitforElementtobeclickable(xml.getlocator("//locators/ServiceOrderOM"));
+				Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderOM")));
+				SendKeys(getwebelement(xml.getlocator("//locators/ServiceOrderOM")), Order1[0]);
+				WaitforElementtobeclickable(xml.getlocator("//locators/GoButton"));
+				Clickon(getwebelement(xml.getlocator("//locators/GoButton")));
+				
+				waitforPagetobeenable();
+				WaitforElementtobeclickable(xml.getlocator("//locators/AssetNumber"));
+				Clickon(getwebelement(xml.getlocator("//locators/AssetNumber")));
+			}
+			
+			/* Purpose: To validate SLA matrix
+			 * Created By: Dipesh Jain
+			 */
+				 
+			public void validateSlaMatrix(Object[] Inputdata) throws InterruptedException, DocumentException, IOException {
+				
+				if (Inputdata[179].toString().contains("SLA")) {
+						openAsset();
+						
+						try{
+							Select(getwebelement(xml.getlocator("//locators/InstalltionDropdown")), "Entitlements");
+							ExtentTestManager.getTest().log(LogStatus.PASS," Step: Click on Entitlements tab");	
+						}
+						catch(Exception e){
+						WaitforElementtobeclickable(xml.getlocator("//locators/EntitlementsTab"));
+						Clickon(getwebelement(xml.getlocator("//locators/EntitlementsTab")));
+						ExtentTestManager.getTest().log(LogStatus.PASS," Step: Click on Entitlements tab");
+						}
+						
+						waitforPagetobeenable();
+						Thread.sleep(4000);
+						String ActualSLA=Gettext(getwebelement(xml.getlocator("//locators/SlaTag")));
+						String ExpectedSLA=Inputdata[179].toString();
+						System.out.println(ActualSLA);
+						System.out.println(ExpectedSLA);
+						if (ActualSLA.contains(ExpectedSLA)) {
+							ExtentTestManager.getTest().log(LogStatus.PASS," Step: Validate SLA matrix is displayed as"+ActualSLA);
+						}
+						else {
+							ExtentTestManager.getTest().log(LogStatus.FAIL," Step: SLA is not correct" +ActualSLA);
+						}
+				}
+						
+			}
 	
 }
