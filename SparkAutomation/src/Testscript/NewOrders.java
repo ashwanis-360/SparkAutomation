@@ -597,7 +597,6 @@ public class NewOrders extends DriverTestcase {
 	public void PartialDelivery(Object[] Data) throws Exception {
 
 		Login.get().Login("Sieble");
-		// Login.get().VerifySuccessLogin("Sieble");
 		// newOrderOnnnet.get().Check(Data);
 		newOrderOnnnet.get().accountTabDetails(Data);
 		newOrderOnnnet.get().createCustomerOrder(Data);
@@ -640,7 +639,6 @@ public class NewOrders extends DriverTestcase {
 	public void EndtoEndOrderOffnet(Object[] Data) throws Exception {
 
 		Login.get().Login("Sieble");
-		// Login.get().VerifySuccessLogin("Sieble");
 		// newOrderOnnnet.get().Check(Data);
 		newOrderOnnnet.get().accountTabDetails(Data);
 		newOrderOnnnet.get().createCustomerOrder(Data);
@@ -702,6 +700,7 @@ public class NewOrders extends DriverTestcase {
 			}
 			newOrderOnnnet.get().getReferenceNo(Data);// added new
 			newOrderOnnnet.get().CompletedValidation(Data);
+			newOrderOnnnet.get().validateSlaMatrix(Data);
 		}
 	}
 
