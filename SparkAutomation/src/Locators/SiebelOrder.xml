@@ -352,6 +352,7 @@
   <ProductSelection>//div[text()='ProductName']/parent::*//button</ProductSelection>
   <Accesstype>//span[text()='Access Type']/..//input</Accesstype> 
   <AccessTypeDropdownAccess>(//span[text()='Access Type']/..//span)[3]</AccessTypeDropdownAccess> 
+  <AccesstypedropdownB>(//span[text()='Access Type']/..//span)[6]</AccesstypedropdownB>
   <SaveProductConfiguraton>//a[text()='Click here to save your product configuration.']</SaveProductConfiguraton>
   <AccessTypeSelectAccess>//li[text()='Colt Fibre']</AccessTypeSelectAccess> 
   <Accesstechnology>//span[text()='Access Technology']/..//input</Accesstechnology> 
@@ -831,9 +832,12 @@
 <Customersitepopupstatusoffnet>//li[text()='NA']</Customersitepopupstatusoffnet>
 <AccesstypeOffnet>//li[text()='AccessTypeValue']</AccesstypeOffnet>
 <ThirdpartyaccessproviderDropDown>(//span[text()='Third Party Access Provider']/..//span)[3]</ThirdpartyaccessproviderDropDown>
+<ThirdpartyaccessproviderDropDownB>(//span[text()='Third Party Access Provider']/..//span)[6]</ThirdpartyaccessproviderDropDownB>
 <ThirdpartyaccessProvidervalue>//li[text()='VODAFONE(UK)']</ThirdpartyaccessProvidervalue>
 <Thirdpartyconectionreference>//span[text()='3rd Party Connection Reference']/..//input</Thirdpartyconectionreference>
+<ThirdpartyconectionreferenceB>(//span[text()='3rd Party Connection Reference']/..//input)[2]</ThirdpartyconectionreferenceB>
 <ThirdpartyDropDown>(//span[text()='Third Party SLA Tier']/..//span)[3]</ThirdpartyDropDown>
+<ThirdpartyDropDownB>(//span[text()='Third Party SLA Tier']/..//span)[6]</ThirdpartyDropDownB>
 <ThirdpartySLATiervalue>//li[text()='SLAValue']</ThirdpartySLATiervalue>
 <SiteTypeDropDown>(//span[text()='Site Type']/..//span)[3]</SiteTypeDropDown>
 <SiteTypeDropDownvalue>//li[text()='Customer']</SiteTypeDropDownvalue>
