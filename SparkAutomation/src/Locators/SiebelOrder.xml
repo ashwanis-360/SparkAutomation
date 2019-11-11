@@ -1283,5 +1283,12 @@
 <SIPVoiceFeatureInput>//span[text()="value"]//following-sibling::input</SIPVoiceFeatureInput>
 <attribute>//*[text()='fieldsname']/parent::*</attribute>
 <FooterClass>//a[text()='Values']</FooterClass>
+<!-- SLA Matrix Locator -->
+	<AssetButton>//span[@title="Assets"]</AssetButton>
+	<ServiceOrderOM>//input[@aria-label="Service ID OM"]</ServiceOrderOM>
+	<GoButton>//button[@title="Search:Go"]</GoButton>
+	<AssetNumber>//a[@name="Asset Number"]</AssetNumber>
+	<SlaTag>//a[@name="Entitlement Name"]</SlaTag>
+	<EntitlementsTab>//a[text()='Entitlements']</EntitlementsTab>
 <!-- End Dipesh Locators -->
   </locators>
