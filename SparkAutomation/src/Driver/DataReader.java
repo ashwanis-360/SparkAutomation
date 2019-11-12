@@ -454,7 +454,7 @@ public class DataReader {
 	/*
 	 * Created by: Gauri for EOL
 	 */
-	@DataProvider(name="EOLorderCompletion", parallel=true)
+	@DataProvider(name="EOLorderCompletion", parallel=false)
 	public static Object[][] EOL() throws IOException
 			{
 			
