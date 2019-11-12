@@ -628,7 +628,7 @@
 <PickServiceSubmit>//button[@title='Pick Service:OK']</PickServiceSubmit>
 <showfullinfo>//a[text()='Show full info']</showfullinfo>
 <TrunkConfigurationplus>(//span[@class='colt-site-component-collapse fa fa-plus-square-o'])[2]</TrunkConfigurationplus>
-<outsidebuissnesshourinstallation>(//span[@class='colt-component-check-available fa fa-circle-o'])[3]</outsidebuissnesshourinstallation>
+<outsidebuissnesshourinstallation>(//span[@class='colt-component-check-available fa fa-circle-o'])[2]</outsidebuissnesshourinstallation>
 <TrunckConfigplus>(//span[@class='colt-site-component-collapse fa fa-plus-square-o'])[1]</TrunckConfigplus>
 <OperationAttribute>//span[@class='colt-oa-btn colt-oa-std-btn']</OperationAttribute>
 <AttributeNew>//button[@aria-label ='Operational Attributes:New']</AttributeNew>
