@@ -106,6 +106,17 @@
 		</classes>	
 	</test>
 	
+	  <test name="Siebel XNG " junit="false" preserve-order="true">
+		<classes>
+			<class name="Testscript.NewOrders">	
+				<methods>
+					
+				 <include name="XNGGeneric"/>   
+				</methods>	
+			</class>
+		</classes>	
+	</test>  
+	
 <test name="Siebel New OffnetOrder" junit="false" preserve-order="true">
 		<classes>
 			<class name="Testscript.NewOrders">	
