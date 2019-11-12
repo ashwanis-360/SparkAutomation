@@ -8,6 +8,11 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Random;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 import org.dom4j.DocumentException;
@@ -27,6 +32,10 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.server.handler.GetElementText;
+import org.openqa.selenium.security.UserAndPassword;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+
 
 public class NewOrderOnnetHelper extends DriverHelper {
 
@@ -77,6 +86,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		Thread.sleep(5000);
 
 		Clickon(getwebelement(xml.getlocator("//locators/AccountName").replace("OCN", Inputdata[0].toString())));
+		OrderingCustomer.set(Gettext(getwebelement(xml.getlocator("locators/AccountName").replace("OCN", Inputdata[0].toString()))));
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on AccountName");
 		waitforPagetobeenable();
 		Thread.sleep(5000);
@@ -11507,5 +11517,110 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				}
 						
 			}
+			 public void LaunchingXNGApplication(Object Inputdata[]) throws Exception {
+					DesiredCapabilities capabilities = DesiredCapabilities.internetExplorer();
+					capabilities.setCapability(CapabilityType.BROWSER_NAME, "internet explorer");
+					capabilities.setCapability(InternetExplorerDriver.
+					INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,true);
+					capabilities.setCapability("requireWindowFocus", true);
+					System.setProperty("webdriver.ie.driver",".\\lib\\IEDriverServer.exe.");
+					InternetExplorerDriver iedr= new InternetExplorerDriver(capabilities);
+					//iedr.manage().timeouts().implicitlyWait(60, TimeUnit.SECOND);
+					
+						iedr.manage().window().maximize();
+						
+					iedr.get("http://lonxng65:7778/eut05xn/xperweb.home");
+					
+					Thread.sleep(5000);
+					Robot rb = new Robot();
+					
+					Clipboard cl = Toolkit.getDefaultToolkit().getSystemClipboard();
+					StringSelection stringSelection = new StringSelection("ckumar2");
+					ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter username in XNG");
+					cl.setContents(stringSelection, null);
+					rb.keyPress(KeyEvent.VK_CONTROL);
+					rb.keyPress(KeyEvent.VK_V);
+					rb.keyRelease(KeyEvent.VK_V);
+					rb.keyRelease(KeyEvent.VK_CONTROL);
+					
+					Thread.sleep(4000);
+					rb.keyPress(KeyEvent.VK_TAB);
+					rb.keyRelease(KeyEvent.VK_TAB);
+					
+					Clipboard clpassword = Toolkit.getDefaultToolkit().getSystemClipboard();
+					StringSelection stringSelection1 = new StringSelection("xng@789");
+					ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter password in XNG");
+					cl.setContents(stringSelection1, null);
+					
+					rb.keyPress(KeyEvent.VK_CONTROL);
+					rb.keyPress(KeyEvent.VK_V);
+					rb.keyRelease(KeyEvent.VK_V);
+					rb.keyRelease(KeyEvent.VK_CONTROL);
+					
+					rb.keyPress(KeyEvent.VK_ENTER);
+					rb.keyRelease(KeyEvent.VK_ENTER);
+					Thread.sleep(3000);
+					System.out.println("The title of page is:"+iedr.getTitle());
+					iedr.findElement(By.xpath("//*[text()='Circuit Paths']")).click();
+					ExtentTestManager.getTest().log(LogStatus.PASS, " Step:Click on circuit paths");
+					System.out.println("The title of page is:"+iedr.getTitle());
+					Thread.sleep(3000);
+					iedr.findElement(By.xpath("//b[text()='ID:']/parent::*/following-sibling::td/input")).click();
+					ExtentTestManager.getTest().log(LogStatus.PASS, " Step: clIck on circuit id");
+					Thread.sleep(3000);
+					iedr.findElement(By.xpath("//b[text()='ID:']/parent::*/following-sibling::td/input")).sendKeys(Circuitreferencenumber.get());
+					ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter circuit id");
+					Thread.sleep(3000);
+					iedr.findElement(By.xpath("//input[@value=' Search ']")).click();
+					ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on search button");
+					
+					
+					String xp="//th[text()='ID']/../following-sibling::tr/td/a";
+					iedr.findElement(By.xpath(xp)).click();
+					ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on cicuit reference number");
+					
+					//Bandwidth verify//
+					Thread.sleep(5000);
+					String title3 = iedr.getTitle();
+					System.out.println("The title of third page is:"+ title3);
+					Thread.sleep(10000);
+					WebElement bandwidth = iedr.findElement(By.cssSelector("table tbody tr:nth-child(3) td:nth-child(4)"));
+					int firstBandwidth;
+					
+					if(bandwidth.getText().toLowerCase().contains("k")){
+						 int getNumberFromText = Integer.parseInt(bandwidth.getText().toLowerCase().split("k")[0]);
+						 firstBandwidth = getNumberFromText/1024;
+						
+					}else{
+						 firstBandwidth  = Integer.parseInt(bandwidth.getText().toLowerCase().split("m")[0]);		 
+					}
+					System.out.println("The first text is:" + firstBandwidth);
+					String data = Inputdata[32].toString();
+					int textinput = Integer.parseInt(data.toLowerCase().split("m")[0].trim());
+					System.out.println(textinput);
+					Assert.assertTrue("Bandwith not match in XNG", textinput==firstBandwidth);
+					ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Bandwidth verify has to be done");
+	               //for ordering customer
+					
+					String data1 = OrderingCustomer.get();
+					System.out.println(data1);
+					String orderingCustomer = iedr.findElement(By.xpath("//b[text()='Ordering Customer:']/parent::td/following-sibling::td[1]")).getText();
+					System.out.println("THe ordering customer is:"+orderingCustomer);
+					Assert.assertTrue("Ordering customer not match in XNG", data1.equalsIgnoreCase(orderingCustomer));
+					ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Verify ordering customer");
+					
+					//for topology//
+					
+					String topology = iedr.findElement(By.xpath("//b[text()='Topology:']/parent::td/following-sibling::td[1]")).getText();
+					System.out.println("Topolgy from browser:"+ topology);
+					String topologyin = Inputdata[183].toString();
+					String sub = topologyin.substring(0, 15).trim();
+					System.out.println("Topology in input sheet:"+sub );
+					Assert.assertTrue("Ordering customer not match in XNG", sub.equalsIgnoreCase(topology));
+					ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Topology verified");
+					
+					//for closing the browser
+					iedr.quit();
+					}
 	
 }

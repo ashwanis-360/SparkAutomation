@@ -134,7 +134,7 @@ public class LoginHelper extends DriverHelper
 		// Button");
 
 		System.out.println("Done");
-		Thread.sleep(60000);
+		Thread.sleep(50000);
 
 		AcceptJavaScriptMethod();
 
