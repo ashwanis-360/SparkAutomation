@@ -2478,7 +2478,12 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		/* End Of SIP Gauri Update Trunking */
 
 		case "Voice Line V": {
-
+			
+			waitForpageload();
+			waitforPagetobeenable();
+			savePage();
+			waitForpageload();
+			waitforPagetobeenable();
 			WaitforElementtobeclickable(xml.getlocator("//locators/VoiceServiceCountryDropdownAccess"));
 			Clickon(getwebelement(xml.getlocator("//locators/VoiceServiceCountryDropdownAccess")));
 			WaitforElementtobeclickable(xml.getlocator("//locators/VoiceServiceInputValue"));
@@ -2705,12 +2710,14 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			Clickon(getwebelement(
 					xml.getlocator("//locators/VoiceServiceCountryValue").replace("value", Inputdata[81].toString())));
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step:Enter value in access line type");
-
+			waitForpageload();
+			waitforPagetobeenable();
 			WaitforElementtobeclickable(xml.getlocator("//locators/AccessServiceID"));
 			Clickon(getwebelement(xml.getlocator("//locators/AccessServiceID")));
 
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step:Click on access service id");
 			waitForpageload();
+			waitforPagetobeenable();
 			System.out.println("page load successfully for service id in middle applet");
 			Thread.sleep(4000);
 			WaitforElementtobeclickable(xml.getlocator("//locators/OkButtonAccess"));
@@ -3662,12 +3669,14 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			Clickon(getwebelement(
 					xml.getlocator("//locators/VoiceServiceCountryValue").replace("value", Inputdata[81].toString())));
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step:Enter value in access line type");
-
+			waitForpageload();
+			waitforPagetobeenable();
 			WaitforElementtobeclickable(xml.getlocator("//locators/AccessServiceID"));
 			Clickon(getwebelement(xml.getlocator("//locators/AccessServiceID")));
 
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step:Click on access service id");
 			waitForpageload();
+			waitforPagetobeenable();
 			System.out.println("page load successfully for service id in middle applet");
 			Thread.sleep(4000);
 			WaitforElementtobeclickable(xml.getlocator("//locators/OkButtonAccess"));
@@ -9880,7 +9889,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 
 		if (Inputdata[11].equals("IP VPN Plus") || Inputdata[11].equals("IP VPN Access")
 				|| Inputdata[11].equals("PrizmNet")) {
-
+			Thread.sleep(5000);
 			Clickon(getwebelement(
 					xml.getlocator("//locators/IPVPNSite/SearchInput").replace("Value", "Physical Port ID Primary")));
 			waitforPagetobeenable();
