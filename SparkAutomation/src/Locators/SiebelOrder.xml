@@ -404,6 +404,7 @@
   <CustomerOrderSearch>//button[@title="Search:Go"]</CustomerOrderSearch>
   <CustomerOrderClick>//a[@name='Order Number']</CustomerOrderClick>
   <OrderStatusAbandoned>//li[text()='Abandoned']</OrderStatusAbandoned>
+   <OrderStatusCancelled>//li[text()='Cancelled']</OrderStatusCancelled>
   <ModifyButtonClick>//span[text()='Modify']</ModifyButtonClick>
   <CeaseButtonClick>//span[text()='Cease']</CeaseButtonClick>
   <CeaseReasonDropdown>(//input[@aria-label="Cease Reason"]/parent::*//span)</CeaseReasonDropdown>
@@ -594,6 +595,7 @@
    <ServiceOrderSearch>//input[@aria-label='Starting with']</ServiceOrderSearch>
   <ServiceOrderArrow>//input[@aria-label='Starting with']/..//button[1]</ServiceOrderArrow>
   <VerifyAbandoned>//td[text()='Abandoned']</VerifyAbandoned>
+   <VerifyCancelled>//td[text()='Cancelled']</VerifyCancelled>
   <ServiceOrderNumber>//span[text()='Service Order: ']/following-sibling::span</ServiceOrderNumber>
   *****************for cease**********************
   <CeaseOrder>//span[text()='Cease']</CeaseOrder>
@@ -1002,6 +1004,7 @@
  <NetworkService>//td[@title='IP VPN Service']</NetworkService>
  <GOIPService>//a[text()='Value']</GOIPService>
  <PartialCheckbox>//input[@aria-label="Partial Delivery Flag"]</PartialCheckbox>
+ <OrderStatusInput>//input[@aria-label="Order Status"]</OrderStatusInput>
   </IPVPNSite>
  <!--   Abhay locator End -->
 
