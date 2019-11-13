@@ -53,7 +53,7 @@
 			</class>
 		</classes>	
 	</test>  
-<test name="OMP" junit="false" preserve-order="true">
+<test name="OMPMod" junit="false" preserve-order="true">
 		<classes>
 			<class name="Testscript.NewOrders">	
 				<methods>
@@ -95,15 +95,5 @@
 		</classes>	
 	</test>
 
-<test name="Siebel New Order" junit="false" preserve-order="true">
-		<classes>
-			<class name="Testscript.NewOrders">	
-				<methods>
-					<include name="PartialDelivery"/>
-			  
-				</methods>	
-			</class>
-		</classes>	
-	</test>
-	
+
 </suite>
