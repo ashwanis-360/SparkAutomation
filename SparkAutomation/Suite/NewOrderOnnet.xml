@@ -3,7 +3,7 @@
 	<listeners>
 	  <listener class-name="Listners.TestListener"/>
     </listeners>
-<test name="Siebel New Order" junit="false" preserve-order="true">
+<!--  --><test name="Siebel New Order" junit="false" preserve-order="true">
 		<classes>
 			<class name="Testscript.NewOrders">	
 				<methods>
@@ -23,11 +23,11 @@
 			</class>
 		</classes>	
 	</test>
-<test name="Siebel Cancel" junit="false" preserve-order="true">
+<test name="Siebel Abandoned" junit="false" preserve-order="true">
 		<classes>
 			<class name="Testscript.NewOrders">	
 				<methods>
-					<include name="Cancel"/>
+					<include name="Abandoned"/>
 			  
 				</methods>	
 			</class>
@@ -105,27 +105,5 @@
 			</class>
 		</classes>	
 	</test>
-	
-	  <test name="Siebel XNG " junit="false" preserve-order="true">
-		<classes>
-			<class name="Testscript.NewOrders">	
-				<methods>
-					
-				 <include name="XNGGeneric"/>   
-				</methods>	
-			</class>
-		</classes>	
-	</test>  
-	
-<test name="Siebel New OffnetOrder" junit="false" preserve-order="true">
-		<classes>
-			<class name="Testscript.NewOrders">	
-				<methods>
-					<include name="EndtoEndOrderOffnet"/>
-			  
-				</methods>	
-			</class>
-		</classes>	
-	</test> 
 	
 </suite>

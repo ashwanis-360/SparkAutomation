@@ -144,10 +144,11 @@ public class NewOrders extends DriverTestcase {
 
 	}
 
-	@Test(dataProviderClass = DataReader.class, dataProvider = "Cancel")
-	public void Cancel(Object[] Data) throws Exception {
+	@Test(dataProviderClass = DataReader.class, dataProvider = "Abandoned")
+	public void Abandoned(Object[] Data) throws Exception {
 
 		Login.get().Login("Sieble");
+		// Login.get().VerifySuccessLogin("Sieble");
 		newOrderOnnnet.get().accountTabDetails(Data);
 		newOrderOnnnet.get().createCustomerOrder(Data);
 		newOrderOnnnet.get().productSelectionHelper(Data);
@@ -158,14 +159,14 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);// Updated
 			newOrderOnnnet.get().EnterDateInFooter(Data); // No change
 			newOrderOnnnet.get().EnterBillingDateInFooter(Data); // No change
-			newOrderOnnnet.get().EnterServiceChargeInFooter(Data, "2"); // Method added
+			newOrderOnnnet.get().installationCharges(Data); // Method added
 			newOrderOnnnet.get().CommercialValidation(Data); // No Change
 			// newOrderOnnnet.get().TechnicalValidation(Data); // Updated
 			// newOrderOnnnet.get().DeliveryValidation(Data); // No Change
 			// newOrderOnnnet.get().OrderCompleteEthernetHubSpoke(Data); // MethodAdded
-			Cancel.get().statusReason(Data);
-			Cancel.get().AbandonedOrder(Data);
-			Cancel.get().verifyOrderAbandoned();
+			Abandoned.get().statusReason(Data);
+			Abandoned.get().AbandonedOrder(Data);
+			Abandoned.get().verifyOrderAbandoned();
 		} else if (Data[8].toString().equalsIgnoreCase("Ethernet Spoke")) {
 			newOrderOnnnet.get().addEthernetSiteSpoke(Data);// MethodAdded
 			newOrderOnnnet.get().spokeSiteCustomize(Data);// MethodAdded
@@ -181,9 +182,9 @@ public class NewOrders extends DriverTestcase {
 			// newOrderOnnnet.get().DeliveryValidation(Data); // No Change
 			// newOrderOnnnet.get().OrderCompleteEthernetHubSpoke(Data);// updated same as
 			// hub
-			Cancel.get().statusReason(Data);
-			Cancel.get().AbandonedOrder(Data);
-			Cancel.get().verifyOrderAbandoned();
+			Abandoned.get().statusReason(Data);
+			Abandoned.get().AbandonedOrder(Data);
+			Abandoned.get().verifyOrderAbandoned();
 		} else {
 			newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);
 			// newOrderOnnnet.get().enterMandatoryDetailsInMiddleApplet(Data);
@@ -201,9 +202,9 @@ public class NewOrders extends DriverTestcase {
 			// newOrderOnnnet.get().EnterInstallationChargeInFooter(Data);
 			newOrderOnnnet.get().MandatoryFields(Data);
 			newOrderOnnnet.get().CommercialValidation(Data);
-			Cancel.get().statusReason(Data);
-			Cancel.get().AbandonedOrder(Data);
-			Cancel.get().verifyOrderAbandoned();
+			Abandoned.get().statusReason(Data);
+			Abandoned.get().AbandonedOrder(Data);
+			Abandoned.get().verifyOrderAbandoned();
 			/*
 			 * newOrderOnnnet.get().TechnicalValidation(Data);
 			 * newOrderOnnnet.get().clickOnManualValidationB();
@@ -215,6 +216,7 @@ public class NewOrders extends DriverTestcase {
 		// Code for Cancel
 
 	}
+
 
 	@Test(dataProviderClass = DataReader.class, dataProvider = "Mode")
 	public void Mod(Object[] Data) throws Throwable {

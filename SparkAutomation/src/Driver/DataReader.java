@@ -88,8 +88,8 @@ public class DataReader {
 		 return listOfLists;
 		 
 	}
-	@DataProvider(name="Cancel", parallel=true)
-	public static Object[][] Cancel() throws IOException
+	@DataProvider(name="Abandoned", parallel=true)
+	public static Object[][] Abandoned() throws IOException
 	{
 	
 		FileInputStream file = new FileInputStream(new File("src//Data//InputData.xlsx"));

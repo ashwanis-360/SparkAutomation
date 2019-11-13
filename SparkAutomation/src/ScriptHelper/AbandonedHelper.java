@@ -12,14 +12,14 @@ import Reporter.ExtentTestManager;
 
 
 
-public class CancelHelper extends DriverHelper{
+public class AbandonedHelper extends DriverHelper{
 	
 	
 	
 	WebElement el;
 	XMLReader xml=new XMLReader("src\\Locators\\SiebelOrder.xml");
 	
-	public CancelHelper(WebDriver parentdriver)
+	public AbandonedHelper(WebDriver parentdriver)
 	{
 		super(parentdriver);
 	}
