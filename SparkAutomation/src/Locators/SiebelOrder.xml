@@ -44,7 +44,7 @@
   <Routertype>//span[text()='Router Type']/..//input</Routertype> 
   <RouterTypeDropdownAccess>(//span[text()='Router Type']/..//span)[3]</RouterTypeDropdownAccess> 
   <RouterTechnologyDropdownAccess>(//span[text()='Router Technology']/..//span)[3]</RouterTechnologyDropdownAccess> 
-  <SelectRouterTypeDropDownAccess>//li[text()='Managed Router']</SelectRouterTypeDropDownAccess> 
+  <SelectRouterTypeDropDownAccess> <SelectRouterTypeDropDownAccess>//li[text()='No Colt Router']</SelectRouterTypeDropDownAccess> </SelectRouterTypeDropDownAccess> 
   <SelectRouterTechnologyDropDownAccess>//li[text()='Managed Virtual Router']</SelectRouterTechnologyDropDownAccess> 
   <Inputossplatformflag>//span[text()='OSS Platform Flag']/..//input</Inputossplatformflag> 
   <Inputlayer3resillence>//span[text()='Layer 3 Resilience']/..//input</Inputlayer3resillence> 
@@ -366,6 +366,7 @@
   <ServiceOrderClickOn>//a[contains(@name,'Order Num')]</ServiceOrderClickOn> 
   <ClickheretoSaveAccess>//a[text()='Click here to save your product configuration.']</ClickheretoSaveAccess> 
   <AlertAccept>//span[text()='Ok']</AlertAccept> 
+  <AlertAccept1>(//span[text()='Ok'])[2]</AlertAccept1>
   <CircuitReferenceAccess>//button[@id='colt-circuitref-button']</CircuitReferenceAccess> 
   <BillingStartDateAccess>//input[@aria-label='Billing Start Date']</BillingStartDateAccess> 
   <BilligEndDate>//input[@aria-label='Billing End Date']</BilligEndDate>
@@ -856,10 +857,12 @@
  <InstalltimeBside>(//span[text()='Install Time']/..//span)[6]</InstalltimeBside>
  <OffnetTab>//a[text()='Offnet']</OffnetTab>
  <CEOSRecord>//*[@class='OffnetSortClass']</CEOSRecord>
- <Layer3ResillancePartialSelectDropdownAccess>//li[text()='Dual Access Load Shared']</Layer3ResillancePartialSelectDropdownAccess>
+ <Layer3ResillancePartialSelectDropdownAccess><Layer3ResillancePartialSelectDropdownAccess>//li[text()='Dual Access Unmanaged']</Layer3ResillancePartialSelectDropdownAccess></Layer3ResillancePartialSelectDropdownAccess>
  <Secondarybtn>//a[text()='Secondary']</Secondarybtn>
  <Alertyes>//div[text()='Yes']</Alertyes>
  <ProceedButton>//button[text()='Proceed']</ProceedButton>
+ <BackupbandwidthDropDownAccess>(//span[text()='Backup Bandwidth']/..//span)[3]</BackupbandwidthDropDownAccess>
+ <BackupBandwidthSelectValue>//li[text()='3 Mbps']</BackupBandwidthSelectValue>
   <!--   rekha locator End --> 
   
   <!--Gaury's Locators for SIP truncking -->

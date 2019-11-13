@@ -258,6 +258,9 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().installationTimeUpdate(Data); // added by shivananda for carnor scenario
 			newOrderOnnnet.get().EnterDateInFooter(Data);
 			newOrderOnnnet.get().EnterBillingDateInFooter(Data);
+			if (Data[8].toString().equalsIgnoreCase("IP VPN Service")) {
+				newOrderOnnnet.get().ServiceChargeforIPVPNSite(Data, "4");	
+			}
 			newOrderOnnnet.get().EnterServiceChargeInFooter(Data, "4");
 			newOrderOnnnet.get().CommercialValidation(Data);
 
@@ -617,13 +620,14 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().UploadDocument(Data);
 			newOrderOnnnet.get().SelectServiceGroupTab(Data);
 			newOrderOnnnet.get().OperationAttribute(Data);
-			newOrderOnnnet.get().EnterInstallationChargeInFooter(Data);
-			newOrderOnnnet.get().MandatoryFields(Data);
-			newOrderOnnnet.get().CommercialValidation(Data);
-			newOrderOnnnet.get().TechnicalValidation(Data);
-			newOrderOnnnet.get().clickOnManualValidationB();
-			newOrderOnnnet.get().DeliveryValidation(Data);
-			newOrderOnnnet.get().clickOnManualValidationA();
+			if (!Data[8].toString().equalsIgnoreCase("IP Access")) {
+				newOrderOnnnet.get().EnterInstallationChargeInFooter(Data);	
+				newOrderOnnnet.get().CommercialValidation(Data);
+				newOrderOnnnet.get().TechnicalValidation(Data);
+				newOrderOnnnet.get().clickOnManualValidationB();
+				newOrderOnnnet.get().DeliveryValidation(Data);
+				newOrderOnnnet.get().clickOnManualValidationA();
+			}
 			
 			newOrderOnnnet.get().getReferenceNo(Data);// added new
 			newOrderOnnnet.get().PartialCompletedValidation(Data);
