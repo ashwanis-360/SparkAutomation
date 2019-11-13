@@ -19,7 +19,7 @@ public class EOLorderCompletion extends DriverTestcase {
 		
 		EOLorderCompletionHelper.get().switchToSalesuserType();
 		
-		if(Data[10].toString().equalsIgnoreCase("Colt Managed Virtual Firewall") || Data[40].toString().equalsIgnoreCase("Colt Managed Dedicated Firewall") )
+		if(Data[10].toString().equalsIgnoreCase("Colt Managed Virtual Firewall") || Data[10].toString().equalsIgnoreCase("Colt Managed Dedicated Firewall") )
 		{
 	EOLorderCompletionHelper.get().coltManagedFirewall(Data);
 		}
