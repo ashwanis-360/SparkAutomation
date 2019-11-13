@@ -16,10 +16,11 @@ import java.awt.event.KeyEvent;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 import org.dom4j.DocumentException;
-import org.junit.Assert;
+//import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.Reporter;
 
 import com.relevantcodes.extentreports.LogStatus;
@@ -5641,6 +5642,16 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		// ============================================================================================================
 		System.out.println("Order complete");
 		Thread.sleep(5000);
+		// Added by Abhay
+		String CompValidation= null;
+		CompValidation = getwebelement2(xml.getlocator("//locators/IPVPNSite/OrderStatusInput"))
+				.getAttribute("value");
+		System.out.println(CompValidation);
+		
+		Assert.assertTrue(CompValidation.contains("Comp")," Order status failed to Complete. It is displayed as : " + CompValidation);
+		ExtentTestManager.getTest().log(LogStatus.PASS,
+				" Step: Order Staus Verified in as Completed");
+
 
 	}
 
@@ -12432,7 +12443,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 					String data = Inputdata[32].toString();
 					int textinput = Integer.parseInt(data.toLowerCase().split("m")[0].trim());
 					System.out.println(textinput);
-					Assert.assertTrue("Bandwith not match in XNG", textinput==firstBandwidth);
+					Assert.assertTrue(textinput==firstBandwidth,"Bandwith not match in XNG" );
 					ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Bandwidth verify has to be done");
 	               //for ordering customer
 					
@@ -12440,7 +12451,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 					System.out.println(data1);
 					String orderingCustomer = iedr.findElement(By.xpath("//b[text()='Ordering Customer:']/parent::td/following-sibling::td[1]")).getText();
 					System.out.println("THe ordering customer is:"+orderingCustomer);
-					Assert.assertTrue("Ordering customer not match in XNG", data1.equalsIgnoreCase(orderingCustomer));
+					Assert.assertTrue(data1.equalsIgnoreCase(orderingCustomer),"Ordering customer not match in XNG" );
 					ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Verify ordering customer");
 					
 					//for topology//
@@ -12450,7 +12461,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 					String topologyin = Inputdata[183].toString();
 					String sub = topologyin.substring(0, 15).trim();
 					System.out.println("Topology in input sheet:"+sub );
-					Assert.assertTrue("Ordering customer not match in XNG", sub.equalsIgnoreCase(topology));
+					Assert.assertTrue(sub.equalsIgnoreCase(topology), "Ordering customer not match in XNG");
 					ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Topology verified");
 					
 					//for closing the browser
