@@ -6089,6 +6089,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 	 * details checked
 	 */
 	public void ASiteCustomize(Object[] Inputdata) throws Exception {
+		waitForpageload();
+		waitforPagetobeenable();
 		if (Inputdata[8].toString().equalsIgnoreCase("Ethernet Line")
 				|| Inputdata[8].toString().equalsIgnoreCase("Wave")) {
 			safeJavaScriptClick(getwebelement(xml3.getlocator("//locators/CustomizeButton")));
