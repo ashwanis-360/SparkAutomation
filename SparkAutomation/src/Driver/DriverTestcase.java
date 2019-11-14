@@ -21,6 +21,7 @@ import org.testng.annotations.BeforeTest;
 import ScriptHelper.PremiseMasterHelper;
 
 import ScriptHelper.AbandonedHelper;
+import ScriptHelper.CancelHelper;
 import ScriptHelper.CeasHelper;
 import ScriptHelper.InFlightOrderHelper;
 //import ScriptHelper.AbandonedOrderOfAllThreeProducts;
@@ -43,6 +44,7 @@ public class DriverTestcase {
 	public static final ThreadLocal<LoginHelper> Login = new InheritableThreadLocal<>();
 	public static final ThreadLocal<NewOrderOnnetHelper> newOrderOnnnet = new InheritableThreadLocal<>();
 	public static final ThreadLocal<AbandonedHelper> Abandoned = new InheritableThreadLocal<>();
+	public static final ThreadLocal<CancelHelper> Cancelled = new InheritableThreadLocal<>();
 	public static final ThreadLocal<CeasHelper> Cease = new InheritableThreadLocal<>();
 	public static final ThreadLocal<OMPScriptHelper> OmpOrder = new InheritableThreadLocal<>();
 	public static final ThreadLocal<MOD_OMPHelper> OmpMOdOrder = new InheritableThreadLocal<>();
@@ -174,6 +176,13 @@ public class DriverTestcase {
 						System.out.println(st[st.length - 2].toString());
 						ctx.setAttribute("testName", TestName.get().toString());
 			}
+		else if (method.getName().equals("Cancelled")) {
+//			DataReader dt=new DataReader();
+//			Object[][] data=dt.ipreader();
+//		    Object[] st= (Object[]) data[itr][0];
+			Log.info(st[st.length - 2].toString());
+			ctx.setAttribute("testName", st[st.length - 2].toString());
+		}
 		else
 			ctx.setAttribute("testName", method.getName());
 		Log.info(ctx.getAttribute("testName").toString());
@@ -221,6 +230,7 @@ public class DriverTestcase {
 		InFlightOrderHelper InFlightOrder = new InFlightOrderHelper(getwebdriver());
 		CeasHelper CL = new CeasHelper(getwebdriver());
 		AbandonedHelper CN = new AbandonedHelper(getwebdriver());
+		CancelHelper CanHelp = new CancelHelper(getwebdriver());
 		ModHelper MD = new ModHelper(getwebdriver());
 		PremiseMasterHelper PM = new PremiseMasterHelper(getwebdriver());
 		NewOrderOnnetHelper noo = new NewOrderOnnetHelper(getwebdriver());
