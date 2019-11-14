@@ -101,7 +101,8 @@ public class DriverTestcase {
 // ctx.getCurrentXmlTest()ctx.getCurrentXmlTest().set
 
 			ctx.setAttribute("testName", TestName.get().toString());
-		} else if (method.getName().equals("Mod")) {
+		} 
+		else if (method.getName().equals("Mod")) {
 //   DataReader dt=new DataReader();
 //   Object[][] data=dt.ipreader();
 //    Object[] st= (Object[]) data[itr][0];
@@ -110,7 +111,8 @@ public class DriverTestcase {
 // ctx.getCurrentXmlTest()ctx.getCurrentXmlTest().set
 
 			ctx.setAttribute("testName", TestName.get().toString());
-		} else if (method.getName().equals("Abandoned")) {
+		} 
+		else if (method.getName().equals("Abandoned")) {
 //   DataReader dt=new DataReader();
 //   Object[][] data=dt.ipreader();
 //    Object[] st= (Object[]) data[itr][0];
@@ -119,7 +121,8 @@ public class DriverTestcase {
 // ctx.getCurrentXmlTest()ctx.getCurrentXmlTest().set
 
 			ctx.setAttribute("testName", TestName.get().toString());
-		} else if (method.getName().equals("Cease")) {
+		} 
+		else if (method.getName().equals("Cease")) {
 //   DataReader dt=new DataReader();
 //   Object[][] data=dt.ipreader();
 //    Object[] st= (Object[]) data[itr][0];
@@ -128,7 +131,26 @@ public class DriverTestcase {
 // ctx.getCurrentXmlTest()ctx.getCurrentXmlTest().set
 
 			ctx.setAttribute("testName", TestName.get().toString());
-		} else if (method.getName().equals("InflightMod")) {
+			
+		}
+		else if (method.getName().equals("eolModcomOfAllProducts")) {
+			//   DataReader dt=new DataReader();
+			//   Object[][] data=dt.ipreader();
+//			    Object[] st= (Object[]) data[itr][0];
+						Log.info(st[st.length - 2].toString());
+						System.out.println(st[st.length - 2].toString());
+						ctx.setAttribute("testName", TestName.get().toString());
+			}
+		else if (method.getName().equals("eolModtechOfAllProducts")) {
+			//   DataReader dt=new DataReader();
+			//   Object[][] data=dt.ipreader();
+//			    Object[] st= (Object[]) data[itr][0];
+						Log.info(st[st.length - 2].toString());
+						System.out.println(st[st.length - 2].toString());
+						ctx.setAttribute("testName", TestName.get().toString());
+			}
+
+		else if (method.getName().equals("InflightMod")) {
 //   DataReader dt=new DataReader();
 //   Object[][] data=dt.ipreader();
 //    Object[] st= (Object[]) data[itr][0];
