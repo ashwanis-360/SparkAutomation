@@ -278,7 +278,8 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().getReferenceNo(Data);// added new
 			newOrderOnnnet.get().Carnor_getReferenceNo(Data);
 			newOrderOnnnet.get().OperationAttribute_Carnor(Data);
-			newOrderOnnnet.get().CompletedValidation(Data);
+			newOrderOnnnet.get().CarnorCompletedValidation(Data);
+			//newOrderOnnnet.get().CompletedValidation(Data);
 		}
 		if (Data[Data.length - 1].toString().contains("Com")) {
 			newOrderOnnnet.get().ServiceTab(Data);

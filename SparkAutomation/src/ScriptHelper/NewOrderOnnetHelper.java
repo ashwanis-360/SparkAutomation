@@ -925,7 +925,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 	}
 
 	public void SelectServiceGroupTab(Object[] Inputdata) throws Exception {
-		if (Inputdata[8].toString().equals("Voice Line V") || Inputdata[8].toString().equals("SIP Trunking")) {
+		if (Inputdata[8].toString().equals("Voice Line V") || Inputdata[8].toString().equals("SIP Trunking")
+				|| Inputdata[8].toString().equals("Number Hosting")||Inputdata[8].toString().equalsIgnoreCase("Interconnect"))  {
 			waitForpageload();
 			waitforPagetobeenable();
 			Clickon(getwebelement(xml.getlocator("//locators/DropDown")));
@@ -5756,6 +5757,15 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		waitforPagetobeenable();
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Submit Sub Order Type");
 		Thread.sleep(2000);
+		
+		waitforPagetobeenable();
+		Thread.sleep(3000);
+		Clickon(getwebelement("//input[@aria-labelledby='COLT_ProContact_FullName_Label']/following-sibling::span"));
+		Thread.sleep(5000);
+		WaitforElementtobeclickable("//button[@aria-label='Pick Contact:OK']");
+		Clickon(getwebelement("//button[@aria-label='Pick Contact:OK']"));
+		Thread.sleep(8000);
+		waitforPagetobeenable();
 
 //				Clickon(getwebelement(xml.getlocator("//locators/ClickDropdown").replace("Value","Voice Service Country")));
 //				Clickon(getwebelement(xml.getlocator("//locators/SelectValueDropdown").replace("Value","Belgium")));
@@ -5789,7 +5799,9 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		
 		}
 		else if(Inputdata[8].toString().equals("Private Wave Service")
-				|| (Inputdata[8].toString().equals("DCA Ethernet")))
+				|| (Inputdata[8].toString().equals("DCA Ethernet")
+				|| Inputdata[8].toString().equals("Dark Fibre")
+				|| Inputdata[8].toString().equals("Private Ethernet")))
 		{
 			WaitforElementtobeclickable(xml.getlocator("//locators/InstallTimeDropdownAccess"));
 			Clickon(getwebelement(xml.getlocator("//locators/InstallTimeDropdownAccess")));
@@ -5826,6 +5838,14 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			waitforPagetobeenable();
 			Clickon(getwebelement(xml.getlocator("//locators/AccountStatusSubmit")));
 			Thread.sleep(3000);
+			waitforPagetobeenable();
+			Thread.sleep(3000);
+			Clickon(getwebelement("//input[@aria-labelledby='COLT_ProContact_FullName_Label']/following-sibling::span"));
+			Thread.sleep(5000);
+			WaitforElementtobeclickable("//button[@aria-label='Pick Contact:OK']");
+			Clickon(getwebelement("//button[@aria-label='Pick Contact:OK']"));
+			Thread.sleep(8000);
+			waitforPagetobeenable();
 		}
 		savePage();
 		waitforPagetobeenable();
@@ -8056,10 +8076,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		// below lines of code will work based on product / please update the as per
 		// your product
 		if (Inputdata[8].toString().equalsIgnoreCase("Wave")
-				|| Inputdata[8].toString().equalsIgnoreCase("Ethernet Line")
-				|| Inputdata[8].toString().equalsIgnoreCase("Private Ethernet")
-				|| Inputdata[8].toString().equalsIgnoreCase("Ultra Low Latency")
-				|| Inputdata[8].toString().equalsIgnoreCase("Dark Fibre")) {
+				|| Inputdata[8].toString().equalsIgnoreCase("Ethernet Line")) {
 			CarNorOrderNumber
 					.set(Getattribute(getwebelement(xml.getlocator("//locators/carnorOrderReferencevalue")), "title"));
 			ExtentTestManager.getTest().log(LogStatus.PASS,
@@ -12471,5 +12488,57 @@ public class NewOrderOnnetHelper extends DriverHelper {
 					//for closing the browser
 					iedr.quit();
 					}
+			 
+			 public void CarnorCompletedValidation(Object[] Inputdata) throws Exception {
+					waitforPagetobeenable();
+					savePage();
+					waitforPagetobeenable();
+					Thread.sleep(10000);
+									
+					WaitforElementtobeclickable(xml.getlocator("//locators/OrderStatusDropdown"));
+					Clickon(getwebelement(xml.getlocator("//locators/OrderStatusDropdown")));
+					ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Order status drop down");
+					Thread.sleep(3000);
+					Clickon(getwebelement(xml.getlocator("//locators/SelectCompleted")));
+					ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click Completed Status");
+					waitforPagetobeenable();
+
+					Thread.sleep(5000);
+					// savePage();
+					// Thread.sleep(6000);
+					Clickon(getwebelement(xml.getlocator("//locators/OrderComplete")));
+					ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click Order Complete");
+					waitforPagetobeenable();
+					Thread.sleep(5000);
+					savePage();
+					waitforPagetobeenable();
+					Thread.sleep(10000);
+					savePage();
+					waitforPagetobeenable();
+					Thread.sleep(10000);
+					if (isDisplayed(xml.getlocator("//locators/AlertAccept"))) {
+						System.out.println("");
+						System.out.println("Alert Present");
+						WaitforElementtobeclickable((xml.getlocator("//locators/AlertAccept")));
+						Clickon(getwebelement(xml.getlocator("//locators/AlertAccept")));
+					}
+
+					// Pagerefresh();
+					Thread.sleep(5000);
+					// =======================Added by Rekha ==================== difft pop up was
+					// arriving for Ethernet VPN Access=====================
+					if (isElementPresent(xml.getlocator("//locators/SubnetworkPopUP"))) {
+						System.out.println("");
+						System.out.println("Alert Present");
+						WaitforElementtobeclickable((xml.getlocator("//locators/SubnetworkPopUP")));
+						Clickon(getwebelement(xml.getlocator("//locators/SubnetworkPopUP")));
+					}
+					// ============================================================================================================
+					System.out.println("Order complete");
+					Thread.sleep(5000);
+
+				}
+
+			
 	
 }
