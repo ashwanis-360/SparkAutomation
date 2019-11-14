@@ -247,6 +247,7 @@ public class DriverTestcase {
 		modHelper.set(MD);
 		OmpMOdOrder.set(OMPMod);
 		premiseHelper.set(PM);
+		Cancelled.set(CanHelp);
 // modifyOrdersCom.set(mooc);
 // abandonedOrder.set(aoop);
 // inFlight.set(ioc);
