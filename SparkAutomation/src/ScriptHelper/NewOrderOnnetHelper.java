@@ -3837,10 +3837,13 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			WaitforElementtobeclickable(xml.getlocator("//locators/InputSiteNameAccess"));
 			SendKeys(getwebelement(xml.getlocator("//locators/InputSiteNameAccess")), Inputdata[70].toString());
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Site Name");
+			
 
 			WaitforElementtobeclickable(xml.getlocator("//locators/LastNameSiteSearchAccess"));
 			Clickon(getwebelement(xml.getlocator("//locators/LastNameSiteSearchAccess")));
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step:Click On Search");
+			waitforPagetobeenable();
+			Thread.sleep(3000);
 
 			WaitforElementtobeclickable(xml.getlocator("//locators/LastNameSiteSubmitAccess"));
 			Clickon(getwebelement(xml.getlocator("//locators/LastNameSiteSubmitAccess")));
