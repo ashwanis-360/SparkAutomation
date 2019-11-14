@@ -41,6 +41,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 public class NewOrderOnnetHelper extends DriverHelper {
 
 	String timeStamp = TimeStamp();
+	String timeStamp1 = TimeStamp();
 	Random rnd = new Random();
 	public NewOrderOnnetHelper(WebDriver dr) {
 		super(dr);
@@ -6088,6 +6089,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 	 * details checked
 	 */
 	public void ASiteCustomize(Object[] Inputdata) throws Exception {
+		waitForpageload();
+		waitforPagetobeenable();
 		if (Inputdata[8].toString().equalsIgnoreCase("Ethernet Line")
 				|| Inputdata[8].toString().equalsIgnoreCase("Wave")) {
 			safeJavaScriptClick(getwebelement(xml3.getlocator("//locators/CustomizeButton")));
@@ -8186,9 +8189,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		
 		
 		if (InputData[8].toString().contains("Ultra Low Latency")
-				|| (InputData[8].toString().contains("Private Wave Node")
-				|| (InputData[8].toString().contains("Private Wave Service")
-				|| (InputData[8].toString().contains("Dark Fibre")))))
+				|| (InputData[8].toString().contains("Private Wave Node")))
+				
 		{
 										
 			
@@ -8379,8 +8381,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 
 		if (InputData[8].toString().contains("Ultra Low Latency")
 				|| (InputData[8].toString().contains("Private Wave Node")
-				|| (InputData[8].toString().contains("Private Wave Service")
-				|| (InputData[8].toString().contains("Dark Fibre")))))
+				))
 		{
 										
 			

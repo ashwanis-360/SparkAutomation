@@ -1090,7 +1090,8 @@
 </R4>
 <!-- End Devesh Locators -->
 <!-- Start Aman Locators -->
- 
+<PortRole>//select[@class="siebui-ctrl-select "]</PortRole>
+<AccessPortItem>(//select[@class="siebui-ctrl-select "])[2]</AccessPortItem>
 <PrimaryLeadInput>//input[@aria-labelledby="COLT_Existing_Capacity_Lead_Time_Code_Label"]</PrimaryLeadInput>
 <ExistingPrimary>(//span[text()='Existing Capacity Lead Time'])[2]</ExistingPrimary>
 <ListNo>//li[text()='No']</ListNo>
