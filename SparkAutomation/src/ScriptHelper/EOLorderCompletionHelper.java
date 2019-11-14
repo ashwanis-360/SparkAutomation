@@ -386,245 +386,7 @@ public class EOLorderCompletionHelper extends DriverHelper {
 	
 	}
 	
-	
-
-	public void modTechOrder(Object[] Inputdata) throws Exception {
 		
-		Clickon(getwebelement(xml.getlocator("//locators/ModTechTab")));
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on New order button");
-		Thread.sleep(5000);
-		
-		Clickon(getwebelement(xml.getlocator("//locators/ModTechOCN")));
-		SendKeys(getwebelement(xml.getlocator("//locators/ModTechOCN")), Inputdata[1].toString());
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter OCN value");
-		Thread.sleep(5000);
-		
-		Clickon(getwebelement(xml.getlocator("//locators/ModTechLegalContactDetails")));
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: click on add contact icon");
-		Thread.sleep(3000);
-		
-		Clickon(getwebelement(xml.getlocator("//locators/ModTechFirstName")));
-		SendKeys(getwebelement(xml.getlocator("//locators/ModTechFirstName")), Inputdata[2].toString());
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter First name value");
-		Thread.sleep(5000);
-		Clickon(getwebelement(xml.getlocator("//locators/ModTechLastName")));
-		SendKeys(getwebelement(xml.getlocator("//locators/ModTechLastName")), Inputdata[3].toString());
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter last name value");
-		Thread.sleep(3000);
-		
-		Clickon(getwebelement(xml.getlocator("//locators/ModTechTitle")));
-		Thread.sleep(3000);
-		Select(getwebelement(xml.getlocator("//locators/ModTechTitle")), Inputdata[4].toString());
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: select title");
-		Thread.sleep(3000);
-		Clickon(getwebelement(xml.getlocator("//locators/ModTechEmail")));
-		Thread.sleep(3000);
-		SendKeys(getwebelement(xml.getlocator("//locators/ModTechEmail")), Inputdata[5].toString());		
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter Email value");
-		Thread.sleep(3000);
-		Clickon(getwebelement(xml.getlocator("//locators/ModTechTelephoneNumber")));
-		Thread.sleep(3000);
-		SendKeys(getwebelement(xml.getlocator("//locators/ModTechTelephoneNumber")), Inputdata[6].toString());
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter telephone number value");
-		Thread.sleep(3000);
-		Clickon(getwebelement(xml.getlocator("//locators/ModTechCorrespondentLanguage")));
-		Select(getwebelement(xml.getlocator("//locators/ModTechCorrespondentLanguage")), Inputdata[7].toString());
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: select corresponding language");
-		Thread.sleep(3000);
-					
-		Clickon(getwebelement(xml.getlocator("//locators/ModTechAddButton")));
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: click on add contact button");
-		Thread.sleep(5000);			
-		
-		Clickon(getwebelement(xml.getlocator("//locators/ModTechProductName")));
-		SendKeys(getwebelement(xml.getlocator("//locators/ModTechProductName")), Inputdata[10].toString());
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter product name value");
-		Thread.sleep(5000);
-						
-		Clickon(getwebelement(xml.getlocator("//locators/ModTechCurrency")));
-		Thread.sleep(3000);
-		Clickon(getwebelement(xml.getlocator("//locators/ModTechCurrencyValue")));
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: select currency");
-		Thread.sleep(5000);
-		
-		Clickon(getwebelement(xml.getlocator("//locators/ModTechOrderNumber")));
-		Thread.sleep(5000);
-		SendKeys(getwebelement(xml.getlocator("//locators/ModTechOrderNumber")), Inputdata[31].toString());
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter OrderNumber");
-				
-		Clickon(getwebelement(xml.getlocator("//locators/ModTechCurcuitReference")));
-		Thread.sleep(5000);
-		SendKeys(getwebelement(xml.getlocator("//locators/ModTechCurcuitReference")), Inputdata[32].toString());
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter OrderNumber");
-				
-		
-		Clickon(getwebelement(xml.getlocator("//locators/ModTechInstallCharges")));
-		SendKeys(getwebelement(xml.getlocator("//locators/ModTechInstallCharges")), Inputdata[28].toString());
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter Install Charges");
-		Thread.sleep(3000);
-		
-		
-		Clickon(getwebelement(xml.getlocator("//locators/ModTechMonthlyCharges")));
-		SendKeys(getwebelement(xml.getlocator("//locators/ModTechMonthlyCharges")), Inputdata[29].toString());
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter Monthly Chargese");
-		Thread.sleep(3000);
-		
-		
-		Clickon(getwebelement(xml.getlocator("//locators/ShowAddtnalCharges")));
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: click on additional charge icon");
-		Thread.sleep(3000);
-		
-		
-	//	selectCheckbox(getwebelement(xml.getlocator("//locators/FastTrack")),"CHECK");
-		Clickon(getwebelement(xml.getlocator("//locators/FastTrack")));
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: click on FastTrack check box");
-		Thread.sleep(3000);
-		
-		
-		Clickon(getwebelement(xml.getlocator("//locators/FastTrackCharges")));
-		SendKeys(getwebelement(xml.getlocator("//locators/FastTrackCharges")), Inputdata[30].toString());
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter Fast Track Charges");
-		Thread.sleep(5000);
-		
-		
-		Clickon(getwebelement(xml.getlocator("//locators/btnSave")));
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: click on save button");
-		Thread.sleep(5000);
-		
-			
-		Clickon(getwebelement(xml.getlocator("//locators/btnSubmitToCot")));
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: click on submit to Colt button");
-		Thread.sleep(20000);
-	}
-	
-	
-	public void modComOrder(Object[] Inputdata) throws Exception {
-		
-		Clickon(getwebelement(xml.getlocator("//locators/ModComOrder")));
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Mod order button");
-		Thread.sleep(5000);
-		
-			
-		Clickon(getwebelement(xml.getlocator("//locators/OpportunityNumber")));
-		SendKeys(getwebelement(xml.getlocator("//locators/OpportunityNumber")), Inputdata[0].toString());
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter Opportunity Number value");
-
-		Thread.sleep(3000);
-		Clickon(getwebelement(xml.getlocator("//locators/COntractRenewalFlag")));
-		Thread.sleep(3000);
-		Clickon(getwebelement(xml.getlocator("//locators/COntractRenewalFlagValue")));
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter Contract renewal flag");
-		
-		Thread.sleep(3000);
-		Clickon(getwebelement(xml.getlocator("//locators/ProductName")));
-		SendKeys(getwebelement(xml.getlocator("//locators/ProductName")), Inputdata[10].toString());
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter product name value");
-		Thread.sleep(5000);				
-		
-		Clickon(getwebelement(xml.getlocator("//locators/ModComOCN")));
-		SendKeys(getwebelement(xml.getlocator("//locators/ModComOCN")), Inputdata[1].toString());
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter OCN value");
-		Thread.sleep(5000);	
-		
-		Clickon(getwebelement(xml.getlocator("//locators/ModComLegalContact")));
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter Legal Contact Details");
-		
-		Thread.sleep(3000);
-		
-		Clickon(getwebelement(xml.getlocator("//locators/ModComFirstName")));
-		SendKeys(getwebelement(xml.getlocator("//locators/ModComFirstName")), Inputdata[2].toString());
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter First name value");
-		Thread.sleep(3000);
-		
-		Clickon(getwebelement(xml.getlocator("//locators/ModComLastName")));
-		SendKeys(getwebelement(xml.getlocator("//locators/ModComLastName")), Inputdata[3].toString());
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter last name value");
-		Thread.sleep(3000);
-		
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: select title");
-		Select(getwebelement(xml.getlocator("//locators/ModComTitle")), Inputdata[4].toString());
-		Thread.sleep(3000);
-		
-		
-		Clickon(getwebelement(xml.getlocator("//locators/ModComEmail")));
-		SendKeys(getwebelement(xml.getlocator("//locators/ModComEmail")), Inputdata[5].toString());
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter Email value");
-		Thread.sleep(3000);
-				
-		Clickon(getwebelement(xml.getlocator("//locators/ModComTelephone")));	
-		SendKeys(getwebelement(xml.getlocator("//locators/ModComTelephone")), Inputdata[6].toString());
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter telephone number value");
-		Thread.sleep(3000);
-		
-		Clickon(getwebelement(xml.getlocator("//locators/ModComCOrespondanceLanguage")));
-		Select(getwebelement(xml.getlocator("//locators/ModComCOrespondanceLanguage")), Inputdata[7].toString());
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: select corresponding language");
-		Thread.sleep(3000);
-	
-		Clickon(getwebelement(xml.getlocator("//locators/ModComAddButton")));
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: click on add contact icon");
-		
-		Thread.sleep(5000);
-				
-		Clickon(getwebelement(xml.getlocator("//locators/ModComBCNChange")));
-		Thread.sleep(1000);
-		Clickon(getwebelement(xml.getlocator("//locators/ModComBCNChangeValue")));
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter BCN Change Value");
-		
-		Thread.sleep(1000);
-		Clickon(getwebelement(xml.getlocator("//locators/ModComTariffChange")));
-		Thread.sleep(1000);
-		Clickon(getwebelement(xml.getlocator("//locators/ModComTariffChangeValue")));
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter Tariff Chnge Value");
-		Thread.sleep(1000);
-		Clickon(getwebelement(xml.getlocator("//locators/ModComOneOffCharge")));
-		Thread.sleep(1000);
-		Clickon(getwebelement(xml.getlocator("//locators/ModComOneoffChargeValue")));
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter One Off Charge Value");
-		Thread.sleep(1000);
-		Clickon(getwebelement(xml.getlocator("//locators/ModComPriceChange")));
-		Thread.sleep(1000);
-		Clickon(getwebelement(xml.getlocator("//locators/ModComPriceChangeValue")));
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter Price Change Value");
-		Thread.sleep(1000);		
-	
-		Clickon(getwebelement(xml.getlocator("//locators/ModComEffectiveBCD")));
-		Thread.sleep(1000);
-		SendKeys(getwebelement(xml.getlocator("//locators/ModComEffectiveBCD")), Inputdata[33].toString());
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter Effective From BSD");
-		
-		//////// need to change data input
-		
-		
-		Clickon(getwebelement(xml.getlocator("//locators/ModComOrderNumber")));
-		Thread.sleep(5000);
-		SendKeys(getwebelement(xml.getlocator("//locators/ModComOrderNumber")), Inputdata[31].toString());
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter OrderNumber");
-		
-		
-		Clickon(getwebelement(xml.getlocator("//locators/ModComCircuitreference")));
-		Thread.sleep(5000);
-		SendKeys(getwebelement(xml.getlocator("//locators/ModComCircuitreference")), Inputdata[32].toString());
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter OrderNumber");
-				
-		
-		Clickon(getwebelement(xml.getlocator("//locators/ModComSavebutton")));
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: click on save button");
-		Thread.sleep(5000);
-	/*	
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: click on generate contract button");
-		Clickon(getwebelement(xml.getlocator("//locators/btnGenerateContact")));
-		Thread.sleep(5000);
-		
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: click on accept button");
-		Clickon(getwebelement(xml.getlocator("//locators/Acceptpopbutton")));
-		Thread.sleep(5000);
-		*/
-		
-		Clickon(getwebelement(xml.getlocator("//locators/ModComSubmittoCot")));
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: click on submit to Colt button");
-		Thread.sleep(20000);
-	}	
 	
 	public void coltManagedFirewall(Object[]Inputdata) throws Exception
 	{
@@ -2212,8 +1974,1066 @@ public class EOLorderCompletionHelper extends DriverHelper {
 		
 		SendKeys(getwebelement(xml.getlocator("//locators/OrderReferenceField")), EOLGeneratingNumber.get());
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter EOL number");
-		
+		for(int i=0;i<3;i++)
+		{
+			Thread.sleep(120000);
+		}
 		SendkeyusingAction(Keys.ENTER);
 	}
 	
-}
+public void modComOrderEOL(Object[] Inputdata) throws Exception {
+		
+		System.out.println("Done ModCom Tab");
+		Thread.sleep(12000);
+		WaitforElementtobeclickable((xml.getlocator("//locators/ModComOrder")));
+		Clickon(getwebelement(xml.getlocator("//locators/ModComOrder")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Mod order button");
+		Thread.sleep(5000);		
+			
+		Clickon(getwebelement(xml.getlocator("//locators/ModComOCN")));
+		SendKeys(getwebelement(xml.getlocator("//locators/ModComOCN")), Inputdata[1].toString());
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter OCN value");
+		Thread.sleep(5000);		
+		
+		Clickon(getwebelement(xml.getlocator("//locators/ProductName")));
+		SendKeys(getwebelement(xml.getlocator("//locators/ProductName")), Inputdata[34].toString());
+		Thread.sleep(5000);		
+		Clickon(getwebelement(xml.getlocator("//locators/ModComProductClick")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter product name value");
+		Thread.sleep(5000);	
+		
+		if (Inputdata[10].toString().equalsIgnoreCase("Colt Managed Virtual Firewall")
+				|| Inputdata[10].toString().equalsIgnoreCase("Colt Managed Dedicated Firewall")
+				|| Inputdata[10].toString().equalsIgnoreCase("Colt Ethernet VPN")
+				|| Inputdata[10].toString().equalsIgnoreCase("Colt IP Access")
+				|| Inputdata[10].toString().equalsIgnoreCase("Colt Ethernet Line")
+				|| Inputdata[10].toString().equalsIgnoreCase("Colt Ethernet Hub")
+				|| Inputdata[10].toString().equalsIgnoreCase("Colt Ethernet Spoke")
+				|| Inputdata[10].toString().equalsIgnoreCase("Colt Wave") 
+			    || Inputdata[10].toString().equalsIgnoreCase("Colt IP Domain")
+                || Inputdata[10].toString().equalsIgnoreCase("Colt IP Guardian"))
+			
+		{
+				
+		WaitforElementtobeclickable(xml.getlocator("//locators/ModComContractRenewal"));
+		Clickon(getwebelement(xml.getlocator("//locators/ModComContractRenewal")));
+		Thread.sleep(5000);
+		Clickon(getwebelement(xml.getlocator("//locators/ModComContractRenewalvalue")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter Contract renewal flag");
+		
+		Thread.sleep(5000);	
+		
+		Clickon(getwebelement(xml.getlocator("//locators/ModComOppNum")));
+		SendKeys(getwebelement(xml.getlocator("//locators/ModComOppNum")), Inputdata[0].toString());
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter Opportunity Number value");
+		Thread.sleep(5000);	
+				
+		Clickon(getwebelement(xml.getlocator("//locators/ModComLegalContact")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter Legal Contact Details");
+		
+		Thread.sleep(5000);
+		
+		Clickon(getwebelement(xml.getlocator("//locators/ModComFirstName")));
+		SendKeys(getwebelement(xml.getlocator("//locators/ModComFirstName")), Inputdata[2].toString());
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter First name value");
+		Thread.sleep(5000);
+		
+		Clickon(getwebelement(xml.getlocator("//locators/ModComLastName")));
+		SendKeys(getwebelement(xml.getlocator("//locators/ModComLastName")), Inputdata[3].toString());
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter last name value");
+		Thread.sleep(5000);
+				
+		Clickon(getwebelement(xml.getlocator("//locators/ModComTitle")));
+		Select(getwebelement(xml.getlocator("//locators/ModComTitle")), Inputdata[4].toString());
+	//	SendKeys(getwebelement(xml.getlocator("//locators/ModComTitle")), Inputdata[4].toString());
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: select title");
+		Thread.sleep(5000);		
+		
+		Clickon(getwebelement(xml.getlocator("//locators/ModComEmail")));
+		SendKeys(getwebelement(xml.getlocator("//locators/ModComEmail")), Inputdata[5].toString());
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter Email value");
+		Thread.sleep(5000);
+				
+		Clickon(getwebelement(xml.getlocator("//locators/ModComTelephone")));	
+		SendKeys(getwebelement(xml.getlocator("//locators/ModComTelephone")), Inputdata[6].toString());
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter telephone number value");
+		Thread.sleep(5000);
+		
+		Clickon(getwebelement(xml.getlocator("//locators/ModComCOrespondanceLanguage")));
+		Select(getwebelement(xml.getlocator("//locators/ModComCOrespondanceLanguage")), Inputdata[7].toString());
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: select corresponding language");
+		Thread.sleep(5000);
+	
+		Clickon(getwebelement(xml.getlocator("//locators/ModComAddButton")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: click on add contact icon");
+		
+		Thread.sleep(5000);
+				
+		Clickon(getwebelement(xml.getlocator("//locators/ModComBCNChange")));
+		Thread.sleep(5000);
+		Clickon(getwebelement(xml.getlocator("//locators/ModComBCNChangeValue")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter BCN Change Value");
+		
+		
+		Clickon(getwebelement(xml.getlocator("//locators/ModComNewBCN")));
+		Thread.sleep(5000);
+		SendKeys(getwebelement(xml.getlocator("//locators/ModComNewBCN")), Inputdata[36].toString());
+	//	Clickon(getwebelement(xml.getlocator("//locators/ModComNewBCNSelect")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter telephone number value");
+		Thread.sleep(5000);
+						
+		Thread.sleep(5000);
+		Clickon(getwebelement(xml.getlocator("//locators/ModComTariffChange")));
+		Thread.sleep(5000);
+		Clickon(getwebelement(xml.getlocator("//locators/ModComTariffChangeValue")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter Tariff Chnge Value");
+		Thread.sleep(5000);
+		Clickon(getwebelement(xml.getlocator("//locators/ModComOneOffCharge")));
+		Thread.sleep(5000);
+		Clickon(getwebelement(xml.getlocator("//locators/ModComOneoffChargeValue")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter One Off Charge Value");
+		Thread.sleep(5000);
+		Clickon(getwebelement(xml.getlocator("//locators/ModComPriceChange")));
+		Thread.sleep(5000);
+		Clickon(getwebelement(xml.getlocator("//locators/ModComPriceChangeValue")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter Price Change Value");
+		Thread.sleep(5000);		
+	
+		Clickon(getwebelement(xml.getlocator("//locators/ModComEffectiveBSD")));
+		Thread.sleep(2000);
+		SendkeaboardKeys((getwebelement(xml.getlocator("//locators/ModComEffectiveBSD"))), Keys.ENTER);
+	//	Clickon(getwebelement(xml.getlocator("//locators/ModComEffectiveBSD")));
+	//	SendKeys(getwebelement(xml.getlocator("//locators/ModComEffectiveBSD")), Inputdata[35].toString());
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter Effective From BSD");
+		Thread.sleep(5000);			
+		
+		Clickon(getwebelement(xml.getlocator("//locators/ModComOrderNumber")));
+		Thread.sleep(5000);
+		SendKeys(getwebelement(xml.getlocator("//locators/ModComOrderNumber")), Inputdata[31].toString());
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter OrderNumber");
+		
+		Thread.sleep(5000);
+		Clickon(getwebelement(xml.getlocator("//locators/ModComCircuitreference")));
+		Thread.sleep(5000);
+		SendKeys(getwebelement(xml.getlocator("//locators/ModComCircuitreference")), Inputdata[32].toString());
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter OrderNumber");
+		Thread.sleep(5000);	
+		
+		Clickon(getwebelement(xml.getlocator("//locators/ModComSavebutton")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: click on save button");
+		Thread.sleep(15000);	
+		
+		Clickon(getwebelement(xml.getlocator("//locators/ModComSubmittoCot")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: click on submit to Colt button");
+	
+	 
+		System.out.println("ModCom Execution successfully run");
+		EOLGeneratingNumber.set(GetText(getwebelement(xml.getlocator("//locators/EOLNumberText"))));
+		
+		 ExtentTestManager.getTest().log(LogStatus.PASS," Step: Generated EOL Order Reference No: " + EOLGeneratingNumber.get());
+			Log.info(EOLGeneratingNumber.get());
+		
+	}	
+		
+  }
+   public void eolMOdTech(Object[] Inputdata) throws Exception
+   {
+	 
+			Clickon(getwebelement(xml.getlocator("//locators/ModTechTab")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on New order button");
+			Thread.sleep(5000);
+			
+			Clickon(getwebelement(xml.getlocator("//locators/ModTechOCN")));
+			SendKeys(getwebelement(xml.getlocator("//locators/ModTechOCN")), Inputdata[1].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter OCN value");
+			Thread.sleep(5000);
+			
+			Clickon(getwebelement(xml.getlocator("//locators/ModTechLegalContactDetails")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: click on add contact icon");
+			Thread.sleep(3000);
+			
+			Clickon(getwebelement(xml.getlocator("//locators/ModTechFirstName")));
+			SendKeys(getwebelement(xml.getlocator("//locators/ModTechFirstName")), Inputdata[2].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter First name value");
+			Thread.sleep(5000);
+			Clickon(getwebelement(xml.getlocator("//locators/ModTechLastName")));
+			SendKeys(getwebelement(xml.getlocator("//locators/ModTechLastName")), Inputdata[3].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter last name value");
+			Thread.sleep(3000);
+			
+			Clickon(getwebelement(xml.getlocator("//locators/ModTechTitle")));
+			Thread.sleep(3000);
+			Select(getwebelement(xml.getlocator("//locators/ModTechTitle")), Inputdata[4].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: select title");
+			Thread.sleep(3000);
+			Clickon(getwebelement(xml.getlocator("//locators/ModTechEmail")));
+			Thread.sleep(3000);
+			SendKeys(getwebelement(xml.getlocator("//locators/ModTechEmail")), Inputdata[5].toString());		
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter Email value");
+			Thread.sleep(3000);
+			Clickon(getwebelement(xml.getlocator("//locators/ModTechTelephoneNumber")));
+			Thread.sleep(3000);
+			SendKeys(getwebelement(xml.getlocator("//locators/ModTechTelephoneNumber")), Inputdata[6].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter telephone number value");
+			Thread.sleep(3000);
+			Clickon(getwebelement(xml.getlocator("//locators/ModTechCorrespondentLanguage")));
+			Select(getwebelement(xml.getlocator("//locators/ModTechCorrespondentLanguage")), Inputdata[7].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: select corresponding language");
+			Thread.sleep(3000);
+						
+			Clickon(getwebelement(xml.getlocator("//locators/ModTechAddButton")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: click on add contact button");
+			Thread.sleep(5000);			
+			
+			Clickon(getwebelement(xml.getlocator("//locators/ModTechProductName")));
+			SendKeys(getwebelement(xml.getlocator("//locators/ModTechProductName")), Inputdata[10].toString());
+			Thread.sleep(5000);
+			Clickon(getwebelement(xml.getlocator("//locators/ProductNameClick")));
+			//SendkeaboardKeys(getwebelement(xml.getlocator("//locators/ProductName")), Keys.ENTER);
+		
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter product name value");
+			Thread.sleep(5000);
+			
+			
+			// Added If Condition for MVF And MDF Ethernet VPN
+			
+			
+			if (Inputdata[10].toString().equals("Colt Managed Virtual Firewall")
+					|| Inputdata[10].toString().equals("Colt Managed Dedicated Firewall"))
+				
+			{
+				//System.out.println("Print product");
+				WaitforElementtobeclickable(xml.getlocator("//locators/ModTechContractRenewal"));
+				Clickon(getwebelement(xml.getlocator("//locators/ModTechContractRenewal")));
+				Thread.sleep(5000);
+				Clickon(getwebelement(xml.getlocator("//locators/ModTechContactRenewalDropDownValue")));
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter Contract renewal flag");
+				Thread.sleep(5000);
+				
+				Clickon(getwebelement(xml.getlocator("//locators/ModTechCurrency")));
+				Thread.sleep(3000);
+				Clickon(getwebelement(xml.getlocator("//locators/ModTechCurrencyValue")));
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: select currency");
+				Thread.sleep(5000);
+				
+				Clickon(getwebelement(xml.getlocator("//locators/ModTechChangeOtherCheckbox")));
+				Thread.sleep(5000);	
+							
+				Clickon(getwebelement(xml.getlocator("//locators/ModTechOrderNumber")));
+				Thread.sleep(5000);
+				SendKeys(getwebelement(xml.getlocator("//locators/ModTechOrderNumber")), Inputdata[31].toString());
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter OrderNumber");
+				Thread.sleep(5000);		
+				Clickon(getwebelement(xml.getlocator("//locators/ModTechCurcuitReference")));
+				Thread.sleep(5000);
+				SendKeys(getwebelement(xml.getlocator("//locators/ModTechCurcuitReference")), Inputdata[32].toString());
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter OrderNumber");
+				Thread.sleep(5000);	
+				
+				Clickon(getwebelement(xml.getlocator("//locators/ModTechInstallCharges")));
+				Thread.sleep(3000);
+				SendKeys(getwebelement(xml.getlocator("//locators/ModTechInstallCharges")), Inputdata[28].toString());
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter Install Charges");
+				Thread.sleep(5000);
+				
+				Clickon(getwebelement(xml.getlocator("//locators/ModTechMonthlyCharges")));
+				Thread.sleep(3000);
+				SendKeys(getwebelement(xml.getlocator("//locators/ModTechMonthlyCharges")), Inputdata[29].toString());
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter Monthly Chargese");
+				Thread.sleep(5000);
+						
+			/*	Clickon(getwebelement(xml.getlocator("//locators/ModTechFastTrackChkBox")));
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: click on FastTrack check box");
+				Thread.sleep(3000);
+				
+				
+				Clickon(getwebelement(xml.getlocator("//locators/ModTechFastTrackInstallCharges")));
+				SendKeys(getwebelement(xml.getlocator("//locators/ModTechFastTrackInstallCharges")), Inputdata[30].toString());
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter Fast Track Charges");
+				Thread.sleep(5000);
+				*/
+								
+				Clickon(getwebelement(xml.getlocator("//locators/btnSave")));
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: click on save button");
+				Thread.sleep(15000);
+						
+				
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: click on submit to Colt button");
+				Clickon(getwebelement(xml.getlocator("//locators/btnSubmitToCot")));
+				Thread.sleep(4000);
+				
+			  
+			}	
+			
+			//Start of elseif for Ethernet Hub
+			else if (Inputdata[10].toString().equals("Colt Ethernet Hub"))
+			{		
+					
+			// Need to add code for Contract renewAL
+			
+			Clickon(getwebelement(xml.getlocator("//locators/ModTechContractRenewal")));
+			Thread.sleep(5000);
+			Clickon(getwebelement(xml.getlocator("//locators/ModTechContactRenewalDropDownValue")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter Contract renewal flag");
+			Thread.sleep(5000);
+			
+			Clickon(getwebelement(xml.getlocator("//locators/ModTechCurrency")));
+			Thread.sleep(3000);
+			Clickon(getwebelement(xml.getlocator("//locators/ModTechCurrencyValue")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: select currency");
+			Thread.sleep(5000);
+			
+			Clickon(getwebelement(xml.getlocator("//locators/ModTechChangeType")));
+			Thread.sleep(5000);		
+			
+			// A end access type
+
+			WaitforElementtobeclickable((xml.getlocator("//locators/AEndAccessT")));
+			Clickon(getwebelement(xml.getlocator("//locators/AEndAccessT")));
+			Thread.sleep(5000);
+			Clickon(getwebelement(xml.getlocator("//locators/AEndAccessTypeValue")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: select A End Access Type");
+			Thread.sleep(5000);		
+			
+			// Service BandWidth
+			
+			Clickon(getwebelement(xml.getlocator("//locators/ServcBand")));
+			Thread.sleep(5000);
+			Clickon(getwebelement(xml.getlocator("//locators/ServcBandValueHub")));
+		//	Select(getwebelement(xml.getlocator("//locators/ServcBand")), Inputdata[26].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: select Router");
+			Thread.sleep(5000);			
+			
+			// A end product customization - Customer Contact for Order/Technical
+			// Details*
+
+			WaitforElementtobeclickable((xml.getlocator("//locators/AddContactDetails")));
+			Clickon(getwebelement(xml.getlocator("//locators/AddContactDetails")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: click on add contact icon");
+			Thread.sleep(5000);
+
+			Clickon(getwebelement(xml.getlocator("//locators/FirstName")));
+			SendKeys(getwebelement(xml.getlocator("//locators/FirstName")), Inputdata[2].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter First Name");
+			Thread.sleep(5000);
+
+			Clickon(getwebelement(xml.getlocator("//locators/LastName")));
+			SendKeys(getwebelement(xml.getlocator("//locators/LastName")), Inputdata[3].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter last name");
+			Thread.sleep(5000);
+
+			Clickon(getwebelement(xml.getlocator("//locators/Title")));
+			Select(getwebelement(xml.getlocator("//locators/Title")), Inputdata[4].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: select title");
+			Thread.sleep(5000);
+
+			Clickon(getwebelement(xml.getlocator("//locators/Email")));
+			SendKeys(getwebelement(xml.getlocator("//locators/Email")), Inputdata[5].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter Email ");
+			Thread.sleep(5000);
+
+			Clickon(getwebelement(xml.getlocator("//locators/TeleNumber")));
+			SendKeys(getwebelement(xml.getlocator("//locators/TeleNumber")), Inputdata[6].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter telephone number value");
+			Thread.sleep(3000);
+
+			Clickon(getwebelement(xml.getlocator("//locators/CorrespondenceLang")));
+			Select(getwebelement(xml.getlocator("//locators/CorrespondenceLang")), "English");
+			// Select(getwebelement(xml.getlocator("//locators/CorrespondenceLang")),
+			// Inputdata[7].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: select corresponding language");
+			Thread.sleep(5000);
+
+			Clickon(getwebelement(xml.getlocator("//locators/SaveAndSelectContact")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: click on add contact icon");
+			Thread.sleep(5000);
+
+			// End of Customer contact Tecnical details
+			
+			Clickon(getwebelement(xml.getlocator("//locators/ModTechOrderNumber")));
+			Thread.sleep(5000);
+			SendKeys(getwebelement(xml.getlocator("//locators/ModTechOrderNumber")), Inputdata[31].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter OrderNumber");
+			Thread.sleep(5000);		
+			Clickon(getwebelement(xml.getlocator("//locators/ModTechCurcuitReference")));
+			Thread.sleep(5000);
+			SendKeys(getwebelement(xml.getlocator("//locators/ModTechCurcuitReference")), Inputdata[32].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter OrderNumber");
+			Thread.sleep(5000);		
+			
+			Clickon(getwebelement(xml.getlocator("//locators/ModTechInstallCharges")));
+			SendKeys(getwebelement(xml.getlocator("//locators/ModTechInstallCharges")), Inputdata[28].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter Install Charges");
+			Thread.sleep(3000);
+			
+			
+			Clickon(getwebelement(xml.getlocator("//locators/ModTechMonthlyCharges")));
+			SendKeys(getwebelement(xml.getlocator("//locators/ModTechMonthlyCharges")), Inputdata[29].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter Monthly Chargese");
+			Thread.sleep(3000);
+			
+			
+		//	Clickon(getwebelement(xml.getlocator("//locators/ShowAddtnalCharges")));
+		//	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: click on additional charge icon");
+		//	Thread.sleep(3000);
+			
+			
+		//	selectCheckbox(getwebelement(xml.getlocator("//locators/FastTrack")),"CHECK");
+			Clickon(getwebelement(xml.getlocator("//locators/ModTechFastTrackChkBox")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: click on FastTrack check box");
+			Thread.sleep(3000);
+			
+			
+			Clickon(getwebelement(xml.getlocator("//locators/ModTechFastTrackInstallCharges")));
+			SendKeys(getwebelement(xml.getlocator("//locators/ModTechFastTrackInstallCharges")), Inputdata[30].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter Fast Track Charges");
+			Thread.sleep(5000);
+			
+			
+			Clickon(getwebelement(xml.getlocator("//locators/btnSave")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: click on save button");
+			Thread.sleep(15000);
+			
+				
+			Clickon(getwebelement(xml.getlocator("//locators/btnSubmitToCot")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: click on submit to Colt button");
+		Thread.sleep(4000);
+			}
+
+			//End of elseif for Ethernet Hub
+			
+			//Start of elseif for Ethernet Line 
+			
+			else if (Inputdata[10].toString().equals("Colt Ethernet Line"))
+			{		
+					
+			Clickon(getwebelement(xml.getlocator("//locators/ModTechContractRenewal")));
+			Thread.sleep(5000);
+			Clickon(getwebelement(xml.getlocator("//locators/ModTechContactRenewalDropDownValue")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter Contract renewal flag");
+			Thread.sleep(5000);
+			
+			Clickon(getwebelement(xml.getlocator("//locators/ModTechCurrency")));
+			Thread.sleep(3000);
+			Clickon(getwebelement(xml.getlocator("//locators/ModTechCurrencyValue")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: select currency");
+			Thread.sleep(5000);
+			
+			Clickon(getwebelement(xml.getlocator("//locators/ModTechChangeType")));
+			Thread.sleep(5000);		
+			
+			// A end access type
+
+			WaitforElementtobeclickable((xml.getlocator("//locators/AEndAccessT")));
+			Clickon(getwebelement(xml.getlocator("//locators/AEndAccessT")));
+			Thread.sleep(5000);
+			Clickon(getwebelement(xml.getlocator("//locators/AEndAccessTypeValue")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: select A End Access Type");
+			Thread.sleep(10000);		
+			
+			WaitforElementtobeclickable((xml.getlocator("//locators/BEndAccessT")));
+			Clickon(getwebelement(xml.getlocator("//locators/BEndAccessT")));
+			Thread.sleep(5000);
+			Clickon(getwebelement(xml.getlocator("//locators/BEndAccessTypeValue")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: select B End Access Type");
+			Thread.sleep(5000);	
+			
+			// Service BandWidth
+			
+			Clickon(getwebelement(xml.getlocator("//locators/ServcBand")));
+			Thread.sleep(5000);
+			Clickon(getwebelement(xml.getlocator("//locators/ServcBandValue")));
+		//	Select(getwebelement(xml.getlocator("//locators/ServcBand")), Inputdata[26].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: select Router");
+			Thread.sleep(5000);			
+			
+			
+			
+			
+			// A end product customization - Customer Contact for Order/Technical
+			// Details*
+
+			WaitforElementtobeclickable((xml.getlocator("//locators/AddContactDetails")));
+			Clickon(getwebelement(xml.getlocator("//locators/AddContactDetails")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: click on add contact icon");
+			Thread.sleep(5000);
+
+			Clickon(getwebelement(xml.getlocator("//locators/FirstName")));
+			SendKeys(getwebelement(xml.getlocator("//locators/FirstName")), Inputdata[2].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter First Name");
+			Thread.sleep(5000);
+
+			Clickon(getwebelement(xml.getlocator("//locators/LastName")));
+			SendKeys(getwebelement(xml.getlocator("//locators/LastName")), Inputdata[3].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter last name");
+			Thread.sleep(5000);
+
+			Clickon(getwebelement(xml.getlocator("//locators/Title")));
+			Select(getwebelement(xml.getlocator("//locators/Title")), Inputdata[4].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: select title");
+			Thread.sleep(5000);
+
+			Clickon(getwebelement(xml.getlocator("//locators/Email")));
+			SendKeys(getwebelement(xml.getlocator("//locators/Email")), Inputdata[5].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter Email ");
+			Thread.sleep(5000);
+
+			Clickon(getwebelement(xml.getlocator("//locators/TeleNumber")));
+			SendKeys(getwebelement(xml.getlocator("//locators/TeleNumber")), Inputdata[6].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter telephone number value");
+			Thread.sleep(3000);
+
+			Clickon(getwebelement(xml.getlocator("//locators/CorrespondenceLang")));
+			Select(getwebelement(xml.getlocator("//locators/CorrespondenceLang")), "English");
+			// Select(getwebelement(xml.getlocator("//locators/CorrespondenceLang")),
+			// Inputdata[7].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: select corresponding language");
+			Thread.sleep(5000);
+
+			Clickon(getwebelement(xml.getlocator("//locators/SaveAndSelectContact")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: click on add contact icon");
+			Thread.sleep(5000);
+
+			// End of Customer contact Tecnical details
+			
+			
+			
+			Clickon(getwebelement(xml.getlocator("//locators/ModTechOrderNumber")));
+			Thread.sleep(5000);
+			SendKeys(getwebelement(xml.getlocator("//locators/ModTechOrderNumber")), Inputdata[31].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter OrderNumber");
+			Thread.sleep(5000);		
+			Clickon(getwebelement(xml.getlocator("//locators/ModTechCurcuitReference")));
+			Thread.sleep(5000);
+			SendKeys(getwebelement(xml.getlocator("//locators/ModTechCurcuitReference")), Inputdata[32].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter OrderNumber");
+			Thread.sleep(5000);		
+			
+			Clickon(getwebelement(xml.getlocator("//locators/ModTechInstallCharges")));
+			SendKeys(getwebelement(xml.getlocator("//locators/ModTechInstallCharges")), Inputdata[28].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter Install Charges");
+			Thread.sleep(3000);
+			
+			
+			Clickon(getwebelement(xml.getlocator("//locators/ModTechMonthlyCharges")));
+			SendKeys(getwebelement(xml.getlocator("//locators/ModTechMonthlyCharges")), Inputdata[29].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter Monthly Chargese");
+			Thread.sleep(3000);
+			
+			
+		//	Clickon(getwebelement(xml.getlocator("//locators/ShowAddtnalCharges")));
+		//	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: click on additional charge icon");
+		//	Thread.sleep(3000);
+			
+			
+		//	selectCheckbox(getwebelement(xml.getlocator("//locators/FastTrack")),"CHECK");
+			Clickon(getwebelement(xml.getlocator("//locators/ModTechFastTrackChkBox")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: click on FastTrack check box");
+			Thread.sleep(3000);
+			
+			
+			Clickon(getwebelement(xml.getlocator("//locators/ModTechFastTrackInstallCharges")));
+			SendKeys(getwebelement(xml.getlocator("//locators/ModTechFastTrackInstallCharges")), Inputdata[30].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter Fast Track Charges");
+			Thread.sleep(5000);
+			
+			
+			Clickon(getwebelement(xml.getlocator("//locators/btnSave")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: click on save button");
+			Thread.sleep(15000);
+			
+				
+			Clickon(getwebelement(xml.getlocator("//locators/btnSubmitToCot")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: click on submit to Colt button");
+	       Thread.sleep(4000);
+			}
+			
+			//End of elseif for Ethernet Line
+			
+			//Start of Colt wave
+			else if (Inputdata[10].toString().equals("Colt Wave"))
+				
+			{		
+				
+				Clickon(getwebelement(xml.getlocator("//locators/ModTechContractRenewal")));
+				Thread.sleep(5000);
+				Clickon(getwebelement(xml.getlocator("//locators/ModTechContactRenewalDropDownValue")));
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter Contract renewal flag");
+				Thread.sleep(5000);
+				
+				Clickon(getwebelement(xml.getlocator("//locators/ModTechCurrency")));
+				Thread.sleep(3000);
+				Clickon(getwebelement(xml.getlocator("//locators/ModTechCurrencyValue")));
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: select currency");
+				Thread.sleep(5000);
+				
+				Clickon(getwebelement(xml.getlocator("//locators/ModTechChangeType")));
+				Thread.sleep(5000);		
+				
+				// A end access type
+
+				WaitforElementtobeclickable((xml.getlocator("//locators/AEndAccessT")));
+				Clickon(getwebelement(xml.getlocator("//locators/AEndAccessT")));
+				Thread.sleep(5000);
+				Clickon(getwebelement(xml.getlocator("//locators/AEndAccessTypeValue")));
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: select A End Access Type");
+				Thread.sleep(10000);		
+				
+				WaitforElementtobeclickable((xml.getlocator("//locators/BEndAccessT")));
+				Clickon(getwebelement(xml.getlocator("//locators/BEndAccessT")));
+				Thread.sleep(5000);
+				Clickon(getwebelement(xml.getlocator("//locators/BEndAccessTypeValue")));
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: select B End Access Type");
+				Thread.sleep(5000);	
+				
+				// Service BandWidth
+				
+				Clickon(getwebelement(xml.getlocator("//locators/ServcBand")));
+				Thread.sleep(5000);
+				Clickon(getwebelement(xml.getlocator("//locators/ServcBandValueEthernetWave")));
+			//	Select(getwebelement(xml.getlocator("//locators/ServcBand")), Inputdata[26].toString());
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: select Router");
+				Thread.sleep(5000);			
+				
+				
+				
+				
+				// A end product customization - Customer Contact for Order/Technical
+				// Details*
+
+				WaitforElementtobeclickable((xml.getlocator("//locators/AddContactDetails")));
+				Clickon(getwebelement(xml.getlocator("//locators/AddContactDetails")));
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: click on add contact icon");
+				Thread.sleep(5000);
+
+				Clickon(getwebelement(xml.getlocator("//locators/FirstName")));
+				SendKeys(getwebelement(xml.getlocator("//locators/FirstName")), Inputdata[2].toString());
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter First Name");
+				Thread.sleep(5000);
+
+				Clickon(getwebelement(xml.getlocator("//locators/LastName")));
+				SendKeys(getwebelement(xml.getlocator("//locators/LastName")), Inputdata[3].toString());
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter last name");
+				Thread.sleep(5000);
+
+				Clickon(getwebelement(xml.getlocator("//locators/Title")));
+				Select(getwebelement(xml.getlocator("//locators/Title")), Inputdata[4].toString());
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: select title");
+				Thread.sleep(5000);
+
+				Clickon(getwebelement(xml.getlocator("//locators/Email")));
+				SendKeys(getwebelement(xml.getlocator("//locators/Email")), Inputdata[5].toString());
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter Email ");
+				Thread.sleep(5000);
+
+				Clickon(getwebelement(xml.getlocator("//locators/TeleNumber")));
+				SendKeys(getwebelement(xml.getlocator("//locators/TeleNumber")), Inputdata[6].toString());
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter telephone number value");
+				Thread.sleep(3000);
+
+				Clickon(getwebelement(xml.getlocator("//locators/CorrespondenceLang")));
+				Select(getwebelement(xml.getlocator("//locators/CorrespondenceLang")), "English");
+				// Select(getwebelement(xml.getlocator("//locators/CorrespondenceLang")),
+				// Inputdata[7].toString());
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: select corresponding language");
+				Thread.sleep(5000);
+
+				Clickon(getwebelement(xml.getlocator("//locators/SaveAndSelectContact")));
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: click on add contact icon");
+				Thread.sleep(5000);
+
+				// End of Customer contact Tecnical details
+				
+				
+				
+				Clickon(getwebelement(xml.getlocator("//locators/ModTechOrderNumber")));
+				Thread.sleep(5000);
+				SendKeys(getwebelement(xml.getlocator("//locators/ModTechOrderNumber")), Inputdata[31].toString());
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter OrderNumber");
+				Thread.sleep(5000);		
+				Clickon(getwebelement(xml.getlocator("//locators/ModTechCurcuitReference")));
+				Thread.sleep(5000);
+				SendKeys(getwebelement(xml.getlocator("//locators/ModTechCurcuitReference")), Inputdata[32].toString());
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter OrderNumber");
+				Thread.sleep(5000);		
+				
+				Clickon(getwebelement(xml.getlocator("//locators/ModTechInstallCharges")));
+				SendKeys(getwebelement(xml.getlocator("//locators/ModTechInstallCharges")), Inputdata[28].toString());
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter Install Charges");
+				Thread.sleep(3000);
+				
+				
+				Clickon(getwebelement(xml.getlocator("//locators/ModTechMonthlyCharges")));
+				SendKeys(getwebelement(xml.getlocator("//locators/ModTechMonthlyCharges")), Inputdata[29].toString());
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter Monthly Chargese");
+				Thread.sleep(3000);
+				
+				
+			//	Clickon(getwebelement(xml.getlocator("//locators/ShowAddtnalCharges")));
+			//	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: click on additional charge icon");
+			//	Thread.sleep(3000);
+				
+				
+			//	selectCheckbox(getwebelement(xml.getlocator("//locators/FastTrack")),"CHECK");
+				Clickon(getwebelement(xml.getlocator("//locators/ModTechFastTrackChkBox")));
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: click on FastTrack check box");
+				Thread.sleep(3000);
+				
+				
+				Clickon(getwebelement(xml.getlocator("//locators/ModTechFastTrackInstallCharges")));
+				SendKeys(getwebelement(xml.getlocator("//locators/ModTechFastTrackInstallCharges")), Inputdata[30].toString());
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter Fast Track Charges");
+				Thread.sleep(5000);
+				
+				
+				Clickon(getwebelement(xml.getlocator("//locators/btnSave")));
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: click on save button");
+				Thread.sleep(15000);
+				
+					
+				Clickon(getwebelement(xml.getlocator("//locators/btnSubmitToCot")));
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: click on submit to Colt button");
+				Thread.sleep(4000);
+				}
+			
+				//End of Colt wave
+				
+			//Start of elseif for Ethernet Spoke
+			else if (Inputdata[10].toString().equals("Colt Ethernet Spoke"))
+			{		
+					
+			Clickon(getwebelement(xml.getlocator("//locators/ModTechContractRenewal")));
+			Thread.sleep(5000);
+			Clickon(getwebelement(xml.getlocator("//locators/ModTechContactRenewalDropDownValue")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter Contract renewal flag");
+			Thread.sleep(5000);
+			
+			Clickon(getwebelement(xml.getlocator("//locators/ModTechCurrency")));
+			Thread.sleep(3000);
+			Clickon(getwebelement(xml.getlocator("//locators/ModTechCurrencyValue")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: select currency");
+			Thread.sleep(5000);
+			
+			Clickon(getwebelement(xml.getlocator("//locators/ModTechChangeType")));
+			Thread.sleep(5000);		
+			
+			// A end access type
+	/*
+			WaitforElementtobeclickable((xml.getlocator("//locators/AEndAccessT")));
+			Clickon(getwebelement(xml.getlocator("//locators/AEndAccessT")));
+			Thread.sleep(5000);
+			Clickon(getwebelement(xml.getlocator("//locators/AEndAccessTypeValue")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: select A End Access Type");
+			Thread.sleep(10000);		*/
+			
+			WaitforElementtobeclickable((xml.getlocator("//locators/BEndAccessT")));
+			Clickon(getwebelement(xml.getlocator("//locators/BEndAccessT")));
+			Thread.sleep(5000);
+			Clickon(getwebelement(xml.getlocator("//locators/BEndAccessTypeValue")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: select B End Access Type");
+			Thread.sleep(5000);	
+			
+			// Service BandWidth
+			
+			Clickon(getwebelement(xml.getlocator("//locators/ServcBand")));
+			Thread.sleep(5000);
+			Clickon(getwebelement(xml.getlocator("//locators/ServcBandValue")));
+		//	Select(getwebelement(xml.getlocator("//locators/ServcBand")), Inputdata[26].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: select Router");
+			Thread.sleep(5000);			
+			
+			// A end product customization - Customer Contact for Order/Technical
+			// Details*
+
+			WaitforElementtobeclickable((xml.getlocator("//locators/AddContactDetails")));
+			Clickon(getwebelement(xml.getlocator("//locators/AddContactDetails")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: click on add contact icon");
+			Thread.sleep(5000);
+
+			Clickon(getwebelement(xml.getlocator("//locators/FirstName")));
+			SendKeys(getwebelement(xml.getlocator("//locators/FirstName")), Inputdata[2].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter First Name");
+			Thread.sleep(5000);
+
+			Clickon(getwebelement(xml.getlocator("//locators/LastName")));
+			SendKeys(getwebelement(xml.getlocator("//locators/LastName")), Inputdata[3].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter last name");
+			Thread.sleep(5000);
+
+			Clickon(getwebelement(xml.getlocator("//locators/Title")));
+			Select(getwebelement(xml.getlocator("//locators/Title")), Inputdata[4].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: select title");
+			Thread.sleep(5000);
+
+			Clickon(getwebelement(xml.getlocator("//locators/Email")));
+			SendKeys(getwebelement(xml.getlocator("//locators/Email")), Inputdata[5].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter Email ");
+			Thread.sleep(5000);
+
+			Clickon(getwebelement(xml.getlocator("//locators/TeleNumber")));
+			SendKeys(getwebelement(xml.getlocator("//locators/TeleNumber")), Inputdata[6].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter telephone number value");
+			Thread.sleep(3000);
+
+			Clickon(getwebelement(xml.getlocator("//locators/CorrespondenceLang")));
+			Select(getwebelement(xml.getlocator("//locators/CorrespondenceLang")), "English");
+			// Select(getwebelement(xml.getlocator("//locators/CorrespondenceLang")),
+			// Inputdata[7].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: select corresponding language");
+			Thread.sleep(5000);
+
+			Clickon(getwebelement(xml.getlocator("//locators/SaveAndSelectContact")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: click on add contact icon");
+			Thread.sleep(5000);
+
+			// End of Customer contact Tecnical details
+					
+			Clickon(getwebelement(xml.getlocator("//locators/ModTechOrderNumber")));
+			Thread.sleep(5000);
+			SendKeys(getwebelement(xml.getlocator("//locators/ModTechOrderNumber")), Inputdata[31].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter OrderNumber");
+			Thread.sleep(5000);		
+			Clickon(getwebelement(xml.getlocator("//locators/ModTechCurcuitReference")));
+			Thread.sleep(5000);
+			SendKeys(getwebelement(xml.getlocator("//locators/ModTechCurcuitReference")), Inputdata[32].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter OrderNumber");
+			Thread.sleep(5000);		
+			
+			Clickon(getwebelement(xml.getlocator("//locators/ModTechInstallCharges")));
+			SendKeys(getwebelement(xml.getlocator("//locators/ModTechInstallCharges")), Inputdata[28].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter Install Charges");
+			Thread.sleep(3000);
+			
+			
+			Clickon(getwebelement(xml.getlocator("//locators/ModTechMonthlyCharges")));
+			SendKeys(getwebelement(xml.getlocator("//locators/ModTechMonthlyCharges")), Inputdata[29].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter Monthly Chargese");
+			Thread.sleep(3000);
+			
+			
+		//	Clickon(getwebelement(xml.getlocator("//locators/ShowAddtnalCharges")));
+		//	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: click on additional charge icon");
+		//	Thread.sleep(3000);
+			
+			
+		//	selectCheckbox(getwebelement(xml.getlocator("//locators/FastTrack")),"CHECK");
+			Clickon(getwebelement(xml.getlocator("//locators/ModTechFastTrackChkBox")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: click on FastTrack check box");
+			Thread.sleep(3000);
+			
+			
+			Clickon(getwebelement(xml.getlocator("//locators/ModTechFastTrackInstallCharges")));
+			SendKeys(getwebelement(xml.getlocator("//locators/ModTechFastTrackInstallCharges")), Inputdata[30].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter Fast Track Charges");
+			Thread.sleep(5000);
+			
+			
+			Clickon(getwebelement(xml.getlocator("//locators/btnSave")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: click on save button");
+			Thread.sleep(15000);
+			
+				
+			Clickon(getwebelement(xml.getlocator("//locators/btnSubmitToCot")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: click on submit to Colt button");
+		Thread.sleep(4000);
+			}
+
+			//End of elseif for Ethernet Spoke
+			else if(Inputdata[10].toString().equalsIgnoreCase("Colt IP Domain") ||
+					Inputdata[10].toString().equalsIgnoreCase("Colt IP Guardian"))
+			{
+				Clickon(getwebelement(xml.getlocator("//locators/ModTechContractRenewal")));
+				Thread.sleep(5000);
+				Clickon(getwebelement(xml.getlocator("//locators/ModTechContactRenewalDropDownValue")));
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter Contract renewal flag");
+				Thread.sleep(5000);
+				
+				Clickon(getwebelement(xml.getlocator("//locators/ModTechCurrency")));
+				Thread.sleep(3000);
+				Clickon(getwebelement(xml.getlocator("//locators/ModTechCurrencyValue")));
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: select currency");
+				Thread.sleep(5000);
+				
+				Clickon(getwebelement(xml.getlocator("//locators/ModtechOtherCheckBox")));
+				
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: select other checkbox");
+				Thread.sleep(3000);
+				
+				
+				Clickon(getwebelement(xml.getlocator("//locators/ModTechOrderNumber")));
+				Thread.sleep(5000);
+				SendKeys(getwebelement(xml.getlocator("//locators/ModTechOrderNumber")), Inputdata[31].toString());
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter OrderNumber");
+				Thread.sleep(5000);		
+				Clickon(getwebelement(xml.getlocator("//locators/ModTechCurcuitReference")));
+				Thread.sleep(5000);
+				SendKeys(getwebelement(xml.getlocator("//locators/ModTechCurcuitReference")), Inputdata[32].toString());
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter OrderNumber");
+				Thread.sleep(5000);		
+				
+				Clickon(getwebelement(xml.getlocator("//locators/ModTechInstallCharges")));
+				SendKeys(getwebelement(xml.getlocator("//locators/ModTechInstallCharges")), Inputdata[28].toString());
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter Install Charges");
+				Thread.sleep(3000);
+				
+				
+				Clickon(getwebelement(xml.getlocator("//locators/ModTechMonthlyCharges")));
+				SendKeys(getwebelement(xml.getlocator("//locators/ModTechMonthlyCharges")), Inputdata[29].toString());
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter Monthly Chargese");
+				Thread.sleep(3000);
+				
+				
+				
+				Clickon(getwebelement(xml.getlocator("//locators/btnSave")));
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: click on save button");
+				Thread.sleep(15000);
+				
+					
+				Clickon(getwebelement(xml.getlocator("//locators/btnSubmitToCot")));
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: click on submit to Colt button");
+			Thread.sleep(4000);
+			} 
+			// end of else-if loop of domain and guardian
+			else
+			{		
+					
+			// Need to add code for Contract renewAL
+			
+			Clickon(getwebelement(xml.getlocator("//locators/ModTechContractRenewal")));
+			Thread.sleep(5000);
+			Clickon(getwebelement(xml.getlocator("//locators/ModTechContactRenewalDropDownValue")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter Contract renewal flag");
+			Thread.sleep(5000);
+			
+			Clickon(getwebelement(xml.getlocator("//locators/ModTechCurrency")));
+			Thread.sleep(3000);
+			Clickon(getwebelement(xml.getlocator("//locators/ModTechCurrencyValue")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: select currency");
+			Thread.sleep(5000);
+			
+			Clickon(getwebelement(xml.getlocator("//locators/ModTechChangeType")));
+			Thread.sleep(5000);		
+			
+			// A end access type
+
+			WaitforElementtobeclickable((xml.getlocator("//locators/AEndAccessT")));
+			Clickon(getwebelement(xml.getlocator("//locators/AEndAccessT")));
+			Thread.sleep(5000);
+			Clickon(getwebelement(xml.getlocator("//locators/AEndAccessTypeValue")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: select A End Access Type");
+			Thread.sleep(5000);		
+			
+			// Service BandWidth
+			
+			Clickon(getwebelement(xml.getlocator("//locators/ServcBand")));
+			Thread.sleep(5000);
+			Clickon(getwebelement(xml.getlocator("//locators/ServcBandValue")));
+		//	Select(getwebelement(xml.getlocator("//locators/ServcBand")), Inputdata[26].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: select Router");
+			Thread.sleep(5000);			
+			
+			
+			
+			
+			// A end product customization - Customer Contact for Order/Technical
+			// Details*
+
+			WaitforElementtobeclickable((xml.getlocator("//locators/AddContactDetails")));
+			Clickon(getwebelement(xml.getlocator("//locators/AddContactDetails")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: click on add contact icon");
+			Thread.sleep(5000);
+
+			Clickon(getwebelement(xml.getlocator("//locators/FirstName")));
+			SendKeys(getwebelement(xml.getlocator("//locators/FirstName")), Inputdata[2].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter First Name");
+			Thread.sleep(5000);
+
+			Clickon(getwebelement(xml.getlocator("//locators/LastName")));
+			SendKeys(getwebelement(xml.getlocator("//locators/LastName")), Inputdata[3].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter last name");
+			Thread.sleep(5000);
+
+			Clickon(getwebelement(xml.getlocator("//locators/Title")));
+			Select(getwebelement(xml.getlocator("//locators/Title")), Inputdata[4].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: select title");
+			Thread.sleep(5000);
+
+			Clickon(getwebelement(xml.getlocator("//locators/Email")));
+			SendKeys(getwebelement(xml.getlocator("//locators/Email")), Inputdata[5].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter Email ");
+			Thread.sleep(5000);
+
+			Clickon(getwebelement(xml.getlocator("//locators/TeleNumber")));
+			SendKeys(getwebelement(xml.getlocator("//locators/TeleNumber")), Inputdata[6].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter telephone number value");
+			Thread.sleep(3000);
+
+			Clickon(getwebelement(xml.getlocator("//locators/CorrespondenceLang")));
+			Select(getwebelement(xml.getlocator("//locators/CorrespondenceLang")), "English");
+			// Select(getwebelement(xml.getlocator("//locators/CorrespondenceLang")),
+			// Inputdata[7].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: select corresponding language");
+			Thread.sleep(5000);
+
+			Clickon(getwebelement(xml.getlocator("//locators/SaveAndSelectContact")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: click on add contact icon");
+			Thread.sleep(5000);
+
+			// End of Customer contact Tecnical details
+			
+			
+			
+			Clickon(getwebelement(xml.getlocator("//locators/ModTechOrderNumber")));
+			Thread.sleep(5000);
+			SendKeys(getwebelement(xml.getlocator("//locators/ModTechOrderNumber")), Inputdata[31].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter OrderNumber");
+			Thread.sleep(5000);		
+			Clickon(getwebelement(xml.getlocator("//locators/ModTechCurcuitReference")));
+			Thread.sleep(5000);
+			SendKeys(getwebelement(xml.getlocator("//locators/ModTechCurcuitReference")), Inputdata[32].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter OrderNumber");
+			Thread.sleep(5000);		
+			
+			Clickon(getwebelement(xml.getlocator("//locators/ModTechInstallCharges")));
+			SendKeys(getwebelement(xml.getlocator("//locators/ModTechInstallCharges")), Inputdata[28].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter Install Charges");
+			Thread.sleep(3000);
+			
+			
+			Clickon(getwebelement(xml.getlocator("//locators/ModTechMonthlyCharges")));
+			SendKeys(getwebelement(xml.getlocator("//locators/ModTechMonthlyCharges")), Inputdata[29].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter Monthly Chargese");
+			Thread.sleep(3000);
+			
+			
+		//	Clickon(getwebelement(xml.getlocator("//locators/ShowAddtnalCharges")));
+		//	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: click on additional charge icon");
+		//	Thread.sleep(3000);
+			
+			
+		//	selectCheckbox(getwebelement(xml.getlocator("//locators/FastTrack")),"CHECK");
+			Clickon(getwebelement(xml.getlocator("//locators/ModTechFastTrackChkBox")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: click on FastTrack check box");
+			Thread.sleep(3000);
+			
+			
+			Clickon(getwebelement(xml.getlocator("//locators/ModTechFastTrackInstallCharges")));
+			SendKeys(getwebelement(xml.getlocator("//locators/ModTechFastTrackInstallCharges")), Inputdata[30].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter Fast Track Charges");
+			Thread.sleep(5000);
+			
+			
+			Clickon(getwebelement(xml.getlocator("//locators/btnSave")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: click on save button");
+			Thread.sleep(15000);
+			
+				
+			Clickon(getwebelement(xml.getlocator("//locators/btnSubmitToCot")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: click on submit to Colt button");
+			Thread.sleep(4000);
+			
+			
+			}
+	}	
+   }
+

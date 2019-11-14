@@ -5,7 +5,7 @@
 	  
 	  
     </listeners>
-	 <test name="EOL_Order_Completion" junit="false" preserve-order="true">
+	     <test name="EOL_Order_Completion" junit="false" preserve-order="true">
 		<classes>
 			<class name="Testscript.EOLorderCompletion">	
 			<methods>
@@ -13,6 +13,27 @@
 				</methods>	
 			</class>
 		</classes>	
-	</test>
+	</test>  
+	
+	<test name="EOL_Order_Completion" junit="false" preserve-order="true">
+		<classes>
+			<class name="Testscript.EOLorderCompletion">	
+			<methods>
+					<include name="eolModcomOfAllProducts"/>
+				</methods>	
+			</class>
+		</classes>	
+	</test> 
+	
+	  <test name="EOL_Order_Completion_tech" junit="false" preserve-order="true">
+		<classes>
+			<class name="Testscript.EOLorderCompletion">	
+			<methods>
+					<include name="eolModtechOfAllProducts"/>
+				</methods>	
+			</class>
+		</classes>	
+	</test> 
+	
 	
 </suite>
