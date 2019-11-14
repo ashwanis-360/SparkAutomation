@@ -10306,7 +10306,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Site Type")));
 			Thread.sleep(3000);
 			Clickon(getwebelement(
-					xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", "IP VPN")));
+					xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[30].toString())));
 			waitforAttributeloader();
 			waitforPagetobeenable();
 			ClickHereSave();
@@ -10318,7 +10318,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 					xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Router Type")));
 			Thread.sleep(3000);
 			Clickon(getwebelement(
-					xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", "Unmanaged Router")));
+					xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[31].toString())));
 			waitforAttributeloader();
 			waitforPagetobeenable();
 		}
@@ -10327,14 +10327,14 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			Clickon(getwebelement(
 					xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Layer 3 Resilience")));
 			Clickon(getwebelement(
-					xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", "SILVER")));
+					xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[30].toString())));
 			waitforAttributeloader();
 			waitforPagetobeenable();
 			Clickon(getwebelement(
 					xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Router Type")));
 			Thread.sleep(3000);
 			Clickon(getwebelement(
-					xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", "Managed Router")));
+					xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[31].toString())));
 			waitforAttributeloader();
 			waitforPagetobeenable();
 		}
@@ -10343,7 +10343,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Site Type")));
 			Thread.sleep(3000);
 			Clickon(getwebelement(
-					xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", "PrizmNet Access")));
+					xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[30].toString())));
 			waitforAttributeloader();
 			waitforPagetobeenable();
 			ClickHereSave();
@@ -10351,7 +10351,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 					xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Router Type")));
 			Thread.sleep(3000);
 			Clickon(getwebelement(
-					xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", "Managed Router")));
+					xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[31].toString())));
 			waitforAttributeloader();
 			waitforPagetobeenable();
 		}
@@ -10360,7 +10360,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		Clickon(getwebelement(
 				xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Service Bandwidth (Primary)")));
 		Thread.sleep(3000);
-		Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", "1 Mbps")));
+		Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[40].toString())));
 		waitforPagetobeenable();
 
 //			Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value","Layer 3 Resilience")));
@@ -10392,7 +10392,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 
 		SendKeys(getwebelement(
 				xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value", "OSS Platform Flag (Primary)")),
-				"Legacy");
+				Inputdata[38].toString());
 		waitforAttributeloader();
 		waitforPagetobeenable();
 		Thread.sleep(3000);
@@ -10558,7 +10558,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Access Type")));
 		Thread.sleep(2000);
 		Clickon(getwebelement(
-				xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", "Colt Fibre")));
+				xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[42].toString())));
 		
 		waitforAttributeloader();
 		waitforPagetobeenable();
@@ -10567,7 +10567,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Access Technology")));
 		Thread.sleep(2000);
 		Clickon(getwebelement(
-				xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", "Ethernet over MSP")));
+				xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[43].toString())));
 		
 		waitforAttributeloader();
 		waitforPagetobeenable();
@@ -10575,14 +10575,14 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Building Type")));
 		Thread.sleep(3000);
 		Clickon(getwebelement(
-				xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", "Existing Building")));
+				xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[45].toString())));
 		waitforAttributeloader();
 		waitforPagetobeenable();
 
 		Clickon(getwebelement(
 				xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Customer Site Pop Status")));
 		Thread.sleep(3000);
-		Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", "Existing")));
+		Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[46].toString())));
 		waitforAttributeloader();
 		waitforPagetobeenable();
 
@@ -10601,7 +10601,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		}
 		Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Cabinet Type")));
 		Clickon(getwebelement(
-				xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", "Existing Colt Cabinet")));
+				xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[48].toString())));
 		waitforAttributeloader();
 		waitforPagetobeenable();
 
@@ -10634,18 +10634,18 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		Clickon(getwebelement(
 				xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Presentation Interface")));
 		Clickon(getwebelement(
-				xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", "1000BaseLX")));
+				xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[53].toString())));
 		waitforAttributeloader();
 		waitforPagetobeenable();
 
 		Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Connector Type")));
-		Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", "LC")));
+		Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[54].toString())));
 		waitforAttributeloader();
 		waitforPagetobeenable();
 
 		Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Fibre Type")));
 		Clickon(getwebelement(
-				xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", "SingleMode 1310nm")));
+				xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[55].toString())));
 		waitforAttributeloader();
 		waitforPagetobeenable();
 		
@@ -10662,7 +10662,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 
 		Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Install Time")));
 		Clickon(getwebelement(
-				xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", "Business Hours")));
+				xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[56].toString())));
 		waitforPagetobeenable();
 
 		Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Router Model")));
@@ -10715,7 +10715,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		Thread.sleep(3000);
 
 		Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "VPN Bandwidth")));
-		Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", "1 Mbps")));
+		Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[66].toString())));
 		waitforPagetobeenable();
 
 		Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/SubVPNID")));
@@ -11701,7 +11701,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 							xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Router Type")));
 					Thread.sleep(3000);
 					Clickon(getwebelement(
-							xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", "Unmanaged Router")));
+							xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[31].toString())));
 					waitforAttributeloader();
 					waitforPagetobeenable();
 				}
@@ -11710,7 +11710,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				Clickon(getwebelement(
 						xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Service Bandwidth (Secondary)")));
 				Thread.sleep(3000);
-				Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", "1 Mbps")));
+				Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[40].toString())));
 				waitforAttributeloader();
 				waitforPagetobeenable();
 
@@ -11743,7 +11743,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 
 				SendKeys(getwebelement(
 						xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value", "OSS Platform Flag (Secondary)")),
-						"Legacy");
+						Inputdata[38].toString());
 				waitforAttributeloader();
 				waitforPagetobeenable();
 				Thread.sleep(3000);
@@ -11864,7 +11864,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Access Type")));
 				Thread.sleep(2000);
 				Clickon(getwebelement(
-						xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", "Colt Fibre")));
+						xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[42].toString())));
 				
 				waitforAttributeloader();
 				waitforPagetobeenable();
@@ -11873,7 +11873,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 						xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Access Technology")));
 				Thread.sleep(2000);
 				Clickon(getwebelement(
-						xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", "Ethernet over MSP")));
+						xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[43].toString())));
 				
 				waitforAttributeloader();
 				waitforPagetobeenable();
@@ -11881,14 +11881,14 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Building Type")));
 				Thread.sleep(3000);
 				Clickon(getwebelement(
-						xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", "Existing Building")));
+						xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[45].toString())));
 				waitforAttributeloader();
 				waitforPagetobeenable();
 
 				Clickon(getwebelement(
 						xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Customer Site Pop Status")));
 				Thread.sleep(3000);
-				Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", "Existing")));
+				Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[46].toString())));
 				waitforAttributeloader();
 				waitforPagetobeenable();
 
@@ -11907,7 +11907,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 
 				Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Cabinet Type")));
 				Clickon(getwebelement(
-						xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", "Existing Colt Cabinet")));
+						xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[48].toString())));
 				waitforAttributeloader();
 				waitforPagetobeenable();
 
@@ -11940,18 +11940,18 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				Clickon(getwebelement(
 						xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Presentation Interface")));
 				Clickon(getwebelement(
-						xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", "1000BaseLX")));
+						xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[53].toString())));
 				waitforAttributeloader();
 				waitforPagetobeenable();
 
 				Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Connector Type")));
-				Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", "LC")));
+				Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[54].toString())));
 				waitforAttributeloader();
 				waitforPagetobeenable();
 
 				Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Fibre Type")));
 				Clickon(getwebelement(
-						xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", "SingleMode 1310nm")));
+						xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[55].toString())));
 				waitforAttributeloader();
 				waitforPagetobeenable();
 				
@@ -11968,7 +11968,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 
 				Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Install Time")));
 				Clickon(getwebelement(
-						xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", "Business Hours")));
+						xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[56].toString())));
 				waitforPagetobeenable();
 
 				Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Router Model")));
@@ -12021,7 +12021,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				Thread.sleep(3000);
 
 				Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdownPartial").replace("Value", "VPN Bandwidth")));
-				Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", "1 Mbps")));
+				Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[66].toString())));
 				waitforPagetobeenable();
 
 //				Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/SubVPNID")));
