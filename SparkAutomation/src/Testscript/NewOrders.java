@@ -13,7 +13,6 @@ public class NewOrders extends DriverTestcase {
 	public void EndtoEndOrderOnnet(Object[] Data) throws Exception {
 
 		Login.get().Login("Sieble");
-		// Login.get().VerifySuccessLogin("Sieble");
 		// newOrderOnnnet.get().Check(Data);
 		newOrderOnnnet.get().accountTabDetails(Data);
 		newOrderOnnnet.get().createCustomerOrder(Data);
@@ -82,7 +81,6 @@ public class NewOrders extends DriverTestcase {
 	public void Cease(Object[] Data) throws Exception {
 
 		Login.get().Login("Sieble");
-		// Login.get().VerifySuccessLogin("Sieble");
 		newOrderOnnnet.get().accountTabDetails(Data);
 		newOrderOnnnet.get().createCustomerOrder(Data);
 		newOrderOnnnet.get().productSelectionHelper(Data);
@@ -146,8 +144,8 @@ public class NewOrders extends DriverTestcase {
 
 	}
 
-	@Test(dataProviderClass = DataReader.class, dataProvider = "Cancel")
-	public void Cancel(Object[] Data) throws Exception {
+	@Test(dataProviderClass = DataReader.class, dataProvider = "Abandoned")
+	public void Abandoned(Object[] Data) throws Exception {
 
 		Login.get().Login("Sieble");
 		// Login.get().VerifySuccessLogin("Sieble");
@@ -161,14 +159,14 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);// Updated
 			newOrderOnnnet.get().EnterDateInFooter(Data); // No change
 			newOrderOnnnet.get().EnterBillingDateInFooter(Data); // No change
-			newOrderOnnnet.get().EnterServiceChargeInFooter(Data, "2"); // Method added
+			newOrderOnnnet.get().installationCharges(Data); // Method added
 			newOrderOnnnet.get().CommercialValidation(Data); // No Change
 			// newOrderOnnnet.get().TechnicalValidation(Data); // Updated
 			// newOrderOnnnet.get().DeliveryValidation(Data); // No Change
 			// newOrderOnnnet.get().OrderCompleteEthernetHubSpoke(Data); // MethodAdded
-			Cancel.get().statusReason(Data);
-			Cancel.get().AbandonedOrder(Data);
-			Cancel.get().verifyOrderAbandoned();
+			Abandoned.get().statusReason(Data);
+			Abandoned.get().AbandonedOrder(Data);
+			Abandoned.get().verifyOrderAbandoned();
 		} else if (Data[8].toString().equalsIgnoreCase("Ethernet Spoke")) {
 			newOrderOnnnet.get().addEthernetSiteSpoke(Data);// MethodAdded
 			newOrderOnnnet.get().spokeSiteCustomize(Data);// MethodAdded
@@ -184,9 +182,9 @@ public class NewOrders extends DriverTestcase {
 			// newOrderOnnnet.get().DeliveryValidation(Data); // No Change
 			// newOrderOnnnet.get().OrderCompleteEthernetHubSpoke(Data);// updated same as
 			// hub
-			Cancel.get().statusReason(Data);
-			Cancel.get().AbandonedOrder(Data);
-			Cancel.get().verifyOrderAbandoned();
+			Abandoned.get().statusReason(Data);
+			Abandoned.get().AbandonedOrder(Data);
+			Abandoned.get().verifyOrderAbandoned();
 		} else {
 			newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);
 			// newOrderOnnnet.get().enterMandatoryDetailsInMiddleApplet(Data);
@@ -204,9 +202,9 @@ public class NewOrders extends DriverTestcase {
 			// newOrderOnnnet.get().EnterInstallationChargeInFooter(Data);
 			newOrderOnnnet.get().MandatoryFields(Data);
 			newOrderOnnnet.get().CommercialValidation(Data);
-			Cancel.get().statusReason(Data);
-			Cancel.get().AbandonedOrder(Data);
-			Cancel.get().verifyOrderAbandoned();
+			Abandoned.get().statusReason(Data);
+			Abandoned.get().AbandonedOrder(Data);
+			Abandoned.get().verifyOrderAbandoned();
 			/*
 			 * newOrderOnnnet.get().TechnicalValidation(Data);
 			 * newOrderOnnnet.get().clickOnManualValidationB();
@@ -219,10 +217,10 @@ public class NewOrders extends DriverTestcase {
 
 	}
 
+
 	@Test(dataProviderClass = DataReader.class, dataProvider = "Mode")
 	public void Mod(Object[] Data) throws Throwable {
 		Login.get().Login("Sieble");
-		// Login.get().VerifySuccessLogin("Sieble");
 		newOrderOnnnet.get().accountTabDetails(Data);
 		newOrderOnnnet.get().createCustomerOrder(Data);
 		newOrderOnnnet.get().productSelectionHelper(Data);
@@ -262,6 +260,9 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().installationTimeUpdate(Data); // added by shivananda for carnor scenario
 			newOrderOnnnet.get().EnterDateInFooter(Data);
 			newOrderOnnnet.get().EnterBillingDateInFooter(Data);
+			if (Data[8].toString().equalsIgnoreCase("IP VPN Service")) {
+				newOrderOnnnet.get().ServiceChargeforIPVPNSite(Data, "4");	
+			}
 			newOrderOnnnet.get().EnterServiceChargeInFooter(Data, "4");
 			newOrderOnnnet.get().CommercialValidation(Data);
 
@@ -326,7 +327,6 @@ public class NewOrders extends DriverTestcase {
 	public void OMPGenric(Object[] Data) throws Exception {
 
 		Login.get().Login("Sieble");
-		// Login.get().VerifySuccessLogin("Sieble");
 		// newOrderOnnnet.get().Check(Data);
 		newOrderOnnnet.get().accountTabDetails(Data);
 		newOrderOnnnet.get().createCustomerOrder(Data);
@@ -597,7 +597,6 @@ public class NewOrders extends DriverTestcase {
 	public void PartialDelivery(Object[] Data) throws Exception {
 
 		Login.get().Login("Sieble");
-		// Login.get().VerifySuccessLogin("Sieble");
 		// newOrderOnnnet.get().Check(Data);
 		newOrderOnnnet.get().accountTabDetails(Data);
 		newOrderOnnnet.get().createCustomerOrder(Data);
@@ -623,13 +622,14 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().UploadDocument(Data);
 			newOrderOnnnet.get().SelectServiceGroupTab(Data);
 			newOrderOnnnet.get().OperationAttribute(Data);
-			newOrderOnnnet.get().EnterInstallationChargeInFooter(Data);
-			newOrderOnnnet.get().MandatoryFields(Data);
-			newOrderOnnnet.get().CommercialValidation(Data);
-			newOrderOnnnet.get().TechnicalValidation(Data);
-			newOrderOnnnet.get().clickOnManualValidationB();
-			newOrderOnnnet.get().DeliveryValidation(Data);
-			newOrderOnnnet.get().clickOnManualValidationA();
+			if (!Data[8].toString().equalsIgnoreCase("IP Access")) {
+				newOrderOnnnet.get().EnterInstallationChargeInFooter(Data);	
+				newOrderOnnnet.get().CommercialValidation(Data);
+				newOrderOnnnet.get().TechnicalValidation(Data);
+				newOrderOnnnet.get().clickOnManualValidationB();
+				newOrderOnnnet.get().DeliveryValidation(Data);
+				newOrderOnnnet.get().clickOnManualValidationA();
+			}
 			
 			newOrderOnnnet.get().getReferenceNo(Data);// added new
 			newOrderOnnnet.get().PartialCompletedValidation(Data);
@@ -640,7 +640,6 @@ public class NewOrders extends DriverTestcase {
 	public void EndtoEndOrderOffnet(Object[] Data) throws Exception {
 
 		Login.get().Login("Sieble");
-		// Login.get().VerifySuccessLogin("Sieble");
 		// newOrderOnnnet.get().Check(Data);
 		newOrderOnnnet.get().accountTabDetails(Data);
 		newOrderOnnnet.get().createCustomerOrder(Data);
@@ -702,8 +701,143 @@ public class NewOrders extends DriverTestcase {
 			}
 			newOrderOnnnet.get().getReferenceNo(Data);// added new
 			newOrderOnnnet.get().CompletedValidation(Data);
+			newOrderOnnnet.get().validateSlaMatrix(Data);
 		}
 	}
+ 
+	//As Add By Ayush
+		@Test(dataProviderClass = DataReader.class, dataProvider = "NewOrderOnnet")
+		public void XNGGeneric(Object[] Data) throws Exception {
+			
+			Login.get().Login("Sieble");
+			newOrderOnnnet.get().accountTabDetails(Data);
+			newOrderOnnnet.get().createCustomerOrder(Data);
+			newOrderOnnnet.get().productSelectionHelper(Data);
+			newOrderOnnnet.get().openServiceOrderNumber();
+			if (Data[8].toString().equalsIgnoreCase("Ethernet Hub")) {
+				newOrderOnnnet.get().addEthernetSiteHub(Data); // MethodAdded
+				newOrderOnnnet.get().hubSiteCustomize(Data); // MethodAdded
+				newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);// Updated
+				newOrderOnnnet.get().EnterDateInFooter(Data); // No change
+				newOrderOnnnet.get().EnterBillingDateInFooter(Data); // No change
+				newOrderOnnnet.get().EnterServiceChargeInFooter(Data, "2");
+				newOrderOnnnet.get().CommercialValidation(Data); // No Change
+				newOrderOnnnet.get().TechnicalValidation(Data); // Updated
+				newOrderOnnnet.get().DeliveryValidation(Data); // No Change
+				newOrderOnnnet.get().OrderCompleteEthernetHubSpoke(Data); // MethodAdded
+			} else if (Data[8].toString().equalsIgnoreCase("Ethernet Spoke")) {
+				newOrderOnnnet.get().addEthernetSiteSpoke(Data);// MethodAdded
+				newOrderOnnnet.get().spokeSiteCustomize(Data);// MethodAdded
+				newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);// Updated for spoke also
+				newOrderOnnnet.get().EnterDateInFooter(Data); // No change
+				newOrderOnnnet.get().EnterBillingDateInFooter(Data); // No change
+				newOrderOnnnet.get().EnterServiceChargeInFooter(Data, "2");
+
+				newOrderOnnnet.get().CommercialValidation(Data); // No Change
+				newOrderOnnnet.get().TechnicalValidation(Data); // Updated for spoke also
+				newOrderOnnnet.get().DeliveryValidation(Data); // No Change
+				newOrderOnnnet.get().OrderCompleteEthernetHubSpoke(Data);// updated same as hub
+			} else {
+				newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);
+				// add specifically for Wave and Ethernet Line and won't run for other products
+				newOrderOnnnet.get().addSiteADetails(Data);// added new
+				newOrderOnnnet.get().addSiteBDetails(Data);// added new
+				newOrderOnnnet.get().ASiteCustomize(Data);// added new
+				newOrderOnnnet.get().BSiteCustomize(Data);// added new
+				// End of methods spesific for Wave and Ethernet Line ------>
+				newOrderOnnnet.get().enterMandatoryDetailsInMiddleApplet(Data);
+				newOrderOnnnet.get().VoiceConfigTab(Data);
+				newOrderOnnnet.get().VoiceFeatureTab(Data);
+				newOrderOnnnet.get().NumberManagementTab(Data);
+				newOrderOnnnet.get().EnterDateInFooter(Data);
+				newOrderOnnnet.get().EnterBillingDateInFooter(Data);
+				newOrderOnnnet.get().EnterServiceChargeInFooter(Data, "2");
+
+				newOrderOnnnet.get().SelectAttachmentTab(Data);
+				newOrderOnnnet.get().UploadDocument(Data);
+				newOrderOnnnet.get().SelectServiceGroupTab(Data);
+				newOrderOnnnet.get().OperationAttribute(Data);
+				newOrderOnnnet.get().EnterInstallationChargeInFooter(Data);
+				newOrderOnnnet.get().MandatoryFields(Data);
+				newOrderOnnnet.get().CommercialValidation(Data);
+				newOrderOnnnet.get().TechnicalValidation(Data);
+				newOrderOnnnet.get().clickOnManualValidationB();
+				newOrderOnnnet.get().DeliveryValidation(Data);
+				newOrderOnnnet.get().clickOnManualValidationA();
+				newOrderOnnnet.get().CompletedValidation(Data);
+				//xng Code
+				newOrderOnnnet.get().LaunchingXNGApplication(Data);
+				
+			}
+
+			}
+		@Test(dataProviderClass = DataReader.class, dataProvider = "Cancelled")
+		public void Cancelled(Object[] Data) throws Exception {
+
+			Login.get().Login("Sieble");
+			// Login.get().VerifySuccessLogin("Sieble");
+			// newOrderOnnnet.get().Check(Data);
+			newOrderOnnnet.get().accountTabDetails(Data);
+			newOrderOnnnet.get().createCustomerOrder(Data);
+			newOrderOnnnet.get().productSelectionHelper(Data);
+			newOrderOnnnet.get().openServiceOrderNumber();
+			if (Data[8].toString().equalsIgnoreCase("Ethernet Hub")) {
+				newOrderOnnnet.get().addEthernetSiteHub(Data); // MethodAdded
+				newOrderOnnnet.get().hubSiteCustomize(Data); // MethodAdded
+				newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);// Updated
+				newOrderOnnnet.get().EnterDateInFooter(Data); // No change
+				newOrderOnnnet.get().EnterBillingDateInFooter(Data); // No change
+				newOrderOnnnet.get().installationCharges(Data); // Method added
+				newOrderOnnnet.get().CommercialValidation(Data); // No Change
+				newOrderOnnnet.get().TechnicalValidation(Data); // Updated
+				newOrderOnnnet.get().DeliveryValidation(Data); // No Change
+				newOrderOnnnet.get().OrderCompleteEthernetHubSpoke(Data); // MethodAdded
+			} else if (Data[8].toString().equalsIgnoreCase("Ethernet Spoke")) {
+				newOrderOnnnet.get().addEthernetSiteSpoke(Data);// MethodAdded
+				newOrderOnnnet.get().spokeSiteCustomize(Data);// MethodAdded
+				newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);// Updated for spoke also
+				newOrderOnnnet.get().EnterDateInFooter(Data); // No change
+				newOrderOnnnet.get().EnterBillingDateInFooter(Data); // No change
+				newOrderOnnnet.get().installationCharges(Data); // Method added same as hub and updated if condition for
+																// spoke
+
+				newOrderOnnnet.get().CommercialValidation(Data); // No Change
+				newOrderOnnnet.get().TechnicalValidation(Data); // Updated for spoke also
+				newOrderOnnnet.get().DeliveryValidation(Data); // No Change
+				newOrderOnnnet.get().OrderCompleteEthernetHubSpoke(Data);// updated same as hub
+			} else {
+				newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);
+				// add specifically for Wave and Ethernet Line and won't run for other products
+				newOrderOnnnet.get().addSiteADetails(Data);// added new
+				newOrderOnnnet.get().addSiteBDetails(Data);// added new
+				newOrderOnnnet.get().ASiteCustomize(Data);// added new
+				newOrderOnnnet.get().BSiteCustomize(Data);// added new
+				// End of methods spesific for Wave and Ethernet Line ------>
+				newOrderOnnnet.get().enterMandatoryDetailsInMiddleApplet(Data);
+				newOrderOnnnet.get().VoiceConfigTab(Data);
+				newOrderOnnnet.get().VoiceFeatureTab(Data);
+				newOrderOnnnet.get().NumberManagementTab(Data);
+				newOrderOnnnet.get().EnterDateInFooter(Data);
+				newOrderOnnnet.get().EnterBillingDateInFooter(Data);
+				newOrderOnnnet.get().EnterServiceChargeInFooter(Data, "2");
+
+				newOrderOnnnet.get().SelectAttachmentTab(Data);
+				newOrderOnnnet.get().UploadDocument(Data);
+				newOrderOnnnet.get().SelectServiceGroupTab(Data);
+				newOrderOnnnet.get().OperationAttribute(Data);
+				newOrderOnnnet.get().EnterInstallationChargeInFooter(Data);
+				newOrderOnnnet.get().MandatoryFields(Data);
+				newOrderOnnnet.get().CommercialValidation(Data);
+				newOrderOnnnet.get().TechnicalValidation(Data);
+				newOrderOnnnet.get().clickOnManualValidationB();
+				newOrderOnnnet.get().DeliveryValidation(Data);
+				newOrderOnnnet.get().clickOnManualValidationA();
+				newOrderOnnnet.get().getReferenceNo(Data);// added new
+			 Cancelled.get().statusReason(Data);
+			 Cancelled.get().CancelOrder(Data);
+			 Cancelled.get().verifyOrderCancelled();	
+			}
+		}
 
 
 

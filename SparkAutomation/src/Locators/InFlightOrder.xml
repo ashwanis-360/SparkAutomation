@@ -35,4 +35,7 @@
   *************************Swiftnet,prizmnet,ip vpn plus,access,wholesale********************* 
   <FieldLabelSwift>(//span[text()='ChangeFieldName'])[1]//i</FieldLabelSwift> 
   <TextInputSwift>(//span[text()='Customer Alias'])[1]/parent::*//input</TextInputSwift> 
+   ***********For CPE solutions*************************
+   <ServiceBandwidthCpe>//span[text()='Service Bandwidth']/..//input/following-sibling::span</ServiceBandwidthCpe>
+   <ValueInsideDropdown>//li[text()='Data']</ValueInsideDropdown>
   </locators>

@@ -39,7 +39,7 @@
 
 
 <AendTechContAddContact>//button[@id='AendTechContAddContact']</AendTechContAddContact>
-<AendTechContFirstName>/input[@name='AendTechContFirstName']</AendTechContFirstName>
+<AendTechContFirstName>//input[@name='AendTechContFirstName']</AendTechContFirstName>
 <AendTechContLastName>//input[@name='AendTechContLastName']</AendTechContLastName>
 <AendTechContTitle>//select[@name='AendTechContTitle']</AendTechContTitle>
 <AendTechContEmail>//input[@name='AendTechContEmail']</AendTechContEmail>
@@ -59,7 +59,7 @@
 
 <AddContact>//button[@id='AddContact']</AddContact>
 
-<FirstName>/input[@name='FirstName']</FirstName>
+<FirstName>//input[@name='FirstName']</FirstName>
 <LastName>//input[@name='LastName']</LastName>
 <Title>//select[@name='Title']</Title>
 <Email>//input[@name='Email']</Email>
@@ -68,17 +68,45 @@
 <SaveAndSelectContact>//button[@id='SaveAndSelectContact']</SaveAndSelectContact>
 
 
-<InstallCharges>/input[@name='InstallCharges']</InstallCharges>
-<MonthlyCharges>/input[@name='MonthlyCharges']</MonthlyCharges>
+<InstallCharges>//input[@name='InstallCharges']</InstallCharges>
+<MonthlyCharges>//input[@name='MonthlyCharges']</MonthlyCharges>
 <ShowAddtnalCharges>//button[@id='ShowAddtnalCharges']</ShowAddtnalCharges>
-<FastTrack>/input[@name='FastTrack']</FastTrack>
-<FastTrackCharges>/input[@name='FastTrackCharges']</FastTrackCharges>
-
+<FastTrack>//input[@name='FastTrack']</FastTrack>
+<FastTrackCharges>//input[@name='FastTrackCharges']</FastTrackCharges>
+<RouterCharges>//input[@id='RouterInstallCharges']</RouterCharges>
+<RouterMonthlyCharges>//input[@id='RouterMonthlyCharges']</RouterMonthlyCharges>
 
 <btnSave>//button[@id='btnSave']</btnSave>
 <btnGenerateContact>//button[@id='btnGenerateContact']</btnGenerateContact>
 <Acceptpopbutton>//span[text()='Accept']</Acceptpopbutton>
 <btnSubmitToCot>//button[@id='btnSubmitToCot']</btnSubmitToCot>
+<ExistingIPAccess>//input[@id='ExistingIpAccess']</ExistingIPAccess>
+<AddBendaddress>//button[@id='AddBEndAddr']</AddBendaddress>
+<OrganisationBend>//input[@name='BEndname']</OrganisationBend>
+<StreetNameBENd>//input[@name='BEndroute']</StreetNameBENd>
+<PostalCodeBEnD>//input[@name='BEndpostal_code']</PostalCodeBEnD>
+<CountryBEnd>//input[@name='BEndcountry']</CountryBEnd>
+<CityBEnd>//input[@name='BEndlocality']</CityBEnd>
+<BEndSaveContact>//button[@id='BEndSaveAndSelectAddress']</BEndSaveContact>
+<BendAccessType>//select[@name='BEndAccessT']</BendAccessType>
+<ServiceType>//select[@id='ServiceType']</ServiceType>
+<WorkerPath>//select[@name='AendCabelSystem']</WorkerPath>
+<CustomerContactField>//input[@id='CustCntctOrdering']</CustomerContactField>
+<EOLNumberText>//div[@id='SubmitToCOTMessage']/span</EOLNumberText>
+<HubReference>//input[@id='HubRef']</HubReference>
+<HubCountry>//select[@id='HubCountry']</HubCountry>
+<OrganisationSpoke>//input[@id='name']</OrganisationSpoke>
+<StreetSpoke>//input[@id='route']</StreetSpoke>
+<CitySpoke>//input[@id='locality']</CitySpoke>
+<PostalCodeSpoke>//input[@id='postal_code']</PostalCodeSpoke>
+<CountrySpoke>//input[@id='country']</CountrySpoke>
+<SaveBEndSpoke>//span[@id='SaveAndSelectAddressTransLabel']</SaveBEndSpoke>
+<ExistingReference>//input[@id='ExistingIpAccess']</ExistingReference>
+<SearchSiebel>//button[@aria-label='Service Order List:Query']</SearchSiebel>
+<OrderReference>//td[contains(@id,'COLT_Service_Order_Source_Ref_Number')]/parent::*//td[4]</OrderReference>
+<OrderReferenceField>//td[contains(@id,'COLT_Service_Order_Source_Ref_Number')]/parent::*//td[4]/input</OrderReferenceField>
+<ServiceOrderTab>//a[text()='Service Order']</ServiceOrderTab> 
+
 
 
 <!-- MOD COM Locators By Gauri -->

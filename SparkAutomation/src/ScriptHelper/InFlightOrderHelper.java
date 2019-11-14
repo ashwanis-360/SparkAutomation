@@ -49,7 +49,9 @@ public class InFlightOrderHelper extends DriverHelper {
 
 		
 		        Thread.sleep(6000);
-				
+		        
+		        if(!Product_Name.equalsIgnoreCase("CPE Solutions Service"))
+		        {
 				//Open Workflow Tab
 				WaitforElementtobeclickable(xml.getlocator("//locators/ClickLink").replace("Value", "Workflows"));
 				Clickon(getwebelement(xml.getlocator("//locators/ClickLink").replace("Value","Workflows")));
@@ -286,7 +288,6 @@ public class InFlightOrderHelper extends DriverHelper {
 				}
 				
 
-				
 				}	
 				//Workflow save
 				WaitforElementtobeclickable(xml.getlocator("//locators/WorkflowSave"));
@@ -295,6 +296,7 @@ public class InFlightOrderHelper extends DriverHelper {
 				  waitForpageload();
 				waitforPagetobeenable();
 				Thread.sleep(3000);
+		        } //end of inner if loop
 	         				
 				switch(Product_Name)
 				{
@@ -421,12 +423,41 @@ public class InFlightOrderHelper extends DriverHelper {
 					}
 					break;
 				}
+				case "CPE Solutions Service":
+				{
+					cpeSolutions();
+					break;
+				}
 						
 				default:
 					System.out.println("Above product is not exist in current list");
 					break;
 				}	
 	   }
+	
+	 public void cpeSolutions() throws Exception
+		{
+			 
+			     Thread.sleep(6000);
+				String Fieldtitle1=Getattribute(getwebelement2(xml.getlocator("//locators/FieldLabel").replace("ChangeFieldName","Service Type")), "title");
+				Assert.assertTrue("Before Change In- Flight apprear for control", !Fieldtitle1.contains("flight"));
+			 
+			 
+				WaitforElementtobeclickable(xml.getlocator("//locators/ServiceBandwidthCpe"));
+				Clickon(getwebelement(xml.getlocator("//locators/ServiceBandwidthCpe")));
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on service bandwidth");
+				Clickon(getwebelement(xml.getlocator("//locators/ValueInsideDropdown").replace("Data","6 Mbps")));
+				
+				
+				WaitforElementtobeclickable(xml.getlocator("//locators/ClickheretoSaveAccess"));
+				Clickon(getwebelement(xml.getlocator("//locators/ClickheretoSaveAccess")));
+				waitforPagetobeenable();
+					
+				Fieldtitle1=Getattribute(getwebelement(xml.getlocator("//locators/FieldLabel").replace("ChangeFieldName","Service Bandwidth")), "title");
+				Assert.assertTrue("After Change to In- Flight title not appear for field", Fieldtitle1.contains("flight"));
+
+		}
+
 	
 	public void PlusAccessWHSwifPrizm() throws Exception
 	{
