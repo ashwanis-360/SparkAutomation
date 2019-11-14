@@ -37,7 +37,7 @@ public class OMPScriptHelper extends DriverHelper {
 		
 		for(int i=0;i<5;i++)
 		{
-			
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Trying to open Url");
 			Clickon(getwebelement(xml.getlocator("//locators/InputOrderNumber")));
 			Clear(getwebelement(xml.getlocator("//locators/InputOrderNumber")));// Inputdata[0].toString());
 			SendKeys(getwebelement(xml.getlocator("//locators/InputOrderNumber")), ServiceOrder.get().toString());// Inputdata[0].toString());
@@ -53,7 +53,7 @@ public class OMPScriptHelper extends DriverHelper {
 			else
 				Thread.sleep(1000*60*2);
 			Thread.sleep(1000*30);
-			
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step:Order number not found, trying again");
 		}
 		
 
