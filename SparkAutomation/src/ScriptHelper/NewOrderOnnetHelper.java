@@ -8189,9 +8189,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		
 		
 		if (InputData[8].toString().contains("Ultra Low Latency")
-				|| (InputData[8].toString().contains("Private Wave Node")
-				|| (InputData[8].toString().contains("Private Wave Service")
-				|| (InputData[8].toString().contains("Dark Fibre")))))
+				|| (InputData[8].toString().contains("Private Wave Node")))
+				
 		{
 										
 			
@@ -8381,9 +8380,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 	public void BEndSitePUD(Object[] InputData) throws InterruptedException, DocumentException, IOException {
 
 		if (InputData[8].toString().contains("Ultra Low Latency")
-				|| (InputData[8].toString().contains("Private Wave Node")
-				|| (InputData[8].toString().contains("Private Wave Service")
-				|| (InputData[8].toString().contains("Dark Fibre")))))
+				|| (InputData[8].toString().contains("Private Wave Node")))
+				
 		{
 										
 			
