@@ -8380,8 +8380,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 	public void BEndSitePUD(Object[] InputData) throws InterruptedException, DocumentException, IOException {
 
 		if (InputData[8].toString().contains("Ultra Low Latency")
-				|| (InputData[8].toString().contains("Private Wave Node")))
-				
+				|| (InputData[8].toString().contains("Private Wave Node")
+				))
 		{
 										
 			
