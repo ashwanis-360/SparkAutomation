@@ -833,7 +833,6 @@ public class NewOrders extends DriverTestcase {
 				newOrderOnnnet.get().DeliveryValidation(Data);
 				newOrderOnnnet.get().clickOnManualValidationA();
 				newOrderOnnnet.get().getReferenceNo(Data);// added new
-			 newOrderOnnnet.get().EnterInstallationChargeInFooter(Data);
 			 Cancelled.get().statusReason(Data);
 			 Cancelled.get().CancelOrder(Data);
 			 Cancelled.get().verifyOrderCancelled();	
