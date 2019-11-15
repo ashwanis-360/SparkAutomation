@@ -10784,13 +10784,13 @@ public class NewOrderOnnetHelper extends DriverHelper {
 					//xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value", "LAN Interface IPv4 Prefix")),
 					//"123.65.19.1");
 
-			Thread.sleep(3000);
-			ClickHereSave();
-			waitforPagetobeenable();
-			Thread.sleep(3000);
 
 		}
 
+		Thread.sleep(3000);
+		ClickHereSave();
+		waitforPagetobeenable();
+		Thread.sleep(3000);
 	}
 
 	// --- Added By Abhay- 28Sep-2019
@@ -12104,12 +12104,13 @@ public class NewOrderOnnetHelper extends DriverHelper {
 							//xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value", "Second CPE LAN Interface IPv4 Address")),
 							//"123.65.19.1");
 
-					Thread.sleep(3000);
-					ClickHereSave();
-					waitforPagetobeenable();
-					Thread.sleep(3000);
+					
 
 				}
+				Thread.sleep(3000);
+				ClickHereSave();
+				waitforPagetobeenable();
+				Thread.sleep(3000);
 			}
 		 public void OperationalAttributesforIPVPNPartial(Object[] Inputdata) throws Exception {
 				savePage();
