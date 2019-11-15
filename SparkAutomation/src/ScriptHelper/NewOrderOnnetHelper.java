@@ -11694,7 +11694,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				
 				Clickon(getwebelement("//button[@aria-label='Partial Delivery:Submit']"));
 				Thread.sleep(3000);
-				if (!Inputdata[8].toString().equalsIgnoreCase("IP Access")) {
+				if (Inputdata[11].toString().equalsIgnoreCase("IP VPN Access")||Inputdata[11].toString().equalsIgnoreCase("IP VPN Plus")) {
 					AcceptJavaScriptMethod();
 					}
 				
@@ -11724,7 +11724,12 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		 public void PartialDeliverySite(Object[] Inputdata) throws Exception {
 				Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value","Layer 3 Resilience")));
 				Thread.sleep(2000);
-				Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value","Dual Access Unmanaged")));
+				if (!Inputdata[11].equals("IP VPN Wholesale")) {
+					Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value","Dual Access Unmanaged")));
+					}
+					else {
+						Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value","Dual Access Primary & Backup")));
+					}
 				waitforAttributeloader();
 				waitforPagetobeenable();
 				ClickHereSave();
