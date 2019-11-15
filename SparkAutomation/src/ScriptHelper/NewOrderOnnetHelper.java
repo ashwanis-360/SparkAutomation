@@ -4098,6 +4098,12 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			Clickon(getwebelement(xml.getlocator("//locators/FibreTypeSelectAccess")));
 			waitforAttributeloader();
 			waitforPagetobeenable();
+			
+			Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Port Role")));
+			Clickon(getwebelement(
+					xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", "Physical Port")));
+			waitforAttributeloader();
+			waitforPagetobeenable();
 			// Clickon(getwebelement(xml.getlocator("//locators/Fibretype")));
 			// Clear(getwebelement(xml.getlocator("//locators/Fibretype")));
 			// SendKeys(getwebelement(xml.getlocator("//locators/Fibretype")),
