@@ -384,6 +384,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				&& !Inputdata[8].toString().equals("Ethernet VPN Access")) {
 			WaitforElementtobeclickable(xml.getlocator("//locators/NetworkReferenceSearch"));
 			Clickon(getwebelement(xml.getlocator("//locators/NetworkReferenceSearch")));
+			WaitforElementtobeclickable(xml.getlocator("//locators/NetworkPlusSign"));
 			Clickon(getwebelement(xml.getlocator("//locators/NetworkPlusSign")));
 			Clickon(getwebelement(xml.getlocator("//locators/SelectNetworkReference")));
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Network Reference Search");
@@ -478,6 +479,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				WaitforElementtobeclickable("//button[@aria-label='Pick Contact:OK']");
 				Clickon(getwebelement("//button[@aria-label='Pick Contact:OK']"));
 				Thread.sleep(8000);
+				savePage();
+				waitForpageload();
 				waitforPagetobeenable();
 				if (isElementPresent(xml.getlocator("//locators/SaveOrderChanges"))) {
 					WaitforElementtobeclickable(xml.getlocator("//locators/SaveOrderChanges"));
@@ -648,7 +651,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			Clickon(getwebelement(xml.getlocator("//locators/TelephoneDirectoryServices")));
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on TelephoneDirectoryServices");
 			Thread.sleep(5000);
-			Clickon(getwebelement(xml.getlocator("//locators/CrossButton1")));
+			Clickon(getwebelement(xml.getlocator("//locators/CrossButtonVLV")));
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on CrossButton");
 			Thread.sleep(5000);
 			Clickon(getwebelement(xml.getlocator("//locators/DisasterRecoveryContact")));
@@ -1403,8 +1406,10 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			Clickon(getwebelement(xml.getlocator("//locators/ShelfID1")));
 			SendKeys(getwebelement(xml.getlocator("//locators/ShelfID1")), "Test");
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on ShelfID");
+			waitForpageload();
+			waitforPagetobeenable();
 			Thread.sleep(5000);
-			Clickon(getwebelement(xml.getlocator("//locators/Crossbutton")));
+			Clickon(getwebelement(xml.getlocator("//locators/CrossButtonVLV")));
 			Thread.sleep(5000);
 			WaitforElementtobeclickable((xml.getlocator("//locators/ClickheretoSaveAccess")));
 			Clickon(getwebelement(xml.getlocator("//locators/ClickheretoSaveAccess")));
@@ -1563,7 +1568,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			// Keys.TAB);
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on NOof1000PortedDDIs");
 			Thread.sleep(5000);
-			Clickon(getwebelement(xml.getlocator("//locators/CrossButton1")));
+			Clickon(getwebelement(xml.getlocator("//locators/CrossButtonVLV")));
 			Thread.sleep(5000);
 		}
 	}
@@ -3038,8 +3043,9 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			WaitforElementtobeclickable(xml.getlocator("//locators/LastNameSiteSearchAccess"));
 			Clickon(getwebelement(xml.getlocator("//locators/LastNameSiteSearchAccess")));
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step:Click On Search");
-			
 			waitforPagetobeenable();
+			Thread.sleep(3000);
+			//waitforPagetobeenable();
 			WaitforElementtobeclickable(xml.getlocator("//locators/LastNameSiteSubmitAccess"));
 			Clickon(getwebelement(xml.getlocator("//locators/LastNameSiteSubmitAccess")));
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step:Click On Submit");
@@ -4974,6 +4980,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			WaitforElementtobeclickable((xml.getlocator("//locators/ClickheretoSaveAccess")));
 			WaitforElementtobeclickable(xml.getlocator("//locators/IpGurdianSave"));
 			Clickon(getwebelement(xml.getlocator("//locators/ClickheretoSaveAccess")));
+			waitForpageload();
 			waitforPagetobeenable();
 
 			WaitforElementtobeclickable(xml.getlocator("//locators/InstallTimeDropdownAccess"));
@@ -4986,8 +4993,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			WaitforElementtobeclickable(xml.getlocator("//locators/RouterSiteNameDropdownAccess"));
 			Clickon(getwebelement(xml.getlocator("//locators/RouterSiteNameDropdownAccess")));
 			Thread.sleep(5000);
-			WaitforElementtobeclickable(xml.getlocator("//locators/sitenamevalue"));
-			Clickon(getwebelement(xml.getlocator("//locators/sitenamevalue")));
+			WaitforElementtobeclickable(xml.getlocator("//locators/sitenamevaluevpn"));
+			Clickon(getwebelement(xml.getlocator("//locators/sitenamevaluevpn")));
 
 			WaitforElementtobeclickable((xml.getlocator("//locators/ClickheretoSaveAccess")));
 			Clickon(getwebelement(xml.getlocator("//locators/ClickheretoSaveAccess")));
@@ -8287,10 +8294,10 @@ public class NewOrderOnnetHelper extends DriverHelper {
 //			WaitforElementtobeclickable(xml.getlocator("//locators/DarkFiber/AList").replace("Value", "NA"));
 //			Clickon(getwebelement(xml.getlocator("//locators/DarkFiber/AList").replace("Value", "NA")));
 //			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Access Technology : NA ");
-			WaitforElementtobeclickable(xml.getlocator("//locators/DarkFiber/AList").replace("Value", InputData[42].toString()));
+			WaitforElementtobeclickable(xml.getlocator("//locators/DarkFiber/AList").replace("Value", InputData[83].toString()));
 			Clickon(getwebelement(
-					xml.getlocator("//locators/DarkFiber/AList").replace("Value", InputData[42].toString())));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Access Type : " + InputData[42].toString());
+					xml.getlocator("//locators/DarkFiber/AList").replace("Value", InputData[83].toString())));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Access Type : " + InputData[83].toString());
 
 			WaitforElementtobeclickable(
 					xml.getlocator("//locators/DarkFiber/AEndSiteDropDown").replace("Value", "Access Type"));
@@ -8301,9 +8308,9 @@ public class NewOrderOnnetHelper extends DriverHelper {
 //			Clickon(getwebelement(xml.getlocator("//locators/DarkFiber/AList").replace("Value", "Colt Fibre")));
 //			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Colt Fibre ");
 			WaitforElementtobeclickable(
-					xml.getlocator("//locators/DarkFiber/AList").replace("Value", InputData[83].toString()));
+					xml.getlocator("//locators/DarkFiber/AList").replace("Value", InputData[42].toString()));
 			Clickon(getwebelement(
-					xml.getlocator("//locators/DarkFiber/AList").replace("Value", InputData[83].toString())));
+					xml.getlocator("//locators/DarkFiber/AList").replace("Value", InputData[42].toString())));
 			ExtentTestManager.getTest().log(LogStatus.PASS,
 					" Step: Select Access Technology : " + InputData[83].toString());
 			WaitforElementtobeclickable(xml.getlocator("//locators/DarkFiber/AEndSiteDropDown").replace("Value",

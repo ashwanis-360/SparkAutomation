@@ -625,6 +625,7 @@
 <PerformanceReporting>(//span[@class='colt-component-check-available fa fa-circle-o'])[1]</PerformanceReporting>
 <WLECInvoicing>(//span[@class='colt-component-check-available fa fa-circle-o'])[5]</WLECInvoicing>
 <CrossButton>(//button[@title='Close'])[4]</CrossButton>
+<CrossButtonVLV>(//button[@title='Close'])[5]</CrossButtonVLV>
 <TrunkName>(//input[@class='colt-attribute-input siebui-ctrl-input'])[4]</TrunkName>
 <AccessLineTypeDropDown>(//span[text()='Access Line Type']/..//span)[3]</AccessLineTypeDropDown>
 <AccessLineType>//li[text()='Colt Access']</AccessLineType>
@@ -809,6 +810,7 @@
 <PortValue>//li[text()='Physical Port']</PortValue>
 <sitename>//span[text()='Site Name']/..//input</sitename>
 <sitenamevalue>//li[text()='AT_1010_KARNTNER RING_12_EG_NODE']</sitenamevalue>
+<sitenamevaluevpn>//li[text()='BE_1130_HAACHTSESTWG / CHDEHAECHT_1430_G_NODE(BE)']</sitenamevaluevpn>
 <LinkTypeDropDown>(//span[text()='Link Type']/parent::*//span)[3]</LinkTypeDropDown>
 <LinkTYpeValue>//li[text()='E-VPN Primary']</LinkTYpeValue>
 <ResilenceOptionDropDown>(//span[text()='Resilience Option']/parent::*//span)[3]</ResilenceOptionDropDown>
