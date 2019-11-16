@@ -439,11 +439,11 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				WaitforElementtobeclickable(xml.getlocator("//locators/MaintenancePartyContactPopupDropdown")); // add
 																												// by
 				Thread.sleep(4000);																								// ayush
-				Clickon(getwebelement(xml.getlocator("//locators/MaintenancePartyContactPopupDropdown")));
+				safeJavaScriptClick(getwebelement(xml.getlocator("//locators/MaintenancePartyContactPopupDropdown")));
 				//WaitforElementtobeclickable(xml.getlocator("//locators/DropDown")); // add by dipesh
 				//Clickon(getwebelement(xml.getlocator("//locators/DropDown")));// add by dipesh
-				waitandForElementDisplay((xml.getlocator("//locators/MaintenanceLastName")), 5);
-				safeJavaScriptClick(getwebelement(xml.getlocator("//locators/MaintenanceLastName")));
+				//waitandForElementDisplay((xml.getlocator("//locators/MaintenanceLastName")), 5);
+				Clickon(getwebelement(xml.getlocator("//locators/MaintenanceLastName")));
 				WaitforElementtobeclickable(xml.getlocator("//locators/InputMaintenanceLastName"));
 				SendKeys(getwebelement(xml.getlocator("//locators/InputMaintenanceLastName")),
 						Inputdata[14].toString()); // add by ayush
@@ -460,9 +460,9 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				waitforPagetobeenable();
 				WaitforElementtobeclickable(xml.getlocator("//locators/MaintenancePartyAddresPopupDropdown"));// add by
 																												// ayush
-				Clickon(getwebelement(xml.getlocator("//locators/MaintenancePartyAddresPopupDropdown")));
+				safeJavaScriptClick(getwebelement(xml.getlocator("//locators/MaintenancePartyAddresPopupDropdown")));
 				WaitforElementtobeclickable(xml.getlocator("//locators/PartyAddresStreetName")); // add by ayush
-				safeJavaScriptClick(getwebelement(xml.getlocator("//locators/PartyAddresStreetName")));
+				Clickon(getwebelement(xml.getlocator("//locators/PartyAddresStreetName")));
 				WaitforElementtobeclickable(xml.getlocator("//locators/InputPartyAddresStreetName")); // add by ayush
 				SendKeys(getwebelement(xml.getlocator("//locators/InputPartyAddresStreetName")),
 						Inputdata[15].toString());

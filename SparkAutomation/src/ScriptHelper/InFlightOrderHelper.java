@@ -67,6 +67,7 @@ public class InFlightOrderHelper extends DriverHelper {
 				Thread.sleep(4000);
 				clickUsingAction(getwebelement(xml.getlocator("//locators/SelectValueDropdown").replace("Value", "In-Flight Change")));
 				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Value from Dropdown");
+				SendkeaboardKeys(getwebelement("//input[@aria-label='Workflow Type']"), Keys.TAB);
 				waitforPagetobeenable();
 				
 				switch(Product_Name)
@@ -114,8 +115,8 @@ public class InFlightOrderHelper extends DriverHelper {
 				}
 				case "Ethernet Spoke":
 				{
-				WaitforElementtobeclickable(xml.getlocator("//locators/BandwidthIPAccess"));
-				Clickon(getwebelement(xml.getlocator("//locators/BandwidthIPAccess")));
+				WaitforElementtobeclickable(xml.getlocator("//locators/BandwidthSpoke"));
+				Clickon(getwebelement(xml.getlocator("//locators/BandwidthSpoke")));
 				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Bandwidth");
 				waitforPagetobeenable();
 				break;
@@ -129,7 +130,7 @@ public class InFlightOrderHelper extends DriverHelper {
 				break;
 				}
 				
-				case "Etherline":
+				case "Ethernet Line":
 				{
 				WaitforElementtobeclickable(xml.getlocator("//locators/BandwidthIPAccess"));
 				Clickon(getwebelement(xml.getlocator("//locators/BandwidthIPAccess")));
@@ -331,14 +332,14 @@ public class InFlightOrderHelper extends DriverHelper {
 					ethernetSpoke(Inputdata);
 					break;
 				}
-				case "Etherline":
+				case "Ethernet Line":
 				{
-					ethernetLine(Inputdata);
+					ethernetSpoke(Inputdata);
 					break;
 				}
 				case "Wave":
 				{
-					ethernetLine(Inputdata);
+					ethernetSpoke(Inputdata);
 					break;
 				}
 				case "IP Access":
@@ -565,40 +566,53 @@ public class InFlightOrderHelper extends DriverHelper {
 	
 	public void ethernetSpoke(Object[] Inputdata) throws Exception
 	{
+		Thread.sleep(6000);
+		WaitforElementtobeclickable(xml.getlocator("//locators/ClickLink").replace("Value", "Sites"));
+		Clickon(getwebelement(xml.getlocator("//locators/ClickLink").replace("Value","Sites")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on sites tab");
+		waitforPagetobeenable();
 		
-		String Fieldtitle1=Getattribute(getwebelement2(xml.getlocator("//locators/FieldLabelR1").replace("ChangeFieldName","Resilience Option")), "class");
-		Assert.assertTrue("Before Change In- Flight apprear for control", !Fieldtitle1.contains("flight"));
+		if(Inputdata[8].toString().equalsIgnoreCase("Ethernet Spoke") || Inputdata[8].toString().equalsIgnoreCase("Ethernet Line")|| Inputdata[8].toString().equalsIgnoreCase("Wave"))
+		{
+			boolean sign = isElementPresent(xml.getlocator("//locators/InflightLoctor").replace("value", "Shelf ID"));
+			System.out.println(sign);
+			Assert.assertFalse("Element is present", isElementPresent(xml.getlocator("//locators/InflightLoctor").replace("value", "Shelf ID")));
+			
+			Clear(getwebelement(xml.getlocator("//locators/TextInputSpoke").replace("value", "Shelf ID").replace("index", "2")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: clear shelf id");
+			
+			SendKeys(getwebelement(xml.getlocator("//locators/TextInputSpoke").replace("value", "Shelf ID").replace("index", "2")), "3");
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter shelf id");
+			WaitforElementtobeclickable(xml.getlocator("//locators/ApplyChangesSpoke"));
+			Clickon(getwebelement(xml.getlocator("//locators/ApplyChangesSpoke")));
+			waitforPagetobeenable();
+			Thread.sleep(6000);
+			boolean sign1 = isElementPresent(xml.getlocator("//locators/InflightLoctor").replace("value", "Shelf ID"));
+			System.out.println(sign1);
+			Thread.sleep(6000);
+			Assert.assertTrue("Element is not present", isElementPresent(xml.getlocator("//locators/InflightLoctor").replace("value", "Shelf ID")));
+		}
+		else
+		{
+		boolean sign = isElementPresent(xml.getlocator("//locators/InflightLoctor").replace("value", "Shelf ID"));
+		System.out.println(sign);
+		Assert.assertFalse("Element is present", isElementPresent(xml.getlocator("//locators/InflightLoctor").replace("value", "Shelf ID")));
 		
-		Select(getwebelement2(xml.getlocator("//locators/ResillienceOptionSpoke")), Inputdata[75].toString());
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Resilience Option");
+		Clear(getwebelement(xml.getlocator("//locators/TextInputForR1").replace("value", "Shelf ID")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: clear shelf id");
 		
+		SendKeys(getwebelement(xml.getlocator("//locators/TextInputForR1").replace("value", "Shelf ID")), "3");
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter shelf id");
 		WaitforElementtobeclickable(xml.getlocator("//locators/ApplyChangesSpoke"));
 		Clickon(getwebelement(xml.getlocator("//locators/ApplyChangesSpoke")));
 		waitforPagetobeenable();
-		
-		Fieldtitle1=Getattribute(getwebelement(xml.getlocator("//locators/FieldLabelR1").replace("ChangeFieldName","Trunk Name")), "class");
-		Assert.assertTrue("After Change to In- Flight title not appear for field", Fieldtitle1.contains("flight"));
-		
+		boolean sign1 = isElementPresent(xml.getlocator("//locators/InflightLoctor").replace("value", "Shelf ID"));
+		System.out.println(sign1);
+		Assert.assertTrue("Element is not present", isElementPresent(xml.getlocator("//locators/InflightLoctor").replace("value", "Shelf ID")));
+		}
 	}
 	
-	public void ethernetLine(Object[] Inputdata) throws Exception
-	{
-		
-		String Fieldtitle1=Getattribute(getwebelement2(xml.getlocator("//locators/FieldLabelR1").replace("ChangeFieldName","A End Resilience Option")), "class");
-		Assert.assertTrue("Before Change In- Flight apprear for control", !Fieldtitle1.contains("flight"));
-		
-		Select(getwebelement2(xml.getlocator("//locators/ResillienceOptionLine")), Inputdata[75].toString());
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Resilience Option");
-		
-		WaitforElementtobeclickable(xml.getlocator("//locators/ApplyChangesSpoke"));
-		Clickon(getwebelement(xml.getlocator("//locators/ApplyChangesSpoke")));
-		waitforPagetobeenable();
-		
-		Fieldtitle1=Getattribute(getwebelement(xml.getlocator("//locators/FieldLabelR1").replace("ChangeFieldName","Trunk Name")), "class");
-		Assert.assertTrue("After Change to In- Flight title not appear for field", Fieldtitle1.contains("flight"));
-		
-	}
-	
+
 	public void ipAccess( Object[] Inputdata) throws InterruptedException, DocumentException, IOException
 	{
 		//Open Sites Tab

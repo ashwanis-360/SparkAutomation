@@ -38,4 +38,10 @@
    ***********For CPE solutions*************************
    <ServiceBandwidthCpe>//span[text()='Service Bandwidth']/..//input/following-sibling::span</ServiceBandwidthCpe>
    <ValueInsideDropdown>//li[text()='Data']</ValueInsideDropdown>
+   ******************Ethernet Hub********************
+   <InflightLoctor>//label[text()='value']/..//span[contains(@class,'inflight_img')]</InflightLoctor>
+   <TextInputForR1>//label[text()='value']/parent::*/parent::*//input</TextInputForR1>
+   *********Ethernet spoke******************************
+   <TextInputSpoke>(//label[text()='value']/parent::*/parent::*//input)[index]</TextInputSpoke>
+   <BandwidthSpoke>//input[@aria-labelledby='B-End_Primary_Bandwidth_Label']</BandwidthSpoke>
   </locators>
