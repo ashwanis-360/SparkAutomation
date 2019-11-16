@@ -1125,7 +1125,7 @@
 	<MiddleDropDown>//span[text()='Value']/parent::*/span[2]</MiddleDropDown>
 	<ClicktoShowFulls>//a[text()='Click to Show Full info']</ClicktoShowFulls>
 	<MiddleLi>//ul[contains(@style,'block')]//li[text()='Value']</MiddleLi>
-	
+	<changeMiddleLi>//li[text()='Value']</changeMiddleLi>
 	<SaveButton>//div/a[text()='Save']</SaveButton>
 	
 	<AEndSiteDropDown>//div[@id='colt-site-left']//span[text()='Value']/following-sibling::span</AEndSiteDropDown>

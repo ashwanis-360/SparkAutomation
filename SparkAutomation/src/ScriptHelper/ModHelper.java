@@ -1235,8 +1235,8 @@ public class ModHelper extends DriverHelper {
 					WaitforElementtobeclickable(xml.getlocator("//locators/DarkFiber/MiddleDropDown").replace("Value", "Network Topology"));
 					Clickon(getwebelement(xml.getlocator("//locators/DarkFiber/MiddleDropDown").replace("Value", "Network Topology")));
 					ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on  Network Topology");
-					WaitforElementtobeclickable(xml.getlocator("//locators/DarkFiber/MiddleLi").replace("Value", "Any to Any"));
-					Clickon(getwebelement(xml.getlocator("//locators/DarkFiber/MiddleLi").replace("Value", "Any to Any")));
+					WaitforElementtobeclickable(xml.getlocator("//locators/DarkFiber/changeMiddleLi").replace("Value", "Any to Any"));
+					Clickon(getwebelement(xml.getlocator("//locators/DarkFiber/changeMiddleLi").replace("Value", "Any to Any")));
 					ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on  Any to Any");
 					WaitforElementtobeclickable(xml.getlocator("//locators/DarkFiber/SaveButton"));
 					Clickon(getwebelement(xml.getlocator("//locators/DarkFiber/SaveButton")));

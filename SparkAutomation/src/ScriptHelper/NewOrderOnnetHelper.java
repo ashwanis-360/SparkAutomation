@@ -5044,7 +5044,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 	public void EnterDateInFooter(Object Inputdata[]) throws Exception {
 
 		//////// ORDER DATE
-		// System.out.println("Enter Domain Footer");
+		waitForpageload();
+		waitforPagetobeenable();
 		Moveon(getwebelement(xml.getlocator("//locators/OrderDates")));
 		// System.out.println("Moved Mouse");
 		Clickon(getwebelement(xml.getlocator("//locators/OrderDates")));
