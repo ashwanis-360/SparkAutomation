@@ -5171,7 +5171,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 						Clickon(getwebelement(xml.getlocator("//locators/BCNNRCSearch")));
 						waitforPagetobeenable();
 						Thread.sleep(3000);
-						Clickon(getwebelement(xml.getlocator("//locators/BCNNRCSubmit")));// Should add in BSW
+						//Clickon(getwebelement(xml.getlocator("//locators/BCNNRCSubmit")));// Should add in BSW
 																							// enviroment
 						waitforPagetobeenable();
 					} else {
