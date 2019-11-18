@@ -10440,6 +10440,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 //			waitforPagetobeenable();
 
 		ClickHereSave();
+		waitforPagetobeenable();
 		Thread.sleep(4000);
 
 		WaitforElementtobeclickable(xml.getlocator("//locators/SelectSiteSearchAccess"));
@@ -10762,28 +10763,27 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		Thread.sleep(3000);
 		waitforPagetobeenable();
 
-		if (Inputdata[11].equals("IP VPN Plus") || Inputdata[11].equals("IP VPN Access")
-				|| Inputdata[11].equals("PrizmNet")) {
+		if (Inputdata[11].equals("IP VPN Plus") || Inputdata[11].equals("PrizmNet")) {
 			Thread.sleep(5000);
-			//Clickon(getwebelement(
-					//xml.getlocator("//locators/IPVPNSite/SearchInput").replace("Value", "Physical Port ID Primary")));
+			Clickon(getwebelement(
+					xml.getlocator("//locators/IPVPNSite/SearchInput").replace("Value", "Physical Port ID Primary")));
 			waitforPagetobeenable();
-			//Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/AccessPortList")));
-			//Thread.sleep(3000);
-			//Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/SubmitSubVPNList")));
-			//Thread.sleep(3000);
-			//waitforPagetobeenable();
+			Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/AccessPortList")));
+			Thread.sleep(3000);
+			Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/SubmitSubVPNList")));
+			Thread.sleep(3000);
+			waitforPagetobeenable();
 
-			//Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickLink").replace("Value", "IP Details")));
-			//waitforPagetobeenable();
+			Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickLink").replace("Value", "IP Details")));
+			waitforPagetobeenable();
 
-			//SendKeys(getwebelement(
-				//	xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value", "LAN Interface IPv4 Address")),
-					//"123.65.19.1");
+			SendKeys(getwebelement(
+					xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value", "LAN Interface IPv4 Address")),
+					"123.65.19.1");
 
-			//SendKeys(getwebelement(
-					//xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value", "LAN Interface IPv4 Prefix")),
-					//"123.65.19.1");
+			SendKeys(getwebelement(
+					xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value", "LAN Interface IPv4 Prefix")),
+					"123.65.19.1");
 
 
 		}
@@ -11797,6 +11797,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 //					waitforPagetobeenable();
 
 				ClickHereSave();
+				waitforPagetobeenable();
 				Thread.sleep(4000);
 
 				WaitforElementtobeclickable(xml.getlocator("//locators/SelectSiteSearchAccess"));
@@ -12074,36 +12075,35 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				Thread.sleep(3000);
 				//waitforPagetobeenable();
 
-				if (Inputdata[11].equals("IP VPN Plus") || Inputdata[11].equals("IP VPN Access")
-						|| Inputdata[11].equals("PrizmNet")) {
+				if (Inputdata[11].equals("IP VPN Plus")) {
 
-					//Clickon(getwebelement(
-							//xml.getlocator("//locators/IPVPNSite/SearchInput").replace("Value", "Physical Port ID Secondary")));			waitforPagetobeenable();
-					//Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/AccessPortList")));
+					Clickon(getwebelement(
+							xml.getlocator("//locators/IPVPNSite/SearchInput").replace("Value", "Physical Port ID Secondary")));			waitforPagetobeenable();
+					Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/AccessPortList")));
 					Thread.sleep(3000);
-					//Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/SubmitSubVPNList")));
-					//Thread.sleep(3000);
+					Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/SubmitSubVPNList")));
+					Thread.sleep(3000);
 					waitforPagetobeenable();
 
-					//Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickLink").replace("Value", "IP Details")));
-					//waitforPagetobeenable();
+					Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickLink").replace("Value", "IP Details")));
+					waitforPagetobeenable();
 					
-					//Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickLink").replace("Value", "Secondary")));
-					//waitforPagetobeenable();
+					Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickLink").replace("Value", "Secondary")));
+					waitforPagetobeenable();
 
-					//Clear(getwebelement(
-						//	xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value", "LAN VRRP IPv4 Address 1")));
-					//SendKeys(getwebelement(
-							//xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value", "LAN VRRP IPv4 Address 1")),
-							//"123.65.19.1");
-					//Thread.sleep(3000);
+					Clear(getwebelement(
+							xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value", "LAN VRRP IPv4 Address 1")));
+					SendKeys(getwebelement(
+							xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value", "LAN VRRP IPv4 Address 1")),
+							"123.65.19.1");
+					Thread.sleep(3000);
 
-					//Clear(getwebelement(
-						//	xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value", "Second CPE LAN Interface IPv4 Address")));
+					Clear(getwebelement(
+							xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value", "Second CPE LAN Interface IPv4 Address")));
 				
-					//SendKeys(getwebelement(
-							//xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value", "Second CPE LAN Interface IPv4 Address")),
-							//"123.65.19.1");
+					SendKeys(getwebelement(
+							xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value", "Second CPE LAN Interface IPv4 Address")),
+							"123.65.19.1");
 
 					
 
