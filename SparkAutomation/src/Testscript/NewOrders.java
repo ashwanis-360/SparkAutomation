@@ -808,7 +808,7 @@ public class NewOrders extends DriverTestcase {
 				newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);// Updated
 				newOrderOnnnet.get().EnterDateInFooter(Data); // No change
 				newOrderOnnnet.get().EnterBillingDateInFooter(Data); // No change
-				newOrderOnnnet.get().EnterServiceChargeInFooter(Data, "2");// Method added
+				newOrderOnnnet.get().EnterServiceChargeInFooter(Data, "2");
 				newOrderOnnnet.get().CommercialValidation(Data); // No Change
 				newOrderOnnnet.get().TechnicalValidation(Data); // Updated
 				newOrderOnnnet.get().DeliveryValidation(Data); // No Change
@@ -854,13 +854,19 @@ public class NewOrders extends DriverTestcase {
 				newOrderOnnnet.get().DeliveryValidation(Data);
 				newOrderOnnnet.get().clickOnManualValidationA();
 				newOrderOnnnet.get().getReferenceNo(Data);// added new
+				if (!Data[8].toString().equalsIgnoreCase("IP VPN Service")) { 
 			 Cancelled.get().statusReason(Data);
 			 Cancelled.get().CancelOrder(Data);
-			 Cancelled.get().verifyOrderCancelled();	
+			 Cancelled.get().verifyOrderCancelled();
+				}
+				else {
+					newOrderOnnnet.get().CompletedValidationforCancel(Data);
+					Cancelled.get().statusReason(Data);
+					 Cancelled.get().CancelOrder(Data);
+					 Cancelled.get().verifyOrderCancelled();
+				}
 			}
 		}
-
-
 
 
 }

@@ -12605,6 +12605,111 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				 
 			 }
 		 }
-	
+			 public void CompletedValidationforCancel(Object[] Inputdata) throws Exception {
+					waitforPagetobeenable();
+					savePage();
+					waitforPagetobeenable();
+					Thread.sleep(10000);
+					if (Inputdata[8].toString().equals("IP VPN Service"))// **Start** Added By Abhay dated 28-Sep-2019
+					{
+						savePage();
+						waitforPagetobeenable();
+						Thread.sleep(10000);
+						WaitforElementtobeclickable(
+								xml.getlocator("//locators/IPVPNSite/ClickLink").replace("Value", "Customer Orders"));
+						Clickon(getwebelement(
+								xml.getlocator("//locators/IPVPNSite/ClickLink").replace("Value", "Customer Orders")));
+						String ServOrder = ServiceOrder.get().toString();
+						// String x= ServiceOrder.get();
+						// System.out.println(x);
+						// String string = "004-034556";
+						String[] parts = ServOrder.split("/");
+						String part1 = parts[0];
+						String part2 = parts[1];
+						waitforPagetobeenable();
+						SendKeys(getwebelement(xml.getlocator("//locators/IPVPNSite/CustOrder")), part2);
+						Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/CustOrderGo")));
+						waitforPagetobeenable();
+						Thread.sleep(3000);
+						Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickSeibelOrder")));
+						waitforPagetobeenable();
+						Thread.sleep(3000);
+						Clickon(getwebelement(xml.getlocator("//locators/NewServiceOrder")));
+						waitforPagetobeenable();
+						ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on New Service Order");
+						Thread.sleep(3000);
+						Selectproduct("IP VPN Site");
+						openIPVPNSite();
+						enterMandatoryFieldsInHeader(Inputdata);
+						NetworkReferenceFill();
+						IPVPNSITEMiddleApplet(Inputdata);
+
+						EnterDateInFooter(Inputdata);
+						EnterBillingDateInFooter(Inputdata);
+						if (!Inputdata[11].equals("IP VPN Wholesale")) {
+							ServiceChargeforIPVPNSite(Inputdata, "2");
+						}
+						if (!Inputdata[11].equals("IP VPN Wholesale")) {
+							OperationalAttributesforIPVPN(Inputdata);
+						}
+						EnterInstallationChargeInFooter(Inputdata);
+						CommercialValidation(Inputdata);
+						TechnicalValidation(Inputdata);
+						DeliveryValidation(Inputdata);
+						AlertAccept();
+						clickOnManualValidationA();
+
+						waitforPagetobeenable();
+						WaitforElementtobeclickable(xml.getlocator("//locators/OrderStatusDropdown"));
+						Clickon(getwebelement(xml.getlocator("//locators/OrderStatusDropdown")));
+						ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Order status drop down");
+						Thread.sleep(3000);
+						Clickon(getwebelement(xml.getlocator("//locators/SelectCompleted")));
+						ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click Completed Status");
+						waitforPagetobeenable();
+
+						Thread.sleep(5000);
+						if (Inputdata[11].toString().equalsIgnoreCase("IP VPN Wholesale")) // Added by Abhay
+						{
+							ClickContinue();
+							Thread.sleep(3000);
+						}
+						// savePage();
+						// Thread.sleep(6000);
+						Clickon(getwebelement(xml.getlocator("//locators/OrderComplete")));
+						AlertAccept();
+						ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click Order Complete");
+						waitforPagetobeenable();
+						Thread.sleep(5000);
+						savePage();
+						waitforPagetobeenable();
+						Thread.sleep(10000);
+						savePage();
+						waitforPagetobeenable();
+						Thread.sleep(10000);
+						if (isElementPresent(xml.getlocator("//locators/AlertAccept"))) {
+							System.out.println("");
+							System.out.println("Alert Present");
+							WaitforElementtobeclickable((xml.getlocator("//locators/AlertAccept")));
+							Clickon(getwebelement(xml.getlocator("//locators/AlertAccept")));
+						}
+
+						savePage();
+						waitforPagetobeenable();
+						Thread.sleep(10000);
+
+						MovetoIPService();
+
+						// Save the Current URL
+						// Create and completed new IP VPN SItes
+						// Open the Older Order number;
+					} // **End**
+
+					Thread.sleep(5000);
+					savePage();
+					waitforPagetobeenable();
+					Thread.sleep(10000);
+			 }
+			 
 	
 }
