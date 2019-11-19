@@ -5231,6 +5231,45 @@ public class NewOrderOnnetHelper extends DriverHelper {
 	public void EnterInstallationChargeInFooter(Object Inputdata[]) throws Exception {
 		waitForpageload();
 		waitforPagetobeenable();
+		
+		
+		if(  (Inputdata[8].toString().equalsIgnoreCase("Ethernet Hub")
+				&& (Inputdata[Inputdata.length - 1].toString().contains("Tech"))) )
+		{
+			Select(getwebelement(xml.getlocator("//locators/InstalltionDropdown")), "Installation and Test");
+			ExtentTestManager.getTest().log(LogStatus.PASS,
+					" Step: Click on Installation Dropdown button and Select Installation and Test");
+
+			Thread.sleep(5000);
+			WaitforElementtobeclickable(xml.getlocator("//locators/PrimaryTestingMethod"));
+			Clear(getwebelement(xml.getlocator("//locators/PrimaryTestingMethod")));
+			SendKeys(getwebelement(xml.getlocator("//locators/PrimaryTestingMethod")), "Not Required");
+			SendkeaboardKeys(getwebelement(xml.getlocator("//locators/PrimaryTestingMethod")), Keys.TAB);
+			savePage();
+			waitforPagetobeenable();
+			Thread.sleep(3000);
+			if (!Inputdata[8].toString().equalsIgnoreCase("Wave")
+					&& !Inputdata[8].toString().equalsIgnoreCase("Interconnect")
+					&& !Inputdata[8].toString().equalsIgnoreCase("Ethernet Spoke")
+					&& !Inputdata[8].toString().equalsIgnoreCase("SWIFTNet")
+					&& !Inputdata[8].toString().equalsIgnoreCase("SIP Trunking")
+					&& !Inputdata[11].toString().equalsIgnoreCase("IP VPN Wholesale")
+					&& !Inputdata[8].toString().equalsIgnoreCase("Ethernet Line") 
+					&& !Inputdata[8].toString().equalsIgnoreCase("Ethernet Hub")) 
+			{
+				Clickon(getwebelement(xml.getlocator("//locators/SaveOrderContinue")));
+				waitforPagetobeenable();
+				Thread.sleep(3000);
+			}
+			alertPopUp();
+		}
+		alertPopUp();
+		savePage();
+		waitforPagetobeenable();
+		
+		
+		
+
 		if (!Inputdata[8].toString().equals("Cloud Unified Communications") 
 				
 				&& !Inputdata[8].toString().equals("Professional Services") 
@@ -5695,11 +5734,33 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		waitforPagetobeenable();
 		Thread.sleep(6000);
 		// ================= added Rekha=======Need Modification as endless loop
-		do {
-			Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderGo")));
-			Thread.sleep(20000);
-		} while (!isElementPresent("//*[text()='COMPLETE']"));
-		// ------------end of Rekha code============
+//		do {
+//			Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderGo")));
+//			Thread.sleep(20000);
+//		} while (!isElementPresent("//*[text()='COMPLETE']"));
+//		// ------------end of Rekha code============
+		
+		//--------Upadated by aman gupta----/////////
+		for (int i=0;i<20;i++) {
+			if (isElementPresent("//*[text()='BILLING ERROR']")) {
+				break;
+			}
+			if (isElementPresent("//*[text()='DOWNSTREAM SYSTEM ERROR']")) {
+				break;
+			}
+			
+			
+			if(!isElementPresent("//*[text()='COMPLETE']") )
+			{
+				Thread.sleep(60000);
+				Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderGo")));
+			}
+			else if (isElementPresent("//*[text()='COMPLETE']")) {
+				break;
+			}
+			
+		}
+
 		
 		
 		//Clickon(getwebelement(xml.getlocator("//locators/ModifyButtonClick")));
