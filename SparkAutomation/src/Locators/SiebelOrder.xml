@@ -45,7 +45,7 @@
   <Routertype>//span[text()='Router Type']/..//input</Routertype> 
   <RouterTypeDropdownAccess>(//span[text()='Router Type']/..//span)[3]</RouterTypeDropdownAccess> 
   <RouterTechnologyDropdownAccess>(//span[text()='Router Technology']/..//span)[3]</RouterTechnologyDropdownAccess> 
-  <SelectRouterTypeDropDownAccess> <SelectRouterTypeDropDownAccess>//li[text()='No Colt Router']</SelectRouterTypeDropDownAccess> </SelectRouterTypeDropDownAccess> 
+  <SelectRouterTypeDropDownAccess>//li[text()='No Colt Router']</SelectRouterTypeDropDownAccess> 
   <SelectRouterTechnologyDropDownAccess>//li[text()='Managed Virtual Router']</SelectRouterTechnologyDropDownAccess> 
   <Inputossplatformflag>//span[text()='OSS Platform Flag']/..//input</Inputossplatformflag> 
   <Inputlayer3resillence>//span[text()='Layer 3 Resilience']/..//input</Inputlayer3resillence> 
@@ -835,7 +835,7 @@
 <CarNorButton>//span[text()='CAR-NOR']</CarNorButton>
 <Carnororder>(//span[@class='colt-s-order-infobar-ctrl-text'])[1]</Carnororder>
 <ModifyOrderNumber>//a[@name='Order Number']</ModifyOrderNumber>
-<carnorOrderReferencevalue>//a[@name='Order Number']/parent::td</carnorOrderReferencevalue>
+<carnorOrderReferencevalue>//input[@aria-labelledby='COLTT_Service_Order_Label']</carnorOrderReferencevalue>
 <InstalltimeEthernetAccess>(//span[text()='Install Time']/..//span)[2]</InstalltimeEthernetAccess>
 <sitenamevalue1>//li[text()='ES_28037_CALLE DE SANTA LEONOR_55_0_NODE(ES)']</sitenamevalue1>
 <Customersitepopupstatusoffnet>//li[text()='NA']</Customersitepopupstatusoffnet>

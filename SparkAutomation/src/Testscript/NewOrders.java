@@ -688,6 +688,10 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().CommercialValidation(Data); // No Change
 			newOrderOnnnet.get().TechnicalValidation(Data); // Updated for spoke also
 			newOrderOnnnet.get().DeliveryValidation(Data); // No Change
+			if (Data[74].toString().equals("Offnet")) {
+				newOrderOnnnet.get().CEOS_Offnet(Data);
+				newOrderOnnnet.get().LaunchingCEOSApplication(Data);
+			}
 			newOrderOnnnet.get().OrderCompleteEthernetHubSpoke(Data);// updated same as hub
 		} else {
 			newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);
