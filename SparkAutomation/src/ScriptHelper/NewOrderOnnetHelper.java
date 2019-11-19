@@ -12560,8 +12560,51 @@ public class NewOrderOnnetHelper extends DriverHelper {
 					System.out.println("Order complete");
 					Thread.sleep(5000);
 
+					
+					
 				}
 
-			
+			 public void AbandonedforIPVPN(Object[] Inputdata) throws Exception {
+				 waitforPagetobeenable();
+					savePage();
+					waitforPagetobeenable();
+					Thread.sleep(10000);
+					if (Inputdata[8].toString().equals("IP VPN Service"))// *Start* Added By Abhay dated 28-Sep-2019
+					{
+						savePage();
+						waitforPagetobeenable();
+						Thread.sleep(10000);
+						WaitforElementtobeclickable(
+								xml.getlocator("//locators/IPVPNSite/ClickLink").replace("Value", "Customer Orders"));
+						Clickon(getwebelement(
+								xml.getlocator("//locators/IPVPNSite/ClickLink").replace("Value", "Customer Orders")));
+						String ServOrder = ServiceOrder.get().toString();
+						// String x= ServiceOrder.get();
+						// System.out.println(x);
+						// String string = "004-034556";
+						String[] parts = ServOrder.split("/");
+						String part1 = parts[0];
+						String part2 = parts[1];
+						waitforPagetobeenable();
+						SendKeys(getwebelement(xml.getlocator("//locators/IPVPNSite/CustOrder")), part2);
+						Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/CustOrderGo")));
+						waitforPagetobeenable();
+						Thread.sleep(3000);
+						Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickSeibelOrder")));
+						waitforPagetobeenable();
+						Thread.sleep(3000);
+						Clickon(getwebelement(xml.getlocator("//locators/NewServiceOrder")));
+						waitforPagetobeenable();
+						ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on New Service Order");
+						Thread.sleep(3000);
+						Selectproduct("IP VPN Site");
+						openIPVPNSite();
+						enterMandatoryFieldsInHeader(Inputdata);
+						NetworkReferenceFill();
+
+				 
+			 }
+		 }
+	
 	
 }

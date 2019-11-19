@@ -185,7 +185,28 @@ public class NewOrders extends DriverTestcase {
 			Abandoned.get().statusReason(Data);
 			Abandoned.get().AbandonedOrder(Data);
 			Abandoned.get().verifyOrderAbandoned();
-		} else {
+		} 
+		else if (Data[8].toString().equalsIgnoreCase("IP VPN Service")) {
+			newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);
+			newOrderOnnnet.get().enterMandatoryDetailsInMiddleApplet(Data);
+			
+			newOrderOnnnet.get().EnterDateInFooter(Data);
+			newOrderOnnnet.get().EnterBillingDateInFooter(Data);
+			newOrderOnnnet.get().EnterServiceChargeInFooter(Data, "2");
+
+			newOrderOnnnet.get().EnterInstallationChargeInFooter(Data);
+			newOrderOnnnet.get().CommercialValidation(Data);
+			newOrderOnnnet.get().TechnicalValidation(Data);
+			newOrderOnnnet.get().clickOnManualValidationB();
+			newOrderOnnnet.get().DeliveryValidation(Data);
+			newOrderOnnnet.get().clickOnManualValidationA();
+			newOrderOnnnet.get().AbandonedforIPVPN(Data); // No Change
+			newOrderOnnnet.get().CommercialValidation(Data); 
+			Abandoned.get().statusReason(Data);
+			Abandoned.get().AbandonedOrder(Data);
+			Abandoned.get().verifyOrderAbandonedforIPVPN();
+		}
+		else {
 			newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);
 			// newOrderOnnnet.get().enterMandatoryDetailsInMiddleApplet(Data);
 			// newOrderOnnnet.get().VoiceConfigTab(Data);
@@ -216,7 +237,6 @@ public class NewOrders extends DriverTestcase {
 		// Code for Cancel
 
 	}
-
 
 	@Test(dataProviderClass = DataReader.class, dataProvider = "Mode")
 	public void Mod(Object[] Data) throws Throwable {
