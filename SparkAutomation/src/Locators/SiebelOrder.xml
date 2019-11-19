@@ -69,6 +69,9 @@
   <shelfid>//span[text()='Shelf ID']/..//input</shelfid> 
   <CabinetID>//span[text()='Cabinet ID']/..//input</CabinetID> 
   <Slotid>//span[text()='Slot ID']/..//input</Slotid> 
+  <CeaseInternal>//button[@aria-label='Service Orders:Cease']</CeaseInternal>
+  <BillingComplete>//*[text()='COMPLETE']</BillingComplete>
+  <BillingError>//*[text()='BILLING ERROR']</BillingError>
   <Physicalportid>//span[text()='Physical Port ID']/..//input</Physicalportid> 
   <PhysicalInterface>//span[text()='Presentation Interface']/..//input</PhysicalInterface> 
   <PresentationInterfaceDropdownAccess>(//span[text()='Presentation Interface']/..//span)[3]</PresentationInterfaceDropdownAccess> 

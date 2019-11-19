@@ -3,7 +3,7 @@
 	<listeners>
 	  <listener class-name="Listners.TestListener"/>
     </listeners>
-<!--  --><test name="Siebel New Order" junit="false" preserve-order="true">
+<test name="Siebel New Order" junit="false" preserve-order="true">
 		<classes>
 			<class name="Testscript.NewOrders">	
 				<methods>

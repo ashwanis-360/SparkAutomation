@@ -42,25 +42,59 @@ public class CeasHelper extends DriverHelper{
 	e1.printStackTrace();
 	}
 	}
-	clickUsingAction(getwebelement(xml.getlocator("//locators/ServiceOrderSearchForAll")));	//as per Ayush
+	waitforPagetobeenable();
+	waitForpageload();
+	Thread.sleep(4000);
+	Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderSearchForAll")));	//as per Ayush
 	System.out.println("click service order search field");
 	SendKeys(getwebelement(xml.getlocator("//locators/ServiceOrderSearchForAll")),ServiceOrder.get().toString());
 	System.out.println("enter data order search field");
 	WaitforElementtobeclickable(xml.getlocator("//locators/ServiceOrderArrow"));
 	Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderArrow")));
 	//Need some modification 
-	for (int i=0;i<3;i++) {
-		Thread.sleep(60000);
+	boolean billing=false;
+	for (int i=0;i<5;i++) {
+		Thread.sleep(3*60000);
 		WaitforElementtobeclickable(xml.getlocator("//locators/ServiceOrderArrow"));
 		Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderArrow")));
+		if(isElementPresent(xml.getlocator("//locators/BillingComplete")))
+		{
+			billing=true;
+			break;
+		}
+		if(isElementPresent(xml.getlocator("//locators/BillingError")))
+		{
+			billing=false;
+			break;
+		}
 	}
-	
+	if(!billing)
+	{
+		//Internal cease functionality 
+		WaitforElementtobeclickable(xml.getlocator("//locators/ServiceOrderReferenceNo"));
+		Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderReferenceNo")));
+		waitForpageload(); // added by Ayush
+		waitforPagetobeenable();
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Service Order Reference No");
+		Thread.sleep(5000);
+		
+		//internal cease click
+		WaitforElementtobeclickable(xml.getlocator("//locators/CeaseInternal"));
+		Clickon(getwebelement(xml.getlocator("//locators/CeaseInternal")));
+		waitForpageload(); // added by Ayush
+		waitforPagetobeenable();
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Service Order Reference No");
+		Thread.sleep(5000);
+	}
+	else
+	{
+		safeJavaScriptClick(getwebelement(xml.getlocator("//locators/CeaseOrder")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on cease order number");
+	}
+	/*Assert.assertTrue(billing, "Billing for Service Order No :"+ServiceOrder.get().toString()+"Not completed");
 	Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderArrow")));
-	System.out.println("service order click");
+	System.out.println("service order click");*/
     
-	
-	safeJavaScriptClick(getwebelement(xml.getlocator("//locators/CeaseOrder")));
-	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on cease order number");
 	waitForpageload();
 	waitforPagetobeenable();
 	SiebelCeaseOrdernumber.set(Gettext(getwebelement(xml.getlocator("//locators/ServiceOrderModifyNumber']"))));
@@ -129,7 +163,7 @@ public class CeasHelper extends DriverHelper{
 	System.out.println("BILLING TAB");
 	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Billing");
 
-	SendKeys(getwebelement(xml.getlocator("//locators/BillingEndDate")), "30/9/2019");
+	SendKeys(getwebelement(xml.getlocator("//locators/BillingEndDate")), CurrentDate());
 	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Contract Term"); 
 	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Contract Term"); 
 	SendkeaboardKeys(getwebelement(xml.getlocator("//locators/BillingEndDate")), Keys.TAB);
@@ -151,7 +185,6 @@ public class CeasHelper extends DriverHelper{
 	}
 
 	}
-
 	public void alertPopUp() throws DocumentException, InterruptedException
 	{
 		if (isDisplayed((xml.getlocator("//locators/AlertAccept")))) {
