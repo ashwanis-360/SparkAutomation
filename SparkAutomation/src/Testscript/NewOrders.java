@@ -289,8 +289,8 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().Carnor(Data);
 			newOrderOnnnet.get().EnterInstallationChargeInFooter(Data);
 			newOrderOnnnet.get().SelectServiceGroupTab(Data);
-			newOrderOnnnet.get().SelectAttachmentTab(Data);
-			newOrderOnnnet.get().UploadDocument(Data);
+			//newOrderOnnnet.get().SelectAttachmentTab(Data);
+			//newOrderOnnnet.get().UploadDocument(Data);
 			newOrderOnnnet.get().TechnicalValidation(Data);
 			newOrderOnnnet.get().clickOnManualValidationB();
 			newOrderOnnnet.get().DeliveryValidation(Data);
