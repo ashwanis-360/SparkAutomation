@@ -36,11 +36,11 @@ public class MOD_OMPHelper extends DriverHelper {
 		
 		for(int i=0;i<5;i++)
 		{
-			
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Trying to open Url");
 			Clickon(getwebelement(xml.getlocator("//locators/InputOrderNumber")));
 			Clear(getwebelement(xml.getlocator("//locators/InputOrderNumber")));// Inputdata[0].toString());
-			SendKeys(getwebelement(xml.getlocator("//locators/InputOrderNumber")), ServiceOrder.get().toString());// Inputdata[0].toString());
-			//SendKeys(getwebelement(xml.getlocator("//locators/InputOrderNumber")), "871537549/190816-0099");// Inputdata[0].toString());
+			//SendKeys(getwebelement(xml.getlocator("//locators/InputOrderNumber")), ServiceOrder.get().toString());// Inputdata[0].toString());
+			SendKeys(getwebelement(xml.getlocator("//locators/InputOrderNumber")), Inputdata[74].toString());// Inputdata[0].toString());
 			
 			Clickon(getwebelement(xml.getlocator("//locators/SearchServiceButton")));
 			Thread.sleep(5000);
@@ -53,7 +53,7 @@ public class MOD_OMPHelper extends DriverHelper {
 			else
 				Thread.sleep(1000*60*2);
 			Thread.sleep(1000*30);
-			
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step:Order number not found, trying again");
 		}
 		
 
@@ -78,11 +78,11 @@ public class MOD_OMPHelper extends DriverHelper {
 
 //Order No Verification
 		String OmpText = Gettext(getwebelement(xml.getlocator("//locators/OrderNumberBold")));
-		Assert.assertTrue(OmpText.equals(ServiceOrder.get().toString()),
-				"Search Order No : " + ServiceOrder.get().toString() + "not matched with Opened Order No :" + OmpText);
-//Assert.assertTrue(OmpText.equals("871563292/190830-0102"),"Search Order No : 871563292/190830-0102 not matched with Opened Order No :"+OmpText);
+		//Assert.assertTrue(OmpText.equals(ServiceOrder.get().toString()),
+				//"Search Order No : " + ServiceOrder.get().toString() + "not matched with Opened Order No :" + OmpText);
+Assert.assertTrue(OmpText.equals(Inputdata[74].toString()),"Search Order No :"+Inputdata[74].toString()+"not matched with Opened Order No :"+OmpText);
 		ExtentTestManager.getTest().log(LogStatus.PASS,
-				" Step: Order No " + ServiceOrder.get().toString() + "Verified in OMP Portal");
+				" Step: Order No " + Inputdata[74].toString() + "Verified in OMP Portal");
 
 //Product Name Verification
 		OmpText = Gettext(getwebelement(xml.getlocator("//locators/ProductName")));
@@ -127,8 +127,8 @@ public class MOD_OMPHelper extends DriverHelper {
 		OmpText = Gettext(getwebelement(xml.getlocator("//locators/OrderType")));
 
 //Assert.assertTrue(OmpText.equals(Inputdata[9].toString()),"Order State : "+ Inputdata[9].toString() + "not matched with Opened Order State :"+OmpText);
-		Assert.assertTrue(OmpText.contains("Admin Change"),
-				"Order Type New  not matched with Opened Order State :" + OmpText);
+		Assert.assertTrue(OmpText.contains("Modification"),
+				"Order Type   not matched with Opened Order State :" + OmpText);
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Order Type(" + OmpText + ") Verified in OMP Portal");
 
 		/**************/

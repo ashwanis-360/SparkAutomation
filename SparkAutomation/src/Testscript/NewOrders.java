@@ -157,10 +157,10 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().addEthernetSiteHub(Data); // MethodAdded
 			newOrderOnnnet.get().hubSiteCustomize(Data); // MethodAdded
 			newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);// Updated
-			newOrderOnnnet.get().EnterDateInFooter(Data); // No change
-			newOrderOnnnet.get().EnterBillingDateInFooter(Data); // No change
-			newOrderOnnnet.get().installationCharges(Data); // Method added
-			newOrderOnnnet.get().CommercialValidation(Data); // No Change
+			//newOrderOnnnet.get().EnterDateInFooter(Data); // No change
+			//newOrderOnnnet.get().EnterBillingDateInFooter(Data); // No change
+			//newOrderOnnnet.get().EnterServiceChargeInFooter(Data, "2"); // Method added
+			//newOrderOnnnet.get().CommercialValidation(Data); // No Change
 			// newOrderOnnnet.get().TechnicalValidation(Data); // Updated
 			// newOrderOnnnet.get().DeliveryValidation(Data); // No Change
 			// newOrderOnnnet.get().OrderCompleteEthernetHubSpoke(Data); // MethodAdded
@@ -421,89 +421,89 @@ public class NewOrders extends DriverTestcase {
 
 	}
 
-	@Test(dataProviderClass = DataReader.class, dataProvider = "Mode")
+	@Test(dataProviderClass = DataReader.class, dataProvider = "OmpDatereaderMod")
 	public void OMPMod(Object[] Data) throws Exception {
-		Login.get().Login("Sieble");
+	//	Login.get().Login("Sieble");
 		// Login.get().VerifySuccessLogin("Sieble");
-		newOrderOnnnet.get().accountTabDetails(Data);
-		newOrderOnnnet.get().createCustomerOrder(Data);
-		newOrderOnnnet.get().productSelectionHelper(Data);
-		newOrderOnnnet.get().openServiceOrderNumber();
-
-		newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);
+//		newOrderOnnnet.get().accountTabDetails(Data);
+//		newOrderOnnnet.get().createCustomerOrder(Data);
+//		newOrderOnnnet.get().productSelectionHelper(Data);
+//		newOrderOnnnet.get().openServiceOrderNumber();
+//
+//		newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);
 		// add specifically for Wave and Ethernet Line and won't run for other products
-		newOrderOnnnet.get().addSiteADetails(Data);// added new - updated
-		newOrderOnnnet.get().addSiteBDetails(Data);// added new
-		newOrderOnnnet.get().ASiteCustomize(Data);// added new
-		newOrderOnnnet.get().BSiteCustomize(Data);// added new
-		// End of methods spesific for Wave and Ethernet Line ------>
-		newOrderOnnnet.get().enterMandatoryDetailsInMiddleApplet(Data);
-		newOrderOnnnet.get().VoiceConfigTab(Data);
-		newOrderOnnnet.get().VoiceFeatureTab(Data);
-		newOrderOnnnet.get().NumberManagementTab(Data);
-		newOrderOnnnet.get().EnterDateInFooter(Data);
-		newOrderOnnnet.get().EnterBillingDateInFooter(Data);
-		newOrderOnnnet.get().EnterServiceChargeInFooter(Data, "2");
-
-		newOrderOnnnet.get().SelectAttachmentTab(Data);
-		newOrderOnnnet.get().UploadDocument(Data);
-		newOrderOnnnet.get().SelectServiceGroupTab(Data);
-		newOrderOnnnet.get().OperationAttribute(Data);
-		newOrderOnnnet.get().EnterInstallationChargeInFooter(Data);
-		newOrderOnnnet.get().MandatoryFields(Data);
-		newOrderOnnnet.get().CommercialValidation(Data);
-		newOrderOnnnet.get().TechnicalValidation(Data);
-		newOrderOnnnet.get().clickOnManualValidationB();
-		newOrderOnnnet.get().DeliveryValidation(Data);
-		newOrderOnnnet.get().clickOnManualValidationA();
-		newOrderOnnnet.get().getReferenceNo(Data);// added new
-		newOrderOnnnet.get().CompletedValidation(Data);
-
-		if (Data[Data.length - 1].toString().contains("Carnor")) {
-			newOrderOnnnet.get().ServiceTab(Data);
-			newOrderOnnnet.get().installationTimeUpdate(Data); // added by shivananda for carnor scenario
-			newOrderOnnnet.get().EnterDateInFooter(Data);
-			newOrderOnnnet.get().EnterBillingDateInFooter(Data);
-			newOrderOnnnet.get().EnterServiceChargeInFooter(Data, "4");
-			newOrderOnnnet.get().CommercialValidation(Data);
-
-			newOrderOnnnet.get().Carnor(Data);
-			newOrderOnnnet.get().EnterInstallationChargeInFooter(Data);
-			newOrderOnnnet.get().TechnicalValidation(Data);
-			newOrderOnnnet.get().clickOnManualValidationB();
-			newOrderOnnnet.get().DeliveryValidation(Data);
-			newOrderOnnnet.get().clickOnManualValidationA();
-			newOrderOnnnet.get().getReferenceNo(Data);// added new
-			newOrderOnnnet.get().Carnor_getReferenceNo(Data);
-			newOrderOnnnet.get().CompletedValidation(Data);
-		}
-		if (Data[Data.length - 1].toString().contains("Com")) {
-			newOrderOnnnet.get().ServiceTab(Data);
-			newOrderOnnnet.get().EnterDateInFooter(Data);
-			newOrderOnnnet.get().EnterBillingDateInFooter(Data);
-			newOrderOnnnet.get().EnterServiceChargeInFooter(Data, "4");
-			newOrderOnnnet.get().CommercialValidation(Data);
-			newOrderOnnnet.get().getReferenceNo(Data);// added new
-			newOrderOnnnet.get().CompletedValidation(Data);// updated
-		} else if (Data[Data.length - 1].toString().contains("Tech")) {
-			// newOrderOnnnet.get().Check(Data);
-			newOrderOnnnet.get().ServiceTab(Data);
-			modHelper.get().ModTech(Data);
-			newOrderOnnnet.get().EnterDateInFooter(Data);
-			newOrderOnnnet.get().EnterBillingDateInFooter(Data);
-			newOrderOnnnet.get().EnterServiceChargeInFooter(Data, "4");
-			newOrderOnnnet.get().SelectAttachmentTab(Data);
-			newOrderOnnnet.get().UploadDocument(Data);
-			newOrderOnnnet.get().CommercialValidation(Data);
-			newOrderOnnnet.get().TechnicalValidation(Data); // updated
-			modHelper.get().LeadCapacity(Data);
-			newOrderOnnnet.get().clickOnManualValidationB();
-			newOrderOnnnet.get().DeliveryValidation(Data);
-			newOrderOnnnet.get().clickOnManualValidationA();
-			newOrderOnnnet.get().EnterInstallationChargeInFooter(Data);
-			newOrderOnnnet.get().CompletedValidation(Data);// updated
-
-		}
+//		newOrderOnnnet.get().addSiteADetails(Data);// added new - updated
+//		newOrderOnnnet.get().addSiteBDetails(Data);// added new
+//		newOrderOnnnet.get().ASiteCustomize(Data);// added new
+//		newOrderOnnnet.get().BSiteCustomize(Data);// added new
+//		// End of methods spesific for Wave and Ethernet Line ------>
+//		newOrderOnnnet.get().enterMandatoryDetailsInMiddleApplet(Data);
+//		newOrderOnnnet.get().VoiceConfigTab(Data);
+//		newOrderOnnnet.get().VoiceFeatureTab(Data);
+//		newOrderOnnnet.get().NumberManagementTab(Data);
+//		newOrderOnnnet.get().EnterDateInFooter(Data);
+//		newOrderOnnnet.get().EnterBillingDateInFooter(Data);
+//		newOrderOnnnet.get().EnterServiceChargeInFooter(Data, "2");
+//
+//		newOrderOnnnet.get().SelectAttachmentTab(Data);
+//		newOrderOnnnet.get().UploadDocument(Data);
+//		newOrderOnnnet.get().SelectServiceGroupTab(Data);
+//		newOrderOnnnet.get().OperationAttribute(Data);
+//		newOrderOnnnet.get().EnterInstallationChargeInFooter(Data);
+//		newOrderOnnnet.get().MandatoryFields(Data);
+//		newOrderOnnnet.get().CommercialValidation(Data);
+//		newOrderOnnnet.get().TechnicalValidation(Data);
+//		newOrderOnnnet.get().clickOnManualValidationB();
+//		newOrderOnnnet.get().DeliveryValidation(Data);
+//		newOrderOnnnet.get().clickOnManualValidationA();
+//		newOrderOnnnet.get().getReferenceNo(Data);// added new
+//		newOrderOnnnet.get().CompletedValidation(Data);
+//
+//		if (Data[Data.length - 1].toString().contains("Carnor")) {
+//			newOrderOnnnet.get().ServiceTab(Data);
+//			newOrderOnnnet.get().installationTimeUpdate(Data); // added by shivananda for carnor scenario
+//			newOrderOnnnet.get().EnterDateInFooter(Data);
+//			newOrderOnnnet.get().EnterBillingDateInFooter(Data);
+//			newOrderOnnnet.get().EnterServiceChargeInFooter(Data, "4");
+//			newOrderOnnnet.get().CommercialValidation(Data);
+//
+//			newOrderOnnnet.get().Carnor(Data);
+//			newOrderOnnnet.get().EnterInstallationChargeInFooter(Data);
+//			newOrderOnnnet.get().TechnicalValidation(Data);
+//			newOrderOnnnet.get().clickOnManualValidationB();
+//			newOrderOnnnet.get().DeliveryValidation(Data);
+//			newOrderOnnnet.get().clickOnManualValidationA();
+//			newOrderOnnnet.get().getReferenceNo(Data);// added new
+//			newOrderOnnnet.get().Carnor_getReferenceNo(Data);
+//			newOrderOnnnet.get().CompletedValidation(Data);
+//		}
+//		if (Data[Data.length - 1].toString().contains("Com")) {
+//			newOrderOnnnet.get().ServiceTab(Data);
+//			newOrderOnnnet.get().EnterDateInFooter(Data);
+//			newOrderOnnnet.get().EnterBillingDateInFooter(Data);
+//			newOrderOnnnet.get().EnterServiceChargeInFooter(Data, "4");
+//			newOrderOnnnet.get().CommercialValidation(Data);
+//			newOrderOnnnet.get().getReferenceNo(Data);// added new
+//			newOrderOnnnet.get().CompletedValidation(Data);// updated
+//		} else if (Data[Data.length - 1].toString().contains("Tech")) {
+//			// newOrderOnnnet.get().Check(Data);
+//			newOrderOnnnet.get().ServiceTab(Data);
+//			modHelper.get().ModTech(Data);
+//			newOrderOnnnet.get().EnterDateInFooter(Data);
+//			newOrderOnnnet.get().EnterBillingDateInFooter(Data);
+//			newOrderOnnnet.get().EnterServiceChargeInFooter(Data, "4");
+//			newOrderOnnnet.get().SelectAttachmentTab(Data);
+//			newOrderOnnnet.get().UploadDocument(Data);
+//			newOrderOnnnet.get().CommercialValidation(Data);
+//			newOrderOnnnet.get().TechnicalValidation(Data); // updated
+//			modHelper.get().LeadCapacity(Data);
+//			newOrderOnnnet.get().clickOnManualValidationB();
+//			newOrderOnnnet.get().DeliveryValidation(Data);
+//			newOrderOnnnet.get().clickOnManualValidationA();
+//			newOrderOnnnet.get().EnterInstallationChargeInFooter(Data);
+//			newOrderOnnnet.get().CompletedValidation(Data);// updated
+//
+//		}
 		Login.get().Login("OMP");
 		OmpMOdOrder.get().verficationOfProduct(Data);
 	}

@@ -40,7 +40,7 @@
 <OMP>
 <Username>id=userId</Username>
 <Password>id=password</Password>
-<Loginbutton>id=Submit</Loginbutton>
+<Loginbutton>//button[contains(text(),'Login')]</Loginbutton>
 <Userinfo>//*[@id="gen_menu_6"]</Userinfo>
 <skipwarning>//a[text()='Continue']</skipwarning>
 </OMP>
