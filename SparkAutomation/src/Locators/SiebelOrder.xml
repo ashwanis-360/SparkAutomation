@@ -45,7 +45,7 @@
   <Routertype>//span[text()='Router Type']/..//input</Routertype> 
   <RouterTypeDropdownAccess>(//span[text()='Router Type']/..//span)[3]</RouterTypeDropdownAccess> 
   <RouterTechnologyDropdownAccess>(//span[text()='Router Technology']/..//span)[3]</RouterTechnologyDropdownAccess> 
-  <SelectRouterTypeDropDownAccess>//li[text()='No Colt Router']</SelectRouterTypeDropDownAccess>  
+  <SelectRouterTypeDropDownAccess>//li[text()='No Colt Router']</SelectRouterTypeDropDownAccess> 
   <SelectRouterTechnologyDropDownAccess>//li[text()='Managed Virtual Router']</SelectRouterTechnologyDropDownAccess> 
   <Inputossplatformflag>//span[text()='OSS Platform Flag']/..//input</Inputossplatformflag> 
   <Inputlayer3resillence>//span[text()='Layer 3 Resilience']/..//input</Inputlayer3resillence> 
