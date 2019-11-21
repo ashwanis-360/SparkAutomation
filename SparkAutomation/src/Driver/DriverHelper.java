@@ -34,6 +34,8 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
 import org.testng.Assert;
 
+import com.ibm.icu.util.Calendar;
+
 public class DriverHelper
 {
 
@@ -1023,7 +1025,23 @@ public class DriverHelper
 		return (formatter.format(date));
 
 	}
+	//Added By Devesh
+	public String FutureDate(int dayscount)
+	{
+		Date date = new Date();
+		Calendar c = Calendar.getInstance();
+        c.setTime(date);
+		c.add(Calendar.DATE, 1); 
+		Date currentDatePlusOne = c.getTime();
+		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+		return (formatter.format(currentDatePlusOne));
 
+	}
+	
+	public void  FutureDateCheck()
+	{
+		System.out.println("------Future date is :"+FutureDate(2)+"-------" );
+	}
 	public String TimeStamp()
 	{
 		String timeStamp = new SimpleDateFormat("yyyyMMddHHmm'.txt'").format(new Date());

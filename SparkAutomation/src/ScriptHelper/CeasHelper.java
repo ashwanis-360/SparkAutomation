@@ -47,7 +47,14 @@ public class CeasHelper extends DriverHelper{
 	Thread.sleep(4000);
 	Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderSearchForAll")));	//as per Ayush
 	System.out.println("click service order search field");
+	if(InputData[8].toString().equalsIgnoreCase("IP VPN Service"))
+	{
+		SendKeys(getwebelement(xml.getlocator("//locators/ServiceOrderSearchForAll")),ServiceOrder2.get().toString());
+	}
+	else
+	{
 	SendKeys(getwebelement(xml.getlocator("//locators/ServiceOrderSearchForAll")),ServiceOrder.get().toString());
+	}
 	System.out.println("enter data order search field");
 	WaitforElementtobeclickable(xml.getlocator("//locators/ServiceOrderArrow"));
 	Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderArrow")));
@@ -106,6 +113,9 @@ public class CeasHelper extends DriverHelper{
 	Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderReferenceNo")));
 	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Service Order Reference No");
 
+	waitforPagetobeenable();
+	waitForpageload();
+	Thread.sleep(7000);
 	WaitforElementtobeclickable(xml.getlocator("//locators/OrderSubTypeSearch"));
 	Clickon(getwebelement(xml.getlocator("//locators/OrderSubTypeSearch")));
 	System.out.println("Enter New Order");
@@ -162,10 +172,13 @@ public class CeasHelper extends DriverHelper{
 	Clickon(getwebelement(xml.getlocator("//locators/Billing")));
 	System.out.println("BILLING TAB");
 	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Billing");
-
-	SendKeys(getwebelement(xml.getlocator("//locators/BillingEndDate")), CurrentDate());
-	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Contract Term"); 
-	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Contract Term"); 
+	System.out.println("Current Date : "+CurrentDate());
+	String fDate=FutureDate(50);
+	SendKeys(getwebelement(xml.getlocator("//locators/BillingEndDate")), fDate);
+	Thread.sleep(10000);
+	//SendkeaboardKeys(getwebelement(xml.getlocator("//locators/BillingEndDate")), Keys.TAB);
+	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Billing End Date : "+ fDate); 
+	//ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Contract Term"); 
 	SendkeaboardKeys(getwebelement(xml.getlocator("//locators/BillingEndDate")), Keys.TAB);
 	Clickon(getwebelement(xml.getlocator("//locators/POStartDateAccess")));
 	try {
@@ -181,7 +194,10 @@ public class CeasHelper extends DriverHelper{
 	}
 	catch(Exception e)
 	{
-	System.out.println("save button comes");
+	savePage();
+	waitforPagetobeenable();
+	waitForpageload();
+		System.out.println("save button comes");
 	}
 
 	}
@@ -192,4 +208,67 @@ public class CeasHelper extends DriverHelper{
 			Clickon(getwebelement(xml.getlocator("//locators/AlertAccept")));
 		}
 	}
+	public void CeaseCompletedValidation(Object[] Inputdata) throws Exception {
+		waitforPagetobeenable();
+		savePage();
+		waitforPagetobeenable();
+		Thread.sleep(10000);
+	
+		WaitforElementtobeclickable(xml.getlocator("//locators/OrderStatusDropdown"));
+		Clickon(getwebelement(xml.getlocator("//locators/OrderStatusDropdown")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Order status drop down");
+		Thread.sleep(3000);
+		Clickon(getwebelement(xml.getlocator("//locators/SelectCompleted")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click Completed Status");
+		waitforPagetobeenable();
+
+		Thread.sleep(5000);
+		// savePage();
+		// Thread.sleep(6000);
+		Clickon(getwebelement(xml.getlocator("//locators/OrderComplete")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click Order Complete");
+		waitforPagetobeenable();
+		Thread.sleep(5000);
+		savePage();
+		waitforPagetobeenable();
+		Thread.sleep(10000);
+		savePage();
+		waitforPagetobeenable();
+		Thread.sleep(10000);
+		if (isDisplayed(xml.getlocator("//locators/AlertAccept"))) {
+			System.out.println("");
+			System.out.println("Alert Present");
+			WaitforElementtobeclickable((xml.getlocator("//locators/AlertAccept")));
+			Clickon(getwebelement(xml.getlocator("//locators/AlertAccept")));
+		}
+
+		// Pagerefresh();
+		Thread.sleep(5000);
+		// =======================Added by Rekha ==================== difft pop up was
+		// arriving for Ethernet VPN Access=====================
+		if (isElementPresent(xml.getlocator("//locators/SubnetworkPopUP"))) {
+			System.out.println("");
+			System.out.println("Alert Present");
+			WaitforElementtobeclickable((xml.getlocator("//locators/SubnetworkPopUP")));
+			Clickon(getwebelement(xml.getlocator("//locators/SubnetworkPopUP")));
+		}
+		// ============================================================================================================
+		System.out.println("Order complete");
+		Thread.sleep(5000);
+		// Added by Abhay
+		String CompValidation= null;
+		CompValidation = getwebelement2(xml.getlocator("//locators/IPVPNSite/OrderStatusInput"))
+				.getAttribute("value");
+		System.out.println(CompValidation);
+		
+		Assert.assertTrue(CompValidation.contains("Comp")," Order status failed to Complete. It is displayed as : " + CompValidation);
+		ExtentTestManager.getTest().log(LogStatus.PASS,
+				" Step: Order Staus Verified in as Completed");
+
+
+	}
+
 }
+
+
+

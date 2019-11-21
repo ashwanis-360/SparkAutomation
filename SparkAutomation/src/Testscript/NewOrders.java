@@ -140,7 +140,7 @@ public class NewOrders extends DriverTestcase {
 		newOrderOnnnet.get().clickOnManualValidationB(); // added as per Ayush
 		newOrderOnnnet.get().DeliveryValidation(Data); // added as per Ayush
 		newOrderOnnnet.get().clickOnManualValidationA(); // added as per Ayush
-		newOrderOnnnet.get().CompletedValidation(Data); // added as per Ayush
+		Cease.get().CeaseCompletedValidation(Data); // added By Devesh
 
 	}
 
