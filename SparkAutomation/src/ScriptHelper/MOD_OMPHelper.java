@@ -100,7 +100,7 @@ Assert.assertTrue(OmpText.equals(Inputdata[74].toString()),"Search Order No :"+I
 			}
 
 		} else {
-			String ProdName = Inputdata[8].toString();
+			String ProdName = Inputdata[11].toString();
 			String[] parts = ProdName.split(" ");
 			//String part1 = parts[0];
 			//String part2 = parts[1];
