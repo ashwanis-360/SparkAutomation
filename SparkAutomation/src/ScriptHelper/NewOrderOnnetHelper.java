@@ -458,6 +458,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				WaitforElementtobeclickable(xml.getlocator("//locators/MaintenancePartyAddress"));
 				Clickon(getwebelement(xml.getlocator("//locators/MaintenancePartyAddress")));
 				waitforPagetobeenable();
+				Thread.sleep(3000);
 				WaitforElementtobeclickable(xml.getlocator("//locators/MaintenancePartyAddresPopupDropdown"));// add by
 																												// ayush
 				safeJavaScriptClick(getwebelement(xml.getlocator("//locators/MaintenancePartyAddresPopupDropdown")));
@@ -928,8 +929,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 	}
 
 	public void SelectServiceGroupTab(Object[] Inputdata) throws Exception {
-		if (Inputdata[8].toString().equals("Voice Line V") || Inputdata[8].toString().equals("SIP Trunking")
-				|| Inputdata[8].toString().equals("Number Hosting")||Inputdata[8].toString().equalsIgnoreCase("Interconnect"))  {
+		if (Inputdata[8].toString().equals("Voice Line V") || Inputdata[8].toString().equals("SIP Trunking"))  {
 			waitForpageload();
 			waitforPagetobeenable();
 			Clickon(getwebelement(xml.getlocator("//locators/DropDown")));
