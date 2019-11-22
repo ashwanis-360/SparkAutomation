@@ -720,15 +720,26 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().clickOnManualValidationB();
 			newOrderOnnnet.get().DeliveryValidation(Data);
 			newOrderOnnnet.get().clickOnManualValidationA();
-			if (Data[74].toString().equals("Offnet")){
-				newOrderOnnnet.get().CEOS_Offnet(Data);
-				newOrderOnnnet.get().LaunchingCEOSApplication(Data);
+			if (!Data[8].toString().equalsIgnoreCase("IP VPN Service")) {
+				if (Data[74].toString().equals("Offnet")) {
+					
+					newOrderOnnnet.get().CEOS_Offnet(Data);
+					newOrderOnnnet.get().LaunchingCEOSApplication(Data);
+					newOrderOnnnet.get().getReferenceNo(Data);// added new
+					newOrderOnnnet.get().CompletedValidation(Data);
+				}
 			}
+			else 
+			{
+				newOrderOnnnet.get().CompletedValidation(Data);
+			}
+			
 			newOrderOnnnet.get().getReferenceNo(Data);// added new
 			newOrderOnnnet.get().CompletedValidation(Data);
 			newOrderOnnnet.get().validateSlaMatrix(Data);
 		}
 	}
+ 
  
 	//As Add By Ayush
 		@Test(dataProviderClass = DataReader.class, dataProvider = "NewOrderOnnet")
