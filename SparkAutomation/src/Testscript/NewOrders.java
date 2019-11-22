@@ -721,7 +721,7 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().DeliveryValidation(Data);
 			newOrderOnnnet.get().clickOnManualValidationA();
 			if (!Data[8].toString().equalsIgnoreCase("IP VPN Service")) {
-				if (Data[74].toString().equals("Offnet")) {
+				if (Data[74].toString().equals("Offnet")){
 					
 					newOrderOnnnet.get().CEOS_Offnet(Data);
 					newOrderOnnnet.get().LaunchingCEOSApplication(Data);
