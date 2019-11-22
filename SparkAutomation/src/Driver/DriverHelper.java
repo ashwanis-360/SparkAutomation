@@ -116,6 +116,7 @@ public class DriverHelper
 				.ignoring(StaleElementReferenceException.class);
 		// workitemcounter.set(1);
 		// QuoteID.set("QT-20190604-077427-01");
+		OrderingCustomer.set("ZZZZ ES TEST");
 		// DealClass.set("Bronze");
 //		//TotalTCVdisscount.set((float) 0);
 //		List Completeset=new ArrayList();

@@ -735,6 +735,9 @@ public class NewOrders extends DriverTestcase {
 		public void XNGGeneric(Object[] Data) throws Exception {
 			
 			Login.get().Login("Sieble");
+			// newOrderOnnnet.get().Check(Data);
+			// newOrderOnnnet.get().GetReference();
+			// newOrderOnnnet.get().getreferencer1();//for line,hub,spoke,wave
 			newOrderOnnnet.get().accountTabDetails(Data);
 			newOrderOnnnet.get().createCustomerOrder(Data);
 			newOrderOnnnet.get().productSelectionHelper(Data);

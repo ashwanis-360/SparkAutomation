@@ -54,7 +54,7 @@
   <RouterTechnologyAccess>//span[text()='Router Technology']/..//input</RouterTechnologyAccess> 
   <ServiceBandwidthIPAccess>//span[text()='Service Bandwidth']/..//input</ServiceBandwidthIPAccess> 
   <ServiceBandwidthDropdownAccess>(//span[text()='Service Bandwidth']/..//span)[3]</ServiceBandwidthDropdownAccess> 
-  <ServiceBandwidthSelectAccess>//li[text()='1 Mbps']</ServiceBandwidthSelectAccess> 
+  <ServiceBandwidthSelectAccess>//li[text()='value']</ServiceBandwidthSelectAccess> 
   <Buildingtype>(//div[@class='colt-component-header'])[1]/..//div[3]/span/..//input</Buildingtype> 
   <BuildingTypeDropdownAccess>(//span[text()='Building Type']/..//span)[3]</BuildingTypeDropdownAccess> 
   <BuildingTypeSelectAccess>//li[text()='Existing Building']</BuildingTypeSelectAccess> 
@@ -824,7 +824,7 @@
  <AccessTypeSelectAccess>//li[text()='Colt Fibre']</AccessTypeSelectAccess>
  <VerifyAbandoned>//td[text()='Abandoned']</VerifyAbandoned>
  <PresentationInterfaceSelect>//li[text()='10GBaseER']</PresentationInterfaceSelect>
- <ServiceBandwidthSelect>//li[text()='2 Gbps']</ServiceBandwidthSelect>
+ <ServiceBandwidthSelect>//li[text()='value']</ServiceBandwidthSelect>
  <ConnectorTypeSelect>//li[text()='FC/PC']</ConnectorTypeSelect>
  <FibreTypeSelect>//li[text()='SingleMode 1550nm']</FibreTypeSelect>
 <SubnetworkPopUP>//button[@class='colt-primary-btn']</SubnetworkPopUP>
