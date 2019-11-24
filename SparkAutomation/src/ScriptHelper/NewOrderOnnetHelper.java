@@ -5560,6 +5560,12 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			DeliveryValidation(Inputdata);
 			AlertAccept();
 			clickOnManualValidationA();
+			
+			if(Inputdata[8].toString().contains("IP VPN Service"))
+			{
+				CEOS_Offnet();
+				LaunchingCEOSApplication(Inputdata);
+			}
 
 			waitforPagetobeenable();
 			WaitforElementtobeclickable(xml.getlocator("//locators/OrderStatusDropdown"));
@@ -10568,44 +10574,48 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		{
 			WaitforElementtobeclickable(xml.getlocator("//locators/AccessTypeDropdownAccess"));
 			Clickon(getwebelement(xml.getlocator("//locators/AccessTypeDropdownAccess")));
-			WaitforElementtobeclickable(xml.getlocator("//locators/AccesstypeOffnet"));
-			Clickon(getwebelement(xml.getlocator("//locators/AccesstypeOffnet")));
-			
-            //Click on save button to populate extra fields//
-			WaitforElementtobeclickable(xml.getlocator("//locators/IpGurdianSave"));
-			Clickon(getwebelement(xml.getlocator("//locators/ClickheretoSaveAccess")));
-			Thread.sleep(7000);
+			WaitforElementtobeclickable(xml.getlocator("//locators/AccesstypeOffnet").replace("AccessTypeValue", "3rd Party Leased Line"));
+			Clickon(getwebelement(xml.getlocator("//locators/AccesstypeOffnet").replace("AccessTypeValue", "3rd Party Leased Line")));
 
-		   //3rd party access provider//
+			   //Click on save button to populate extra fields//
+			WaitforElementtobeclickable(xml.getlocator("//locators/IpGurdianSave"));
+			Clickon(getwebelement(xml.getlocator("//locators/IpGurdianSave")));
+			Thread.sleep(20000);
+			waitforPagetobeenable();
+
+			 //3rd party access provider//
+
 			Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Third Party Access Provider")));
 			Thread.sleep(3000);
-			Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", "GETRONICS(AD)")));
+			Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", "BIRMINGHAM INT AIRPORT(UK)")));
 			waitforAttributeloader();
 			waitforPagetobeenable();
-			
+
 			//Third party connection reference//
-			
+
 			Clear(getwebelement(xml.getlocator("//locators/Thirdpartyconectionreference")));
 			Clickon(getwebelement(xml.getlocator("//locators/Thirdpartyconectionreference")));
 			SendKeys(getwebelement(xml.getlocator("//locators/Thirdpartyconectionreference")),"no colt reference");
-			
+
 			//BCP reference//
 			Clear(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value", "BCP Reference")));
-			SendKeys(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value", "BCP Reference")),
-					"Ayush Sharma(Colt)");
+			SendKeys(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value", "BCP Reference")),"Colt Automation");
 			waitforPagetobeenable();
-			
+
 			//Site name Alias//
 			Clear(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value", "Site Name Alias")));
 			SendKeys(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value", "Site Name Alias")),"HPGT1823");
 			waitforPagetobeenable();
-			
+
 			//Click on save button//
 			WaitforElementtobeclickable(xml.getlocator("//locators/IpGurdianSave"));
-			Clickon(getwebelement(xml.getlocator("//locators/IpGurdianSave")));		
+			Clickon(getwebelement(xml.getlocator("//locators/IpGurdianSave")));
+			Thread.sleep(20000);
 			waitforPagetobeenable();
 
-		}
+			}
+
+		
 		else
 		{
 		Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Access Type")));
@@ -11339,7 +11349,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			}
 		}
 			
-			public void CEOS_Offnet(Object Inputdata[]) throws Exception {
+			public void CEOS_Offnet() throws Exception {
 				
 				try
 				{
