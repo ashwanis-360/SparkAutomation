@@ -5566,7 +5566,6 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				CEOS_Offnet();
 				LaunchingCEOSApplication(Inputdata);
 			}
-
 			waitforPagetobeenable();
 			WaitforElementtobeclickable(xml.getlocator("//locators/OrderStatusDropdown"));
 			Clickon(getwebelement(xml.getlocator("//locators/OrderStatusDropdown")));
@@ -10572,6 +10571,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 
 		if(Inputdata[74].toString().equalsIgnoreCase("Offnet"))
 		{
+			
 			WaitforElementtobeclickable(xml.getlocator("//locators/AccessTypeDropdownAccess"));
 			Clickon(getwebelement(xml.getlocator("//locators/AccessTypeDropdownAccess")));
 			WaitforElementtobeclickable(xml.getlocator("//locators/AccesstypeOffnet").replace("AccessTypeValue", "3rd Party Leased Line"));
@@ -11354,8 +11354,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				try
 				{
 					Select(getwebelement(xml.getlocator("//locators/InstalltionDropdown")), "Offnet");
-					ExtentTestManager.getTest().log(LogStatus.PASS,
-							" Step: Click on offnet tab");	
+					ExtentTestManager.getTest().log(LogStatus.PASS," Step: Click on offnet tab");	
 				}
 				catch(Exception e)
 				{

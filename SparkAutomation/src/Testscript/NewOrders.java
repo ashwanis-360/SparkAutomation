@@ -76,6 +76,7 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().CompletedValidation(Data);
 		}
 	}
+	
 
 	@Test(dataProviderClass = DataReader.class, dataProvider = "Cease")
 	public void Cease(Object[] Data) throws Exception {
