@@ -5634,7 +5634,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			AlertAccept();
 			clickOnManualValidationA();
 			
-			if(Inputdata[8].toString().contains("IP VPN Service"))
+			if(Inputdata[8].toString().contains("IP VPN Service")&& Inputdata[74].toString().contains("Offnet"))
 			{
 				CEOS_Offnet();
 				LaunchingCEOSApplication(Inputdata);
