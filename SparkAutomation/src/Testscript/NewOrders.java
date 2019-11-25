@@ -135,14 +135,11 @@ public class NewOrders extends DriverTestcase {
 			// Code for Cease
 		}
 		Cease.get().Cease(Data);
-		newOrderOnnnet.get().SelectAttachmentTab(Data); // added as per Ayush
-		newOrderOnnnet.get().UploadDocument(Data); // added as per Ayush
-		newOrderOnnnet.get().CommercialValidation(Data); // added as per Ayush
-		newOrderOnnnet.get().clickOnManualValidationB(); // added as per Ayush
-		newOrderOnnnet.get().DeliveryValidation(Data); // added as per Ayush
-		newOrderOnnnet.get().clickOnManualValidationA(); // added as per Ayush
+		Cease.get().CeaseCommercialValidation(Data); // Addedd by Devesh
+		//newOrderOnnnet.get().clickOnManualValidationB(); // Updated By Devesh
+		Cease.get().DeliveryValidation(Data); // Addedd by Devesh
+		//newOrderOnnnet.get().clickOnManualValidationA(); // Updated By Devesh
 		Cease.get().CeaseCompletedValidation(Data); // added By Devesh
-
 	}
 
 	@Test(dataProviderClass = DataReader.class, dataProvider = "Abandoned")

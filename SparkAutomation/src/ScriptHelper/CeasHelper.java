@@ -1,3 +1,4 @@
+
 package ScriptHelper;
 
 import org.openqa.selenium.Keys;
@@ -27,7 +28,7 @@ public class CeasHelper extends DriverHelper{
 	}
 	public void Cease(Object[] InputData) throws Exception
 	{
-	Thread.sleep(8000);
+	Thread.sleep(15000);
 	Pagerefresh();
 	try {
 	WaitforElementtobeclickable(xml.getlocator("//locators/ServiceTab"));
@@ -45,15 +46,18 @@ public class CeasHelper extends DriverHelper{
 	waitforPagetobeenable();
 	waitForpageload();
 	Thread.sleep(4000);
+	//ServiceOrder.set(InputData[187].toString());
 	Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderSearchForAll")));	//as per Ayush
 	System.out.println("click service order search field");
 	if(InputData[8].toString().equalsIgnoreCase("IP VPN Service"))
 	{
 		SendKeys(getwebelement(xml.getlocator("//locators/ServiceOrderSearchForAll")),ServiceOrder2.get().toString());
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Search Service Order No :"+ServiceOrder2.get().toString());
 	}
 	else
 	{
 	SendKeys(getwebelement(xml.getlocator("//locators/ServiceOrderSearchForAll")),ServiceOrder.get().toString());
+	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Search Service Order No :"+ServiceOrder.get().toString());
 	}
 	System.out.println("enter data order search field");
 	WaitforElementtobeclickable(xml.getlocator("//locators/ServiceOrderArrow"));
@@ -61,7 +65,7 @@ public class CeasHelper extends DriverHelper{
 	//Need some modification 
 	boolean billing=false;
 	for (int i=0;i<5;i++) {
-		Thread.sleep(3*60000);
+		Thread.sleep(3*10000);
 		WaitforElementtobeclickable(xml.getlocator("//locators/ServiceOrderArrow"));
 		Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderArrow")));
 		if(isElementPresent(xml.getlocator("//locators/BillingComplete")))
@@ -172,8 +176,12 @@ public class CeasHelper extends DriverHelper{
 	Clickon(getwebelement(xml.getlocator("//locators/Billing")));
 	System.out.println("BILLING TAB");
 	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Billing");
+	Thread.sleep(10000);
+	waitForpageload();
+	waitForpageload();
 	System.out.println("Current Date : "+CurrentDate());
-	String fDate=FutureDate(50);
+	String fDate=FutureDate(15);
+	System.out.println("Future Date : "+fDate);
 	SendKeys(getwebelement(xml.getlocator("//locators/BillingEndDate")), fDate);
 	Thread.sleep(10000);
 	//SendkeaboardKeys(getwebelement(xml.getlocator("//locators/BillingEndDate")), Keys.TAB);
@@ -241,18 +249,20 @@ public class CeasHelper extends DriverHelper{
 			WaitforElementtobeclickable((xml.getlocator("//locators/AlertAccept")));
 			Clickon(getwebelement(xml.getlocator("//locators/AlertAccept")));
 		}
-
-		// Pagerefresh();
 		Thread.sleep(5000);
-		// =======================Added by Rekha ==================== difft pop up was
-		// arriving for Ethernet VPN Access=====================
+		try
+		{
 		if (isElementPresent(xml.getlocator("//locators/SubnetworkPopUP"))) {
 			System.out.println("");
 			System.out.println("Alert Present");
 			WaitforElementtobeclickable((xml.getlocator("//locators/SubnetworkPopUP")));
 			Clickon(getwebelement(xml.getlocator("//locators/SubnetworkPopUP")));
 		}
-		// ============================================================================================================
+		}
+		catch(Exception e)
+		{
+				System.out.println(e.toString());
+		}
 		System.out.println("Order complete");
 		Thread.sleep(5000);
 		// Added by Abhay
@@ -268,7 +278,123 @@ public class CeasHelper extends DriverHelper{
 
 	}
 
+	public void CeaseCommercialValidation(Object[] Inputdata) throws Exception {
+
+		getwebelement(xml.getlocator("//locators/OrderStatus")).clear();
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Clear Order Status");
+		SendKeys(getwebelement(xml.getlocator("//locators/OrderStatus")), "Commercial Validation");
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Entered Order Status Commercial Validation");
+		SendkeaboardKeys(getwebelement(xml.getlocator("//locators/OrderStatus")), Keys.ENTER);
+		 Thread.sleep(5000);
+		if(!Inputdata[8].toString().equalsIgnoreCase("Ethernet Hub" ))
+		   SendkeaboardKeys(getwebelement(xml.getlocator("//locators/OrderStatus")), Keys.TAB);
+		
+		Thread.sleep(2000);
+		if(Inputdata[8].toString().equalsIgnoreCase("Ethernet Hub" ))
+		{
+			try 
+				{
+				if(isElementPresent(xml.getlocator("//locators/PopupYes")))
+					{
+						WaitforElementtobeclickable(xml.getlocator("//locators/PopupYes"));
+						safeJavaScriptClick(getwebelement(xml.getlocator("//locators/PopupYes")));
+						waitForpageload();
+						System.out.println("Pop Up Yes Clicked");
+						waitforPagetobeenable();
+						Thread.sleep(5000);
+					}
+				}
+			catch(Exception e)
+			{
+				System.out.println("Pop Up Yes Clicked");
+			}
+		}
+		waitforPagetobeenable();
+		try
+		{
+		if (isElementPresent(xml.getlocator("//locators/SubnetworkPopUP"))) {
+			System.out.println("");
+			System.out.println("Alert Present");
+			WaitforElementtobeclickable((xml.getlocator("//locators/SubnetworkPopUP")));
+			Clickon(getwebelement(xml.getlocator("//locators/SubnetworkPopUP")));
+			
+		}
+		}
+		catch(Exception e)
+		{
+				System.out.println(e.toString());
+		}
+		waitforPagetobeenable();
+		Thread.sleep(10000);
+	}
+
+	public void DeliveryValidation(Object[] Inputdata) throws Exception {
+		waitforPagetobeenable(); // as per Aman
+		Thread.sleep(5000);
+		WaitforElementtobeclickable(xml.getlocator("//locators/OrderStatusDropdown"));
+		Clickon(getwebelement(xml.getlocator("//locators/OrderStatusDropdown")));
+		Thread.sleep(3000);
+		Clickon(getwebelement(xml.getlocator("//locators/SelectDeliveryValidation")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Entered Order Status Delivery");	
+		if(!Inputdata[8].toString().equalsIgnoreCase("Ethernet Hub" ))
+		{
+			waitforPagetobeenable();
+			Thread.sleep(5000);
+		}
+		if (Inputdata[11].toString().equalsIgnoreCase("IP VPN Wholesale")) // Added by Abhay
+		{
+			ClickContinue();
+			waitforPagetobeenable();
+			Thread.sleep(3000);
+		}
+		Thread.sleep(5000);
+		if(Inputdata[8].toString().equalsIgnoreCase("Ethernet Hub" ))
+			{
+			try 
+			{
+				if(isElementPresent(xml.getlocator("//locators/PopupYes")))
+				{
+					WaitforElementtobeclickable(xml.getlocator("//locators/PopupYes"));
+					safeJavaScriptClick(getwebelement(xml.getlocator("//locators/PopupYes")));
+					waitForpageload();
+					System.out.println("Pop Up Yes Clicked");
+					waitforPagetobeenable();
+					Thread.sleep(5000);
+				}
+			}
+			catch(Exception e)
+				{
+					System.out.println("Pop Up Yes Clicked");
+				}
+			}
+//			SendKeys(getwebelement(xml.getlocator("//locators/primarytestingmethod")), "Not Required");
+//			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter value in primary test method");
+//			SendkeaboardKeys(getwebelement(xml.getlocator("//locators/primarytestingmethod")), Keys.TAB);
+//			Thread.sleep(3000);
+//			savePage();
+		try
+		{
+		if (isElementPresent(xml.getlocator("//locators/SubnetworkPopUP"))) 
+			{
+			System.out.println("");
+			System.out.println("Alert Present");
+			WaitforElementtobeclickable((xml.getlocator("//locators/SubnetworkPopUP")));
+			Clickon(getwebelement(xml.getlocator("//locators/SubnetworkPopUP")));
+			
+			}
+		}
+		catch(Exception e)
+		{
+				System.out.println(e.toString());
+		}
+		waitforPagetobeenable();
+	}
+	
+	public void ClickContinue() throws DocumentException, InterruptedException {
+		if (isElementPresent((xml.getlocator("//locators/IPVPNSite/BlankPriceContinue")))) {
+			WaitforElementtobeclickable((xml.getlocator("//locators/IPVPNSite/BlankPriceContinue")));
+			Clickon(getwebelement(xml.getlocator("//locators//IPVPNSite/BlankPriceContinue")));
+		}
+		Thread.sleep(3000);
+	}
 }
-
-
-

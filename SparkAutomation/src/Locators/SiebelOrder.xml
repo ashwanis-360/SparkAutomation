@@ -20,6 +20,7 @@
   <PartyName>//*[@class='ui-menu-item'][text()='Party Name']</PartyName> 
   <InputPartyname>//input[@aria-labelledby='PopupQuerySrchspec_Label']</InputPartyname> 
   <PickAccntOk>//button[@title="Pick Account:OK"]</PickAccntOk> 
+  <PopupYes>//button[text()='Yes']</PopupYes>
   <OrderingParty>//*[(@aria-labelledby='Ordering_Party_Label')]</OrderingParty> 
   <OrderingPartyAddrSearch>//input[@aria-labelledby='COLT_Ordering_Account_Address_Name_Label']/..//span</OrderingPartyAddrSearch> 
   <OrderingPartyAddrSearchDropdown>//*[@class='siebui-popup-button']//*[@class='siebui-icon-dropdown applet-form-combo applet-list-combo']</OrderingPartyAddrSearchDropdown> 
