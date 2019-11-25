@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
  <locators>
-
+<verifyModButton>//label[text()='Service Bandwidth']/following-sibling::span/img</verifyModButton>
   <Accounts>//a[text()='Accounts']</Accounts> 
   <AccountAdministration>//a[text()='Accounts Administration']</AccountAdministration> 
   <AccountsDropdown>//div[@class="siebui-btn-grp-search"]//span[@class="siebui-icon-dropdown applet-form-combo applet-list-combo"]</AccountsDropdown> 

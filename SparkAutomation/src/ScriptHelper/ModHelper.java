@@ -567,108 +567,63 @@ public class ModHelper extends DriverHelper {
 		
 		/* Code Merged for Rekha */
 		case "IP Access": {
-			getwebelement(xml.getlocator("//locators/capacitycheckreference")).clear();
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Clear capicity check reference");
-			Clickon(getwebelement(xml.getlocator("//locators/capacitycheckreference")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step:  click on Capicityreference");
-			SendKeys(getwebelement(xml.getlocator("//locators/capacitycheckreference")), Inputdata[36].toString());
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step:  Input on Capicityreference");
-
-			Thread.sleep(4000);
-
-			// Router type//
-			// if(Newvalue is not equesl to blank) {
 			WaitforElementtobeclickable(xml.getlocator("//locators/RouterTypeDropdownAccess"));
 			Clickon(getwebelement(xml.getlocator("//locators/RouterTypeDropdownAccess")));
-
-//				else do nothis
-
-			// WaitforElementtobeclickable(xml.getlocator("//locators/SelectRouterTypeDropDownAccess"));
-			Thread.sleep(3000);
-			Clickon(getwebelement(
-					xml.getlocator("//locators/RouterTypeValue").replace("value", Inputdata[35].toString())));
-
+			WaitforElementtobeclickable(xml.getlocator("//locators/SelectRouterTypeDropDownAccess"));
+			Clickon(getwebelement(xml.getlocator("//locators/SelectRouterTypeDropDownAccess")));
+			waitforAttributeloader();
 			waitforPagetobeenable();
+			// Thread.sleep(4000);
+			// getwebelement(xml.getlocator("//locators/Routertype")).clear();
+			// SendKeys(getwebelement(xml.getlocator("//locators/Routertype")),Inputdata[37].toString());
+			// SendkeaboardKeys(getwebelement(xml.getlocator("//locators/Routertype")),Keys.TAB);
 
-			WaitforElementtobeclickable((xml.getlocator("//locators/IpGurdianSave")));
-			Clickon(getwebelement(xml.getlocator("//locators/IpGurdianSave")));
+			// WaitforElementtobeclickable((xml.getlocator("//locators/ClickheretoSaveAccess")));
+			// WaitforElementtobeclickable(xml.getlocator("//locators/IpGurdianSave"));
+			// Clickon(getwebelement(xml.getlocator("//locators/ClickheretoSaveAccess")));
+
+			// Thread.sleep(6000);
+
+			// Pagerefresh();
+			// Thread.sleep(6000);
+//
+//			WaitforElementtobeclickable((xml.getlocator("//locators/ClickheretoSaveAccess")));
+//			// WaitforElementtobeclickable(xml.getlocator("//locators/IpGurdianSave"));
+//			Clickon(getwebelement(xml.getlocator("//locators/ClickheretoSaveAccess")));
+//
+//			waitforPagetobeenable();
+
 			WaitforElementtobeclickable(xml.getlocator("//locators/Layer3ResillanceDropdownAccess"));
 			Clickon(getwebelement(xml.getlocator("//locators/Layer3ResillanceDropdownAccess")));
-			Thread.sleep(3000);
-			// WaitforElementtobeclickable(xml.getlocator("//locators/Layer3ResillanceSelectDropdownAccess"));
-			Clickon(getwebelement(
-					xml.getlocator("//locators/RouterTypeValue").replace("value", Inputdata[36].toString())));
-
+			WaitforElementtobeclickable(xml.getlocator("//locators/Layer3ResillanceSelectDropdownAccess"));
+			Clickon(getwebelement(xml.getlocator("//locators/Layer3ResillanceSelectDropdownAccess")));
+			waitforAttributeloader();
 			waitforPagetobeenable();
-
-			waitandForElementDisplay(xml.getlocator("//locators/IpGurdianSave"), 5);
-			Clickon(getwebelement(xml.getlocator("//locators/IpGurdianSave")));
-			waitforPagetobeenable();
+			// getwebelement(xml.getlocator("//locators/Layer3ResillanceDropdownAccess")).clear();
+			// SendKeys(getwebelement(xml.getlocator("//locators/Inputlayer3resillence")),Inputdata[39].toString());
+			// SendkeaboardKeys(getwebelement(xml.getlocator("//locators/Inputlayer3resillence")),Keys.ENTER);
+			// SendkeaboardKeys(getwebelement(xml.getlocator("//locators/Inputlayer3resillence")),Keys.TAB);
+			// Thread.sleep(4000);
 
 			WaitforElementtobeclickable(xml.getlocator("//locators/ServiceBandwidthDropdownAccess"));
 			Clickon(getwebelement(xml.getlocator("//locators/ServiceBandwidthDropdownAccess")));
 			WaitforElementtobeclickable(xml.getlocator("//locators/ServiceBandwidthSelectAccess"));
 			Clickon(getwebelement(xml.getlocator("//locators/ServiceBandwidthSelectAccess")));
+			waitforAttributeloader();
+			waitforPagetobeenable();
+			// getwebelement(xml.getlocator("//locators/ServiceBandwidthIPAccess")).clear();
+			// SendKeys(getwebelement(xml.getlocator("//locators/ServiceBandwidthIPAccess")),Inputdata[40].toString());
+			// EnterText(xml.getlocator("//locators/ServiceBandwidthIPAccess"),Inputdata[40].toString());
+			// SendkeaboardKeys(getwebelement(xml.getlocator("//locators/ServiceBandwidthIPAccess")),Keys.ENTER);
+			// SendkeaboardKeys(getwebelement(xml.getlocator("//locators/ServiceBandwidthIPAccess")),Keys.TAB);
+			// Thread.sleep(4000);
+			// Pagerefresh();
 
-			waitforPagetobeenable();
-			waitandForElementDisplay(xml.getlocator("//locators/IpGurdianSave"), 5);
-			Clickon(getwebelement(xml.getlocator("//locators/IpGurdianSave")));
-			waitforPagetobeenable();
-			Clear(getwebelement(xml.getlocator("//locators/Accesstype")));
-			SendKeys(getwebelement(xml.getlocator("//locators/Accesstype")), Inputdata[0].toString());
-			Clear(getwebelement(xml.getlocator("//locators/Buildingtype")));
-			SendKeys(getwebelement(xml.getlocator("//locators/Buildingtype")), Inputdata[0].toString());
-			Clear(getwebelement(xml.getlocator("//locators/relayfibre")));
-			SendKeys(getwebelement(xml.getlocator("//locators/relayfibre")), Inputdata[0].toString());
-			Clear(getwebelement(xml.getlocator("//locators/Dualcustomerpowersource")));
-//				SendKeys(getwebelement(xml.getlocator("//locators/Dualcustomerpowersource")), Inputdata[0].toString());
-//				Clear(getwebelement(xml.getlocator("//locators/Diversitytype")));
-//				SendKeys(getwebelement(xml.getlocator("//locators/Diversitytype")), Inputdata[0].toString());
-//				Clear(getwebelement(xml.getlocator("//locators/Customerdedicatedaccessring")));
-//				SendKeys(getwebelement(xml.getlocator("//locators/Customerdedicatedaccessring")),Inputdata[0].toString());
-			Clear(getwebelement(xml.getlocator("//locators/cabinettype")));
-//				SendKeys(getwebelement(xml.getlocator("//locators/cabinettype")), Inputdata[0].toString());
-//				SendkeaboardKeys(getwebelement(xml.getlocator("//locators/cabinettype")), Keys.TAB);
-//				Clear(getwebelement(xml.getlocator("//locators/CabinetID")));
-//				SendKeys(getwebelement(xml.getlocator("//locators/CabinetID")), Inputdata[0].toString());
-//				SendkeaboardKeys(getwebelement(xml.getlocator("//locators/CabinetID")), Keys.TAB);
-//				Clear(getwebelement(xml.getlocator("//locators/shelfid")));
-//				SendKeys(getwebelement(xml.getlocator("//locators/shelfid")), Inputdata[0].toString());
-//				SendkeaboardKeys(getwebelement(xml.getlocator("//locators/shelfid")), Keys.TAB);
-			Clear(getwebelement(xml.getlocator("//locators/Slotid")));
-//				SendKeys(getwebelement(xml.getlocator("//locators/Slotid")), Inputdata[0].toString());
-//				Clear(getwebelement(xml.getlocator("//locators/Physicalportid")));
-//				SendKeys(getwebelement(xml.getlocator("//locators/Physicalportid")), Inputdata[0].toString());
-//				Clear(getwebelement(xml.getlocator("//locators/PhysicalInterface")));
-//				SendKeys(getwebelement(xml.getlocator("//locators/PhysicalInterface")), Inputdata[0].toString());
-//				Clear(getwebelement(xml.getlocator("//locators/Fibretype")));
-//				SendKeys(getwebelement(xml.getlocator("//locators/Fibretype")), Inputdata[0].toString());
-//				Clear(getwebelement(xml.getlocator("//locators/Portrole")));
-//				SendKeys(getwebelement(xml.getlocator("//locators/Portrole")), Inputdata[0].toString());
-//				Clear(getwebelement(xml.getlocator("//locators/Connectortype")));
-//				SendKeys(getwebelement(xml.getlocator("//locators/Connectortype")), Inputdata[0].toString());
-			Clear(getwebelement(xml.getlocator("//locators/Coltcpeid")));
-//				SendKeys(getwebelement(xml.getlocator("//locators/Coltcpeid")), Inputdata[0].toString());
-//				Clear(getwebelement(xml.getlocator("//locators/Routerspecification")));
-//				SendKeys(getwebelement(xml.getlocator("//locators/Routerspecification")), Inputdata[0].toString());
-			Clear(getwebelement(xml.getlocator("//locators/installtime")));
-//				SendKeys(getwebelement(xml.getlocator("//locators/installtime")), Inputdata[0].toString());
-//				Clear(getwebelement(xml.getlocator("//locators/Accesstypewindow")));
-//				SendKeys(getwebelement(xml.getlocator("//locators/Accesstypewindow")), Inputdata[0].toString());
-			Clear(getwebelement(xml.getlocator("//locators/routermodel")));
-//				SendKeys(getwebelement(xml.getlocator("//locators/routermodel")), Inputdata[0].toString());
-//				SendkeaboardKeys(getwebelement(xml.getlocator("//locators/routermodel")), Keys.TAB);
-//				Clear(getwebelement(xml.getlocator("//locators/Sitename")));
-//				SendKeys(getwebelement(xml.getlocator("//locators/Sitename")), Inputdata[0].toString());
-//				SendkeaboardKeys(getwebelement(xml.getlocator("//locators/Sitename")), Keys.TAB);
-//				Clickon(getwebelement(xml.getlocator("//locators/savebutton")));
-			Clickon(getwebelement(xml.getlocator("//locators/Enabledfeatures")));
-////			getwebelement(xml.getlocator("//locators/Enabledfeatures")).clear();
-////			SendKeys(getwebelement(xml.getlocator("//locators/Enabledfeatures")), Inputdata[0].toString());
-//			getwebelement(xml.getlocator("//locators/IPaddressingtype")).clear();
-//			SendKeys(getwebelement(xml.getlocator("//locators/IPaddressingtype")), Inputdata[0].toString());
-//			Clickon(getwebelement(xml.getlocator("//locators/Crossbuttonforipaccess")));
-//			Clickon(getwebelement(xml.getlocator("//locators/savebutton")));
+			WaitforElementtobeclickable((xml.getlocator("//locators/ClickheretoSaveAccess")));
+			// WaitforElementtobeclickable(xml.getlocator("//locators/IpGurdianSave"));
+			Clickon(getwebelement(xml.getlocator("//locators/ClickheretoSaveAccess")));
+
+			waitforPagetobeenable();			
 			break;
 		}
 		case "Interconnect": {
@@ -1426,6 +1381,26 @@ public class ModHelper extends DriverHelper {
 				}
 				
 				}
+
+				public void ModCom(Object[] Inputdata) throws Exception {
+					{
+						switch (Inputdata[8].toString()) {
+						
+						case "Number Hosting": {
+							modHeader(Inputdata);
+							modTechNumberHosting(Inputdata);
+							break;
+						}
+						case "Interconnect": {
+							modHeader(Inputdata);
+							modTechNumberHosting(Inputdata);
+							break;
+						}
+							default:
+								System.out.println("Product is not selected:"+Inputdata[8].toString());
+								break;
+						}}
+					}
 
 				
 

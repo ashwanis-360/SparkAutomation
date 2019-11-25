@@ -5036,6 +5036,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		//////// ORDER DATE
 		waitForpageload();
 		waitforPagetobeenable();
+		alertPopUp();
 		Moveon(getwebelement(xml.getlocator("//locators/OrderDates")));
 		// System.out.println("Moved Mouse");
 		Clickon(getwebelement(xml.getlocator("//locators/OrderDates")));
@@ -5043,6 +5044,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		waitForpageload();
 		waitforPagetobeenable();
 		Thread.sleep(5000);
+		alertPopUp();
 		WaitforElementtobeclickable((xml.getlocator("//locators/CustomerRequestedDate")));
 		Clear(getwebelement(xml.getlocator("//locators/CustomerRequestedDate")));
 		SendKeys(getwebelement(xml.getlocator("//locators/CustomerRequestedDate")), CurrentDate());
@@ -5110,6 +5112,77 @@ public class NewOrderOnnetHelper extends DriverHelper {
 
 	///////////// SERVICE CHARGE
 	public void EnterServiceChargeInFooter(Object[] Inputdata, String Amount) throws Exception {
+		
+		if (
+				(Inputdata[8].toString().equalsIgnoreCase("IP VPN Service")&& (Inputdata[11].toString().equalsIgnoreCase("IP VPN Access"))))
+				{
+				WaitforElementtobeclickable(xml.getlocator("//locators/ExpandAllButton"));
+				Clickon(getwebelement(xml.getlocator("//locators/ExpandAllButton")));
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Expand All Button");
+				Thread.sleep(3000);
+				// if(!Inputdata[8].toString().equalsIgnoreCase("Wave") &&
+				// !Inputdata[8].toString().equalsIgnoreCase("Ethernet Line"))
+				// {
+				while (!Getattribute(getwebelement(xml.getlocator("//locators/BillingLastRow")), "class")
+						.contains("highlight")) {
+
+					int RowCount = getwebelementscount((xml.getlocator("//locators/BillingRow"))) - 1;
+					System.out.println(RowCount);
+
+					for (int i = 1; i <= RowCount; i++) {
+
+						Clickon(getwebelement(
+								xml.getlocator("//locators/BillingRowAmount").replace("Value", String.valueOf(i))));
+						waitforPagetobeenable();
+						if (!Getattribute(
+								getwebelement(
+										xml.getlocator("//locators/BillingRowAmount").replace("Value", String.valueOf(i))),
+								"class").contains("disabled")) {
+
+							Clear(getwebelement(xml.getlocator("//locators/BillingRowAmountInput").replace("Value",
+									String.valueOf(i))));
+							SendKeys(getwebelement(
+									xml.getlocator("//locators/BillingRowAmountInput").replace("Value", String.valueOf(i))),
+									Amount);
+							waitforPagetobeenable();
+						} else {
+							System.out.println("Not Required to fill");
+						}
+
+						Clickon(getwebelement(
+								xml.getlocator("//locators/BillingRowBCN").replace("Value", String.valueOf(i))));
+						waitforPagetobeenable();
+						if (!Getattribute(
+								getwebelement(
+										xml.getlocator("//locators/BillingRowBCN").replace("Value", String.valueOf(i))),
+								"class").contains("disabled")) {
+
+							Clickon(getwebelement(xml.getlocator("//locators/BCNSearchClick")));
+							waitforPagetobeenable();
+							SendKeys(getwebelement(xml.getlocator("//locators/BCNInstallationChargeNRCInput")),
+									Inputdata[25].toString());
+							Thread.sleep(3000);
+							Clickon(getwebelement(xml.getlocator("//locators/BCNNRCSearch")));
+							waitforPagetobeenable();
+							Thread.sleep(3000);
+							//Clickon(getwebelement(xml.getlocator("//locators/BCNNRCSubmit")));// Should add in BSW
+																								// enviroment
+							waitforPagetobeenable();
+						} else {
+							System.out.println("Not Required to fill");
+						}
+					}
+					Clickon(getwebelement(xml.getlocator("//locators/FirstLineitem")));
+					Thread.sleep(5000);
+					Clickon(getwebelement(xml.getlocator("//locators/ClickNextPage")));
+					waitforPagetobeenable();
+					Thread.sleep(5000);
+				}
+				
+				
+			}
+
+
 		if (!Inputdata[8].toString().equalsIgnoreCase("IP VPN Service")
 				&& !Inputdata[8].toString().equalsIgnoreCase("Ethernet Access")) {
 			WaitforElementtobeclickable(xml.getlocator("//locators/ExpandAllButton"));
