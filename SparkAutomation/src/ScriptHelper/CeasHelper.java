@@ -159,9 +159,13 @@ public class CeasHelper extends DriverHelper{
 	System.out.println("Enter Domain Footer");
 	Moveon(getwebelement(xml.getlocator("//locators/OrderDates")));
 	System.out.println("Moved Mouse");
+	
 	Clickon(getwebelement(xml.getlocator("//locators/OrderDates")));
 	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Order Dates");
-
+	Thread.sleep(10000);
+	waitForpageload();
+	waitforPagetobeenable();
+	
 	SendKeys(getwebelement(xml.getlocator("//locators/OrderSignedDate")),CurrentDate());
 	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Order Signed Date");
 
@@ -178,7 +182,7 @@ public class CeasHelper extends DriverHelper{
 	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Billing");
 	Thread.sleep(10000);
 	waitForpageload();
-	waitForpageload();
+	waitforPagetobeenable();
 	System.out.println("Current Date : "+CurrentDate());
 	String fDate=FutureDate(15);
 	System.out.println("Future Date : "+fDate);
