@@ -135,6 +135,8 @@ public class NewOrders extends DriverTestcase {
 			// Code for Cease
 		}
 		Cease.get().Cease(Data);
+		newOrderOnnnet.get().SelectAttachmentTab(Data);
+		newOrderOnnnet.get().UploadDocument(Data);
 		Cease.get().CeaseCommercialValidation(Data); // Addedd by Devesh
 		//newOrderOnnnet.get().clickOnManualValidationB(); // Updated By Devesh
 		Cease.get().DeliveryValidation(Data); // Addedd by Devesh
