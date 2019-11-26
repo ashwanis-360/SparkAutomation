@@ -8358,7 +8358,9 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		
 		
 		if (InputData[8].toString().contains("Ultra Low Latency")
-				|| (InputData[8].toString().contains("Private Wave Node")))
+				|| (InputData[8].toString().contains("Private Wave Node")
+						 || (InputData[8].toString().equalsIgnoreCase("Private Wave Service")
+						 || (InputData[8].toString().equalsIgnoreCase("Dark Fibre")))))
 				
 		{
 										
@@ -8369,12 +8371,12 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				//Added by Ayush//
 			WaitforElementtobeclickable(xml.getlocator("//locators/AccessTypeDropdownAccess"));
 			Clickon(getwebelement(xml.getlocator("//locators/AccessTypeDropdownAccess")));
+			ExtentTestManager.getTest().log(LogStatus.FAIL, " Step: Select A end access type");
 			//WaitforElementtobeclickable(xml.getlocator("//locators/AccesstypeOffnet")+"[1]");
 			//Clickon(getwebelement(xml.getlocator("//locators/AccesstypeOffnet")+"[1]"));
 			WaitforElementtobeclickable(xml.getlocator("//locators/AccesstypeOffnet").replace("AccessTypeValue", InputData[42].toString()));
 			Clickon(getwebelement(xml.getlocator("//locators/AccesstypeOffnet").replace("AccessTypeValue", InputData[42].toString())));
 			
-			WaitforElementtobeclickable((xml.getlocator("//locators/IpGurdianSave")));
 			WaitforElementtobeclickable(xml.getlocator("//locators/IpGurdianSave"));
 		    Clickon(getwebelement(xml.getlocator("//locators/IpGurdianSave")));
 			Thread.sleep(10000);
@@ -8400,8 +8402,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			
 			WaitforElementtobeclickable(xml.getlocator("//locators/ThirdpartyaccessproviderDropDown"));
 			Clickon(getwebelement(xml.getlocator("//locators/ThirdpartyaccessproviderDropDown")));
-			WaitforElementtobeclickable(xml.getlocator("//locators/ThirdpartyaccessProvidervalue"));
-			Clickon(getwebelement(xml.getlocator("//locators/ThirdpartyaccessProvidervalue")));
+			WaitforElementtobeclickable(xml.getlocator("//locators/ThirdpartyaccessProvidervalue").replace("value", InputData[187].toString()));
+			Clickon(getwebelement(xml.getlocator("//locators/ThirdpartyaccessProvidervalue").replace("value", InputData[187].toString())));
 			
 			//for 3rd party connection reference//
 			Clear(getwebelement(xml.getlocator("//locators/Thirdpartyconectionreference")));
@@ -8549,8 +8551,9 @@ public class NewOrderOnnetHelper extends DriverHelper {
 	public void BEndSitePUD(Object[] InputData) throws InterruptedException, DocumentException, IOException {
 
 		if (InputData[8].toString().contains("Ultra Low Latency")
-				|| (InputData[8].toString().contains("Private Wave Node")
-				))
+				|| InputData[8].toString().contains("Private Wave Node")
+						|| InputData[8].toString().contains("Dark Fibre"))
+				
 		{
 										
 			
@@ -8560,6 +8563,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				//Added by Ayush//
 			WaitforElementtobeclickable(xml.getlocator("//locators/AccesstypedropdownB"));
 			Clickon(getwebelement(xml.getlocator("//locators/AccesstypedropdownB")));
+			ExtentTestManager.getTest().log(LogStatus.FAIL, " Step: Select B end access type");
 			//WaitforElementtobeclickable(xml.getlocator("//locators/AccesstypeOffnet")+"[1]");
 			//Clickon(getwebelement(xml.getlocator("//locators/AccesstypeOffnet")+"[1]"));
 			WaitforElementtobeclickable(xml.getlocator("//locators/AccesstypeOffnet").replace("AccessTypeValue", InputData[42].toString()));
@@ -8591,8 +8595,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			
 			WaitforElementtobeclickable(xml.getlocator("//locators/ThirdpartyaccessproviderDropDownB"));
 			Clickon(getwebelement(xml.getlocator("//locators/ThirdpartyaccessproviderDropDownB")));
-			WaitforElementtobeclickable(xml.getlocator("//locators/ThirdpartyaccessProvidervalue"));
-			Clickon(getwebelement(xml.getlocator("//locators/ThirdpartyaccessProvidervalue")));
+			WaitforElementtobeclickable(xml.getlocator("//locators/ThirdpartyaccessProvidervalue").replace("value", InputData[187].toString()));
+			Clickon(getwebelement(xml.getlocator("//locators/ThirdpartyaccessProvidervalue").replace("value", InputData[187].toString())));
 			
 			//for 3rd party connection reference//
 			Clear(getwebelement(xml.getlocator("//locators/ThirdpartyconectionreferenceB")));
@@ -9615,13 +9619,16 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		waitforPagetobeenable();
 		ExtentTestManager.getTest().log(LogStatus.PASS, "SiteA <-------- Entry Started -------->");
 		String ProductName = InputData[8].toString();
-		if (ProductName.equalsIgnoreCase("DCA Ethernet") || ProductName.equalsIgnoreCase("Ethernet Access")) {
+		if (ProductName.equalsIgnoreCase("DCA Ethernet") || ProductName.equalsIgnoreCase("Ethernet Access") || ProductName.equalsIgnoreCase("Private Ethernet"))
+		{
 			
 
 			if(InputData[74].toString().equalsIgnoreCase("offnet"))
 			{
+				System.out.println("enter into offnet part");
 				WaitforElementtobeclickable(xml.getlocator("//locators/AccessTypeDropdownAccess"));
 				Clickon(getwebelement(xml.getlocator("//locators/AccessTypeDropdownAccess")));
+				ExtentTestManager.getTest().log(LogStatus.FAIL, " Step: Select A end access type");
 				WaitforElementtobeclickable(xml.getlocator("//locators/AccesstypeOffnet").replace("AccessTypeValue", InputData[42].toString()));
 				Clickon(getwebelement(xml.getlocator("//locators/AccesstypeOffnet").replace("AccessTypeValue", InputData[42].toString())));
 
@@ -9648,8 +9655,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				
 				WaitforElementtobeclickable(xml.getlocator("//locators/ThirdpartyaccessproviderDropDown"));
 				Clickon(getwebelement(xml.getlocator("//locators/ThirdpartyaccessproviderDropDown")));
-				WaitforElementtobeclickable(xml.getlocator("//locators/ThirdpartyaccessProvidervalue"));
-				Clickon(getwebelement(xml.getlocator("//locators/ThirdpartyaccessProvidervalue")));
+				WaitforElementtobeclickable(xml.getlocator("//locators/ThirdpartyaccessProvidervalue").replace("value", InputData[187].toString()));
+				Clickon(getwebelement(xml.getlocator("//locators/ThirdpartyaccessProvidervalue").replace("value", InputData[187].toString())));
 					
 				Clear(getwebelement(xml.getlocator("//locators/Thirdpartyconectionreference")));
 				Clickon(getwebelement(xml.getlocator("//locators/Thirdpartyconectionreference")));
@@ -9676,6 +9683,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			else {
 			
 			// Access Type
+				System.out.println("enter into new order part");
 			WaitforElementtobeclickable(
 					xml.getlocator("//locators/DarkFiber/AEndSiteDropDown").replace("Value", "Access Type"));
 			Clickon(getwebelement(
@@ -9796,7 +9804,71 @@ public class NewOrderOnnetHelper extends DriverHelper {
 	public void BEndSite(Object[] InputData) throws InterruptedException, DocumentException, IOException {
 		String ProductName = InputData[8].toString();
 		ExtentTestManager.getTest().log(LogStatus.PASS, "SiteB <-------- Entry Started -------->");
-		if (ProductName.equalsIgnoreCase("DCA Ethernet")) {
+		
+		if(InputData[74].toString().contains("Offnet"))
+		{
+			 System.out.println("Enter into offnet part");
+			WaitforElementtobeclickable(xml.getlocator("//locators/AccesstypedropdownB"));
+			Clickon(getwebelement(xml.getlocator("//locators/AccesstypedropdownB")));
+			ExtentTestManager.getTest().log(LogStatus.FAIL, " Step: Select b end access type");
+			//WaitforElementtobeclickable(xml.getlocator("//locators/AccesstypeOffnet")+"[1]");
+			//Clickon(getwebelement(xml.getlocator("//locators/AccesstypeOffnet")+"[1]"));
+			WaitforElementtobeclickable(xml.getlocator("//locators/AccesstypeOffnet").replace("AccessTypeValue", InputData[42].toString()));
+			Clickon(getwebelement(xml.getlocator("//locators/AccesstypeOffnet").replace("AccessTypeValue", InputData[42].toString())));
+			
+			WaitforElementtobeclickable((xml.getlocator("//locators/IpGurdianSave")));
+		    Clickon(getwebelement(xml.getlocator("//locators/IpGurdianSave")));
+			Thread.sleep(20000);
+		    //For access type technology//
+		    WaitforElementtobeclickable(
+					xml.getlocator("//locators/DarkFiber/BEndSiteDropDown").replace("Value", "Access Technology"));
+			Clickon(getwebelement(
+					xml.getlocator("//locators/DarkFiber/BEndSiteDropDown").replace("Value", "Access Technology")));
+
+//			WaitforElementtobeclickable(xml.getlocator("//locators/DarkFiber/AList").replace("Value", "NA"));
+//			Clickon(getwebelement(xml.getlocator("//locators/DarkFiber/AList").replace("Value", "NA")));
+//			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Access Technology : NA ");
+
+			WaitforElementtobeclickable(
+					xml.getlocator("//locators/DarkFiber/BList").replace("Value", InputData[83].toString()));
+			Clickon(getwebelement(
+					xml.getlocator("//locators/DarkFiber/BList").replace("Value", InputData[83].toString())));
+			ExtentTestManager.getTest().log(LogStatus.PASS,
+					" Step: Select Access Technology : " + InputData[83].toString());
+			
+		    
+		    //for 3rd party connection provider//
+			
+			WaitforElementtobeclickable(xml.getlocator("//locators/ThirdpartyaccessproviderDropDownB"));
+			Clickon(getwebelement(xml.getlocator("//locators/ThirdpartyaccessproviderDropDownB")));
+			WaitforElementtobeclickable(xml.getlocator("//locators/ThirdpartyaccessProvidervalue").replace("value", InputData[187].toString()));
+			Clickon(getwebelement(xml.getlocator("//locators/ThirdpartyaccessProvidervalue").replace("value", InputData[187].toString())));
+			
+			//for 3rd party connection reference//
+			Clear(getwebelement(xml.getlocator("//locators/ThirdpartyconectionreferenceB")));
+			Clickon(getwebelement(xml.getlocator("//locators/ThirdpartyconectionreferenceB")));
+			SendKeys(getwebelement(xml.getlocator("//locators/ThirdpartyconectionreferenceB")),"12");
+			
+			//for third party SLA tier//
+			WaitforElementtobeclickable(xml.getlocator("//locators/ThirdpartyDropDownB"));
+			Clickon(getwebelement(xml.getlocator("//locators/ThirdpartyDropDownB")));
+			//WaitforElementtobeclickable(xml.getlocator("//locators/ThirdpartySLATiervalueultra").replace("value", "1"));
+			//Clickon(getwebelement(xml.getlocator("//locators/ThirdpartySLATiervalueultra").replace("value", "1")));
+			WaitforElementtobeclickable(xml.getlocator("//locators/ThirdpartySLATiervalue").replace("SLAValue", InputData[35].toString()));
+			Clickon(getwebelement(xml.getlocator("//locators/ThirdpartySLATiervalue").replace("SLAValue", InputData[35].toString())));
+			
+			WaitforElementtobeclickable(xml.getlocator("//locators/IpGurdianSave"));
+		    Clickon(getwebelement(xml.getlocator("//locators/IpGurdianSave")));
+					
+		    waitforPagetobeenable();
+
+			}//out of if inner loop
+
+		else
+		{
+			
+		if (ProductName.equalsIgnoreCase("DCA Ethernet")) 
+		{
 			// Access Type
 			// WaitforElementtobeclickable(xml.getlocator("//locators/DarkFiber/BEndSiteDropDown").replace("Value",
 			// "Access Type"));
@@ -9809,7 +9881,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			// Fibre" /* InputData[93].toString()*/)));
 			// ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Access Type :
 			// " + "Colt Fibre" /* InputData[93].toString()*/);
-
+         System.out.println("Enter into offnet part");
 			// Access Tech
 			WaitforElementtobeclickable(
 					xml.getlocator("//locators/DarkFiber/BEndSiteDropDown").replace("Value", "Access Technology"));
@@ -9849,7 +9921,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			// ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Demarcation
 			// Device Required : " + "No" /* InputData[93].toString()*/);
 		}
-
+		}
 		WaitforElementtobeclickable(
 				xml.getlocator("//locators/DarkFiber/BEndSiteDropDown").replace("Value", "Building Type"));
 		Clickon(getwebelement(

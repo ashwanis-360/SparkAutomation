@@ -843,7 +843,7 @@
 <AccesstypeOffnet>//li[text()='AccessTypeValue']</AccesstypeOffnet>
 <ThirdpartyaccessproviderDropDown>(//span[text()='Third Party Access Provider']/..//span)[3]</ThirdpartyaccessproviderDropDown>
 <ThirdpartyaccessproviderDropDownB>(//span[text()='Third Party Access Provider']/..//span)[6]</ThirdpartyaccessproviderDropDownB>
-<ThirdpartyaccessProvidervalue>//li[text()='VODAFONE(UK)']</ThirdpartyaccessProvidervalue>
+<ThirdpartyaccessProvidervalue>//li[text()='value']</ThirdpartyaccessProvidervalue>
 <Thirdpartyconectionreference>//span[text()='3rd Party Connection Reference']/..//input</Thirdpartyconectionreference>
 <ThirdpartyconectionreferenceB>(//span[text()='3rd Party Connection Reference']/..//input)[2]</ThirdpartyconectionreferenceB>
 <ThirdpartyDropDown>(//span[text()='Third Party SLA Tier']/..//span)[3]</ThirdpartyDropDown>
