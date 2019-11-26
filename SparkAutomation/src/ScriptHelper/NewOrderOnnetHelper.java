@@ -6529,7 +6529,47 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			Clickon(getwebelement(xml3.getlocator("//locators/BEndSite")));
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on B End Site");
 
-						safeJavaScriptClick(getwebelement(xml3.getlocator("//locators/AccessTechnologySearch")));
+			if (Inputdata[74].toString().equals("Offnet"))
+			{
+			
+				waitforPagetobeenable();
+				WaitforElementtobeclickable(xml3.getlocator("//locators/AccessTechnologySearch"));
+				Clickon(getwebelement(xml3.getlocator("//locators/AccessTechnologySearch")));
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Access Technology Search");
+				Thread.sleep(20000);
+				WaitforElementtobeclickable(xml3.getlocator("//locators/SelectAccessTechnology1"));
+				Clickon(getwebelement(xml3.getlocator("//locators/SelectAccessTechnology1")));
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Access Technology value");
+				Clickon(getwebelement(xml3.getlocator("//locators/AccessTechnologySubmit")));
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Access Technology Submit");
+				Thread.sleep(5000);
+				Clickon(getwebelement(xml3.getlocator("//locators/ThirdPartyAccessProviderSearch")));
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Third Party  Access Provider Search");
+				Clickon(getwebelement(xml3.getlocator("//locators/ThirdPartyAccessProviderSelect")));
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Third Party Access Provider Select");
+				 Clickon(getwebelement(xml3.getlocator("//locators/ThirdPartyAccessProviderSubmit")));
+				Thread.sleep(10000);
+				//Select(getwebelement(xml3.getlocator("//locators/Siebel/ThirdPartyAccessProvider")),Inputdata[45].toString());
+				//ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Third Party 	 Access Provider");
+
+				safeJavaScriptClick(getwebelement(xml3.getlocator("//locators/ThirdPartyConnecRef")));
+				Clear(getwebelement(xml3.getlocator("//locators/ThirdPartyConnecRef")));
+				Thread.sleep(500);
+				SendKeys(getwebelement(xml3.getlocator("//locators/ThirdPartyConnecRef")),Inputdata[44].toString());
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Provide Third Party Connection Reference");
+				Thread.sleep(5000);
+				
+				//WaitforElementtobeclickable(xml3.getlocator("//locators/ThirdPartySlaTier"));
+				Clickon(getwebelement(xml3.getlocator("//locators/ThirdPartySlaTier")));
+				WaitforElementtobeclickable(xml3.getlocator("//locators/ThirdPartySlaTierValue"));
+				Clickon(getwebelement(xml3.getlocator("//locators/ThirdPartySlaTierValue")));
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Third Party SlA Tier");
+				Thread.sleep(5000);
+				
+			}
+			else
+			{
+			safeJavaScriptClick(getwebelement(xml3.getlocator("//locators/AccessTechnologySearch")));
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Access Technology Search");
 			Thread.sleep(10000);
 
@@ -6736,7 +6776,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			// AcceptJavaScriptMethod();
 			Thread.sleep(20000);
 		}
-	
+	}
 
 	/*
 	 * created by : shivananda Rai Date : 14/09/2019 purpose : customize se the OOS
