@@ -677,6 +677,7 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().TechnicalValidation(Data); // Updated
 			newOrderOnnnet.get().DeliveryValidation(Data); // No Change
 			newOrderOnnnet.get().OrderCompleteEthernetHubSpoke(Data); // MethodAdded
+			newOrderOnnnet.get().validateSlaMatrix(Data);
 		} else if (Data[8].toString().equalsIgnoreCase("Ethernet Spoke")) {
 			newOrderOnnnet.get().addEthernetSiteSpoke(Data);// MethodAdded
 			newOrderOnnnet.get().spokeSiteCustomize(Data);// MethodAdded
@@ -693,6 +694,7 @@ public class NewOrders extends DriverTestcase {
 				newOrderOnnnet.get().LaunchingCEOSApplication(Data);
 			}
 			newOrderOnnnet.get().OrderCompleteEthernetHubSpoke(Data);// updated same as hub
+			newOrderOnnnet.get().validateSlaMatrix(Data);
 		} else {
 			newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);
 			// add specifically for Wave and Ethernet Line and won't run for other products
@@ -885,6 +887,89 @@ public class NewOrders extends DriverTestcase {
 				}
 			}
 		}
+	
+		/*
+		 * Added below method for SiebelToXtrac flow 
+		 */
+		@Test(dataProviderClass = DataReader.class, dataProvider = "Xtrac")
+		public void SiebleToXtrac(Object[] Data) throws Exception {
+
+			Login.get().Login("Sieble");
+			// newOrderOnnnet.get().Check(Data);
+			newOrderOnnnet.get().accountTabDetails(Data);
+			newOrderOnnnet.get().createCustomerOrder(Data);
+			newOrderOnnnet.get().productSelectionHelper(Data);
+			newOrderOnnnet.get().openServiceOrderNumber();
+			if (Data[8].toString().equalsIgnoreCase("Ethernet Hub")) {
+				newOrderOnnnet.get().addEthernetSiteHub(Data); // MethodAdded
+				newOrderOnnnet.get().hubSiteCustomize(Data); // MethodAdded
+				newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);// Updated
+				newOrderOnnnet.get().EnterDateInFooter(Data); // No change
+				newOrderOnnnet.get().EnterBillingDateInFooter(Data); // No change
+				newOrderOnnnet.get().EnterServiceChargeInFooter(Data, "2");
+				newOrderOnnnet.get().CommercialValidation(Data); // No Change
+				newOrderOnnnet.get().validateXtrac();
+				newOrderOnnnet.get().TechnicalValidation(Data); // Updated
+				newOrderOnnnet.get().DeliveryValidation(Data); // No Change
+				newOrderOnnnet.get().openServiceOrder(Data);
+				newOrderOnnnet.get().validateXtrac();
+				newOrderOnnnet.get().OrderCompleteEthernetHubSpoke(Data); // MethodAdded
+				newOrderOnnnet.get().openServiceOrder(Data);
+				newOrderOnnnet.get().validateXtracComplete();
+			} else if (Data[8].toString().equalsIgnoreCase("Ethernet Spoke")) {
+				newOrderOnnnet.get().addEthernetSiteSpoke(Data);// MethodAdded
+				newOrderOnnnet.get().spokeSiteCustomize(Data);// MethodAdded
+				newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);// Updated for spoke also
+				newOrderOnnnet.get().EnterDateInFooter(Data); // No change
+				newOrderOnnnet.get().EnterBillingDateInFooter(Data); // No change
+				newOrderOnnnet.get().EnterServiceChargeInFooter(Data, "2");
+
+				newOrderOnnnet.get().CommercialValidation(Data); // No Change
+				newOrderOnnnet.get().validateXtrac();
+				newOrderOnnnet.get().TechnicalValidation(Data); // Updated for spoke also
+				newOrderOnnnet.get().DeliveryValidation(Data); // No Change
+				newOrderOnnnet.get().validateXtrac();
+				newOrderOnnnet.get().OrderCompleteEthernetHubSpoke(Data);// updated same as hub
+				newOrderOnnnet.get().openServiceOrder(Data);
+				newOrderOnnnet.get().validateXtracComplete();
+			} else {
+				newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);
+				// add specifically for Wave and Ethernet Line and won't run for other products
+				newOrderOnnnet.get().addSiteADetails(Data);// added new
+				newOrderOnnnet.get().addSiteBDetails(Data);// added new
+				newOrderOnnnet.get().ASiteCustomize(Data);// added new
+				newOrderOnnnet.get().BSiteCustomize(Data);// added new
+				// End of methods spesific for Wave and Ethernet Line ------>
+				newOrderOnnnet.get().enterMandatoryDetailsInMiddleApplet(Data);
+				newOrderOnnnet.get().VoiceConfigTab(Data);
+				newOrderOnnnet.get().VoiceFeatureTab(Data);
+				newOrderOnnnet.get().NumberManagementTab(Data);
+				newOrderOnnnet.get().EnterDateInFooter(Data);
+				newOrderOnnnet.get().EnterBillingDateInFooter(Data);
+				newOrderOnnnet.get().EnterServiceChargeInFooter(Data, "2");
+
+				newOrderOnnnet.get().SelectAttachmentTab(Data);
+				newOrderOnnnet.get().UploadDocument(Data);
+				newOrderOnnnet.get().SelectServiceGroupTab(Data);
+				newOrderOnnnet.get().OperationAttribute(Data);
+				newOrderOnnnet.get().EnterInstallationChargeInFooter(Data);
+				newOrderOnnnet.get().MandatoryFields(Data);
+				newOrderOnnnet.get().CommercialValidation(Data);
+				newOrderOnnnet.get().validateXtrac();
+				newOrderOnnnet.get().TechnicalValidation(Data);
+				newOrderOnnnet.get().clickOnManualValidationB();
+				newOrderOnnnet.get().DeliveryValidation(Data);
+				newOrderOnnnet.get().openServiceOrder(Data);
+				newOrderOnnnet.get().validateXtrac();
+				newOrderOnnnet.get().clickOnManualValidationA();
+				newOrderOnnnet.get().getReferenceNo(Data);// added new
+				newOrderOnnnet.get().CompletedValidation(Data);
+				newOrderOnnnet.get().openServiceOrder(Data);
+				newOrderOnnnet.get().validateXtracComplete();
+				
+			}
+		}
+	 
 
 
 }
