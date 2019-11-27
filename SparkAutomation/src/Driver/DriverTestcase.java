@@ -220,6 +220,11 @@ public class DriverTestcase {
 			Log.info(st[st.length - 2].toString());
 			ctx.setAttribute("testName", st[st.length - 2].toString());
 		}
+		else if (method.getName().equals("SiebleToXtrac")) {
+			Log.info(st[st.length - 2].toString());
+			System.out.println(st[st.length - 2].toString());
+			ctx.setAttribute("testName", TestName.get().toString());
+		}
 		
 		else
 			ctx.setAttribute("testName", method.getName());
