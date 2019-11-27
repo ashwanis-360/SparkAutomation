@@ -3,7 +3,8 @@
 	<listeners>
 	  <listener class-name="Listners.TestListener"/>
     </listeners>
-<test name="Siebel New Order" junit="false" preserve-order="true">
+    
+	<test name="Siebel New Order" junit="false" preserve-order="true">
 		<classes>
 			<class name="Testscript.NewOrders">	
 				<methods>
@@ -13,7 +14,8 @@
 			</class>
 		</classes>	
 	</test>
-<test name="Siebel Cease" junit="false" preserve-order="true">
+	
+	<test name="Siebel Cease" junit="false" preserve-order="true">
 		<classes>
 			<class name="Testscript.NewOrders">	
 				<methods>
@@ -23,7 +25,8 @@
 			</class>
 		</classes>	
 	</test>
-<test name="Siebel Abandoned" junit="false" preserve-order="true">
+	
+	<test name="Siebel Abandoned" junit="false" preserve-order="true">
 		<classes>
 			<class name="Testscript.NewOrders">	
 				<methods>
@@ -33,6 +36,7 @@
 			</class>
 		</classes>	
 	</test>
+	
 	<test name="Siebel Cancel " junit="false" preserve-order="true">
 		<classes>
 			<class name="Testscript.NewOrders">	
@@ -43,7 +47,8 @@
 			</class>
 		</classes>	
 	</test> 
-<test name="Siebel Mod" junit="false" preserve-order="true">
+	
+	<test name="Siebel Mod" junit="false" preserve-order="true">
 		<classes>
 			<class name="Testscript.NewOrders">	
 				<methods>
@@ -53,7 +58,8 @@
 			</class>
 		</classes>	
 	</test>  
-<test name="OMP" junit="false" preserve-order="true">
+	
+	<test name="OMP" junit="false" preserve-order="true">
 		<classes>
 			<class name="Testscript.NewOrders">	
 				<methods>
@@ -63,7 +69,8 @@
 			</class>
 		</classes>	
 	</test>  
-<test name="OMPMod" junit="false" preserve-order="true">
+	
+	<test name="OMPMod" junit="false" preserve-order="true">
 		<classes>
 			<class name="Testscript.NewOrders">	
 				<methods>
@@ -73,6 +80,7 @@
 			</class>
 		</classes>	
 	</test>  
+	
 	<test name="Premise" junit="false" preserve-order="true">
 		<classes>
 			<class name="Testscript.NewOrders">	
@@ -104,6 +112,7 @@
 			</class>
 		</classes>	
 	</test>
+	
 	 <test name="Siebel XNG " junit="false" preserve-order="true">	
 		<classes>	
 			<class name="Testscript.NewOrders">		
@@ -115,7 +124,7 @@
 		</classes>		
 	</test>  	
 
-<test name="Siebel New OffnetOrder" junit="false" preserve-order="true">	
+	<test name="Siebel New OffnetOrder" junit="false" preserve-order="true">	
 		<classes>	
 			<class name="Testscript.NewOrders">		
 				<methods>	
@@ -125,6 +134,16 @@
 			</class>	
 		</classes>		
 	</test> 
+	
+	<test name="SiebleXtrac" junit="false" preserve-order="true">
+		<classes>
+			<class name="Testscript.NewOrders">	
+				<methods>
+					<include name="SiebleToXtrac"/>
+			  	</methods>	
+			</class>
+		</classes>	
+	</test>
 
 
 </suite>
