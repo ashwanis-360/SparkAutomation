@@ -11410,10 +11410,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 	// --- Added By Abhay- 28Sep-2019
 	public void productSelectionHelper(Object[] Inputdata) throws InterruptedException, DocumentException, IOException
 	{
-		
 	    Selectproduct(Inputdata[8].toString());
-		
-
 	}
 
 	//Commented By Devesh Covered in Main function 
