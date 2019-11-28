@@ -11622,10 +11622,11 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				InternetExplorerDriver dr= new InternetExplorerDriver(capabilities);
 				//dr.get("http://navmctmohs003:8080/arsys/forms/amsceo03/CEOS%3AOff-Net+Service/Support/");
 				dr.manage().window().maximize();
+				dr.manage().deleteAllCookies();
 				dr.manage().timeouts().implicitlyWait(60,TimeUnit.SECONDS);
-				dr.navigate().to("http://navmctmohs003:8080/arsys/forms/amsceo03/CEOS%3AOff-Net+Service/Support/");
+				//dr.navigate().to("http://navmctmohs003:8080/arsys/forms/amsceo03/CEOS%3AOff-Net+Service/Support/");
 				//dr.navigate().to("http://navmctmohs003:8080/arsys/forms/amsceo02.eu.colt/CEOS%3AOff-Net+Service/Support_Web/");
-				//dr.get("http://navmctmohs003:8080/arsys/forms/amsceo02.eu.colt/CEOS%3AOff-Net+Service/Support_Web/");
+				dr.get("http://navmctmohs003:8080/arsys/forms/amsceo02.eu.colt/CEOS%3AOff-Net+Service/Support_Web/");
 				Thread.sleep(3000);
 				System.out.println(dr.getTitle());
 				dr.findElement(By.id("username-id")).sendKeys("ajain12");
@@ -11650,7 +11651,16 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				dr.findElement(By.id("TBsearchsavechanges")).click();
 				//Clickon(getwebelement(xml.getlocator("//locators/Searchbtn")));
 				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Clicked on Searchbtn ");
+				Thread.sleep(20000);
+				
+				Robot r=new Robot();
+				r.keyPress(KeyEvent.VK_ENTER);
+				Thread.sleep(20000);
+				
+				dr.findElement(By.id("TBsearchsavechanges")).click();
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Clicked on Searchbtn ");
 				Thread.sleep(60000);
+				
 				dr.findElement(By.xpath("//label[text()='Supplier Circuit ID']/following-sibling::textarea")).sendKeys("12345678");
 				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Supplier Circuit ID");
 				Thread.sleep(2000);
@@ -11748,7 +11758,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter I/C Not Required checkbox");
 				Thread.sleep(10000);
 				
-				Robot r=new Robot();
+				//Robot r=new Robot();
 				r.keyPress(KeyEvent.VK_ENTER);
 				Thread.sleep(40000);
 								
@@ -11767,6 +11777,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				Clickon(dr.findElement(By.xpath("(//div[text()='Save'])[2]")));
 				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click Save");
 				Thread.sleep(10000);
+				
+				dr.close();
 								
 			}
 		
@@ -13129,5 +13141,171 @@ public class NewOrderOnnetHelper extends DriverHelper {
 						}
 					}
 			 
+				 public void CompletedValidation_offnet(Object[] Inputdata) throws Exception {
+					 waitforPagetobeenable();
+					 savePage();
+					 waitforPagetobeenable();
+					 Thread.sleep(10000);
+					 if (Inputdata[8].toString().equals("IP VPN Service"))// **Start** Added By Abhay dated 28-Sep-2019
+					 {
+					 savePage();
+					 waitforPagetobeenable();
+					 Thread.sleep(10000);
+					 WaitforElementtobeclickable(
+					 xml.getlocator("//locators/IPVPNSite/ClickLink").replace("Value", "Customer Orders"));
+					 Clickon(getwebelement(
+					 xml.getlocator("//locators/IPVPNSite/ClickLink").replace("Value", "Customer Orders")));
+					 String ServOrder = ServiceOrder.get().toString();
+					 // String x= ServiceOrder.get();
+					 // System.out.println(x);
+					 // String string = "004-034556";
+					 String[] parts = ServOrder.split("/");
+					 String part1 = parts[0];
+					 String part2 = parts[1];
+					 waitforPagetobeenable();
+					 SendKeys(getwebelement(xml.getlocator("//locators/IPVPNSite/CustOrder")), part2);
+					 Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/CustOrderGo")));
+					 waitforPagetobeenable();
+					 Thread.sleep(3000);
+					 Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickSeibelOrder")));
+					 waitforPagetobeenable();
+					 Thread.sleep(3000);
+					 Clickon(getwebelement(xml.getlocator("//locators/NewServiceOrder")));
+					 waitforPagetobeenable();
+					 ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on New Service Order");
+					 Thread.sleep(3000);
+					 Selectproduct("IP VPN Site");
+					 openIPVPNSite();
+					 enterMandatoryFieldsInHeader(Inputdata);
+					 NetworkReferenceFill();
+					 IPVPNSITEMiddleApplet(Inputdata);
+
+					 EnterDateInFooter(Inputdata);
+					 EnterBillingDateInFooter(Inputdata);
+					 if (!Inputdata[11].equals("IP VPN Wholesale")) {
+					 ServiceChargeforIPVPNSite(Inputdata, "2");
+					 }
+					 if (!Inputdata[11].equals("IP VPN Wholesale")) {
+					 OperationalAttributesforIPVPN(Inputdata);
+					 }
+					 EnterInstallationChargeInFooter(Inputdata);
+					 CommercialValidation(Inputdata);
+					 TechnicalValidation(Inputdata);
+					 DeliveryValidation(Inputdata);
+					 AlertAccept();
+					 clickOnManualValidationA();
+
+
+					 if(Inputdata[8].toString().contains("IP VPN Service"))
+					 {
+					 CEOS_Offnet();
+					 LaunchingCEOSApplication(Inputdata);
+					 }
+
+					 waitforPagetobeenable();
+					 WaitforElementtobeclickable(xml.getlocator("//locators/OrderStatusDropdown"));
+					 Clickon(getwebelement(xml.getlocator("//locators/OrderStatusDropdown")));
+					 ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Order status drop down");
+					 Thread.sleep(3000);
+					 Clickon(getwebelement(xml.getlocator("//locators/SelectCompleted")));
+					 ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click Completed Status");
+					 waitforPagetobeenable();
+
+					 Thread.sleep(5000);
+					 if (Inputdata[11].toString().equalsIgnoreCase("IP VPN Wholesale")) // Added by Abhay
+					 {
+					 ClickContinue();
+					 Thread.sleep(3000);
+					 }
+					 // savePage();
+					 // Thread.sleep(6000);
+					 Clickon(getwebelement(xml.getlocator("//locators/OrderComplete")));
+					 AlertAccept();
+					 ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click Order Complete");
+					 waitforPagetobeenable();
+					 Thread.sleep(5000);
+					 savePage();
+					 waitforPagetobeenable();
+					 Thread.sleep(10000);
+					 savePage();
+					 waitforPagetobeenable();
+					 Thread.sleep(10000);
+					 if (isElementPresent(xml.getlocator("//locators/AlertAccept"))) {
+					 System.out.println("");
+					 System.out.println("Alert Present");
+					 WaitforElementtobeclickable((xml.getlocator("//locators/AlertAccept")));
+					 Clickon(getwebelement(xml.getlocator("//locators/AlertAccept")));
+					 }
+
+					 savePage();
+					 waitforPagetobeenable();
+					 Thread.sleep(10000);
+
+					 MovetoIPService();
+
+					 // Save the Current URL
+					 // Create and completed new IP VPN SItes
+					 // Open the Older Order number;
+					 } // **End**
+
+					 Thread.sleep(5000);
+					 savePage();
+					 waitforPagetobeenable();
+					 Thread.sleep(10000);
+
+					 WaitforElementtobeclickable(xml.getlocator("//locators/OrderStatusDropdown"));
+					 Clickon(getwebelement(xml.getlocator("//locators/OrderStatusDropdown")));
+					 ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Order status drop down");
+					 Thread.sleep(3000);
+					 Clickon(getwebelement(xml.getlocator("//locators/SelectCompleted")));
+					 ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click Completed Status");
+					 waitforPagetobeenable();
+
+					 Thread.sleep(5000);
+					 // savePage();
+					 // Thread.sleep(6000);
+					 Clickon(getwebelement(xml.getlocator("//locators/OrderComplete")));
+					 ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click Order Complete");
+					 waitforPagetobeenable();
+					 Thread.sleep(5000);
+					 savePage();
+					 waitforPagetobeenable();
+					 Thread.sleep(10000);
+					 savePage();
+					 waitforPagetobeenable();
+					 Thread.sleep(10000);
+					 if (isDisplayed(xml.getlocator("//locators/AlertAccept"))) {
+					 System.out.println("");
+					 System.out.println("Alert Present");
+					 WaitforElementtobeclickable((xml.getlocator("//locators/AlertAccept")));
+					 Clickon(getwebelement(xml.getlocator("//locators/AlertAccept")));
+					 }
+
+					 // Pagerefresh();
+					 Thread.sleep(5000);
+					 // =======================Added by Rekha ==================== difft pop up was
+					 // arriving for Ethernet VPN Access=====================
+					 if (isElementPresent(xml.getlocator("//locators/SubnetworkPopUP"))) {
+					 System.out.println("");
+					 System.out.println("Alert Present");
+					 WaitforElementtobeclickable((xml.getlocator("//locators/SubnetworkPopUP")));
+					 Clickon(getwebelement(xml.getlocator("//locators/SubnetworkPopUP")));
+					 }
+					 // ============================================================================================================
+					 System.out.println("Order complete");
+					 Thread.sleep(5000);
+					 // Added by Abhay
+					 String CompValidation= null;
+					 CompValidation = getwebelement2(xml.getlocator("//locators/IPVPNSite/OrderStatusInput"))
+					 .getAttribute("value");
+					 System.out.println(CompValidation);
+
+					 Assert.assertTrue(CompValidation.contains("Comp")," Order status failed to Complete. It is displayed as : " + CompValidation);
+					 ExtentTestManager.getTest().log(LogStatus.PASS,
+					 " Step: Order Staus Verified in as Completed");
+
+
+					 }
+
 	
 }

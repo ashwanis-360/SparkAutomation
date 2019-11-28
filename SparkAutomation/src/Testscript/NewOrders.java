@@ -733,7 +733,7 @@ public class NewOrders extends DriverTestcase {
 			}
 			else 
 			{
-				newOrderOnnnet.get().CompletedValidation(Data);
+				newOrderOnnnet.get().CompletedValidation_offnet(Data);
 			}
 			
 			newOrderOnnnet.get().getReferenceNo(Data);// added new
