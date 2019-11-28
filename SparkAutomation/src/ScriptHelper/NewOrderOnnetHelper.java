@@ -24,6 +24,17 @@ import org.testng.Assert;
 import org.testng.Reporter;
 import java.awt.AWTException;
 import java.util.List;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+
+import java.io.InputStream;
+import java.io.OutputStream;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import com.relevantcodes.extentreports.LogStatus;
 
@@ -1582,9 +1593,10 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		// Clear(getwebelement(xml2.getlocator("//locators/SupportStarDate")));
 		// getwebelement(xml2.getlocator("//locators/SupportStarDate")).clear();
 		// ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Clear Date");
+		String TempDate=CurrentDate();
 		Clickon(getwebelement(xml2.getlocator("//locators/SupportStarDate")));
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter  SupportStarDate");
-		SendKeys(getwebelement(xml2.getlocator("//locators/SupportStarDate")), Inputdata[78].toString());
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter  SupportStarDate : "+ TempDate);
+		SendKeys(getwebelement(xml2.getlocator("//locators/SupportStarDate")), TempDate);
 
 		System.out.println("middle applet start1");
 		WaitforElementtobeclickable(xml2.getlocator("//locators/SupprtEndDate"));
@@ -1593,11 +1605,12 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		// getwebelement(xml2.getlocator("//locators/SupprtEndDate")).clear();
 		// ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Clear Date");
 
+		TempDate=FutureDate(60);
 		Clickon(getwebelement(xml2.getlocator("//locators/SupprtEndDate")));
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter  SupprtEndDate");
-		System.out.println("the End date value is" + Inputdata[79].toString());
+		System.out.println("the End date value is" + TempDate);
 
-		SendKeys(getwebelement(xml2.getlocator("//locators/SupprtEndDate")), Inputdata[79].toString());		
+		SendKeys(getwebelement(xml2.getlocator("//locators/SupprtEndDate")), TempDate);		
 
 		Clickon(getwebelement(xml2.getlocator("//locators/SaveButton")));
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Save Button");
@@ -1780,6 +1793,11 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			
 		}
 		case "Cloud Unified Communications": {
+			middleApplet(Inputdata);
+			R5DataCoverage(Inputdata);
+			break;
+		}
+		case "Professional Services":  {
 			middleApplet(Inputdata);
 			R5DataCoverage(Inputdata);
 			break;
@@ -11391,16 +11409,17 @@ public class NewOrderOnnetHelper extends DriverHelper {
 
 	// --- Added By Abhay- 28Sep-2019
 	public void productSelectionHelper(Object[] Inputdata) throws InterruptedException, DocumentException, IOException
-
 	{
-
-		Selectproduct(Inputdata[8].toString());
+		
+	    Selectproduct(Inputdata[8].toString());
+		
 
 	}
 
-	// --- Added By Abhay- 28Sep-2019
-	public void Selectproduct(String Inputdata) throws InterruptedException, DocumentException, IOException {
-		try {
+	//Commented By Devesh Covered in Main function 
+	public void Selectproduct(String productName) throws InterruptedException, DocumentException, IOException {
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Product Selection Started");
+		/*try {
 			Clickon(getwebelement(xml.getlocator("//locators/ProductSelection").replace("ProductName", Inputdata)));
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Add " + Inputdata);
 
@@ -11409,10 +11428,45 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			Clickon(getwebelement(xml.getlocator("//locators/ProductSelection").replace("ProductName", Inputdata)));
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Add " + Inputdata);
 
-		}
-
+		}*/
+		int StatusHeader=-1;
+		int i=0;
+		boolean found=false;
+	    do
+	    {
+	    	if(i>0)
+	    	{
+	    		Clickon(getwebelement(xml.getlocator("//locators/ProductSelectionArrow")));
+	    		waitForpageload();
+	    		waitforPagetobeenable();
+	    		i=0;
+	    	}
+	    	List<WebElement> ProductList=GetWebElements(xml.getlocator("//locators/ProductNameList"));
+	    	for(WebElement ele :ProductList)
+			  {
+				 javascriptexecutor(ele);
+				 String Text=ele.getText();
+				 System.out.println("Column : "+Text);
+				 if(Text.equalsIgnoreCase(productName ))
+				 {
+					 StatusHeader=i;
+					 found=true;
+					 break;
+				 }
+				 i++;
+			  }	
+	    	if(found)
+	    		break;
+	    }while(isDisplayed(xml.getlocator("//locators/ProductSelectionArrow")));
+		
+		String plusButton=xml.getlocator("//locators/AddProduct");
+		plusButton=plusButton.replace("-10",String.valueOf(i+1));
+		Clickon(getwebelement(plusButton));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Product("+productName+") selected ");
+		waitForpageload();
+		waitforPagetobeenable();
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Product Selection Ended");
 	}
-	
 	/*
 	 * Created by Abhay
 	 */
@@ -13307,5 +13361,62 @@ public class NewOrderOnnetHelper extends DriverHelper {
 
 					 }
 
-	
+				 public void WriteServiceOrderNumber(Object[] Inputdata) throws IOException {
+						
+						String path="src//Data//ServiceOrder.xlsx";
+						File file = new File(path);
+						if (!file.exists()) 
+						{
+							try {
+								file.createNewFile();
+								createFile(path);
+							} 
+							catch (Exception e) {
+								System.out.println(e.getMessage());
+							}
+						}
+						AppendData(path,Inputdata);
+					}
+					public void createFile(String Path) throws IOException {
+						FileOutputStream fos = new FileOutputStream(Path);
+						XSSFWorkbook workbook = new XSSFWorkbook();
+						XSSFSheet sheet = workbook.createSheet("NewOrder");
+						Row row = sheet.createRow(0);
+						Cell cell0 = row.createCell(0);
+						cell0.setCellValue("Product Name");
+
+						Cell cell1 = row.createCell(1);
+						cell1.setCellValue("Service OrderNumber");
+
+						Cell cell2 = row.createCell(2);
+						cell2.setCellValue("Date");
+						workbook.write(fos);
+						fos.flush();
+						fos.close();
+					}
+
+					public void AppendData(String Path,Object[] Inputdata) throws FileNotFoundException {
+						try {
+							
+							FileInputStream fis = new FileInputStream(new File(Path));
+							XSSFWorkbook workbook = new XSSFWorkbook(fis);
+							//XSSFSheet sheet = workbook.
+							int i =	workbook.getNumberOfSheets();
+							System.out.println(i);
+							XSSFSheet sheet = workbook.getSheetAt(0);
+							int num = sheet.getLastRowNum();
+							Row row = sheet.createRow(++num);
+							String OrderNumber= Inputdata[8].toString().equalsIgnoreCase("IP VPN Service")?ServiceOrder2.get().toString():ServiceOrder.get().toString();
+							row.createCell(0).setCellValue(Inputdata[8].toString());
+							row.createCell(1).setCellValue(OrderNumber);
+							row.createCell(2).setCellValue(CurrentDate());
+							fis.close();
+							
+							FileOutputStream fos = new FileOutputStream(Path);
+							workbook.write(fos);
+							fos.close();
+						} catch (Exception e) {
+							System.out.println(e.getMessage());
+						}
+					}
 }
