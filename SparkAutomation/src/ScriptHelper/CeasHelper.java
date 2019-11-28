@@ -21,7 +21,7 @@ public class CeasHelper extends DriverHelper {
 		super(parentdriver);
 	}
 
-	public void Cease(Object[] InputData) throws Exception {
+	public void CeaseMainMethod(Object[] InputData) throws Exception {
 		Thread.sleep(15000);
 		Pagerefresh();
 		try {
