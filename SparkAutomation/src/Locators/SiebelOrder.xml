@@ -65,6 +65,10 @@
   <CustomerSitePopStatusSelectAccess>//li[text()='Existing']</CustomerSitePopStatusSelectAccess> 
   <BCPReference>//span[text()='BCP Reference']/..//input</BCPReference> 
   <cabinettype>//span[text()='Cabinet Type']/..//input</cabinettype> 
+  <ServiceOrderGridHeader>//table[@class='ui-jqgrid-htable']//th//div</ServiceOrderGridHeader>
+  <ServiceOrderGridItem>//table[@class='ui-jqgrid-btable']//tr[2]//td[-10]</ServiceOrderGridItem>
+  <ProductNameList>//div[@class='product-name']</ProductNameList>
+  <AddProduct>(//div[@class='product-name'])[-10]/parent::li/button</AddProduct>
   <CabinetTypeDropdownAccess>(//span[text()='Cabinet Type']/..//span)[3]</CabinetTypeDropdownAccess> 
   <CabinetTypeSelectAccess>//li[text()='Existing Colt Cabinet']</CabinetTypeSelectAccess> 
   <shelfid>//span[text()='Shelf ID']/..//input</shelfid> 
