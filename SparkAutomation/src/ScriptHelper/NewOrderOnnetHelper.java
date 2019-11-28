@@ -8410,7 +8410,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				System.out.println("Enter into offnet part of A end site pud");
 			WaitforElementtobeclickable(xml.getlocator("//locators/AccessTypeDropdownAccess"));
 			Clickon(getwebelement(xml.getlocator("//locators/AccessTypeDropdownAccess")));
-			ExtentTestManager.getTest().log(LogStatus.FAIL, " Step: Select A end access type");
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select A end access type");
 			//WaitforElementtobeclickable(xml.getlocator("//locators/AccesstypeOffnet")+"[1]");
 			//Clickon(getwebelement(xml.getlocator("//locators/AccesstypeOffnet")+"[1]"));
 			WaitforElementtobeclickable(xml.getlocator("//locators/AccesstypeOffnet").replace("AccessTypeValue", InputData[42].toString()));
@@ -8604,7 +8604,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			System.out.println("Enter into offnet part of B end site pud");
 			WaitforElementtobeclickable(xml.getlocator("//locators/AccesstypedropdownB"));
 			Clickon(getwebelement(xml.getlocator("//locators/AccesstypedropdownB")));
-			ExtentTestManager.getTest().log(LogStatus.FAIL, " Step: Select B end access type");
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select B end access type");
 			//WaitforElementtobeclickable(xml.getlocator("//locators/AccesstypeOffnet")+"[1]");
 			//Clickon(getwebelement(xml.getlocator("//locators/AccesstypeOffnet")+"[1]"));
 			WaitforElementtobeclickable(xml.getlocator("//locators/AccesstypeOffnet").replace("AccessTypeValue", InputData[42].toString()));
@@ -9668,7 +9668,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				System.out.println("enter into offnet part of A end site");
 				WaitforElementtobeclickable(xml.getlocator("//locators/AccessTypeDropdownAccess"));
 				Clickon(getwebelement(xml.getlocator("//locators/AccessTypeDropdownAccess")));
-				ExtentTestManager.getTest().log(LogStatus.FAIL, " Step: Select A end access type");
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select A end access type");
 				WaitforElementtobeclickable(xml.getlocator("//locators/AccesstypeOffnet").replace("AccessTypeValue", InputData[42].toString()));
 				Clickon(getwebelement(xml.getlocator("//locators/AccesstypeOffnet").replace("AccessTypeValue", InputData[42].toString())));
 
@@ -9857,7 +9857,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			 System.out.println("Enter into offnet part of B end site");
 			WaitforElementtobeclickable(xml.getlocator("//locators/AccesstypedropdownB"));
 			Clickon(getwebelement(xml.getlocator("//locators/AccesstypedropdownB")));
-			ExtentTestManager.getTest().log(LogStatus.FAIL, " Step: Select B end access type");
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select B end access type");
 			//WaitforElementtobeclickable(xml.getlocator("//locators/AccesstypeOffnet")+"[1]");
 			//Clickon(getwebelement(xml.getlocator("//locators/AccesstypeOffnet")+"[1]"));
 			WaitforElementtobeclickable(xml.getlocator("//locators/AccesstypeOffnet").replace("AccessTypeValue", InputData[42].toString()));
