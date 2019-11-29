@@ -127,7 +127,7 @@ Assert.assertTrue(OmpText.equals(Inputdata[74].toString()),"Search Order No :"+I
 		OmpText = Gettext(getwebelement(xml.getlocator("//locators/OrderType")));
 
 //Assert.assertTrue(OmpText.equals(Inputdata[9].toString()),"Order State : "+ Inputdata[9].toString() + "not matched with Opened Order State :"+OmpText);
-		Assert.assertTrue(OmpText.contains("Modification"),
+		Assert.assertTrue(OmpText.contains("Modification")||OmpText.contains("Admin Change"),
 				"Order Type   not matched with Opened Order State :" + OmpText);
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Order Type(" + OmpText + ") Verified in OMP Portal");
 
