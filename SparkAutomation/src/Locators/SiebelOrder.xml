@@ -80,13 +80,13 @@
   <Physicalportid>//span[text()='Physical Port ID']/..//input</Physicalportid> 
   <PhysicalInterface>//span[text()='Presentation Interface']/..//input</PhysicalInterface> 
   <PresentationInterfaceDropdownAccess>(//span[text()='Presentation Interface']/..//span)[3]</PresentationInterfaceDropdownAccess> 
-  <PresentationInterfaceSelectAccess>//li[text()='1000BASE-LX']</PresentationInterfaceSelectAccess> 
+  <PresentationInterfaceSelectAccess>//li[text()='value']</PresentationInterfaceSelectAccess>  
   <Connectortype>//span[text()='Connector Type']/..//input</Connectortype> 
   <ConnectorTypeDropdownAccess>(//span[text()='Connector Type']/..//span)[3]</ConnectorTypeDropdownAccess> 
   <ConnectorTypeSelectAccess>//li[text()='LC']</ConnectorTypeSelectAccess> 
   <Fibretype>//span[text()='Fibre Type']/..//input</Fibretype> 
   <FibreTypeDropdownAccess>(//span[text()='Fibre Type']/..//span)[3]</FibreTypeDropdownAccess> 
-  <FibreTypeSelectAccess>//li[text()='SingleMode 1310nm']</FibreTypeSelectAccess> 
+  <FibreTypeSelectAccess>//li[text()='value']</FibreTypeSelectAccess> 
   <Diversitytype>//span[text()='Diversity Type']/..//input</Diversitytype> 
   <Customerdedicatedaccessring>//span[text()='Customer Dedicated Access Ring']/..//input</Customerdedicatedaccessring> 
   <Accesstimewindow>//span[text()='Access Time Window']/..//input</Accesstimewindow> 

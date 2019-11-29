@@ -3195,8 +3195,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 
 			WaitforElementtobeclickable(xml.getlocator("//locators/PresentationInterfaceDropdownAccess"));
 			Clickon(getwebelement(xml.getlocator("//locators/PresentationInterfaceDropdownAccess")));
-			WaitforElementtobeclickable(xml.getlocator("//locators/PresentationInterfaceSelectAccess"));
-			Clickon(getwebelement(xml.getlocator("//locators/PresentationInterfaceSelectAccess")));
+			WaitforElementtobeclickable(xml.getlocator("//locators/PresentationInterfaceSelectAccess").replace("value", Inputdata[53].toString()));
+			Clickon(getwebelement(xml.getlocator("//locators/PresentationInterfaceSelectAccess").replace("value", Inputdata[53].toString())));
 			waitforAttributeloader();
 			waitforPagetobeenable();
 			
@@ -3209,8 +3209,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			
 			WaitforElementtobeclickable(xml.getlocator("//locators/FibreTypeDropdownAccess"));
 			Clickon(getwebelement(xml.getlocator("//locators/FibreTypeDropdownAccess")));
-			WaitforElementtobeclickable(xml.getlocator("//locators/FibreTypeSelectAccess"));
-			Clickon(getwebelement(xml.getlocator("//locators/FibreTypeSelectAccess")));
+			WaitforElementtobeclickable(xml.getlocator("//locators/FibreTypeSelectAccess").replace("value", Inputdata[55].toString()));
+			Clickon(getwebelement(xml.getlocator("//locators/FibreTypeSelectAccess").replace("value", Inputdata[55].toString())));
 			waitforAttributeloader();
 			waitforPagetobeenable();
 			
@@ -3598,8 +3598,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 
 			WaitforElementtobeclickable(xml.getlocator("//locators/PresentationInterfaceDropdownAccess"));
 			Clickon(getwebelement(xml.getlocator("//locators/PresentationInterfaceDropdownAccess")));
-			WaitforElementtobeclickable(xml.getlocator("//locators/PresentationInterfaceSelectAccess"));
-			Clickon(getwebelement(xml.getlocator("//locators/PresentationInterfaceSelectAccess")));
+			WaitforElementtobeclickable(xml.getlocator("//locators/PresentationInterfaceSelectAccess").replace("value", Inputdata[53].toString()));
+			Clickon(getwebelement(xml.getlocator("//locators/PresentationInterfaceSelectAccess").replace("value", Inputdata[53].toString())));
 			waitforAttributeloader();
 			waitforPagetobeenable();
 			
@@ -3612,8 +3612,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			
 			WaitforElementtobeclickable(xml.getlocator("//locators/FibreTypeDropdownAccess"));
 			Clickon(getwebelement(xml.getlocator("//locators/FibreTypeDropdownAccess")));
-			WaitforElementtobeclickable(xml.getlocator("//locators/FibreTypeSelectAccess"));
-			Clickon(getwebelement(xml.getlocator("//locators/FibreTypeSelectAccess")));
+			WaitforElementtobeclickable(xml.getlocator("//locators/FibreTypeSelectAccess").replace("value", Inputdata[55].toString()));
+			Clickon(getwebelement(xml.getlocator("//locators/FibreTypeSelectAccess").replace("value", Inputdata[55].toString())));
 			waitforAttributeloader();
 			waitforPagetobeenable();
 			
@@ -4126,8 +4126,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 
 			WaitforElementtobeclickable(xml.getlocator("//locators/PresentationInterfaceDropdownAccess"));
 			Clickon(getwebelement(xml.getlocator("//locators/PresentationInterfaceDropdownAccess")));
-			WaitforElementtobeclickable(xml.getlocator("//locators/PresentationInterfaceSelectAccess"));
-			Clickon(getwebelement(xml.getlocator("//locators/PresentationInterfaceSelectAccess")));
+			WaitforElementtobeclickable(xml.getlocator("//locators/PresentationInterfaceSelectAccess").replace("value", Inputdata[53].toString()));
+			Clickon(getwebelement(xml.getlocator("//locators/PresentationInterfaceSelectAccess").replace("value", Inputdata[53].toString())));
 			waitforAttributeloader();
 			waitforPagetobeenable();
 			// Clear(getwebelement(xml.getlocator("//locators/PhysicalInterface")));
@@ -4160,8 +4160,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			// Thread.sleep(8000);
 			WaitforElementtobeclickable(xml.getlocator("//locators/FibreTypeDropdownAccess"));
 			Clickon(getwebelement(xml.getlocator("//locators/FibreTypeDropdownAccess")));
-			WaitforElementtobeclickable(xml.getlocator("//locators/FibreTypeSelectAccess"));
-			Clickon(getwebelement(xml.getlocator("//locators/FibreTypeSelectAccess")));
+			WaitforElementtobeclickable(xml.getlocator("//locators/FibreTypeSelectAccess").replace("value", Inputdata[55].toString()));
+			Clickon(getwebelement(xml.getlocator("//locators/FibreTypeSelectAccess").replace("value", Inputdata[55].toString())));
 			waitforAttributeloader();
 			waitforPagetobeenable();
 			
@@ -5051,8 +5051,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 
 			WaitforElementtobeclickable(xml.getlocator("//locators/FibreTypeDropdownAccess"));
 			Clickon(getwebelement(xml.getlocator("//locators/FibreTypeDropdownAccess")));
-			WaitforElementtobeclickable(xml.getlocator("//locators/FibreTypeSelect"));
-			Clickon(getwebelement(xml.getlocator("//locators/FibreTypeSelect")));
+			WaitforElementtobeclickable(xml.getlocator("//locators/FibreTypeSelectAccess").replace("value", Inputdata[55].toString()));
+			Clickon(getwebelement(xml.getlocator("//locators/FibreTypeSelectAccess").replace("value", Inputdata[55].toString())));
 
 			WaitforElementtobeclickable(xml.getlocator("//locators/PortRoleDropDown"));
 			Clickon(getwebelement(xml.getlocator("//locators/PortRoleDropDown")));
@@ -8715,34 +8715,28 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			else
 			{
 			
-			WaitforElementtobeclickable(
-					xml.getlocator("//locators/DarkFiber/BEndSiteDropDown").replace("Value", "Access Technology"));
-			Clickon(getwebelement(
-					xml.getlocator("//locators/DarkFiber/BEndSiteDropDown").replace("Value", "Access Technology")));
-//
-//			WaitforElementtobeclickable(xml.getlocator("//locators/DarkFiber/AList").replace("Value", "NA"));
-//			Clickon(getwebelement(xml.getlocator("//locators/DarkFiber/AList").replace("Value", "NA")));
-//			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Access Technology : NA ");
-			WaitforElementtobeclickable(xml.getlocator("//locators/DarkFiber/BList").replace("Value", InputData[83].toString()));
-			Clickon(getwebelement(
-					xml.getlocator("//locators/DarkFiber/BList").replace("Value", InputData[83].toString())));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Access Type : " + InputData[83].toString());
+				WaitforElementtobeclickable(
+						xml.getlocator("//locators/DarkFiber/BEndSiteDropDown").replace("Value", "Access Technology"));
+						Clickon(getwebelement(xml.getlocator("//locators/DarkFiber/BEndSiteDropDown").replace("Value", "Access Technology")));
+						//
+						// WaitforElementtobeclickable(xml.getlocator("//locators/DarkFiber/AList").replace("Value", "NA"));
+						// Clickon(getwebelement(xml.getlocator("//locators/DarkFiber/AList").replace("Value", "NA")));
+						// ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Access Technology : NA ");
+						WaitforElementtobeclickable(xml.getlocator("//locators/DarkFiber/BList").replace("Value", InputData[83].toString()));
+						Clickon(getwebelement(xml.getlocator("//locators/DarkFiber/BList").replace("Value", InputData[83].toString())));
+						ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Access Type : " + InputData[83].toString());
 
-			WaitforElementtobeclickable(
-					xml.getlocator("//locators/DarkFiber/BEndSiteDropDown").replace("Value", "Access Type"));
-			Clickon(getwebelement(
-					xml.getlocator("//locators/DarkFiber/BEndSiteDropDown").replace("Value", "Access Type")));
+						WaitforElementtobeclickable(xml.getlocator("//locators/DarkFiber/BEndSiteDropDown").replace("Value", "Access Type"));
+						Clickon(getwebelement(xml.getlocator("//locators/DarkFiber/BEndSiteDropDown").replace("Value", "Access Type")));
 
-//			WaitforElementtobeclickable(xml.getlocator("//locators/DarkFiber/AList").replace("Value", "Colt Fibre"));
-//			Clickon(getwebelement(xml.getlocator("//locators/DarkFiber/AList").replace("Value", "Colt Fibre")));
-//			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Colt Fibre ");
-			WaitforElementtobeclickable(
-					xml.getlocator("//locators/DarkFiber/BList").replace("Value", InputData[42].toString()));
-			Clickon(getwebelement(
-					xml.getlocator("//locators/DarkFiber/BList").replace("Value", InputData[42].toString())));
-			ExtentTestManager.getTest().log(LogStatus.PASS,
-					" Step: Select Access Technology : " + InputData[42].toString());
-			WaitforElementtobeclickable(xml.getlocator("//locators/DarkFiber/BEndSiteDropDown").replace("Value",
+						// WaitforElementtobeclickable(xml.getlocator("//locators/DarkFiber/AList").replace("Value", "Colt Fibre"));
+						// Clickon(getwebelement(xml.getlocator("//locators/DarkFiber/AList").replace("Value", "Colt Fibre")));
+						// ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Colt Fibre ");
+						WaitforElementtobeclickable(xml.getlocator("//locators/DarkFiber/BList").replace("Value", InputData[84].toString()));
+						Clickon(getwebelement(xml.getlocator("//locators/DarkFiber/BList").replace("Value", InputData[84].toString())));
+						ExtentTestManager.getTest().log(LogStatus.PASS,
+						" Step: Select Access Technology : " + InputData[84].toString());
+						WaitforElementtobeclickable(xml.getlocator("//locators/DarkFiber/BEndSiteDropDown").replace("Value",
 					"Demarcation Device Required"));
 			Clickon(getwebelement(xml.getlocator("//locators/DarkFiber/BEndSiteDropDown").replace("Value",
 					"Demarcation Device Required")));
@@ -10872,7 +10866,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 
 			Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Third Party Access Provider")));
 			Thread.sleep(3000);
-			Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", "BIRMINGHAM INT AIRPORT(UK)")));
+			Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", "VODAFONE(UK)")));
 			waitforAttributeloader();
 			waitforPagetobeenable();
 
