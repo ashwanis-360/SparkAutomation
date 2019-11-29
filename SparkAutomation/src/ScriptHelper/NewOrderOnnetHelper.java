@@ -1984,10 +1984,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			// Thread.sleep(5000);
 
 			//R5DataCoverage Changing CodeC values from Excel
-			Clickon(getwebelement(xml.getlocator("//locators/ClickDropdown").replace("Value", "Incoming DDI Digits")));
-			Clickon(getwebelement(xml.getlocator("//locators/SelectValueDropdown").replace("Value", Inputdata[27].toString())));
-			//
-
+			
 			Clickon(getwebelement(xml.getlocator("//locators/ClickDropdown").replace("Value", "First Codec")));
 			//Clickon(getwebelement(xml.getlocator("//locators/SelectValueDropdown").replace("Value", "G.722.1")));
 			Clickon(getwebelement(xml.getlocator("//locators/R4/SiteABSelection").replace("Value", Inputdata[30].toString())));
