@@ -1983,41 +1983,54 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			// Clickon(getwebelement(xml.getlocator("//locators/CLIBillingChkBox")));
 			// Thread.sleep(5000);
 
+			//R5DataCoverage Changing CodeC values from Excel
+			Clickon(getwebelement(xml.getlocator("//locators/ClickDropdown").replace("Value", "Incoming DDI Digits")));
+			Clickon(getwebelement(xml.getlocator("//locators/SelectValueDropdown").replace("Value", Inputdata[27].toString())));
+			//
+
 			Clickon(getwebelement(xml.getlocator("//locators/ClickDropdown").replace("Value", "First Codec")));
-			Clickon(getwebelement(xml.getlocator("//locators/SelectValueDropdown").replace("Value", "G.722.1")));
+			//Clickon(getwebelement(xml.getlocator("//locators/SelectValueDropdown").replace("Value", "G.722.1")));
+			Clickon(getwebelement(xml.getlocator("//locators/R4/SiteABSelection").replace("Value", Inputdata[30].toString())));
 
 			Clickon(getwebelement(xml.getlocator("//locators/ClickLink").replace("Value", "Show More")));
 			Thread.sleep(3000);
 
 			Clickon(getwebelement(xml.getlocator("//locators/ClickDropdown").replace("Value", "Second Codec")));
-
 			// System.out.println(xml.getlocator("//locators/SelectValueDropdown").replace("Value",
 			// "G.722.1")+"[2]");
-			Clickon(getwebelement(
-					xml.getlocator("//locators/SelectValueDropdown").replace("Value", "G.722.1") + "[2]"));
+			//Clickon(getwebelement(xml.getlocator("//locators/SelectValueDropdown").replace("Value", "G.722.1") + "[2]"));
+			Clickon(getwebelement(xml.getlocator("//locators/R4/SiteABSelection").replace("Value", Inputdata[31].toString())));
 
 			Clickon(getwebelement(xml.getlocator("//locators/ClickDropdown").replace("Value", "Third Codec")));
 			Thread.sleep(2000);
-			Clickon(getwebelement(
-					xml.getlocator("//locators/SelectValueDropdown").replace("Value", "G.722.1") + "[3]"));
+			//Clickon(getwebelement(xml.getlocator("//locators/SelectValueDropdown").replace("Value", "G.722.1") + "[3]"));
+			Clickon(getwebelement(xml.getlocator("//locators/R4/SiteABSelection").replace("Value", Inputdata[32].toString())));
 
-			Clear(getwebelement(xml.getlocator("//locators/TextInput").replace("Value", "Fourth Codec")));
-			SendKeys(getwebelement(xml.getlocator("//locators/TextInput").replace("Value", "Fourth Codec")), "G.726");
-			SendkeaboardKeys(getwebelement(xml.getlocator("//locators/TextInput").replace("Value", "Fourth Codec")),
-					Keys.ENTER);
+			//Clear(getwebelement(xml.getlocator("//locators/TextInput").replace("Value", "Fourth Codec")));
+			//SendKeys(getwebelement(xml.getlocator("//locators/TextInput").replace("Value", "Fourth Codec")), "G.729");
+			//SendkeaboardKeys(getwebelement(xml.getlocator("//locators/TextInput").replace("Value", "Fourth Codec")),Keys.ENTER);
 
-			Clear(getwebelement(xml.getlocator("//locators/TextInput").replace("Value", "Fifth Codec")));
-			SendKeys(getwebelement(xml.getlocator("//locators/TextInput").replace("Value", "Fifth Codec")), "G.729a");
-			SendkeaboardKeys(getwebelement(xml.getlocator("//locators/TextInput").replace("Value", "Fifth Codec")),
-					Keys.ENTER);
-
-			Clear(getwebelement(xml.getlocator("//locators/TextInput").replace("Value", "Sixth Codec")));
-			SendKeys(getwebelement(xml.getlocator("//locators/TextInput").replace("Value", "Sixth Codec")),
-					"iLBC end to end IP only");
-			SendkeaboardKeys(getwebelement(xml.getlocator("//locators/TextInput").replace("Value", "Sixth Codec")),
-					Keys.ENTER);
+			Clickon(getwebelement(xml.getlocator("//locators/ClickDropdown").replace("Value", "Fourth Codec")));
 			Thread.sleep(2000);
+			Clickon(getwebelement(xml.getlocator("//locators/R4/SiteABSelection").replace("Value", Inputdata[33].toString())));
 
+			//Clear(getwebelement(xml.getlocator("//locators/TextInput").replace("Value", "Fifth Codec")));
+			//SendKeys(getwebelement(xml.getlocator("//locators/TextInput").replace("Value", "Fifth Codec")), "G.729");
+			//SendkeaboardKeys(getwebelement(xml.getlocator("//locators/TextInput").replace("Value", "Fifth Codec")),Keys.ENTER);
+
+			Clickon(getwebelement(xml.getlocator("//locators/ClickDropdown").replace("Value", "Fifth Codec")));
+			Thread.sleep(2000);
+			Clickon(getwebelement(xml.getlocator("//locators/R4/SiteABSelection").replace("Value", Inputdata[34].toString())));
+
+			//Clear(getwebelement(xml.getlocator("//locators/TextInput").replace("Value", "Sixth Codec")));
+			//SendKeys(getwebelement(xml.getlocator("//locators/TextInput").replace("Value", "Sixth Codec")), "G.729");
+			//SendkeaboardKeys(getwebelement(xml.getlocator("//locators/TextInput").replace("Value", "Sixth Codec")),Keys.ENTER);
+			Clickon(getwebelement(xml.getlocator("//locators/ClickDropdown").replace("Value", "Sixth Codec")));
+			Thread.sleep(2000);
+			Clickon(getwebelement(xml.getlocator("//locators/R4/SiteABSelection").replace("Value", Inputdata[35].toString())));
+			Thread.sleep(5000);
+
+			
 			Clickon(getwebelement(xml.getlocator("//locators/ClickToShowFullInfo")));
 			Thread.sleep(8000);
 			// Clickon(getwebelement(xml.getlocator("//locators/TextBoxSiteContact")));
