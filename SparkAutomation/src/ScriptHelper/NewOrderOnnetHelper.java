@@ -3928,7 +3928,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				Clickon(getwebelement(xml.getlocator("//locators/AccessTypeDropdownAccess")));
 				WaitforElementtobeclickable(xml.getlocator("//locators/DarkFiber/MiddleLi").replace("Value", Inputdata[42].toString()));
 				Clickon(getwebelement(xml.getlocator("//locators/DarkFiber/MiddleLi").replace("Value", Inputdata[42].toString())));
-				SendkeaboardKeys(getwebelement(xml.getlocator("//locators/DarkFiber/MiddleLi").replace("Value", Inputdata[42].toString())), Keys.TAB);
+				//SendkeaboardKeys(getwebelement(xml.getlocator("//locators/DarkFiber/MiddleLi").replace("Value", Inputdata[42].toString())), Keys.TAB);
 				waitForpageload();
 				waitforPagetobeenable();
 				Thread.sleep(2000);
