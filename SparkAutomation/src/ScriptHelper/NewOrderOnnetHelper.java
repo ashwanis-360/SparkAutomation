@@ -11733,7 +11733,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Password");
 				dr.findElement(By.name("login")).click();
 				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Login Button");
-				dr.findElement(By.className("text sr")).sendKeys(CeosOrder.get().toString());
+				dr.findElement(By.xpath("//*[contains(@class,'sr')]")).sendKeys(CeosOrder.get().toString());
 				
 				//Clickon(getwebelement(xml.getlocator("//locators/InputServiceOrder")));
 				//SendKeys(getwebelement(xml.getlocator("//locators/InputServiceOrder")), CeosOrder.get().toString());*/
