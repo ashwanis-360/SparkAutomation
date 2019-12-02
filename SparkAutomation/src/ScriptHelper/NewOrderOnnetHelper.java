@@ -3769,17 +3769,20 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			WaitforElementtobeclickable(xml.getlocator("//locators/Layer3ResillanceSelectDropdownAccess"));
 			Clickon(getwebelement(xml.getlocator("//locators/Layer3ResillanceSelectDropdownAccess")));
 			waitforAttributeloader();
+			waitForpageload();
 			waitforPagetobeenable();
 			// getwebelement(xml.getlocator("//locators/Layer3ResillanceDropdownAccess")).clear();
 			// SendKeys(getwebelement(xml.getlocator("//locators/Inputlayer3resillence")),Inputdata[39].toString());
 			// SendkeaboardKeys(getwebelement(xml.getlocator("//locators/Inputlayer3resillence")),Keys.ENTER);
 			// SendkeaboardKeys(getwebelement(xml.getlocator("//locators/Inputlayer3resillence")),Keys.TAB);
-			// Thread.sleep(4000);
+			 Thread.sleep(4000);
+			 waitForpageload();
+			 waitforPagetobeenable();
 
 			WaitforElementtobeclickable(xml.getlocator("//locators/ServiceBandwidthDropdownAccess"));
 			Clickon(getwebelement(xml.getlocator("//locators/ServiceBandwidthDropdownAccess")));
-			WaitforElementtobeclickable(xml.getlocator("//locators/ServiceBandwidthSelectAccess"));
-			Clickon(getwebelement(xml.getlocator("//locators/ServiceBandwidthSelectAccess")));
+			WaitforElementtobeclickable(xml.getlocator("//locators/ServiceBandwidthSelectAccess").replace("value", Inputdata[40].toString()));
+			Clickon(getwebelement(xml.getlocator("//locators/ServiceBandwidthSelectAccess").replace("value", Inputdata[40].toString())));
 			waitforAttributeloader();
 			waitforPagetobeenable();
 			// getwebelement(xml.getlocator("//locators/ServiceBandwidthIPAccess")).clear();
@@ -3793,7 +3796,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			WaitforElementtobeclickable((xml.getlocator("//locators/ClickheretoSaveAccess")));
 			// WaitforElementtobeclickable(xml.getlocator("//locators/IpGurdianSave"));
 			Clickon(getwebelement(xml.getlocator("//locators/ClickheretoSaveAccess")));
-
+			waitForpageload();
 			waitforPagetobeenable();
 
 			// Pagerefresh();
@@ -3907,22 +3910,31 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			
 			if (Inputdata[74].toString().equals("Offnet"))
 			{
-				/*WaitforElementtobeclickable(xml.getlocator("//locators/CustomerSitePopStatusDropdownAccess"));
+				WaitforElementtobeclickable(xml.getlocator("//locators/CustomerSitePopStatusDropdownAccess"));
 				Clickon(getwebelement(xml.getlocator("//locators/CustomerSitePopStatusDropdownAccess")));
-				WaitforElementtobeclickable(xml.getlocator("//locators/Customersitepopupstatusoffnet"));
-				Clickon(getwebelement(xml.getlocator("//locators/Customersitepopupstatusoffnet")));*/
-				
-				WaitforElementtobeclickable(xml.getlocator("//locators/AccessTypeDropdownAccess"));
-				Clickon(getwebelement(xml.getlocator("//locators/AccessTypeDropdownAccess")));
 				if (Inputdata[179].toString().contains("SLA"))  {
-					WaitforElementtobeclickable(xml.getlocator("//locators/DarkFiber/MiddleLi").replace("Value", Inputdata[42].toString()));
-					Clickon(getwebelement(xml.getlocator("//locators/DarkFiber/MiddleLi").replace("Value", Inputdata[42].toString())));
+				
+				WaitforElementtobeclickable(xml.getlocator("//locators/DarkFiber/MiddleLi").replace("Value", Inputdata[46].toString()));
+				Clickon(getwebelement(xml.getlocator("//locators/DarkFiber/MiddleLi").replace("Value", Inputdata[46].toString())));
 				}
 				else {
-				WaitforElementtobeclickable(xml.getlocator("//locators/AccesstypeOffnet").replace("AccessTypeValue", Inputdata[42].toString()));
-				Clickon(getwebelement(xml.getlocator("//locators/AccesstypeOffnet").replace("AccessTypeValue", Inputdata[42].toString())));
+					WaitforElementtobeclickable(xml.getlocator("//locators/Customersitepopupstatusoffnet"));
+					Clickon(getwebelement(xml.getlocator("//locators/Customersitepopupstatusoffnet")));	
 				}
+				waitForpageload();
+				waitforPagetobeenable();
+				Thread.sleep(2000);
+				WaitforElementtobeclickable(xml.getlocator("//locators/AccessTypeDropdownAccess"));
+				Clickon(getwebelement(xml.getlocator("//locators/AccessTypeDropdownAccess")));
+				WaitforElementtobeclickable(xml.getlocator("//locators/DarkFiber/MiddleLi").replace("Value", Inputdata[42].toString()));
+				Clickon(getwebelement(xml.getlocator("//locators/DarkFiber/MiddleLi").replace("Value", Inputdata[42].toString())));
+				SendkeaboardKeys(getwebelement(xml.getlocator("//locators/DarkFiber/MiddleLi").replace("Value", Inputdata[42].toString())), Keys.TAB);
+				waitForpageload();
+				waitforPagetobeenable();
+				Thread.sleep(2000);
 				
+				//WaitforElementtobeclickable(xml.getlocator("//locators/AccesstypeOffnet").replace("AccessTypeValue", Inputdata[42].toString()));
+				//Clickon(getwebelement(xml.getlocator("//locators/AccesstypeOffnet").replace("AccessTypeValue", Inputdata[42].toString())));
 				WaitforElementtobeclickable(xml.getlocator("//locators/ThirdpartyaccessproviderDropDown"));
 				Clickon(getwebelement(xml.getlocator("//locators/ThirdpartyaccessproviderDropDown")));
 				if (Inputdata[179].toString().contains("SLA"))  {
@@ -3935,9 +3947,10 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				}				
 				Clickon(getwebelement(xml.getlocator("//locators/Thirdpartyconectionreference")));
 				SendKeys(getwebelement(xml.getlocator("//locators/Thirdpartyconectionreference")),Inputdata[44].toString());
-				
+				if (!Inputdata[42].toString().equalsIgnoreCase("ULL Fibre")) {
 				WaitforElementtobeclickable(xml.getlocator("//locators/ThirdpartyDropDown"));
 				Clickon(getwebelement(xml.getlocator("//locators/ThirdpartyDropDown")));
+				
 				if (Inputdata[179].toString().contains("SLA"))  {
 					WaitforElementtobeclickable(xml.getlocator("//locators/DarkFiber/MiddleLi").replace("Value", Inputdata[35].toString()));
 					Clickon(getwebelement(xml.getlocator("//locators/DarkFiber/MiddleLi").replace("Value", Inputdata[35].toString())));
@@ -3947,7 +3960,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				WaitforElementtobeclickable(xml.getlocator("//locators/ThirdpartySLATiervalue").replace("SLAValue", Inputdata[35].toString()));
 				Clickon(getwebelement(xml.getlocator("//locators/ThirdpartySLATiervalue").replace("SLAValue", Inputdata[35].toString())));
 				}
-					
+				}	
 				WaitforElementtobeclickable((xml.getlocator("//locators/ClickheretoSaveAccess")));
 				WaitforElementtobeclickable(xml.getlocator("//locators/IpGurdianSave"));
 				Clickon(getwebelement(xml.getlocator("//locators/ClickheretoSaveAccess")));
@@ -4046,8 +4059,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			Clickon(getwebelement(xml.getlocator("//locators/ClickheretoSaveAccess")));
 			waitForpageload();
 			waitforPagetobeenable();
-			WaitforElementtobeclickable((xml.getlocator("//locators/AlertAccept")));
-			Clickon(getwebelement(xml.getlocator("//locators/AlertAccept")));
+			//WaitforElementtobeclickable((xml.getlocator("//locators/AlertAccept")));
+			//Clickon(getwebelement(xml.getlocator("//locators/AlertAccept")));
 
 			// AcceptJavaScriptMethod();
 			Thread.sleep(3000);
@@ -4229,11 +4242,11 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			// Clear(getwebelement(xml.getlocator("//locators/Routerspecification")));
 			// SendKeys(getwebelement(xml.getlocator("//locators/Routerspecification")),
 			// Inputdata[0].toString());
-
-			WaitforElementtobeclickable(xml.getlocator("//locators/RouterCountryAccess"));
+			/* Commented below four lines as Router Country is not required and creating issue with site name */
+			/*WaitforElementtobeclickable(xml.getlocator("//locators/RouterCountryAccess"));
 			Clear(getwebelement(xml.getlocator("//locators/RouterCountryAccess")));
 			SendKeys(getwebelement(xml.getlocator("//locators/RouterCountryAccess")), Inputdata[58].toString());
-			SendkeaboardKeys(getwebelement(xml.getlocator("//locators/RouterCountryAccess")), Keys.TAB);
+			SendkeaboardKeys(getwebelement(xml.getlocator("//locators/RouterCountryAccess")), Keys.TAB);*/
 			waitforAttributeloader();
 			waitforPagetobeenable();
 			Thread.sleep(10000);
@@ -9748,9 +9761,9 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				Clear(getwebelement(xml.getlocator("//locators/Thirdpartyconectionreference")));
 				Clickon(getwebelement(xml.getlocator("//locators/Thirdpartyconectionreference")));
 				SendKeys(getwebelement(xml.getlocator("//locators/Thirdpartyconectionreference")),"no colt reference");
-				//WaitforElementtobeclickable(xml.getlocator("//locators/DarkFiber/AEndSiteDropDown").replace("Value", "Install Time"));
-				//Clickon(getwebelement(xml.getlocator("//locators/DarkFiber/AEndSiteDropDown").replace("Value", "Install Time")));
-				//Thread.sleep(2000);
+				WaitforElementtobeclickable(xml.getlocator("//locators/DarkFiber/AEndSiteDropDown").replace("Value", "Third Party SLA Tier"));
+				Clickon(getwebelement(xml.getlocator("//locators/DarkFiber/AEndSiteDropDown").replace("Value", "Third Party SLA Tier")));
+				Thread.sleep(2000);
 				WaitforElementtobeclickable(xml.getlocator("//locators/DarkFiber/MiddleLi").replace("Value", InputData[35].toString()));
 				Clickon(getwebelement(xml.getlocator("//locators/DarkFiber/MiddleLi").replace("Value", InputData[35].toString())));
 				
@@ -9902,13 +9915,14 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		if(InputData[74].toString().contains("Offnet"))
 		{
 			 System.out.println("Enter into offnet part of B end site");
-			WaitforElementtobeclickable(xml.getlocator("//locators/AccesstypedropdownB"));
-			Clickon(getwebelement(xml.getlocator("//locators/AccesstypedropdownB")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select B end access type");
+			 /* Commented below line as fields are disable right now but need in future whenever it is fixed*/
+			 //WaitforElementtobeclickable(xml.getlocator("//locators/AccesstypedropdownB"));
+			//Clickon(getwebelement(xml.getlocator("//locators/AccesstypedropdownB")));
+			//ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select B end access type");
 			//WaitforElementtobeclickable(xml.getlocator("//locators/AccesstypeOffnet")+"[1]");
 			//Clickon(getwebelement(xml.getlocator("//locators/AccesstypeOffnet")+"[1]"));
-			WaitforElementtobeclickable(xml.getlocator("//locators/AccesstypeOffnet").replace("AccessTypeValue", InputData[42].toString()));
-			Clickon(getwebelement(xml.getlocator("//locators/AccesstypeOffnet").replace("AccessTypeValue", InputData[42].toString())));
+			//WaitforElementtobeclickable(xml.getlocator("//locators/AccesstypeOffnet").replace("AccessTypeValue", InputData[42].toString()));
+			//Clickon(getwebelement(xml.getlocator("//locators/AccesstypeOffnet").replace("AccessTypeValue", InputData[42].toString())));
 			
 			WaitforElementtobeclickable((xml.getlocator("//locators/IpGurdianSave")));
 		    Clickon(getwebelement(xml.getlocator("//locators/IpGurdianSave")));
@@ -9932,8 +9946,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			
 		    
 		    //for 3rd party connection provider//
-			
-			WaitforElementtobeclickable(xml.getlocator("//locators/ThirdpartyaccessproviderDropDownB"));
+			/* Commented below line as fields are disable right now but need in future whenever it is fixed*/
+			/*WaitforElementtobeclickable(xml.getlocator("//locators/ThirdpartyaccessproviderDropDownB"));
 			Clickon(getwebelement(xml.getlocator("//locators/ThirdpartyaccessproviderDropDownB")));
 			WaitforElementtobeclickable(xml.getlocator("//locators/ThirdpartyaccessProvidervalue").replace("value", InputData[187].toString()));
 			Clickon(getwebelement(xml.getlocator("//locators/ThirdpartyaccessProvidervalue").replace("value", InputData[187].toString())));
@@ -9949,7 +9963,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			//WaitforElementtobeclickable(xml.getlocator("//locators/ThirdpartySLATiervalueultra").replace("value", "1"));
 			//Clickon(getwebelement(xml.getlocator("//locators/ThirdpartySLATiervalueultra").replace("value", "1")));
 			WaitforElementtobeclickable(xml.getlocator("//locators/ThirdpartySLATiervalue").replace("SLAValue", InputData[35].toString()));
-			Clickon(getwebelement(xml.getlocator("//locators/ThirdpartySLATiervalue").replace("SLAValue", InputData[35].toString())));
+			Clickon(getwebelement(xml.getlocator("//locators/ThirdpartySLATiervalue").replace("SLAValue", InputData[35].toString())));*/
 			
 			WaitforElementtobeclickable(xml.getlocator("//locators/IpGurdianSave"));
 		    Clickon(getwebelement(xml.getlocator("//locators/IpGurdianSave")));
