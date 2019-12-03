@@ -1,4 +1,5 @@
 package ScriptHelper;
+import java.util.Map.Entry;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 import java.awt.Robot;
@@ -11518,7 +11519,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		Thread.sleep(3000);
 	}
 	//Added by aman gupta
-		public void alertPopUp() throws DocumentException, InterruptedException
+	public void alertPopUp() throws DocumentException, InterruptedException
 		{
 			if (isDisplayed((xml.getlocator("//locators/AlertAccept")))) {
 				WaitforElementtobeclickable((xml.getlocator("//locators/AlertAccept")));
@@ -11530,7 +11531,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 	 * Created by Aman
 	 */
 		
-		public void settingUltraLowLatency(Object[] Inputdata) throws Exception
+	public void settingUltraLowLatency(Object[] Inputdata) throws Exception
 	    {
 		  
 	    	waitForpageload();
@@ -11562,7 +11563,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 	 * Created by Aman
 	 */
 		
-		public void OperationalAttributeUltra(Object[] Inputdata) throws Exception {
+	public void OperationalAttributeUltra(Object[] Inputdata) throws Exception {
 			 savePage();
 //			   waitForpageload();
 //		    	waitforPagetobeenable();
@@ -11603,7 +11604,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 	/*
 	 * Created by Rekha
 	 */
-		public void Carnor_getReferenceNo1(Object[] Inputdata) throws Exception, Exception {
+	public void Carnor_getReferenceNo1(Object[] Inputdata) throws Exception, Exception {
 			if (Inputdata[8].toString().equalsIgnoreCase("Ethernet VPN Access")
 			|| Inputdata[8].toString().equalsIgnoreCase("Dark Fibre")
 			|| Inputdata[8].toString().equalsIgnoreCase("Ultra Low Latency")
@@ -11647,7 +11648,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			
 	}
 		
-		public void Carnor_getReferenceNo(Object[] Inputdata) throws Exception, Exception {
+	public void Carnor_getReferenceNo(Object[] Inputdata) throws Exception, Exception {
 			if (Inputdata[8].toString().equalsIgnoreCase("Ethernet VPN Access")
 			|| Inputdata[8].toString().equalsIgnoreCase("Dark Fibre")
 			|| Inputdata[8].toString().equalsIgnoreCase("Ultra Low Latency")
@@ -11675,7 +11676,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			}
 		}
 			
-			public void CEOS_Offnet() throws Exception {
+	public void CEOS_Offnet() throws Exception {
 				
 				try
 				{
@@ -11705,7 +11706,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 					//	" Step: Generated Ceos Order Reference No: " + CeosOrder.get());
 			}
 			
-			public void LaunchingCEOSApplication(Object Inputdata[]) throws Exception {
+	public void LaunchingCEOSApplication(Object Inputdata[]) throws Exception {
 				
 				DesiredCapabilities capabilities = DesiredCapabilities.internetExplorer();
 				capabilities.setCapability(CapabilityType.BROWSER_NAME, "internet explorer");
@@ -11876,8 +11877,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 								
 			}
 		
-		//Added by Aman
-		public void CheckServiceTab(Object[] Inputdata) throws Exception {
+	//Added by Aman
+	public void CheckServiceTab(Object[] Inputdata) throws Exception {
 			waitforPagetobeenable();
 			Thread.sleep(3000);
 		
@@ -11961,13 +11962,13 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			waitforPagetobeenable();
 		}
 		
-		private String RandomName()
+	private String RandomName()
 		{
 			String[] BuildNames= {"APIAutomation","Automation","Selenium","Chrome","Opera","Safari","FireFox","Ghost","Edge"};
 			int index=rnd.nextInt(BuildNames.length);
 			return BuildNames[index];
 		}
-		public void ClickSection(String SectionName) throws InterruptedException, DocumentException
+	public void ClickSection(String SectionName) throws InterruptedException, DocumentException
 		{
 			String temp=xml.getlocator("//locators/SectionSelection").replace("Value",SectionName);
 			System.out.println(temp);
@@ -12040,7 +12041,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		}
    // Added By Abhay 
 		 
-		 public void PartialTab(Object[] Inputdata) throws Exception {
+	public void PartialTab(Object[] Inputdata) throws Exception {
 				waitforPagetobeenable();
 				waitForpageload();
 				
@@ -12074,7 +12075,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				
 				
 			}
-		 public void PartialDeliveryAttachment(Object[] Inputdata) throws IOException, InterruptedException, DocumentException {
+	public void PartialDeliveryAttachment(Object[] Inputdata) throws IOException, InterruptedException, DocumentException {
 				waitforPagetobeenable();
 				Select(getwebelement(xmlIP.getlocator("//locators/tabDropdown")), "Attachments");
 				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Attachments Tab Selected");
@@ -12092,7 +12093,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Partial Delivery File Type Selected");
 
 			}
-		 public void PartialDeliverySite(Object[] Inputdata) throws Exception {
+	public void PartialDeliverySite(Object[] Inputdata) throws Exception {
 				Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value","Layer 3 Resilience")));
 				Thread.sleep(2000);
 				if (!Inputdata[11].equals("IP VPN Wholesale")) {
@@ -12483,7 +12484,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				waitforPagetobeenable();
 				Thread.sleep(3000);
 			}
-		 public void OperationalAttributesforIPVPNPartial(Object[] Inputdata) throws Exception {
+	public void OperationalAttributesforIPVPNPartial(Object[] Inputdata) throws Exception {
 				savePage();
 				waitforPagetobeenable();
 				WaitforElementtobeclickable(xml.getlocator("//locators/IPVPNSite/ClickLink").replace("Value", "Sites"));
@@ -12532,7 +12533,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				savePage();
 				Thread.sleep(5000);
 			}
-		 public void EnterInstallationChargeInFooterPartial(Object Inputdata[]) throws Exception {
+	public void EnterInstallationChargeInFooterPartial(Object Inputdata[]) throws Exception {
 				Select(getwebelement(xml.getlocator("//locators/InstalltionDropdown")), "Installation and Test");
 				ExtentTestManager.getTest().log(LogStatus.PASS,
 						" Step: Click on Installation Dropdown button and Select Installation and Test");
@@ -12554,7 +12555,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 					Thread.sleep(3000);
 			}
 			
-		 public void PartialCompletedValidation(Object[] Inputdata) throws Exception {
+	public void PartialCompletedValidation(Object[] Inputdata) throws Exception {
 				waitforPagetobeenable();
 
 				if (Inputdata[8].toString().equals("IP VPN Service"))// **Start** Added By Abhay dated 28-Sep-2019
@@ -12724,7 +12725,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			 * Created By: Dipesh Jain
 			 */
 				 
-			public void openAsset() throws InterruptedException, DocumentException, IOException {
+	public void openAsset() throws InterruptedException, DocumentException, IOException {
 				waitForpageload();
 				waitforPagetobeenable();
 				WaitforElementtobeclickable(xml.getlocator("//locators/AssetButton"));
@@ -12750,7 +12751,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			 * Created By: Dipesh Jain
 			 */
 				 
-			public void validateSlaMatrix(Object[] Inputdata) throws InterruptedException, DocumentException, IOException {
+	public void validateSlaMatrix(Object[] Inputdata) throws InterruptedException, DocumentException, IOException {
 				
 				if (Inputdata[179].toString().contains("SLA")) {
 						openAsset();
@@ -12780,7 +12781,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				}
 						
 			}
-			 public void LaunchingXNGApplication(Object Inputdata[]) throws Exception {
+	public void LaunchingXNGApplication(Object Inputdata[]) throws Exception {
 					
 				 DesiredCapabilities capabilities = DesiredCapabilities.internetExplorer();
 					capabilities.setCapability(CapabilityType.BROWSER_NAME, "internet explorer");
@@ -12947,7 +12948,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			
 					}
 			 
-			 public void CarnorCompletedValidation(Object[] Inputdata) throws Exception {
+	public void CarnorCompletedValidation(Object[] Inputdata) throws Exception {
 					waitforPagetobeenable();
 					savePage();
 					waitforPagetobeenable();
@@ -12999,7 +13000,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 					
 				}
 
-			 public void AbandonedforIPVPN(Object[] Inputdata) throws Exception {
+	public void AbandonedforIPVPN(Object[] Inputdata) throws Exception {
 				 waitforPagetobeenable();
 					savePage();
 					waitforPagetobeenable();
@@ -13040,7 +13041,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				 
 			 }
 		 }
-			 public void CompletedValidationforCancel(Object[] Inputdata) throws Exception {
+	public void CompletedValidationforCancel(Object[] Inputdata) throws Exception {
 					waitforPagetobeenable();
 					savePage();
 					waitforPagetobeenable();
@@ -13150,7 +13151,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 	 * New method added to open Service order
 	 */
 			 
-			 public void openServiceOrder(Object[] Inputdata) throws Exception {
+	public void openServiceOrder(Object[] Inputdata) throws Exception {
 					Thread.sleep(5000);
 				
 					try {
@@ -13175,7 +13176,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			 * Created by: Dipesh
 			 * Purpose: Validate Xtrac workflows for Commercial Validation and Deliver 
 			 */
-				 public void validateXtrac() throws InterruptedException, DocumentException
+	public void validateXtrac() throws InterruptedException, DocumentException
 					{
 					 Thread.sleep(30000);
 						Clickon(getwebelement("//a[text()='Workflows']"));
@@ -13205,258 +13206,330 @@ public class NewOrderOnnetHelper extends DriverHelper {
 					 * Created by: Dipesh
 					 * Purpose: Validate Xtrac workflows for completed order
 					 */
-				 public void validateXtracComplete() throws InterruptedException, DocumentException
-					{
-					 Thread.sleep(5000);
-						Clickon(getwebelement("//a[text()='Workflows']"));
-						Thread.sleep(3000);
-						ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click workflows  Link");
-						List<WebElement> wb = GetWebElements("//table[@summary='Workflow']/tbody/tr/following-sibling::tr/td/following-sibling::td/following-sibling::td[contains(@id,'EXTERNAL_URL')]");
-						List<WebElement> statusWf = GetWebElements("//table[@summary=\"Workflow\"]/tbody/tr/following-sibling::tr/td/following-sibling::td[contains(@id,\"Workflow_Status\")]");
-						int rowCount = getwebelementscount("//table[@summary='Workflow']/tbody/tr/following-sibling::tr");
-						ExtentTestManager.getTest().log(LogStatus.INFO, " Step: Total Workflow available : "+rowCount);
-														
-						for(int i=0;i<rowCount;i++){
-							if(wb.get(i).isDisplayed()){
-								ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Workflow from xtrac is displayed in row no. : "+i);
-							}
-							else{
-								ExtentTestManager.getTest().log(LogStatus.FAIL, " Step: Workflow from xtrac is not displayed in row no. : "+i);
-							}
-							
-							if(GetText(statusWf.get(i)).equalsIgnoreCase("Completed")){
-								ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Workflow status is displayed as Completed ");
-							}
-							else{
-								ExtentTestManager.getTest().log(LogStatus.FAIL, " Step: Workflow status is not displayed as Completed");
-							}
-							
-							
-						}
-					}
-			 
-				 public void CompletedValidation_offnet(Object[] Inputdata) throws Exception {
-					 waitforPagetobeenable();
-					 savePage();
-					 waitforPagetobeenable();
-					 Thread.sleep(10000);
-					 if (Inputdata[8].toString().equals("IP VPN Service"))// **Start** Added By Abhay dated 28-Sep-2019
-					 {
-					 savePage();
-					 waitforPagetobeenable();
-					 Thread.sleep(10000);
-					 WaitforElementtobeclickable(
-					 xml.getlocator("//locators/IPVPNSite/ClickLink").replace("Value", "Customer Orders"));
-					 Clickon(getwebelement(
-					 xml.getlocator("//locators/IPVPNSite/ClickLink").replace("Value", "Customer Orders")));
-					 String ServOrder = ServiceOrder.get().toString();
-					 // String x= ServiceOrder.get();
-					 // System.out.println(x);
-					 // String string = "004-034556";
-					 String[] parts = ServOrder.split("/");
-					 String part1 = parts[0];
-					 String part2 = parts[1];
-					 waitforPagetobeenable();
-					 SendKeys(getwebelement(xml.getlocator("//locators/IPVPNSite/CustOrder")), part2);
-					 Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/CustOrderGo")));
-					 waitforPagetobeenable();
-					 Thread.sleep(3000);
-					 Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickSeibelOrder")));
-					 waitforPagetobeenable();
-					 Thread.sleep(3000);
-					 Clickon(getwebelement(xml.getlocator("//locators/NewServiceOrder")));
-					 waitforPagetobeenable();
-					 ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on New Service Order");
-					 Thread.sleep(3000);
-					 Selectproduct("IP VPN Site");
-					 openIPVPNSite();
-					 enterMandatoryFieldsInHeader(Inputdata);
-					 NetworkReferenceFill();
-					 IPVPNSITEMiddleApplet(Inputdata);
+	public void validateXtracComplete() throws InterruptedException, DocumentException {
+		Thread.sleep(5000);
+		Clickon(getwebelement("//a[text()='Workflows']"));
+		Thread.sleep(3000);
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click workflows  Link");
+		List<WebElement> wb = GetWebElements(
+				"//table[@summary='Workflow']/tbody/tr/following-sibling::tr/td/following-sibling::td/following-sibling::td[contains(@id,'EXTERNAL_URL')]");
+		List<WebElement> statusWf = GetWebElements(
+				"//table[@summary=\"Workflow\"]/tbody/tr/following-sibling::tr/td/following-sibling::td[contains(@id,\"Workflow_Status\")]");
+		int rowCount = getwebelementscount("//table[@summary='Workflow']/tbody/tr/following-sibling::tr");
+		ExtentTestManager.getTest().log(LogStatus.INFO, " Step: Total Workflow available : " + rowCount);
 
-					 EnterDateInFooter(Inputdata);
-					 EnterBillingDateInFooter(Inputdata);
-					 if (!Inputdata[11].equals("IP VPN Wholesale")) {
-					 ServiceChargeforIPVPNSite(Inputdata, "2");
-					 }
-					 if (!Inputdata[11].equals("IP VPN Wholesale")) {
-					 OperationalAttributesforIPVPN(Inputdata);
-					 }
-					 EnterInstallationChargeInFooter(Inputdata);
-					 CommercialValidation(Inputdata);
-					 TechnicalValidation(Inputdata);
-					 DeliveryValidation(Inputdata);
-					 AlertAccept();
-					 clickOnManualValidationA();
+		for (int i = 0; i < rowCount; i++) {
+			if (wb.get(i).isDisplayed()) {
+				ExtentTestManager.getTest().log(LogStatus.PASS,
+						" Step: Workflow from xtrac is displayed in row no. : " + i);
+			} else {
+				ExtentTestManager.getTest().log(LogStatus.FAIL,
+						" Step: Workflow from xtrac is not displayed in row no. : " + i);
+			}
 
+			if (GetText(statusWf.get(i)).equalsIgnoreCase("Completed")) {
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Workflow status is displayed as Completed ");
+			} else {
+				ExtentTestManager.getTest().log(LogStatus.FAIL, " Step: Workflow status is not displayed as Completed");
+			}
 
-					 if(Inputdata[8].toString().contains("IP VPN Service"))
-					 {
-					 CEOS_Offnet();
-					 LaunchingCEOSApplication(Inputdata);
-					 }
+		}
+	}
 
-					 waitforPagetobeenable();
-					 WaitforElementtobeclickable(xml.getlocator("//locators/OrderStatusDropdown"));
-					 Clickon(getwebelement(xml.getlocator("//locators/OrderStatusDropdown")));
-					 ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Order status drop down");
-					 Thread.sleep(3000);
-					 Clickon(getwebelement(xml.getlocator("//locators/SelectCompleted")));
-					 ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click Completed Status");
-					 waitforPagetobeenable();
+	public void CompletedValidation_offnet(Object[] Inputdata) throws Exception {
+		waitforPagetobeenable();
+		savePage();
+		waitforPagetobeenable();
+		Thread.sleep(10000);
+		if (Inputdata[8].toString().equals("IP VPN Service"))// **Start** Added By Abhay dated 28-Sep-2019
+		{
+			savePage();
+			waitforPagetobeenable();
+			Thread.sleep(10000);
+			WaitforElementtobeclickable(
+					xml.getlocator("//locators/IPVPNSite/ClickLink").replace("Value", "Customer Orders"));
+			Clickon(getwebelement(
+					xml.getlocator("//locators/IPVPNSite/ClickLink").replace("Value", "Customer Orders")));
+			String ServOrder = ServiceOrder.get().toString();
+			// String x= ServiceOrder.get();
+			// System.out.println(x);
+			// String string = "004-034556";
+			String[] parts = ServOrder.split("/");
+			String part1 = parts[0];
+			String part2 = parts[1];
+			waitforPagetobeenable();
+			SendKeys(getwebelement(xml.getlocator("//locators/IPVPNSite/CustOrder")), part2);
+			Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/CustOrderGo")));
+			waitforPagetobeenable();
+			Thread.sleep(3000);
+			Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickSeibelOrder")));
+			waitforPagetobeenable();
+			Thread.sleep(3000);
+			Clickon(getwebelement(xml.getlocator("//locators/NewServiceOrder")));
+			waitforPagetobeenable();
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on New Service Order");
+			Thread.sleep(3000);
+			Selectproduct("IP VPN Site");
+			openIPVPNSite();
+			enterMandatoryFieldsInHeader(Inputdata);
+			NetworkReferenceFill();
+			IPVPNSITEMiddleApplet(Inputdata);
 
-					 Thread.sleep(5000);
-					 if (Inputdata[11].toString().equalsIgnoreCase("IP VPN Wholesale")) // Added by Abhay
-					 {
-					 ClickContinue();
-					 Thread.sleep(3000);
-					 }
-					 // savePage();
-					 // Thread.sleep(6000);
-					 Clickon(getwebelement(xml.getlocator("//locators/OrderComplete")));
-					 AlertAccept();
-					 ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click Order Complete");
-					 waitforPagetobeenable();
-					 Thread.sleep(5000);
-					 savePage();
-					 waitforPagetobeenable();
-					 Thread.sleep(10000);
-					 savePage();
-					 waitforPagetobeenable();
-					 Thread.sleep(10000);
-					 if (isElementPresent(xml.getlocator("//locators/AlertAccept"))) {
-					 System.out.println("");
-					 System.out.println("Alert Present");
-					 WaitforElementtobeclickable((xml.getlocator("//locators/AlertAccept")));
-					 Clickon(getwebelement(xml.getlocator("//locators/AlertAccept")));
-					 }
+			EnterDateInFooter(Inputdata);
+			EnterBillingDateInFooter(Inputdata);
+			if (!Inputdata[11].equals("IP VPN Wholesale")) {
+				ServiceChargeforIPVPNSite(Inputdata, "2");
+			}
+			if (!Inputdata[11].equals("IP VPN Wholesale")) {
+				OperationalAttributesforIPVPN(Inputdata);
+			}
+			EnterInstallationChargeInFooter(Inputdata);
+			CommercialValidation(Inputdata);
+			TechnicalValidation(Inputdata);
+			DeliveryValidation(Inputdata);
+			AlertAccept();
+			clickOnManualValidationA();
 
-					 savePage();
-					 waitforPagetobeenable();
-					 Thread.sleep(10000);
+			if (Inputdata[8].toString().contains("IP VPN Service")) {
+				CEOS_Offnet();
+				LaunchingCEOSApplication(Inputdata);
+			}
 
-					 MovetoIPService();
+			waitforPagetobeenable();
+			WaitforElementtobeclickable(xml.getlocator("//locators/OrderStatusDropdown"));
+			Clickon(getwebelement(xml.getlocator("//locators/OrderStatusDropdown")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Order status drop down");
+			Thread.sleep(3000);
+			Clickon(getwebelement(xml.getlocator("//locators/SelectCompleted")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click Completed Status");
+			waitforPagetobeenable();
 
-					 // Save the Current URL
-					 // Create and completed new IP VPN SItes
-					 // Open the Older Order number;
-					 } // **End**
+			Thread.sleep(5000);
+			if (Inputdata[11].toString().equalsIgnoreCase("IP VPN Wholesale")) // Added by Abhay
+			{
+				ClickContinue();
+				Thread.sleep(3000);
+			}
+			// savePage();
+			// Thread.sleep(6000);
+			Clickon(getwebelement(xml.getlocator("//locators/OrderComplete")));
+			AlertAccept();
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click Order Complete");
+			waitforPagetobeenable();
+			Thread.sleep(5000);
+			savePage();
+			waitforPagetobeenable();
+			Thread.sleep(10000);
+			savePage();
+			waitforPagetobeenable();
+			Thread.sleep(10000);
+			if (isElementPresent(xml.getlocator("//locators/AlertAccept"))) {
+				System.out.println("");
+				System.out.println("Alert Present");
+				WaitforElementtobeclickable((xml.getlocator("//locators/AlertAccept")));
+				Clickon(getwebelement(xml.getlocator("//locators/AlertAccept")));
+			}
 
-					 Thread.sleep(5000);
-					 savePage();
-					 waitforPagetobeenable();
-					 Thread.sleep(10000);
+			savePage();
+			waitforPagetobeenable();
+			Thread.sleep(10000);
 
-					 WaitforElementtobeclickable(xml.getlocator("//locators/OrderStatusDropdown"));
-					 Clickon(getwebelement(xml.getlocator("//locators/OrderStatusDropdown")));
-					 ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Order status drop down");
-					 Thread.sleep(3000);
-					 Clickon(getwebelement(xml.getlocator("//locators/SelectCompleted")));
-					 ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click Completed Status");
-					 waitforPagetobeenable();
+			MovetoIPService();
 
-					 Thread.sleep(5000);
-					 // savePage();
-					 // Thread.sleep(6000);
-					 Clickon(getwebelement(xml.getlocator("//locators/OrderComplete")));
-					 ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click Order Complete");
-					 waitforPagetobeenable();
-					 Thread.sleep(5000);
-					 savePage();
-					 waitforPagetobeenable();
-					 Thread.sleep(10000);
-					 savePage();
-					 waitforPagetobeenable();
-					 Thread.sleep(10000);
-					 if (isDisplayed(xml.getlocator("//locators/AlertAccept"))) {
-					 System.out.println("");
-					 System.out.println("Alert Present");
-					 WaitforElementtobeclickable((xml.getlocator("//locators/AlertAccept")));
-					 Clickon(getwebelement(xml.getlocator("//locators/AlertAccept")));
-					 }
+			// Save the Current URL
+			// Create and completed new IP VPN SItes
+			// Open the Older Order number;
+		} // **End**
 
-					 // Pagerefresh();
-					 Thread.sleep(5000);
-					 // =======================Added by Rekha ==================== difft pop up was
-					 // arriving for Ethernet VPN Access=====================
-					 if (isElementPresent(xml.getlocator("//locators/SubnetworkPopUP"))) {
-					 System.out.println("");
-					 System.out.println("Alert Present");
-					 WaitforElementtobeclickable((xml.getlocator("//locators/SubnetworkPopUP")));
-					 Clickon(getwebelement(xml.getlocator("//locators/SubnetworkPopUP")));
-					 }
-					 // ============================================================================================================
-					 System.out.println("Order complete");
-					 Thread.sleep(5000);
-					 // Added by Abhay
-					 String CompValidation= null;
-					 CompValidation = getwebelement2(xml.getlocator("//locators/IPVPNSite/OrderStatusInput"))
-					 .getAttribute("value");
-					 System.out.println(CompValidation);
+		Thread.sleep(5000);
+		savePage();
+		waitforPagetobeenable();
+		Thread.sleep(10000);
 
-					 Assert.assertTrue(CompValidation.contains("Comp")," Order status failed to Complete. It is displayed as : " + CompValidation);
-					 ExtentTestManager.getTest().log(LogStatus.PASS,
-					 " Step: Order Staus Verified in as Completed");
+		WaitforElementtobeclickable(xml.getlocator("//locators/OrderStatusDropdown"));
+		Clickon(getwebelement(xml.getlocator("//locators/OrderStatusDropdown")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Order status drop down");
+		Thread.sleep(3000);
+		Clickon(getwebelement(xml.getlocator("//locators/SelectCompleted")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click Completed Status");
+		waitforPagetobeenable();
 
+		Thread.sleep(5000);
+		// savePage();
+		// Thread.sleep(6000);
+		Clickon(getwebelement(xml.getlocator("//locators/OrderComplete")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click Order Complete");
+		waitforPagetobeenable();
+		Thread.sleep(5000);
+		savePage();
+		waitforPagetobeenable();
+		Thread.sleep(10000);
+		savePage();
+		waitforPagetobeenable();
+		Thread.sleep(10000);
+		if (isDisplayed(xml.getlocator("//locators/AlertAccept"))) {
+			System.out.println("");
+			System.out.println("Alert Present");
+			WaitforElementtobeclickable((xml.getlocator("//locators/AlertAccept")));
+			Clickon(getwebelement(xml.getlocator("//locators/AlertAccept")));
+		}
 
-					 }
+		// Pagerefresh();
+		Thread.sleep(5000);
+		// =======================Added by Rekha ==================== difft pop up was
+		// arriving for Ethernet VPN Access=====================
+		if (isElementPresent(xml.getlocator("//locators/SubnetworkPopUP"))) {
+			System.out.println("");
+			System.out.println("Alert Present");
+			WaitforElementtobeclickable((xml.getlocator("//locators/SubnetworkPopUP")));
+			Clickon(getwebelement(xml.getlocator("//locators/SubnetworkPopUP")));
+		}
+		// ============================================================================================================
+		System.out.println("Order complete");
+		Thread.sleep(5000);
+		// Added by Abhay
+		String CompValidation = null;
+		CompValidation = getwebelement2(xml.getlocator("//locators/IPVPNSite/OrderStatusInput")).getAttribute("value");
+		System.out.println(CompValidation);
 
-				 public void WriteServiceOrderNumber(Object[] Inputdata) throws IOException {
-						
-						String path="src//Data//ServiceOrder.xlsx";
-						File file = new File(path);
-						if (!file.exists()) 
-						{
-							try {
-								file.createNewFile();
-								createFile(path);
-							} 
-							catch (Exception e) {
-								System.out.println(e.getMessage());
-							}
-						}
-						AppendData(path,Inputdata);
-					}
-					public void createFile(String Path) throws IOException {
-						FileOutputStream fos = new FileOutputStream(Path);
-						XSSFWorkbook workbook = new XSSFWorkbook();
-						XSSFSheet sheet = workbook.createSheet("NewOrder");
-						Row row = sheet.createRow(0);
-						Cell cell0 = row.createCell(0);
-						cell0.setCellValue("Product Name");
+		Assert.assertTrue(CompValidation.contains("Comp"),
+				" Order status failed to Complete. It is displayed as : " + CompValidation);
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Order Staus Verified in as Completed");
 
-						Cell cell1 = row.createCell(1);
-						cell1.setCellValue("Service OrderNumber");
+	}
 
-						Cell cell2 = row.createCell(2);
-						cell2.setCellValue("Date");
-						workbook.write(fos);
-						fos.flush();
-						fos.close();
-					}
+	public void WriteServiceOrderNumber(Object[] Inputdata) throws IOException {
 
-					public void AppendData(String Path,Object[] Inputdata) throws FileNotFoundException {
-						try {
-							
-							FileInputStream fis = new FileInputStream(new File(Path));
-							XSSFWorkbook workbook = new XSSFWorkbook(fis);
-							//XSSFSheet sheet = workbook.
-							int i =	workbook.getNumberOfSheets();
-							System.out.println(i);
-							XSSFSheet sheet = workbook.getSheetAt(0);
-							int num = sheet.getLastRowNum();
-							Row row = sheet.createRow(++num);
-							String OrderNumber= Inputdata[8].toString().equalsIgnoreCase("IP VPN Service")?ServiceOrder2.get().toString():ServiceOrder.get().toString();
-							row.createCell(0).setCellValue(Inputdata[8].toString());
-							row.createCell(1).setCellValue(OrderNumber);
-							row.createCell(2).setCellValue(CurrentDate());
-							fis.close();
-							
-							FileOutputStream fos = new FileOutputStream(Path);
-							workbook.write(fos);
-							fos.close();
-						} catch (Exception e) {
-							System.out.println(e.getMessage());
-						}
-					}
+		String path = "src//Data//ServiceOrder.xlsx";
+		File file = new File(path);
+		if (!file.exists()) {
+			try {
+				file.createNewFile();
+				createFile(path);
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			}
+		}
+		AppendData(path, Inputdata);
+	}
+
+	public void createFile(String Path) throws IOException {
+		FileOutputStream fos = new FileOutputStream(Path);
+		XSSFWorkbook workbook = new XSSFWorkbook();
+		XSSFSheet sheet = workbook.createSheet("NewOrder");
+		Row row = sheet.createRow(0);
+		Cell cell0 = row.createCell(0);
+		cell0.setCellValue("Product Name");
+
+		Cell cell1 = row.createCell(1);
+		cell1.setCellValue("Service OrderNumber");
+
+		Cell cell2 = row.createCell(2);
+		cell2.setCellValue("Date");
+		workbook.write(fos);
+		fos.flush();
+		fos.close();
+	}
+
+	public void AppendData(String Path, Object[] Inputdata) throws FileNotFoundException {
+		try {
+
+			FileInputStream fis = new FileInputStream(new File(Path));
+			XSSFWorkbook workbook = new XSSFWorkbook(fis);
+			// XSSFSheet sheet = workbook.
+			int i = workbook.getNumberOfSheets();
+			System.out.println(i);
+			XSSFSheet sheet = workbook.getSheetAt(0);
+			int num = sheet.getLastRowNum();
+			Row row = sheet.createRow(++num);
+			String OrderNumber = Inputdata[8].toString().equalsIgnoreCase("IP VPN Service")? ServiceOrder2.get().toString(): ServiceOrder.get().toString();
+			row.createCell(0).setCellValue(Inputdata[8].toString());
+			row.createCell(1).setCellValue(OrderNumber);
+			row.createCell(2).setCellValue(CurrentDate());
+			fis.close();
+			FileOutputStream fos = new FileOutputStream(Path);
+			workbook.write(fos);
+			fos.close();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
+	private void OpenTab(String TabName) throws IOException, InterruptedException, DocumentException {
+		try {
+			waitforPagetobeenable();
+			waitForpageload();
+			WaitforElementtobeclickable(xml.getlocator("//locators/Tabs").replace("tabName", TabName));
+			Clickon(getwebelement(xml.getlocator("//locators/Tabs").replace("tabName", TabName)));
+			System.out.println("Click on tab : " + TabName);
+		} catch (Exception e) {
+			Select(getwebelement(xml.getlocator("//locators/InstalltionDropdown")), TabName);
+
+		}
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Open Tab :" + TabName);
+		waitforPagetobeenable();
+		waitForpageload();
+	}
+
+	public HashMap<Integer, HashMap<String, String>> EROData()
+			throws IOException, InterruptedException, DocumentException {
+		OpenTab("ERO");
+		HashMap<String, String> CPNdetail = new HashMap<String, String>();
+		HashMap<Integer, HashMap<String, String>> MainMap = new HashMap<Integer, HashMap<String, String>>();
+		List<WebElement> ColumnHeader = GetWebElements(xml.getlocator("//locators/ServiceOrderGridHeader"));
+		Assert.assertTrue(ColumnHeader.size() > 0, "ERO table no found");
+		int CpnIndex = -1;
+		int CityIndex = -1;
+		int i = 0;
+		for (WebElement ele : ColumnHeader) {
+			javascriptexecutor(ele);
+			String Text = ele.getText();
+
+			System.out.println("Column : " + Text);
+			if (Text.equalsIgnoreCase("CPN Number")) {
+				CpnIndex = i;
+			} else if (Text.equalsIgnoreCase("City")) {
+				CityIndex = i;
+			}
+			if (CpnIndex > -1 && CityIndex > -1)
+				break;
+			i++;
+		}
+
+		Assert.assertTrue(CpnIndex > -1 && CityIndex > -1, "Not able to locate 'CPN Number' and 'City' column");
+		List<WebElement> GridRow = GetWebElements(xml.getlocator("//locators/EroGirdRow"));
+		for (int k = 0; k < GridRow.size() - 1; k++) {
+			javascriptexecutor(GridRow.get(k));
+
+			String templocator = xml.getlocator("//locators/EroGridData");
+			System.out.println("Locator1 : " + templocator);
+			String CpnLocator = templocator.replace("-row10", String.valueOf(k + 1)).replace("-td10",
+					String.valueOf(CpnIndex + 1));
+			System.out.println("Locator2 : " + CpnLocator);
+			String CityLocator = templocator.replace("-row10", String.valueOf(k + 1)).replace("-td10",
+					String.valueOf(CityIndex + 1));
+			System.out.println("Locator3 : " + CityLocator);
+
+			String CpnValue = Gettext(getwebelement(CpnLocator));
+			System.out.println("CPN Number : " + CpnValue);
+			String CityValue = Gettext(getwebelement(CityLocator));
+			System.out.println("City  : " + CityValue);
+
+			Assert.assertTrue(CpnValue != null || CpnValue != "", "Not able to locate CPN no for City : " + CityValue);
+			HashMap<String, String> detail = new HashMap<String, String>();
+			detail.put(CpnValue, CityValue);
+			MainMap.put(k + 1, detail);
+		}
+		for (Entry<Integer, HashMap<String, String>> entry : MainMap.entrySet()) {
+			Map<String, String> ChildMap = entry.getValue();
+			for (Entry<String, String> entry2 : ChildMap.entrySet()) {
+				String childKey = entry2.getKey();
+				String childValue = entry2.getValue();
+				System.out.println("Key  : " + childKey + ",Value : " + childValue);
+			}
+		}
+
+		return MainMap;
+	}
+
 }
