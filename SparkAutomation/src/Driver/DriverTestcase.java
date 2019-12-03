@@ -184,9 +184,10 @@ public class DriverTestcase {
 			ctx.setAttribute("testName", st[st.length - 2].toString());
 		}
 		else if (method.getName().equals("PremiseMaster")) {
-//			DataReader dt=new DataReader();
-//			Object[][] data=dt.ipreader();
-//		    Object[] st= (Object[]) data[itr][0];
+			Log.info(st[st.length - 2].toString());
+			ctx.setAttribute("testName", st[st.length - 2].toString());
+		}
+		else if (method.getName().equals("SiebelToSap")) {
 			Log.info(st[st.length - 2].toString());
 			ctx.setAttribute("testName", st[st.length - 2].toString());
 		}

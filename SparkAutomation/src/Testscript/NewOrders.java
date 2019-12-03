@@ -968,7 +968,7 @@ public class NewOrders extends DriverTestcase {
 		}
 	}
 
-	@Test(dataProviderClass = DataReader.class, dataProvider = "NewOrderOnnet")
+	@Test(dataProviderClass = DataReader.class, dataProvider = "SiebelSAPData")
 	public void SiebelToSap(Object[] Data) throws Exception {
 
 		Login.get().Login("Sieble");
