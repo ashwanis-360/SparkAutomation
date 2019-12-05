@@ -567,7 +567,7 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().CommercialValidation(Data); // No Change
 			newOrderOnnnet.get().TechnicalValidation(Data); // Updated
 			newOrderOnnnet.get().DeliveryValidation(Data); // No Change
-			newOrderOnnnet.get().OrderCompleteEthernetHubSpoke(Data); // MethodAdded
+			inFlightGeneric.get().ServiceTabInFlight(Data);
 		} else if (Data[8].toString().equalsIgnoreCase("Ethernet Spoke")) {
 			newOrderOnnnet.get().addEthernetSiteSpoke(Data);// MethodAdded
 			newOrderOnnnet.get().spokeSiteCustomize(Data);// MethodAdded
@@ -581,7 +581,7 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().CommercialValidation(Data); // No Change
 			newOrderOnnnet.get().TechnicalValidation(Data); // Updated for spoke also
 			newOrderOnnnet.get().DeliveryValidation(Data); // No Change
-			newOrderOnnnet.get().OrderCompleteEthernetHubSpoke(Data);// updated same as hub
+			inFlightGeneric.get().ServiceTabInFlight(Data);
 		} else {
 			newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);
 			// add specifically for Wave and Ethernet Line and won't run for other products
