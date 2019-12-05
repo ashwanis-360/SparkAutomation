@@ -5874,12 +5874,38 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		waitforPagetobeenable();
 		Thread.sleep(6000);
 		// ================= added Rekha=======Need Modification as endless loop
-		do {
-			Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderGo")));
-			Thread.sleep(20000);
-		} while (!isElementPresent("//*[text()='COMPLETE']"));
+//		do {
+//			Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderGo")));
+//			Thread.sleep(20000);
+//		} while (!isElementPresent("//*[text()='COMPLETE']"));
 		// ------------end of Rekha code============
-		
+		ExtentTestManager.getTest().log(LogStatus.PASS,
+				" Step: Checking Billing Status for service orer number :"+ ServiceOrder.get().toString());
+		for (int i=0;i<15;i++) {
+			if (isElementPresent("//*[text()='BILLING ERROR']")) {
+				ExtentTestManager.getTest().log(LogStatus.PASS,
+						" Step: Billing Status for service orer number is ERROR");
+				break;
+			}
+			if (isElementPresent("//*[text()='DOWNSTREAM SYSTEM ERROR']")) {
+				ExtentTestManager.getTest().log(LogStatus.PASS,
+						" Step: Billing Status for service orer number is DOWNSTREAM SYSTEM ERROR");
+				break;
+			}
+			
+			
+			if(!isElementPresent("//*[text()='COMPLETE']") )
+			{
+				Thread.sleep(60000);
+				Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderGo")));
+				ExtentTestManager.getTest().log(LogStatus.PASS,
+						" Step: Billing Status for service orer number is  NOT COMPLETED");
+			}
+			else if (isElementPresent("//*[text()='COMPLETE']")) {
+				break;
+			}
+			
+		}
 		
 		//Clickon(getwebelement(xml.getlocator("//locators/ModifyButtonClick")));
 		waitforPagetobeenable();
