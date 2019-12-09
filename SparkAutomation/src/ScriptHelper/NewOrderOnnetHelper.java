@@ -847,7 +847,6 @@ public class NewOrderOnnetHelper extends DriverHelper {
 
 			}
 	}
-
 	public void MandatoryFields(Object[] Inputdata) throws Exception {
 		if (Inputdata[8].toString().equals("Voice Line V")||Inputdata[8].toString().equals("SIP Trunking")) {
 
@@ -972,7 +971,6 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			 */
 		}
 	}
-
 	public void NumberManagementTab(Object[] Inputdata) throws Exception {
 		if (Inputdata[8].toString().equals("Voice Line V")) {
 			Thread.sleep(5000);
@@ -1002,15 +1000,25 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			Clickon(getwebelement(xml.getlocator("//locators/AssignedPortNew")));
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on AssignedPortNew");
 			Thread.sleep(5000);
+			try
+			{
+				//Clickon(getwebelement(xml.getlocator("//locators/ClickDropdown").replace("Value", "First Codec")));
+				Clickon(getwebelement(xml.getlocator("//locators/UnassignedPortRow").replace("PortName", "Port 1")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Port 1");
+			}
+			catch(Exception ex) 
+			{
+				System.out.println(ex.getMessage());
+			}
 			Clickon(getwebelement(xml.getlocator("//locators/Unassignedport")));
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Unassignedport");
 			Thread.sleep(5000);
-			Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderListTab")));
+			/*Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderListTab")));
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on ServiceOrderListTab");
 			Thread.sleep(5000);
 			Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderLink")));
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on ServiceOrderLink");
-			Thread.sleep(5000);
+			Thread.sleep(5000);*/
 			Clickon(getwebelement(xml.getlocator("//locators/NumberManagementTab")));
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on NumberManagementTab");
 			Thread.sleep(5000);
@@ -1020,6 +1028,15 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			Clickon(getwebelement(xml.getlocator("//locators/AssignedPortNew")));
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on AssignedPortNew");
 			Thread.sleep(5000);
+			try
+			{
+			Clickon(getwebelement(xml.getlocator("//locators/UnassignedPortRow").replace("PortName", "Port 2")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Port 2");
+			}
+			catch(Exception exx) 
+				{
+					System.out.println(exx.getMessage());
+				}
 			Clickon(getwebelement(xml.getlocator("//locators/Unassignedport")));
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Unassignedport");
 			Thread.sleep(5000);
@@ -1228,7 +1245,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 
 		}
 	}
-
+	
 	public void VoiceConfigTab(Object[] Inputdata) throws Exception {
 		if (Inputdata[8].toString().equals("Voice Line V")) {
 			Clickon(getwebelement(xml.getlocator("//locators/TrunkName")));
@@ -5561,8 +5578,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				|| Inputdata[8].toString().equalsIgnoreCase("DCA Ethernet")
 				|| Inputdata[8].toString().equalsIgnoreCase("SWIFTNet")
 				|| Inputdata[8].toString().equalsIgnoreCase("Ethernet VPN Access")
-				|| Inputdata[8].toString().equalsIgnoreCase("IP Access")
-				|| Inputdata[8].toString().equals("Voice Line V")) 
+				|| Inputdata[8].toString().equalsIgnoreCase("IP Access"))
+			//|| Inputdata[8].toString().equals("Voice Line V") removed this By Devesh 
 		{
 			Thread.sleep(5000);
 			// as per Aman added try catch
