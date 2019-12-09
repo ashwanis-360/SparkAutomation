@@ -415,7 +415,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		}
 		Thread.sleep(6000);
 	
-		if (!Inputdata[8].toString().equals("Voice Line V")) {
+		/* Voice Line maintenance party is mandatory in New OMP so i am commenting if  condition*/
+		//if (!Inputdata[8].toString().equals("Voice Line V")) {
 			WaitforElementtobeclickable(xml.getlocator("//locators/ExistingCapacityLeadTimePrimary"));
 			SendKeys(getwebelement(xml.getlocator("//locators/ExistingCapacityLeadTimePrimary")),
 					Inputdata[12].toString());
@@ -506,7 +507,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				}
 			}
 		}
-	}
+	//}
 
 	public void VoiceFeatureTab(Object[] Inputdata) throws Exception {
 		if (Inputdata[8].toString().equals("Voice Line V")) {
@@ -3960,8 +3961,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 					Clickon(getwebelement(xml.getlocator("//locators/DarkFiber/MiddleLi").replace("Value", Inputdata[44].toString())));
 				}
 				else {
-				WaitforElementtobeclickable(xml.getlocator("//locators/ThirdpartyaccessProvidervalue"));
-				Clickon(getwebelement(xml.getlocator("//locators/ThirdpartyaccessProvidervalue")));
+					WaitforElementtobeclickable(xml.getlocator("//locators/ThirdpartyaccessProvidervalue").replace("value", Inputdata[187].toString()));
+					Clickon(getwebelement(xml.getlocator("//locators/ThirdpartyaccessProvidervalue").replace("value", Inputdata[187].toString())));
 				}				
 				Clickon(getwebelement(xml.getlocator("//locators/Thirdpartyconectionreference")));
 				SendKeys(getwebelement(xml.getlocator("//locators/Thirdpartyconectionreference")),Inputdata[44].toString());
@@ -4979,8 +4980,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				//////////
 				WaitforElementtobeclickable(xml.getlocator("//locators/ThirdpartyaccessproviderDropDown"));
 				Clickon(getwebelement(xml.getlocator("//locators/ThirdpartyaccessproviderDropDown")));
-				WaitforElementtobeclickable(xml.getlocator("//locators/ThirdpartyaccessProvidervalue"));
-				Clickon(getwebelement(xml.getlocator("//locators/ThirdpartyaccessProvidervalue")));
+				WaitforElementtobeclickable(xml.getlocator("//locators/ThirdpartyaccessProvidervalue").replace("value", Inputdata[187].toString()));
+				Clickon(getwebelement(xml.getlocator("//locators/ThirdpartyaccessProvidervalue").replace("value", Inputdata[187].toString())));
 								
 				Clickon(getwebelement(xml.getlocator("//locators/Thirdpartyconectionreference")));
 				SendKeys(getwebelement(xml.getlocator("//locators/Thirdpartyconectionreference")),Inputdata[44].toString());
@@ -5070,10 +5071,13 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			SendKeys(getwebelement(xml.getlocator("//locators/Physicalportid")), Inputdata[52].toString());
 			SendkeaboardKeys((getwebelement(xml.getlocator("//locators/Physicalportid"))), Keys.TAB);
 
+						
 			WaitforElementtobeclickable(xml.getlocator("//locators/PresentationInterfaceDropdownAccess"));
 			Clickon(getwebelement(xml.getlocator("//locators/PresentationInterfaceDropdownAccess")));
-			WaitforElementtobeclickable(xml.getlocator("//locators/PresentationInterfaceSelect"));
-			Clickon(getwebelement(xml.getlocator("//locators/PresentationInterfaceSelect")));
+			WaitforElementtobeclickable(xml.getlocator("//locators/PresentationInterfaceSelectAccess").replace("value", Inputdata[53].toString()));
+			Clickon(getwebelement(xml.getlocator("//locators/PresentationInterfaceSelectAccess").replace("value", Inputdata[53].toString())));
+			waitforAttributeloader();
+			waitforPagetobeenable();
 
 			WaitforElementtobeclickable(xml.getlocator("//locators/ConnectorTypeDropdownAccess"));
 			Clickon(getwebelement(xml.getlocator("//locators/ConnectorTypeDropdownAccess")));
@@ -11645,7 +11649,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				waitforPagetobeenable();
 			}
 	/*
-	 * Created by Rekha
+	 * Created by Rekha if it required will use for future purpose
 	 */
 	public void Carnor_getReferenceNo1(Object[] Inputdata) throws Exception, Exception {
 			if (Inputdata[8].toString().equalsIgnoreCase("Ethernet VPN Access")
@@ -11699,8 +11703,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			|| Inputdata[8].toString().equalsIgnoreCase("DCA Ethernet")
 			|| Inputdata[8].toString().equalsIgnoreCase("Private Wave Service")
 			|| Inputdata[8].toString().equalsIgnoreCase("IP Access")
-			|| Inputdata[8].toString().equalsIgnoreCase("IP VPN Service")
-			|| Inputdata[8].toString().equals("Voice Line V"))
+			|| Inputdata[8].toString().equalsIgnoreCase("IP VPN Service"))
 			{
 			WaitforElementtobeclickable((xml.getlocator("//locators/CircuitReferenceAccess")));
 			Clickon(getwebelement(xml.getlocator("//locators/CircuitReferenceAccess")));
@@ -13573,6 +13576,39 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		}
 
 		return MainMap;
+	}
+	
+	public void Carnor_SelectServiceGroupTab(Object[] Inputdata) throws Exception {
+		if (Inputdata[8].toString().equals("Voice Line V") || Inputdata[8].toString().equals("SIP Trunking")
+				|| Inputdata[8].toString().equals("Interconnect") || Inputdata[8].toString().equals("Number Hosting")
+				)  {
+			waitForpageload();
+			waitforPagetobeenable();
+			Clickon(getwebelement(xml.getlocator("//locators/DropDown")));
+//	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Drop down");
+//	Clickon(getwebelement(xml.getlocator("//locators/InstallationAndTestTab")));
+			Thread.sleep(2000);
+			Select(getwebelement(xml.getlocator("//locators/DropDown")), "Service Group");
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Service Group Tab");
+			Clickon(getwebelement(xml.getlocator("//locators/ServiceGroupNew")));
+			Thread.sleep(5000);
+			WaitforElementtobeclickable(xml.getlocator("//locators/serviceGrouplookup"));
+			Clickon(getwebelement(xml.getlocator("//locators/serviceGrouplookup")));
+			// Thread.sleep(5000);
+			Clickon(getwebelement(xml.getlocator("//locators/ServiceGroupOk")));
+			Thread.sleep(5000);
+			/*
+			 * Clickon(getwebelement(xml.getlocator("//locators/ServiceGroupItemNew")));
+			 * Thread.sleep(5000); WaitforElementtobeclickable(xml.getlocator(
+			 * "//locators/ServiceGroupItemlookup"));
+			 * Clickon(getwebelement(xml.getlocator("//locators/ServiceGroupItemlookup")));
+			 * Thread.sleep(5000);
+			 * //Clickon(getwebelement(xml.getlocator("//locators/selectitem")));
+			 * //Thread.sleep(5000);
+			 * Clickon(getwebelement(xml.getlocator("//locators/ServiceorderOk")));
+			 * Thread.sleep(5000); savePage();
+			 */
+		}
 	}
 
 }
