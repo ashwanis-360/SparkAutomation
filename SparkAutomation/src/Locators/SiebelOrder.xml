@@ -21,6 +21,7 @@
   <InputPartyname>//input[@aria-labelledby='PopupQuerySrchspec_Label']</InputPartyname> 
   <PickAccntOk>//button[@title="Pick Account:OK"]</PickAccntOk> 
   <PopupYes>//button[text()='Yes']</PopupYes>
+  <UnassignedPortRow>//div[@name='popup']//td[text()='PortName']/parent::tr</UnassignedPortRow>
   <OrderingParty>//*[(@aria-labelledby='Ordering_Party_Label')]</OrderingParty> 
   <OrderingPartyAddrSearch>//input[@aria-labelledby='COLT_Ordering_Account_Address_Name_Label']/..//span</OrderingPartyAddrSearch> 
   <OrderingPartyAddrSearchDropdown>//*[@class='siebui-popup-button']//*[@class='siebui-icon-dropdown applet-form-combo applet-list-combo']</OrderingPartyAddrSearchDropdown> 
