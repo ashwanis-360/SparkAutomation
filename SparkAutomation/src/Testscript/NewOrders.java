@@ -763,7 +763,7 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().TechnicalValidation(Data); // Updated
 			newOrderOnnnet.get().DeliveryValidation(Data); // No Change
 			newOrderOnnnet.get().OrderCompleteEthernetHubSpoke(Data); // MethodAdded
-			newOrderOnnnet.get().LaunchingXNGApplication(Data);
+			newOrderOnnnet.get().LaunchingXNGApplication(Data);//for xng code
 		} else if (Data[8].toString().equalsIgnoreCase("Ethernet Spoke")) {
 			newOrderOnnnet.get().addEthernetSiteSpoke(Data);// MethodAdded
 			newOrderOnnnet.get().spokeSiteCustomize(Data);// MethodAdded
