@@ -27,6 +27,12 @@ public class CeasHelper extends DriverHelper {
 		try {
 			WaitforElementtobeclickable(xml.getlocator("//locators/ServiceTab"));
 			Clickon(getwebelement(xml.getlocator("//locators/ServiceTab")));
+			if (isElementPresent(xml.getlocator("//locators/AlertAccept"))) {
+				System.out.println("");
+				System.out.println("Alert Present");
+				WaitforElementtobeclickable((xml.getlocator("//locators/AlertAccept")));
+				Clickon(getwebelement(xml.getlocator("//locators/AlertAccept")));
+			}
 			System.out.println("Service tab clickon");
 		} catch (Exception e) {
 			try {
