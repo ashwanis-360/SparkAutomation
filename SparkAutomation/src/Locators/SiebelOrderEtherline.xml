@@ -132,24 +132,24 @@
   <AdddEthernetHub>//button[@id='addButton0']</AdddEthernetHub> 
   <AddEthernetSpoke>//button[@id="addButton2"]</AddEthernetSpoke> 
   <ServiceOrderReferenceNo>//a[@name='Order Number']</ServiceOrderReferenceNo> 
-  <SearchAddressSiteA>//img[@id="imgSelectAddressSiteA"]</SearchAddressSiteA> 
-  <SearchAddressSiteB>//img[@id="imgSelectAddressSiteB"]</SearchAddressSiteB> 
+  <SearchAddressSiteA>//div[@id='colt-site-left']//span[@title='Select a site']</SearchAddressSiteA> 
+  <SearchAddressSiteB>//div[@id='colt-site-right']//span[@title='Select a site']</SearchAddressSiteB> 
   <Searchbutton>//span[@class='search_img']/img</Searchbutton> 
   <StreetName>name=streetName</StreetName> 
-  <StreetNamerfs>//input[@id='txtStreetName'] </StreetNamerfs>
-  <Country>//select[@class='ctrlClasstype'][@id='ddlCountry']</Country> 
-  <City>//input[@class='ctrlClasstype'][@id='txtCityTown']</City> 
-  <PostalCode>//input[@class='ctrlClasstype'][@id='txtPostalCode']</PostalCode> 
-  <Premises>//input[@class='ctrlClasstype'][@id='txtPremises']</Premises> 
-  <Search>//input[@value='Search']</Search> 
+  <StreetNamerfs>//input[@name='streetName']</StreetNamerfs>
+  <Country>//div[contains(@style,'block')]//span[text()='Country']/following-sibling::span</Country> 
+  <City>//input[@name='cityTown']</City> 
+  <PostalCode>//input[@name='postalZipCode']</PostalCode> 
+  <Premises>//input[@name='premisesNumber']</Premises> 
+  <Search>//div[@id='colt-site-selection-btn-bar']//button[text()='Search']</Search> 
   <pickAddress>//div[@id="PopupDiv"]//table[@id='address_table']/tbody/tr[1]</pickAddress> 
   <PickAddress>//table[@id='address_table']/tbody/tr[2]</PickAddress> 
   <Pick>//div[@id="PopupDiv"]//input[@value='Pick']</Pick> 
   <pickBuilding>//div[@id="PopupDiv"]//table[@id='address_table']/tbody/tr[3]</pickBuilding> 
   <PickBulding>//table[@id='address_table']/tbody/tr</PickBulding> 
   <PickSite>//div[@id="PopupDiv"]//table[@id='address_table']/tbody/tr[1]</PickSite> 
-  <ServicePartySearchSiteA>//div[@id="SiteAddress_A"]//img[@name="Service Party"]</ServicePartySearchSiteA> 
-  <ServicePartySearchSiteB>//div[@id="SiteAddress_B"]//img[@name="Service Party"]</ServicePartySearchSiteB> 
+  <ServicePartySearchSiteA>//div[@id='colt-site-left']//span[text()='Service Party']/..//span[2]</ServicePartySearchSiteA> 
+  <ServicePartySearchSiteB>//div[@id='colt-site-right']//span[text()='Service Party']/..//span[2]</ServicePartySearchSiteB> 
   <ServicePartySearch>//img[@name="Service Party"]</ServicePartySearch> 
   <SelectServiceParty>//select[@id='ddlSearchData']</SelectServiceParty> 
   <InputServicePartyName>//input[@id="txtSearchInput"]</InputServicePartyName> 
@@ -157,8 +157,8 @@
   <pickServiceParty>//div[@id="divAddressList"]//table[@id="address_table"]/tbody/tr[1]</pickServiceParty> 
   <PickServiceParty>//table[@id="address_table"]/tbody/tr[1]</PickServiceParty> 
   <PickButton>//input[@value="Pick"][@id="PickAccount"]</PickButton> 
-  <SiteContactSearchSiteA>//div[@id="SiteAddress_A"]//img[@name="Site Contact"]</SiteContactSearchSiteA> 
-  <SiteContactSearchSiteB>//div[@id="SiteAddress_B"]//img[@name="Site Contact"]</SiteContactSearchSiteB> 
+  <SiteContactSearchSiteA>//div[@id='colt-site-left']//span[text()='Site Contact']/..//span[2]</SiteContactSearchSiteA> 
+  <SiteContactSearchSiteB>//div[@id='colt-site-right']//span[text()='Site Contact']/..//span[2]</SiteContactSearchSiteB> 
   <SiteContactSearch>//img[@name="Site Contact"]</SiteContactSearch> 
   <InputContactName>//input[@id="txtSearchInput"]</InputContactName> 
   <SearchContactName>//img[@id="imgSearchContactData"]</SearchContactName> 
@@ -464,3 +464,6 @@
   
   
   </locators>
+  
+
+ 
