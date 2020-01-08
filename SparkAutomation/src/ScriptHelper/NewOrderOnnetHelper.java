@@ -7368,7 +7368,8 @@ if (Inputdata[8].toString().equalsIgnoreCase("Ethernet Hub")) {
 				Clickon(getwebelement(xml.getlocator("//locators/SaveOrderChanges")));
 				waitForpageload();
 				System.out.println("page load succesfuuly now come to middle applet");
-				waitforPagetobeenable();
+				//waitforPagetobeenable();
+				Thread.sleep(6000);
 			
 			Clickon(getwebelement(
 					xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Resilience Option")));
@@ -7923,8 +7924,8 @@ if (Inputdata[8].toString().equalsIgnoreCase("Ethernet Hub")) {
 			Clickon(getwebelement(xml.getlocator("//locators/SaveOrderChanges")));
 			//waitForpageload();
 			System.out.println("page load succesfuuly now come to middle applet");
-			waitforPagetobeenable();
-			Thread.sleep(3000);
+			//waitforPagetobeenable();
+			Thread.sleep(6000);
 			
 			
 			Clickon(getwebelement(
