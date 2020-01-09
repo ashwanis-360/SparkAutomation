@@ -14564,6 +14564,12 @@ if (Inputdata[8].toString().equalsIgnoreCase("Ethernet Hub")) {
 		return MainMap;
 	}
 	
+	public void ColtPromissDate(Object Inputdata[]) throws Exception {
+		WaitforElementtobeclickable((xml.getlocator("//locators/IPVPNSite/ColtPromissday")));
+		Clear(getwebelement(xml.getlocator("//locators/IPVPNSite/ColtPromissday")));
+		SendKeys(getwebelement(xml.getlocator("//locators/IPVPNSite/ColtPromissday")), CurrentDate());
+	}
+	
 	public void Carnor_SelectServiceGroupTab(Object[] Inputdata) throws Exception {
 		if (Inputdata[8].toString().equals("Voice Line V") || Inputdata[8].toString().equals("SIP Trunking")
 				|| Inputdata[8].toString().equals("Interconnect") || Inputdata[8].toString().equals("Number Hosting")

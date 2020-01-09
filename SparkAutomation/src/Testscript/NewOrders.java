@@ -291,6 +291,9 @@ public class NewOrders extends DriverTestcase {
 		{
 			newOrderOnnnet.get().ServiceTab(Data);
 			newOrderOnnnet.get().EnterDateInFooter(Data);
+			if (Data[8].toString().equalsIgnoreCase("Ethernet Spoke")) {
+				newOrderOnnnet.get().ColtPromissDate(Data);
+			}
 			newOrderOnnnet.get().EnterBillingDateInFooter(Data);
 			newOrderOnnnet.get().EnterServiceChargeInFooter(Data, "4");
 			newOrderOnnnet.get().CommercialValidation(Data);
