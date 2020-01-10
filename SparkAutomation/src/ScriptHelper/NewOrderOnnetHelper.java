@@ -7368,8 +7368,11 @@ if (Inputdata[8].toString().equalsIgnoreCase("Ethernet Hub")) {
 				Clickon(getwebelement(xml.getlocator("//locators/SaveOrderChanges")));
 				waitForpageload();
 				System.out.println("page load succesfuuly now come to middle applet");
-				//waitforPagetobeenable();
-				Thread.sleep(6000);
+				
+			}
+			
+			//waitforPagetobeenable();
+			Thread.sleep(10000);
 			
 			Clickon(getwebelement(
 					xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Resilience Option")));
@@ -7638,66 +7641,6 @@ if (Inputdata[8].toString().equalsIgnoreCase("Ethernet Hub")) {
 		}
 			
 			
-			
-			
-			
-			//Clickon(getwebelement(xmlHns.getlocator("//locators/CustomizeButton")));
-			//ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Customize Button");
-			//Thread.sleep(5000);
-			//Select(getwebelement(xmlHns.getlocator("//locators/ServiceBandwidth")), Inputdata[32].toString());
-			//ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Service Bandwidth");
-			//Thread.sleep(5000);
-//			Select(getwebelement(xmlHns.getlocator("//locators/SelectResilienceOption")), Inputdata[75].toString());
-//			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select ResilienceOption");
-//			savePage();
-//			waitforPagetobeenable();
-//			Thread.sleep(5000);
-			//safeJavaScriptClick(getwebelement(xmlHns.getlocator("//locators/EthernetConnectionLink")));
-			//ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Ethernet Connection Link");
-			//safeJavaScriptClick(getwebelement(xmlHns.getlocator("//locators/HubSiteLink")));
-			//ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Hub Site Link");
-			
-//			if (Inputdata[98].toString().equalsIgnoreCase("Physical Port")) {
-//				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: No VLan Tagging mode required");
-//			} else {
-//				Clickon(getwebelement(xmlHns.getlocator("//locators/VLANTaggingMode")));
-//				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on VLAN Tagging Mode");
-//				Select(getwebelement(xmlHns.getlocator("//locators/VLANTaggingMode")), Inputdata[100].toString());
-//				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Update VLAN Tagging Mode");
-//				Thread.sleep(10000);
-//				safeJavaScriptClick(getwebelement(xmlHns.getlocator("//locators/Vlannew")));
-//				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on VLAN link");
-//				Thread.sleep(5000);
-//				getwebelement(xmlHns.getlocator("//locators/VlanTagId")).clear();
-//				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Clear Tag Id");
-//				SendKeys(getwebelement(xmlHns.getlocator("//locators/VlanTagId")), Inputdata[101].toString());
-//				SendkeaboardKeys(getwebelement(xmlHns.getlocator("//locators/VlanTagId")), Keys.ENTER);
-//				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Vlan Tag Id");
-//				savePage();
-//				waitforPagetobeenable();
-//				Thread.sleep(5000);
-//			}
-//
-//			Thread.sleep(10000);
-//
-//			//safeJavaScriptClick(getwebelement(xmlHns.getlocator("//locators/HubSiteLink")));
-//		//	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Hub Site Link");
-//			Clickon(getwebelement(xmlHns.getlocator("//locators/InstallationTimeLink")));
-//			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Installation Time Link");
-//			Select(getwebelement(xmlHns.getlocator("//locators/InstallTime")), Inputdata[95].toString());
-//			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Install Time");
-//			waitForpageload();
-//			waitforPagetobeenable();
-//			WaitforElementtobeclickable(xmlHns.getlocator("//locators/DoneEthernetConnection"));
-//			Clickon(getwebelement(xmlHns.getlocator("//locators/DoneEthernetConnection")));
-//			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Ethernet Connection");
-//			Thread.sleep(30000);
-		}
-	
-	/*
-	 * added by-Vikram for Hub product for Spoke
-	 */
-	
 	
 	public void CircuitReferenceGeneration(Object[] Inputdata) throws Exception {
 		waitforPagetobeenable();
