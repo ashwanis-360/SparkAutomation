@@ -7646,6 +7646,9 @@ if (Inputdata[8].toString().equalsIgnoreCase("Ethernet Hub")) {
 		waitforPagetobeenable();
 		savePage();
 		waitforPagetobeenable();
+		WaitforElementtobeclickable(xml.getlocator("//locators/IPVPNSite/ClickLink").replace("Value", "Sites"));
+		Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickLink").replace("Value", "Sites")));
+		waitforPagetobeenable();
 		Thread.sleep(3000);
 		WaitforElementtobeclickable((xml.getlocator("//locators/CircuitReferenceAccess")));
 		Clickon(getwebelement(xml.getlocator("//locators/CircuitReferenceAccess")));
