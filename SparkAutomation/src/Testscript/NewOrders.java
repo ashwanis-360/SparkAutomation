@@ -94,9 +94,8 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().DeliveryValidation(Data); // No Change
 			newOrderOnnnet.get().OrderCompleteEthernetHubSpoke(Data); // MethodAdded
 		} else if (Data[8].toString().equalsIgnoreCase("Ethernet Spoke")) {
-			newOrderOnnnet.get().addEthernetSiteSpoke(Data);// MethodAdded
-			newOrderOnnnet.get().spokeSiteCustomize(Data);// MethodAdded
 			newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);// Updated for spoke also
+			newOrderOnnnet.get().spokeSiteCustomize(Data);// MethodAdded
 			newOrderOnnnet.get().EnterDateInFooter(Data); // No change
 			newOrderOnnnet.get().EnterBillingDateInFooter(Data); // No change
 			newOrderOnnnet.get().EnterServiceChargeInFooter(Data, "2"); // Method added same as hub and updated if

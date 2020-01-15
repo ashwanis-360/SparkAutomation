@@ -987,10 +987,12 @@
   <OperationalAttribueCount>(//table[@summary="Operational Attributes"]//tr[contains(@class,'mandatory')]//td[3])</OperationalAttribueCount>
   <BlankPriceContinue>//button[text()='Continue']</BlankPriceContinue>
   <ClickDropdown>(//span[text()='Value']/parent::*/span)[2]</ClickDropdown>
+   <ClickDropdownB>(//span[text()='Value']/parent::*/span)[3]</ClickDropdownB>
   <ClickDropdownPartial>(//span[text()='Value']/parent::*/span)[4]</ClickDropdownPartial>
   <SearchInput>(//span[text()='Value']/parent::*/span)[2]</SearchInput>
   <SelectValueDropdown>//ul[contains(@style,'block')]//li[text()='Value']</SelectValueDropdown>
   <TextInput>//span[text()='Value']/parent::*//input</TextInput>
+   <TextInputB>//div[@id='colt-site-right']//span[text()='Value']/parent::*//input</TextInputB>
   <TextInputPartial>(//span[text()='Value']/parent::*//input)[2]</TextInputPartial>
   <ClickLink>//a[text()='Value']</ClickLink>
   <IPDetailsPlus>//span[contains(@class,'fa-plus-square-o')]</IPDetailsPlus>
