@@ -338,9 +338,8 @@ public class NewOrders extends DriverTestcase {
 		newOrderOnnnet.get().productSelectionHelper(Data);
 		newOrderOnnnet.get().openServiceOrderNumber();
 		if (Data[8].toString().equalsIgnoreCase("Ethernet Hub")) {
-			newOrderOnnnet.get().addEthernetSiteHub(Data); // MethodAdded
-			newOrderOnnnet.get().hubSiteCustomize(Data); // MethodAdded
 			newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);// Updated
+			newOrderOnnnet.get().hubSiteCustomize(Data); // MethodAdded		
 			// newOrderOnnnet.get().EnterDateInFooter(Data); // No change
 			// newOrderOnnnet.get().EnterBillingDateInFooter(Data); // No change
 			// newOrderOnnnet.get().installationCharges(Data); // Method added
@@ -353,9 +352,9 @@ public class NewOrders extends DriverTestcase {
 		} 
 		else if (Data[8].toString().equalsIgnoreCase("Ethernet Spoke")) 
 		{
-			newOrderOnnnet.get().addEthernetSiteSpoke(Data);// MethodAdded
-			newOrderOnnnet.get().spokeSiteCustomize(Data);// MethodAdded
 			newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);// Updated for spoke also
+			newOrderOnnnet.get().spokeSiteCustomize(Data);// MethodAdded
+			
 			// newOrderOnnnet.get().EnterDateInFooter(Data); // No change
 			// newOrderOnnnet.get().EnterBillingDateInFooter(Data); // No change
 			// newOrderOnnnet.get().installationCharges(Data); // Method added same as hub
