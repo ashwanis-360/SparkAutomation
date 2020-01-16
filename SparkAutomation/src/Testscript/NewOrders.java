@@ -315,13 +315,14 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().SelectAttachmentTab(Data);
 			newOrderOnnnet.get().UploadDocument(Data);
 			newOrderOnnnet.get().CommercialValidation(Data);
+			newOrderOnnnet.get().EnterInstallationChargeInFooter(Data);
 			newOrderOnnnet.get().TechnicalValidation(Data); // updated
 			modHelper.get().LeadCapacity(Data);
 			newOrderOnnnet.get().clickOnManualValidationB();
 			newOrderOnnnet.get().DeliveryValidation(Data);
 			newOrderOnnnet.get().clickOnManualValidationA();
 			/* below changes as per Aman */
-			newOrderOnnnet.get().EnterInstallationChargeInFooter(Data);
+			//newOrderOnnnet.get().EnterInstallationChargeInFooter(Data);
 			modHelper.get().ProductSpecificCompleted(Data);
 			if (!(Data[11].toString().equalsIgnoreCase("IP VPN Access"))&&
 					!(Data[11].toString().equalsIgnoreCase("IP VPN Plus")) &&
