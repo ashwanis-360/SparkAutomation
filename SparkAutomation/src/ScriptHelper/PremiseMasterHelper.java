@@ -293,7 +293,7 @@ public class PremiseMasterHelper extends DriverHelper
 		
 		HashMap<String, String> SiteValues=new HashMap<>();
 		String ProductName = InputData[8].toString();
-		if(ProductName.equalsIgnoreCase("Ethernet Spoke")||ProductName.equalsIgnoreCase("Ethernet Hub")||ProductName.equalsIgnoreCase("Ethernet Line")||ProductName.equalsIgnoreCase("Wave"))
+		/*if(ProductName.equalsIgnoreCase("Ethernet Spoke")||ProductName.equalsIgnoreCase("Ethernet Hub")||ProductName.equalsIgnoreCase("Ethernet Line")||ProductName.equalsIgnoreCase("Wave"))
 		{
 			WaitforElementtobeclickable(xml.getlocator("//locators/Hub/Street"));
 			ClearSendKeys(getwebelement(xml.getlocator("//locators/Hub/Street")),InputData[19].toString());
@@ -396,7 +396,7 @@ public class PremiseMasterHelper extends DriverHelper
 					
 		}
 		else
-		{
+		{*/
 		WaitforElementtobeclickable(xmlS.getlocator("//locators/R4/SearchInput").replace("Value", "Street Name"));
 		Clear(getwebelement(xmlS.getlocator("//locators/R4/SearchInput").replace("Value", "Street Name")));
 		SendKeys(getwebelement(xmlS.getlocator("//locators/R4/SearchInput").replace("Value", "Street Name")),
@@ -502,7 +502,7 @@ public class PremiseMasterHelper extends DriverHelper
 				waitforPagetobeenable();
 				
 				return SiteValues;
-		}
+		//}
 				
 	}
 	//NewWith Hub And Spoke
@@ -889,11 +889,11 @@ public class PremiseMasterHelper extends DriverHelper
 				WaitforElementtobeclickable(xml.getlocator("//locators/Hub/HubSiteB"));
 				Clickon(getwebelement(xml.getlocator("//locators/Hub/HubSiteB")));
 			}
-			else if(ProductName.equalsIgnoreCase("Ethernet Hub")||ProductName.equalsIgnoreCase("Wave")||ProductName.equalsIgnoreCase("Ethernet Line"))
+			/*else if(ProductName.equalsIgnoreCase("Ethernet Hub")||ProductName.equalsIgnoreCase("Wave")||ProductName.equalsIgnoreCase("Ethernet Line"))
 			{
 			WaitforElementtobeclickable(xml.getlocator("//locators/Hub/HubSiteA"));
 			Clickon(getwebelement(xml.getlocator("//locators/Hub/HubSiteA")));
-			}
+			}*/
 			else if(ProductName.equalsIgnoreCase("Voice Line V"))
 			{
 				Clickon(getwebelement(xmlS.getlocator("//locators/OtherTab")));
@@ -1036,7 +1036,7 @@ public class PremiseMasterHelper extends DriverHelper
 		}
 		else if(ProductName.equalsIgnoreCase("Ethernet Hub")||ProductName.equalsIgnoreCase("Ethernet Line")||ProductName.equalsIgnoreCase("Wave"))
 		{
-			SiteId=Getattribute(getwebelement(xml.getlocator("//locators/Hub/SiteIDA")),"innerHTML");
+			SiteId=Getattribute(getwebelement(xml.getlocator("//locators/Hub/SiteIDA")),"title");
 			System.out.println("Site Id : " + SiteId);
 		}
 		else if(ProductName.equalsIgnoreCase("Voice Line V"))
