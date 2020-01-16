@@ -848,6 +848,10 @@ public class ModHelper extends DriverHelper {
 					getwebelement(xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value", "Physical Port ID")),
 					Keys.ENTER);
 			Thread.sleep(2000);
+			Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Install Time")));
+			Clickon(getwebelement(
+					xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[56].toString())));
+			waitforPagetobeenable();
 //		WaitforElementtobeclickable(xml.getlocator("//locators/CustomizeButton"));
 //		Clickon(getwebelement(xmlHns.getlocator("//locators/CustomizeButton")));
 //		Thread.sleep(30000);
