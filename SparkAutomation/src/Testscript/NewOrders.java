@@ -115,7 +115,6 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().EnterDateInFooter(Data);
 			newOrderOnnnet.get().EnterBillingDateInFooter(Data);
 			newOrderOnnnet.get().EnterServiceChargeInFooter(Data, "2");
-
 			newOrderOnnnet.get().SelectAttachmentTab(Data);
 			newOrderOnnnet.get().UploadDocument(Data);
 			newOrderOnnnet.get().SelectServiceGroupTab(Data);
@@ -289,6 +288,7 @@ public class NewOrders extends DriverTestcase {
 		if (Data[Data.length - 1].toString().contains("Com")) 
 		{
 			newOrderOnnnet.get().ServiceTab(Data);
+			newOrderOnnnet.get().installationTimeUpdate(Data);
 			newOrderOnnnet.get().EnterDateInFooter(Data);
 			if (Data[8].toString().equalsIgnoreCase("Ethernet Spoke")) {
 				newOrderOnnnet.get().ColtPromissDate(Data);
@@ -304,6 +304,7 @@ public class NewOrders extends DriverTestcase {
 			// newOrderOnnnet.get().Check(Data);
 			newOrderOnnnet.get().ServiceTab(Data);
 			modHelper.get().ModTech(Data);
+			newOrderOnnnet.get().ModTechModCommWaveAndLine(Data);
 			newOrderOnnnet.get().EnterDateInFooter(Data);
 			newOrderOnnnet.get().EnterBillingDateInFooter(Data);
 			newOrderOnnnet.get().EnterServiceChargeInFooter(Data, "4");
@@ -402,6 +403,7 @@ public class NewOrders extends DriverTestcase {
 			OmpOrder.get().verficationOfProduct(Data);
 		}
 	}
+	
 	@Test(dataProviderClass = DataReader.class, dataProvider = "OmpDatereaderMod")
 	public void OMPMod(Object[] Data) throws Exception {
 		// Login.get().Login("Sieble");
@@ -755,12 +757,6 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().LaunchingXNGApplication(Data);
 		} else {
 			newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);
-			// add specifically for Wave and Ethernet Line and won't run for other products
-			newOrderOnnnet.get().addSiteADetails(Data);// added new
-			newOrderOnnnet.get().addSiteBDetails(Data);// added new
-			newOrderOnnnet.get().ASiteCustomize(Data);// added new
-			newOrderOnnnet.get().BSiteCustomize(Data);// added new
-			// End of methods spesific for Wave and Ethernet Line ------>
 			newOrderOnnnet.get().enterMandatoryDetailsInMiddleApplet(Data);
 			newOrderOnnnet.get().VoiceConfigTab(Data);
 			newOrderOnnnet.get().VoiceFeatureTab(Data);
@@ -768,7 +764,6 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().EnterDateInFooter(Data);
 			newOrderOnnnet.get().EnterBillingDateInFooter(Data);
 			newOrderOnnnet.get().EnterServiceChargeInFooter(Data, "2");
-
 			newOrderOnnnet.get().SelectAttachmentTab(Data);
 			newOrderOnnnet.get().UploadDocument(Data);
 			newOrderOnnnet.get().SelectServiceGroupTab(Data);
@@ -825,12 +820,6 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().OrderCompleteEthernetHubSpoke(Data);// updated same as hub
 		} else {
 			newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);
-			// add specifically for Wave and Ethernet Line and won't run for other products
-			newOrderOnnnet.get().addSiteADetails(Data);// added new
-			newOrderOnnnet.get().addSiteBDetails(Data);// added new
-			newOrderOnnnet.get().ASiteCustomize(Data);// added new
-			newOrderOnnnet.get().BSiteCustomize(Data);// added new
-			// End of methods spesific for Wave and Ethernet Line ------>
 			newOrderOnnnet.get().enterMandatoryDetailsInMiddleApplet(Data);
 			newOrderOnnnet.get().VoiceConfigTab(Data);
 			newOrderOnnnet.get().VoiceFeatureTab(Data);
@@ -910,12 +899,6 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().validateXtracComplete();
 		} else {
 			newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);
-			// add specifically for Wave and Ethernet Line and won't run for other products
-			newOrderOnnnet.get().addSiteADetails(Data);// added new
-			newOrderOnnnet.get().addSiteBDetails(Data);// added new
-			newOrderOnnnet.get().ASiteCustomize(Data);// added new
-			newOrderOnnnet.get().BSiteCustomize(Data);// added new
-			// End of methods spesific for Wave and Ethernet Line ------>
 			newOrderOnnnet.get().enterMandatoryDetailsInMiddleApplet(Data);
 			newOrderOnnnet.get().VoiceConfigTab(Data);
 			newOrderOnnnet.get().VoiceFeatureTab(Data);
@@ -980,12 +963,6 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().OrderCompleteEthernetHubSpoke(Data);// updated same as hub
 		} else {
 			newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);
-			// add specifically for Wave and Ethernet Line and won't run for other products
-			newOrderOnnnet.get().addSiteADetails(Data);// added new
-			newOrderOnnnet.get().addSiteBDetails(Data);// added new
-			newOrderOnnnet.get().ASiteCustomize(Data);// added new
-			newOrderOnnnet.get().BSiteCustomize(Data);// added new
-			// End of methods spesific for Wave and Ethernet Line ------>
 			newOrderOnnnet.get().enterMandatoryDetailsInMiddleApplet(Data);
 			newOrderOnnnet.get().VoiceConfigTab(Data);
 			newOrderOnnnet.get().VoiceFeatureTab(Data);
