@@ -984,6 +984,7 @@
  
  <!--   Abhay locator Start -->
   <IPVPNSite>
+  <ColtPromissday>//input[@aria-labelledby="Colt_Promised_Date_Label"]</ColtPromissday>
   <OperationalAttribueCount>(//table[@summary="Operational Attributes"]//tr[contains(@class,'mandatory')]//td[3])</OperationalAttribueCount>
   <BlankPriceContinue>//button[text()='Continue']</BlankPriceContinue>
   <ClickDropdown>(//span[text()='Value']/parent::*/span)[2]</ClickDropdown>
