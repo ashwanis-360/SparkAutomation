@@ -5719,8 +5719,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		waitforPagetobeenable();
 		if (!Inputdata[8].toString().equals("Cloud Unified Communications") 
 				
-				&& !Inputdata[8].toString().equals("Professional Services") 
-				&& !Inputdata[8].toString().equalsIgnoreCase("Ethernet Hub")){
+				&& !Inputdata[8].toString().equals("Professional Services") ){
 			Select(getwebelement(xml.getlocator("//locators/InstalltionDropdown")), "Installation and Test");
 			ExtentTestManager.getTest().log(LogStatus.PASS,
 					" Step: Click on Installation Dropdown button and Select Installation and Test");
