@@ -677,32 +677,60 @@ public class ModHelper extends DriverHelper {
 
 		
 		case "Ethernet Spoke": {
+			
+			Clickon(getwebelement(
+					xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Resilience Option")));
+			Thread.sleep(2000);
+			Clickon(getwebelement(
+					xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[27].toString())));
+			
+			//waitforAttributeloader();
+			waitforPagetobeenable();
+			
 
-			Clickon(getwebelement(xmlHns.getlocator("//locators/CustomizeButton")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Customize Button");
-			Thread.sleep(5000);
+			Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdownB").replace("Value", "Install Time")));
+			Clickon(getwebelement(
+					xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[56].toString())));
+			waitforPagetobeenable();
+			
+			if (isElementPresent(xml.getlocator("//locators/SaveOrderChanges"))) {
+				WaitforElementtobeclickable(xml.getlocator("//locators/SaveOrderChanges"));
+				Clickon(getwebelement(xml.getlocator("//locators/SaveOrderChanges")));
+				//waitForpageload();
+				System.out.println("page load succesfuuly now come to middle applet");
+			}
+			else
+			{
+				savePage();
+			}
+				waitforPagetobeenable();
+				Thread.sleep(3000);
 
-			Select(getwebelement(xmlHns.getlocator("//locators/ServiceBandwidth")), Inputdata[11].toString());
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Service Bandwidth");
-			Thread.sleep(5000);
-			Clickon(getwebelement(xmlHns.getlocator("//locators/Proceed")));
-			Thread.sleep(5000);
-
-			savePage();
-			Thread.sleep(5000);
-			safeJavaScriptClick(getwebelement(xmlHns.getlocator("//locators/EthernetConnectionLink")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Ethernet Connection Link");
-
-			safeJavaScriptClick(getwebelement(xmlHns.getlocator("//locators/SpokeSiteLink")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Spoke Site Link");
-
-			Clickon(getwebelement(xmlHns.getlocator("//locators/InstallationTimeLink")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Installation Time Link");
-
-			Select(getwebelement(xmlHns.getlocator("//locators/InstallTime")), Inputdata[112].toString());
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Install Time");
-			Clickon(getwebelement(xmlHns.getlocator("//locators/DoneEthernetConnection")));
-			Thread.sleep(20000);
+//			Clickon(getwebelement(xmlHns.getlocator("//locators/CustomizeButton")));
+//			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Customize Button");
+//			Thread.sleep(5000);
+//
+//			Select(getwebelement(xmlHns.getlocator("//locators/ServiceBandwidth")), Inputdata[11].toString());
+//			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Service Bandwidth");
+//			Thread.sleep(5000);
+//			Clickon(getwebelement(xmlHns.getlocator("//locators/Proceed")));
+//			Thread.sleep(5000);
+//
+//			savePage();
+//			Thread.sleep(5000);
+//			safeJavaScriptClick(getwebelement(xmlHns.getlocator("//locators/EthernetConnectionLink")));
+//			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Ethernet Connection Link");
+//
+//			safeJavaScriptClick(getwebelement(xmlHns.getlocator("//locators/SpokeSiteLink")));
+//			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Spoke Site Link");
+//
+//			Clickon(getwebelement(xmlHns.getlocator("//locators/InstallationTimeLink")));
+//			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Installation Time Link");
+//
+//			Select(getwebelement(xmlHns.getlocator("//locators/InstallTime")), Inputdata[112].toString());
+//			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Install Time");
+//			Clickon(getwebelement(xmlHns.getlocator("//locators/DoneEthernetConnection")));
+//			Thread.sleep(20000);
 
 			break;
 		}
@@ -807,36 +835,49 @@ public class ModHelper extends DriverHelper {
 	public void modEthernetHubMiddleApplet(Object[] Inputdata) throws Exception
 	{
 		waitforPagetobeenable();
-		WaitforElementtobeclickable(xml.getlocator("//locators/CustomizeButton"));
-		Clickon(getwebelement(xmlHns.getlocator("//locators/CustomizeButton")));
-		Thread.sleep(30000);
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Clicked on Customize button");
-		WaitforElementtobeclickable(xml.getlocator("//locators/CustomizeServiceBandwidth"));
-		Clickon(getwebelement(xmlHns.getlocator("//locators/CustomizeServiceBandwidth")));
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Clicked on Service Bandwidth");
-		Select(getwebelement(xmlHns.getlocator("//locators/CustomizeServiceBandwidth")), Inputdata[11].toString());
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Picked the updated bandwidth");
-		savePage();
-		Thread.sleep(5000);
-		WaitforElementtobeclickable(xml.getlocator("//locators/EthernetConnectionLink"));
-		safeJavaScriptClick(getwebelement(xmlHns.getlocator("//locators/EthernetConnectionLink")));
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Ethernet Connection link");
-		Thread.sleep(10000);
-		WaitforElementtobeclickable(xml.getlocator("//locators/HubSiteLink"));
-		safeJavaScriptClick(getwebelement(xmlHns.getlocator("//locators/HubSiteLink")));
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Aend Site link");
-		Thread.sleep(10000);
-		WaitforElementtobeclickable(xml.getlocator("//locators/InstallationTimeLink"));
-		Clickon(getwebelement(xmlHns.getlocator("//locators/InstallationTimeLink")));
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Installation Time link");
-		SendKeys(getwebelement(xmlHns.getlocator("//locators/InstallTime")), Inputdata[95].toString());
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Update the Installation time");
-		WaitforElementtobeclickable(xml.getlocator("//locators/DoneEthernetConnection"));
-		safeJavaScriptClick(getwebelement(xmlHns.getlocator("//locators/DoneEthernetConnection")));
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Ethernet Connection link");
-		savePage();
-		Thread.sleep(10000);
-		waitforPagetobeenable();
+		Clear(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value", "Slot ID")));
+		SendKeys(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value", "Slot ID")), "121");
+		SendkeaboardKeys(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value", "Slot ID")),
+				Keys.ENTER);
+		Thread.sleep(2000);
+
+			Clear(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value", "Physical Port ID")));
+			SendKeys(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value", "Physical Port ID")),
+					"NA");
+			SendkeaboardKeys(
+					getwebelement(xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value", "Physical Port ID")),
+					Keys.ENTER);
+			Thread.sleep(2000);
+//		WaitforElementtobeclickable(xml.getlocator("//locators/CustomizeButton"));
+//		Clickon(getwebelement(xmlHns.getlocator("//locators/CustomizeButton")));
+//		Thread.sleep(30000);
+//		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Clicked on Customize button");
+//		WaitforElementtobeclickable(xml.getlocator("//locators/CustomizeServiceBandwidth"));
+//		Clickon(getwebelement(xmlHns.getlocator("//locators/CustomizeServiceBandwidth")));
+//		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Clicked on Service Bandwidth");
+//		Select(getwebelement(xmlHns.getlocator("//locators/CustomizeServiceBandwidth")), Inputdata[11].toString());
+//		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Picked the updated bandwidth");
+//		savePage();
+//		Thread.sleep(5000);
+//		WaitforElementtobeclickable(xml.getlocator("//locators/EthernetConnectionLink"));
+//		safeJavaScriptClick(getwebelement(xmlHns.getlocator("//locators/EthernetConnectionLink")));
+//		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Ethernet Connection link");
+//		Thread.sleep(10000);
+//		WaitforElementtobeclickable(xml.getlocator("//locators/HubSiteLink"));
+//		safeJavaScriptClick(getwebelement(xmlHns.getlocator("//locators/HubSiteLink")));
+//		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Aend Site link");
+//		Thread.sleep(10000);
+//		WaitforElementtobeclickable(xml.getlocator("//locators/InstallationTimeLink"));
+//		Clickon(getwebelement(xmlHns.getlocator("//locators/InstallationTimeLink")));
+//		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Installation Time link");
+//		SendKeys(getwebelement(xmlHns.getlocator("//locators/InstallTime")), Inputdata[95].toString());
+//		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Update the Installation time");
+//		WaitforElementtobeclickable(xml.getlocator("//locators/DoneEthernetConnection"));
+//		safeJavaScriptClick(getwebelement(xmlHns.getlocator("//locators/DoneEthernetConnection")));
+//		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Ethernet Connection link");
+//		savePage();
+//		Thread.sleep(10000);
+//		waitforPagetobeenable();
 	}
 	//aman gupta
 	public void modTechNumberHosting(Object[] Inputdata) throws InterruptedException, DocumentException, IOException
