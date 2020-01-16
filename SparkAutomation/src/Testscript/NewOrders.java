@@ -276,7 +276,7 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().SelectAttachmentTab(Data);
 			newOrderOnnnet.get().UploadDocument(Data);
 			newOrderOnnnet.get().TechnicalValidation(Data);
-			if (Data[8].toString().equalsIgnoreCase("Ethernet Hub")) 
+			if (Data[8].toString().equalsIgnoreCase("Ethernet Hub")||Data[8].toString().equalsIgnoreCase("Ethernet Spoke")) 
 			{
 			newOrderOnnnet.get().CircuitReferenceGeneration(Data); 
 			}

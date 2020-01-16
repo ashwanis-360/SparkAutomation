@@ -9057,22 +9057,26 @@ if (Inputdata[8].toString().equalsIgnoreCase("Ethernet Hub")) {
 	public void installationTimeUpdate(Object[] Inputdata) throws Exception {
 		switch (Inputdata[8].toString()) {
 		case "Ethernet Spoke": {
-			Clickon(getwebelement(xmlHns.getlocator("//locators/CustomizeButton")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Customize Button");
-			Thread.sleep(5000);
-			safeJavaScriptClick(getwebelement(xmlHns.getlocator("//locators/EthernetConnectionLink")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Ethernet Connection Link");
-
-			safeJavaScriptClick(getwebelement(xmlHns.getlocator("//locators/SpokeSiteLink")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Spoke Site Link");
-
-			Clickon(getwebelement(xmlHns.getlocator("//locators/InstallationTimeLink")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Installation Time Link");
-
-			Select(getwebelement(xmlHns.getlocator("//locators/InstallTime")), Inputdata[112].toString());
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Install Time");
-			Clickon(getwebelement(xmlHns.getlocator("//locators/DoneEthernetConnection")));
-			Thread.sleep(20000);
+			Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdownB").replace("Value", "Install Time")));
+			Clickon(getwebelement(
+					xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[56].toString())));
+			waitforPagetobeenable();
+//			Clickon(getwebelement(xmlHns.getlocator("//locators/CustomizeButton")));
+//			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Customize Button");
+//			Thread.sleep(5000);
+//			safeJavaScriptClick(getwebelement(xmlHns.getlocator("//locators/EthernetConnectionLink")));
+//			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Ethernet Connection Link");
+//
+//			safeJavaScriptClick(getwebelement(xmlHns.getlocator("//locators/SpokeSiteLink")));
+//			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Spoke Site Link");
+//
+//			Clickon(getwebelement(xmlHns.getlocator("//locators/InstallationTimeLink")));
+//			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Installation Time Link");
+//
+//			Select(getwebelement(xmlHns.getlocator("//locators/InstallTime")), Inputdata[112].toString());
+//			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Install Time");
+//			Clickon(getwebelement(xmlHns.getlocator("//locators/DoneEthernetConnection")));
+//			Thread.sleep(20000);
 			break;
 		}
 		case "Ethernet Hub": {
