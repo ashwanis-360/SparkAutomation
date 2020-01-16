@@ -74,8 +74,8 @@
  <RoomNo>//input[@id='txtRoomName']</RoomNo>
  <Floor>//input[@id='txtFloor']</Floor>
  <SaveSite>//input[@id='btnSaveSite']</SaveSite>
- <SiteIDB>//span[@id='selected_siteB']</SiteIDB>
-  <SiteIDA>//span[@id='selected_siteA']</SiteIDA>
+ <SiteIDB>//div[@id='colt-site-right']//span[@class='colt-site-top-id']//b</SiteIDB>
+  <SiteIDA>//div[@id='colt-site-left']//span[@class='colt-site-top-id']//b</SiteIDA>
  
 </Hub>
 <SearchSite>
