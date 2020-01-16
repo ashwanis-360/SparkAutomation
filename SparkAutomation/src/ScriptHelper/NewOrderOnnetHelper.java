@@ -5719,8 +5719,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		waitforPagetobeenable();
 		if (!Inputdata[8].toString().equals("Cloud Unified Communications") 
 				
-				&& !Inputdata[8].toString().equals("Professional Services") 
-				&& !Inputdata[8].toString().equalsIgnoreCase("Ethernet Hub")) {
+				&& !Inputdata[8].toString().equals("Professional Services") ){
 			Select(getwebelement(xml.getlocator("//locators/InstalltionDropdown")), "Installation and Test");
 			ExtentTestManager.getTest().log(LogStatus.PASS,
 					" Step: Click on Installation Dropdown button and Select Installation and Test");
@@ -9077,24 +9076,29 @@ if (Inputdata[8].toString().equalsIgnoreCase("Ethernet Hub")) {
 			break;
 		}
 		case "Ethernet Hub": {
-			Clickon(getwebelement(xmlHns.getlocator("//locators/CustomizeButton")));
-			Thread.sleep(30000);
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Clicked on Customize button");
-			Thread.sleep(5000);
-
-			safeJavaScriptClick(getwebelement(xmlHns.getlocator("//locators/EthernetConnectionLink")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Ethernet Connection link");
-			Thread.sleep(10000);
-			safeJavaScriptClick(getwebelement(xmlHns.getlocator("//locators/HubSiteLink")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Aend Site link");
-			Thread.sleep(10000);
-			Clickon(getwebelement(xmlHns.getlocator("//locators/InstallationTimeLink")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Installation Time link");
-			SendKeys(getwebelement(xmlHns.getlocator("//locators/InstallTime")), Inputdata[95].toString());
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Update the Installation time");
-			safeJavaScriptClick(getwebelement(xmlHns.getlocator("//locators/DoneEthernetConnection")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Ethernet Connection link");
-			Thread.sleep(10000);
+			
+			Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Install Time")));
+			Clickon(getwebelement(
+					xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[56].toString())));
+			waitforPagetobeenable();
+//			Clickon(getwebelement(xmlHns.getlocator("//locators/CustomizeButton")));
+//			Thread.sleep(30000);
+//			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Clicked on Customize button");
+//			Thread.sleep(5000);
+//
+//			safeJavaScriptClick(getwebelement(xmlHns.getlocator("//locators/EthernetConnectionLink")));
+//			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Ethernet Connection link");
+//			Thread.sleep(10000);
+//			safeJavaScriptClick(getwebelement(xmlHns.getlocator("//locators/HubSiteLink")));
+//			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Aend Site link");
+//			Thread.sleep(10000);
+//			Clickon(getwebelement(xmlHns.getlocator("//locators/InstallationTimeLink")));
+//			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Installation Time link");
+//			SendKeys(getwebelement(xmlHns.getlocator("//locators/InstallTime")), Inputdata[95].toString());
+//			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Update the Installation time");
+//			safeJavaScriptClick(getwebelement(xmlHns.getlocator("//locators/DoneEthernetConnection")));
+//			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Ethernet Connection link");
+//			Thread.sleep(10000);
 			break;
 		}
 		case "Ethernet Line": {
