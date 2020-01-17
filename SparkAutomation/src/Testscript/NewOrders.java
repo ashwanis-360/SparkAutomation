@@ -880,6 +880,7 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().CommercialValidation(Data); // No Change
 			newOrderOnnnet.get().validateXtrac();
 			newOrderOnnnet.get().TechnicalValidation(Data); // Updated
+			newOrderOnnnet.get().CircuitReferenceGeneration(Data); 
 			newOrderOnnnet.get().DeliveryValidation(Data); // No Change
 			newOrderOnnnet.get().openServiceOrder(Data);
 			newOrderOnnnet.get().validateXtrac();
@@ -897,6 +898,7 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().CommercialValidation(Data); // No Change
 			newOrderOnnnet.get().validateXtrac();
 			newOrderOnnnet.get().TechnicalValidation(Data); // Updated for spoke also
+			newOrderOnnnet.get().CircuitReferenceGeneration(Data); 
 			newOrderOnnnet.get().DeliveryValidation(Data); // No Change
 			newOrderOnnnet.get().validateXtrac();
 			newOrderOnnnet.get().OrderCompleteEthernetHubSpoke(Data);// updated same as hub
