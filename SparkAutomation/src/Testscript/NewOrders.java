@@ -871,9 +871,9 @@ public class NewOrders extends DriverTestcase {
 		newOrderOnnnet.get().productSelectionHelper(Data);
 		newOrderOnnnet.get().openServiceOrderNumber();
 		if (Data[8].toString().equalsIgnoreCase("Ethernet Hub")) {
-			newOrderOnnnet.get().addEthernetSiteHub(Data); // MethodAdded
-			newOrderOnnnet.get().hubSiteCustomize(Data); // MethodAdded
 			newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);// Updated
+			newOrderOnnnet.get().hubSiteCustomize(Data); // MethodAdded
+			
 			newOrderOnnnet.get().EnterDateInFooter(Data); // No change
 			newOrderOnnnet.get().EnterBillingDateInFooter(Data); // No change
 			newOrderOnnnet.get().EnterServiceChargeInFooter(Data, "2");
@@ -887,9 +887,9 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().openServiceOrder(Data);
 			newOrderOnnnet.get().validateXtracComplete();
 		} else if (Data[8].toString().equalsIgnoreCase("Ethernet Spoke")) {
-			newOrderOnnnet.get().addEthernetSiteSpoke(Data);// MethodAdded
-			newOrderOnnnet.get().spokeSiteCustomize(Data);// MethodAdded
 			newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);// Updated for spoke also
+			newOrderOnnnet.get().spokeSiteCustomize(Data);// MethodAdded
+			
 			newOrderOnnnet.get().EnterDateInFooter(Data); // No change
 			newOrderOnnnet.get().EnterBillingDateInFooter(Data); // No change
 			newOrderOnnnet.get().EnterServiceChargeInFooter(Data, "2");

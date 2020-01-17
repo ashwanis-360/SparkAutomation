@@ -14056,6 +14056,13 @@ if (Inputdata[8].toString().equalsIgnoreCase("Ethernet Hub")) {
 				
 					try {
 						Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderTab")));
+						if (isElementPresent((xml.getlocator("//locators/AlertAccept")))) {
+							WaitforElementtobeclickable((xml.getlocator("//locators/AlertAccept")));
+							Clickon(getwebelement(xml.getlocator("//locators/AlertAccept")));
+							Thread.sleep(3000);
+							Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderTab")));
+						}
+						Thread.sleep(3000);
 					} catch (Exception e) {
 						try {
 							safeJavaScriptClick(getwebelement(xml.getlocator("//locators/ServiceOrderTab")));
