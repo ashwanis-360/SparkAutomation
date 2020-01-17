@@ -1022,6 +1022,8 @@
  <GOIPService>//a[text()='Value']</GOIPService>
  <PartialCheckbox>//input[@aria-label="Partial Delivery Flag"]</PartialCheckbox>
  <OrderStatusInput>//input[@aria-label="Order Status"]</OrderStatusInput>
+ <HubTableIDSelect>(//table[@id='hub_table']//tr[@class='row'])[1]</HubTableIDSelect>
+ <HubTableOK>//input[@id='PickHub']</HubTableOK>
   </IPVPNSite>
  <!--   Abhay locator End -->
 

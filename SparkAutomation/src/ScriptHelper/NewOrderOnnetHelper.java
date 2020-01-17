@@ -7999,6 +7999,16 @@ if (Inputdata[8].toString().equalsIgnoreCase("Ethernet Hub")) {
 		Clickon(getwebelement(xml.getlocator("//locators/ClickheretoSaveAccess")));
 
 		waitforPagetobeenable();
+		
+		Clickon(getwebelement(
+				xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "HUB Service Id")));
+		WaitforElementtobeclickable(xml.getlocator("//locators/IPVPNSite/HubTableIDSelect"));
+		Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/HubTableIDSelect")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Select HubID");
+		Thread.sleep(3000);
+		Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/HubTableOK")));
+		Thread.sleep(3000);
+		waitforPagetobeenable();
 
 		safeJavaScriptClick(getwebelement(xml3.getlocator("//locators/SearchAddressSiteB")));
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Search Address SiteB");
