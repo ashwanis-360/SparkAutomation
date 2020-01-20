@@ -579,6 +579,7 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().EnterServiceChargeInFooter(Data, "2"); // Method added
 			newOrderOnnnet.get().CommercialValidation(Data); // No Change
 			newOrderOnnnet.get().TechnicalValidation(Data); // Updated
+			newOrderOnnnet.get().CircuitReferenceGeneration(Data); 
 			newOrderOnnnet.get().DeliveryValidation(Data); // No Change
 			inFlightGeneric.get().ServiceTabInFlight(Data);
 		} 
@@ -594,6 +595,7 @@ public class NewOrders extends DriverTestcase {
 
 			newOrderOnnnet.get().CommercialValidation(Data); // No Change
 			newOrderOnnnet.get().TechnicalValidation(Data); // Updated for spoke also
+			newOrderOnnnet.get().CircuitReferenceGeneration(Data); 
 			newOrderOnnnet.get().DeliveryValidation(Data); // No Change
 			inFlightGeneric.get().ServiceTabInFlight(Data);
 		} else {
