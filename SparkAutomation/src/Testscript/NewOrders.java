@@ -631,12 +631,6 @@ public class NewOrders extends DriverTestcase {
 		newOrderOnnnet.get().productSelectionHelper(Data);
 		newOrderOnnnet.get().openServiceOrderNumber();
 		newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);
-		// add specifically for Wave and Ethernet Line and won't run for other products
-		newOrderOnnnet.get().addSiteADetails(Data);// added new
-		newOrderOnnnet.get().addSiteBDetails(Data);// added new
-		newOrderOnnnet.get().ASiteCustomize(Data);// added new
-		newOrderOnnnet.get().BSiteCustomize(Data);// added new
-		// End of methods spesific for Wave and Ethernet Line ------>
 		newOrderOnnnet.get().enterMandatoryDetailsInMiddleApplet(Data);
 		newOrderOnnnet.get().VoiceConfigTab(Data);
 		newOrderOnnnet.get().VoiceFeatureTab(Data);
@@ -701,12 +695,6 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().validateSlaMatrix(Data);
 		} else {
 			newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);
-			// add specifically for Wave and Ethernet Line and won't run for other products
-			newOrderOnnnet.get().addSiteADetails(Data);// added new
-			newOrderOnnnet.get().addSiteBDetails(Data);// added new
-			newOrderOnnnet.get().ASiteCustomize(Data);// added new
-			newOrderOnnnet.get().BSiteCustomize(Data);// added new
-			// End of methods spesific for Wave and Ethernet Line ------>
 			newOrderOnnnet.get().enterMandatoryDetailsInMiddleApplet(Data);
 			newOrderOnnnet.get().VoiceConfigTab(Data);
 			newOrderOnnnet.get().VoiceFeatureTab(Data);
@@ -727,17 +715,19 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().DeliveryValidation(Data);
 			newOrderOnnnet.get().clickOnManualValidationA();
 			if (!Data[8].toString().equalsIgnoreCase("IP VPN Service")) {
-				if (Data[74].toString().equals("Offnet")) {
+				if (Data[74].toString().equals("Offnet")) 
+				{
 
 					newOrderOnnnet.get().CEOS_Offnet();
 					newOrderOnnnet.get().LaunchingCEOSApplication(Data);
 					newOrderOnnnet.get().getReferenceNo(Data);// added new
 					newOrderOnnnet.get().CompletedValidation(Data);
 				}
-			} else {
+			} 
+			else 
+			{
 				newOrderOnnnet.get().CompletedValidation_offnet(Data);
 			}
-
 			newOrderOnnnet.get().getReferenceNo(Data);// added new
 			newOrderOnnnet.get().CompletedValidation(Data);
 			newOrderOnnnet.get().validateSlaMatrix(Data);
