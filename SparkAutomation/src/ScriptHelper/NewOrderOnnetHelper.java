@@ -13640,6 +13640,13 @@ if (Inputdata[8].toString().equalsIgnoreCase("Ethernet Hub")) {
 				waitforPagetobeenable();
 				WaitforElementtobeclickable(xml.getlocator("//locators/AssetButton"));
 				Clickon(getwebelement(xml.getlocator("//locators/AssetButton")));
+				if (isElementPresent((xml.getlocator("//locators/AlertAccept")))) {
+					WaitforElementtobeclickable((xml.getlocator("//locators/AlertAccept")));
+					Clickon(getwebelement(xml.getlocator("//locators/AlertAccept")));
+					Thread.sleep(3000);
+					Clickon(getwebelement(xml.getlocator("//locators/AssetButton")));
+				}
+				Thread.sleep(3000);
 				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Assest");
 				String Order=ServiceOrder.get();
 				String[] Order1=Order.split("/");
