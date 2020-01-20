@@ -1716,8 +1716,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			AEndDropdownSelection("Access Type",InputData[42].toString());
 			AEndDropdownSelection("Access Technology",InputData[119].toString());
 			AEndDropdownSelection("Third Party Access Provider",InputData[102].toString());
-			//AEndDropdownSelection("Building Type",InputData[93].toString());
-			//AEndDropdownSelection("Customer Site Pop Status",InputData[94].toString());
+			AEndDropdownSelection("Building Type",InputData[93].toString());
+			AEndDropdownSelection("Customer Site Pop Status",InputData[94].toString());
 			rand_int1 = rand.nextInt(1000);
 			AEndInputEnter("3rd Party Connection Reference",Integer.toString(rand_int1));
 			AEndInputEnter("BCP Reference",InputData[94].toString());
@@ -1727,13 +1727,70 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			BEndDropdownSelection("Access Type",InputData[81].toString());
 			BEndDropdownSelection("Access Technology",InputData[120].toString());
 			BEndDropdownSelection("Third Party Access Provider",InputData[102].toString());
-			//AEndDropdownSelection("Building Type",InputData[93].toString());
-			//BEndDropdownSelection("Customer Site Pop Status",InputData[94].toString());
+			BEndDropdownSelection("Building Type",InputData[93].toString());
+			BEndDropdownSelection("Customer Site Pop Status",InputData[94].toString());
 			rand_int1 = rand.nextInt(1000);
 			BEndInputEnter("3rd Party Connection Reference",Integer.toString(rand_int1));
 			BEndInputEnter("BCP Reference",InputData[94].toString());
 			BEndInputEnter("Site Name Alias",InputData[60].toString());
 			BEndDropdownSelection("Third Party SLA Tier",InputData[35].toString());
+			
+			waitForpageload();
+		    waitforPagetobeenable();
+			savePage();
+			waitForpageload();
+		    waitforPagetobeenable();
+		    
+		    //A End And B End Installation Entries Start
+		    AEndDropdownSelection("Install Time",InputData[95].toString());
+		    AEndInputEnter("Access Notification Period",InputData[123].toString());
+		    AEndInputEnter("Access Time Window",InputData[125].toString());
+		    BEndDropdownSelection("Install Time",InputData[112].toString());
+		    BEndInputEnter("Access Notification Period",InputData[124].toString());
+		    BEndInputEnter("Access Time Window",InputData[126].toString());
+		    //A End And B End Installation Entries Ended
+		    
+		    savePage();
+			waitForpageload();
+		    waitforPagetobeenable();
+		    //A End And B End CPE Information Entries Start
+		    rand_int1 = rand.nextInt(1000);
+		    AEndInputEnter("Cabinet ID",Integer.toString(rand_int1));
+		    AEndDropdownSelection("Cabinet Type",InputData[96].toString());
+		    rand_int1 = rand.nextInt(1000);
+		    AEndInputEnter("Shelf ID",Integer.toString(rand_int1));
+		    
+		    rand_int1 = rand.nextInt(1000);
+		    BEndInputEnter("Cabinet ID",Integer.toString(rand_int1));
+		    BEndDropdownSelection("Cabinet Type",InputData[113].toString());
+		    rand_int1 = rand.nextInt(1000);
+		    BEndInputEnter("Shelf ID",Integer.toString(rand_int1));
+		    
+		  //A End And B End CPE Information Entries Ended
+		    savePage();
+			waitForpageload();
+		    waitforPagetobeenable();
+		    
+		    //A End And B End CPE Access Port Entries Start
+		    rand_int1 = rand.nextInt(1000);
+		    AEndInputEnter("Slot ID",Integer.toString(rand_int1));
+		    rand_int1 = rand.nextInt(1000);
+		    AEndInputEnter("Physical Port ID",Integer.toString(rand_int1));
+		    AEndDropdownSelection("Presentation Interface",InputData[99].toString());
+		    AEndDropdownSelection("Connector Type",InputData[54].toString());
+		    AEndDropdownSelection("Fibre Type",InputData[55].toString());
+		    AEndDropdownSelection("Port Role",InputData[98].toString());
+		    
+		    rand_int1 = rand.nextInt(1000);
+		    BEndInputEnter("Slot ID",Integer.toString(rand_int1));
+		    rand_int1 = rand.nextInt(1000);
+		    BEndInputEnter("Physical Port ID",Integer.toString(rand_int1));
+		    BEndDropdownSelection("Presentation Interface",InputData[116].toString());
+		    BEndDropdownSelection("Connector Type",InputData[56].toString());
+		    BEndDropdownSelection("Fibre Type",InputData[58].toString());
+		    BEndDropdownSelection("Port Role",InputData[115].toString());
+		    //A End And B End CPE Access Port Entries End
+		    
 		}
 		else
 		{
@@ -1814,17 +1871,15 @@ public class NewOrderOnnetHelper extends DriverHelper {
 	    BEndDropdownSelection("Port Role",InputData[115].toString());
 	    //A End And B End CPE Access Port Entries End
 	    
-		}
-	    savePage();
+		} savePage();
 		waitForpageload();
 	    waitforPagetobeenable();
 	    
 	    ClickHereSave();
-	    GetReference();
+	   // GetReference();
 	    Save();
 	}		
 	}	
-
 	public void ModTechModCommWaveAndLine(Object[] InputData) throws InterruptedException, DocumentException, IOException {
 		waitForpageload();
 		waitforPagetobeenable();
@@ -6184,6 +6239,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		Clickon(getwebelement(xml.getlocator("//locators/InputServiceOrder")));
 		SendKeys(getwebelement(xml.getlocator("//locators/InputServiceOrder")), ServiceOrder.get().toString());
 		Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderGo")));
+		ExtentTestManager.getTest().log(LogStatus.PASS,
+				" Step: Checking Billing Status for service order number :"+ ServiceOrder.get().toString());
 		waitforPagetobeenable();
 		Thread.sleep(6000);
 		// ================= added Rekha=======Need Modification as endless loop
