@@ -52,8 +52,8 @@
 <UpdateSiteId>//table[@id='DomainTable']//tbody//tr[1]/td[1]</UpdateSiteId>
 </EditSite>
 <Hub>
- <HubSiteB>//img[@id='imgSelectAddressSiteB']</HubSiteB>
- <HubSiteA>//img[@id='imgSelectAddressSiteA']</HubSiteA>
+<HubSiteB>//div[@id='colt-site-right']//span[@title='Select a site']</HubSiteB>
+ <HubSiteA>//div[@id='colt-site-left']//span[@title='Select a site']</HubSiteA>
  <Street>//input[@id='txtStreetName']</Street>
  <Country>//select[@id='ddlCountry']</Country>
  <City>//input[@id='txtCityTown']</City>
