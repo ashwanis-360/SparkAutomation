@@ -5,6 +5,7 @@ import java.sql.Driver;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 import javax.security.auth.Refreshable;
 
@@ -528,6 +529,7 @@ public class InFlightOrderHelper extends DriverHelper {
 
 	public void ethernetSpoke(Object[] Inputdata) throws Exception {
 		Thread.sleep(6000);
+		Random rand = new Random();
 		WaitforElementtobeclickable(xml.getlocator("//locators/ClickLink").replace("Value", "Sites"));
 		Clickon(getwebelement(xml.getlocator("//locators/ClickLink").replace("Value", "Sites")));
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on sites tab");
@@ -536,45 +538,103 @@ public class InFlightOrderHelper extends DriverHelper {
 		if (Inputdata[8].toString().equalsIgnoreCase("Ethernet Spoke")
 				|| Inputdata[8].toString().equalsIgnoreCase("Ethernet Line")
 				|| Inputdata[8].toString().equalsIgnoreCase("Wave")) {
-			boolean sign = isElementPresent(xml.getlocator("//locators/InflightLoctor").replace("value", "Shelf ID"));
-			System.out.println(sign);
-			Assert.assertFalse("Element is present",isElementPresent(xml.getlocator("//locators/InflightLoctor").replace("value", "Shelf ID")));
+			
+			
+			Thread.sleep(6000);
+			int rand_int1 = rand.nextInt(1000);
+			String Fieldtitle1 = Getattribute(getwebelement2(xml.getlocator("//locators/FieldLabelB").replace("ChangeFieldName", "Shelf ID")),"Title");
+			Assert.assertTrue("Before Change In- Flight apprear for control", !Fieldtitle1.contains("flight"));
+			Clickon(getwebelement(xml.getlocator("//locators/TextInputB").replace("Value", "Shelf ID")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Shelf ID");
+			Clear(getwebelement(xml.getlocator("//locators/TextInputB").replace("Value", "Shelf ID")));
 
-			Clear(getwebelement(xml.getlocator("//locators/TextInputSpoke").replace("value", "Shelf ID").replace("index", "2")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: clear shelf id");
-
-			SendKeys(getwebelement(xml.getlocator("//locators/TextInputSpoke").replace("value", "Shelf ID").replace("index", "2")),"3");
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter shelf id");
-			WaitforElementtobeclickable(xml.getlocator("//locators/ApplyChangesSpoke"));
-			Clickon(getwebelement(xml.getlocator("//locators/ApplyChangesSpoke")));
+			SendKeys(getwebelement(xml.getlocator("//locators/TextInputB").replace("Value", "Shelf ID")), Integer.toString(rand_int1));
+			SendkeaboardKeys(getwebelement(xml.getlocator("//locators/TextInputB").replace("Value", "Shelf ID")),Keys.ENTER);
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Send Shelf ID Input");
+			WaitforElementtobeclickable(xml.getlocator("//locators/ClickheretoSaveAccess"));
+			Clickon(getwebelement(xml.getlocator("//locators/ClickheretoSaveAccess")));
 			waitforPagetobeenable();
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: click to save product configuration");
-			Thread.sleep(6000);
-			boolean sign1 = isElementPresent(xml.getlocator("//locators/InflightLoctor").replace("value", "Shelf ID"));
-			System.out.println(sign1);
-			Thread.sleep(6000);
-			Assert.assertTrue("Element is not present",isElementPresent(xml.getlocator("//locators/InflightLoctor").replace("value", "Shelf ID")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Shelf id  has been verified");
+			Thread.sleep(10000);
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Clickto save product configuration");
+			Fieldtitle1 = Getattribute(getwebelement(xml.getlocator("//locators/FieldLabelB").replace("ChangeFieldName", "Shelf ID")),"Title");
+			Assert.assertTrue("After Change to In- Flight title not appear for field", Fieldtitle1.contains("flight"));
+
+			if (Fieldtitle1.contains("flight")) {
+				ExtentTestManager.getTest().log(LogStatus.PASS," Step: Validated Shelf ID in flight icon is displayed after modification");
+			} else {
+				ExtentTestManager.getTest().log(LogStatus.FAIL," Step: Validated Shelf ID in flight icon is not displayed after modification");
+			}
+			
+			
+			
+//			boolean sign = isElementPresent(xml.getlocator("//locators/InflightLoctor").replace("value", "Shelf ID"));
+//			System.out.println(sign);
+//			Assert.assertFalse("Element is present",isElementPresent(xml.getlocator("//locators/InflightLoctor").replace("value", "Shelf ID")));
+//
+//			Clear(getwebelement(xml.getlocator("//locators/TextInputSpoke").replace("value", "Shelf ID").replace("index", "2")));
+//			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: clear shelf id");
+//
+//			SendKeys(getwebelement(xml.getlocator("//locators/TextInputSpoke").replace("value", "Shelf ID").replace("index", "2")),"3");
+//			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter shelf id");
+//			WaitforElementtobeclickable(xml.getlocator("//locators/ApplyChangesSpoke"));
+//			Clickon(getwebelement(xml.getlocator("//locators/ApplyChangesSpoke")));
+//			waitforPagetobeenable();
+//			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: click to save product configuration");
+//			Thread.sleep(6000);
+//			boolean sign1 = isElementPresent(xml.getlocator("//locators/InflightLoctor").replace("value", "Shelf ID"));
+//			System.out.println(sign1);
+//			Thread.sleep(6000);
+//			Assert.assertTrue("Element is not present",isElementPresent(xml.getlocator("//locators/InflightLoctor").replace("value", "Shelf ID")));
+//			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Shelf id  has been verified");
 		}
 
 		else {
-			boolean sign = isElementPresent(xml.getlocator("//locators/InflightLoctor").replace("value", "Shelf ID"));
-			System.out.println(sign);
-			Assert.assertFalse("Element is present",isElementPresent(xml.getlocator("//locators/InflightLoctor").replace("value", "Shelf ID")));
+			
+			Thread.sleep(6000);
+			int rand_int1 = rand.nextInt(1000);
+			String Fieldtitle1 = Getattribute(getwebelement2(xml.getlocator("//locators/FieldLabel").replace("ChangeFieldName", "Shelf ID")),"Title");
+			Assert.assertTrue("Before Change In- Flight apprear for control", !Fieldtitle1.contains("flight"));
+			Clickon(getwebelement(xml.getlocator("//locators/TextInput").replace("Value", "Shelf ID")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Shelf ID");
+			Clear(getwebelement(xml.getlocator("//locators/TextInput").replace("Value", "Shelf ID")));
 
-			Clear(getwebelement(xml.getlocator("//locators/TextInputForR1").replace("value", "Shelf ID")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: clear shelf id");
-
-			SendKeys(getwebelement(xml.getlocator("//locators/TextInputForR1").replace("value", "Shelf ID")), "3");
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter shelf id");
-			WaitforElementtobeclickable(xml.getlocator("//locators/ApplyChangesSpoke"));
-			Clickon(getwebelement(xml.getlocator("//locators/ApplyChangesSpoke")));
+			SendKeys(getwebelement(xml.getlocator("//locators/TextInput").replace("Value", "Shelf ID")), Integer.toString(rand_int1));
+			SendkeaboardKeys(getwebelement(xml.getlocator("//locators/TextInput").replace("Value", "Shelf ID")),Keys.ENTER);
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Send Shelf ID Input");
+			WaitforElementtobeclickable(xml.getlocator("//locators/ClickheretoSaveAccess"));
+			Clickon(getwebelement(xml.getlocator("//locators/ClickheretoSaveAccess")));
 			waitforPagetobeenable();
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Apply changes");
-			boolean sign1 = isElementPresent(xml.getlocator("//locators/InflightLoctor").replace("value", "Shelf ID"));
-			System.out.println(sign1);
-			Assert.assertTrue("Element is not present",isElementPresent(xml.getlocator("//locators/InflightLoctor").replace("value", "Shelf ID")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Shelf id has been verified");
+			Thread.sleep(10000);
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Clickto save product configuration");
+			Fieldtitle1 = Getattribute(getwebelement(xml.getlocator("//locators/FieldLabel").replace("ChangeFieldName", "Shelf ID")),"Title");
+			Assert.assertTrue("After Change to In- Flight title not appear for field", Fieldtitle1.contains("flight"));
+
+			if (Fieldtitle1.contains("flight")) {
+				ExtentTestManager.getTest().log(LogStatus.PASS," Step: Validated Shelf ID in flight icon is displayed after modification");
+			} else {
+				ExtentTestManager.getTest().log(LogStatus.FAIL," Step: Validated Shelf ID in flight icon is not displayed after modification");
+			}
+			
+			
+			
+			
+//			boolean sign = isElementPresent(xml.getlocator("//locators/InflightLoctor").replace("value", "Shelf ID"));
+//			System.out.println(sign);
+//			Assert.assertFalse("Element is present",isElementPresent(xml.getlocator("//locators/InflightLoctor").replace("value", "Shelf ID")));
+//
+//			Clear(getwebelement(xml.getlocator("//locators/TextInputForR1").replace("value", "Shelf ID")));
+//			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: clear shelf id");
+//
+//			SendKeys(getwebelement(xml.getlocator("//locators/TextInputForR1").replace("value", "Shelf ID")), "3");
+//			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter shelf id");
+//			WaitforElementtobeclickable(xml.getlocator("//locators/ApplyChangesSpoke"));
+//			Clickon(getwebelement(xml.getlocator("//locators/ApplyChangesSpoke")));
+//			waitforPagetobeenable();
+//			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Apply changes");
+//			boolean sign1 = isElementPresent(xml.getlocator("//locators/InflightLoctor").replace("value", "Shelf ID"));
+//			System.out.println(sign1);
+//			Assert.assertTrue("Element is not present",isElementPresent(xml.getlocator("//locators/InflightLoctor").replace("value", "Shelf ID")));
+//			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Shelf id has been verified");
 		}
 	}
 

@@ -7,7 +7,9 @@
   <InflightVoiceSelection>//input[@aria-labelledby="COLT_Voice_Label"]</InflightVoiceSelection> 
   <WorkflowSave>//button[@aria-label="Workflow:Save"]</WorkflowSave> 
   <FieldLabel>//span[text()='ChangeFieldName']//i</FieldLabel> 
-  <TextInput>//span[text()='Value']/parent::*//input</TextInput> 
+   <FieldLabelB>(//span[text()='Shelf ID']//i)[2]</FieldLabelB> 
+  <TextInput>//span[text()='Value']/parent::*//input</TextInput>
+    <TextInputB>(//span[text()='Shelf ID']/parent::*//input)[2]</TextInputB>  
   <ClickLink>//a[text()='Value']</ClickLink> 
   <ClickheretoSaveAccess>//a[text()='Click here to save your product configuration.']</ClickheretoSaveAccess> 
   <ServiceOrderReferenceNo>//a[contains(@name,'Order Num')]</ServiceOrderReferenceNo> 
