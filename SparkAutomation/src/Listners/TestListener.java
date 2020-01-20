@@ -51,6 +51,7 @@ public class TestListener extends DriverTestcase implements ITestListener {
 	        Log.info("I am on TestSuccess method " +  getTestMethodName(iTestResult) + " succeed");
 	        //Extentreports log operation for passed tests.
 	      ExtentTestManager.getTest().log(LogStatus.PASS, getTestMethodName(iTestResult)+" : Test Method has been passed");
+	      ExtentTestManager.endTest();
 	    }
 	 
 	    public void onTestFailure(ITestResult iTestResult) {
@@ -71,6 +72,7 @@ public class TestListener extends DriverTestcase implements ITestListener {
 	        //Extentreports log and screenshot operations for failed tests.
 	        ExtentTestManager.getTest().log(LogStatus.FAIL,Message+
 	                ExtentTestManager.getTest().addBase64ScreenShot(base64Screenshot));
+	        ExtentTestManager.endTest();
 	        ExtentManager.getReporter().flush();
 	    }
 	 
@@ -85,7 +87,7 @@ public class TestListener extends DriverTestcase implements ITestListener {
 	            //Take base64Screenshot screenshot.
 	            String base64Screenshot = "data:image/png;base64,"+((TakesScreenshot)getwebdriver()).
 	                    getScreenshotAs(OutputType.BASE64);
-	     
+	            ExtentTestManager.endTest();
 	            //Extentreports log and screenshot operations for failed tests.
 	          //  ExtentTestManager.getTest().log(LogStatus.ERROR,"Test Errored",
 	           //         ExtentTestManager.getTest().addBase64ScreenShot(base64Screenshot));
@@ -95,6 +97,7 @@ public class TestListener extends DriverTestcase implements ITestListener {
 	        Log.info("I am in onTestSkipped method "+  getTestMethodName(iTestResult) + " skipped");
 	        //Extentreports log operation for skipped tests.
 	        ExtentTestManager.getTest().log(LogStatus.SKIP, "Test Skipped");
+	        ExtentTestManager.endTest();
 	    }
 	 
 	    public void onTestFailedButWithinSuccessPercentage(ITestResult iTestResult) {
