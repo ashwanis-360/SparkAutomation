@@ -628,7 +628,8 @@ public class PremiseMasterHelper extends DriverHelper
 	public void BuildingVerificationInSiebel(HashMap<String, String> sitedetails,Object[] InputData) throws InterruptedException, DocumentException, IOException
 	{
 		String ProductName = InputData[8].toString();
-		if(ProductName.equalsIgnoreCase("Ethernet Spoke")||ProductName.equalsIgnoreCase("Ethernet Hub")||ProductName.equalsIgnoreCase("Ethernet Line")||ProductName.equalsIgnoreCase("Wave"))
+		
+		/*if(ProductName.equalsIgnoreCase("Ethernet Spoke")||ProductName.equalsIgnoreCase("Ethernet Hub")||ProductName.equalsIgnoreCase("Ethernet Line")||ProductName.equalsIgnoreCase("Wave"))
 		{
 			WaitforElementtobeclickable(xml.getlocator("//locators/Hub/Street"));
 			ClearSendKeys(getwebelement(xml.getlocator("//locators/Hub/Street")),InputData[19].toString());
@@ -769,7 +770,7 @@ public class PremiseMasterHelper extends DriverHelper
 		
 		}
 		else
-		{
+		{*/
 		/*WaitforElementtobeclickable(xmlS.getlocator("//locators/R4/SearchInput").replace("Value", "Street Name"));
 		Clear(getwebelement(xmlS.getlocator("//locators/R4/SearchInput").replace("Value", "Street Name")));
 		SendKeys(getwebelement(xmlS.getlocator("//locators/R4/SearchInput").replace("Value", "Street Name")),
@@ -876,7 +877,7 @@ public class PremiseMasterHelper extends DriverHelper
 		
 	  ExtentTestManager.getTest().log(LogStatus.PASS, "Buidling Verfication Done");
 	  System.out.println("Buidling Verfication Done");
-		}
+		//}
 	}
 	public void ClickSitesSearch(Object[] InputData) throws InterruptedException, DocumentException {
 	
