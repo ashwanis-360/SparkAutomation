@@ -807,20 +807,71 @@ public class PremiseMasterHelper extends DriverHelper
 		waitforPagetobeenable();
 		
 		waitforPagetobeenable();
+		
+		/*New*/
+		List<WebElement> HeaderList=GetWebElements(xml.getlocator("//locators/Siebel/SiteGridHeader"));
+		  int BuidingIDIndex=-1;
+		  int BuidingNameIndex=-1;
+		  int i=0;
+		  for(WebElement ele :HeaderList)
+		  {
+			 String ColText=ele.getText();
+			
+			 if(ColText.equalsIgnoreCase("Building Name"))
+			 {
+				 BuidingNameIndex=i+1;
+				 break;
+			 }
+			
+		  }
+		  Assert.assertTrue(BuidingNameIndex>-1, "Column Name 'Building ID' and 'Building Name' not found");
+		  String BuildingIdAssigned=sitedetails.get("BuildingID");
+		  String BuildingNameAssigned=sitedetails.get("BuildingName");
+		  
+		  String BuildingIdFetched=null;
+		  String BuildingNameFetched=null;
+		  
+		  int count=getwebelementscount(xml.getlocator("//locators/Siebel/SiteGridDataRow"));
+		
+		  Boolean flag=false;
+		 
+		  for(int j=count-1;j>=0;j--) 
+		  {
+			  i=j+1; 
+			  temp=xml.getlocator("//locators/Siebel/SiteGridTD").replace("-100", String.valueOf(j+1)).replace("-200", String.valueOf(BuidingNameIndex+1));
+			  BuildingNameFetched=Gettext(getwebelement(temp));
+			  System.out.println("Building Name : "+BuildingNameFetched);
+			  if(BuildingNameFetched.equalsIgnoreCase(BuildingNameAssigned))
+			  {
+				  flag=true;
+				  break;
+			  }
+		  }
+		  Assert.assertTrue(flag,"Building ID : "+BuildingIdAssigned+ " not verified in siebel" );
+		  ExtentTestManager.getTest().log(LogStatus.PASS, "Newly Created Site("+BuildingIdAssigned+","+BuildingNameAssigned+" verified in siebel");
+		 	
+		  String temp=xml.getlocator("//locators/Siebel/SiteGridRow").replace("-100", String.valueOf(i));
+		  Clickon(getwebelement(temp));
+		  
+		  WaitforElementtobeclickable(xml.getlocator("//locators/Siebel/SaveAddress"));
+		  Clickon(getwebelement(xml.getlocator("//locators/Siebel/SaveAddress")));
+		  ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Pick Address");
+		  waitforPagetobeenable();
+		
 
-		WaitforElementtobeclickable(xmlS.getlocator("//locators/R4/SearchAddressRowSelection"));
+		/*WaitforElementtobeclickable(xmlS.getlocator("//locators/R4/SearchAddressRowSelection"));
 		Clickon(getwebelement(xmlS.getlocator("//locators/R4/SearchAddressRowSelection")));
 
 		WaitforElementtobeclickable(xmlS.getlocator("//locators/R4/PickAddress"));
 		Clickon(getwebelement(xmlS.getlocator("//locators/R4/PickAddress")));
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Row and Pick Address");
-		waitforPagetobeenable();
+		waitforPagetobeenable();*/
 		
 		
-	  List<WebElement> HeaderList=GetWebElements(xml.getlocator("//locators/Siebel/SiteGridHeader"));
-	  int BuidingIDIndex=-1;
-	  int BuidingNameIndex=-1;
-	  int i=0;
+	   HeaderList=GetWebElements(xml.getlocator("//locators/Siebel/SiteGridHeader"));
+	   BuidingIDIndex=-1;
+	   BuidingNameIndex=-1;
+	   i=0;
 	  for(WebElement ele :HeaderList)
 	  {
 		 String ColText=ele.getText();
@@ -828,7 +879,7 @@ public class PremiseMasterHelper extends DriverHelper
 		 {
 			 BuidingIDIndex=i;
 		 }
-		 else if(ColText.equalsIgnoreCase("Building Name"))
+		 if(ColText.equalsIgnoreCase("Building Name"))
 		 {
 			 BuidingNameIndex=i;
 		 }
@@ -837,20 +888,20 @@ public class PremiseMasterHelper extends DriverHelper
 		 i++;
 	  }
 	  Assert.assertTrue(BuidingIDIndex>-1&&BuidingNameIndex>-1, "Column Name 'Building ID' and 'Building Name' not found");
-	  String BuildingIdAssigned=sitedetails.get("BuildingID");
-	  String BuildingNameAssigned=sitedetails.get("BuildingName");
+	  BuildingIdAssigned=sitedetails.get("BuildingID");
+	  BuildingNameAssigned=sitedetails.get("BuildingName");
 	  
-	  String BuildingIdFetched=null;
-	  String BuildingNameFetched=null;
+	  BuildingIdFetched=null;
+	  BuildingNameFetched=null;
 	  
-	  int count=getwebelementscount(xml.getlocator("//locators/Siebel/SiteGridDataRow"));
+	 count=getwebelementscount(xml.getlocator("//locators/Siebel/SiteGridDataRow"));
 	
-	  Boolean flag=false;
+	  flag=false;
 	 
 	  for(int j=count-1;j>=0;j--) 
 	  {
 		  i=j+1;
-		  String temp=xml.getlocator("//locators/Siebel/SiteGridTD").replace("-100", String.valueOf(j+1)).replace("-200", String.valueOf(BuidingIDIndex+1));
+		  temp=xml.getlocator("//locators/Siebel/SiteGridTD").replace("-100", String.valueOf(j+1)).replace("-200", String.valueOf(BuidingIDIndex+1));
 		  BuildingIdFetched=Gettext(getwebelement(temp));
 		  System.out.println("Building ID : "+BuildingIdFetched);
 		  
@@ -858,7 +909,7 @@ public class PremiseMasterHelper extends DriverHelper
 		  BuildingNameFetched=Gettext(getwebelement(temp));
 		  System.out.println("Building Name : "+BuildingNameFetched);
 		  
-		  if((BuildingIdFetched.equalsIgnoreCase(BuildingIdAssigned))&& (BuildingNameFetched.equalsIgnoreCase(BuildingNameAssigned)))
+		  if((BuildingIdFetched.equalsIgnoreCase(BuildingIdAssigned))&& (BuildingNameFetched.contains(BuildingNameAssigned)))
 		  {
 			  flag=true;
 			  break;
@@ -867,7 +918,7 @@ public class PremiseMasterHelper extends DriverHelper
 	  Assert.assertTrue(flag,"Building ID : "+BuildingIdAssigned+ " not verified in siebel" );
 	  ExtentTestManager.getTest().log(LogStatus.PASS, "Newly Created Site("+BuildingIdAssigned+","+BuildingNameAssigned+" verified in siebel");
 	 	
-	  String temp=xml.getlocator("//locators/Siebel/SiteGridRow").replace("-100", String.valueOf(i));
+	  temp=xml.getlocator("//locators/Siebel/SiteGridRow").replace("-100", String.valueOf(i));
 	  Clickon(getwebelement(temp));
 	  
 	  WaitforElementtobeclickable(xml.getlocator("//locators/Siebel/SaveAddress"));
@@ -934,7 +985,7 @@ public class PremiseMasterHelper extends DriverHelper
 	public void SiteVerifcationInSibel(Object[] InputData,String SiteID) throws DocumentException, InterruptedException, IOException 
 	{
 		String ProductName = InputData[8].toString();
-		if(ProductName.equalsIgnoreCase("Ethernet Spoke")||ProductName.equalsIgnoreCase("Ethernet Hub")||ProductName.equalsIgnoreCase("Ethernet Line")||ProductName.equalsIgnoreCase("Wave"))
+		/*if(ProductName.equalsIgnoreCase("Ethernet Spoke")||ProductName.equalsIgnoreCase("Ethernet Hub")||ProductName.equalsIgnoreCase("Ethernet Line")||ProductName.equalsIgnoreCase("Wave"))
 		{
 			WaitforElementtobeclickable(xml.getlocator("//locators/Hub/AddressRow"));
 			Clickon(getwebelement(xml.getlocator("//locators/Hub/AddressRow")));
@@ -947,7 +998,7 @@ public class PremiseMasterHelper extends DriverHelper
 			waitforPagetobeenable();
 		}
 		else
-		{
+		{*/
 		  System.out.println("Site Verfication Started");
 		  ExtentTestManager.getTest().log(LogStatus.PASS, "Site Verfication Started");
 		  List<WebElement> HeaderList=GetWebElements(xml.getlocator("//locators/Siebel/SiteGridHeader"));
@@ -1011,7 +1062,7 @@ public class PremiseMasterHelper extends DriverHelper
 		  waitForpageload();
 		  waitforPagetobeenable();
 		  Thread.sleep(10000);
-		}
+		//}
 		  
 	}
 	
@@ -1032,23 +1083,18 @@ public class PremiseMasterHelper extends DriverHelper
 		String ProductName = InputData[8].toString();
 		if(ProductName.equalsIgnoreCase("Ethernet Spoke"))
 		{
-			SiteId=Getattribute(getwebelement(xml.getlocator("//locators/Hub/SiteIDB")),"innerHTML");
-			System.out.println("Site Id : " + SiteId);
-		}
-		else if(ProductName.equalsIgnoreCase("Ethernet Hub")||ProductName.equalsIgnoreCase("Ethernet Line")||ProductName.equalsIgnoreCase("Wave"))
-		{
-			SiteId=Getattribute(getwebelement(xml.getlocator("//locators/Hub/SiteIDA")),"title");
+			SiteId=Getattribute(getwebelement(xml.getlocator("//locators/Hub/SiteIDB")),"title");
 			System.out.println("Site Id : " + SiteId);
 		}
 		else if(ProductName.equalsIgnoreCase("Voice Line V"))
 		{
-			SiteId=Getattribute(getwebelement(xml.getlocator("//locators/Siebel/SiteIDB")),"innerHTML");
+			SiteId=Getattribute(getwebelement(xml.getlocator("//locators/Siebel/SiteIDB")),"title");
 			System.out.println("Site Id : " + SiteId);
 		}
 		else
 		{
-		SiteId=Getattribute(getwebelement(xml.getlocator("//locators/Siebel/SiteID")),"innerHTML");
-		System.out.println("Site Id : " + SiteId);
+			SiteId=Getattribute(getwebelement(xml.getlocator("//locators/Hub/SiteIDA")),"title");
+			System.out.println("Site Id : " + SiteId);
 		}
 		String[] parts=SiteId.split("<");
 		System.out.println("Site Id : "+ parts[0]);
