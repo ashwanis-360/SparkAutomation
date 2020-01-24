@@ -368,68 +368,58 @@ public class NewOrders extends DriverTestcase {
 		newOrderOnnnet.get().openServiceOrderNumber();
 		if (Data[8].toString().equalsIgnoreCase("Ethernet Hub")) {
 			newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);// Updated
-			newOrderOnnnet.get().hubSiteCustomize(Data); // MethodAdded		
-			// newOrderOnnnet.get().EnterDateInFooter(Data); // No change
-			// newOrderOnnnet.get().EnterBillingDateInFooter(Data); // No change
-			// newOrderOnnnet.get().installationCharges(Data); // Method added
+			newOrderOnnnet.get().hubSiteCustomize(Data); // MethodAdded
+			newOrderOnnnet.get().EnterDateInFooter(Data); // No change
+			newOrderOnnnet.get().EnterBillingDateInFooter(Data); // No change
+			newOrderOnnnet.get().EnterServiceChargeInFooter(Data, "2");
 			newOrderOnnnet.get().CommercialValidation(Data); // No Change
+			newOrderOnnnet.get().TechnicalValidation(Data); // Updated
+			newOrderOnnnet.get().CircuitReferenceGeneration(Data); 
+			newOrderOnnnet.get().DeliveryValidation(Data); // No Change
+			newOrderOnnnet.get().OrderCompleteEthernetHubSpoke(Data); // MethodAdded
 			Login.get().Login("OMP");
 			OmpOrder.get().verficationOfProduct(Data);
-			// newOrderOnnnet.get().TechnicalValidation(Data); // Updated
-			// newOrderOnnnet.get().DeliveryValidation(Data); // No Change
-			// newOrderOnnnet.get().OrderCompleteEthernetHubSpoke(Data); // MethodAdded
-		} 
-		else if (Data[8].toString().equalsIgnoreCase("Ethernet Spoke")) 
-		{
+		} else if (Data[8].toString().equalsIgnoreCase("Ethernet Spoke")) {
 			newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);// Updated for spoke also
 			newOrderOnnnet.get().spokeSiteCustomize(Data);// MethodAdded
-			
-			// newOrderOnnnet.get().EnterDateInFooter(Data); // No change
-			// newOrderOnnnet.get().EnterBillingDateInFooter(Data); // No change
-			// newOrderOnnnet.get().installationCharges(Data); // Method added same as hub
-			// and updated if condition for
-			// spoke
+			newOrderOnnnet.get().EnterDateInFooter(Data); // No change
+			newOrderOnnnet.get().EnterBillingDateInFooter(Data); // No change
+			newOrderOnnnet.get().EnterServiceChargeInFooter(Data, "2");
+
 			newOrderOnnnet.get().CommercialValidation(Data); // No Change
+			newOrderOnnnet.get().TechnicalValidation(Data); // Updated for spoke also
+			newOrderOnnnet.get().CircuitReferenceGeneration(Data); 
+			newOrderOnnnet.get().DeliveryValidation(Data); // No Change
+			newOrderOnnnet.get().OrderCompleteEthernetHubSpoke(Data);// updated same as hub
 			Login.get().Login("OMP");
 			OmpOrder.get().verficationOfProduct(Data);
-			// newOrderOnnnet.get().TechnicalValidation(Data); // Updated for spoke also
-			// newOrderOnnnet.get().DeliveryValidation(Data); // No Change
-			// newOrderOnnnet.get().OrderCompleteEthernetHubSpoke(Data);// updated same as
-			// hub
-		} 
-		else 
-		{
+		} else {
 			newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);
-			// add specifically for Wave and Ethernet Line and won't run for other products
-			// newOrderOnnnet.get().addSiteADetails(Data);// added new
-			// newOrderOnnnet.get().addSiteBDetails(Data);// added new
-			// newOrderOnnnet.get().ASiteCustomize(Data);// added new
-			// newOrderOnnnet.get().BSiteCustomize(Data);// added new
-			// // End of methods spesific for Wave and Ethernet Line ------>
-			// newOrderOnnnet.get().enterMandatoryDetailsInMiddleApplet(Data);
-			// newOrderOnnnet.get().VoiceConfigTab(Data);
-			// newOrderOnnnet.get().VoiceFeatureTab(Data);
-			// newOrderOnnnet.get().NumberManagementTab(Data);
-			// newOrderOnnnet.get().EnterDateInFooter(Data);
-			// newOrderOnnnet.get().EnterBillingDateInFooter(Data);
-			// newOrderOnnnet.get().EnterServiceChargeInFooter(Data, "2");
-			//
-			// newOrderOnnnet.get().SelectAttachmentTab(Data);
-			// newOrderOnnnet.get().UploadDocument(Data);
-			// newOrderOnnnet.get().SelectServiceGroupTab(Data);
-			// newOrderOnnnet.get().OperationAttribute(Data);
-			// newOrderOnnnet.get().EnterInstallationChargeInFooter(Data);
-			// newOrderOnnnet.get().MandatoryFields(Data);
+			newOrderOnnnet.get().enterMandatoryDetailsInMiddleApplet(Data);
+			newOrderOnnnet.get().VoiceConfigTab(Data);
+			newOrderOnnnet.get().VoiceFeatureTab(Data);
+			newOrderOnnnet.get().NumberManagementTab(Data);
+			newOrderOnnnet.get().EnterDateInFooter(Data);
+			newOrderOnnnet.get().EnterBillingDateInFooter(Data);
+			newOrderOnnnet.get().EnterServiceChargeInFooter(Data, "2");
+			newOrderOnnnet.get().SelectAttachmentTab(Data);
+			newOrderOnnnet.get().UploadDocument(Data);
+			newOrderOnnnet.get().SelectServiceGroupTab(Data);
+			newOrderOnnnet.get().OperationAttribute(Data);
+			newOrderOnnnet.get().EnterInstallationChargeInFooter(Data);
+			newOrderOnnnet.get().MandatoryFields(Data);
 			newOrderOnnnet.get().CommercialValidation(Data);
-			// newOrderOnnnet.get().TechnicalValidation(Data);
-			// newOrderOnnnet.get().clickOnManualValidationB();
-			// newOrderOnnnet.get().DeliveryValidation(Data);
-			// newOrderOnnnet.get().clickOnManualValidationA();
-			// newOrderOnnnet.get().getReferenceNo(Data);// added new
-			// newOrderOnnnet.get().CompletedValidation(Data);
+			newOrderOnnnet.get().TechnicalValidation(Data);
+			newOrderOnnnet.get().clickOnManualValidationB();
+			newOrderOnnnet.get().DeliveryValidation(Data);
+			newOrderOnnnet.get().clickOnManualValidationA();
+			newOrderOnnnet.get().getReferenceNo(Data);// added new
+			newOrderOnnnet.get().CompletedValidation(Data);
+			newOrderOnnnet.get().WriteServiceOrderNumber(Data);
+		}
 			Login.get().Login("OMP");
 			OmpOrder.get().verficationOfProduct(Data);
-		}
+		
 	}
 	
 	@Test(dataProviderClass = DataReader.class, dataProvider = "OmpDatereaderMod")
