@@ -366,7 +366,8 @@ public class NewOrders extends DriverTestcase {
 		newOrderOnnnet.get().createCustomerOrder(Data);
 		newOrderOnnnet.get().productSelectionHelper(Data);
 		newOrderOnnnet.get().openServiceOrderNumber();
-		if (Data[8].toString().equalsIgnoreCase("Ethernet Hub")) {
+		if (Data[8].toString().equalsIgnoreCase("Ethernet Hub")) 
+		{
 			newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);// Updated
 			newOrderOnnnet.get().hubSiteCustomize(Data); // MethodAdded
 			newOrderOnnnet.get().EnterDateInFooter(Data); // No change
@@ -379,13 +380,14 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().OrderCompleteEthernetHubSpoke(Data); // MethodAdded
 			Login.get().Login("OMP");
 			OmpOrder.get().verficationOfProduct(Data);
-		} else if (Data[8].toString().equalsIgnoreCase("Ethernet Spoke")) {
+		} 
+		else if (Data[8].toString().equalsIgnoreCase("Ethernet Spoke"))
+		{
 			newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);// Updated for spoke also
 			newOrderOnnnet.get().spokeSiteCustomize(Data);// MethodAdded
 			newOrderOnnnet.get().EnterDateInFooter(Data); // No change
 			newOrderOnnnet.get().EnterBillingDateInFooter(Data); // No change
 			newOrderOnnnet.get().EnterServiceChargeInFooter(Data, "2");
-
 			newOrderOnnnet.get().CommercialValidation(Data); // No Change
 			newOrderOnnnet.get().TechnicalValidation(Data); // Updated for spoke also
 			newOrderOnnnet.get().CircuitReferenceGeneration(Data); 
@@ -393,7 +395,9 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().OrderCompleteEthernetHubSpoke(Data);// updated same as hub
 			Login.get().Login("OMP");
 			OmpOrder.get().verficationOfProduct(Data);
-		} else {
+		} 
+		else 
+		{
 			newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);
 			newOrderOnnnet.get().enterMandatoryDetailsInMiddleApplet(Data);
 			newOrderOnnnet.get().VoiceConfigTab(Data);
@@ -416,10 +420,11 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().getReferenceNo(Data);// added new
 			newOrderOnnnet.get().CompletedValidation(Data);
 			newOrderOnnnet.get().WriteServiceOrderNumber(Data);
-		}
 			Login.get().Login("OMP");
 			OmpOrder.get().verficationOfProduct(Data);
 		
+		}
+			
 	}
 	
 	@Test(dataProviderClass = DataReader.class, dataProvider = "OmpDatereaderMod")
