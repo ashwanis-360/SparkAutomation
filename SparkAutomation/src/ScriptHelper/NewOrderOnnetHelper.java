@@ -427,8 +427,6 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			// savePage();
 			// Thread.sleep(10000);
 			Thread.sleep(5000);
-			if (!Inputdata[8].toString().equalsIgnoreCase("Ethernet Spoke")
-					&& !Inputdata[8].toString().equalsIgnoreCase("Ethernet Hub")){ // added shivananda
 			
 				//Inputdata[8].toString().equalsIgnoreCase("Wave") and EthernetLine removed from if condition
 				WaitforElementtobeclickable(xml.getlocator("//locators/MaintenancePartySearch"));
@@ -506,7 +504,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 					waitforPagetobeenable();
 				}
 			}
-		}
+		
 	//}
 
 	public void VoiceFeatureTab(Object[] Inputdata) throws Exception {
@@ -7490,284 +7488,277 @@ public class NewOrderOnnetHelper extends DriverHelper {
 	 * added by-Vikram for Hub product for Spoke
 	 */
 	public void hubSiteCustomize(Object[] Inputdata) throws Exception {
-		
-if (Inputdata[8].toString().equalsIgnoreCase("Ethernet Hub")) {
 			
-			if (isElementPresent(xml.getlocator("//locators/SaveOrderChanges"))) {
-				WaitforElementtobeclickable(xml.getlocator("//locators/SaveOrderChanges"));
-				Clickon(getwebelement(xml.getlocator("//locators/SaveOrderChanges")));
-				waitForpageload();
-				System.out.println("page load succesfuuly now come to middle applet");
-				
-			}
-			
-			//waitforPagetobeenable();
-			Thread.sleep(10000);
-			
-			Clickon(getwebelement(
-					xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Resilience Option")));
-			Thread.sleep(2000);
-			Clickon(getwebelement(
-					xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[27].toString())));
-			
-			waitforAttributeloader();
-			waitforPagetobeenable();
-			
+	waitforPagetobeenable();
+	Thread.sleep(8000);
+	
+	Clickon(getwebelement(
+			xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Resilience Option")));
+	Thread.sleep(2000);
+	Clickon(getwebelement(
+			xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[27].toString())));
+	
+	waitforAttributeloader();
+	waitforPagetobeenable();
+	
 
-			WaitforElementtobeclickable(xml.getlocator("//locators/ServiceBandwidthDropdownAccess"));
-			Clickon(getwebelement(xml.getlocator("//locators/ServiceBandwidthDropdownAccess")));
-			WaitforElementtobeclickable(xml.getlocator("//locators/ServiceBandwidthSelectAccess").replace("value", Inputdata[32].toString()));
-			Clickon(getwebelement(xml.getlocator("//locators/ServiceBandwidthSelectAccess").replace("value", Inputdata[32].toString())));
-			waitforAttributeloader();
-			waitforPagetobeenable();
-			
-			Clickon(getwebelement(
-					xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Hard Modify Flag")));
-			Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", "N")));
-			Thread.sleep(2000);
-			waitforPagetobeenable();
+	WaitforElementtobeclickable(xml.getlocator("//locators/ServiceBandwidthDropdownAccess"));
+	Clickon(getwebelement(xml.getlocator("//locators/ServiceBandwidthDropdownAccess")));
+	WaitforElementtobeclickable(xml.getlocator("//locators/ServiceBandwidthSelectAccess").replace("value", Inputdata[32].toString()));
+	Clickon(getwebelement(xml.getlocator("//locators/ServiceBandwidthSelectAccess").replace("value", Inputdata[32].toString())));
+	waitforAttributeloader();
+	waitforPagetobeenable();
+	
+	Clickon(getwebelement(
+			xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Hard Modify Flag")));
+	Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", "N")));
+	Thread.sleep(2000);
+	waitforPagetobeenable();
 
-			SendKeys(getwebelement(
-					xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value", "OSS Platform Flag")),
-					Inputdata[38].toString());
-			waitforAttributeloader();
-			waitforPagetobeenable();
-			Thread.sleep(3000);
-			
+	SendKeys(getwebelement(
+			xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value", "OSS Platform Flag")),
+			Inputdata[38].toString());
+	waitforAttributeloader();
+	waitforPagetobeenable();
+	Thread.sleep(3000);
+	
 
-			WaitforElementtobeclickable((xml.getlocator("//locators/ClickheretoSaveAccess")));
-			
-			Clickon(getwebelement(xml.getlocator("//locators/ClickheretoSaveAccess")));
+	WaitforElementtobeclickable((xml.getlocator("//locators/ClickheretoSaveAccess")));
+	
+	Clickon(getwebelement(xml.getlocator("//locators/ClickheretoSaveAccess")));
 
-			waitforPagetobeenable();
+	waitforPagetobeenable();
 
-			safeJavaScriptClick(getwebelement(xml3.getlocator("//locators/SearchAddressSiteA")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Search Address SiteA");
-			SendKeys(getwebelement(xml3.getlocator("//locators/StreetNamerfs")), Inputdata[86].toString());
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Street Name");
+	safeJavaScriptClick(getwebelement(xml3.getlocator("//locators/SearchAddressSiteA")));
+	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Search Address SiteA");
+	SendKeys(getwebelement(xml3.getlocator("//locators/StreetNamerfs")), Inputdata[86].toString());
+	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Street Name");
 
-			Clickon(getwebelement(xml3.getlocator("//locators/Country")));
-			Clickon(getwebelement(xml.getlocator("//locators/R4/SiteABSelection").replace("Value", Inputdata[87].toString())));
-			ExtentTestManager.getTest().log(LogStatus.PASS," Step: Private Ehternet >> Service Bandwidth Select : " + Inputdata[32].toString());
-			// SendKeys(getwebelement(xml3.getlocator("//locators/Country")), Inputdata[87].toString());
-			// ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Country");
-			SendKeys(getwebelement(xml3.getlocator("//locators/City")), Inputdata[88].toString());
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter City");
-			SendKeys(getwebelement(xml3.getlocator("//locators/PostalCode")), Inputdata[89].toString());
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Postal Code");
-			SendKeys(getwebelement(xml3.getlocator("//locators/Premises")), Inputdata[90].toString());
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Premises");
-			Clickon(getwebelement(xml3.getlocator("//locators/Search")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Search");
+	Clickon(getwebelement(xml3.getlocator("//locators/Country")));
+	Clickon(getwebelement(xml.getlocator("//locators/R4/SiteABSelection").replace("Value", Inputdata[87].toString())));
+	ExtentTestManager.getTest().log(LogStatus.PASS," Step: Private Ehternet >> Service Bandwidth Select : " + Inputdata[32].toString());
+	// SendKeys(getwebelement(xml3.getlocator("//locators/Country")), Inputdata[87].toString());
+	// ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Country");
+	SendKeys(getwebelement(xml3.getlocator("//locators/City")), Inputdata[88].toString());
+	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter City");
+	SendKeys(getwebelement(xml3.getlocator("//locators/PostalCode")), Inputdata[89].toString());
+	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Postal Code");
+	SendKeys(getwebelement(xml3.getlocator("//locators/Premises")), Inputdata[90].toString());
+	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Premises");
+	Clickon(getwebelement(xml3.getlocator("//locators/Search")));
+	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Search");
 
-			WaitforElementtobeclickable(xml.getlocator("//locators/R4/SearchAddressRowSelection"));
-			Clickon(getwebelement(xml.getlocator("//locators/R4/SearchAddressRowSelection")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Pick Address");
+	WaitforElementtobeclickable(xml.getlocator("//locators/R4/SearchAddressRowSelection"));
+	Clickon(getwebelement(xml.getlocator("//locators/R4/SearchAddressRowSelection")));
+	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Pick Address");
 
-			WaitforElementtobeclickable(xml.getlocator("//locators/R4/PickAddress"));
-			Clickon(getwebelement(xml.getlocator("//locators/R4/PickAddress")));
+	WaitforElementtobeclickable(xml.getlocator("//locators/R4/PickAddress"));
+	Clickon(getwebelement(xml.getlocator("//locators/R4/PickAddress")));
 
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Pick");
+	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Pick");
 
-			WaitforElementtobeclickable(xml.getlocator("//locators/R4/SearchAddressRowSelection"));
-			Clickon(getwebelement(xml.getlocator("//locators/R4/SearchAddressRowSelection")));
+	WaitforElementtobeclickable(xml.getlocator("//locators/R4/SearchAddressRowSelection"));
+	Clickon(getwebelement(xml.getlocator("//locators/R4/SearchAddressRowSelection")));
 
-			WaitforElementtobeclickable(xml.getlocator("//locators/R4/PickBuilding"));
-			Clickon(getwebelement(xml.getlocator("//locators/R4/PickBuilding")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Row and Pick Building");
+	WaitforElementtobeclickable(xml.getlocator("//locators/R4/PickBuilding"));
+	Clickon(getwebelement(xml.getlocator("//locators/R4/PickBuilding")));
+	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Row and Pick Building");
 
-			waitforPagetobeenable();
-			WaitforElementtobeclickable(xml.getlocator("//locators/R4/SearchAddressRowSelection"));
-			Clickon(getwebelement(xml.getlocator("//locators/R4/SearchAddressRowSelection")));
+	waitforPagetobeenable();
+	WaitforElementtobeclickable(xml.getlocator("//locators/R4/SearchAddressRowSelection"));
+	Clickon(getwebelement(xml.getlocator("//locators/R4/SearchAddressRowSelection")));
 
-			WaitforElementtobeclickable(xml.getlocator("//locators/R4/PickSite"));
-			Clickon(getwebelement(xml.getlocator("//locators/R4/PickSite")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Row and Pick Site");
-			waitforPagetobeenable();
+	WaitforElementtobeclickable(xml.getlocator("//locators/R4/PickSite"));
+	Clickon(getwebelement(xml.getlocator("//locators/R4/PickSite")));
+	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Row and Pick Site");
+	waitforPagetobeenable();
 
 
-//			WaitforElementtobeclickable(xml.getlocator("//locators/IpGurdianSave"));
-//			Clickon(getwebelement(xml.getlocator("//locators/IpGurdianSave")));
-//			 Thread.sleep(8000);
+//	WaitforElementtobeclickable(xml.getlocator("//locators/IpGurdianSave"));
+//	Clickon(getwebelement(xml.getlocator("//locators/IpGurdianSave")));
+//	 Thread.sleep(8000);
 //
-//			waitforPagetobeenable();
+//	waitforPagetobeenable();
 
-			WaitforElementtobeclickable(xml.getlocator("//locators/ServicePartySearchAccess"));
-			Moveon(getwebelement(xml.getlocator("//locators/ServicePartySearchAccess")));
-			safeJavaScriptClick(getwebelement(xml.getlocator("//locators/ServicePartySearchAccess")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Search Service Party");
+	WaitforElementtobeclickable(xml.getlocator("//locators/ServicePartySearchAccess"));
+	Moveon(getwebelement(xml.getlocator("//locators/ServicePartySearchAccess")));
+	safeJavaScriptClick(getwebelement(xml.getlocator("//locators/ServicePartySearchAccess")));
+	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Search Service Party");
 
-			// System.out.println("EnterService");
-			waitandForElementDisplay((xml.getlocator("//locators/ServicePartyDropdownAccess")), 8);
+	// System.out.println("EnterService");
+	waitandForElementDisplay((xml.getlocator("//locators/ServicePartyDropdownAccess")), 8);
 
-			WaitforElementtobeclickable(xml.getlocator("//locators/ServicePartyDropdownAccess"));
-			Clickon(getwebelement(xml.getlocator("//locators/ServicePartyDropdownAccess")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Service Party Dropdown");
+	WaitforElementtobeclickable(xml.getlocator("//locators/ServicePartyDropdownAccess"));
+	Clickon(getwebelement(xml.getlocator("//locators/ServicePartyDropdownAccess")));
+	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Service Party Dropdown");
 
-			Clickon(getwebelement(xml.getlocator("//locators/PartyNameAccess")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Party Name");
+	Clickon(getwebelement(xml.getlocator("//locators/PartyNameAccess")));
+	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Party Name");
 
-			SendKeys(getwebelement(xml.getlocator("//locators/InputPartyNameAccess")), Inputdata[69].toString());
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Party Name");
+	SendKeys(getwebelement(xml.getlocator("//locators/InputPartyNameAccess")), Inputdata[69].toString());
+	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Party Name");
 
-			Clickon(getwebelement(xml.getlocator("//locators/PartyNameSearchAccess")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step:Click On Search");
+	Clickon(getwebelement(xml.getlocator("//locators/PartyNameSearchAccess")));
+	ExtentTestManager.getTest().log(LogStatus.PASS, " Step:Click On Search");
 
-			Thread.sleep(2000);
-			Clickon(getwebelement(xml.getlocator("//locators/PartyNameSubmitAccess")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step:Click On Submit");
+	Thread.sleep(2000);
+	Clickon(getwebelement(xml.getlocator("//locators/PartyNameSubmitAccess")));
+	ExtentTestManager.getTest().log(LogStatus.PASS, " Step:Click On Submit");
 
-			WaitforElementtobeclickable(xml.getlocator("//locators/SiteContactSearchAccess"));
-			safeJavaScriptClick(getwebelement(xml.getlocator("//locators/SiteContactSearchAccess")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Search Site Contact");
+	WaitforElementtobeclickable(xml.getlocator("//locators/SiteContactSearchAccess"));
+	safeJavaScriptClick(getwebelement(xml.getlocator("//locators/SiteContactSearchAccess")));
+	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Search Site Contact");
 
-			waitandForElementDisplay((xml.getlocator("//locators/SiteContactDropdownAccess")), 8);
-			WaitforElementtobeclickable(xml.getlocator("//locators/SiteContactDropdownAccess"));
-			Clickon(getwebelement(xml.getlocator("//locators/SiteContactDropdownAccess")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Site Name Dropdown");
+	waitandForElementDisplay((xml.getlocator("//locators/SiteContactDropdownAccess")), 8);
+	WaitforElementtobeclickable(xml.getlocator("//locators/SiteContactDropdownAccess"));
+	Clickon(getwebelement(xml.getlocator("//locators/SiteContactDropdownAccess")));
+	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Site Name Dropdown");
 
-			WaitforElementtobeclickable(xml.getlocator("//locators/InputSiteNameAccess"));
-			SendKeys(getwebelement(xml.getlocator("//locators/InputSiteNameAccess")), Inputdata[70].toString());
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Site Name");
+	WaitforElementtobeclickable(xml.getlocator("//locators/InputSiteNameAccess"));
+	SendKeys(getwebelement(xml.getlocator("//locators/InputSiteNameAccess")), Inputdata[70].toString());
+	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Site Name");
 
-			WaitforElementtobeclickable(xml.getlocator("//locators/LastNameSiteSearchAccess"));
-			Clickon(getwebelement(xml.getlocator("//locators/LastNameSiteSearchAccess")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step:Click On Search");
-			waitforPagetobeenable();
-			Thread.sleep(3000);
-			//waitforPagetobeenable();
-			WaitforElementtobeclickable(xml.getlocator("//locators/LastNameSiteSubmitAccess"));
-			Clickon(getwebelement(xml.getlocator("//locators/LastNameSiteSubmitAccess")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step:Click On Submit");
+	WaitforElementtobeclickable(xml.getlocator("//locators/LastNameSiteSearchAccess"));
+	Clickon(getwebelement(xml.getlocator("//locators/LastNameSiteSearchAccess")));
+	ExtentTestManager.getTest().log(LogStatus.PASS, " Step:Click On Search");
+	waitforPagetobeenable();
+	Thread.sleep(3000);
+	//waitforPagetobeenable();
+	WaitforElementtobeclickable(xml.getlocator("//locators/LastNameSiteSubmitAccess"));
+	Clickon(getwebelement(xml.getlocator("//locators/LastNameSiteSubmitAccess")));
+	ExtentTestManager.getTest().log(LogStatus.PASS, " Step:Click On Submit");
 
-			WaitforElementtobeclickable(xml.getlocator("//locators/IpGurdianSave"));
-			Clickon(getwebelement(xml.getlocator("//locators/IpGurdianSave")));
-			waitforPagetobeenable();
+	WaitforElementtobeclickable(xml.getlocator("//locators/IpGurdianSave"));
+	Clickon(getwebelement(xml.getlocator("//locators/IpGurdianSave")));
+	waitforPagetobeenable();
 
-			waitforPagetobeenable();
+	waitforPagetobeenable();
 
-			Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Access Type")));
-			Thread.sleep(2000);
-			Clickon(getwebelement(
-					xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[42].toString())));
-			
-			waitforAttributeloader();
-			waitforPagetobeenable();
+	Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Access Type")));
+	Thread.sleep(2000);
+	Clickon(getwebelement(
+			xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[42].toString())));
+	
+	waitforAttributeloader();
+	waitforPagetobeenable();
 
-			Clickon(getwebelement(
-					xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Access Technology")));
-			Thread.sleep(2000);
-			Clickon(getwebelement(
-					xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[43].toString())));
-			
-			waitforAttributeloader();
-			waitforPagetobeenable();
+	Clickon(getwebelement(
+			xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Access Technology")));
+	Thread.sleep(2000);
+	Clickon(getwebelement(
+			xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[43].toString())));
+	
+	waitforAttributeloader();
+	waitforPagetobeenable();
 
-			Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Building Type")));
-			Thread.sleep(3000);
-			Clickon(getwebelement(
-					xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[45].toString())));
-			waitforAttributeloader();
-			waitforPagetobeenable();
+	Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Building Type")));
+	Thread.sleep(3000);
+	Clickon(getwebelement(
+			xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[45].toString())));
+	waitforAttributeloader();
+	waitforPagetobeenable();
 
-			Clickon(getwebelement(
-					xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Customer Site Pop Status")));
-			Thread.sleep(3000);
-			Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[46].toString())));
-			waitforAttributeloader();
-			waitforPagetobeenable();
+	Clickon(getwebelement(
+			xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Customer Site Pop Status")));
+	Thread.sleep(3000);
+	Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[46].toString())));
+	waitforAttributeloader();
+	waitforPagetobeenable();
 
-			Thread.sleep(2000);
-			Clear(getwebelement(
-					xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value", "3rd Party Connection Reference")));
-			SendKeys(getwebelement(
-					xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value", "3rd Party Connection Reference")),
-					"As12");
-			waitforPagetobeenable();
+	Thread.sleep(2000);
+	Clear(getwebelement(
+			xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value", "3rd Party Connection Reference")));
+	SendKeys(getwebelement(
+			xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value", "3rd Party Connection Reference")),
+			"As12");
+	waitforPagetobeenable();
 
-			Clear(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value", "BCP Reference")));
-			SendKeys(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value", "BCP Reference")),
-					"As12");
-			waitforPagetobeenable();
-			}
-			Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Cabinet Type")));
-			Clickon(getwebelement(
-					xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[48].toString())));
-			waitforAttributeloader();
-			waitforPagetobeenable();
+	Clear(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value", "BCP Reference")));
+	SendKeys(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value", "BCP Reference")),
+			"As12");
+	waitforPagetobeenable();
+	
+	Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Cabinet Type")));
+	Clickon(getwebelement(
+			xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[48].toString())));
+	waitforAttributeloader();
+	waitforPagetobeenable();
 
-			Clear(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value", "Cabinet ID")));
-			SendKeys(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value", "Cabinet ID")), "12");
-			SendkeaboardKeys(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value", "Cabinet ID")),
-					Keys.ENTER);
-			Thread.sleep(2000);
+	Clear(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value", "Cabinet ID")));
+	SendKeys(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value", "Cabinet ID")), "12");
+	SendkeaboardKeys(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value", "Cabinet ID")),
+			Keys.ENTER);
+	Thread.sleep(2000);
 
-			Clear(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value", "Shelf ID")));
-			SendKeys(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value", "Shelf ID")), "12");
-			SendkeaboardKeys(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value", "Shelf ID")),
-					Keys.ENTER);
-			Thread.sleep(2000);
+	Clear(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value", "Shelf ID")));
+	SendKeys(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value", "Shelf ID")), "12");
+	SendkeaboardKeys(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value", "Shelf ID")),
+			Keys.ENTER);
+	Thread.sleep(2000);
 
-			Clear(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value", "Slot ID")));
-			SendKeys(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value", "Slot ID")), "12");
-			SendkeaboardKeys(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value", "Slot ID")),
-					Keys.ENTER);
-			Thread.sleep(2000);
+	Clear(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value", "Slot ID")));
+	SendKeys(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value", "Slot ID")), "12");
+	SendkeaboardKeys(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value", "Slot ID")),
+			Keys.ENTER);
+	Thread.sleep(2000);
 
-				Clear(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value", "Physical Port ID")));
-				SendKeys(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value", "Physical Port ID")),
-						"12");
-				SendkeaboardKeys(
-						getwebelement(xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value", "Physical Port ID")),
-						Keys.ENTER);
-				Thread.sleep(2000);
+		Clear(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value", "Physical Port ID")));
+		SendKeys(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value", "Physical Port ID")),
+				"12");
+		SendkeaboardKeys(
+				getwebelement(xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value", "Physical Port ID")),
+				Keys.ENTER);
+		Thread.sleep(2000);
 
-			Clickon(getwebelement(
-					xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Presentation Interface")));
-			Clickon(getwebelement(
-					xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[53].toString())));
-			waitforAttributeloader();
-			waitforPagetobeenable();
+	Clickon(getwebelement(
+			xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Presentation Interface")));
+	Clickon(getwebelement(
+			xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[53].toString())));
+	waitforAttributeloader();
+	waitforPagetobeenable();
 
-			Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Connector Type")));
-			Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[54].toString())));
-			waitforAttributeloader();
-			waitforPagetobeenable();
+	Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Connector Type")));
+	Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[54].toString())));
+	waitforAttributeloader();
+	waitforPagetobeenable();
 
-			Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Fibre Type")));
-			Clickon(getwebelement(
-					xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[55].toString())));
-			waitforAttributeloader();
-			waitforPagetobeenable();
-			
-			Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Port Role")));
-			Clickon(getwebelement(
-					xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", "Physical Port")));
-			waitforAttributeloader();
-			waitforPagetobeenable();
+	Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Fibre Type")));
+	Clickon(getwebelement(
+			xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[55].toString())));
+	waitforAttributeloader();
+	waitforPagetobeenable();
+	
+	Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Port Role")));
+	Clickon(getwebelement(
+			xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", "Physical Port")));
+	waitforAttributeloader();
+	waitforPagetobeenable();
 
-			
+	
 
-			Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Install Time")));
-			Clickon(getwebelement(
-					xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[56].toString())));
-			waitforPagetobeenable();
-			
-			
-//			WaitforElementtobeclickable((xml.getlocator("//locators/CircuitReferenceAccess")));
-//			Clickon(getwebelement(xml.getlocator("//locators/CircuitReferenceAccess")));
-//			waitforAttributeloader();
-//			waitforPagetobeenable();
-//			Thread.sleep(30000);
-//		
-//			Circuitreferencenumber.set(Getattribute(getwebelement2(xml.getlocator("//locators/CircuitReferenceValue")),"value"));
-//			System.out.println(Circuitreferencenumber.get());
-//			ExtentTestManager.getTest().log(LogStatus.PASS,
-//					" Step: Generated circuit reference No: " + Circuitreferencenumber.get());
+	Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Install Time")));
+	Clickon(getwebelement(
+			xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[56].toString())));
+	waitforPagetobeenable();
+	
+	
+//	WaitforElementtobeclickable((xml.getlocator("//locators/CircuitReferenceAccess")));
+//	Clickon(getwebelement(xml.getlocator("//locators/CircuitReferenceAccess")));
+//	waitforAttributeloader();
+//	waitforPagetobeenable();
+//	Thread.sleep(30000);
 //
-			savePage();
-			waitforPagetobeenable();
-			Thread.sleep(8000);
+//	Circuitreferencenumber.set(Getattribute(getwebelement2(xml.getlocator("//locators/CircuitReferenceValue")),"value"));
+//	System.out.println(Circuitreferencenumber.get());
+//	ExtentTestManager.getTest().log(LogStatus.PASS,
+//			" Step: Generated circuit reference No: " + Circuitreferencenumber.get());
+//
+	ClickHereSave();
+	waitforPagetobeenable();
+	savePage();
+	waitforPagetobeenable();
+	Thread.sleep(5000);
+
 		}
 			
 			
@@ -7993,185 +7984,181 @@ if (Inputdata[8].toString().equalsIgnoreCase("Ethernet Hub")) {
 	 * added by-Vikram for Hub product for Spoke
 	 */
 	public void spokeSiteCustomize(Object[] Inputdata) throws Exception {
-
-		if (isElementPresent(xml.getlocator("//locators/SaveOrderChanges"))) {
-			WaitforElementtobeclickable(xml.getlocator("//locators/SaveOrderChanges"));
-			Clickon(getwebelement(xml.getlocator("//locators/SaveOrderChanges")));
-			//waitForpageload();
-			System.out.println("page load succesfuuly now come to middle applet");
-		}
-			waitforPagetobeenable();
-			Thread.sleep(3000);
-			
-			
-			Clickon(getwebelement(
-					xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Coverage")));
-			Thread.sleep(2000);
-			Clickon(getwebelement(
-					xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[28].toString())));
-			
-			waitforAttributeloader();
-			waitforPagetobeenable();
+		waitforPagetobeenable();
+		Thread.sleep(8000);
+		
 		
 		Clickon(getwebelement(
-				xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Resilience Option")));
+				xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Coverage")));
 		Thread.sleep(2000);
 		Clickon(getwebelement(
-				xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[27].toString())));
+				xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[28].toString())));
 		
-		//waitforAttributeloader();
-		waitforPagetobeenable();
-		
-
-		WaitforElementtobeclickable(xml.getlocator("//locators/ServiceBandwidthDropdownAccess"));
-		Clickon(getwebelement(xml.getlocator("//locators/ServiceBandwidthDropdownAccess")));
-		WaitforElementtobeclickable(xml.getlocator("//locators/ServiceBandwidthSelectAccess").replace("value", Inputdata[32].toString()));
-		Clickon(getwebelement(xml.getlocator("//locators/ServiceBandwidthSelectAccess").replace("value", Inputdata[32].toString())));
-		//waitforAttributeloader();
-		waitforPagetobeenable();
-		
-         WaitforElementtobeclickable((xml.getlocator("//locators/ClickheretoSaveAccess")));
-		
-		Clickon(getwebelement(xml.getlocator("//locators/ClickheretoSaveAccess")));
-
-		waitforPagetobeenable();
-
-		
-		Clickon(getwebelement(
-				xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Hard Modify Flag")));
-		Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", "N")));
-		Thread.sleep(2000);
-		waitforPagetobeenable();
-
-		SendKeys(getwebelement(
-				xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value", "OSS Platform Flag")),
-				Inputdata[38].toString());
 		waitforAttributeloader();
 		waitforPagetobeenable();
-		Thread.sleep(3000);
-		
+	
+	Clickon(getwebelement(
+			xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Resilience Option")));
+	Thread.sleep(2000);
+	Clickon(getwebelement(
+			xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[27].toString())));
+	
+	//waitforAttributeloader();
+	waitforPagetobeenable();
+	
 
-		WaitforElementtobeclickable((xml.getlocator("//locators/ClickheretoSaveAccess")));
-		
-		Clickon(getwebelement(xml.getlocator("//locators/ClickheretoSaveAccess")));
+	WaitforElementtobeclickable(xml.getlocator("//locators/ServiceBandwidthDropdownAccess"));
+	Clickon(getwebelement(xml.getlocator("//locators/ServiceBandwidthDropdownAccess")));
+	WaitforElementtobeclickable(xml.getlocator("//locators/ServiceBandwidthSelectAccess").replace("value", Inputdata[32].toString()));
+	Clickon(getwebelement(xml.getlocator("//locators/ServiceBandwidthSelectAccess").replace("value", Inputdata[32].toString())));
+	//waitforAttributeloader();
+	waitforPagetobeenable();
+	
+     WaitforElementtobeclickable((xml.getlocator("//locators/ClickheretoSaveAccess")));
+	
+	Clickon(getwebelement(xml.getlocator("//locators/ClickheretoSaveAccess")));
 
-		waitforPagetobeenable();
-		
-		Clickon(getwebelement(
-				xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "HUB Service Id")));
-		WaitforElementtobeclickable(xml.getlocator("//locators/IPVPNSite/HubTableIDSelect"));
-		Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/HubTableIDSelect")));
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Select HubID");
-		Thread.sleep(3000);
-		Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/HubTableOK")));
-		Thread.sleep(3000);
-		waitforPagetobeenable();
+	waitforPagetobeenable();
 
-		safeJavaScriptClick(getwebelement(xml3.getlocator("//locators/SearchAddressSiteB")));
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Search Address SiteB");
-		SendKeys(getwebelement(xml3.getlocator("//locators/StreetNamerfs")), Inputdata[86].toString());
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Street Name");
+	
+	Clickon(getwebelement(
+			xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Hard Modify Flag")));
+	Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", "N")));
+	Thread.sleep(2000);
+	waitforPagetobeenable();
 
-		Clickon(getwebelement(xml3.getlocator("//locators/Country")));
-		Clickon(getwebelement(xml.getlocator("//locators/R4/SiteABSelection").replace("Value", Inputdata[87].toString())));
-		ExtentTestManager.getTest().log(LogStatus.PASS," Step: Private Ehternet >> Service Bandwidth Select : " + Inputdata[32].toString());
-		// SendKeys(getwebelement(xml3.getlocator("//locators/Country")), Inputdata[87].toString());
-		// ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Country");
-		SendKeys(getwebelement(xml3.getlocator("//locators/City")), Inputdata[88].toString());
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter City");
-		SendKeys(getwebelement(xml3.getlocator("//locators/PostalCode")), Inputdata[89].toString());
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Postal Code");
-		SendKeys(getwebelement(xml3.getlocator("//locators/Premises")), Inputdata[90].toString());
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Premises");
-		Clickon(getwebelement(xml3.getlocator("//locators/Search")));
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Search");
+	SendKeys(getwebelement(
+			xml.getlocator("//locators/IPVPNSite/TextInput").replace("Value", "OSS Platform Flag")),
+			Inputdata[38].toString());
+	waitforAttributeloader();
+	waitforPagetobeenable();
+	Thread.sleep(3000);
+	
+     WaitforElementtobeclickable((xml.getlocator("//locators/ClickheretoSaveAccess")));
+	
+	Clickon(getwebelement(xml.getlocator("//locators/ClickheretoSaveAccess")));
 
-		WaitforElementtobeclickable(xml.getlocator("//locators/R4/SearchAddressRowSelection"));
-		Clickon(getwebelement(xml.getlocator("//locators/R4/SearchAddressRowSelection")));
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Pick Address");
+	waitforPagetobeenable();
 
-		WaitforElementtobeclickable(xml.getlocator("//locators/R4/PickAddress"));
-		Clickon(getwebelement(xml.getlocator("//locators/R4/PickAddress")));
-
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Pick");
-
-		WaitforElementtobeclickable(xml.getlocator("//locators/R4/SearchAddressRowSelection"));
-		Clickon(getwebelement(xml.getlocator("//locators/R4/SearchAddressRowSelection")));
-
-		WaitforElementtobeclickable(xml.getlocator("//locators/R4/PickBuilding"));
-		Clickon(getwebelement(xml.getlocator("//locators/R4/PickBuilding")));
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Row and Pick Building");
-
-		waitforPagetobeenable();
-		WaitforElementtobeclickable(xml.getlocator("//locators/R4/SearchAddressRowSelection"));
-		Clickon(getwebelement(xml.getlocator("//locators/R4/SearchAddressRowSelection")));
-
-		WaitforElementtobeclickable(xml.getlocator("//locators/R4/PickSite"));
-		Clickon(getwebelement(xml.getlocator("//locators/R4/PickSite")));
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Row and Pick Site");
-		waitforPagetobeenable();
+	
+	Clickon(getwebelement(
+			xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "HUB Service Id")));
+	WaitforElementtobeclickable(xml.getlocator("//locators/IPVPNSite/HubTableIDSelect"));
+	Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/HubTableIDSelect")));
+	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Select HubID");
+	Thread.sleep(3000);
+	Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/HubTableOK")));
+	Thread.sleep(3000);
+	
+	waitforPagetobeenable();
+	
 
 
-//		WaitforElementtobeclickable(xml.getlocator("//locators/IpGurdianSave"));
-//		Clickon(getwebelement(xml.getlocator("//locators/IpGurdianSave")));
-//		 Thread.sleep(8000);
+	safeJavaScriptClick(getwebelement(xml3.getlocator("//locators/SearchAddressSiteB")));
+	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Search Address SiteB");
+	SendKeys(getwebelement(xml3.getlocator("//locators/StreetNamerfs")), Inputdata[86].toString());
+	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Street Name");
+
+	Clickon(getwebelement(xml3.getlocator("//locators/Country")));
+	Clickon(getwebelement(xml.getlocator("//locators/R4/SiteABSelection").replace("Value", Inputdata[87].toString())));
+	ExtentTestManager.getTest().log(LogStatus.PASS," Step: Private Ehternet >> Service Bandwidth Select : " + Inputdata[32].toString());
+	// SendKeys(getwebelement(xml3.getlocator("//locators/Country")), Inputdata[87].toString());
+	// ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Country");
+	SendKeys(getwebelement(xml3.getlocator("//locators/City")), Inputdata[88].toString());
+	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter City");
+	SendKeys(getwebelement(xml3.getlocator("//locators/PostalCode")), Inputdata[89].toString());
+	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Postal Code");
+	SendKeys(getwebelement(xml3.getlocator("//locators/Premises")), Inputdata[90].toString());
+	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Premises");
+	Clickon(getwebelement(xml3.getlocator("//locators/Search")));
+	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Search");
+
+	WaitforElementtobeclickable(xml.getlocator("//locators/R4/SearchAddressRowSelection"));
+	Clickon(getwebelement(xml.getlocator("//locators/R4/SearchAddressRowSelection")));
+	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Pick Address");
+
+	WaitforElementtobeclickable(xml.getlocator("//locators/R4/PickAddress"));
+	Clickon(getwebelement(xml.getlocator("//locators/R4/PickAddress")));
+
+	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Pick");
+
+	WaitforElementtobeclickable(xml.getlocator("//locators/R4/SearchAddressRowSelection"));
+	Clickon(getwebelement(xml.getlocator("//locators/R4/SearchAddressRowSelection")));
+
+	WaitforElementtobeclickable(xml.getlocator("//locators/R4/PickBuilding"));
+	Clickon(getwebelement(xml.getlocator("//locators/R4/PickBuilding")));
+	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Row and Pick Building");
+
+	waitforPagetobeenable();
+	WaitforElementtobeclickable(xml.getlocator("//locators/R4/SearchAddressRowSelection"));
+	Clickon(getwebelement(xml.getlocator("//locators/R4/SearchAddressRowSelection")));
+
+	WaitforElementtobeclickable(xml.getlocator("//locators/R4/PickSite"));
+	Clickon(getwebelement(xml.getlocator("//locators/R4/PickSite")));
+	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Row and Pick Site");
+	waitforPagetobeenable();
+
+
+//	WaitforElementtobeclickable(xml.getlocator("//locators/IpGurdianSave"));
+//	Clickon(getwebelement(xml.getlocator("//locators/IpGurdianSave")));
+//	 Thread.sleep(8000);
 //
-//		waitforPagetobeenable();
+//	waitforPagetobeenable();
 
-		WaitforElementtobeclickable(xml.getlocator("//locators/ServicePartySearchAccess"));
-		Moveon(getwebelement(xml.getlocator("//locators/ServicePartySearchAccess")));
-		safeJavaScriptClick(getwebelement(xml.getlocator("//locators/ServicePartySearchAccess")));
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Search Service Party");
+	WaitforElementtobeclickable(xml.getlocator("//locators/ServicePartySearchAccess"));
+	Moveon(getwebelement(xml.getlocator("//locators/ServicePartySearchAccess")));
+	safeJavaScriptClick(getwebelement(xml.getlocator("//locators/ServicePartySearchAccess")));
+	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Search Service Party");
 
-		// System.out.println("EnterService");
-		waitandForElementDisplay((xml.getlocator("//locators/ServicePartyDropdownAccess")), 8);
+	// System.out.println("EnterService");
+	waitandForElementDisplay((xml.getlocator("//locators/ServicePartyDropdownAccess")), 8);
 
-		WaitforElementtobeclickable(xml.getlocator("//locators/ServicePartyDropdownAccess"));
-		Clickon(getwebelement(xml.getlocator("//locators/ServicePartyDropdownAccess")));
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Service Party Dropdown");
+	WaitforElementtobeclickable(xml.getlocator("//locators/ServicePartyDropdownAccess"));
+	Clickon(getwebelement(xml.getlocator("//locators/ServicePartyDropdownAccess")));
+	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Service Party Dropdown");
 
-		Clickon(getwebelement(xml.getlocator("//locators/PartyNameAccess")));
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Party Name");
+	Clickon(getwebelement(xml.getlocator("//locators/PartyNameAccess")));
+	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Party Name");
 
-		SendKeys(getwebelement(xml.getlocator("//locators/InputPartyNameAccess")), Inputdata[69].toString());
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Party Name");
+	SendKeys(getwebelement(xml.getlocator("//locators/InputPartyNameAccess")), Inputdata[69].toString());
+	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Party Name");
 
-		Clickon(getwebelement(xml.getlocator("//locators/PartyNameSearchAccess")));
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step:Click On Search");
+	Clickon(getwebelement(xml.getlocator("//locators/PartyNameSearchAccess")));
+	ExtentTestManager.getTest().log(LogStatus.PASS, " Step:Click On Search");
 
-		Thread.sleep(2000);
-		Clickon(getwebelement(xml.getlocator("//locators/PartyNameSubmitAccess")));
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step:Click On Submit");
+	Thread.sleep(2000);
+	Clickon(getwebelement(xml.getlocator("//locators/PartyNameSubmitAccess")));
+	ExtentTestManager.getTest().log(LogStatus.PASS, " Step:Click On Submit");
 
-		WaitforElementtobeclickable(xml.getlocator("//locators/SiteContactSearchAccess"));
-		safeJavaScriptClick(getwebelement(xml.getlocator("//locators/SiteContactSearchAccess")));
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Search Site Contact");
+	WaitforElementtobeclickable(xml.getlocator("//locators/SiteContactSearchAccess"));
+	safeJavaScriptClick(getwebelement(xml.getlocator("//locators/SiteContactSearchAccess")));
+	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Search Site Contact");
 
-		waitandForElementDisplay((xml.getlocator("//locators/SiteContactDropdownAccess")), 8);
-		WaitforElementtobeclickable(xml.getlocator("//locators/SiteContactDropdownAccess"));
-		Clickon(getwebelement(xml.getlocator("//locators/SiteContactDropdownAccess")));
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Site Name Dropdown");
+	waitandForElementDisplay((xml.getlocator("//locators/SiteContactDropdownAccess")), 8);
+	WaitforElementtobeclickable(xml.getlocator("//locators/SiteContactDropdownAccess"));
+	Clickon(getwebelement(xml.getlocator("//locators/SiteContactDropdownAccess")));
+	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Site Name Dropdown");
 
-		WaitforElementtobeclickable(xml.getlocator("//locators/InputSiteNameAccess"));
-		SendKeys(getwebelement(xml.getlocator("//locators/InputSiteNameAccess")), Inputdata[70].toString());
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Site Name");
+	WaitforElementtobeclickable(xml.getlocator("//locators/InputSiteNameAccess"));
+	SendKeys(getwebelement(xml.getlocator("//locators/InputSiteNameAccess")), Inputdata[70].toString());
+	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Site Name");
 
-		WaitforElementtobeclickable(xml.getlocator("//locators/LastNameSiteSearchAccess"));
-		Clickon(getwebelement(xml.getlocator("//locators/LastNameSiteSearchAccess")));
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step:Click On Search");
-		waitforPagetobeenable();
-		Thread.sleep(3000);
-		//waitforPagetobeenable();
-		WaitforElementtobeclickable(xml.getlocator("//locators/LastNameSiteSubmitAccess"));
-		Clickon(getwebelement(xml.getlocator("//locators/LastNameSiteSubmitAccess")));
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step:Click On Submit");
+	WaitforElementtobeclickable(xml.getlocator("//locators/LastNameSiteSearchAccess"));
+	Clickon(getwebelement(xml.getlocator("//locators/LastNameSiteSearchAccess")));
+	ExtentTestManager.getTest().log(LogStatus.PASS, " Step:Click On Search");
+	waitforPagetobeenable();
+	Thread.sleep(3000);
+	//waitforPagetobeenable();
+	WaitforElementtobeclickable(xml.getlocator("//locators/LastNameSiteSubmitAccess"));
+	Clickon(getwebelement(xml.getlocator("//locators/LastNameSiteSubmitAccess")));
+	ExtentTestManager.getTest().log(LogStatus.PASS, " Step:Click On Submit");
 
-		WaitforElementtobeclickable(xml.getlocator("//locators/IpGurdianSave"));
-		Clickon(getwebelement(xml.getlocator("//locators/IpGurdianSave")));
-		waitforPagetobeenable();
+	WaitforElementtobeclickable(xml.getlocator("//locators/IpGurdianSave"));
+	Clickon(getwebelement(xml.getlocator("//locators/IpGurdianSave")));
+	waitforPagetobeenable();
 
-		
-
+//-----	
+	if(Inputdata[74].toString().equalsIgnoreCase("offnet")) {
 		Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdownB").replace("Value", "Access Type")));
 		Thread.sleep(2000);
 		Clickon(getwebelement(
@@ -8188,159 +8175,143 @@ if (Inputdata[8].toString().equalsIgnoreCase("Ethernet Hub")) {
 		
 		waitforAttributeloader();
 		waitforPagetobeenable();
-
-		Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdownB").replace("Value", "Building Type")));
+		
+		Clickon(getwebelement(
+				xml.getlocator("//locators/IPVPNSite/ClickDropdownB").replace("Value", "Third Party Access Provider")));
 		Thread.sleep(3000);
-		Clickon(getwebelement(
-				xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[45].toString())));
+		Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[44].toString())));
 		waitforAttributeloader();
 		waitforPagetobeenable();
-
+		
 		Clickon(getwebelement(
-				xml.getlocator("//locators/IPVPNSite/ClickDropdownB").replace("Value", "Customer Site Pop Status")));
+				xml.getlocator("//locators/IPVPNSite/ClickDropdownB").replace("Value", "Third Party SLA Tier")));
 		Thread.sleep(3000);
-		Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[46].toString())));
+		Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[35].toString())));
 		waitforAttributeloader();
 		waitforPagetobeenable();
+	}
+	else {
 
-		Thread.sleep(2000);
-		Clear(getwebelement(
-				xml.getlocator("//locators/IPVPNSite/TextInputB").replace("Value", "3rd Party Connection Reference")));
-		SendKeys(getwebelement(
-				xml.getlocator("//locators/IPVPNSite/TextInputB").replace("Value", "3rd Party Connection Reference")),
-				"As12");
-		waitforPagetobeenable();
+	Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdownB").replace("Value", "Access Type")));
+	Thread.sleep(2000);
+	Clickon(getwebelement(
+			xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[42].toString())));
+	
+	waitforAttributeloader();
+	waitforPagetobeenable();
 
-		Clear(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInputB").replace("Value", "BCP Reference")));
-		SendKeys(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInputB").replace("Value", "BCP Reference")),
-				"As12");
-		waitforPagetobeenable();
-		
-		Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdownB").replace("Value", "Cabinet Type")));
-		Clickon(getwebelement(
-				xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[48].toString())));
-		waitforAttributeloader();
-		waitforPagetobeenable();
+	Clickon(getwebelement(
+			xml.getlocator("//locators/IPVPNSite/ClickDropdownB").replace("Value", "Access Technology")));
+	Thread.sleep(2000);
+	Clickon(getwebelement(
+			xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[43].toString())));
+	
+	waitforAttributeloader();
+	waitforPagetobeenable();
 
-		Clear(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInputB").replace("Value", "Cabinet ID")));
-		SendKeys(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInputB").replace("Value", "Cabinet ID")), "12");
-		SendkeaboardKeys(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInputB").replace("Value", "Cabinet ID")),
+
+	Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdownB").replace("Value", "Building Type")));
+	Thread.sleep(3000);
+	Clickon(getwebelement(
+			xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[45].toString())));
+	waitforAttributeloader();
+	waitforPagetobeenable();
+
+	Clickon(getwebelement(
+			xml.getlocator("//locators/IPVPNSite/ClickDropdownB").replace("Value", "Customer Site Pop Status")));
+	Thread.sleep(3000);
+	Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[46].toString())));
+	waitforAttributeloader();
+	waitforPagetobeenable();
+	}
+//------
+	Thread.sleep(2000);
+	Clear(getwebelement(
+			xml.getlocator("//locators/IPVPNSite/TextInputB").replace("Value", "3rd Party Connection Reference")));
+	SendKeys(getwebelement(
+			xml.getlocator("//locators/IPVPNSite/TextInputB").replace("Value", "3rd Party Connection Reference")),
+			"As12");
+	waitforPagetobeenable();
+
+	Clear(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInputB").replace("Value", "BCP Reference")));
+	SendKeys(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInputB").replace("Value", "BCP Reference")),
+			"As12");
+	waitforPagetobeenable();
+	
+	Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdownB").replace("Value", "Cabinet Type")));
+	Clickon(getwebelement(
+			xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[48].toString())));
+	waitforAttributeloader();
+	waitforPagetobeenable();
+
+	Clear(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInputB").replace("Value", "Cabinet ID")));
+	SendKeys(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInputB").replace("Value", "Cabinet ID")), "12");
+	SendkeaboardKeys(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInputB").replace("Value", "Cabinet ID")),
+			Keys.ENTER);
+	Thread.sleep(2000);
+
+	Clear(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInputB").replace("Value", "Shelf ID")));
+	SendKeys(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInputB").replace("Value", "Shelf ID")), "12");
+	SendkeaboardKeys(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInputB").replace("Value", "Shelf ID")),
+			Keys.ENTER);
+	Thread.sleep(2000);
+
+	Clear(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInputB").replace("Value", "Slot ID")));
+	SendKeys(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInputB").replace("Value", "Slot ID")), "12");
+	SendkeaboardKeys(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInputB").replace("Value", "Slot ID")),
+			Keys.ENTER);
+	Thread.sleep(2000);
+
+		Clear(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInputB").replace("Value", "Physical Port ID")));
+		SendKeys(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInputB").replace("Value", "Physical Port ID")),
+				"12");
+		SendkeaboardKeys(
+				getwebelement(xml.getlocator("//locators/IPVPNSite/TextInputB").replace("Value", "Physical Port ID")),
 				Keys.ENTER);
 		Thread.sleep(2000);
 
-		Clear(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInputB").replace("Value", "Shelf ID")));
-		SendKeys(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInputB").replace("Value", "Shelf ID")), "12");
-		SendkeaboardKeys(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInputB").replace("Value", "Shelf ID")),
-				Keys.ENTER);
-		Thread.sleep(2000);
+	Clickon(getwebelement(
+			xml.getlocator("//locators/IPVPNSite/ClickDropdownB").replace("Value", "Presentation Interface")));
+	Clickon(getwebelement(
+			xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[53].toString())));
+	waitforAttributeloader();
+	waitforPagetobeenable();
 
-		Clear(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInputB").replace("Value", "Slot ID")));
-		SendKeys(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInputB").replace("Value", "Slot ID")), "12");
-		SendkeaboardKeys(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInputB").replace("Value", "Slot ID")),
-				Keys.ENTER);
-		Thread.sleep(2000);
+	Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdownB").replace("Value", "Connector Type")));
+	Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[54].toString())));
+	waitforAttributeloader();
+	waitforPagetobeenable();
 
-			Clear(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInputB").replace("Value", "Physical Port ID")));
-			SendKeys(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInputB").replace("Value", "Physical Port ID")),
-					"12");
-			SendkeaboardKeys(
-					getwebelement(xml.getlocator("//locators/IPVPNSite/TextInputB").replace("Value", "Physical Port ID")),
-					Keys.ENTER);
-			Thread.sleep(2000);
+	Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdownB").replace("Value", "Fibre Type")));
+	Clickon(getwebelement(
+			xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[55].toString())));
+	waitforAttributeloader();
+	waitforPagetobeenable();
+	
+	Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdownB").replace("Value", "Port Role")));
+	Clickon(getwebelement(
+			xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", "Physical Port")));
+	waitforAttributeloader();
+	waitforPagetobeenable();
+	
+	Clear(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInputB").replace("Value", "VLAN Tag ID")));
+	SendKeys(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInputB").replace("Value", "VLAN Tag ID")), "12");
+	SendkeaboardKeys(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInputB").replace("Value", "VLAN Tag ID")),
+			Keys.ENTER);
+	Thread.sleep(2000);
 
-		Clickon(getwebelement(
-				xml.getlocator("//locators/IPVPNSite/ClickDropdownB").replace("Value", "Presentation Interface")));
-		Clickon(getwebelement(
-				xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[53].toString())));
-		waitforAttributeloader();
-		waitforPagetobeenable();
+	
 
-		Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdownB").replace("Value", "Connector Type")));
-		Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[54].toString())));
-		waitforAttributeloader();
-		waitforPagetobeenable();
-
-		Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdownB").replace("Value", "Fibre Type")));
-		Clickon(getwebelement(
-				xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[55].toString())));
-		waitforAttributeloader();
-		waitforPagetobeenable();
-		
-		Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdownB").replace("Value", "Port Role")));
-		Clickon(getwebelement(
-				xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", "Physical Port")));
-		waitforAttributeloader();
-		waitforPagetobeenable();
-		
-		Clear(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInputB").replace("Value", "VLAN Tag ID")));
-		SendKeys(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInputB").replace("Value", "VLAN Tag ID")), "12");
-		SendkeaboardKeys(getwebelement(xml.getlocator("//locators/IPVPNSite/TextInputB").replace("Value", "VLAN Tag ID")),
-				Keys.ENTER);
-		Thread.sleep(2000);
-
-		
-
-		Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdownB").replace("Value", "Install Time")));
-		Clickon(getwebelement(
-				xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[56].toString())));
-		waitforPagetobeenable();
-		
-//		WaitforElementtobeclickable(xml.getlocator("//locators/IPVPNSite/Showfullinfo"));
-//		Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/Showfullinfo")));
-//		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click On : Show Full info");
-//		waitforPagetobeenable();
-//		
-//		
-//
-//		Clickon(getwebelement(
-//				xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "Delivery Team City")));
-//		Thread.sleep(2000);
-//		Clickon(getwebelement(
-//				xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[43].toString())));
-//		
-//		waitforAttributeloader();
-//		waitforPagetobeenable();
-//		
-		
-
-		if (Inputdata[74].toString().equals("Offnet"))
-		{
-		
-			waitforPagetobeenable();
-			WaitforElementtobeclickable(xml3.getlocator("//locators/AccessTechnologySearch"));
-			Clickon(getwebelement(xml3.getlocator("//locators/AccessTechnologySearch")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Access Technology Search");
-			Thread.sleep(20000);
-			WaitforElementtobeclickable(xml3.getlocator("//locators/SelectAccessTechnology1"));
-			Clickon(getwebelement(xml3.getlocator("//locators/SelectAccessTechnology1")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Access Technology value");
-			Clickon(getwebelement(xml3.getlocator("//locators/AccessTechnologySubmit")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Access Technology Submit");
-			Thread.sleep(5000);
-			Clickon(getwebelement(xmlHns.getlocator("//locators/SpokeAccessProvider")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Third Party  Access Provider Search");
-			Clickon(getwebelement(xml3.getlocator("//locators/ThirdPartyAccessProviderSelect")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Third Party Access Provider Select");
-			 Clickon(getwebelement(xml3.getlocator("//locators/ThirdPartyAccessProviderSubmit")));
-			Thread.sleep(10000);
-			//Select(getwebelement(xml3.getlocator("//locators/Siebel/ThirdPartyAccessProvider")),Inputdata[45].toString());
-			//ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Third Party 	 Access Provider");
-
-			safeJavaScriptClick(getwebelement(xml3.getlocator("//locators/ThirdPartyConnecRef")));
-			Clear(getwebelement(xml3.getlocator("//locators/ThirdPartyConnecRef")));
-			Thread.sleep(500);
-			SendKeys(getwebelement(xml3.getlocator("//locators/ThirdPartyConnecRef")),Inputdata[44].toString());
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Provide Third Party Connection Reference");
-			Thread.sleep(5000);
-			
-			//WaitforElementtobeclickable(xml3.getlocator("//locators/ThirdPartySlaTier"));
-			Clickon(getwebelement(xml3.getlocator("//locators/ThirdPartySlaTier")));
-			WaitforElementtobeclickable(xml3.getlocator("//locators/ThirdPartySlaTierValue"));
-			Clickon(getwebelement(xml3.getlocator("//locators/ThirdPartySlaTierValue")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Third Party SlA Tier");
-			Thread.sleep(5000);
-			
-		}
+	Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdownB").replace("Value", "Install Time")));
+	Clickon(getwebelement(
+			xml.getlocator("//locators/IPVPNSite/SelectValueDropdown").replace("Value", Inputdata[56].toString())));
+	waitforPagetobeenable();
+	
+	ClickHereSave();
+	waitforPagetobeenable();
+	savePage();
+	waitforPagetobeenable();
+	Thread.sleep(5000);
 	}
 
 	public void OrderCompleteEthernetHubSpoke(Object[] Inputdata) throws Exception, Exception {
