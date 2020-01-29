@@ -119,11 +119,11 @@ public class OMPScriptHelper extends DriverHelper {
 // ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Product Name("+OmpText+") Verified in OMP Portal");
 
 //Order Status Verification
-		//OmpText = Gettext(getwebelement(xml.getlocator("//locators/OrderStatus")));
+		OmpText = Gettext(getwebelement(xml.getlocator("//locators/OrderStatus")));
 //Assert.assertTrue(OrderState.equals(Inputdata[2].toString()),"Order State : "+ Inputdata[2].toString() + "not matched with Opened Order State :"+OrderState);
-		//Assert.assertTrue(OmpText.contains("Completed"),
-				//"Order Status : Complete not matched with Opened Order State :" + OmpText);
-		//ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Order Status(" + OmpText + ") Verified in OMP Portal");
+		Assert.assertTrue(OmpText.contains("Completed"),
+				"Order Status : Complete not matched with Opened Order State :" + OmpText);
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Order Status(" + OmpText + ") Verified in OMP Portal");
 
 //Order State Verification
 		OmpText = Gettext(getwebelement(xml.getlocator("//locators/OrderType")));
