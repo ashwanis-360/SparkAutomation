@@ -1,6 +1,7 @@
 package ScriptHelper;
 import java.util.Map.Entry;
 import org.openqa.selenium.By;
+import Driver.PropertyReader;
 import org.openqa.selenium.support.ui.Select;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
@@ -266,7 +267,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			Pagerefresh();
 			System.out.println("Page to be refresed");
 			Thread.sleep(20000);
-		} while (!isElementPresent("//a[text()='My Orders']"));
+		}while (!isElementPresent("//a[text()='Orders']"));
 
 		try {
 			Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderTab")));
@@ -12645,29 +12646,42 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			}
 			
 	public void LaunchingCEOSApplication(Object Inputdata[]) throws Exception {
-				
-				DesiredCapabilities capabilities = DesiredCapabilities.internetExplorer();
-				capabilities.setCapability(CapabilityType.BROWSER_NAME, "internet explorer");
-				capabilities.setCapability(InternetExplorerDriver.
-				INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,true);
-				capabilities.setCapability("requireWindowFocus", true);
-				System.setProperty("webdriver.ie.driver",".\\lib\\IEDriverServer.exe");
-				InternetExplorerDriver dr= new InternetExplorerDriver(capabilities);
-				//dr.get("http://navmctmohs003:8080/arsys/forms/amsceo03/CEOS%3AOff-Net+Service/Support/");
-				dr.manage().window().maximize();
-				dr.manage().deleteAllCookies();
-				dr.manage().timeouts().implicitlyWait(60,TimeUnit.SECONDS);
+		DesiredCapabilities capabilities = DesiredCapabilities.internetExplorer();
+		capabilities.setCapability(CapabilityType.BROWSER_NAME, "internet explorer");
+		capabilities.setCapability(InternetExplorerDriver.
+		INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,true);
+		capabilities.setCapability("requireWindowFocus", true);
+		capabilities.setCapability(InternetExplorerDriver.IE_ENSURE_CLEAN_SESSION, true);
+		System.setProperty("webdriver.ie.driver",".\\lib\\IEDriverServer.exe");
+		InternetExplorerDriver dr= new InternetExplorerDriver(capabilities);
+		//dr.get("http://navmctmohs003:8080/arsys/forms/amsceo03/CEOS%3AOff-Net+Service/Support/");
+		dr.manage().window().maximize();
+		dr.manage().deleteAllCookies();
+		dr.manage().timeouts().implicitlyWait(60,TimeUnit.SECONDS);
+		try
+		{
+			
+			String URL = null;
+			PropertyReader pr = new PropertyReader();
+			//Log.info(environment + "_URL");
+			URL = pr.readproperty("CEOS_URL");
+			dr.get(URL);
+			//driver.get(URL);
+			
+			//openurl(Application);
 				//dr.navigate().to("http://navmctmohs003:8080/arsys/forms/amsceo03/CEOS%3AOff-Net+Service/Support/");
 				//dr.navigate().to("http://navmctmohs003:8080/arsys/forms/amsceo02.eu.colt/CEOS%3AOff-Net+Service/Support_Web/");
-				dr.get("http://navmctmohs003:8080/arsys/forms/amsceo02.eu.colt/CEOS%3AOff-Net+Service/Support_Web/");
+				//dr.get("http://navmctmohs003:8080/arsys/forms/amsceo02.eu.colt/CEOS%3AOff-Net+Service/Support_Web/");
 				Thread.sleep(3000);
 				System.out.println(dr.getTitle());
-				dr.findElement(By.id("username-id")).sendKeys("ajain12");
+				//dr.findElement(By.id("username-id")).sendKeys("ajain12");
+				dr.findElement(By.id("username-id")).sendKeys(Getkeyvalue("CEOS_Username"));
 				Thread.sleep(3000);
 				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter User Name");
 				dr.findElement(By.id("pwd-id")).click();
-				//dr.findElement(By.id("pwd-id")).clear();
-				dr.findElement(By.id("pwd-id")).sendKeys("password");
+				dr.findElement(By.id("pwd-id")).clear();
+				//dr.findElement(By.id("pwd-id")).sendKeys("password");
+				dr.findElement(By.id("pwd-id")).sendKeys(Getkeyvalue("CEOS_Password"));
 				Thread.sleep(3000);
 				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Password");
 				dr.findElement(By.name("login")).click();
@@ -12812,8 +12826,13 @@ public class NewOrderOnnetHelper extends DriverHelper {
 				Thread.sleep(10000);
 				
 				dr.close();
+		}
+		catch(Exception e)
+		{
+			dr.close();
+		}
 								
-			}
+}
 		
 	//Added by Aman
 	public void CheckServiceTab(Object[] Inputdata) throws Exception {
@@ -13727,159 +13746,159 @@ public class NewOrderOnnetHelper extends DriverHelper {
 						
 			}
 	public void LaunchingXNGApplication(Object Inputdata[]) throws Exception {
-					
-				 DesiredCapabilities capabilities = DesiredCapabilities.internetExplorer();
-					capabilities.setCapability(CapabilityType.BROWSER_NAME, "internet explorer");
-					capabilities.setCapability(InternetExplorerDriver.
-					INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,true);
-					capabilities.setCapability("requireWindowFocus", true);
-					
-					System.setProperty("webdriver.ie.driver",System.getProperty("user.dir")+"//lib//IEDriverServer.exe");
-					InternetExplorerDriver iedr= new InternetExplorerDriver(capabilities);
-					iedr.manage().deleteAllCookies();
-					 iedr.manage().window().maximize();
-					 Thread.sleep(15000);
-					iedr.get("http://lonxng65:7778/eut05xn/xperweb.home");
-					
-					Thread.sleep(15000);
-					Robot rb = new Robot();
-					
-					Clipboard cl = Toolkit.getDefaultToolkit().getSystemClipboard();
-					StringSelection stringSelection = new StringSelection("ckumar2");
-					ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter username in XNG");
-					cl.setContents(stringSelection, null);
-					rb.keyPress(KeyEvent.VK_CONTROL);
-					rb.keyPress(KeyEvent.VK_V);
-					rb.keyRelease(KeyEvent.VK_V);
-					rb.keyRelease(KeyEvent.VK_CONTROL);
-					
-					Thread.sleep(4000);
-					rb.keyPress(KeyEvent.VK_TAB);
-					rb.keyRelease(KeyEvent.VK_TAB);
-					Thread.sleep(8000);
-					Clipboard clpassword = Toolkit.getDefaultToolkit().getSystemClipboard();
-					StringSelection stringSelection1 = new StringSelection("xng@789");
-					ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter password in XNG");
-					cl.setContents(stringSelection1, null);
-					
-					rb.keyPress(KeyEvent.VK_CONTROL);
-					rb.keyPress(KeyEvent.VK_V);
-					rb.keyRelease(KeyEvent.VK_V);
-					rb.keyRelease(KeyEvent.VK_CONTROL);
-					
-					rb.keyPress(KeyEvent.VK_ENTER);
-					rb.keyRelease(KeyEvent.VK_ENTER);
-					Thread.sleep(3000);
-					//System.out.println("The title of page is:"+iedr.getTitle());
-					
-					iedr.findElement(By.cssSelector("table tr:nth-child(2) > td:nth-child(5) > a")).click();
-					ExtentTestManager.getTest().log(LogStatus.PASS, " Step:Click on circuit paths");
-					System.out.println("The title of page is:"+iedr.getTitle());
-					Thread.sleep(3000);
-					
-					iedr.findElement(By.cssSelector("table tbody tr td:nth-child(2) input:first-child[name=pathName]")).click();
-					ExtentTestManager.getTest().log(LogStatus.PASS, " Step: clIck on circuit id");
-					Thread.sleep(3000);
-					iedr.findElement(By.cssSelector("table tbody tr td:nth-child(2) input:first-child[name=pathName]")).sendKeys(Circuitreferencenumber.get());
-					ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter circuit id");
-					Thread.sleep(3000);
-					iedr.findElement(By.cssSelector("body table:nth-child(3) > tbody > tr > td:nth-child(2) > input[type=submit]")).click();
-					ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on search button");
-					
-					Thread.sleep(3000);
-					String xp="//th[text()='ID']/../following-sibling::tr/td/a";
-					iedr.findElement(By.xpath(xp)).click();
-					ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on cicuit reference number");
-					
-					//Bandwidth verify//
-					Thread.sleep(5000);
-					String title3 = iedr.getTitle();
-					System.out.println("The title of third page is:"+ title3);
-					Thread.sleep(10000);
-					if(!Inputdata[8].toString().equalsIgnoreCase("Dark Fibre"))
-					{
-					WebElement bandwidth = iedr.findElement(By.cssSelector("table tbody tr:nth-child(3) td:nth-child(4)"));
-					int firstBandwidth;
-					
-					if(bandwidth.getText().toLowerCase().contains("k"))
-					{
-						 int getNumberFromText = Integer.parseInt(bandwidth.getText().toLowerCase().split("k")[0]);
-						 firstBandwidth = getNumberFromText/1024;
-						
-					}
-					else if(bandwidth.getText().toLowerCase().contains("g"))
-					{
-						firstBandwidth  = Integer.parseInt(bandwidth.getText().toLowerCase().split("g")[0]);	
-					}
-					else
-					{
-						 firstBandwidth  = Integer.parseInt(bandwidth.getText().toLowerCase().split("m")[0]);		 
-					}
-					System.out.println("The first text is:" + firstBandwidth);
-					
-					if(Inputdata[8].toString().equalsIgnoreCase("IP VPN Service"))
-					{
+		
+		DesiredCapabilities capabilities = DesiredCapabilities.internetExplorer();
+		capabilities.setCapability(CapabilityType.BROWSER_NAME, "internet explorer");
+		capabilities.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);
+		capabilities.setCapability(InternetExplorerDriver.IE_ENSURE_CLEAN_SESSION, true);
+		capabilities.setCapability("requireWindowFocus", true);
+
+		System.setProperty("webdriver.ie.driver", System.getProperty("user.dir") + "//lib//IEDriverServer.exe");
+		InternetExplorerDriver iedr = new InternetExplorerDriver(capabilities);
+		iedr.manage().deleteAllCookies();
+		iedr.manage().window().maximize();
+		Thread.sleep(15000);
+		try
+		{
+			String URL = null;
+			PropertyReader pr = new PropertyReader();
+			// Log.info(environment + "_URL");
+			URL = pr.readproperty("XNG_URL");
+			iedr.get(URL);
+			// iedr.get("http://lonxng65:7778/eut05xn/xperweb.home");
+
+			Thread.sleep(15000);
+			Robot rb = new Robot();
+
+			Clipboard cl = Toolkit.getDefaultToolkit().getSystemClipboard();
+			StringSelection stringSelection = new StringSelection(Getkeyvalue("XNG_Username"));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter username in XNG");
+			cl.setContents(stringSelection, null);
+			rb.keyPress(KeyEvent.VK_CONTROL);
+			rb.keyPress(KeyEvent.VK_V);
+			rb.keyRelease(KeyEvent.VK_V);
+			rb.keyRelease(KeyEvent.VK_CONTROL);
+
+			Thread.sleep(4000);
+			rb.keyPress(KeyEvent.VK_TAB);
+			rb.keyRelease(KeyEvent.VK_TAB);
+			Thread.sleep(8000);
+			Clipboard clpassword = Toolkit.getDefaultToolkit().getSystemClipboard();
+			StringSelection stringSelection1 = new StringSelection(Getkeyvalue("XNG_Password"));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter password in XNG");
+			cl.setContents(stringSelection1, null);
+
+			rb.keyPress(KeyEvent.VK_CONTROL);
+			rb.keyPress(KeyEvent.VK_V);
+			rb.keyRelease(KeyEvent.VK_V);
+			rb.keyRelease(KeyEvent.VK_CONTROL);
+
+			rb.keyPress(KeyEvent.VK_ENTER);
+			rb.keyRelease(KeyEvent.VK_ENTER);
+			Thread.sleep(3000);
+			// System.out.println("The title of page is:"+iedr.getTitle());
+
+			iedr.findElement(By.cssSelector("table tr:nth-child(2) > td:nth-child(5) > a")).click();
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step:Click on circuit paths");
+			System.out.println("The title of page is:" + iedr.getTitle());
+			Thread.sleep(3000);
+
+			iedr.findElement(By.cssSelector("table tbody tr td:nth-child(2) input:first-child[name=pathName]")).click();
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: clIck on circuit id");
+			Thread.sleep(3000);
+			iedr.findElement(By.cssSelector("table tbody tr td:nth-child(2) input:first-child[name=pathName]"))
+					.sendKeys(Circuitreferencenumber.get());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter circuit id");
+			Thread.sleep(3000);
+			iedr.findElement(
+					By.cssSelector("body table:nth-child(3) > tbody > tr > td:nth-child(2) > input[type=submit]"))
+					.click();
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on search button");
+
+			Thread.sleep(3000);
+			String xp = "//th[text()='ID']/../following-sibling::tr/td/a";
+			iedr.findElement(By.xpath(xp)).click();
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on cicuit reference number");
+
+			// Bandwidth verify//
+			Thread.sleep(5000);
+			String title3 = iedr.getTitle();
+			System.out.println("The title of third page is:" + title3);
+			Thread.sleep(10000);
+			if (!Inputdata[8].toString().equalsIgnoreCase("Dark Fibre")) {
+				WebElement bandwidth = iedr.findElement(By.cssSelector("table tbody tr:nth-child(3) td:nth-child(4)"));
+				int firstBandwidth;
+
+				if (bandwidth.getText().toLowerCase().contains("k")) {
+					int getNumberFromText = Integer.parseInt(bandwidth.getText().toLowerCase().split("k")[0]);
+					firstBandwidth = getNumberFromText / 1024;
+
+				} else if (bandwidth.getText().toLowerCase().contains("g")) {
+					firstBandwidth = Integer.parseInt(bandwidth.getText().toLowerCase().split("g")[0]);
+				} else {
+					firstBandwidth = Integer.parseInt(bandwidth.getText().toLowerCase().split("m")[0]);
+				}
+				System.out.println("The first text is:" + firstBandwidth);
+
+				if (Inputdata[8].toString().equalsIgnoreCase("IP VPN Service")) {
 					String data = Inputdata[40].toString();
 					int textinput = Integer.parseInt(data.toLowerCase().split("m")[0].trim());
 					System.out.println(textinput);
-					Assert.assertTrue(textinput==firstBandwidth,"Bandwith not match in XNG" );
+					Assert.assertTrue(textinput == firstBandwidth, "Bandwith not match in XNG");
 					ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Bandwidth verify has to be done");
-					}
-					else if (Inputdata[8].toString().equalsIgnoreCase("Private Wave Service") ||Inputdata[8].toString().equalsIgnoreCase("Private Ethernet")
-							|| Inputdata[8].toString().equalsIgnoreCase("DCA Ehternet")|| Inputdata[8].toString().equalsIgnoreCase("Ultra Low Latency")
-							|| Inputdata[8].toString().equalsIgnoreCase("Ethernet VPN Access")|| Inputdata[8].toString().equalsIgnoreCase("Ethernet Hub")
-							|| Inputdata[8].toString().equalsIgnoreCase("IP Access")) 
-					{
-						String data = Inputdata[32].toString();
-						if(Inputdata[8].toString().equalsIgnoreCase("Private Ethernet")  || Inputdata[8].toString().equalsIgnoreCase("IP Access"))
-						{
-							int textinput = Integer.parseInt(data.toLowerCase().split("m")[0].trim());
-							System.out.println(textinput);
-							Assert.assertTrue(textinput==firstBandwidth,"Bandwith not match in XNG" );
-							ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Bandwidth verify has to be done");
-						}
-						else
-						{
-						int textinput = Integer.parseInt(data.toLowerCase().split("g")[0].trim());
-						System.out.println(textinput);
-						Assert.assertTrue(textinput==firstBandwidth,"Bandwith not match in XNG" );
-						ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Bandwidth verify has to be done");
-						}
-					}	
-						
-						
-					else if(Inputdata[8].toString().equalsIgnoreCase("Ethernet Spoke") || Inputdata[8].toString().equalsIgnoreCase("Ethernet Line")
-							|| Inputdata[8].toString().equalsIgnoreCase("Wave"))
-					{
-						String data = Inputdata[78].toString();
-						if(Inputdata[8].toString().equalsIgnoreCase("Wave"))
-						{
-							int textinput = Integer.parseInt(data.toLowerCase().split("g")[0].trim());
-							System.out.println(textinput);
-							Assert.assertTrue(textinput==firstBandwidth,"Bandwith not match in XNG" );
-							ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Bandwidth verify has to be done");
-							
-						}
-						else
-						{
+				} else if (Inputdata[8].toString().equalsIgnoreCase("Private Wave Service")
+						|| Inputdata[8].toString().equalsIgnoreCase("Private Ethernet")
+						|| Inputdata[8].toString().equalsIgnoreCase("DCA Ehternet")
+						|| Inputdata[8].toString().equalsIgnoreCase("Ultra Low Latency")
+						|| Inputdata[8].toString().equalsIgnoreCase("Ethernet VPN Access")
+						|| Inputdata[8].toString().equalsIgnoreCase("Ethernet Hub")
+						|| Inputdata[8].toString().equalsIgnoreCase("IP Access")) {
+					String data = Inputdata[32].toString();
+					if (Inputdata[8].toString().equalsIgnoreCase("Private Ethernet")
+							|| Inputdata[8].toString().equalsIgnoreCase("IP Access")) {
 						int textinput = Integer.parseInt(data.toLowerCase().split("m")[0].trim());
 						System.out.println(textinput);
-						Assert.assertTrue(textinput==firstBandwidth,"Bandwith not match in XNG" );
+						Assert.assertTrue(textinput == firstBandwidth, "Bandwith not match in XNG");
 						ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Bandwidth verify has to be done");
-						}
+					} else {
+						int textinput = Integer.parseInt(data.toLowerCase().split("g")[0].trim());
+						System.out.println(textinput);
+						Assert.assertTrue(textinput == firstBandwidth, "Bandwith not match in XNG");
+						ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Bandwidth verify has to be done");
 					}
-					}//end of if loop
-	               //for ordering customer
-					
-					String data1 = OrderingCustomer.get().trim();
-					System.out.println(data1);
-					String orderingCustomer = iedr.findElement(By.xpath("//b[text()='Ordering Customer:']/parent::td/following-sibling::td[1]")).getText();
-					System.out.println("THe ordering customer is:"+orderingCustomer);
-					Assert.assertTrue(data1.equalsIgnoreCase(orderingCustomer),"Ordering customer not match in XNG" );
-					ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Verify ordering customer");
-					
-					//for topology//
-					
+				}
+
+				else if (Inputdata[8].toString().equalsIgnoreCase("Ethernet Spoke")
+						|| Inputdata[8].toString().equalsIgnoreCase("Ethernet Line")
+						|| Inputdata[8].toString().equalsIgnoreCase("Wave")) {
+					String data = Inputdata[78].toString();
+					if (Inputdata[8].toString().equalsIgnoreCase("Wave")) {
+						int textinput = Integer.parseInt(data.toLowerCase().split("g")[0].trim());
+						System.out.println(textinput);
+						Assert.assertTrue(textinput == firstBandwidth, "Bandwith not match in XNG");
+						ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Bandwidth verify has to be done");
+
+					} else {
+						int textinput = Integer.parseInt(data.toLowerCase().split("m")[0].trim());
+						System.out.println(textinput);
+						Assert.assertTrue(textinput == firstBandwidth, "Bandwith not match in XNG");
+						ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Bandwidth verify has to be done");
+					}
+				}
+			} // end of if loop
+				// for ordering customer
+
+			String data1 = OrderingCustomer.get().trim();
+			System.out.println(data1);
+			String orderingCustomer = iedr
+					.findElement(By.xpath("//b[text()='Ordering Customer:']/parent::td/following-sibling::td[1]"))
+					.getText();
+			System.out.println("THe ordering customer is:" + orderingCustomer);
+			Assert.assertTrue(data1.equalsIgnoreCase(orderingCustomer), "Ordering customer not match in XNG");
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Verify ordering customer");
+
+			// for topology//
+
 //					String topology = iedr.findElement(By.xpath("//b[text()='Topology:']/parent::td/following-sibling::td[1]")).getText();
 //					System.out.println("Topolgy from browser:"+ topology);
 //					String topologyin = Inputdata[27].toString();
@@ -13888,10 +13907,14 @@ public class NewOrderOnnetHelper extends DriverHelper {
 //					Assert.assertTrue(sub.equalsIgnoreCase(topology), "Ordering customer not match in XNG");
 //					ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Topology verified");
 //					
-					//for closing the browser
-					iedr.close();
+			// for closing the browser
+			iedr.close();
+
+		} catch (Exception e) {
+			iedr.close();
+		}
 			
-					}
+	}
 			 
 	public void CarnorCompletedValidation(Object[] Inputdata) throws Exception {
 					waitforPagetobeenable();
