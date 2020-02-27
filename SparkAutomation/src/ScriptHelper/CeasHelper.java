@@ -228,6 +228,258 @@ public class CeasHelper extends DriverHelper {
 
 	}
 
+	public void NovationMethod(Object[] InputData) throws Exception {
+		Thread.sleep(15000);
+		Pagerefresh();
+		try 
+		{
+			WaitforElementtobeclickable(xml.getlocator("//locators/ServiceTab"));
+			Clickon(getwebelement(xml.getlocator("//locators/ServiceTab")));
+			if (isElementPresent(xml.getlocator("//locators/AlertAccept"))) {
+				System.out.println("");
+				System.out.println("Alert Present");
+				WaitforElementtobeclickable((xml.getlocator("//locators/AlertAccept")));
+				Clickon(getwebelement(xml.getlocator("//locators/AlertAccept")));
+			}
+			System.out.println("Service tab clickon");
+		} 
+		catch (Exception e) 
+		{
+			try 
+			{
+				safeJavaScriptClick(getwebelement(xml.getlocator("//locators/ServiceTab")));
+				System.out.println("Service tab javascript");
+			} 
+			catch (Exception e1) 
+			{
+
+				e1.printStackTrace();
+			}
+		}
+		waitforPagetobeenable();
+		waitForpageload();
+		Thread.sleep(4000);
+		ServiceOrder.set("872360152/200227-0035");
+		Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderSearchForAll"))); // as per Ayush
+		System.out.println("click service order search field");
+		if (InputData[8].toString().equalsIgnoreCase("IP VPN Service")) 
+		{
+			SendKeys(getwebelement(xml.getlocator("//locators/ServiceOrderSearchForAll")),ServiceOrder.get().toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS," Step: Search Service Order No :" + ServiceOrder.get().toString());
+		} 
+		else 
+		{
+			SendKeys(getwebelement(xml.getlocator("//locators/ServiceOrderSearchForAll")),ServiceOrder.get().toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS," Step: Search Service Order No :" + ServiceOrder.get().toString());
+		}
+		System.out.println("enter data order search field");
+		WaitforElementtobeclickable(xml.getlocator("//locators/ServiceOrderArrow"));
+		Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderArrow")));
+		// Need some modification
+		boolean billing = false;
+		String BillingStatus = null;
+		for (int i = 0; i < 5; i++) 
+		{
+			Thread.sleep(3 * 1000);
+			WaitforElementtobeclickable(xml.getlocator("//locators/ServiceOrderArrow"));
+			Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderArrow")));
+			waitforPagetobeenable();
+			waitForpageload();
+			Thread.sleep(4000);
+			BillingStatus = GetBillingStatus();
+			System.out.println("Service Order Current Status : " + BillingStatus);
+			// if(isElementPresent(xml.getlocator("//locators/BillingComplete"))) BILLING
+			// ERROR
+			if (BillingStatus.equalsIgnoreCase("COMPLETE")) 
+			{
+				billing = true;
+				break;
+			} 
+			else if (BillingStatus.equalsIgnoreCase("BILLING ERROR")) 
+			{
+				billing = false;
+				break;
+			}
+		}
+		
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Novation journey Started");
+		safeJavaScriptClick(getwebelement(xml.getlocator("//locators/NovateOrder")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Novation/Transfer order number : "+ ServiceOrder.get().toString());
+		
+		// pop Up to select the contact
+		
+		
+		WaitforElementtobeclickable(xml.getlocator("//locators/PopupCustomDropdown"));
+		Thread.sleep(1000);
+		safeJavaScriptClick(getwebelement(xml.getlocator("//locators/PopupCustomDropdown")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Party Contact Popup Dropdown");
+		waitforPagetobeenable();
+		waitForpageload();
+		
+		WaitforElementtobeclickable(xml.getlocator("//locators/R4/InsideDropdownValues").replace("Data", "Customer Name"));
+		Clickon(getwebelement(xml.getlocator("//locators/R4/InsideDropdownValues").replace("Data", "Customer Name")));
+
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Party Name");
+		SendKeys(getwebelement(xml.getlocator("//locators/InputPartyname")), InputData[4].toString());
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Party Name");
+		WaitforElementtobeclickable(xml.getlocator("//locators/PickAccntOk"));
+		Clickon(getwebelement(xml.getlocator("//locators/PickAccntOk")));
+
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Pick Account Ok");
+		waitforPagetobeenable();
+		
+		//
+		
+		waitForpageload();
+		waitforPagetobeenable();
+		SiebelCeaseOrdernumber.set(Gettext(getwebelement(xml.getlocator("//locators/ServiceOrderModifyNumber']"))));
+		ExtentTestManager.getTest().log(LogStatus.PASS,
+				" Step: Generated Service Order Reference No: " + SiebelCeaseOrdernumber.get());
+		
+		SendKeys(getwebelement(xml.getlocator("//locators/OpportunityNo")), InputData[1].toString());
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Opportunity No");
+		
+		
+		SendKeys(getwebelement(xml.getlocator("//locators/RequestReceivedDate")), CurrentDate());
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Request Received Date");
+
+		Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderReferenceNo")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Service Order Reference No");
+
+		waitforPagetobeenable();
+		waitForpageload();
+		Thread.sleep(7000);
+		WaitforElementtobeclickable(xml.getlocator("//locators/OrderSubTypeSearch"));
+		Clickon(getwebelement(xml.getlocator("//locators/OrderSubTypeSearch")));
+		System.out.println("Enter New Order");
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Order Sub Type Search");
+
+		WaitforElementtobeclickable(xml.getlocator("//locators/AddOrderSubType"));
+		Clickon(getwebelement(xml.getlocator("//locators/AddOrderSubType")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Add Order Sub Type");
+
+		SendKeys(getwebelement(xml.getlocator("//locators/InputOrderSubType")), "Novation");
+		SendkeaboardKeys(getwebelement(xml.getlocator("//locators/InputOrderSubType")), Keys.ENTER);
+		SendkeaboardKeys(getwebelement(xml.getlocator("//locators/InputOrderSubType")), Keys.TAB);
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Order Sub Type DropDown");
+
+		Thread.sleep(10000);
+		alertPopUp();
+
+		WaitforElementtobeclickable(xml.getlocator("//locators/SubmitSubOrderType"));
+		Clickon(getwebelement(xml.getlocator("//locators/SubmitSubOrderType")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Submit Sub Order Type");
+		waitforPagetobeenable();
+
+		if (isElementPresent(xml.getlocator("//locators/SaveOrderChanges"))) {
+			WaitforElementtobeclickable(xml.getlocator("//locators/SaveOrderChanges"));
+			Clickon(getwebelement(xml.getlocator("//locators/SaveOrderChanges")));
+			waitForpageload();
+			System.out.println("page load succesfuuly now come to middle applet");
+			waitforPagetobeenable();
+		}
+		// Contract section
+		WaitforElementtobeclickable(xml.getlocator("//locators/ContractSearch"));
+		Clickon(getwebelement(xml.getlocator("//locators/ContractSearch")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Contract Search");
+		WaitforElementtobeclickable(xml.getlocator("//locators/InputContractId")); // new added by ayush
+		SendKeys(getwebelement(xml.getlocator("//locators/InputContractId")), InputData[10].toString());
+		WaitforElementtobeclickable((xml.getlocator("//locators/ContractIdSearch"))); // add by ayush for abandoned
+		Clickon(getwebelement(xml.getlocator("//locators/ContractIdSearch")));
+		waitforPagetobeenable();
+		
+		
+		// Clickon(getwebelement(xml.getlocator("//locators/ContractIdSubmit")));
+
+		// Clickon(getwebelement(
+		// "//table[@summary='Pick Contract']//tr//td[text()='" + Inputdata[52 +
+		// 12].toString() + "']"));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step:  Select Contract");
+				
+		// Clickon(getwebelement(xml.getlocator("//locators/SubmitContract")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Submit Contract");
+		Thread.sleep(5000);
+		//
+		System.out.println("Enter Domain Footer");
+		Moveon(getwebelement(xml.getlocator("//locators/OrderDates")));
+		System.out.println("Moved Mouse");
+
+		Clickon(getwebelement(xml.getlocator("//locators/OrderDates")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Order Dates");
+		Thread.sleep(10000);
+		waitForpageload();
+		waitforPagetobeenable();
+
+		SendKeys(getwebelement(xml.getlocator("//locators/OrderSignedDate")), CurrentDate());
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Order Signed Date");
+
+		SendKeys(getwebelement(xml.getlocator("//locators/OrderReceivedDate")), CurrentDate());
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Order Received Date");
+
+		SendKeys(getwebelement(xml.getlocator("//locators/CustomerRequestedDate")), CurrentDate());
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Order Received Date");
+
+		WaitforElementtobeclickable(xml.getlocator("//locators/Billing"));
+		Clickon(getwebelement(xml.getlocator("//locators/Billing")));
+		System.out.println("BILLING TAB");
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Billing");
+		Thread.sleep(10000);
+		waitForpageload();
+		waitforPagetobeenable();
+		
+		
+		WaitforElementtobeclickable((xml.getlocator("//locators/ContractRenewalFlag")));
+		Clear(getwebelement(xml.getlocator("//locators/ContractRenewalFlag")));
+		SendKeys(getwebelement(xml.getlocator("//locators/ContractRenewalFlag")), InputData[22].toString());
+		// System.out.println("contract renewal flag");
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Contract Renewal Flag");
+		 SendkeaboardKeys(getwebelement(xml.getlocator("//locators/ContractRenewalFlag")),
+		 Keys.TAB);
+		Thread.sleep(4000);
+		
+		System.out.println("Current Date : " + CurrentDate());
+		
+		WaitforElementtobeclickable((xml.getlocator("//locators/BillingStartDateAccess")));
+		Clear(getwebelement(xml.getlocator("//locators/BillingStartDateAccess")));
+		SendKeys(getwebelement(xml.getlocator("//locators/BillingStartDateAccess")), CurrentDate());
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Billing Start Date : " + CurrentDate());
+		// ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Contract
+		// Term");
+		SendkeaboardKeys(getwebelement(xml.getlocator("//locators/BillingEndDate")), Keys.TAB);
+		Clickon(getwebelement(xml.getlocator("//locators/POStartDateAccess")));
+		
+		
+		/*System.out.println("Current Date : " + CurrentDate());
+		String fDate = FutureDate(15);
+		System.out.println("Future Date : " + fDate);
+		SendKeys(getwebelement(xml.getlocator("//locators/BillingEndDate")), fDate);
+		Thread.sleep(10000);
+		// SendkeaboardKeys(getwebelement(xml.getlocator("//locators/BillingEndDate")),
+		// Keys.TAB);
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Billing End Date : " + fDate);
+		// ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Contract
+		// Term");
+		SendkeaboardKeys(getwebelement(xml.getlocator("//locators/BillingEndDate")), Keys.TAB);
+		Clickon(getwebelement(xml.getlocator("//locators/POStartDateAccess")));*/
+		try {
+			if (isElementPresent(xml.getlocator("//locators/SaveOrderChanges"))) {
+				WaitforElementtobeclickable(xml.getlocator("//locators/SaveOrderChanges"));
+				Clickon(getwebelement(xml.getlocator("//locators/SaveOrderChanges")));
+				waitForpageload();
+				System.out.println("page load succesfuuly now come to middle applet");
+				waitforPagetobeenable();
+				Thread.sleep(5000);
+			}
+		} catch (Exception e) {
+			savePage();
+			waitforPagetobeenable();
+			waitForpageload();
+			System.out.println("save button comes");
+		}
+
+	}
+
+	
 	public void alertPopUp() throws DocumentException, InterruptedException {
 		if (isDisplayed((xml.getlocator("//locators/AlertAccept")))) {
 			WaitforElementtobeclickable((xml.getlocator("//locators/AlertAccept")));
