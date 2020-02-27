@@ -1,167 +1,169 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite thread-count="1"  data-provider-thread-count="1" verbose="1" name="Spark End to End Order" annotations="JDK">
+<suite thread-count="1" data-provider-thread-count="1" verbose="1"
+	name="Spark End to End Order" annotations="JDK">
 	<listeners>
-	  <listener class-name="Listners.TestListener"/>
-    </listeners>
-    
+		<listener class-name="Listners.TestListener" />
+	</listeners>
+
 	<test name="Siebel New Order" junit="false" preserve-order="true">
 		<classes>
-			<class name="Testscript.NewOrders">	
+			<class name="Testscript.NewOrders">
 				<methods>
-					<include name="EndtoEndOrderOnnet"/>
-			  
-				</methods>	
+					<include name="EndtoEndOrderOnnet" />
+
+				</methods>
 			</class>
-		</classes>	
+		</classes>
 	</test>
-	
+
 	<test name="Siebel Cease" junit="false" preserve-order="true">
 		<classes>
-			<class name="Testscript.NewOrders">	
+			<class name="Testscript.NewOrders">
 				<methods>
-					<include name="Cease"/>
-			  
-				</methods>	
+					<include name="Cease" />
+
+				</methods>
 			</class>
-		</classes>	
-	</test> 
+		</classes>
+	</test>
 	<test name="Siebel Novation" junit="false" preserve-order="true">
 		<classes>
-			<class name="Testscript.NewOrders">	
+			<class name="Testscript.NewOrders">
 				<methods>
-					<include name="Novation"/>
-			  
-				</methods>	
+					<include name="Novation" />
+
+				</methods>
 			</class>
-		</classes>	
+		</classes>
 	</test>
-	
-	<!-- <test name="Siebel Abandoned" junit="false" preserve-order="true">
+
+	<test name="Siebel Abandoned" junit="false" preserve-order="true">
 		<classes>
-			<class name="Testscript.NewOrders">	
+			<class name="Testscript.NewOrders">
 				<methods>
-					<include name="Abandoned"/>
-			  
-				</methods>	
+					<include name="Abandoned" />
+
+				</methods>
 			</class>
-		</classes>	
+		</classes>
 	</test>
-	
+
 	<test name="Siebel Cancel " junit="false" preserve-order="true">
 		<classes>
-			<class name="Testscript.NewOrders">	
+			<class name="Testscript.NewOrders">
 				<methods>
-					
-				 <include name="Cancelled"/>   
-				</methods>	
+
+					<include name="Cancelled" />
+				</methods>
 			</class>
-		</classes>	
-	</test> 
-	
+		</classes>
+	</test>
+
 	<test name="Siebel Mod" junit="false" preserve-order="true">
 		<classes>
-			<class name="Testscript.NewOrders">	
+			<class name="Testscript.NewOrders">
 				<methods>
-					
-				 <include name="Mod"/>   
-				</methods>	
+
+					<include name="Mod" />
+				</methods>
 			</class>
-		</classes>	
-	</test>  
-	
+		</classes>
+	</test>
+
 	<test name="OMP" junit="false" preserve-order="true">
 		<classes>
-			<class name="Testscript.NewOrders">	
+			<class name="Testscript.NewOrders">
 				<methods>
-					
-				 <include name="OMPGenric"/>   
-				</methods>	
+
+					<include name="OMPGenric" />
+				</methods>
 			</class>
-		</classes>	
-	</test>  
-	
+		</classes>
+	</test>
+
 	<test name="OMPMod" junit="false" preserve-order="true">
 		<classes>
-			<class name="Testscript.NewOrders">	
+			<class name="Testscript.NewOrders">
 				<methods>
-					
-				 <include name="OMPMod"/>   
-				</methods>	
+
+					<include name="OMPMod" />
+				</methods>
 			</class>
-		</classes>	
-	</test>  
-	
+		</classes>
+	</test>
+
 	<test name="Premise" junit="false" preserve-order="true">
 		<classes>
-			<class name="Testscript.NewOrders">	
+			<class name="Testscript.NewOrders">
 				<methods>
-				 <include name="PremiseMaster"/>   
-				</methods>	
+					<include name="PremiseMaster" />
+				</methods>
 			</class>
-		</classes>	
-	</test> 
-	
-	  <test name="Siebel InFlight " junit="false" preserve-order="true">
+		</classes>
+	</test>
+
+	<test name="Siebel InFlight " junit="false" preserve-order="true">
 		<classes>
-			<class name="Testscript.NewOrders">	
+			<class name="Testscript.NewOrders">
 				<methods>
-					
-				 <include name="InflightMod"/>   
-				</methods>	
+
+					<include name="InflightMod" />
+				</methods>
 			</class>
-		</classes>	
-	</test> 
-	
+		</classes>
+	</test>
+
 	<test name="Siebel Partial" junit="false" preserve-order="true">
 		<classes>
-			<class name="Testscript.NewOrders">	
+			<class name="Testscript.NewOrders">
 				<methods>
-					<include name="PartialDelivery"/>
-			  
-				</methods>	
+					<include name="PartialDelivery" />
+
+				</methods>
 			</class>
-		</classes>	
+		</classes>
 	</test>
-	
-	 <test name="Siebel XNG " junit="false" preserve-order="true">	
-		<classes>	
-			<class name="Testscript.NewOrders">		
-				<methods>	
 
-				 <include name="XNGGeneric"/>   	
-				</methods>		
-			</class>	
-		</classes>		
-	</test>  	
+	<test name="Siebel XNG " junit="false" preserve-order="true">
+		<classes>
+			<class name="Testscript.NewOrders">
+				<methods>
 
-	<test name="Siebel New OffnetOrder" junit="false" preserve-order="true">	
-		<classes>	
-			<class name="Testscript.NewOrders">		
-				<methods>	
-					<include name="EndtoEndOrderOffnet"/>	
+					<include name="XNGGeneric" />
+				</methods>
+			</class>
+		</classes>
+	</test>
 
-				</methods>		
-			</class>	
-		</classes>		
-	</test> 
-	
+	<test name="Siebel New OffnetOrder" junit="false"
+		preserve-order="true">
+		<classes>
+			<class name="Testscript.NewOrders">
+				<methods>
+					<include name="EndtoEndOrderOffnet" />
+
+				</methods>
+			</class>
+		</classes>
+	</test>
+
 	<test name="SiebleXtrac" junit="false" preserve-order="true">
 		<classes>
-			<class name="Testscript.NewOrders">	
+			<class name="Testscript.NewOrders">
 				<methods>
-					<include name="SiebleToXtrac"/>
-			  	</methods>	
+					<include name="SiebleToXtrac" />
+				</methods>
 			</class>
-		</classes>	
+		</classes>
 	</test>
+	
 	<test name="SiebleSap" junit="false" preserve-order="true">
 		<classes>
-			<class name="Testscript.NewOrders">	
+			<class name="Testscript.NewOrders">
 				<methods>
-					<include name="SiebelToSap"/>
-			  	</methods>	
+					<include name="SiebelToSap" />
+				</methods>
 			</class>
-		</classes>	
-	</test> -->
-
+		</classes>
+	</test>
 </suite>
