@@ -611,6 +611,7 @@
   <ServiceOrderNumber>//span[text()='Service Order: ']/following-sibling::span</ServiceOrderNumber>
   *****************for cease**********************
   <CeaseOrder>//span[text()='Cease']</CeaseOrder>
+  <NovateOrder>//span[text()='Novation/Transfer']</NovateOrder>
   <CeaseReason>//input[@aria-labelledby='COLT_Cease_Order_Reason_Code_Label']</CeaseReason>
   <BillingCompletedVerify>//td[text()='COMPLETE']</BillingCompletedVerify>
   <ServiceOrderModifyNumber>//table[@class='ui-jqgrid-btable']//a</ServiceOrderModifyNumber>
