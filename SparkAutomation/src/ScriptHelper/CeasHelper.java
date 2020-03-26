@@ -8,6 +8,7 @@ import com.relevantcodes.extentreports.LogStatus;
 import Driver.DriverHelper;
 import Driver.XMLReader;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 import org.dom4j.DocumentException;
 import Reporter.ExtentTestManager;
@@ -17,60 +18,81 @@ public class CeasHelper extends DriverHelper {
 	WebElement el;
 	XMLReader xml = new XMLReader("src\\Locators\\SiebelOrder.xml");
 
-	public CeasHelper(WebDriver parentdriver) {
+	public CeasHelper(WebDriver parentdriver) 
+	{
 		super(parentdriver);
 	}
 
-	public void CeaseMainMethod(Object[] InputData) throws Exception {
+	public void openServiceOrder(Object[] InputData) throws Exception {
 		Thread.sleep(15000);
 		Pagerefresh();
-		try {
+		try 
+		{
 			WaitforElementtobeclickable(xml.getlocator("//locators/ServiceTab"));
 			Clickon(getwebelement(xml.getlocator("//locators/ServiceTab")));
-			if (isElementPresent(xml.getlocator("//locators/AlertAccept"))) {
+			if (isElementPresent(xml.getlocator("//locators/AlertAccept"))) 
+			{
 				System.out.println("");
 				System.out.println("Alert Present");
 				WaitforElementtobeclickable((xml.getlocator("//locators/AlertAccept")));
 				Clickon(getwebelement(xml.getlocator("//locators/AlertAccept")));
 			}
 			System.out.println("Service tab clickon");
-		} catch (Exception e) {
-			try {
+		} 
+		catch (Exception e) 
+		{
+			try 
+			{
 				safeJavaScriptClick(getwebelement(xml.getlocator("//locators/ServiceTab")));
 				System.out.println("Service tab javascript");
-			} catch (Exception e1) {
-
+			} 
+			catch (Exception e1) 
+			{
 				e1.printStackTrace();
 			}
 		}
 		waitforPagetobeenable();
 		waitForpageload();
 		Thread.sleep(4000);
-		// ServiceOrder.set(InputData[187].toString());
+	//	ServiceOrder.set(InputData[187].toString());
 		Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderSearchForAll"))); // as per Ayush
 		System.out.println("click service order search field");
-		if (InputData[8].toString().equalsIgnoreCase("IP VPN Service")) {
-			SendKeys(getwebelement(xml.getlocator("//locators/ServiceOrderSearchForAll")),
-					ServiceOrder2.get().toString());
-			ExtentTestManager.getTest().log(LogStatus.PASS,
-					" Step: Search Service Order No :" + ServiceOrder2.get().toString());
-		} else {
-			SendKeys(getwebelement(xml.getlocator("//locators/ServiceOrderSearchForAll")),
-					ServiceOrder.get().toString());
-			ExtentTestManager.getTest().log(LogStatus.PASS,
-					" Step: Search Service Order No :" + ServiceOrder.get().toString());
+		if(InputData[0].toString().equalsIgnoreCase("No"))
+		{
+			ExtentTestManager.getTest().log(LogStatus.PASS," Step: Working On already completed service order  :" + InputData[33].toString());
+			SendKeys(getwebelement(xml.getlocator("//locators/ServiceOrderSearchForAll")),InputData[33].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS," Step: Search Service Order No :" + InputData[33].toString());
+		}
+		else
+		{
+			if (InputData[8].toString().equalsIgnoreCase("IP VPN Service")) 
+			{
+				ExtentTestManager.getTest().log(LogStatus.PASS," Step: Working On newly Created service order  :" + ServiceOrder2.get().toString());
+				SendKeys(getwebelement(xml.getlocator("//locators/ServiceOrderSearchForAll")),ServiceOrder2.get().toString());
+				ExtentTestManager.getTest().log(LogStatus.PASS," Step: Search Service Order No :" + ServiceOrder2.get().toString());
+			}
+			else 
+			{
+				ExtentTestManager.getTest().log(LogStatus.PASS," Step: Working On newly Created service order  :" + ServiceOrder.get().toString());
+				SendKeys(getwebelement(xml.getlocator("//locators/ServiceOrderSearchForAll")),ServiceOrder.get().toString());
+				ExtentTestManager.getTest().log(LogStatus.PASS," Step: Search Service Order No :" + ServiceOrder.get().toString());
+			}
 		}
 		System.out.println("enter data order search field");
 		WaitforElementtobeclickable(xml.getlocator("//locators/ServiceOrderArrow"));
 		Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderArrow")));
-		// Need some modification
+	}
+	
+	public void CeaseMainMethod(Object[] InputData) throws Exception 
+	{
+		
+		String[] billerror= {"BILLING ERROR","DOWNSTREAM SYSTEM ERRO"};
 		boolean billing = false;
 		String BillingStatus = null;
-		for (int i = 0; i < 5; i++) {
-			Thread.sleep(3 * 60000);
+		for (int i = 0; i < 35; i++) {
+			Thread.sleep(3 * 10000);
 			WaitforElementtobeclickable(xml.getlocator("//locators/ServiceOrderArrow"));
 			Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderArrow")));
-
 			waitforPagetobeenable();
 			waitForpageload();
 			Thread.sleep(4000);
@@ -78,22 +100,22 @@ public class CeasHelper extends DriverHelper {
 			System.out.println("Service Order Current Status : " + BillingStatus);
 			// if(isElementPresent(xml.getlocator("//locators/BillingComplete"))) BILLING
 			// ERROR
-			if (BillingStatus.equalsIgnoreCase("COMPLETE")) {
+			if (BillingStatus.equalsIgnoreCase("COMPLETE")) 
+			{
 				billing = true;
 				break;
-			} else if (BillingStatus.equalsIgnoreCase("BILLING ERROR")) {
+			} 
+			else if (Arrays.asList(billerror).indexOf(BillingStatus)>=0)
+			{
 				billing = false;
 				break;
 			}
 		}
-		String TempOrder = InputData[8].toString().equalsIgnoreCase("IP VPN Service") ? ServiceOrder2.get().toString()
-				: ServiceOrder.get().toString();
-		Assert.assertTrue(
-				BillingStatus.equalsIgnoreCase("COMPLETE") || BillingStatus.equalsIgnoreCase("BILLING ERROR")
-						|| BillingStatus.equalsIgnoreCase("SENT TO BILLING"),
-				"Not Able to Proceed The Cease for Order Number : " + TempOrder + "as Billing Status is : "
+		String TempOrder = InputData[8].toString().equalsIgnoreCase("IP VPN Service") ? ServiceOrder2.get().toString(): ServiceOrder.get().toString();
+		Assert.assertTrue(BillingStatus.equalsIgnoreCase("COMPLETE") || BillingStatus.equalsIgnoreCase("BILLING ERROR")|| BillingStatus.equalsIgnoreCase("SENT TO BILLING"),"Not Able to Proceed The Cease for Order Number : " + TempOrder + "as Billing Status is : "
 						+ BillingStatus);
-		if (!billing || BillingStatus.equalsIgnoreCase("SENT TO BILLING")) {
+		if (!billing || BillingStatus.equalsIgnoreCase("SENT TO BILLING")) 
+		{
 			// Internal cease functionality
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Doing Cease by Internal Cease Option");
 			WaitforElementtobeclickable(xml.getlocator("//locators/ServiceOrderReferenceNo"));
@@ -110,7 +132,9 @@ public class CeasHelper extends DriverHelper {
 			waitforPagetobeenable();
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Internal Cease");
 			Thread.sleep(5000);
-		} else {
+		} 
+		else 
+		{
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Doing Cease by External Cease Option");
 			safeJavaScriptClick(getwebelement(xml.getlocator("//locators/CeaseOrder")));
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on cease order number");
@@ -126,14 +150,18 @@ public class CeasHelper extends DriverHelper {
 		waitForpageload();
 		waitforPagetobeenable();
 		SiebelCeaseOrdernumber.set(Gettext(getwebelement(xml.getlocator("//locators/ServiceOrderModifyNumber']"))));
-		ExtentTestManager.getTest().log(LogStatus.PASS,
-				" Step: Generated Service Order Reference No: " + SiebelCeaseOrdernumber.get());
+		ExtentTestManager.getTest().log(LogStatus.PASS," Step: Generated Service Order Reference No: " + SiebelCeaseOrdernumber.get());
 		SendKeys(getwebelement(xml.getlocator("//locators/RequestReceivedDate")), CurrentDate());
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Request Received Date");
 
 		Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderReferenceNo")));
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Service Order Reference No");
-
+		
+		CeaseAction(InputData);
+	}
+	
+	public void CeaseAction(Object[] InputData) throws Exception
+	{
 		waitforPagetobeenable();
 		waitForpageload();
 		Thread.sleep(7000);
@@ -165,7 +193,8 @@ public class CeasHelper extends DriverHelper {
 		SendKeys(getwebelement(xml.getlocator("//locators/CeaseReason")), "Cease Initiated by Colt");
 		SendkeaboardKeys(getwebelement(xml.getlocator("//locators/CeaseReason")), Keys.TAB);
 
-		if (isElementPresent(xml.getlocator("//locators/SaveOrderChanges"))) {
+		if (isElementPresent(xml.getlocator("//locators/SaveOrderChanges"))) 
+		{
 			WaitforElementtobeclickable(xml.getlocator("//locators/SaveOrderChanges"));
 			Clickon(getwebelement(xml.getlocator("//locators/SaveOrderChanges")));
 			waitForpageload();
@@ -181,14 +210,14 @@ public class CeasHelper extends DriverHelper {
 		Thread.sleep(10000);
 		waitForpageload();
 		waitforPagetobeenable();
-
-		SendKeys(getwebelement(xml.getlocator("//locators/OrderSignedDate")), CurrentDate());
+		String _curdate= CurrentDate();
+		SendKeys(getwebelement(xml.getlocator("//locators/OrderSignedDate")),_curdate );
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Order Signed Date");
 
-		SendKeys(getwebelement(xml.getlocator("//locators/OrderReceivedDate")), CurrentDate());
+		SendKeys(getwebelement(xml.getlocator("//locators/OrderReceivedDate")), _curdate);
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Order Received Date");
 
-		SendKeys(getwebelement(xml.getlocator("//locators/CustomerRequestedDate")), CurrentDate());
+		SendKeys(getwebelement(xml.getlocator("//locators/CustomerRequestedDate")), _curdate);
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Order Received Date");
 
 		WaitforElementtobeclickable(xml.getlocator("//locators/Billing"));
@@ -210,8 +239,10 @@ public class CeasHelper extends DriverHelper {
 		// Term");
 		SendkeaboardKeys(getwebelement(xml.getlocator("//locators/BillingEndDate")), Keys.TAB);
 		Clickon(getwebelement(xml.getlocator("//locators/POStartDateAccess")));
-		try {
-			if (isElementPresent(xml.getlocator("//locators/SaveOrderChanges"))) {
+		try 
+		{
+			if (isElementPresent(xml.getlocator("//locators/SaveOrderChanges"))) 
+			{
 				WaitforElementtobeclickable(xml.getlocator("//locators/SaveOrderChanges"));
 				Clickon(getwebelement(xml.getlocator("//locators/SaveOrderChanges")));
 				waitForpageload();
@@ -219,7 +250,9 @@ public class CeasHelper extends DriverHelper {
 				waitforPagetobeenable();
 				Thread.sleep(5000);
 			}
-		} catch (Exception e) {
+		} 
+		catch (Exception e) 
+		{
 			savePage();
 			waitforPagetobeenable();
 			waitForpageload();
@@ -228,14 +261,17 @@ public class CeasHelper extends DriverHelper {
 
 	}
 
-	public void alertPopUp() throws DocumentException, InterruptedException {
-		if (isDisplayed((xml.getlocator("//locators/AlertAccept")))) {
+	public void alertPopUp() throws DocumentException, InterruptedException 
+	{
+		if (isDisplayed((xml.getlocator("//locators/AlertAccept")))) 
+		{
 			WaitforElementtobeclickable((xml.getlocator("//locators/AlertAccept")));
 			Clickon(getwebelement(xml.getlocator("//locators/AlertAccept")));
 		}
 	}
 
-	public void CeaseCompletedValidation(Object[] Inputdata) throws Exception {
+	public void CeaseCompletedValidation(Object[] Inputdata) throws Exception 
+	{
 		waitforPagetobeenable();
 		savePage();
 		waitforPagetobeenable();
@@ -262,21 +298,26 @@ public class CeasHelper extends DriverHelper {
 		savePage();
 		waitforPagetobeenable();
 		Thread.sleep(10000);
-		if (isDisplayed(xml.getlocator("//locators/AlertAccept"))) {
+		if (isDisplayed(xml.getlocator("//locators/AlertAccept"))) 
+		{
 			System.out.println("");
 			System.out.println("Alert Present");
 			WaitforElementtobeclickable((xml.getlocator("//locators/AlertAccept")));
 			Clickon(getwebelement(xml.getlocator("//locators/AlertAccept")));
 		}
 		Thread.sleep(5000);
-		try {
-			if (isElementPresent(xml.getlocator("//locators/SubnetworkPopUP"))) {
+		try 
+		{
+			if (isElementPresent(xml.getlocator("//locators/SubnetworkPopUP"))) 
+			{
 				System.out.println("");
 				System.out.println("Alert Present");
 				WaitforElementtobeclickable((xml.getlocator("//locators/SubnetworkPopUP")));
 				Clickon(getwebelement(xml.getlocator("//locators/SubnetworkPopUP")));
 			}
-		} catch (Exception e) {
+		} 
+		catch (Exception e) 
+		{
 			System.out.println(e.toString());
 		}
 		System.out.println("Order complete");
@@ -286,8 +327,7 @@ public class CeasHelper extends DriverHelper {
 		CompValidation = getwebelement2(xml.getlocator("//locators/IPVPNSite/OrderStatusInput")).getAttribute("value");
 		System.out.println(CompValidation);
 
-		Assert.assertTrue(CompValidation.contains("Comp"),
-				" Order status failed to Complete. It is displayed as : " + CompValidation);
+		Assert.assertTrue(CompValidation.contains("Comp")," Order status failed to Complete. It is displayed as : " + CompValidation);
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Order Staus Verified in as Completed");
 
 	}
@@ -296,17 +336,21 @@ public class CeasHelper extends DriverHelper {
 
 		getwebelement(xml.getlocator("//locators/OrderStatus")).clear();
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Clear Order Status");
+		
 		SendKeys(getwebelement(xml.getlocator("//locators/OrderStatus")), "Commercial Validation");
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Entered Order Status Commercial Validation");
 		SendkeaboardKeys(getwebelement(xml.getlocator("//locators/OrderStatus")), Keys.ENTER);
+		
 		Thread.sleep(5000);
 		if (!Inputdata[8].toString().equalsIgnoreCase("Ethernet Hub"))
 			SendkeaboardKeys(getwebelement(xml.getlocator("//locators/OrderStatus")), Keys.TAB);
-
 		Thread.sleep(2000);
-		if (Inputdata[8].toString().equalsIgnoreCase("Ethernet Hub")) {
-			try {
-				if (isElementPresent(xml.getlocator("//locators/PopupYes"))) {
+		if (Inputdata[8].toString().equalsIgnoreCase("Ethernet Hub")) 
+		{
+			try 
+			{
+				if (isElementPresent(xml.getlocator("//locators/PopupYes"))) 
+				{
 					WaitforElementtobeclickable(xml.getlocator("//locators/PopupYes"));
 					safeJavaScriptClick(getwebelement(xml.getlocator("//locators/PopupYes")));
 					waitForpageload();
@@ -314,20 +358,25 @@ public class CeasHelper extends DriverHelper {
 					waitforPagetobeenable();
 					Thread.sleep(5000);
 				}
-			} catch (Exception e) {
+			} 
+			catch (Exception e) 
+			{
 				System.out.println("Pop Up Yes Clicked");
 			}
 		}
 		waitforPagetobeenable();
-		try {
-			if (isElementPresent(xml.getlocator("//locators/SubnetworkPopUP"))) {
+		try 
+		{
+			if (isElementPresent(xml.getlocator("//locators/SubnetworkPopUP"))) 
+			{
 				System.out.println("");
 				System.out.println("Alert Present");
 				WaitforElementtobeclickable((xml.getlocator("//locators/SubnetworkPopUP")));
 				Clickon(getwebelement(xml.getlocator("//locators/SubnetworkPopUP")));
-
 			}
-		} catch (Exception e) {
+		} 
+		catch (Exception e) 
+		{
 			System.out.println(e.toString());
 		}
 		waitforPagetobeenable();
@@ -342,7 +391,8 @@ public class CeasHelper extends DriverHelper {
 		Thread.sleep(3000);
 		Clickon(getwebelement(xml.getlocator("//locators/SelectDeliveryValidation")));
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Entered Order Status Delivery");
-		if (!Inputdata[8].toString().equalsIgnoreCase("Ethernet Hub")) {
+		if (!Inputdata[8].toString().equalsIgnoreCase("Ethernet Hub")) 
+		{
 			waitforPagetobeenable();
 			Thread.sleep(5000);
 		}
@@ -353,9 +403,12 @@ public class CeasHelper extends DriverHelper {
 			Thread.sleep(3000);
 		}
 		Thread.sleep(5000);
-		if (Inputdata[8].toString().equalsIgnoreCase("Ethernet Hub")) {
-			try {
-				if (isElementPresent(xml.getlocator("//locators/PopupYes"))) {
+		if (Inputdata[8].toString().equalsIgnoreCase("Ethernet Hub")) 
+		{
+			try 
+			{
+				if (isElementPresent(xml.getlocator("//locators/PopupYes"))) 
+				{
 					WaitforElementtobeclickable(xml.getlocator("//locators/PopupYes"));
 					safeJavaScriptClick(getwebelement(xml.getlocator("//locators/PopupYes")));
 					waitForpageload();
@@ -363,7 +416,9 @@ public class CeasHelper extends DriverHelper {
 					waitforPagetobeenable();
 					Thread.sleep(5000);
 				}
-			} catch (Exception e) {
+			} 
+			catch (Exception e) 
+			{
 				System.out.println("Pop Up Yes Clicked");
 			}
 		}
@@ -372,49 +427,56 @@ public class CeasHelper extends DriverHelper {
 //			SendkeaboardKeys(getwebelement(xml.getlocator("//locators/primarytestingmethod")), Keys.TAB);
 //			Thread.sleep(3000);
 //			savePage();
-		try {
-			if (isElementPresent(xml.getlocator("//locators/SubnetworkPopUP"))) {
+		try 
+		{
+			if (isElementPresent(xml.getlocator("//locators/SubnetworkPopUP"))) 
+			{
 				System.out.println("");
 				System.out.println("Alert Present");
 				WaitforElementtobeclickable((xml.getlocator("//locators/SubnetworkPopUP")));
 				Clickon(getwebelement(xml.getlocator("//locators/SubnetworkPopUP")));
 
 			}
-		} catch (Exception e) {
+		} 
+		catch (Exception e) 
+		{
 			System.out.println(e.toString());
 		}
 		waitforPagetobeenable();
 	}
 
-	public void ClickContinue() throws DocumentException, InterruptedException {
-		if (isElementPresent((xml.getlocator("//locators/IPVPNSite/BlankPriceContinue")))) {
+	public void ClickContinue() throws DocumentException, InterruptedException 
+	{
+		if (isElementPresent((xml.getlocator("//locators/IPVPNSite/BlankPriceContinue")))) 
+		{
 			WaitforElementtobeclickable((xml.getlocator("//locators/IPVPNSite/BlankPriceContinue")));
 			Clickon(getwebelement(xml.getlocator("//locators//IPVPNSite/BlankPriceContinue")));
 		}
 		Thread.sleep(3000);
 	}
 
-	public String GetBillingStatus() throws InterruptedException, DocumentException, IOException {
+	public String GetBillingStatus() throws InterruptedException, DocumentException, IOException 
+	{
 		List<WebElement> HeaderList = GetWebElements(xml.getlocator("//locators/ServiceOrderGridHeader"));
-
 		int StatusHeader = -1;
 		int i = 0;
-		for (WebElement ele : HeaderList) {
+		for (WebElement ele : HeaderList) 
+		{
 			javascriptexecutor(ele);
 			String Text = ele.getText();
-
 			System.out.println("Column : " + Text);
-			if (Text.equalsIgnoreCase("Billing Status")) {
+			if (Text.equalsIgnoreCase("Billing Status")) 
+			{
 				StatusHeader = i;
 				break;
 			}
 			i++;
 		}
 		Assert.assertTrue(StatusHeader > -1, "Column Name 'Billing Status' not found");
-
 		String temp = xml.getlocator("//locators/ServiceOrderGridItem").replace("-10", String.valueOf(i + 1));
 		String ServiceOrderStatus = Gettext(getwebelement(temp));
 		System.out.println("Service Order Current Status : " + ServiceOrderStatus);
 		return ServiceOrderStatus;
 	}
+
 }
