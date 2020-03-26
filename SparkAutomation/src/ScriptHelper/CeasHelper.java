@@ -56,12 +56,17 @@ public class CeasHelper extends DriverHelper {
 		Thread.sleep(4000);
 	//	ServiceOrder.set(InputData[187].toString());
 		Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderSearchForAll"))); // as per Ayush
-		System.out.println("click service order search field");
+		System.out.println("click service order search field"+ InputData[0].toString());
 		if(InputData[0].toString().equalsIgnoreCase("No"))
 		{
-			ExtentTestManager.getTest().log(LogStatus.PASS," Step: Working On already completed service order  :" + InputData[33].toString());
-			SendKeys(getwebelement(xml.getlocator("//locators/ServiceOrderSearchForAll")),InputData[33].toString());
-			ExtentTestManager.getTest().log(LogStatus.PASS," Step: Search Service Order No :" + InputData[33].toString());
+			if (InputData[8].toString().equalsIgnoreCase("IP VPN Service")) 
+				ServiceOrder2.set(InputData[34].toString());
+			else
+				ServiceOrder.set(InputData[34].toString());
+			System.out.println("click service order search field"+ InputData[34].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS," Step: Working On existing  service order  :" + InputData[34].toString());
+			SendKeys(getwebelement(xml.getlocator("//locators/ServiceOrderSearchForAll")),InputData[34].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS," Step: Search Service Order No :" + InputData[34].toString());
 		}
 		else
 		{
@@ -111,7 +116,7 @@ public class CeasHelper extends DriverHelper {
 				break;
 			}
 		}
-		String TempOrder = InputData[8].toString().equalsIgnoreCase("IP VPN Service") ? ServiceOrder2.get().toString(): ServiceOrder.get().toString();
+		String TempOrder = InputData[9].toString().equalsIgnoreCase("IP VPN Service") ? ServiceOrder2.get().toString(): ServiceOrder.get().toString();
 		Assert.assertTrue(BillingStatus.equalsIgnoreCase("COMPLETE") || BillingStatus.equalsIgnoreCase("BILLING ERROR")|| BillingStatus.equalsIgnoreCase("SENT TO BILLING"),"Not Able to Proceed The Cease for Order Number : " + TempOrder + "as Billing Status is : "
 						+ BillingStatus);
 		if (!billing || BillingStatus.equalsIgnoreCase("SENT TO BILLING")) 
@@ -146,7 +151,7 @@ public class CeasHelper extends DriverHelper {
 		 * Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderArrow")));
 		 * System.out.println("service order click");
 		 */
-
+		Thread.sleep(30000);
 		waitForpageload();
 		waitforPagetobeenable();
 		SiebelCeaseOrdernumber.set(Gettext(getwebelement(xml.getlocator("//locators/ServiceOrderModifyNumber']"))));
