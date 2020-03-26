@@ -75,66 +75,74 @@ public class NewOrders extends DriverTestcase {
 	public void Cease(Object[] Data) throws Exception {
 
 		Login.get().Login("Sieble");
-		newOrderOnnnet.get().accountTabDetails(Data);
-		newOrderOnnnet.get().createCustomerOrder(Data);
-		newOrderOnnnet.get().productSelectionHelper(Data);
-		newOrderOnnnet.get().openServiceOrderNumber();
-		if (Data[8].toString().equalsIgnoreCase("Ethernet Hub")) {
-			newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);// Updated
-			newOrderOnnnet.get().hubSiteCustomize(Data); // MethodAdded
-			newOrderOnnnet.get().EnterDateInFooter(Data); // No change
-			newOrderOnnnet.get().EnterBillingDateInFooter(Data); // No change
-			newOrderOnnnet.get().EnterServiceChargeInFooter(Data, "2"); // Method added
-			newOrderOnnnet.get().CommercialValidation(Data); // No Change
-			newOrderOnnnet.get().TechnicalValidation(Data); // Updated
-			newOrderOnnnet.get().CircuitReferenceGeneration(Data); 
-			newOrderOnnnet.get().DeliveryValidation(Data); // No Change
-			newOrderOnnnet.get().OrderCompleteEthernetHubSpoke(Data); // MethodAdded
-		} else if (Data[8].toString().equalsIgnoreCase("Ethernet Spoke")) {
-			newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);// Updated for spoke also
-			newOrderOnnnet.get().spokeSiteCustomize(Data);// MethodAdded
-			newOrderOnnnet.get().EnterDateInFooter(Data); // No change
-			newOrderOnnnet.get().EnterBillingDateInFooter(Data); // No change
-			newOrderOnnnet.get().EnterServiceChargeInFooter(Data, "2"); // Method added same as hub and updated if
+		if(Data[0].toString().equalsIgnoreCase("Yes"))
+		{
+			newOrderOnnnet.get().accountTabDetails(Data);
+			newOrderOnnnet.get().createCustomerOrder(Data);
+			newOrderOnnnet.get().productSelectionHelper(Data);
+			newOrderOnnnet.get().openServiceOrderNumber();
+			if (Data[8].toString().equalsIgnoreCase("Ethernet Hub"))
+			{
+				newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);// Updated
+				newOrderOnnnet.get().hubSiteCustomize(Data); // MethodAdded
+				newOrderOnnnet.get().EnterDateInFooter(Data); // No change
+				newOrderOnnnet.get().EnterBillingDateInFooter(Data); // No change
+				newOrderOnnnet.get().EnterServiceChargeInFooter(Data, "2"); // Method added
+				newOrderOnnnet.get().CommercialValidation(Data); // No Change
+				newOrderOnnnet.get().TechnicalValidation(Data); // Updated
+				newOrderOnnnet.get().CircuitReferenceGeneration(Data); 
+				newOrderOnnnet.get().DeliveryValidation(Data); // No Change
+				newOrderOnnnet.get().OrderCompleteEthernetHubSpoke(Data); // MethodAdded
+			} 
+			else if (Data[8].toString().equalsIgnoreCase("Ethernet Spoke")) 
+			{
+				newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);// Updated for spoke also
+				newOrderOnnnet.get().spokeSiteCustomize(Data);// MethodAdded
+				newOrderOnnnet.get().EnterDateInFooter(Data); // No change
+				newOrderOnnnet.get().EnterBillingDateInFooter(Data); // No change
+				newOrderOnnnet.get().EnterServiceChargeInFooter(Data, "2"); // Method added same as hub and updated if
 																		// condition for
 			// spoke
 
-			newOrderOnnnet.get().CommercialValidation(Data); // No Change
-			newOrderOnnnet.get().TechnicalValidation(Data); // Updated for spoke also
-			newOrderOnnnet.get().CircuitReferenceGeneration(Data); 
-			newOrderOnnnet.get().DeliveryValidation(Data); // No Change
-			newOrderOnnnet.get().OrderCompleteEthernetHubSpoke(Data);// updated same as hub
-		} else {
-			newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);
-			newOrderOnnnet.get().enterMandatoryDetailsInMiddleApplet(Data);
-			newOrderOnnnet.get().VoiceConfigTab(Data);
-			newOrderOnnnet.get().VoiceFeatureTab(Data);
-			newOrderOnnnet.get().NumberManagementTab(Data);
-			newOrderOnnnet.get().EnterDateInFooter(Data);
-			newOrderOnnnet.get().EnterBillingDateInFooter(Data);
-			newOrderOnnnet.get().EnterServiceChargeInFooter(Data, "2");
-			newOrderOnnnet.get().SelectAttachmentTab(Data);
-			newOrderOnnnet.get().UploadDocument(Data);
-			newOrderOnnnet.get().SelectServiceGroupTab(Data);
-			newOrderOnnnet.get().OperationAttribute(Data);
-			newOrderOnnnet.get().EnterInstallationChargeInFooter(Data);
-			newOrderOnnnet.get().MandatoryFields(Data);
-			newOrderOnnnet.get().CommercialValidation(Data);
-			newOrderOnnnet.get().TechnicalValidation(Data);
-			newOrderOnnnet.get().clickOnManualValidationB();
-			newOrderOnnnet.get().DeliveryValidation(Data);
-			newOrderOnnnet.get().clickOnManualValidationA();
-			newOrderOnnnet.get().CompletedValidation(Data);
-			// Code for Cease
+				newOrderOnnnet.get().CommercialValidation(Data); // No Change
+				newOrderOnnnet.get().TechnicalValidation(Data); // Updated for spoke also
+				newOrderOnnnet.get().CircuitReferenceGeneration(Data); 
+				newOrderOnnnet.get().DeliveryValidation(Data); // No Change
+				newOrderOnnnet.get().OrderCompleteEthernetHubSpoke(Data);// updated same as hub
+			}
+			else 
+			{
+				newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);
+				newOrderOnnnet.get().enterMandatoryDetailsInMiddleApplet(Data);
+				newOrderOnnnet.get().VoiceConfigTab(Data);
+				newOrderOnnnet.get().VoiceFeatureTab(Data);
+				newOrderOnnnet.get().NumberManagementTab(Data);
+				newOrderOnnnet.get().EnterDateInFooter(Data);
+				newOrderOnnnet.get().EnterBillingDateInFooter(Data);
+				newOrderOnnnet.get().EnterServiceChargeInFooter(Data, "2");
+				newOrderOnnnet.get().SelectAttachmentTab(Data);
+				newOrderOnnnet.get().UploadDocument(Data);
+				newOrderOnnnet.get().SelectServiceGroupTab(Data);
+				newOrderOnnnet.get().OperationAttribute(Data);
+				newOrderOnnnet.get().EnterInstallationChargeInFooter(Data);
+				newOrderOnnnet.get().MandatoryFields(Data);
+				newOrderOnnnet.get().CommercialValidation(Data);
+				newOrderOnnnet.get().TechnicalValidation(Data);
+				newOrderOnnnet.get().clickOnManualValidationB();
+				newOrderOnnnet.get().DeliveryValidation(Data);
+				newOrderOnnnet.get().clickOnManualValidationA();
+				newOrderOnnnet.get().CompletedValidation(Data);
+				// Code for Cease
+			}
+			newOrderOnnnet.get().WriteServiceOrderNumber(Data);
 		}
-		newOrderOnnnet.get().WriteServiceOrderNumber(Data);
+		Cease.get().openServiceOrder(Data);
 		Cease.get().CeaseMainMethod(Data);
+		
 		newOrderOnnnet.get().SelectAttachmentTab(Data);
 		newOrderOnnnet.get().UploadDocument(Data);
-		Cease.get().CeaseCommercialValidation(Data); // Addedd by Devesh
-		// newOrderOnnnet.get().clickOnManualValidationB(); // Updated By Devesh
+		Cease.get().CeaseCommercialValidation(Data); 
 		Cease.get().DeliveryValidation(Data); // Addedd by Devesh
-		// newOrderOnnnet.get().clickOnManualValidationA(); // Updated By Devesh
 		Cease.get().CeaseCompletedValidation(Data); // added By Devesh
 	}
 
@@ -282,7 +290,8 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().CompletedValidation(Data);
 			newOrderOnnnet.get().WriteServiceOrderNumber(Data);
 		}
-		if (Data[Data.length - 1].toString().contains("Carnor")) {
+		if (Data[Data.length - 1].toString().contains("Carnor")) 
+		{
 			newOrderOnnnet.get().ServiceTab(Data);
 			newOrderOnnnet.get().installationTimeUpdate(Data); // added by shivananda for carnor scenario
 			newOrderOnnnet.get().EnterDateInFooter(Data);
