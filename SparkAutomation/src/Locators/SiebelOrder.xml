@@ -43,6 +43,7 @@
   <AddEthernetLine>//button[@id='addButton1']</AddEthernetLine> 
   <AddIPDomain>//div[text()='IP Domain']/..//button</AddIPDomain> 
   <AddIpAccess>//div[text()='IP Access']/..//button</AddIpAccess> 
+  <WarningProceed>//div[@class='colt-attr-err-tooltip colt-modal-attr-error']//button[text()='Proceed']</WarningProceed>
   <capacitycheckreference>//div[@id='colt-s-order-connection-attributes']/div[1]/input[1]</capacitycheckreference> 
   <Routertype>//span[text()='Router Type']/..//input</Routertype> 
   <RouterTypeDropdownAccess>(//span[text()='Router Type']/..//span)[3]</RouterTypeDropdownAccess> 
@@ -567,7 +568,7 @@
   <PickAddress>//button[text()='Pick Address']</PickAddress> 
   <PickBuilding>//button[text()='Pick Building']</PickBuilding> 
   <PickSite>//button[text()='Pick Site']</PickSite> 
-  <InsideDropdownValues>//li[text()='Data']</InsideDropdownValues>
+  <InsideDropdownValues>//div[contains(@style,'block')]//li[text()='Data']</InsideDropdownValues>
   <CoverageEthernetAccess>//span[text()='Coverage']/..//input/following-sibling::span</CoverageEthernetAccess>
   
 <SaveEthernetAccess>//div[@id='colt-s-order-connection-header']//a[text()='Save']</SaveEthernetAccess> // added by Ayush
@@ -885,7 +886,18 @@
   
   <!--Gaury's Locators for SIP truncking -->
   
+<SIP>
+<TrunkConfigInput>//div[@class='colt-trunk-wrapper']//span[text()='Value']/parent::*//input</TrunkConfigInput>
+<TrunkConfigDropdown>//div[@class='colt-trunk-wrapper']//span[text()='Value']/parent::*/span[2]</TrunkConfigDropdown>
+<TrunkConfigDrodownValue>//ul[contains(@style,'block')]//li[text()='Value']</TrunkConfigDrodownValue>
 
+<AddmissionInput>//div[@class='colt-component-attr-wrapper']//span[text()='Value']/parent::*//input</AddmissionInput>
+<AddmissionDropdown>//div[@class='colt-component-attr-wrapper']//span[text()='Value']/parent::*/span[2]</AddmissionDropdown>
+<AddmissionDrodownValue>//ul[contains(@style,'block')]//li[text()='Value']</AddmissionDrodownValue>
+<CustomerMenu>//div[text()='Customer IP PBX List']/following-sibling::div//span[text()='Value']/parent::*</CustomerMenu>
+<BCN>//td[@aria-labelledby=' s_1_l_Out_of_Hours_Porting_Charge_BCN s_1_l_altpick']</BCN>
+
+</SIP>
 
 <tabDropdown>//select[@id='j_s_vctrl_div_tabScreen']</tabDropdown>
 
@@ -925,7 +937,7 @@
 <RefreshButton>//span[text()='Refresh']</RefreshButton>
 
 
-<BCN>//td[@aria-labelledby='s_1_l_Out_of_Hours_Porting_Charge_BCN s_1_l_altpick']</BCN>
+<BCN>//td[@aria-labelledby='s_1_l_Out_of_Hours_Porting_Charge_BCN   s_1_l_altpick']</BCN>
 
 <BCNLookup>//span[@class='siebui-icon-pick']</BCNLookup>
 
@@ -1015,9 +1027,9 @@
   <AccessPortList>//tr[@class='colt-siteselection-datarow']</AccessPortList>
   <RouterSpecificationSetting>(//span[contains(@class,'colt-oa-btn colt-oa-std-btn colt-oa-Primary-Child')])[2]</RouterSpecificationSetting>
    <RouterSpecificationSettingPartial>(//span[contains(@class,'colt-oa-btn colt-oa-std-btn colt-oa-Secondary-Child')])[2]</RouterSpecificationSettingPartial>
- <OperationalAttribueClick>(//table[@summary="Operational Attributes"]//tr[contains(@class,'mandatory')]//td[3])[index]</OperationalAttribueClick>
+ <OperationalAttribueClick>(//table[@summary="Operational Attributes"]//tr[contains(@class,'mandatory')]//td[4])[index]</OperationalAttribueClick>
  
-    <OperationalAttributeText>//table[@summary="Operational Attributes"]//tr[contains(@class,'mandatory')]//td[3]/input</OperationalAttributeText>
+    <OperationalAttributeText>//table[@summary="Operational Attributes"]//tr[contains(@class,'mandatory')]//td[4]/input</OperationalAttributeText>
  <OperationalAttributeOK>//button[@aria-label='Operational Attributes:OK']</OperationalAttributeOK>
  <NetworkService>//td[@title='IP VPN Service']</NetworkService>
  <GOIPService>//a[text()='Value']</GOIPService>
@@ -1212,8 +1224,8 @@
  <SelectValueDropdown>(//li[text()='Value'])</SelectValueDropdown>
 <TextInput>//span[text()='Value']/parent::*//input</TextInput>
 <SIPVoiceConfigExpandSymbol>(//*[@class='colt-site-component-collapse fa fa-plus-square-o'])</SIPVoiceConfigExpandSymbol>
-<SIPTrunkSequence>((//*[@class='colt-attribute-input siebui-ctrl-input colt-attribute-validate'])[4])</SIPTrunkSequence>
-<SIPTrunkName>((//*[@class='colt-attribute-input siebui-ctrl-input'])[4])</SIPTrunkName>
+<SIPTrunkSequence>//div[@class='colt-trunk-wrapper']//span[text()='Trunk Sequence']/parent::*//input</SIPTrunkSequence>
+<SIPTrunkName>//div[@class='colt-trunk-wrapper']//span[text()='Trunk Name']/parent::*//input</SIPTrunkName>
 <SIPAccessLineType>((//*[@class='colt-attribute-input siebui-ctrl-input ui-autocomplete-input'])[12])</SIPAccessLineType>
 <SIPAccessLineTypeDropdown>(//span[text()='Access Line Type']/..//span)[3]</SIPAccessLineTypeDropdown>
 <SIPAccessLineTypeValue>//*[@id='ui-id-3952']</SIPAccessLineTypeValue>
