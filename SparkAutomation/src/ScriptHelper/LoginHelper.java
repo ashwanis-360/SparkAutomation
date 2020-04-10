@@ -63,6 +63,34 @@ public class LoginHelper extends DriverHelper
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Login Button");
 
 	}
+	public void LoginOMP(String Application) throws Exception
+	{
+		openurl(Application);
+
+		Thread.sleep(3000);
+		try
+		{
+		SendKeys(getwebelement(xml.getlocator("//locators/" + Application + "/Username")),
+				Getkeyvalue(Application + "_Username"));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter User Name");
+
+		SendKeys(getwebelement(xml.getlocator("//locators/" + Application + "/Password")),
+				Getkeyvalue(Application + "_Password"));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Password");
+		Thread.sleep(3000); // added by Abhay
+
+		Clickon(getwebelement(xml.getlocator("//locators/" + Application + "/Loginbutton")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Login Button");
+		}
+		catch (Exception e) 
+		{
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter User Name");
+			Thread.sleep(3000); 
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Password");
+			Thread.sleep(3000); 
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Login Button");
+		}
+	}
 
 	public void VerifySuccessLogin(String application) throws Exception
 	{
