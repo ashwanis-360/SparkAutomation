@@ -9,6 +9,8 @@ import Driver.DriverHelper;
 import Driver.XMLReader;
 import java.io.IOException;
 import java.util.List;
+import java.util.Random;
+
 import org.dom4j.DocumentException;
 import Reporter.ExtentTestManager;
 
@@ -17,14 +19,193 @@ public class CeasHelper extends DriverHelper {
 	WebElement el;
 	XMLReader xml = new XMLReader("src\\Locators\\SiebelOrder.xml");
 
-	public CeasHelper(WebDriver parentdriver) {
+	public CeasHelper(WebDriver parentdriver) 
+	{
 		super(parentdriver);
+	}
+	public void ModbillingStatusCheck(Object[] InputData) throws Exception
+	{
+		Thread.sleep(15000);
+		Pagerefresh();
+		try
+			{
+				WaitforElementtobeclickable(xml.getlocator("//locators/ServiceTab"));
+				Clickon(getwebelement(xml.getlocator("//locators/ServiceTab")));
+				if (isElementPresent(xml.getlocator("//locators/AlertAccept"))) 
+				{
+					System.out.println("");
+					System.out.println("Alert Present");
+					WaitforElementtobeclickable((xml.getlocator("//locators/AlertAccept")));
+					Clickon(getwebelement(xml.getlocator("//locators/AlertAccept")));
+				}
+				System.out.println("Service tab clickon");
+			} 
+		catch (Exception e) 
+			{
+			try 
+				{
+					safeJavaScriptClick(getwebelement(xml.getlocator("//locators/ServiceTab")));
+					System.out.println("Service tab javascript");
+				} 
+			catch (Exception e1) 
+				{
+					e1.printStackTrace();
+				}
+			}
+		waitforPagetobeenable();
+		waitForpageload();
+		Thread.sleep(4000);
+		// ServiceOrder.set(InputData[187].toString());
+		Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderSearchForAll"))); // as per Ayush
+		System.out.println("click service order search field");
+		if (InputData[8].toString().equalsIgnoreCase("IP VPN Service"))
+		{
+			SendKeys(getwebelement(xml.getlocator("//locators/ServiceOrderSearchForAll")),ModifiedServiceOrder.get().toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS," Step: Search Service Order No :" + ModifiedServiceOrder.get().toString());
+		} 
+		else 
+		{
+			SendKeys(getwebelement(xml.getlocator("//locators/ServiceOrderSearchForAll")),ModifiedServiceOrder.get());
+			ExtentTestManager.getTest().log(LogStatus.PASS," Step: Search Service Order No :" + ModifiedServiceOrder.get().toString());
+		}
+		System.out.println("enter data order search field");
+		WaitforElementtobeclickable(xml.getlocator("//locators/ServiceOrderArrow"));
+		Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderArrow")));
+		// Need some modification
+		boolean billing = false;
+		String BillingStatus = null;
+		for (int i = 0; i < 8; i++) 
+		{
+			
+			WaitforElementtobeclickable(xml.getlocator("//locators/ServiceOrderArrow"));
+			Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderArrow")));
+
+			waitforPagetobeenable();
+			waitForpageload();
+			Thread.sleep(4000);
+			BillingStatus = GetBillingStatus();
+			System.out.println("loop iteration " + String.valueOf(i));
+			System.out.println("Service Order Current Status : " + BillingStatus);
+			// if(isElementPresent(xml.getlocator("//locators/BillingComplete"))) BILLING
+			// ERROR
+			
+			Assert.assertFalse(BillingStatus.equalsIgnoreCase("BILLING ERROR"), "Failed due to  Billing Status : "+BillingStatus);
+			Assert.assertFalse(BillingStatus.equalsIgnoreCase("DOWNSTREAM SYSTEM ERROR"), "Failed due to  Billing Status : "+BillingStatus);
+			//Assert.assertFalse(BillingStatus.equalsIgnoreCase("BILLING ERROR"), "Failed due to  Billing Status : ");
+			if (BillingStatus.equalsIgnoreCase("COMPLETE")) 
+			{
+				billing = true;
+				break;
+			} 
+			Thread.sleep(60000);
+		}
+		if(billing)
+		{
+		ExtentTestManager.getTest().log(LogStatus.PASS," Verified  Billing Status is Completed for Service Order number" + SiebelCeaseOrdernumber.get());
+		}
+		else
+		{
+		Assert.assertFalse(BillingStatus.equalsIgnoreCase("SENT TO BILLING"), "Failed due to  Billing Status : "+BillingStatus);
+		}
+	}
+
+	public void billingStatusCheck(Object[] InputData) throws Exception
+	{
+		Thread.sleep(15000);
+		Pagerefresh();
+		try
+			{
+				WaitforElementtobeclickable(xml.getlocator("//locators/ServiceTab"));
+				Clickon(getwebelement(xml.getlocator("//locators/ServiceTab")));
+				if (isElementPresent(xml.getlocator("//locators/AlertAccept"))) 
+				{
+					System.out.println("");
+					System.out.println("Alert Present");
+					WaitforElementtobeclickable((xml.getlocator("//locators/AlertAccept")));
+					Clickon(getwebelement(xml.getlocator("//locators/AlertAccept")));
+				}
+				System.out.println("Service tab clickon");
+			} 
+		catch (Exception e) 
+			{
+			try 
+				{
+					safeJavaScriptClick(getwebelement(xml.getlocator("//locators/ServiceTab")));
+					System.out.println("Service tab javascript");
+				} 
+			catch (Exception e1) 
+				{
+					e1.printStackTrace();
+				}
+			}
+		waitforPagetobeenable();
+		waitForpageload();
+		Thread.sleep(4000);
+		// ServiceOrder.set(InputData[187].toString());
+		Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderSearchForAll"))); // as per Ayush
+		System.out.println("click service order search field");
+		if (InputData[8].toString().equalsIgnoreCase("IP VPN Service"))
+		{
+			SendKeys(getwebelement(xml.getlocator("//locators/ServiceOrderSearchForAll")),SiebelCeaseOrdernumber.get());
+			ExtentTestManager.getTest().log(LogStatus.PASS," Step: Search Service Order No :" + SiebelCeaseOrdernumber.get());
+		} 
+		else 
+		{
+			SendKeys(getwebelement(xml.getlocator("//locators/ServiceOrderSearchForAll")),SiebelCeaseOrdernumber.get());
+			ExtentTestManager.getTest().log(LogStatus.PASS," Step: Search Service Order No :" + SiebelCeaseOrdernumber.get());
+		}
+		System.out.println("enter data order search field");
+		WaitforElementtobeclickable(xml.getlocator("//locators/ServiceOrderArrow"));
+		Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderArrow")));
+		// Need some modification
+		boolean billing = false;
+		String BillingStatus = null;
+		for (int i = 0; i < 10; i++) 
+		{
+			
+			WaitforElementtobeclickable(xml.getlocator("//locators/ServiceOrderArrow"));
+			Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderArrow")));
+
+			waitforPagetobeenable();
+			waitForpageload();
+			Thread.sleep(4000);
+			BillingStatus = GetBillingStatus();
+			System.out.println("Service Order Current Status : " + BillingStatus);
+			System.out.println("loop iteration " + String.valueOf(i));
+			// if(isElementPresent(xml.getlocator("//locators/BillingComplete"))) BILLING
+			// ERROR
+			
+			Assert.assertFalse(BillingStatus.equalsIgnoreCase("BILLING ERROR"), "Failed due to  Billing Status : "+BillingStatus);
+			Assert.assertFalse(BillingStatus.equalsIgnoreCase("DOWNSTREAM SYSTEM ERROR"), "Failed due to  Billing Status : "+BillingStatus);
+			
+			//Assert.assertFalse(BillingStatus.equalsIgnoreCase("BILLING ERROR"), "Failed due to  Billing Status : ");
+			if (BillingStatus.equalsIgnoreCase("COMPLETE")) 
+			{
+				billing = true;
+				break;
+			} 
+			Thread.sleep(60000);
+		}
+		if(billing)
+		{
+			ExtentTestManager.getTest().log(LogStatus.PASS," Verified  Billing Status is Completed for Service Order number" + SiebelCeaseOrdernumber.get());
+		}
+		else
+		{
+			Assert.assertFalse(BillingStatus.equalsIgnoreCase("SENT TO BILLING"), "Failed due to  Billing Status : "+BillingStatus);
+			Assert.assertFalse(BillingStatus.equalsIgnoreCase("WAITING INTERFACE AVAILABILITY"), "Failed due to  Billing Status : "+BillingStatus);
+		}
+		
 	}
 
 	public void CeaseMainMethod(Object[] InputData) throws Exception {
+		
+		//ServiceOrder.set("CPE080800809/0807-880796");
+		//ServiceOrder2.set("CPE080800809/0807-880796");
 		Thread.sleep(15000);
 		Pagerefresh();
-		try {
+		try
+		{
 			WaitforElementtobeclickable(xml.getlocator("//locators/ServiceTab"));
 			Clickon(getwebelement(xml.getlocator("//locators/ServiceTab")));
 			if (isElementPresent(xml.getlocator("//locators/AlertAccept"))) {
@@ -34,12 +215,16 @@ public class CeasHelper extends DriverHelper {
 				Clickon(getwebelement(xml.getlocator("//locators/AlertAccept")));
 			}
 			System.out.println("Service tab clickon");
-		} catch (Exception e) {
-			try {
+		} 
+		catch (Exception e) 
+		{
+			try 
+			{
 				safeJavaScriptClick(getwebelement(xml.getlocator("//locators/ServiceTab")));
 				System.out.println("Service tab javascript");
-			} catch (Exception e1) {
-
+			} 
+			catch (Exception e1) 
+			{
 				e1.printStackTrace();
 			}
 		}
@@ -54,7 +239,9 @@ public class CeasHelper extends DriverHelper {
 					ServiceOrder2.get().toString());
 			ExtentTestManager.getTest().log(LogStatus.PASS,
 					" Step: Search Service Order No :" + ServiceOrder2.get().toString());
-		} else {
+		} 
+		else 
+		{
 			SendKeys(getwebelement(xml.getlocator("//locators/ServiceOrderSearchForAll")),
 					ServiceOrder.get().toString());
 			ExtentTestManager.getTest().log(LogStatus.PASS,
@@ -67,7 +254,7 @@ public class CeasHelper extends DriverHelper {
 		boolean billing = false;
 		String BillingStatus = null;
 		for (int i = 0; i < 5; i++) {
-			Thread.sleep(3 * 60000);
+			Thread.sleep(3 * 1000);
 			WaitforElementtobeclickable(xml.getlocator("//locators/ServiceOrderArrow"));
 			Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderArrow")));
 
@@ -110,7 +297,9 @@ public class CeasHelper extends DriverHelper {
 			waitforPagetobeenable();
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Internal Cease");
 			Thread.sleep(5000);
-		} else {
+		}
+		else 
+		{
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Doing Cease by External Cease Option");
 			safeJavaScriptClick(getwebelement(xml.getlocator("//locators/CeaseOrder")));
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on cease order number");
@@ -122,12 +311,35 @@ public class CeasHelper extends DriverHelper {
 		 * Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderArrow")));
 		 * System.out.println("service order click");
 		 */
-
+		try
+		{
+			Thread.sleep(30000);
+			waitForpageload(); // added by Ayush
+			waitforPagetobeenable();
+			Random rand = new Random();
+			int rand_int1 = rand.nextInt((999999-100000)+1)+100000;
+			if(isElementPresent(xml.getlocator("//locators/OpportunityNo")))
+			{
+					String temp= Gettext(getwebelement(xml.getlocator("//locators/OpportunityNo")));
+					System.out.println("Opportunity Number : "+ temp);
+					if(temp==null||temp.isEmpty()) 
+						{
+							SendKeys(getwebelement(xml.getlocator("//locators/OpportunityNo")),Integer.toString(rand_int1));
+							ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Opportunity No :" +Integer.toString(rand_int1));
+						}
+	        }
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Opportunity No");
+		}
+		catch (Exception e) 
+		{
+			System.out.println("save button comes");
+		}
 		waitForpageload();
 		waitforPagetobeenable();
-		SiebelCeaseOrdernumber.set(Gettext(getwebelement(xml.getlocator("//locators/ServiceOrderModifyNumber']"))));
-		ExtentTestManager.getTest().log(LogStatus.PASS,
-				" Step: Generated Service Order Reference No: " + SiebelCeaseOrdernumber.get());
+		String CeaseNumber=Gettext(getwebelement(xml.getlocator("//locators/ServiceOrderModifyNumber']")));
+		System.out.println("Cease Number : "+ CeaseNumber);
+		SiebelCeaseOrdernumber.set(CeaseNumber);
+		ExtentTestManager.getTest().log(LogStatus.PASS," Step: Generated Service Order Reference No: " + SiebelCeaseOrdernumber.get());
 		SendKeys(getwebelement(xml.getlocator("//locators/RequestReceivedDate")), CurrentDate());
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Request Received Date");
 
