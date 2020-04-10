@@ -13,7 +13,7 @@ public class NewOrders extends DriverTestcase {
 	public void EndtoEndOrderOnnet(Object[] Data) throws Exception {
 
 		Login.get().Login("Sieble");
-		// newOrderOnnnet.get().Check(Data);
+		//newOrderOnnnet.get().OpenServiceOrder(Data);
 		newOrderOnnnet.get().accountTabDetails(Data);
 		newOrderOnnnet.get().createCustomerOrder(Data);
 		newOrderOnnnet.get().productSelectionHelper(Data);
@@ -54,13 +54,15 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().UploadDocument(Data);
 			newOrderOnnnet.get().SelectServiceGroupTab(Data);
 			newOrderOnnnet.get().OperationAttribute(Data);
-			newOrderOnnnet.get().EnterInstallationChargeInFooter(Data);
+			//newOrderOnnnet.get().EnterInstallationChargeInFooter(Data);
+			newOrderOnnnet.get().InstallationTest();
 			newOrderOnnnet.get().MandatoryFields(Data);
 			newOrderOnnnet.get().CommercialValidation(Data);
 			newOrderOnnnet.get().TechnicalValidation(Data);
 			newOrderOnnnet.get().clickOnManualValidationB();
 			newOrderOnnnet.get().DeliveryValidation(Data);
 			newOrderOnnnet.get().clickOnManualValidationA();
+			newOrderOnnnet.get().InstallationTest();
 			if (Data[74].toString().equals("Offnet")) {
 				newOrderOnnnet.get().CEOS_Offnet();
 				newOrderOnnnet.get().LaunchingCEOSApplication(Data);
@@ -127,15 +129,14 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().CompletedValidation(Data);
 			// Code for Cease
 		}
-		newOrderOnnnet.get().WriteServiceOrderNumber(Data);
+		//newOrderOnnnet.get().WriteServiceOrderNumber(Data);
 		Cease.get().CeaseMainMethod(Data);
 		newOrderOnnnet.get().SelectAttachmentTab(Data);
 		newOrderOnnnet.get().UploadDocument(Data);
 		Cease.get().CeaseCommercialValidation(Data); // Addedd by Devesh
-		// newOrderOnnnet.get().clickOnManualValidationB(); // Updated By Devesh
 		Cease.get().DeliveryValidation(Data); // Addedd by Devesh
-		// newOrderOnnnet.get().clickOnManualValidationA(); // Updated By Devesh
-		Cease.get().CeaseCompletedValidation(Data); // added By Devesh
+		Cease.get().CeaseCompletedValidation(Data);// added By Devesh
+		Cease.get().billingStatusCheck(Data);
 	}
 
 	@Test(dataProviderClass = DataReader.class, dataProvider = "NovationOrder")
@@ -201,7 +202,6 @@ public class NewOrders extends DriverTestcase {
 		Cease.get().CeaseCompletedValidation(Data); // added By Devesh
 	}
 
-	
 	@Test(dataProviderClass = DataReader.class, dataProvider = "Abandoned")
 	public void Abandoned(Object[] Data) throws Exception {
 
@@ -295,7 +295,7 @@ public class NewOrders extends DriverTestcase {
 	public void Mod(Object[] Data) throws Throwable {
 		Login.get().Login("Sieble");
 		// newOrderOnnnet.get().Check(Data);
-		newOrderOnnnet.get().accountTabDetails(Data);
+		/*newOrderOnnnet.get().accountTabDetails(Data);
 		newOrderOnnnet.get().createCustomerOrder(Data);
 		newOrderOnnnet.get().productSelectionHelper(Data);
 		newOrderOnnnet.get().openServiceOrderNumber();
@@ -310,19 +310,22 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().CircuitReferenceGeneration(Data); 
 			newOrderOnnnet.get().DeliveryValidation(Data); // No Change
 			newOrderOnnnet.get().OrderCompleteEthernetHubSpoke(Data); // MethodAdded
-		} else if (Data[8].toString().equalsIgnoreCase("Ethernet Spoke")) {
+		} 
+		else if (Data[8].toString().equalsIgnoreCase("Ethernet Spoke")) 
+		{
 			newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);// Updated for spoke also
 			newOrderOnnnet.get().spokeSiteCustomize(Data);// MethodAdded
 			newOrderOnnnet.get().EnterDateInFooter(Data); // No change
 			newOrderOnnnet.get().EnterBillingDateInFooter(Data); // No change
 			newOrderOnnnet.get().EnterServiceChargeInFooter(Data, "2");
-
 			newOrderOnnnet.get().CommercialValidation(Data); // No Change
 			newOrderOnnnet.get().TechnicalValidation(Data); // Updated for spoke also
 			newOrderOnnnet.get().CircuitReferenceGeneration(Data); 
 			newOrderOnnnet.get().DeliveryValidation(Data); // No Change
 			newOrderOnnnet.get().OrderCompleteEthernetHubSpoke(Data);// updated same as hub
-		} else {
+		} 
+		else 
+		{
 			newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);
 			newOrderOnnnet.get().enterMandatoryDetailsInMiddleApplet(Data);
 			newOrderOnnnet.get().VoiceConfigTab(Data);
@@ -345,17 +348,21 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().getReferenceNo(Data);// added new
 			newOrderOnnnet.get().CompletedValidation(Data);
 			newOrderOnnnet.get().WriteServiceOrderNumber(Data);
-		}
-		if (Data[Data.length - 1].toString().contains("Carnor")) {
+		}*/
+		if (Data[Data.length - 1].toString().contains("Carnor")) 
+		{
 			newOrderOnnnet.get().ServiceTab(Data);
 			newOrderOnnnet.get().installationTimeUpdate(Data); // added by shivananda for carnor scenario
 			newOrderOnnnet.get().EnterDateInFooter(Data);
 			newOrderOnnnet.get().EnterBillingDateInFooter(Data);
 			if (Data[8].toString().equalsIgnoreCase("IP VPN Service")) 
 			{
-				newOrderOnnnet.get().ServiceChargeforIPVPNSite(Data, "4");
+				newOrderOnnnet.get().ServiceChargeforIPVPNSite(Data, "6");
 			}
-			newOrderOnnnet.get().EnterServiceChargeInFooter(Data, "4");
+			else
+			{
+			newOrderOnnnet.get().EnterServiceChargeInFooter(Data, "6");
+			}
 			newOrderOnnnet.get().CommercialValidation(Data);
 			newOrderOnnnet.get().Carnor(Data);
 			newOrderOnnnet.get().EnterInstallationChargeInFooter(Data);
@@ -379,6 +386,7 @@ public class NewOrders extends DriverTestcase {
 		if (Data[Data.length - 1].toString().contains("Com")) 
 		{
 			newOrderOnnnet.get().ServiceTab(Data);
+			//modHelper.get().ModComm(Data);
 			newOrderOnnnet.get().installationTimeUpdate(Data);
 			newOrderOnnnet.get().EnterDateInFooter(Data);
 			if (Data[8].toString().equalsIgnoreCase("Ethernet Spoke")) {
@@ -389,12 +397,15 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().CommercialValidation(Data);
 			// newOrderOnnnet.get().getReferenceNo(Data);// added new
 			newOrderOnnnet.get().CompletedValidation(Data);// updated
+			Cease.get().ModbillingStatusCheck(Data);
 		} 
 		else if (Data[Data.length - 1].toString().contains("Tech")) 
 		{
 			// newOrderOnnnet.get().Check(Data);
 			newOrderOnnnet.get().ServiceTab(Data);
+			
 			modHelper.get().ModTech(Data);
+			newOrderOnnnet.get().installationTimeUpdate(Data);
 			newOrderOnnnet.get().ModTechModCommWaveAndLine(Data);
 			newOrderOnnnet.get().EnterDateInFooter(Data);
 			newOrderOnnnet.get().EnterBillingDateInFooter(Data);
@@ -402,12 +413,13 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().SelectAttachmentTab(Data);
 			newOrderOnnnet.get().UploadDocument(Data);
 			newOrderOnnnet.get().CommercialValidation(Data);
-			newOrderOnnnet.get().EnterInstallationChargeInFooter(Data);
+			
 			newOrderOnnnet.get().TechnicalValidation(Data); // updated
 			modHelper.get().LeadCapacity(Data);
 			newOrderOnnnet.get().clickOnManualValidationB();
 			newOrderOnnnet.get().DeliveryValidation(Data);
 			newOrderOnnnet.get().clickOnManualValidationA();
+			newOrderOnnnet.get().EnterInstallationChargeInFooter(Data);
 			/* below changes as per Aman */
 			//newOrderOnnnet.get().EnterInstallationChargeInFooter(Data);
 			modHelper.get().ProductSpecificCompleted(Data);
@@ -418,7 +430,10 @@ public class NewOrders extends DriverTestcase {
 			{
 				newOrderOnnnet.get().CompletedValidation(Data);// updated
 			}
+			
 		}
+		//Login.get().Login("OMP");
+		//OmpMOdOrder.get().verficationOfProduct(Data);
 	}
 
 	@Test(dataProviderClass = DataReader.class, dataProvider = "OmpDatereader")
@@ -574,7 +589,7 @@ public class NewOrders extends DriverTestcase {
 //			newOrderOnnnet.get().CompletedValidation(Data);// updated
 //
 //		}
-		Login.get().Login("OMP");
+		Login.get().LoginOMP("OMP");
 		OmpMOdOrder.get().verficationOfProduct(Data);
 	}
 
