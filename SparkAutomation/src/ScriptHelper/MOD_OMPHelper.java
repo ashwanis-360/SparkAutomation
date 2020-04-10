@@ -34,19 +34,23 @@ public class MOD_OMPHelper extends DriverHelper {
 //				
 //		}
 		
+		//190300541/200313-0059
 		for(int i=0;i<5;i++)
 		{
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Trying to open Url");
 			Clickon(getwebelement(xml.getlocator("//locators/InputOrderNumber")));
 			Clear(getwebelement(xml.getlocator("//locators/InputOrderNumber")));// Inputdata[0].toString());
-			//SendKeys(getwebelement(xml.getlocator("//locators/InputOrderNumber")), ServiceOrder.get().toString());// Inputdata[0].toString());
-			SendKeys(getwebelement(xml.getlocator("//locators/InputOrderNumber")), Inputdata[74].toString());// Inputdata[0].toString());
+			//SendKeys(getwebelement(xml.getlocator("//locators/InputOrderNumber")), "190300541/200313-0059");// Inputdata[0].toString());
 			
+			
+			SendKeys(getwebelement(xml.getlocator("//locators/InputOrderNumber")), Inputdata[74].toString());// Inputdata[0].toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Order Number: "+Inputdata[74].toString());
 			Clickon(getwebelement(xml.getlocator("//locators/SearchServiceButton")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click On Search Button");
 			Thread.sleep(5000);
 			if(isDisplayed(xml.getlocator("//locators/ClickOrderReferance")))//&& isDisplayed("//td[text()='Completed']"))
 			{
-				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Order Number");
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Open Order Number: "+Inputdata[74].toString());
 				break;
 				
 			}
@@ -75,6 +79,7 @@ public class MOD_OMPHelper extends DriverHelper {
 //Expand All Click
 		//Thread.sleep(5000);
 		Clickon(getwebelement(xml.getlocator("//locators/ExpandAllButton")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Expand All");
 
 //Order No Verification
 		String OmpText = Gettext(getwebelement(xml.getlocator("//locators/OrderNumberBold")));
@@ -104,9 +109,9 @@ Assert.assertTrue(OmpText.equals(Inputdata[74].toString()),"Search Order No :"+I
 			String[] parts = ProdName.split(" ");
 			//String part1 = parts[0];
 			//String part2 = parts[1];
-			
+			String Temp1=OmpText.toUpperCase();
 			for (int i = 0; i < parts.length; i++) {
-				Assert.assertTrue(OmpText.contains(parts[i]),
+				Assert.assertTrue(Temp1.contains(parts[i].toUpperCase()),
 						"Product Name : " + parts[i] + " not matched with Opened Product Name :" + OmpText);
 				ExtentTestManager.getTest().log(LogStatus.PASS,
 						" Step: Product Name(" + parts[i] + ") Verified in OMP Portal");
