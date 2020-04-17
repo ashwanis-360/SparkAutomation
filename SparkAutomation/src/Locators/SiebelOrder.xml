@@ -517,12 +517,20 @@
 <VoiceTab>//a[text()='Voice Features']</VoiceTab>
 <Resillence>//span[text()='Resilience']/following-sibling::span</Resillence>
 <SaveButton>//a[@class="colt-primary-btn colt-s-order-save-btn"]</SaveButton>
+<VoiceLineV>
+<Dropdown>//div[contains(@style,'block')]//div[contains(@id,'interactive_item')]//div[contains(@class,'colt-component-wrapper port_1')]//span[text()='Value']/following-sibling::span</Dropdown>
+<TextBox>//div[contains(@style,'block')]//div[contains(@id,'interactive_item')]//div[contains(@class,'colt-component-wrapper port_1')]//span[text()='Value']/parent::div/input</TextBox>
+<DestinationNumber>//div[contains(@style,'block')]//div[contains(@class,'colt-component-wrapper port_1')]//span[text()='Value']/parent::div/input</DestinationNumber>
+<leftShowFullInfo>(//a[text()='Show full info'])[1]</leftShowFullInfo>
+<RigthShowFullInfo>(//a[text()='Show full info'])[2]</RigthShowFullInfo>
+<SIPTDM>//div[contains(@class,'colt-component-wrapper colt-empty port_1')]//span[text()='SIP TDM Gateway']/preceding-sibling::span</SIPTDM>
+</VoiceLineV>
 
 ************************Service group****************
 <ServiceGroupTab>//a[text()='Service Group']</ServiceGroupTab>
 <ClickOnPlusButtonService>//button[@aria-label='Service Group:New']</ClickOnPlusButtonService>
 <AddButtonTrunk>(//div[@class="subvpn-content"]//following::span)[1]</AddButtonTrunk>
-<ServiceGroupReference>//input[@name='COLT_Service_Group_Reference']/following-sibling::span</ServiceGroupReference>*****click
+<ServiceGroupReference>//div[contains(@class,'colt-component-wrapper colt-empty port_1')]//span[text()='SIP TDM Gateway']/preceding-sibling::span</ServiceGroupReference>*****click
 <Language>//span[text()='Language']/..//input</Language> ****new added by ayush
 <ClickOkButton>//button[@aria-label='Add/Pick Service Group:OK']</ClickOkButton>
 <!-- ********************CPE SOLUTION SITE LOCATORS *********************-->
@@ -625,7 +633,7 @@
 <EgreeNUmberFormat>//li[text()='E.164 All International with +']</EgreeNUmberFormat>
 <TopologyDropDown>(//span[text()='Topology']/..//span)[3]</TopologyDropDown>
 <Topology>//li[text()='Multi-Site']</Topology>
-<TotalDDi>(//input[@class='colt-attribute-input siebui-ctrl-input colt-attribute-validate'])</TotalDDi>
+<TotalDDi>//span[text()='Total Number of DDIs']/parent::*/span</TotalDDi>
 <CLIPresentationDropDown>(//span[text()='CLI Presentation']/..//span)[3]</CLIPresentationDropDown>
 <ClickheretoSaveAccess>//a[text()='Click here to save your product configuration.']</ClickheretoSaveAccess>
 <Clicktoshowfullinfo>//a[text()='Click to Show Full info']</Clicktoshowfullinfo>
@@ -1089,7 +1097,7 @@
 
 <ShowFullinfo>//a[text()='Click to Show Full info']</ShowFullinfo>
 
-<PopDropdownClick>//div[contains(@style,'block')]//span[text()='Value']/following-sibling::span</PopDropdownClick>
+<PopDropdownClick>//div[(@style,'block')]//span[text()='Value']/following-sibling::span</PopDropdownClick>
 
 <PopInput>//div[contains(@style,'block')]//span[text()='Value']/parent::div/input</PopInput>
 
