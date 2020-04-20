@@ -600,9 +600,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			SendKeys(getwebelement(xml.getlocator("//locators/VoiceLineV/DestinationNumber").replace("Value", "Destination Number for Re-Routing")), "1");
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on InternationalCode");
 			
-			//Clickon(getwebelement(xml.getlocator("//locators/DestinationNumberforRerouting")));
-			//SendKeys(getwebelement(xml.getlocator("//locators/DestinationNumberforRerouting")), "1234");
-			//ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on DestinationNumberforRerouting");
+			
 			Thread.sleep(5000);
 			// WaitforElementtobeclickable(xml.getlocator("//locators/MinimumSpendCommitment"));
 			Clickon(getwebelement(xml.getlocator("//locators/MinimumSpendCommitment")));
@@ -8722,18 +8720,24 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		{		//Added by Ayush
 			waitForpageload();
 			waitforPagetobeenable();
-			Thread.sleep(30000);
+			Thread.sleep(20000);
 		
-			List<WebElement> savelist1=GetWebElements(xml.getlocator("//div[@class='colt-bottom-panel']//a[@class='colt-noedit-order-save colt-blue-color']"));
-			List<WebElement> savelist2=GetWebElements(xml.getlocator("//div[contains(@style,'block')]//a[contains(text(),'save')]"));
+			List<WebElement> savelist1=GetWebElements("//div[@class='colt-bottom-panel']//a[@class='colt-noedit-order-save colt-blue-color']");
+			List<WebElement> savelist2=GetWebElements("//div[contains(@style,'block')]//a[contains(text(),'save')]");
 			if(savelist1.size()>0)
-				System.out.print("I am save without popup found");
-			if(savelist1.size()>0)
-				System.out.print("I am save with popup found");
+				{
+				System.out.println("I am save without popup found");
+				Clickon(savelist1.get(0));
+				}
+			if(savelist2.size()>0)
+				{
+				System.out.println("I am save with popup found");
+				Clickon(savelist2.get(0));
+				}
 			//WaitforElementtobeclickable((xml.getlocator("//locators/ClickheretoSaveAccess")));
-			WaitforElementtobeclickable("//div[@class='colt-bottom-panel']//a[@class='colt-noedit-order-save colt-blue-color']");
+			//WaitforElementtobeclickable("//div[@class='colt-bottom-panel']//a[@class='colt-noedit-order-save colt-blue-color']");
 			//Clickon(getwebelement(xml.getlocator("//locators/ClickheretoSaveAccess")));
-			Clickon(getwebelement("//div[@class='colt-bottom-panel']//a[@class='colt-noedit-order-save colt-blue-color']"));
+			//Clickon(getwebelement("//div[@class='colt-bottom-panel']//a[@class='colt-noedit-order-save colt-blue-color']"));
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on SaveAccess");
 			waitforPagetobeenable();
 		}
