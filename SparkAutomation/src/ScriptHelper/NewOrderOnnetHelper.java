@@ -6,6 +6,7 @@ import org.openqa.selenium.support.ui.Select;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -288,7 +289,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			}
 		}
 		WaitforElementtobeclickable(xml.getlocator("//locators/InputServiceOrder"));
-		SendKeys(getwebelement(xml.getlocator("//locators/InputServiceOrder")),"872820113/200417-0041" /*ServiceOrder.get().toString()*/);
+		SendKeys(getwebelement(xml.getlocator("//locators/InputServiceOrder")),"872829766/200419-0005" /*ServiceOrder.get().toString()*/);
 		Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderGo")));
 		Thread.sleep(6000);
 		Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderClickOn")));
@@ -672,7 +673,9 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			Clickon(getwebelement(xml.getlocator("//locators/DisasterRecoveryContact")));
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on DisasterRecoveryContact");
 			Thread.sleep(5000);
+			
 			ClickHereSave();
+			
 			waitforPagetobeenable();
 			Thread.sleep(30000);
 			Clickon(getwebelement(xml.getlocator("//locators/DisasterRecoveryContact")));
@@ -1048,12 +1051,12 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			Clickon(getwebelement(xml.getlocator("//locators/Unassignedport")));
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Unassignedport");
 			Thread.sleep(5000);
-			/*Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderListTab")));
+			Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderListTab")));
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on ServiceOrderListTab");
 			Thread.sleep(5000);
 			Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderLink")));
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on ServiceOrderLink");
-			Thread.sleep(5000);*/
+			Thread.sleep(5000);
 			Clickon(getwebelement(xml.getlocator("//locators/NumberManagementTab")));
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on NumberManagementTab");
 			Thread.sleep(5000);
@@ -1168,8 +1171,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Address for Site");
 			Clickon(getwebelement(xml.getlocator("//locators/PickAddressButtonAccess")));
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Submit Address for Site");
-			Clickon(getwebelement(xml.getlocator("//locators/BCN")));
-			Thread.sleep(5000);
+			Clickon(getwebelement(xml.getlocator("//locators/SIP/BCN")));
+			Thread.sleep(10000);
 			WaitforElementtobeclickable(xml.getlocator("//locators/BCNLookup"));
 			Clickon(getwebelement(xml.getlocator("//locators/BCNLookup")));
 			// Thread.sleep(5000);
@@ -1287,8 +1290,12 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		if (Inputdata[8].toString().equals("Voice Line V")) 
 		{
 			//898998
+			Random rand = new Random();
+			int rand_int1 = rand.nextInt((999999-100000)+1)+100000;
+			
 			Clickon(getwebelement(xml.getlocator("//locators/TrunkName")));
-			SendKeys(getwebelement(xml.getlocator("//locators/TrunkName")), "Trunk" + timeStamp + "");
+			//SendKeys(getwebelement(xml.getlocator("//locators/TrunkName")), "Trunk" + timeStamp + "");
+			SendKeys(getwebelement(xml.getlocator("//locators/TrunkName")), "Trunk" + Integer.toString(rand_int1));
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on TrunkName");
 			WaitforElementtobeclickable(xml.getlocator("//locators/AccessLineTypeDropDown"));
 			Clickon(getwebelement(xml.getlocator("//locators/AccessLineTypeDropDown")));
@@ -1340,44 +1347,13 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			
 			Clickon(ele1);
 			waitForpageload();
-			
-			safeJavaScriptClick(getwebelement(xml.getlocator("//locators/SelectSiteSearchAccess")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Search Site");
-			WaitforElementtobeclickable(xml.getlocator("//locators/StreetNameAccess"));
-			SendKeys(getwebelement(xml.getlocator("//locators/StreetNameAccess")), "Parker");
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Street Name");
-			WaitforElementtobeclickable(xml.getlocator("//locators/CountryAccess"));
-			SendKeys(getwebelement(xml.getlocator("//locators/CountryAccess")), Inputdata[62].toString());
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Country");
-			SendKeys(getwebelement(xml.getlocator("//locators/CityTownAccess")), Inputdata[63].toString());
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter City");
-			SendKeys(getwebelement(xml.getlocator("//locators/PostalCodeAccess")), "16");
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Postal Code");
-			SendKeys(getwebelement(xml.getlocator("//locators/PremisesAccess")), "1");
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Premises");
-			WaitforElementtobeclickable(xml.getlocator("//locators/SearchButtonAccess"));
-			Clickon(getwebelement(xml.getlocator("//locators/SearchButtonAccess")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Search");
-			Thread.sleep(3000);
-			
-			WaitforElementtobeclickable(xml.getlocator("//locators/SIPAddressUIDSearchButton"));
-			Clickon(getwebelement(xml.getlocator("//locators/SIPAddressUIDSearchButton")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, "Click on Address Search button ");
-			Thread.sleep(5000);
-
-			// Select address record
-			WaitforElementtobeclickable(xml.getlocator("//locators/SIPSelectAddressRecord"));
-			Clickon(getwebelement(xml.getlocator("//locators/SIPSelectAddressRecord")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, "Select Address record ");
-			Thread.sleep(5000);
-
-			// Click Pick address button
-			WaitforElementtobeclickable(xml.getlocator("//locators/SIPPickAddressButtonForUID"));
-			Clickon(getwebelement(xml.getlocator("//locators/SIPPickAddressButtonForUID")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, "Click Pick Address button ");
-			Thread.sleep(5000);
-
-			
+			List<String> list = new ArrayList<String>(); 
+			list.add("Schmidtstrasse");
+			list.add("Germany");
+			list.add("Cologne");
+			list.add("94234");
+			list.add("16");
+			siteSearchEnterAndSelection(list);
 			
 			//Code Updated
 			WaitforElementtobeclickable(xml.getlocator("//locators/VoiceLineV/RigthShowFullInfo"));
@@ -1392,187 +1368,36 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			
 			ClickHereSave();
 			
-			
 			waitforPagetobeenable();
 			
 			List<WebElement> Portlist1=GetWebElements(xml.getlocator("//locators/SelectSiteSearchAccess"));
 			
-			ele1=Portlist.get(0);
-			Clickon(ele1);
+			WebElement ele2=Portlist1.get(0);
+			Clickon(ele2);
 			waitForpageload();
 			
-			safeJavaScriptClick(getwebelement(xml.getlocator("//locators/SelectSiteSearchAccess")));
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Search Site");
-			WaitforElementtobeclickable(xml.getlocator("//locators/StreetNameAccess"));
-			SendKeys(getwebelement(xml.getlocator("//locators/StreetNameAccess")), "Parker");
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Street Name");
-			WaitforElementtobeclickable(xml.getlocator("//locators/CountryAccess"));
-			SendKeys(getwebelement(xml.getlocator("//locators/CountryAccess")), Inputdata[62].toString());
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Country");
-			SendKeys(getwebelement(xml.getlocator("//locators/CityTownAccess")), Inputdata[63].toString());
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter City");
-			SendKeys(getwebelement(xml.getlocator("//locators/PostalCodeAccess")), "16");
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Postal Code");
-			SendKeys(getwebelement(xml.getlocator("//locators/PremisesAccess")), "4");
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Premises");
-			WaitforElementtobeclickable(xml.getlocator("//locators/SearchButtonAccess"));
-			Clickon(getwebelement(xml.getlocator("//locators/SearchButtonAccess")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Search");
-			Thread.sleep(3000);
 			
-			//.8988
-			
-			WaitforElementtobeclickable(xml.getlocator("//locators/SIPAddressUIDSearchButton"));
-			Clickon(getwebelement(xml.getlocator("//locators/SIPAddressUIDSearchButton")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, "Click on Address Search button ");
-			Thread.sleep(5000);
-
-			// Select address record
-			WaitforElementtobeclickable(xml.getlocator("//locators/SIPSelectAddressRecord"));
-			Clickon(getwebelement(xml.getlocator("//locators/SIPSelectAddressRecord")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, "Select Address record ");
-			Thread.sleep(5000);
-
-			// Click Pick address button
-			WaitforElementtobeclickable(xml.getlocator("//locators/SIPPickAddressButtonForUID"));
-			Clickon(getwebelement(xml.getlocator("//locators/SIPPickAddressButtonForUID")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, "Click Pick Address button ");
-			Thread.sleep(5000);
-			
+			List<String> list2 = new ArrayList<String>(); 
+			list2.add("Schmidtstrasse");
+			list2.add("Germany");
+			list2.add("Cologne");
+			list2.add("94234");
+			list2.add("16");
+			siteSearchEnterAndSelection(list2);
+						
 			ClickHereSave();
-			
-			//WaitforElementtobeclickable(xml.getlocator("//locators/SelectSiteSearchAccess"));
-			
-			/*safeJavaScriptClick(getwebelement(xml.getlocator("//locators/SelectSiteSearchAccess")));
-			Thread.sleep(3000);
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Search Site");
-			WaitforElementtobeclickable(xml.getlocator("//locators/StreetNameAccess"));
-			SendKeys(getwebelement(xml.getlocator("//locators/StreetNameAccess")), "parker");
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Street Name");
-			WaitforElementtobeclickable(xml.getlocator("//locators/CountryAccess"));
-			SendKeys(getwebelement(xml.getlocator("//locators/CountryAccess")), Inputdata[62].toString());
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Country");
-			SendKeys(getwebelement(xml.getlocator("//locators/CityTownAccess")), Inputdata[63].toString());
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter City");
-			SendKeys(getwebelement(xml.getlocator("//locators/PostalCodeAccess")), "16");
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Postal Code");
-			SendKeys(getwebelement(xml.getlocator("//locators/PremisesAccess")), "1");
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Premises");
-			Clickon(getwebelement(xml.getlocator("//locators/SearchButtonAccess")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Search");
-			Thread.sleep(3000);
-			safeJavaScriptClick(getwebelement(xml.getlocator("//locators/SelectPickAddressAccess")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Address for Site");
-			Clickon(getwebelement(xml.getlocator("//locators/PickAddressButtonAccess")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Submit Address for Site");
-			safeJavaScriptClick(getwebelement(xml.getlocator("//locators/SelectPickBuildingAccess")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Buiding for Site");
-			Clickon(getwebelement(xml.getlocator("//locators/PickBuildingButtonAccess")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Submit Buiding for Site");
-			safeJavaScriptClick(getwebelement(xml.getlocator("//locators/SelectPickSiteAccess")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Site");
-			Clickon(getwebelement(xml.getlocator("//locators/PickSiteButtonAccess")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Submit Site");
-			Thread.sleep(10000);*/
-			// Thread.sleep(30000);
 
 			Thread.sleep(10000);
 
 			AEndDropdownSelection("Type of Lines","BRI");
 			
-			//WaitforElementtobeclickable(xml.getlocator("//locators/TypeoflineDropDown"));
-			//Clickon(getwebelement(xml.getlocator("//locators/TypeoflineDropDown")));
-			//ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on TypeofLine DropDown");
-			// Thread.sleep(5000);
-			//WaitforElementtobeclickable(xml.getlocator("//locators/TypeofLinevalue"));
-			//Clickon(getwebelement(xml.getlocator("//locators/TypeofLinevalue")));
-			//ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on typeOfLineValue");
-			//Thread.sleep(5000);
-
-			// Clickon(getwebelement(xml.getlocator("//locators/NumberOfLines")));
-			// clear();
-			// SendKeys(getwebelement(xml.getlocator("//locators/NumberOfLines")),"2");
-			// Thread.sleep(5000);
-
 			AEndInputEnter("Number of Lines","2");
 			
 			AEndDropdownSelection("CRC4","NA");
 			
 			AEndDropdownSelection("Max Channels (PRI)","15");
-				
-			/*Clickon(getwebelement(xml.getlocator("//locators/VoiceOptionshowinfo")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Show full info");
-			Thread.sleep(5000);
-
-			Clickon(getwebelement(xml.getlocator("//locators/ColtDDIRanges")));
-			Thread.sleep(5000);
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on ColtDDIRanges");
-			WaitforElementtobeclickable(xml.getlocator("//locators/POrtInDDIRanges"));
-			Clickon(getwebelement(xml.getlocator("//locators/POrtInDDIRanges")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on PortInDDIRanges");
-			Thread.sleep(5000);
-			WaitforElementtobeclickable(xml.getlocator("//locators/ResellerConfiguration"));
-			Clickon(getwebelement(xml.getlocator("//locators/ResellerConfiguration")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on ResellerConfiguration");
-			Thread.sleep(5000);
-			WaitforElementtobeclickable(xml.getlocator("//locators/UnratedCDRs"));
-			Clickon(getwebelement(xml.getlocator("//locators/UnratedCDRs")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on UnratedCRD's");
-			Thread.sleep(5000);
-
-			Clickon(getwebelement(xml.getlocator("//locators/NOofsingleColtDDIs")));
-			Clear(getwebelement(xml.getlocator("//locators/NOofsingleColtDDIs")));
-			SendKeys(getwebelement(xml.getlocator("//locators/NOofsingleColtDDIs")), "1");
-			SendkeaboardKeys((getwebelement(xml.getlocator("//locators/NOofsingleColtDDIs"))), Keys.TAB);
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on NoofsingleColtDDI's");
-			Thread.sleep(5000);
-			Clickon(getwebelement(xml.getlocator("//locators/Noof10ColtDDIs")));
-			Clear(getwebelement(xml.getlocator("//locators/Noof10ColtDDIs")));
-			SendKeys(getwebelement(xml.getlocator("//locators/Noof10ColtDDIs")), "1");
-			SendkeaboardKeys((getwebelement(xml.getlocator("//locators/Noof10ColtDDIs"))), Keys.TAB);
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Noof10ColtDDIs");
-			Thread.sleep(5000);
-			Clickon(getwebelement(xml.getlocator("//locators/Noof100coltDDIs")));
-			Clear(getwebelement(xml.getlocator("//locators/Noof100coltDDIs")));
-			SendKeys(getwebelement(xml.getlocator("//locators/Noof100coltDDIs")), "1");
-			SendkeaboardKeys((getwebelement(xml.getlocator("//locators/Noof100coltDDIs"))), Keys.TAB);
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Noof100coltDDIs");
-			Thread.sleep(5000);
-			Clickon(getwebelement(xml.getlocator("//locators/Noof1000coldDDIs")));
-			Clear(getwebelement(xml.getlocator("//locators/Noof1000coldDDIs")));
-			SendKeys(getwebelement(xml.getlocator("//locators/Noof1000coldDDIs")), "1");
-			SendkeaboardKeys((getwebelement(xml.getlocator("//locators/Noof1000coldDDIs"))), Keys.TAB);
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Noof1000coldDDIs");
-			Thread.sleep(5000);
-
-			Clickon(getwebelement(xml.getlocator("//locators/NoOfsinglePOrtedDDIs")));
-			Clear(getwebelement(xml.getlocator("//locators/NoOfsinglePOrtedDDIs")));
-			SendKeys(getwebelement(xml.getlocator("//locators/NoOfsinglePOrtedDDIs")), "1");
-			SendkeaboardKeys((getwebelement(xml.getlocator("//locators/NoOfsinglePOrtedDDIs"))), Keys.TAB);
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on NoOfsinglePOrtedDDIs");
-			Thread.sleep(5000);
-			Clickon(getwebelement(xml.getlocator("//locators/Noof10PortedDDIs")));
-			Clear(getwebelement(xml.getlocator("//locators/Noof10PortedDDIs")));
-			SendKeys(getwebelement(xml.getlocator("//locators/Noof10PortedDDIs")), "1");
-			SendkeaboardKeys((getwebelement(xml.getlocator("//locators/Noof10PortedDDIs"))), Keys.TAB);
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Noof10PortedDDIs");
-			Thread.sleep(5000);
-			Clickon(getwebelement(xml.getlocator("//locators/NOof100PortedDDIs")));
-			Clear(getwebelement(xml.getlocator("//locators/NOof100PortedDDIs")));
-			SendKeys(getwebelement(xml.getlocator("//locators/NOof100PortedDDIs")), "1");
-			SendkeaboardKeys((getwebelement(xml.getlocator("//locators/NOof100PortedDDIs"))), Keys.TAB);
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on NOof100PortedDDIs");
-			Thread.sleep(5000);
-			Clickon(getwebelement(xml.getlocator("//locators/Noof1000PortedDDIs")));
-			Clickon(getwebelement(xml.getlocator("//locators/Noof1000PortedDDIs")));
-			Clear(getwebelement(xml.getlocator("//locators/Noof1000PortedDDIs")));
-			SendKeys(getwebelement(xml.getlocator("//locators/Noof1000PortedDDIs")), "1");
-			// SendkeaboardKeys((getwebelement(xml.getlocator("//locators/Noof1000PortedDDIs"))),
-			// Keys.TAB);
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on NOof1000PortedDDIs");
-			Thread.sleep(5000);
-			Clickon(getwebelement(xml.getlocator("//locators/CrossButtonVLV")));
-			Thread.sleep(5000);*/
+	
 			ClickHereSave();
 		}
 	}
@@ -1944,11 +1769,15 @@ public class NewOrderOnnetHelper extends DriverHelper {
 	public void VoiceLineVPopUpEntries() throws InterruptedException, DocumentException, IOException
 	{
 		//Port ID
+		waitForpageload();
+		waitforPagetobeenable();
 		List<WebElement> Portlist=GetWebElements(xml.getlocator("//locators/R4/SiteBDropdownClick").replace("Value", "Port ID"));
 		
 		WebElement ele1=Portlist.get(0);
 		WebElement ele2=Portlist.get(1);
 		Clickon(ele1);
+		
+		
 		Thread.sleep(2500);
 		Clickon(getwebelement(xml.getlocator("//locators/DarkFiber/MiddleLi").replace("Value", "Port 2")));
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Port ID : Port 2");
@@ -6676,6 +6505,58 @@ public class NewOrderOnnetHelper extends DriverHelper {
 
 	}
 
+	public void siteSearchEnterAndSelection(List<String> address ) throws InterruptedException, IOException, DocumentException
+	{
+	 
+		String street=address.get(0);
+		String country=address.get(1);
+		String city=address.get(2);
+		String postcode=address.get(3);
+		String premises=address.get(4);
+		
+		
+		SendKeys(getwebelement(xml3.getlocator("//locators/StreetNamerfs")), street);
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Street Name : ");
+		
+		Clickon(getwebelement(xml3.getlocator("//locators/Country")));
+		Clickon(getwebelement(xml.getlocator("//locators/R4/SiteABSelection").replace("Value", country)));
+		ExtentTestManager.getTest().log(LogStatus.PASS," Step: Enter country : " + country);
+	
+		SendKeys(getwebelement(xml3.getlocator("//locators/City")),city);
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter City :" + city);
+		SendKeys(getwebelement(xml3.getlocator("//locators/PostalCode")), postcode);
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Postal Code : "+ postcode);
+		SendKeys(getwebelement(xml3.getlocator("//locators/Premises")), premises);
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Premises : "+ premises);
+		Clickon(getwebelement(xml3.getlocator("//locators/Search")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Search");
+		
+		WaitforElementtobeclickable(xml.getlocator("//locators/R4/SearchAddressRowSelection"));
+		Clickon(getwebelement(xml.getlocator("//locators/R4/SearchAddressRowSelection")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Pick Address");
+		
+		WaitforElementtobeclickable(xml.getlocator("//locators/R4/PickAddress"));
+		Clickon(getwebelement(xml.getlocator("//locators/R4/PickAddress")));
+		
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Pick");
+		
+		WaitforElementtobeclickable(xml.getlocator("//locators/R4/SearchAddressRowSelection"));
+		Clickon(getwebelement(xml.getlocator("//locators/R4/SearchAddressRowSelection")));
+
+		WaitforElementtobeclickable(xml.getlocator("//locators/R4/PickBuilding"));
+		Clickon(getwebelement(xml.getlocator("//locators/R4/PickBuilding")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Row and Pick Building");
+
+		waitforPagetobeenable();
+		WaitforElementtobeclickable(xml.getlocator("//locators/R4/SearchAddressRowSelection"));
+		Clickon(getwebelement(xml.getlocator("//locators/R4/SearchAddressRowSelection")));
+
+		WaitforElementtobeclickable(xml.getlocator("//locators/R4/PickSite"));
+		Clickon(getwebelement(xml.getlocator("//locators/R4/PickSite")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Row and Pick Site");
+		waitforPagetobeenable();
+	}
+	
 	public void addSiteADetails(Object[] Inputdata) throws Exception {
 		if (Inputdata[8].toString().equalsIgnoreCase("Wave")|| Inputdata[8].toString().equalsIgnoreCase("Ethernet Line"))
 		{
@@ -8841,7 +8722,14 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		{		//Added by Ayush
 			waitForpageload();
 			waitforPagetobeenable();
-			//Thread.sleep(60000);
+			Thread.sleep(30000);
+		
+			List<WebElement> savelist1=GetWebElements(xml.getlocator("//div[@class='colt-bottom-panel']//a[@class='colt-noedit-order-save colt-blue-color']"));
+			List<WebElement> savelist2=GetWebElements(xml.getlocator("//div[contains(@style,'block')]//a[contains(text(),'save')]"));
+			if(savelist1.size()>0)
+				System.out.print("I am save without popup found");
+			if(savelist1.size()>0)
+				System.out.print("I am save with popup found");
 			//WaitforElementtobeclickable((xml.getlocator("//locators/ClickheretoSaveAccess")));
 			WaitforElementtobeclickable("//div[@class='colt-bottom-panel']//a[@class='colt-noedit-order-save colt-blue-color']");
 			//Clickon(getwebelement(xml.getlocator("//locators/ClickheretoSaveAccess")));
