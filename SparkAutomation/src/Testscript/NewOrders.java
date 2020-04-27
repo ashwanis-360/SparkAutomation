@@ -58,7 +58,7 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().MandatoryFields(Data);
 			newOrderOnnnet.get().CommercialValidation(Data);
 			newOrderOnnnet.get().TechnicalValidation(Data);
-			newOrderOnnnet.get().clickOnManualValidationB();
+			newOrderOnnnet.get().clickOnManualValidationB(Data);
 			newOrderOnnnet.get().DeliveryValidation(Data);
 			newOrderOnnnet.get().clickOnManualValidationA();
 			if (Data[74].toString().equals("Offnet")) {
@@ -125,7 +125,7 @@ public class NewOrders extends DriverTestcase {
 				newOrderOnnnet.get().MandatoryFields(Data);
 				newOrderOnnnet.get().CommercialValidation(Data);
 				newOrderOnnnet.get().TechnicalValidation(Data);
-				newOrderOnnnet.get().clickOnManualValidationB();
+				newOrderOnnnet.get().clickOnManualValidationB(Data);
 				newOrderOnnnet.get().DeliveryValidation(Data);
 				newOrderOnnnet.get().clickOnManualValidationA();
 				newOrderOnnnet.get().CompletedValidation(Data);
@@ -192,7 +192,7 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().EnterInstallationChargeInFooter(Data);
 			newOrderOnnnet.get().CommercialValidation(Data);
 			newOrderOnnnet.get().TechnicalValidation(Data);
-			newOrderOnnnet.get().clickOnManualValidationB();
+			newOrderOnnnet.get().clickOnManualValidationB(Data);
 			newOrderOnnnet.get().DeliveryValidation(Data);
 			newOrderOnnnet.get().clickOnManualValidationA();
 			newOrderOnnnet.get().AbandonedforIPVPN(Data); // No Change
@@ -287,7 +287,7 @@ public class NewOrders extends DriverTestcase {
 					newOrderOnnnet.get().MandatoryFields(Data);
 					newOrderOnnnet.get().CommercialValidation(Data);
 					newOrderOnnnet.get().TechnicalValidation(Data);
-					newOrderOnnnet.get().clickOnManualValidationB();
+					newOrderOnnnet.get().clickOnManualValidationB(Data);
 					newOrderOnnnet.get().DeliveryValidation(Data);
 					newOrderOnnnet.get().clickOnManualValidationA();
 					newOrderOnnnet.get().getReferenceNo(Data);// added new
@@ -319,7 +319,7 @@ public class NewOrders extends DriverTestcase {
 			{
 			newOrderOnnnet.get().CircuitReferenceGeneration(Data); 
 			}
-			newOrderOnnnet.get().clickOnManualValidationB();
+			newOrderOnnnet.get().clickOnManualValidationB(Data);
 			newOrderOnnnet.get().DeliveryValidation(Data);
 			newOrderOnnnet.get().clickOnManualValidationA();
 			newOrderOnnnet.get().getReferenceNo(Data);// added new
@@ -371,7 +371,7 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().EnterInstallationChargeInFooter(Data);
 			newOrderOnnnet.get().TechnicalValidation(Data); // updated
 			modHelper.get().LeadCapacity(Data);
-			newOrderOnnnet.get().clickOnManualValidationB();
+			newOrderOnnnet.get().clickOnManualValidationB(Data);
 			newOrderOnnnet.get().DeliveryValidation(Data);
 			newOrderOnnnet.get().clickOnManualValidationA();
 			/* below changes as per Aman */
@@ -444,7 +444,7 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().MandatoryFields(Data);
 			newOrderOnnnet.get().CommercialValidation(Data);
 			newOrderOnnnet.get().TechnicalValidation(Data);
-			newOrderOnnnet.get().clickOnManualValidationB();
+			newOrderOnnnet.get().clickOnManualValidationB(Data);
 			newOrderOnnnet.get().DeliveryValidation(Data);
 			newOrderOnnnet.get().clickOnManualValidationA();
 			newOrderOnnnet.get().getReferenceNo(Data);// added new
@@ -640,7 +640,7 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().MandatoryFields(Data);
 			newOrderOnnnet.get().CommercialValidation(Data);
 			newOrderOnnnet.get().TechnicalValidation(Data);
-			newOrderOnnnet.get().clickOnManualValidationB();
+			newOrderOnnnet.get().clickOnManualValidationB(Data);
 			newOrderOnnnet.get().DeliveryValidation(Data);
 			// newOrderOnnnet.get().clickOnManualValidationA();
 			inFlightGeneric.get().ServiceTabInFlight(Data);
@@ -674,7 +674,7 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().EnterInstallationChargeInFooter(Data);
 			newOrderOnnnet.get().CommercialValidation(Data);
 			newOrderOnnnet.get().TechnicalValidation(Data);
-			newOrderOnnnet.get().clickOnManualValidationB();
+			newOrderOnnnet.get().clickOnManualValidationB(Data);
 			newOrderOnnnet.get().DeliveryValidation(Data);
 			newOrderOnnnet.get().clickOnManualValidationA();
 		}
@@ -738,7 +738,7 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().MandatoryFields(Data);
 			newOrderOnnnet.get().CommercialValidation(Data);
 			newOrderOnnnet.get().TechnicalValidation(Data);
-			newOrderOnnnet.get().clickOnManualValidationB();
+			newOrderOnnnet.get().clickOnManualValidationB(Data);
 			newOrderOnnnet.get().DeliveryValidation(Data);
 			newOrderOnnnet.get().clickOnManualValidationA();
 			if (!Data[8].toString().equalsIgnoreCase("IP VPN Service")) {
@@ -813,7 +813,7 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().MandatoryFields(Data);
 			newOrderOnnnet.get().CommercialValidation(Data);
 			newOrderOnnnet.get().TechnicalValidation(Data);
-			newOrderOnnnet.get().clickOnManualValidationB();
+			newOrderOnnnet.get().clickOnManualValidationB(Data);
 			newOrderOnnnet.get().DeliveryValidation(Data);
 			newOrderOnnnet.get().clickOnManualValidationA();
 			newOrderOnnnet.get().CompletedValidation(Data);
@@ -875,7 +875,7 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().MandatoryFields(Data);
 			newOrderOnnnet.get().CommercialValidation(Data);
 			newOrderOnnnet.get().TechnicalValidation(Data);
-			newOrderOnnnet.get().clickOnManualValidationB();
+			newOrderOnnnet.get().clickOnManualValidationB(Data);
 			newOrderOnnnet.get().DeliveryValidation(Data);
 			newOrderOnnnet.get().clickOnManualValidationA();
 			newOrderOnnnet.get().getReferenceNo(Data);// added new
@@ -955,7 +955,7 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().CommercialValidation(Data);
 			newOrderOnnnet.get().validateXtrac();
 			newOrderOnnnet.get().TechnicalValidation(Data);
-			newOrderOnnnet.get().clickOnManualValidationB();
+			newOrderOnnnet.get().clickOnManualValidationB(Data);
 			newOrderOnnnet.get().DeliveryValidation(Data);
 			newOrderOnnnet.get().openServiceOrder(Data);
 			newOrderOnnnet.get().validateXtrac();
@@ -1016,7 +1016,7 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().MandatoryFields(Data);
 			newOrderOnnnet.get().CommercialValidation(Data);
 			newOrderOnnnet.get().TechnicalValidation(Data);
-			newOrderOnnnet.get().clickOnManualValidationB();
+			newOrderOnnnet.get().clickOnManualValidationB(Data);
 			newOrderOnnnet.get().DeliveryValidation(Data);
 			newOrderOnnnet.get().clickOnManualValidationA();
 			if (Data[74].toString().equals("Offnet")) {
