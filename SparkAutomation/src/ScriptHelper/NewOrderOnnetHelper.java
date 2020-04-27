@@ -5216,38 +5216,14 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			break;
 		}
 		/* Managed Virtual Firewall Start */
-		case "Managed Virtual Firewall": {
-
-			WaitforElementtobeclickable(xml.getlocator("//locators/MVFBillingTab"));
-			Clickon(getwebelement(xml.getlocator("//locators/MVFBillingTab")));
-			Thread.sleep(5000);
-
-			WaitforElementtobeclickable(xml.getlocator("//locators/MVFShowfullInfo"));
-			Clickon(getwebelement(xml.getlocator("//locators/MVFShowfullInfo")));
-			Thread.sleep(5000);
-
-			WaitforElementtobeclickable(xml.getlocator("//locators/MVFSecurityPolicyAttachmentlink"));
-			Clickon(getwebelement(xml.getlocator("//locators/MVFSecurityPolicyAttachmentlink")));
-			// Clear(getwebelement(xml.getlocator("//locators/MVFSecurityPolicyAttachmentlink")));
-			SendKeys(getwebelement(xml.getlocator("//locators/MVFSecurityPolicyAttachmentlink")), "1234");
-			ExtentTestManager.getTest().log(LogStatus.PASS, "Click  ManagedVirtualFirewall ShowfullInfo link ");
-			Thread.sleep(3000);
-			WaitforElementtobeclickable(xml.getlocator("//locators/MVFAddbutton"));
-			Clickon(getwebelement(xml.getlocator("//locators/MVFAddbutton")));
-			Thread.sleep(3000);
-
-			WaitforElementtobeclickable(xml.getlocator("//locators/MVFClosebutton"));
-			Clickon(getwebelement(xml.getlocator("//locators/MVFClosebutton")));
-			Thread.sleep(3000);
-
-			WaitforElementtobeclickable(xml.getlocator("//locators/MVFSavebutton"));
-			Clickon(getwebelement(xml.getlocator("//locators/MVFSavebutton")));
-			Thread.sleep(10000);
-
+		case "Managed Virtual Firewall": 
+		{
+			ManagedVirtualFirewall();
 			break;
 		}
 		/* as per ayush case */
-		case "CPE Solutions Service": {
+		case "CPE Solutions Service": 
+		{
 			IPCPESolutionSite(InputData);
 			break;
 		}
@@ -6052,7 +6028,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		}
 	}
 
-	public void clickOnManualValidationB() throws Exception { // changes as per Ayush
+	public void clickOnManualValidationB(Object[] Inputdata) throws Exception { // changes as per Ayush
 		/*
 		 * if (isDisplayed(xml.getlocator("//locators/manualvalidation2"))) {
 		 * 
@@ -6064,6 +6040,9 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		 * 
 		 * Thread.sleep(5000); }
 		 */
+		if (Inputdata[8].toString().equals("Voice Line V")||Inputdata[8].toString().equals("Number Hosting")
+				||Inputdata[8].toString().equals("Interconnect")||Inputdata[8].toString().equals("SIP Trunking")) 
+		{
 		try {
 			if (isElementPresent(xml.getlocator("//locators/manualvalidation2"))) {
 				System.out.println("go to else if loop1");
@@ -6075,6 +6054,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			}
 		} catch (Exception e) {
 			System.out.println("Manual validation button is not present in catch block");
+		}
 		}
 	}
 
@@ -7955,6 +7935,39 @@ public class NewOrderOnnetHelper extends DriverHelper {
 //	 * added by-Vikram for Hub product for Spoke
 //	 */
 
+	public void  ManagedVirtualFirewall() throws Exception
+	{
+		waitForpageload();
+		waitforPagetobeenable();
+		OpenTab("Billing");
+		
+		WaitforElementtobeclickable(xml.getlocator("//locators/MVFShowfullInfo"));
+		Clickon(getwebelement(xml.getlocator("//locators/MVFShowfullInfo")));
+		Thread.sleep(5000);
+
+		WaitforElementtobeclickable(xml.getlocator("//locators/MVFSecurityPolicyAttachmentlink"));
+		Clickon(getwebelement(xml.getlocator("//locators/MVFSecurityPolicyAttachmentlink")));
+		
+		//88888
+		Random rand = new Random();
+		int rand_int1 = rand.nextInt((99999-10000)+1)+10000;
+		
+		SendKeys(getwebelement(xml.getlocator("//locators/MVFSecurityPolicyAttachmentlink")), Integer.toString(rand_int1));
+		ExtentTestManager.getTest().log(LogStatus.PASS, "Click  ManagedVirtualFirewall ShowfullInfo link ");
+		Thread.sleep(3000);
+		
+		WaitforElementtobeclickable(xml.getlocator("//locators/MVFAddbutton"));
+		Clickon(getwebelement(xml.getlocator("//locators/MVFAddbutton")));
+		Thread.sleep(3000);
+
+		closePopUp();
+		waitForpageload();
+		waitforPagetobeenable();
+		Save();
+		waitForpageload();
+		waitforPagetobeenable();
+	}
+	
 	public void addEthernetSiteSpoke(Object[] InputData) throws Exception {
 		safeJavaScriptClick(getwebelement(xmlHns.getlocator("//locators/SearchAddressSiteB")));
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Search Address SiteB");
@@ -14974,4 +14987,6 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		Thread.sleep(5000);
 		OperationalAttributesforIPVPN(InputData);
 	}
+
+	
 }
