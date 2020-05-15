@@ -111,6 +111,7 @@ public class CeasHelper extends DriverHelper {
 
 	public void billingStatusCheck(Object[] InputData) throws Exception
 	{
+		//SiebelCeaseOrdernumber.set("151201325/200430-0026");
 		Thread.sleep(15000);
 		Pagerefresh();
 		try
@@ -140,7 +141,7 @@ public class CeasHelper extends DriverHelper {
 			}
 		waitforPagetobeenable();
 		waitForpageload();
-		Thread.sleep(4000);
+		Thread.sleep(40000);
 		// ServiceOrder.set(InputData[187].toString());
 		Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderSearchForAll"))); // as per Ayush
 		System.out.println("click service order search field");
@@ -200,8 +201,8 @@ public class CeasHelper extends DriverHelper {
 
 	public void CeaseMainMethod(Object[] InputData) throws Exception {
 		
-		//ServiceOrder.set("CPE080800809/0807-880796");
-		//ServiceOrder2.set("CPE080800809/0807-880796");
+		ServiceOrder.set("211881154/200512-0041");
+		ServiceOrder2.set("211881154/200512-0041");
 		Thread.sleep(15000);
 		Pagerefresh();
 		try
@@ -438,6 +439,12 @@ public class CeasHelper extends DriverHelper {
 			System.out.println("save button comes");
 		}
 
+	}
+	public void CeaseCharge() throws InterruptedException, DocumentException
+	{
+		WaitforElementtobeclickable(xml.getlocator("//locators/CeaseCharge"));
+		Clickon(getwebelement(xml.getlocator("//locators/CeaseCharge")));
+		waitForpageload();
 	}
 
 	public void NovationMethod(Object[] InputData) throws Exception {

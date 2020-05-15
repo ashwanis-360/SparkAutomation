@@ -12,4 +12,6 @@
 <OrderType>//label[contains(text(),'Order Type ')]/parent::*/span</OrderType>
 <OCNNumber>//label[contains(text(),'OCN')]/parent::*/span</OCNNumber>
 <BCNNumber>//label[contains(text(),'BCN')]/parent::*/span</BCNNumber>
+<TermYear>//label[contains(text(),'Term (Years)')]/parent::*/span</TermYear>
+<ContractRenewal>//label[contains(text(),' Contract Renewal')]/parent::*/span</ContractRenewal>
 </locators>

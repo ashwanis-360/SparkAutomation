@@ -21,6 +21,7 @@
   <InputPartyname>//input[@aria-labelledby='PopupQuerySrchspec_Label']</InputPartyname> 
   <PickAccntOk>//button[@title="Pick Account:OK"]</PickAccntOk> 
   <PopupYes>//button[text()='Yes']</PopupYes>
+  <CeaseCharge>//input[@aria-labelledby='COLT_Cessation_Charge_Applicable_Label']</CeaseCharge>
   <UnassignedPortRow>//div[@name='popup']//td[text()='PortName']/parent::tr</UnassignedPortRow>
   <OrderingParty>//*[(@aria-labelledby='Ordering_Party_Label')]</OrderingParty> 
   <OrderingPartyAddrSearch>//input[@aria-labelledby='COLT_Ordering_Account_Address_Name_Label']/..//span</OrderingPartyAddrSearch> 
@@ -426,12 +427,12 @@
   <InflightVoiceSelection>//input[@aria-labelledby="COLT_Voice_Label"]</InflightVoiceSelection>
   <WorkflowSave>//button[@aria-label="Workflow:Save"]</WorkflowSave>
   <BillingRow>//table[@summary="Service Charges"]/parent::*//tr</BillingRow>
-  <BillingRowAmount>(//table[@summary="Service Charges"]/parent::*//tr[@tabindex='-1']//td[5])[Value]</BillingRowAmount>
-  <BillingRowAmountInput>//table[@summary="Service Charges"]/parent::*//tr[@tabindex='-1']//td[5]//input</BillingRowAmountInput>
-   <BillingRowBCNInput>//table[@summary="Service Charges"]/parent::*//tr[@tabindex='-1']//td[6]//input</BillingRowBCNInput>
-  <BillingRowBCN>(//table[@summary="Service Charges"]/parent::*//tr[@tabindex='-1']//td[6])[Value]</BillingRowBCN>
+  <BillingRowAmount>(//table[@summary="Service Charges"]/parent::*//tr[@tabindex='-1']//td[Amt])[Value]</BillingRowAmount>
+  <BillingRowAmountInput>//table[@summary="Service Charges"]/parent::*//tr[@tabindex='-1']//td[Amt]//input</BillingRowAmountInput>
+   <BillingRowBCNInput>//table[@summary="Service Charges"]/parent::*//tr[@tabindex='-1']//td[Bcn]//input</BillingRowBCNInput>
+  <BillingRowBCN>(//table[@summary="Service Charges"]/parent::*//tr[@tabindex='-1']//td[Bcn])[Value]</BillingRowBCN>
   <BillingLastRow>//table[@summary="Service Charges"]/parent::*//tr[last()]</BillingLastRow>
-  <BCNSearchClick>//table[@summary="Service Charges"]/parent::*//tr[@tabindex='-1']//td[6]/span</BCNSearchClick>
+  <BCNSearchClick>//table[@summary="Service Charges"]/parent::*//tr[@tabindex='-1']//td[Bcn]/span</BCNSearchClick>
   <FirstLineitem>(//table[@summary="Service Charges"]/parent::*//tr)[2]</FirstLineitem>
   <ClickNextPage>(//span[@title="Next record set"])[1]</ClickNextPage>
 
@@ -832,7 +833,7 @@
 <PortValue>//li[text()='Physical Port']</PortValue>
 <sitename>//span[text()='Site Name']/..//input</sitename>
 <sitenamevalue>//li[text()='AT_1010_KARNTNER RING_12_EG_NODE']</sitenamevalue>
-<sitenamevaluevpn>//li[text()='BE_1130_HAACHTSESTWG / CHDEHAECHT_1430_G_NODE(BE)']</sitenamevaluevpn>
+<sitenamevaluevpn>//li[text()='DE_30169_CALENBERGER ESPLANADE_5A_EG_NODE']</sitenamevaluevpn>
 <LinkTypeDropDown>(//span[text()='Link Type']/parent::*//span)[3]</LinkTypeDropDown>
 <LinkTYpeValue>//li[text()='E-VPN Primary']</LinkTYpeValue>
 <ResilenceOptionDropDown>(//span[text()='Resilience Option']/parent::*//span)[3]</ResilenceOptionDropDown>

@@ -23,8 +23,7 @@ public class OMPScriptHelper extends DriverHelper {
 	
 		
 		Thread.sleep(10000);
-		
-		
+		ServiceOrder.set("151201325/200430-0026");
 //		for(int i=0;i<5;i++)
 //		{
 //			Clickon(getwebelement(xml.getlocator("//locators/InputOrderNumber")));
@@ -78,15 +77,14 @@ public class OMPScriptHelper extends DriverHelper {
 
 //Order No Verification
 		String OmpText = Gettext(getwebelement(xml.getlocator("//locators/OrderNumberBold")));
-		Assert.assertTrue(OmpText.equals(ServiceOrder.get().toString()),
-				"Search Order No : " + ServiceOrder.get().toString() + "not matched with Opened Order No :" + OmpText);
+		Assert.assertTrue(OmpText.equals(ServiceOrder.get().toString()),"Search Order No : " + ServiceOrder.get().toString() + "not matched with Opened Order No :" + OmpText);
 //Assert.assertTrue(OmpText.equals("871563292/190830-0102"),"Search Order No : 871563292/190830-0102 not matched with Opened Order No :"+OmpText);
-		ExtentTestManager.getTest().log(LogStatus.PASS,
-				" Step: Order No " + ServiceOrder.get().toString() + "Verified in OMP Portal");
+		ExtentTestManager.getTest().log(LogStatus.PASS," Step: Order No " + ServiceOrder.get().toString() + "Verified in OMP Portal");
 
 //Product Name Verification
 		OmpText = Gettext(getwebelement(xml.getlocator("//locators/ProductName")));
-		if (!Inputdata[8].toString().equalsIgnoreCase("IP VPN Service")) {
+		if (!Inputdata[8].toString().equalsIgnoreCase("IP VPN Service")) 
+		{
 			String ProdName = Inputdata[8].toString();
 			String[] parts = ProdName.split(" ");
 			//String part1 = parts[0];
@@ -95,58 +93,69 @@ public class OMPScriptHelper extends DriverHelper {
 			System.out.println(parts.length);
 		
 			
-			for (int i = 0; i < parts.length; i++) {
-				Assert.assertTrue(OmpText.contains(parts[i]),
-						"Product Name : " + parts[i] + " not matched with Opened Product Name :" + OmpText);
-				ExtentTestManager.getTest().log(LogStatus.PASS,
-						" Step: Product Name(" + parts[i] + ") Verified in OMP Portal");
+			for (int i = 0; i < parts.length; i++) 
+			{
+				Assert.assertTrue(OmpText.contains(parts[i]),"Product Name : " + parts[i] + " not matched with Opened Product Name :" + OmpText);
+				ExtentTestManager.getTest().log(LogStatus.PASS," Step: Product Name(" + parts[i] + ") Verified in OMP Portal");
 			
-			}
-		} else {
-			String ProdName = Inputdata[8].toString();
-			String[] parts = ProdName.split(" ");
-			
-			
-			for (int i = 0; i < parts.length; i++) {
-				Assert.assertTrue(OmpText.contains(parts[i]),
-						"Product Name : " + parts[i] + " not matched with Opened Product Name :" + OmpText);
-				ExtentTestManager.getTest().log(LogStatus.PASS,
-						" Step: Product Name(" + parts[i] + ") Verified in OMP Portal");
 			}
 		}
-//Assert.assertTrue(ProductName.equals(Inputdata[1].toString()),"Product Name : "+ Inputdata[1].toString() + "not matched with Opened Product Name :"+ProductName);
-// Assert.assertTrue(OmpText.contains("Number Hosting"),"Product Name : Number Hosting not matched with Opened Product Name :"+OmpText);
-// ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Product Name("+OmpText+") Verified in OMP Portal");
+		else 
+		{
+			String ProdName = Inputdata[8].toString();
+			String[] parts = ProdName.split(" ");
+			for (int i = 0; i < parts.length; i++) 
+			{
+				Assert.assertTrue(OmpText.contains(parts[i]),"Product Name : " + parts[i] + " not matched with Opened Product Name :" + OmpText);
+				ExtentTestManager.getTest().log(LogStatus.PASS," Step: Product Name(" + parts[i] + ") Verified in OMP Portal");
+			}
+		}
+		//Assert.assertTrue(ProductName.equals(Inputdata[1].toString()),"Product Name : "+ Inputdata[1].toString() + "not matched with Opened Product Name :"+ProductName);
+		// Assert.assertTrue(OmpText.contains("Number Hosting"),"Product Name : Number Hosting not matched with Opened Product Name :"+OmpText);
+		// ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Product Name("+OmpText+") Verified in OMP Portal");
 
-//Order Status Verification
+		//Order Status Verification
 		OmpText = Gettext(getwebelement(xml.getlocator("//locators/OrderStatus")));
-//Assert.assertTrue(OrderState.equals(Inputdata[2].toString()),"Order State : "+ Inputdata[2].toString() + "not matched with Opened Order State :"+OrderState);
-		Assert.assertTrue(OmpText.contains("Completed"),
-				"Order Status : Complete not matched with Opened Order State :" + OmpText);
+		//Assert.assertTrue(OrderState.equals(Inputdata[2].toString()),"Order State : "+ Inputdata[2].toString() + "not matched with Opened Order State :"+OrderState);
+		Assert.assertTrue(OmpText.contains("Completed"),"Order Status : Complete not matched with Opened Order State :" + OmpText);
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Order Status(" + OmpText + ") Verified in OMP Portal");
 
-//Order State Verification
-		OmpText = Gettext(getwebelement(xml.getlocator("//locators/OrderType")));
-
-		Assert.assertTrue(OmpText.equals(Inputdata[9].toString()),
-				"Order State : " + Inputdata[9].toString() + "not matched with Opened Order State :" + OmpText);
-//Assert.assertTrue(OmpText.contains("New"),"Order Type New  not matched with Opened Order State :"+OmpText);
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Order Type(" + OmpText + ") Verified in OMP Portal");
+		//Order State Verification
+		//OmpText = Gettext(getwebelement(xml.getlocator("//locators/OrderType")));
+		//Assert.assertTrue(OmpText.equals(Inputdata[9].toString()),"Order State : " + Inputdata[9].toString() + "not matched with Opened Order State :" + OmpText);
+		//Assert.assertTrue(OmpText.contains("New"),"Order Type New  not matched with Opened Order State :"+OmpText);
+		//ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Order Type(" + OmpText + ") Verified in OMP Portal");
 
 		/**************/
-//Order BCN Verification
-// OmpText=Gettext(getwebelement(xml.getlocator("//locators/BCNNumber")));
-// //Assert.assertTrue(OrderState.equals(Inputdata[2].toString()),"Order State : "+ Inputdata[2].toString() + "not matched with Opened Order State :"+OrderState);
-// Assert.assertTrue(OmpText.equals("151808"),"Order BCN Number  not matched with Opened Order State :"+OmpText);
-// ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Order BCN Number("+OmpText+") Verified in OMP Portal"); 
+		//Order BCN Verification
+		 OmpText=Gettext(getwebelement(xml.getlocator("//locators/BCNNumber")));
+		 //Assert.assertTrue(OrderState.equals(Inputdata[2].toString()),"Order State : "+ Inputdata[2].toString() + "not matched with Opened Order State :"+OrderState);
+	     Assert.assertTrue(OmpText.equals("156963"),"Order BCN Number  not matched with Opened Order State :"+OmpText);
+		 ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Order BCN Number("+OmpText+") Verified in OMP Portal"); 
 
-//Order OCN Verification
+		//Order OCN Verification
 		OmpText = Gettext(getwebelement(xml.getlocator("//locators/OCNNumber")));
-		Assert.assertTrue(OmpText.equals(Inputdata[0].toString()),
-				"Order State : " + Inputdata[0].toString() + "not matched with Opened Order State :" + OmpText);
-//Assert.assertTrue(OmpText.equals("4159381"),"Order OCN Number not matched with Opened Order State :"+OmpText);
-		ExtentTestManager.getTest().log(LogStatus.PASS,
-				" Step: Order OCN Number(" + OmpText + ") Verified in OMP Portal");
+		Assert.assertTrue(OmpText.equals(Inputdata[0].toString()),"Order State : " + Inputdata[0].toString() + "not matched with Opened Order State :" + OmpText);
+		//Assert.assertTrue(OmpText.equals("4159381"),"Order OCN Number not matched with Opened Order State :"+OmpText);
+		ExtentTestManager.getTest().log(LogStatus.PASS," Step: Order OCN Number(" + OmpText + ") Verified in OMP Portal");
+		
+		//Contract Renewa
+		//OmpText = Gettext(getwebelement(xml.getlocator("//locators/ContractRenewal")));
+		//Assert.assertTrue(OmpText.equals("Yes"),"Contract Renewal : Yes not matched with Opened Order State :" + OmpText);
+		//Assert.assertTrue(OmpText.equals("4159381"),"Order OCN Number not matched with Opened Order State :"+OmpText);
+		//ExtentTestManager.getTest().log(LogStatus.PASS," Step: Contract Renwal(" + OmpText + ") Verified in OMP Portal");
+		
+		//Term Year 
+		OmpText = Gettext(getwebelement(xml.getlocator("//locators/TermYear")));
+		Assert.assertTrue(OmpText.equals("3")," Contract Term  : 1 not matched with Opened Order State :" + OmpText);
+		//Assert.assertTrue(OmpText.equals("4159381"),"Order OCN Number not matched with Opened Order State :"+OmpText);
+		ExtentTestManager.getTest().log(LogStatus.PASS," Step: Contract Term (" + OmpText + ") Verified in OMP Portal");
+		
+		//Order State Verification Admin Change
+		OmpText = Gettext(getwebelement(xml.getlocator("//locators/OrderType")));
+		//Assert.assertTrue(OmpText.equals(Inputdata[9].toString()),"Order State : " + Inputdata[9].toString() + "not matched with Opened Order State :" + OmpText);
+		Assert.assertTrue(OmpText.contains("Cease"),"Order Type New  not matched with Opened Order State :"+OmpText);
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Order Type(" + OmpText + ") Verified in OMP Portal");
 	}
 }
 

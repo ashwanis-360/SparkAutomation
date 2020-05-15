@@ -18,14 +18,19 @@ public class ModHelper extends DriverHelper {
 	WebElement el;
 	XMLReader xml = new XMLReader("src\\Locators\\SiebelOrder.xml");
 	XMLReader xml2 = new XMLReader("src\\Locators\\VLV.xml");
+	XMLReader xmlUC = new XMLReader("src\\Locators\\CloudUc.xml");
 	XMLReader xml3 = new XMLReader("src\\Locators\\SiebelOrderEtherline.xml"); // added by shivananda
 	XMLReader xmlHns = new XMLReader("src\\Locators\\EtherNetHubSpoke.xml");
 
-	public ModHelper(WebDriver parentdriver) {
+	public ModHelper(WebDriver parentdriver) 
+	{
 		super(parentdriver);
 	}
-	public void ClickHereSave() throws InterruptedException, DocumentException {
-		try {		//Added by Ayush
+	
+	public void ClickHereSave() throws InterruptedException, DocumentException 
+	{
+		try 
+		{		//Added by Ayush
 			WaitforElementtobeclickable((xml.getlocator("//locators/ClickheretoSaveAccess")));
 			Clickon(getwebelement(xml.getlocator("//locators/ClickheretoSaveAccess")));
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on SaveAccess");
@@ -35,7 +40,6 @@ public class ModHelper extends DriverHelper {
 		{
 			e.printStackTrace();
 		}
-		
 	}
 	
 	//Created by Aman
@@ -67,7 +71,7 @@ public class ModHelper extends DriverHelper {
 		waitforPagetobeenable();
 	}
 	
-		public void modTechMiddleAppletCPESolutionService() throws InterruptedException, DocumentException
+	public void modTechMiddleAppletCPESolutionService() throws InterruptedException, DocumentException
 		{
 			waitForpageload();
 			waitforPagetobeenable();
@@ -93,7 +97,6 @@ public class ModHelper extends DriverHelper {
 			waitforPagetobeenable();
 		}
 
-	
 	// Added By Devesh
 	public void LeadCapacity(Object[] InputData) throws InterruptedException, DocumentException, IOException {
 		waitforPagetobeenable();
@@ -288,6 +291,7 @@ public class ModHelper extends DriverHelper {
 
 		}
 	}	
+	
 	// Added By Devesh
 	public void Save() throws InterruptedException, DocumentException {
 		WaitforElementtobeclickable(xml.getlocator("//locators/R4/Save"));
@@ -344,6 +348,7 @@ public class ModHelper extends DriverHelper {
 			}
 		}
 	}
+	
 	public void ModTech(Object[] Inputdata) throws Exception {
 		switch (Inputdata[8].toString()) {
 		//added by aman
@@ -551,38 +556,34 @@ public class ModHelper extends DriverHelper {
 			Thread.sleep(60000);
 			break;
 		}
-		case "Private Ethernet": {
+		case "Private Ethernet":
+		{
 			ModTechR4(Inputdata);
 			ModTechPrivateEthernet(Inputdata);
 			Save();
 			break;
 		}
-		case "DCA Ethernet": {
+		case "DCA Ethernet":
+		{
 			ModTechR4(Inputdata);
 			ModTechPrivateEthernet(Inputdata);
 			//Save();
 			break;
 		}
 
-		case "IP Guardian": {
-			
+		case "IP Guardian": 
+		{	
 			//Added  By Aman Gupta
 			waitforPagetobeenable();
-
 			
 			WaitforElementtobeclickable((xml.getlocator("//locators/AlertingNotification")));
 			getwebelement(xml.getlocator("//locators/AlertingNotification")).clear();
 			SendKeys(getwebelement(xml.getlocator("//locators/AlertingNotification")), Inputdata[5].toString());
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step:Enter AlertingNotification");
 
-
-
 			getwebelement(xml.getlocator("//locators/Customerdnsresolve")).clear();
-
 			SendKeys(getwebelement(xml.getlocator("//locators/Customerdnsresolve")), Inputdata[6].toString());
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step:Enter Customer dns resolve");
-
-
 
 			getwebelement(xml.getlocator("//locators/servicebandwidth")).clear();
 			SendKeys(getwebelement(xml.getlocator("//locators/servicebandwidth")), "4 Mbps");
@@ -600,15 +601,20 @@ public class ModHelper extends DriverHelper {
 			waitforPagetobeenable();
 			break;
 }
-		case "Voice Line V": {
-			WaitforElementtobeclickable(xml2.getlocator("//locators/TotalDDi"));
+		case "Voice Line V":
+		{
+			
+			
+			MiddleAppTextBox("Total Number of DDIs","6");
+			MiddleAppDropdown("Incoming DDI Digits","2");
+			/*WaitforElementtobeclickable(xml2.getlocator("//locators/TotalDDi"));
 			Clickon(getwebelement(xml2.getlocator("//locators/TotalDDi")));
 			SendKeys(getwebelement(xml2.getlocator("//locators/TotalDDi")), "6");
 			SendkeaboardKeys(getwebelement(xml2.getlocator("//locators/TotalDDi")), Keys.ENTER);
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Total DDI");
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Total DDI");*/
 			Thread.sleep(5000);
 			Clickon(getwebelement(xml2.getlocator("//locators/SaveButton")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on BCN Recurring Charge MRC Search");
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click On save");
 			Thread.sleep(10000);
 			System.out.println("middle applet end");
 			break;
@@ -617,7 +623,8 @@ public class ModHelper extends DriverHelper {
 		/* Code Merged for Rekha */
 		
 		/* Code Merged for Rekha */
-		case "IP Access": {
+		case "IP Access": 
+		{
 			WaitforElementtobeclickable(xml.getlocator("//locators/RouterTypeDropdownAccess"));
 			Clickon(getwebelement(xml.getlocator("//locators/RouterTypeDropdownAccess")));
 			WaitforElementtobeclickable(xml.getlocator("//locators/SelectRouterTypeDropDownAccess"));
@@ -677,21 +684,27 @@ public class ModHelper extends DriverHelper {
 			waitforPagetobeenable();			
 			break;
 		}
-		case "Interconnect": {
-
+		case "Interconnect": 
+		{
 			System.out.println("go to else loop of call admission control");
-			Clear(getwebelement(xml.getlocator("//locators/CallAdmissionControl")));
+			/*Clear(getwebelement(xml.getlocator("//locators/CallAdmissionControl")));
 			Thread.sleep(6000);
 			SendKeys(getwebelement(xml.getlocator("//locators/CallAdmissionControl")), "5");
 			Thread.sleep(3000);
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter call admission control");
-			SendkeaboardKeys(getwebelement(xml.getlocator("//locators/CallAdmissionControl")), Keys.TAB);
+			SendkeaboardKeys(getwebelement(xml.getlocator("//locators/CallAdmissionControl")), Keys.TAB);*/
+			
+			MiddleAppTextBox("Call Admission Control (Number of Channels)","12");
+			
+			//MiddleAppTextBox("Number of Signalling Trunks","1");
 
 			Clear(getwebelement(xml.getlocator("//locators/NumberOfSignallingTrunks")));
 			Thread.sleep(4000);
-			SendKeys(getwebelement(xml.getlocator("//locators/NumberOfSignallingTrunks")), "9");
+			SendKeys(getwebelement(xml.getlocator("//locators/NumberOfSignallingTrunks")), "1");
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step:Enter number of signalling trunks");
 			SendkeaboardKeys(getwebelement(xml.getlocator("//locators/NumberOfSignallingTrunks")), Keys.TAB);
+			
+			
 
 			WaitforElementtobeclickable(xml.getlocator("//locators/SaveButton"));
 			Clickon(getwebelement(xml.getlocator("//locators/SaveButton")));
@@ -836,14 +849,15 @@ public class ModHelper extends DriverHelper {
 					
 					break;
 				}
-		
-
-		default: {
+		default: 
+		{
 			break;
 		}
-		}
+		
+	 }
 
 	}
+
 	public void modtechInstallation(Object[] Inputdata) throws Exception
 	{
 		Thread.sleep(5000);
@@ -869,6 +883,7 @@ public class ModHelper extends DriverHelper {
 		SendKeys(getwebelement(xml.getlocator("//locators/R4/SiteAInput").replace("Value","Access Time Window" )), Integer.toString(rand_int2));
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Cabinet ID  : "+ Integer.toString(rand_int2));
 	}
+	
 	public void ethernetVpnAccessMissleApplet(Object[] Inputdata) throws Exception
 	{
 		Thread.sleep(5000);
@@ -883,6 +898,7 @@ public class ModHelper extends DriverHelper {
 		 waitForpageload();
 		waitforPagetobeenable();
 	}
+	
 	public void modEthernetHubMiddleApplet(Object[] Inputdata) throws Exception
 	{
 		waitforPagetobeenable();
@@ -934,13 +950,18 @@ public class ModHelper extends DriverHelper {
 //		Thread.sleep(10000);
 //		waitforPagetobeenable();
 	}
+	
 	//aman gupta
 	public void modTechNumberHosting(Object[] Inputdata) throws InterruptedException, DocumentException, IOException
 	{
+		
 		System.out.println("go to else loop of call admission control");
-		Clear(getwebelement(xml.getlocator("//locators/CallAdmissionControl")));
-		Thread.sleep(6000);
-		SendKeys(getwebelement(xml.getlocator("//locators/CallAdmissionControl")), "3");
+		
+		
+		MiddleAppTextBox("Call Admission Control (Number of Channels)","3");
+		MiddleAppTextBox("Number of Signalling Trunks","9");
+		
+		/*SendKeys(getwebelement(xml.getlocator("//locators/CallAdmissionControl")), "3");
 		Thread.sleep(3000);
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter call admission control");
 		SendkeaboardKeys(getwebelement(xml.getlocator("//locators/CallAdmissionControl")), Keys.TAB);
@@ -949,7 +970,7 @@ public class ModHelper extends DriverHelper {
 		Thread.sleep(4000);
 		SendKeys(getwebelement(xml.getlocator("//locators/NumberOfSignallingTrunks")), "9");
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step:Enter number of signalling trunks");
-		SendkeaboardKeys(getwebelement(xml.getlocator("//locators/NumberOfSignallingTrunks")), Keys.TAB);
+		SendkeaboardKeys(getwebelement(xml.getlocator("//locators/NumberOfSignallingTrunks")), Keys.TAB);*/
 
 		WaitforElementtobeclickable(xml.getlocator("//locators/SaveButton"));
 		Clickon(getwebelement(xml.getlocator("//locators/SaveButton")));
@@ -957,6 +978,7 @@ public class ModHelper extends DriverHelper {
 		waitForpageload();
 		waitforPagetobeenable();
 	}
+	
 	//aman gupta
 	public void modTechMangedDeicatedFirewall(Object[] Inputdata) throws InterruptedException, DocumentException, IOException
 	{
@@ -986,6 +1008,7 @@ public class ModHelper extends DriverHelper {
 		waitForpageload();
 		waitforPagetobeenable();
 	}
+	
 	//Aman gupta
 	public void modTechDarkFibreA(Object[] InputData) throws InterruptedException, DocumentException, IOException
 	{
@@ -1037,14 +1060,16 @@ public class ModHelper extends DriverHelper {
 		waitForpageload();
 		waitforPagetobeenable();
 	}
+	
 	public void modTechDarkFibreB(Object[] InputData) throws InterruptedException, DocumentException, IOException
 	{
 		waitForpageload();
 		waitforPagetobeenable();
-	String ProductName = InputData[8].toString();
-	int rand_int1 = rand.nextInt(1000); 
-	int rand_int2 = rand.nextInt(1000);
-		if(!(ProductName.equalsIgnoreCase("Private Wave Service"))) {
+		String ProductName = InputData[8].toString();
+		int rand_int1 = rand.nextInt(1000); 
+		int rand_int2 = rand.nextInt(1000);
+		if(!(ProductName.equalsIgnoreCase("Private Wave Service"))) 
+		{
 			 System.out.print(xml.getlocator("//locators/R4/SiteBDropdownClick").replace("Value","Install Time" ));
 				WaitforElementtobeclickable(xml.getlocator("//locators/R4/SiteBDropdownClick").replace("Value","Install Time" ));
 				Clickon(getwebelement(xml.getlocator("//locators/R4/SiteBDropdownClick").replace("Value","Install Time" )));
@@ -1085,9 +1110,8 @@ public class ModHelper extends DriverHelper {
 		}
 	}
 
-	
 	//Aman gupta
-		public void modTechPrivateWaveNode(Object[] InputData) throws InterruptedException, DocumentException, IOException
+	public void modTechPrivateWaveNode(Object[] InputData) throws InterruptedException, DocumentException, IOException
 		{
 			waitForpageload();
 			waitforPagetobeenable();
@@ -1133,8 +1157,9 @@ public class ModHelper extends DriverHelper {
 				waitforPagetobeenable();
 			}
 		}
-		//Added By Aman Gupta
-		public void modTechPrivateWebServiceFibreMiddleApplet(Object[] InputData) throws InterruptedException, DocumentException
+		
+	//Added By Aman Gupta
+	public void modTechPrivateWebServiceFibreMiddleApplet(Object[] InputData) throws InterruptedException, DocumentException
 		{
 			waitForpageload();
 			waitforPagetobeenable();
@@ -1159,7 +1184,8 @@ public class ModHelper extends DriverHelper {
 			waitForpageload();
 			waitforPagetobeenable();
 		}
-		public void modTechCPESite_SiteChange(Object[] Inputdata) throws Exception
+		
+	public void modTechCPESite_SiteChange(Object[] Inputdata) throws Exception
 		{
 			waitforPagetobeenable();
 			waitforPagetobeenable();
@@ -1228,8 +1254,9 @@ public class ModHelper extends DriverHelper {
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Row and Pick Site");
 			waitforPagetobeenable();
 		}
-		//Added By Aman Gupta
-		public void modTechEthernetAccessMiddleApplet(Object[] InputData) throws InterruptedException, DocumentException
+	
+	//Added By Aman Gupta
+	public void modTechEthernetAccessMiddleApplet(Object[] InputData) throws InterruptedException, DocumentException
 		{
 			waitForpageload();
 			waitforPagetobeenable();
@@ -1249,8 +1276,8 @@ public class ModHelper extends DriverHelper {
 			waitforPagetobeenable();
 		}
 
-		//Added By Aman Gupta
-					public void modTechDarkFibreMiddleApplet(Object[] InputData) throws InterruptedException, DocumentException
+	//Added By Aman Gupta
+	public void modTechDarkFibreMiddleApplet(Object[] InputData) throws InterruptedException, DocumentException
 					{
 						waitForpageload();
 						waitforPagetobeenable();
@@ -1275,8 +1302,10 @@ public class ModHelper extends DriverHelper {
 						waitForpageload();
 						waitforPagetobeenable();
 					}
-					//By aman Gupta
-					public void EnterInstallationChargeInFooters(Object Inputdata[]) throws Exception {
+	
+	//By aman Gupta
+	public void EnterInstallationChargeInFooters(Object Inputdata[]) throws Exception 
+	{
 						if (!Inputdata[8].toString().equals("Cloud UC")) {
 							Select(getwebelement(xml.getlocator("//locators/InstalltionDropdown")), "Installation and Test");
 							ExtentTestManager.getTest().log(LogStatus.PASS,
@@ -1295,9 +1324,10 @@ public class ModHelper extends DriverHelper {
 								Thread.sleep(3000);
 							}
 						}
-					}
-					//as per Aman Gupta   
-					public void modHeader(Object[] Inputdata) throws InterruptedException, DocumentException, IOException
+	}
+					
+	//as per Aman Gupta   
+	public void modHeader(Object[] Inputdata) throws InterruptedException, DocumentException, IOException
 					{
 						waitForpageload();
 						waitforPagetobeenable(); 
@@ -1310,9 +1340,8 @@ public class ModHelper extends DriverHelper {
 						waitforPagetobeenable(); 
 					}
 					
-					//As per Aman gupta
-
-				public void modTechultraLowLatencyMiddleApplet(Object[] InputData) throws InterruptedException, DocumentException
+	//As per Aman gupta
+	public void modTechultraLowLatencyMiddleApplet(Object[] InputData) throws InterruptedException, DocumentException
 						{
 							waitForpageload();
 							waitforPagetobeenable();
@@ -1347,8 +1376,9 @@ public class ModHelper extends DriverHelper {
 							waitForpageload();
 							waitforPagetobeenable();
 						}
-				//Added By Aman Gupta
-				public void modTechPrivateWaveNodeMiddleApplet(Object[] InputData) throws InterruptedException, DocumentException
+				
+	//Added By Aman Gupta
+	public void modTechPrivateWaveNodeMiddleApplet(Object[] InputData) throws InterruptedException, DocumentException
 				{
 					waitForpageload();
 					waitforPagetobeenable();
@@ -1362,10 +1392,9 @@ public class ModHelper extends DriverHelper {
 					Clickon(getwebelement(xml.getlocator("//locators/DarkFiber/SaveButton")));
 					ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on  Save Button ");
 				}
-				/*
-				 * Created by Aman Gupta
-				 */
-				public void modTechPrizmNetMiddleApplet(Object[] Inputdata) throws Exception {
+			
+	//Created by Aman Gupta
+	public void modTechPrizmNetMiddleApplet(Object[] Inputdata) throws Exception {
 
 					{
 						waitForpageload();
@@ -1398,8 +1427,9 @@ public class ModHelper extends DriverHelper {
 					
 					}
 					}
-				/* Created by Aman */
-				public void modTechSwiftNetMiddleApplet(Object[] Inputdata) throws Exception
+				
+	/* Created by Aman */
+	public void modTechSwiftNetMiddleApplet(Object[] Inputdata) throws Exception
 				{
 
 					waitforPagetobeenable();
@@ -1447,36 +1477,60 @@ public class ModHelper extends DriverHelper {
 					
 					
 				}
+	
+	public void MiddleAppDropdown(String DropdownName, String DropdownValue) throws InterruptedException, DocumentException
+	{
+		WaitforElementtobeclickable(xml.getlocator("//locators/DarkFiber/MiddleDropDown").replace("Value", DropdownName));
+		Clickon(getwebelement(xml.getlocator("//locators/DarkFiber/MiddleDropDown").replace("Value", DropdownName)));
+		Thread.sleep(3000);
+		waitForpageload();
+	    waitforPagetobeenable();
+		Clickon(getwebelement(xml.getlocator("//locators/DarkFiber/MiddleLi").replace("Value", DropdownValue)));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Connection Type : " + DropdownValue);
+	}
+	
+	public void MiddleAppTextBox(String TextBoxName, String InputText) throws InterruptedException, DocumentException, IOException
+				{
+					waitForpageload();
+				    waitforPagetobeenable();
+					WaitforElementtobeclickable(xmlUC.getlocator("//locators/MidlleAppText").replace("Value", TextBoxName));
+					Clear(getwebelement(xmlUC.getlocator("//locators/MidlleAppText").replace("Value", TextBoxName)));
+					SendKeys(getwebelement(xmlUC.getlocator("//locators/MidlleAppText").replace("Value", TextBoxName)),InputText);
+					SendkeaboardKeys(getwebelement(xmlUC.getlocator("//locators/MidlleAppText").replace("Value", TextBoxName)),Keys.ENTER);
+					ExtentTestManager.getTest().log(LogStatus.PASS," Step: Enter in ("+TextBoxName+") as  : " + InputText);
+				}
 				
-				/* Created by Aman */
-				public void modSipTrunkingMiddleapplet(Object[] Inputdata) throws Exception
+	/* Created by Aman */
+	public void modSipTrunkingMiddleapplet(Object[] Inputdata) throws Exception
 				{
 					waitforPagetobeenable();
-					WaitforElementtobeclickable(xml2.getlocator("//locators/CallAdmissionControl"));
+					MiddleAppTextBox("Call Admission Control (Number of Channels)","12");
+					
+					/*WaitforElementtobeclickable(xml2.getlocator("//locators/CallAdmissionControl"));
 					Clickon(getwebelement(xml2.getlocator("//locators/CallAdmissionControl")));
 					Clear(getwebelement(xml2.getlocator("//locators/CallAdmissionControl")));
 					SendKeys(getwebelement(xml2.getlocator("//locators/CallAdmissionControl")), "12");
+					ExtentTestManager.getTest().log(LogStatus.PASS, " Update CallAdmissionControl : 12");*/
 
 					WaitforElementtobeclickable(xml2.getlocator("//locators/TotalNumberDDIs"));
 					Clickon(getwebelement(xml2.getlocator("//locators/TotalNumberDDIs")));
 					Clear(getwebelement(xml2.getlocator("//locators/TotalNumberDDIs")));
 
-					SendKeys(getwebelement(xml2.getlocator("//locators/TotalNumberDDIs")), "1");
-					ExtentTestManager.getTest().log(LogStatus.PASS, " Provide Value to Total Number of DDI");
+					SendKeys(getwebelement(xml2.getlocator("//locators/TotalNumberDDIs")), "9");
+					ExtentTestManager.getTest().log(LogStatus.PASS, " Provide Value to Total Number of DDI : 9");
 					Thread.sleep(10000);
 
 					Thread.sleep(5000);
 
 					Clickon(getwebelement(xml2.getlocator("//locators/SaveButton")));
-					ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on BCN Recurring Charge MRC Search");
+					ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click On Save ");
 					Thread.sleep(10000);
 
 					System.out.println("middle applet end");
 				}
 				
-				/* Created by Aman */
-				
-				public void modTechEthernetSpokeMiddleApplet(Object[] Inputdata) throws Exception {
+	/* Created by Aman */
+	public void modTechEthernetSpokeMiddleApplet(Object[] Inputdata) throws Exception {
 					waitforPagetobeenable();
 					Clickon(getwebelement(xmlHns.getlocator("//locators/CustomizeButton")));
 					Thread.sleep(30000);
@@ -1503,8 +1557,9 @@ public class ModHelper extends DriverHelper {
 					ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Ethernet Connection link");
 					Thread.sleep(10000);
 				}
-				/* Created by Aman */
-				public void ProductSpecificCompleted(Object[] Inputdata) throws Throwable
+				
+	/* Created by Aman */
+	public void ProductSpecificCompleted(Object[] Inputdata) throws Throwable
 				{
 					if(Inputdata[11].toString().equalsIgnoreCase("IP VPN Access")
 							
@@ -1572,7 +1627,7 @@ public class ModHelper extends DriverHelper {
 				
 				}
 
-				public void WarningProceedClick() throws InterruptedException
+	public void WarningProceedClick() throws InterruptedException
 				{
 					waitforPagetobeenable();
 					try
@@ -1588,7 +1643,7 @@ public class ModHelper extends DriverHelper {
 					}
 				}
 				
-				public void ModCom(Object[] Inputdata) throws Exception {
+	public void ModCom(Object[] Inputdata) throws Exception {
 					{
 						switch (Inputdata[8].toString()) {
 						
@@ -1607,8 +1662,5 @@ public class ModHelper extends DriverHelper {
 								break;
 						}}
 					}
-
-				
-
 
 }
