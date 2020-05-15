@@ -1,32 +1,30 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite thread-count="1" data-provider-thread-count="1" verbose="1"
-	name="Spark End to End Order" annotations="JDK">
+	name="Data Migration R5" annotations="JDK">
 	<listeners>
 		<listener class-name="Listners.TestListener" />
 	</listeners>
 
-	<test name="Siebel New Order" junit="false" preserve-order="true">
+ <test name="Siebel New Order" junit="false" preserve-order="true">
 		<classes>
 			<class name="Testscript.NewOrders">
 				<methods>
-					<include name="EndtoEndOrderOnnet" />
-
+					<include name="EndtoEndOrderOnnet"/>
 				</methods>
 			</class>
 		</classes>
 	</test>
 
-	<test name="Siebel Cease" junit="false" preserve-order="true">
+<test name="Siebel Cease" junit="false" preserve-order="true">
 		<classes>
 			<class name="Testscript.NewOrders">
 				<methods>
 					<include name="Cease" />
-
 				</methods>
 			</class>
 		</classes>
 	</test>
-	<test name="Siebel Novation" junit="false" preserve-order="true">
+ <test name="Siebel Novation" junit="false" preserve-order="true">
 		<classes>
 			<class name="Testscript.NewOrders">
 				<methods>
@@ -48,7 +46,7 @@
 		</classes>
 	</test>
 
-	<test name="Siebel Cancel " junit="false" preserve-order="true">
+<test name="Siebel Cancel " junit="false" preserve-order="true">
 		<classes>
 			<class name="Testscript.NewOrders">
 				<methods>
@@ -58,19 +56,17 @@
 			</class>
 		</classes>
 	</test>
-
-	<test name="Siebel Mod" junit="false" preserve-order="true">
+<test name="Siebel Mod" junit="false" preserve-order="true">
 		<classes>
 			<class name="Testscript.NewOrders">
 				<methods>
-
-					<include name="Mod" />
+					<include name="Mod"/>
 				</methods>
 			</class>
 		</classes>
 	</test>
 
-	<test name="OMP" junit="false" preserve-order="true">
+<test name="OMP" junit="false" preserve-order="true">
 		<classes>
 			<class name="Testscript.NewOrders">
 				<methods>
@@ -92,7 +88,7 @@
 		</classes>
 	</test>
 
-	<test name="Premise" junit="false" preserve-order="true">
+  <test name="Premise" junit="false" preserve-order="true">
 		<classes>
 			<class name="Testscript.NewOrders">
 				<methods>
