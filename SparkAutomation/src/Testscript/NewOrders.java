@@ -13,7 +13,7 @@ public class NewOrders extends DriverTestcase {
 	public void EndtoEndOrderOnnet(Object[] Data) throws Exception {
 
 		Login.get().Login("Sieble");
-		// newOrderOnnnet.get().Check(Data);
+		//newOrderOnnnet.get().Check(Data);
 		newOrderOnnnet.get().accountTabDetails(Data);
 		newOrderOnnnet.get().createCustomerOrder(Data);
 		newOrderOnnnet.get().productSelectionHelper(Data);
@@ -35,13 +35,14 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().EnterDateInFooter(Data); // No change
 			newOrderOnnnet.get().EnterBillingDateInFooter(Data); // No change
 			newOrderOnnnet.get().EnterServiceChargeInFooter(Data, "2");
-
 			newOrderOnnnet.get().CommercialValidation(Data); // No Change
 			newOrderOnnnet.get().TechnicalValidation(Data); // Updated for spoke also
 			newOrderOnnnet.get().CircuitReferenceGeneration(Data); 
 			newOrderOnnnet.get().DeliveryValidation(Data); // No Change
 			newOrderOnnnet.get().OrderCompleteEthernetHubSpoke(Data);// updated same as hub
-		} else {
+		} 
+		else 
+		{
 			newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);
 			newOrderOnnnet.get().enterMandatoryDetailsInMiddleApplet(Data);
 			newOrderOnnnet.get().VoiceConfigTab(Data);
@@ -54,18 +55,19 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().UploadDocument(Data);
 			newOrderOnnnet.get().SelectServiceGroupTab(Data);
 			newOrderOnnnet.get().OperationAttribute(Data);
-			newOrderOnnnet.get().EnterInstallationChargeInFooter(Data);
+			newOrderOnnnet.get().InstallationTest();
 			newOrderOnnnet.get().MandatoryFields(Data);
 			newOrderOnnnet.get().CommercialValidation(Data);
 			newOrderOnnnet.get().TechnicalValidation(Data);
 			newOrderOnnnet.get().clickOnManualValidationB(Data);
+			newOrderOnnnet.get().getReferenceNo(Data);
 			newOrderOnnnet.get().DeliveryValidation(Data);
 			newOrderOnnnet.get().clickOnManualValidationA();
-			if (Data[74].toString().equals("Offnet")) {
+			if (Data[32].toString().equals("Offnet")) {
 				newOrderOnnnet.get().CEOS_Offnet();
 				newOrderOnnnet.get().LaunchingCEOSApplication(Data);
 			}
-			newOrderOnnnet.get().getReferenceNo(Data);// added new
+			// added new
 			newOrderOnnnet.get().CompletedValidation(Data);
 			newOrderOnnnet.get().WriteServiceOrderNumber(Data);
 		}

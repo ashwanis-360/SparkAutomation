@@ -590,6 +590,9 @@
   <!-- ************************* Private Wave Service *********************** -->
   <PrivateWaveService>
   <!--  <OperationalAttribueClick>(//table[@summary="Operational Attributes"]//tr[contains(@class,'mandatory')]//td[3])</OperationalAttribueClick> -->
+   <NewOperationalCount>//table[@summary="Operational Attributes"]//tr[contains(@class,'mandatory')]</NewOperationalCount>
+  <NewOperationalAttributeClick>//table[@summary='Operational Attributes']//tr[contains(@class,'mandatory')][trindex]//td[tdindex]</NewOperationalAttributeClick>
+  <NewOperationalAttributeDropdown>//table[@summary='Operational Attributes']//tr[contains(@class,'mandatory')][trindex]//td[tdindex]/span</NewOperationalAttributeDropdown>
   <OperationalAttribueClick>(//table[@summary="Operational Attributes"]//tr[contains(@class,'mandatory')]//td[3])[index]</OperationalAttribueClick>
   <OperationalAttributeDropdown>//table[@summary="Operational Attributes"]//tr[contains(@class,'mandatory')]//td[3]/span</OperationalAttributeDropdown>
   <InputValuesProtection>(//td[text()='Protection Type']//following::input)[1]</InputValuesProtection>//already click
@@ -1014,9 +1017,8 @@
   <AccessPortList>//tr[@class='colt-siteselection-datarow']</AccessPortList>
   <RouterSpecificationSetting>(//span[contains(@class,'colt-oa-btn colt-oa-std-btn colt-oa-Primary-Child')])[2]</RouterSpecificationSetting>
    <RouterSpecificationSettingPartial>(//span[contains(@class,'colt-oa-btn colt-oa-std-btn colt-oa-Secondary-Child')])[2]</RouterSpecificationSettingPartial>
- <OperationalAttribueClick>(//table[@summary="Operational Attributes"]//tr[contains(@class,'mandatory')]//td[3])[index]</OperationalAttribueClick>
- 
-    <OperationalAttributeText>//table[@summary="Operational Attributes"]//tr[contains(@class,'mandatory')]//td[3]/input</OperationalAttributeText>
+ <OperationalAttribueClick>(//table[@summary="Operational Attributes"]//tr[contains(@class,'mandatory')]//td[4])[index]</OperationalAttribueClick>
+ <OperationalAttributeText>//table[@summary="Operational Attributes"]//tr[contains(@class,'mandatory')]//td[4]/input</OperationalAttributeText>
  <OperationalAttributeOK>//button[@aria-label='Operational Attributes:OK']</OperationalAttributeOK>
  <NetworkService>//td[@title='IP VPN Service']</NetworkService>
  <GOIPService>//a[text()='Value']</GOIPService>

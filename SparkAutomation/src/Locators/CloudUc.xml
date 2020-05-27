@@ -10,6 +10,7 @@
 <BCN>(//tr[@role="row"])[7]//td[6]</BCN>
 <BcnClick>(//tr[@role="row"])[7]//td[6]//span[@class="siebui-icon-pick"]</BcnClick>
 <BcnOk>//button[@title="Billing Profile:OK"]</BcnOk>
+<MidlleAppText>//span[text()='Value']/parent::*//input</MidlleAppText>
 
 
 
