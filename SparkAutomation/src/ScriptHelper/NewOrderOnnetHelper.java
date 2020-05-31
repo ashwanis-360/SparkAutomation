@@ -2416,12 +2416,198 @@ public class NewOrderOnnetHelper extends DriverHelper {
 	    waitforPagetobeenable();
 	}
 	
+	public void PrivateWaveServiceSiteEntries(Object[] InputData) throws Exception
+	{
+		Random rnd=new Random();
+		int rnd_int=0;
+		if(InputData[32].toString().equalsIgnoreCase("offnet"))
+		{
+			//
+		}
+		else
+		{
+		AEndDropdownSelection("Access Type",InputData[53].toString());
+		AEndDropdownSelection("Building Type",InputData[54].toString());
+		AEndDropdownSelection("Customer Site Pop Status",InputData[55].toString());
+		AEndInputEnter("Site Name Alias",Integer.toString(rnd_int));
+		AEndInputEnter("Node Site Name","AHYG-"+Integer.toString(rnd.nextInt(1000)));
+		AEndInputEnter("Node Service ID",Integer.toString(rnd.nextInt(1000))+Integer.toString(rnd.nextInt(1000)));
+		
+		
+		BEndDropdownSelection("Access Type",InputData[56].toString());
+		BEndDropdownSelection("Building Type",InputData[57].toString());
+		BEndDropdownSelection("Customer Site Pop Status",InputData[58].toString());
+		BEndInputEnter("Site Name Alias",Integer.toString(rnd_int));
+		BEndInputEnter("Node Site Name","AHYG-"+Integer.toString(rnd.nextInt(1000)));
+		BEndInputEnter("Node Service ID",Integer.toString(rnd.nextInt(1000))+Integer.toString(rnd.nextInt(1000)));
+		
+		//Install Time
+		AEndDropdownSelection("Install Time",InputData[59].toString());
+		BEndDropdownSelection("Install Time",InputData[60].toString());
+		
+		//Termination Information
+		rnd_int = rnd.nextInt(1000);
+	    AEndInputEnter("Cabinet ID",Integer.toString(rnd_int));
+	    AEndDropdownSelection("Cabinet Type",InputData[61].toString());
+	    rnd_int = rnd.nextInt(1000);
+	    AEndInputEnter("Shelf ID",Integer.toString(rnd_int));
+	    rnd_int = rnd.nextInt(1000);
+	    
+	    BEndInputEnter("Cabinet ID",Integer.toString(rnd_int));
+	    BEndDropdownSelection("Cabinet Type",InputData[62].toString());
+	    rnd_int = rnd.nextInt(1000);
+	    BEndInputEnter("Shelf ID",Integer.toString(rnd_int));
+	    
+	    //Access Port
+	    AEndDropdownSelection("Connector Type",InputData[63].toString());
+	    AEndDropdownSelection("Fibre Type",InputData[64].toString());
+	    rnd_int = rnd.nextInt(1000);
+	    AEndInputEnter("Physical Port ID",Integer.toString(rnd_int));
+	    rnd_int = rnd.nextInt(1000);
+	    AEndInputEnter("Slot ID",Integer.toString(rnd_int));
+	    
+	    
+	    BEndDropdownSelection("Connector Type",InputData[65].toString());
+	    BEndDropdownSelection("Fibre Type",InputData[66].toString());
+	    rnd_int = rnd.nextInt(1000);
+	    BEndInputEnter("Physical Port ID",Integer.toString(rnd_int));
+	    rnd_int = rnd.nextInt(1000);
+	    BEndInputEnter("Slot ID",Integer.toString(rnd_int));
+	    }
+	    waitForpageload();
+	    waitforPagetobeenable();
+	    ClickHereSave();
+	    waitForpageload();
+	    waitforPagetobeenable();
+	}
+	
+	public void PrivateWaveNodeSiteEntries(Object[] InputData) throws Exception
+	{
+		Random rnd=new Random();
+		int rnd_int=0;
+		if(InputData[32].toString().equalsIgnoreCase("offnet"))
+		{
+			//
+		}
+		else
+		{
+		AEndDropdownSelection("Access Type",InputData[49].toString());
+		AEndDropdownSelection("Access Technology",InputData[50].toString());
+		AEndDropdownSelection("Building Type",InputData[51].toString());
+		AEndDropdownSelection("Customer Site Pop Status",InputData[52].toString());
+		AEndInputEnter("Site Name Alias",Integer.toString(rnd_int));
+		AEndInputEnter("Node Site Name","NODE-"+Integer.toString(rnd.nextInt(1000)));
+		
+		//Install Time
+		AEndDropdownSelection("Install Time",InputData[53].toString());
+		
+		//Termination Information
+		rnd_int = rnd.nextInt(1000);
+	    AEndInputEnter("Cabinet ID",Integer.toString(rnd_int));
+	    AEndDropdownSelection("Cabinet Type",InputData[54].toString());
+	    rnd_int = rnd.nextInt(1000);
+	    AEndInputEnter("Shelf ID",Integer.toString(rnd_int));
+	    rnd_int = rnd.nextInt(1000);
+	   
+	    }
+	    waitForpageload();
+	    waitforPagetobeenable();
+	    ClickHereSave();
+	    waitForpageload();
+	    waitforPagetobeenable();
+	}
+
+	public void EthernetHubSiteEntries(Object[] InputData) throws Exception
+	{
+		Random rnd=new Random();
+		int rnd_int=0;
+		if(InputData[32].toString().equalsIgnoreCase("offnet"))
+		{
+			//
+		}
+		else
+		{
+		AEndDropdownSelection("Access Type",InputData[51].toString());
+		AEndDropdownSelection("Access Technology",InputData[52].toString());
+		AEndDropdownSelection("Building Type",InputData[53].toString());
+		AEndDropdownSelection("Customer Site Pop Status",InputData[54].toString());
+		AEndInputEnter("3rd Party Connection Reference",Integer.toString(rnd.nextInt(1000)));
+		AEndInputEnter("BCP Reference",Integer.toString(rnd.nextInt(1000)));
+		AEndInputEnter("Site Name Alias",Integer.toString(rnd.nextInt(1000)));
+		
+		//CPE Information
+		rnd_int = rnd.nextInt(1000);
+		AEndInputEnter("Cabinet ID",Integer.toString(rnd.nextInt(1000)));
+		AEndDropdownSelection("Cabinet Type",InputData[55].toString());
+		AEndInputEnter("Shelf ID",Integer.toString(rnd.nextInt(1000)));
+		
+		AEndInputEnter("Slot ID",Integer.toString(rnd.nextInt(1000)));
+		AEndInputEnter("Physical Port ID",Integer.toString(rnd.nextInt(1000)));
+		AEndDropdownSelection("Presentation Interface",InputData[56].toString());
+		AEndDropdownSelection("Connector Type",InputData[57].toString());
+		AEndDropdownSelection("Fibre Type",InputData[58].toString());
+		
+		//Install Time
+		AEndDropdownSelection("Install Time",InputData[59].toString());
+		
+	    }
+	    waitForpageload();
+	    waitforPagetobeenable();
+	    ClickHereSave();
+	    waitForpageload();
+	    waitforPagetobeenable();
+	}
+	
 	public void enterMandatoryDetailsInMiddleApplet(Object[] InputData) throws Exception {
 		
 		Random rand = new Random();
 		int rand_int1 = rand.nextInt(1000);
 		switch (InputData[9].toString()) 
 		{
+		case "Ethernet Hub": 
+		{  
+			MiddleAppDropdown("Resilience Option",InputData[47].toString());
+			MiddleAppDropdown("Service Bandwidth",InputData[48].toString());
+			MiddleAppDropdown("Bandwidth Type",InputData[49].toString());
+			MiddleAppDropdown("OSS Platform Flag",InputData[50].toString());
+			
+			ClickHereSave();
+			addSiteADetails(InputData);
+			EthernetHubSiteEntries(InputData);
+			//OperationalAttributeDarkFibre();
+			ClickHereSave();
+			break;
+		}
+		case "Private Wave Node": 
+		{  
+			MiddleAppDropdown("OSS Platform Flag",InputData[47].toString());
+			MiddleAppDropdown("Network Topology",InputData[48].toString());
+			ClickHereSave();
+			addSiteADetails(InputData);
+			PrivateWaveNodeSiteEntries(InputData);
+			OperationalAttributeDarkFibre();
+			ClickHereSave();
+			break;
+		}
+		case "Private Wave Service": 
+		{
+			//MiddleAppDropdown("Coverage",InputData[47].toString());
+			MiddleAppDropdown("Service Bandwidth",InputData[47].toString());
+			MiddleAppDropdown("A End Resilience Option",InputData[48].toString());
+			MiddleAppDropdown("B End Resilience Option",InputData[49].toString());
+			MiddleAppDropdown("OSS Platform Flag",InputData[50].toString());
+			MiddleAppDropdown("Network Topology",InputData[51].toString());
+			MiddleAppDropdown("Service Type",InputData[52].toString());
+			ShowfullInfo();
+			DiversityCircuitEntry(InputData);
+			Save();
+			addSiteADetails(InputData);
+			addSiteBDetails(InputData);
+			PrivateWaveServiceSiteEntries(InputData);
+			OperationalAttributeDarkFibre();
+			ClickHereSave();
+			break;
+		}
 		case "DCA Ethernet": 
 		{
 			MiddleAppDropdown("Coverage",InputData[47].toString());
@@ -2448,7 +2634,6 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			ClickHereSave();
 			break;
 		}
-		
 		case "Private Ethernet": 
 		{
 			MiddleAppDropdown("Service Bandwidth",InputData[47].toString());
@@ -2462,7 +2647,6 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			//PrivateEthernetEntry(InputData);
 			DiversityCircuitEntry(InputData);
 			ClickHereSave();
-			
 			addSiteADetails(InputData);
 			addSiteBDetails(InputData);
 			PrivateEthernetSiteEntries(InputData);
@@ -2565,64 +2749,6 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			CPSolutionSite(InputData);
 			break;
 		}
-		case "Private Wave Node": {  // Added by Aman
-			middleAppletPrivateWaveNode(InputData);
-			alertPopUp();
-			SiteAServiceParty(InputData);
-			PickServiceParty(InputData);
-			SiteASiteContact(InputData);
-			PickSiteContactParty(InputData);
-			alertPopUp();
-			ClickHereSave();
-			
-			SearchSiteA(InputData);
-			SearchSiteAEntry(InputData);
-			AEndSitePUD(InputData);
-			SiteAInstallationTimePUD(InputData);
-			SiteATerminationTimePUD(InputData);
-			ClickHereSave();
-			waitForpageload();
-	    	waitforPagetobeenable();
-			break;
-		}
-		
-		case "Private Wave Service": {
-			ShowfullInfo();
-			privateWaveServiceEntry(InputData);
-			SiteADiversityCircuitConfig(InputData);
-			closePopUp();
-			SaveAndCloseMask();
-			EthernetAccessNewFields(InputData);
-			SaveAndCloseMask();
-			SearchSiteA(InputData);
-			SearchSiteEntery(InputData);
-			SiteAServiceParty(InputData);
-			PickServiceParty(InputData);
-			SiteASiteContact(InputData);
-			PickSiteContactParty(InputData);
-			SaveAndCloseMask();
-			AEndSitePUD(InputData);
-			SaveAndCloseMask();
-			SiteAInstallationTimePUD(InputData);
-			SiteATerminationTimePUD(InputData);
-			SiteAAccessPortPUD(InputData);
-			SaveAndCloseMask();
-			//Start site B
-			SearchSiteB(InputData);
-			SearchSiteBEntry(InputData);
-			SiteBServiceParty(InputData);
-			PickServiceParty(InputData);
-			SiteBSiteContact(InputData);
-			PickSiteContactParty(InputData);
-			BEndSitePUD(InputData);
-			SiteBInstallationTimePUD(InputData);
-			SiteBTerminationTimePUD(InputData);
-			SiteBAccessPortPUD(InputData);
-			SaveAndCloseMask();
-			GetReference();	
-			break;
-		}
-		
 		case "Cloud Unified Communications": 
 		{	
 			//Updated 
@@ -5692,13 +5818,13 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		Clear(getwebelement(xml.getlocator("//locators/BillingStartDateAccess")));
 		SendKeys(getwebelement(xml.getlocator("//locators/BillingStartDateAccess")), CurrentDate());
 
-		WaitforElementtobeclickable((xml.getlocator("//locators/POStartDateAccess")));
+		/*WaitforElementtobeclickable((xml.getlocator("//locators/POStartDateAccess")));
 		Clear(getwebelement(xml.getlocator("//locators/POStartDateAccess")));
 		SendKeys(getwebelement(xml.getlocator("//locators/POStartDateAccess")), CurrentDate());
 
 		WaitforElementtobeclickable((xml.getlocator("//locators/POEndDateAccess")));
 		Clear(getwebelement(xml.getlocator("//locators/POEndDateAccess")));
-		SendKeys(getwebelement(xml.getlocator("//locators/POEndDateAccess")), CurrentDate());
+		SendKeys(getwebelement(xml.getlocator("//locators/POEndDateAccess")), CurrentDate());*/
 		savePage();
 		waitforPagetobeenable();
 
@@ -5938,6 +6064,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			siteId=SiteID;
 		else if(SiteSide.equalsIgnoreCase("B"))
 			siteId=SiteID;
+		waitForpageload();
+		waitforPagetobeenable();
 		SendKeys(getwebelement("//input[@name='siteId']"),siteId);
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Site ID :" + siteId);
 		
@@ -6806,7 +6934,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			}
 		}
 		WaitforElementtobeclickable(xml.getlocator("//locators/InputServiceOrder"));
-		SendKeys(getwebelement(xml.getlocator("//locators/InputServiceOrder")), "872963693/200528-0006");
+		SendKeys(getwebelement(xml.getlocator("//locators/InputServiceOrder")), "872021008/200531-0005");
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter value in service order ");
 		Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderGo")));
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on go button");
