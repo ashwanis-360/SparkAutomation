@@ -7684,6 +7684,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			waitforPagetobeenable();
 			Thread.sleep(3000);	
 			Clickon(getwebelement("//a[text()='Sites']"));
+			MiddleAppDropdown("OSS Platform Flag","Legacy");
+			ClickHereSave();
 			GetReference();
 			ClickHereSave();
 			//Save();
