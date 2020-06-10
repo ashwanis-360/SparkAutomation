@@ -4,29 +4,34 @@
 	  <listener class-name="Listners.TestListener"/>
     </listeners>
     
-	<test name="Siebel New Order" junit="false" preserve-order="true">
+<test name="Siebel New Order" junit="false" preserve-order="true">
 		<classes>
 			<class name="Testscript.NewOrders">	
 				<methods>
 					<include name="EndtoEndOrderOnnet"/>
-			  
 				</methods>	
 			</class>
 		</classes>	
-	</test>
-	
-	<test name="Siebel Cease" junit="false" preserve-order="true">
+	</test> 
+<!--	<test name="Siebel Cease" junit="false" preserve-order="true">
 		<classes>
 			<class name="Testscript.NewOrders">	
 				<methods>
 					<include name="Cease"/>
-			  
 				</methods>	
 			</class>
 		</classes>	
-	</test>
-	
-	<test name="Siebel Abandoned" junit="false" preserve-order="true">
+	</test> 
+<test name="Siebel New Order" junit="false" preserve-order="true">
+		<classes>
+			<class name="Testscript.NewOrders">	
+				<methods>
+					<include name="CeaseExisting"/>
+				</methods>	
+			</class>
+		</classes>	
+	</test>	
+<test name="Siebel Abandoned" junit="false" preserve-order="true">
 		<classes>
 			<class name="Testscript.NewOrders">	
 				<methods>
@@ -152,6 +157,6 @@
 			  	</methods>	
 			</class>
 		</classes>	
-	</test>
+	</test>  -->
 
 </suite>
