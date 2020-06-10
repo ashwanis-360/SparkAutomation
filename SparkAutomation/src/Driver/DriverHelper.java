@@ -112,8 +112,8 @@ public class DriverHelper
 	public DriverHelper(WebDriver dr)
 	{
 		driver = dr;
-		wait = new FluentWait<WebDriver>(driver).withTimeout(180, TimeUnit.SECONDS) // as per Ayush
-				.pollingEvery(20, TimeUnit.SECONDS).ignoring(NoSuchElementException.class)
+		wait = new FluentWait<WebDriver>(driver).withTimeout(90, TimeUnit.SECONDS) // as per Ayush
+				.pollingEvery(15, TimeUnit.SECONDS).ignoring(NoSuchElementException.class)
 				.ignoring(StaleElementReferenceException.class);
 		// workitemcounter.set(1);
 		// QuoteID.set("QT-20190604-077427-01");
@@ -415,14 +415,12 @@ public class DriverHelper
 	public void Clickon(WebElement el) throws InterruptedException
 	{
 		// Thread.sleep(3000);
-
 		try
 		{
-
 			el.click();
 			Log.info("Clicking on element with using try block click");
-
-		} catch (WebDriverException e)
+		} 
+		catch (WebDriverException e)
 		// Thread.sleep(3000);
 		{
 			// Thread.sleep(3000);

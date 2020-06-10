@@ -2564,6 +2564,58 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		int rand_int1 = rand.nextInt(1000);
 		switch (InputData[9].toString()) 
 		{
+		case "IP Guardian": 
+		{
+			System.out.println("Enter Gurdian Middle Applet");	
+			MiddleAppTextBox("Alerting Notification Email Address",InputData[47].toString());
+			MiddleAppDropdown("Auto Mitigation",InputData[48].toString());
+			MiddleAppTextBox("Customer DNS Resolvers",InputData[49].toString());
+			MiddleAppDropdown("IP Guardian Variant",InputData[50].toString());
+			MiddleAppDropdown("Include Colt Technical Contact in Test Calls",InputData[51].toString());
+			MiddleAppDropdown("Service Bandwidth",InputData[52].toString());
+			MiddleAppTextBox("Test Window",InputData[53].toString());
+			Save();
+			Thread.sleep(8000);
+
+			Clickon(getwebelement(xml.getlocator("//locators/Clicktoshowfullinfomiddle")));
+			Thread.sleep(3000);
+			
+			PopupInput("Circuit IP Address",InputData[54].toString());
+			PopupInput("IP Range",InputData[55].toString());
+			closePopUp();
+
+			ClickHereSave();
+
+			break;
+		}
+		case "IP Domain": 
+		{
+			System.out.println("Enter Middle Applet");
+			Thread.sleep(2000);
+			MiddleAppTextBox("Number of Domains",InputData[47].toString());
+			// Moveon(getwebelement("//a[text()='Click to Show Full info']"));
+			// Moveon(getwebelement(xml.getlocator("//locators/Clicktoshowfullinfomiddle")));
+			System.out.println("Move Performed");
+			Clickon(getwebelement(xml.getlocator("//locators/Clicktoshowfullinfomiddle")));
+			Thread.sleep(3000);
+
+			SendKeys(getwebelement(xml.getlocator("//locators/Domainname")), InputData[48].toString());
+			Clickon(getwebelement(xml.getlocator("//locators/Domainordertype")));
+			Thread.sleep(4000);
+			Clickon(getwebelement(xml.getlocator("//locators/DomainordertypeData")));
+			// WaitforElementtobeclickable(xml.getlocator("//locators/DNStype"));
+			Clickon(getwebelement(xml.getlocator("//locators/DNStype")));
+			Thread.sleep(2000);
+			Clickon(getwebelement(xml.getlocator("//locators/DNSTypeInput")));
+			
+			Thread.sleep(6000);
+			Clickon(getwebelement(xml.getlocator("//locators/Crossbutton")));
+			Thread.sleep(6000);
+			ClickHereSave();
+
+			System.out.println("Middle Complete");
+			break;
+		}
 		case "Ethernet Hub": 
 		{  
 			MiddleAppDropdown("Resilience Option",InputData[47].toString());
@@ -5222,102 +5274,9 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			break;
 			
 		}
-		case "IP Domain": {
+		
 
-			System.out.println("Enter Middle Applet");
-			Thread.sleep(2000);
-			// Moveon(getwebelement("//a[text()='Click to Show Full info']"));
-			// Moveon(getwebelement(xml.getlocator("//locators/Clicktoshowfullinfomiddle")));
-			System.out.println("Move Performed");
-
-			Clickon(getwebelement(xml.getlocator("//locators/Clicktoshowfullinfomiddle")));
-			Thread.sleep(3000);
-
-			SendKeys(getwebelement(xml.getlocator("//locators/Domainname")), InputData[16].toString());
-			Clickon(getwebelement(xml.getlocator("//locators/Domainordertype")));
-			Thread.sleep(4000);
-			Clickon(getwebelement(xml.getlocator("//locators/DomainordertypeData")));
-			// WaitforElementtobeclickable(xml.getlocator("//locators/DNStype"));
-			Clickon(getwebelement(xml.getlocator("//locators/DNStype")));
-			Thread.sleep(2000);
-			Clickon(getwebelement(xml.getlocator("//locators/DNSTypeInput")));
-			// getwebelement(xml.getlocator("//locators/DNStypeinput")).clear();
-			// Thread.sleep(3000);
-			// SendKeys(getwebelement(xml.getlocator("//locators/DNStypeinput")),
-			// InputData[17].toString());
-			// Clickon(getwebelement(xml.getlocator("//locators/DNStypeinput")));
-			Thread.sleep(6000);
-			// savePage();
-
-			Clickon(getwebelement(xml.getlocator("//locators/Crossbutton")));
-			Thread.sleep(6000);
-			Clickon(getwebelement(xml.getlocator("//locators/SaveButtonClick")));
-			Thread.sleep(10000);
-
-			System.out.println("Middle Complete");
-			break;
-		}
-
-		case "IP Guardian": {
-
-			System.out.println("Enter Gurdian Middle Applet");
-
-			getwebelement(xml.getlocator("//locators/AlertingNotification")).clear();
-			SendKeys(getwebelement(xml.getlocator("//locators/AlertingNotification")), InputData[27].toString());
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step:Enter AlertingNotification");
-
-			getwebelement(xml.getlocator("//locators/Automigration")).clear();
-			SendKeys(getwebelement(xml.getlocator("//locators/Automigration")), InputData[28].toString());
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step:Enter Automigration");
-			Thread.sleep(2000);
-			// SendkeaboardKeys(getwebelement(xml.getlocator("//locators/Automigration")),
-			// Keys.TAB);
-
-			getwebelement(xml.getlocator("//locators/Customerdnsresolve")).clear();
-			SendKeys(getwebelement(xml.getlocator("//locators/Customerdnsresolve")), InputData[29].toString());
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step:Enter Customer dns resolve");
-
-			getwebelement(xml.getlocator("//locators/IpguardianVariant")).clear();
-			SendKeys(getwebelement(xml.getlocator("//locators/IpguardianVariant")), InputData[30].toString());
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step:Enter IP guardiant variant");
-
-			getwebelement(xml.getlocator("//locators/Colttechnicaltestcalls")).clear();
-			SendKeys(getwebelement(xml.getlocator("//locators/Colttechnicaltestcalls")), InputData[31].toString());
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step:Enter Enter Colt technical cells");
-			Thread.sleep(2000);
-
-			getwebelement(xml.getlocator("//locators/servicebandwidth")).clear();
-			SendKeys(getwebelement(xml.getlocator("//locators/servicebandwidth")), InputData[32].toString());
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step:Enter service bandwidth");
-
-			SendKeys(getwebelement(xml.getlocator("//locators/Testwindowipaccess")), InputData[33].toString());
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step:Enter Test Window");
-
-			Clickon(getwebelement(xml.getlocator("//locators/IpGurdianSave")));
-			Thread.sleep(8000);
-
-			Moveon(getwebelement(xml.getlocator("//locators/CircuitipaddressClick")));
-			Thread.sleep(3000);
-			Clickon(getwebelement(xml.getlocator("//locators/CircuitipaddressClick")));
-			// System.out.println("Click Full");
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step:click on circuit ip address");
-			Thread.sleep(3000);
-
-			Clickon(getwebelement(xml.getlocator("//locators/CircuitIPAddressInput")));
-			getwebelement(xml.getlocator("//locators/CircuitIPAddressInput")).clear();
-			SendKeys(getwebelement(xml.getlocator("//locators/CircuitIPAddressInput")), InputData[34].toString());
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step:click on circuit ip address");
-
-			SendKeys(getwebelement(xml.getlocator("//locators/IpRange")), InputData[35].toString());
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step:Input IP Range");
-
-			Clickon(getwebelement(xml.getlocator("//locators/CrossButtonGurdian")));
-			Thread.sleep(5000);
-			Clickon(getwebelement(xml.getlocator("//locators/IpGurdianSave")));
-			Thread.sleep(10000);
-
-			break;
-		}
+		
 
 		case "Number Hosting": {
 
@@ -6221,6 +6180,30 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		Thread.sleep(10000);
 
 	}
+	public void SelectAttachmentTab(String ProductName) throws IOException, InterruptedException, DocumentException {
+		String[] AttachementProduct=new String[] {"IP Voice Solutions","SIP Trunking","Voice Line V","Managed Dedicated Firewall","Managed Virtual Firewall"};
+		int index=Arrays.asList(AttachementProduct).indexOf(ProductName);
+		if (index>=0) 
+		{
+			Select(getwebelement(xmlIP.getlocator("//locators/tabDropdown")), "Attachments");
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Attachments Tab Selected");
+			Clickon(getwebelement(xmlIP.getlocator("//locators/AttachmentTabSelection")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Attachments Tab Clicked");
+			Thread.sleep(10000);
+		}
+	}
+	public void UploadDocument(String ProductName) throws Exception 
+	{
+		if (ProductName.equals("IP Voice Solutions")) {
+			UploadSOWTypeDocument(ProductName, "SOW");
+		} else if (ProductName.equals("Voice Line V") ||ProductName.equals("SIP Trunking")) {
+			UploadSOWTypeDocument(ProductName, "Call Barring Form");
+			// UploadSOWTypeDocument(InputData, "Disaster Recovery Documents");
+		} else if (ProductName.equals("Managed Virtual Firewall")|| ProductName.equals("Managed Dedicated Firewall")) {
+			UploadSOWTypeDocument(ProductName, "Security Policy");
+			// UploadSOWTypeDocument(InputData, "Documents");
+		}
+	}
 
 	public void SelectAttachmentTab(Object[] InputData) throws IOException, InterruptedException, DocumentException {
 		String[] AttachementProduct=new String[] {"IP Voice Solutions","SIP Trunking","Voice Line V","Managed Dedicated Firewall","Managed Virtual Firewall"};
@@ -6277,6 +6260,49 @@ public class NewOrderOnnetHelper extends DriverHelper {
 
 			System.out.println(xmlIP.getlocator("//locators//FileUpload"));
 
+			// WaitforElementtobeclickable(xmlIP.getlocator("//locators//FileUpload"));
+			uploadafile(xmlIP.getlocator("//locators//FileUpload"), "test.txt");
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Test File Uploaded");
+			Thread.sleep(10000);
+			Clickon(getwebelement(xmlIP.getlocator("//locators/DocumnetTypeOther")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Other File Type Clicked");
+			Clickon(getwebelement(xmlIP.getlocator("//locators/DownArrow")));
+			Clickon(getwebelement(xmlIP.getlocator("//locators/DoucmentTypeSelection").replace("Filetype", Filetype)));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: SOW File Type Selected");
+
+		}
+		// --> end of Rekha's code
+
+	}
+
+	public void UploadSOWTypeDocument(String ProductName, String Filetype) throws Exception {
+
+		if (ProductName.equals("Voice Line V") || ProductName.equals("SIP Trunking")) // Added by Rekha
+		{
+			System.out.println(xml.getlocator("//locators//FileUpload"));
+			// WaitforElementtobeclickable(xmlIP.getlocator("//locators//FileUpload"));
+			uploadafile(xml.getlocator("//locators//FileUpload"), "test.txt");
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Test File Uploaded");
+			Thread.sleep(10000);
+			Clickon(getwebelement(xml.getlocator("//locators/DocumnetTypeOther")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Other File Type Clicked");
+			Clickon(getwebelement(xml.getlocator("//locators/DownArrow")));
+			Clickon(getwebelement(xml.getlocator("//locators/DocumentTypeCallBaringForm")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: CallBarring Form File Type Selected");
+			System.out.println(xml.getlocator("//locators//FileUpload"));
+			// WaitforElementtobeclickable(xmlIP.getlocator("//locators//FileUpload"));
+			uploadafile(xml.getlocator("//locators//FileUpload"), "test1.txt");
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Test File Uploaded");
+			Thread.sleep(10000);
+			Clickon(getwebelement(xml.getlocator("//locators/DocumnetTypeOther")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Other File Type Clicked");
+			Clickon(getwebelement(xml.getlocator("//locators/DownArrow")));
+			Clickon(getwebelement(xml.getlocator("//locators/DocumentTypeDisaster")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Disaster File Type Selected");
+
+		} else
+		{
+			System.out.println(xmlIP.getlocator("//locators//FileUpload"));
 			// WaitforElementtobeclickable(xmlIP.getlocator("//locators//FileUpload"));
 			uploadafile(xmlIP.getlocator("//locators//FileUpload"), "test.txt");
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Test File Uploaded");
@@ -8846,7 +8872,20 @@ public class NewOrderOnnetHelper extends DriverHelper {
 
 		}
 	}
+	public void PopupDropdown(String dropDownName, String dropDownValue) throws InterruptedException, DocumentException
+	{
+		WaitforElementtobeclickable(xml.getlocator("//locators/R4/PopDropdownClick").replace("Value", dropDownName));
+		Clickon(getwebelement(xml.getlocator("//locators/R4/PopDropdownClick").replace("Value", dropDownName)));
+		Clickon(getwebelement(xml.getlocator("//locators/R4/InsideDropdownValues").replace("Data",dropDownValue)));
+		ExtentTestManager.getTest().log(LogStatus.PASS," Step: Enter "+dropDownName+" value as : "+ dropDownName );
+	}
+	public void PopupInput(String textBoxName, String textBoxValue) throws InterruptedException, DocumentException, IOException
+	{
+		WaitforElementtobeclickable(xml.getlocator("//locators/R4/PopInput").replace("Value", textBoxName));
+		ClearSendKeys(getwebelement(xml.getlocator("//locators/R4/PopInput").replace("Value", textBoxName)),textBoxValue);
+		ExtentTestManager.getTest().log(LogStatus.PASS," Step: Enter "+textBoxName+" value as : "+ textBoxValue );
 
+	}
 	/* Added by Devesh for R4 Products */
 	public void DiversityCircuitEntry(Object[] InputData) throws InterruptedException, DocumentException, IOException {
 

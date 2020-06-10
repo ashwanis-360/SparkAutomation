@@ -66,26 +66,12 @@ public class NewOrders extends DriverTestcase {
 	public void Cease(Object[] Data) throws Exception {
 
 		Login.get().Login("Sieble");
-		if(Data[0].toString().equalsIgnoreCase("Yes"))
-		{
+		
 			newOrderOnnnet.get().accountTabDetails(Data);
 			newOrderOnnnet.get().createCustomerOrder(Data);
 			newOrderOnnnet.get().productSelectionHelper(Data);
 			newOrderOnnnet.get().openServiceOrderNumber();
-			if (Data[8].toString().equalsIgnoreCase("Ethernet Hub"))
-			{
-				newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);// Updated
-				newOrderOnnnet.get().hubSiteCustomize(Data); // MethodAdded
-				newOrderOnnnet.get().EnterDateInFooter(Data); // No change
-				newOrderOnnnet.get().EnterBillingDateInFooter(Data); // No change
-				newOrderOnnnet.get().EnterServiceChargeInFooter(Data, "2"); // Method added
-				newOrderOnnnet.get().CommercialValidation(Data); // No Change
-				newOrderOnnnet.get().TechnicalValidation(Data); // Updated
-				newOrderOnnnet.get().CircuitReferenceGeneration(Data); 
-				newOrderOnnnet.get().DeliveryValidation(Data); // No Change
-				newOrderOnnnet.get().OrderCompleteEthernetHubSpoke(Data); // MethodAdded
-			} 
-			else if (Data[8].toString().equalsIgnoreCase("Ethernet Spoke")) 
+			if (Data[8].toString().equalsIgnoreCase("Ethernet Spoke")) 
 			{
 				newOrderOnnnet.get().enterMandatoryFieldsInHeader(Data);// Updated for spoke also
 				newOrderOnnnet.get().spokeSiteCustomize(Data);// MethodAdded
@@ -122,18 +108,42 @@ public class NewOrders extends DriverTestcase {
 				newOrderOnnnet.get().CompletedValidation(Data);
 				// Code for Cease
 			}
-			newOrderOnnnet.get().WriteServiceOrderNumber(Data);
-		}
+		newOrderOnnnet.get().WriteServiceOrderNumber(Data);
 		Cease.get().openServiceOrder(Data);
 		Cease.get().CeaseMainMethod(Data);
-		
 		newOrderOnnnet.get().SelectAttachmentTab(Data);
 		newOrderOnnnet.get().UploadDocument(Data);
-		Cease.get().CeaseCommercialValidation(Data); 
-		Cease.get().DeliveryValidation(Data); // Addedd by Devesh
-		Cease.get().CeaseCompletedValidation(Data); // added By Devesh
+		Cease.get().CeaseCommercialValidation(Data[9].toString()); 
+		Cease.get().DeliveryValidation(Data[9].toString()); // Addedd by Devesh
+		Cease.get().CeaseCompletedValidation(); // added By Devesh
 	}
 
+	@Test(dataProviderClass = DataReader.class, dataProvider = "CeaseExisting")
+	public void ModcomExisting(Object[] Data) throws Exception {
+
+		Login.get().Login("Sieble");
+		Cease.get().openExistingServiceOrder(Data[0].toString());
+		//Cease.get().CeaseExistingService(Data[0].toString());
+		newOrderOnnnet.get().SelectAttachmentTab(Data[1].toString());
+		newOrderOnnnet.get().UploadDocument(Data[1].toString());
+		Cease.get().CeaseCommercialValidation(Data[1].toString()); 
+		Cease.get().DeliveryValidation(Data[1].toString());
+		Cease.get().CeaseCompletedValidation();
+	}
+
+	@Test(dataProviderClass = DataReader.class, dataProvider = "CeaseExisting")
+	public void CeaseExisting(Object[] Data) throws Exception {
+
+		Login.get().Login("Sieble");
+		Cease.get().openExistingServiceOrder(Data[0].toString());
+		Cease.get().CeaseExistingService(Data[0].toString());
+		newOrderOnnnet.get().SelectAttachmentTab(Data[1].toString());
+		newOrderOnnnet.get().UploadDocument(Data[1].toString());
+		Cease.get().CeaseCommercialValidation(Data[1].toString()); 
+		Cease.get().DeliveryValidation(Data[1].toString());
+		Cease.get().CeaseCompletedValidation();
+	}
+	
 	@Test(dataProviderClass = DataReader.class, dataProvider = "Abandoned")
 	public void Abandoned(Object[] Data) throws Exception {
 
