@@ -54,7 +54,8 @@ import org.openqa.selenium.security.UserAndPassword;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 
-public class NewOrderOnnetHelper extends DriverHelper {
+public class NewOrderOnnetHelper extends DriverHelper
+{
 
 	String timeStamp = TimeStamp();
 	String timeStamp1 = TimeStamp();
