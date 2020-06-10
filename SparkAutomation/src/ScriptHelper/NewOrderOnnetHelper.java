@@ -324,10 +324,17 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		WaitforElementtobeclickable(xml.getlocator("//locators/ContractSearch"));
 		Clickon(getwebelement(xml.getlocator("//locators/ContractSearch")));
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Contract Search");
-		WaitforElementtobeclickable(xml.getlocator("//locators/InputContractId")); // new added by ayush
-		SendKeys(getwebelement(xml.getlocator("//locators/InputContractId")), Inputdata[10].toString());
-		WaitforElementtobeclickable((xml.getlocator("//locators/ContractIdSearch"))); // add by ayush for abandoned
-		Clickon(getwebelement(xml.getlocator("//locators/ContractIdSearch")));
+		
+		//WaitforElementtobeclickable(xml.getlocator("//locators/InputContractId")); // new added by ayush
+		//SendKeys(getwebelement(xml.getlocator("//locators/InputContractId")), Inputdata[10].toString());
+	
+		//div[@class='AppletStylePopup']//button[@aria-label='Pick Contract:OK']
+		
+		//WaitforElementtobeclickable((xml.getlocator("//locators/ContractIdSearch"))); // add by ayush for abandoned
+		//Clickon(getwebelement(xml.getlocator("//locators/ContractIdSearch")));
+		
+		WaitforElementtobeclickable("//div[@class='AppletStylePopup']//button[@aria-label='Pick Contract:OK']"); // add by ayush for abandoned
+		Clickon(getwebelement("//div[@class='AppletStylePopup']//button[@aria-label='Pick Contract:OK']"));
 		waitforPagetobeenable();
 		// Clickon(getwebelement(xml.getlocator("//locators/ContractIdSubmit")));
 
@@ -1291,6 +1298,281 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		}
 	}
 	
+	public void CustomerIPBoxEntries(String ColumnName, String Values) throws InterruptedException, IOException 
+	{
+		int HeadIndex = 0;
+		List<WebElement> HeaderList = GetWebElements("//div[@id='s_2_ld']//tr//th");
+		for (WebElement ele : HeaderList) 
+		{
+			javascriptexecutor(ele);
+			String Text = ele.getText().trim();
+			System.out.println(Text);
+			HeadIndex = HeadIndex+1;
+			if (Text.equalsIgnoreCase(ColumnName)) 
+			{
+				break;
+			}
+		}
+		String row="//div[@id='s_2_ld']//tr//td[index]";
+		row=row.replace("index", Integer.toString(HeadIndex));
+		WaitforElementtobeclickable(row);
+		Clickon(getwebelement(row));		
+		String input="//div[@id='s_2_ld']//tr//td[index]/input";
+		input=input.replace("index", Integer.toString(HeadIndex));
+		SendKeys(getwebelement(input),Values );
+		SendkeaboardKeys(getwebelement(input),Keys.ENTER );
+	}
+	
+	public void TrunkEntries() throws InterruptedException, DocumentException, IOException
+	{
+
+		waitForpageload();
+		waitforPagetobeenable();
+		WaitforElementtobeclickable(xml.getlocator("//locators/SIPVoiceConfigExpandSymbol"));
+		Clickon(getwebelement(xml.getlocator("//locators/SIPVoiceConfigExpandSymbol")));
+
+		Thread.sleep(5000);
+		
+		WaitforElementtobeclickable(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Trunk Sequence"));
+		Clear(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Trunk Sequence")));
+		SendKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Trunk Sequence")),"1");
+		SendkeaboardKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Trunk Sequence")),Keys.ENTER);
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Trunk Sequence ");
+
+		Thread.sleep(5000);
+		Random rand = new Random();
+		int rand_int1 = rand.nextInt(10000);
+		
+		String trunkName="TR_"+Integer.toString(rand_int1);
+		WaitforElementtobeclickable(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Trunk Name"));
+		Clear(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Trunk Name")));
+		SendKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Trunk Name")),trunkName);
+		SendkeaboardKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Trunk Name")),Keys.ENTER);
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Trunk Name ");
+		Thread.sleep(3000);
+		
+
+		WaitforElementtobeclickable(xml.getlocator("//locators/SIP/TrunkConfigDropdown").replace("Value", "Access Line Type"));
+		Clickon(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigDropdown").replace("Value", "Access Line Type")));
+		Clickon(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigDrodownValue").replace("Value", "Colt Access")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Connection Type : Colt Access" );
+		
+		Thread.sleep(5000);
+		waitforPagetobeenable();
+		waitForpageload();
+		WaitforElementtobeclickable(xml.getlocator("//locators/AccessServiceIdlookup"));
+		Clickon(getwebelement(xml.getlocator("//locators/AccessServiceIdlookup")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Access Service Idlookup ");
+		waitForpageload();
+		waitforPagetobeenable();
+		Thread.sleep(2000);
+		
+		Thread.sleep(2000);
+		WaitforElementtobeclickable(xml.getlocator("//locators/R4/PickAccountDropdown"));
+		Clickon(getwebelement(xml.getlocator("//locators/R4/PickAccountDropdown")));
+		Clickon(getwebelement(xml.getlocator("//locators/DarkFiber/AList").replace("Value", "Service Id")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Field : Service Id");
+		
+		WaitforElementtobeclickable(xml.getlocator("//locators/R4/PickAccountValue"));
+		Clickon(getwebelement(xml.getlocator("//locators/R4/PickAccountValue")));
+		Clear(getwebelement(xml.getlocator("//locators/R4/PickAccountValue")));
+		SendKeys(getwebelement(xml.getlocator("//locators/R4/PickAccountValue")), "120702272");
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter value : IP Access" );
+
+		Thread.sleep(10000);
+		WaitforElementtobeclickable(xml.getlocator("//locators/SearchServiceIdOKButton"));
+		Clickon(getwebelement(xml.getlocator("//locators/SearchServiceIdOKButton")));
+		Thread.sleep(5000);
+
+		// SendKeys(getwebelement(xml.getlocator("//locators/ExternalAccessServiceRef")),Inputdata[11].toString());
+		// ExtentTestManager.getTest().log(LogStatus.PASS, "Enter external access
+		// Service reference");
+		
+		Thread.sleep(5000);
+		WaitforElementtobeclickable(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "External Access Service Reference"));
+		Clear(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "External Access Service Reference")));
+		SendKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "External Access Service Reference")),"10.7.235.29/24");
+		SendkeaboardKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "External Access Service Reference")),Keys.ENTER);
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Trunk Name ");
+		
+		Thread.sleep(5000);
+		WaitforElementtobeclickable(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Customer Originating IPv4 Address Range"));
+		Clear(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Customer Originating IPv4 Address Range")));
+		SendKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Customer Originating IPv4 Address Range")),"10.7.235.29/24");
+		SendkeaboardKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Customer Originating IPv4 Address Range")),Keys.ENTER);
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Trunk Name ");
+		
+		Thread.sleep(5000);
+		WaitforElementtobeclickable(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Customer Terminating IPv4 Address"));
+		Clear(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Customer Terminating IPv4 Address")));
+		SendKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Customer Terminating IPv4 Address")),"10.7.235.29/24");
+		SendkeaboardKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Customer Terminating IPv4 Address")),Keys.ENTER);
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Trunk Name ");
+		
+		Thread.sleep(5000);
+		WaitforElementtobeclickable(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Customer Originating IPv6 Address Range"));
+		Clear(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Customer Originating IPv6 Address Range")));
+		SendKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Customer Originating IPv6 Address Range")),"10.7.235.29/24");
+		SendkeaboardKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Customer Originating IPv6 Address Range")),Keys.ENTER);
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Trunk Name ");
+		
+		Thread.sleep(5000);
+		WaitforElementtobeclickable(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Customer Terminating IPv6 Address"));
+		Clear(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Customer Terminating IPv6 Address")));
+		SendKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Customer Terminating IPv6 Address")),"10.7.235.29/24");
+		SendkeaboardKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Customer Terminating IPv6 Address")),Keys.ENTER);
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Trunk Name ");
+		
+		Thread.sleep(3000);
+		WaitforElementtobeclickable(xml.getlocator("//locators/SIPCustomerTerminatingIPv6"));
+		Clickon(getwebelement(xml.getlocator("//locators/SIPCustomerTerminatingIPv6")));
+		Clear(getwebelement(xml.getlocator("//locators/SIPCustomerTerminatingIPv6")));
+		SendKeys(getwebelement(xml.getlocator("//locators/SIPCustomerTerminatingIPv6")), "10.7.235.2/24");
+		ExtentTestManager.getTest().log(LogStatus.PASS, "Enter Customer Terminating IPv6 ");
+		Thread.sleep(5000);
+
+		WaitforElementtobeclickable(xml.getlocator("//locators/SIP/TrunkConfigDropdown").replace("Value", "Signalling Transport Protocol"));
+		Clickon(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigDropdown").replace("Value", "Signalling Transport Protocol")));
+		Clickon(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigDrodownValue").replace("Value", "TCP")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Connection Type : TCP" );
+		
+		Thread.sleep(5000);
+		WaitforElementtobeclickable(xml.getlocator("//locators/SIP/TrunkConfigDropdown").replace("Value", "VoIP Protocol"));
+		Clickon(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigDropdown").replace("Value", "VoIP Protocol")));
+		Clickon(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigDrodownValue").replace("Value", "SIP")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Connection Type : SIP" );
+		Thread.sleep(5000);
+		ExtentTestManager.getTest().log(LogStatus.PASS, "Enter SIPvoIPProtocol");			// Clickon(getwebelement(xml.getlocator("//locators/SIPvoIPProtocol")));
+		Thread.sleep(5000);
+
+		WaitforElementtobeclickable(xml.getlocator("//locators/SIP/TrunkConfigDropdown").replace("Value", "Encryption Type"));
+		Clickon(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigDropdown").replace("Value", "Encryption Type")));
+		Clickon(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigDrodownValue").replace("Value", "TLS on, SRTP off")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Connection Type : TLS on, SRTP off" );
+		Thread.sleep(5000);
+
+		Thread.sleep(5000);
+		WaitforElementtobeclickable(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Proportion%"));
+		Clear(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Proportion%")));
+		SendKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Proportion%")),"20");
+		SendkeaboardKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Proportion%")),Keys.ENTER);
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Trunk Name ");
+
+		Thread.sleep(5000);
+		WaitforElementtobeclickable(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Trunk Site Name Alias"));
+		Clear(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Trunk Site Name Alias")));
+		SendKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Trunk Site Name Alias")),"Alias1");
+		SendkeaboardKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Trunk Site Name Alias")),Keys.ENTER);
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Trunk Name ");
+		
+		WaitforElementtobeclickable(xml.getlocator("//locators/SIP/TrunkConfigDropdown").replace("Value", "NAT Required?"));
+		Clickon(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigDropdown").replace("Value", "NAT Required?")));
+		Clickon(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigDrodownValue").replace("Value", "N")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Connection Type : N");
+
+		Thread.sleep(5000);
+		WaitforElementtobeclickable(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "NNI WAN IPv4 Address Range (/30)"));
+		Clear(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "NNI WAN IPv4 Address Range (/30)")));
+		SendKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "NNI WAN IPv4 Address Range (/30)")),"10.7.235.24/2");
+		SendkeaboardKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "NNI WAN IPv4 Address Range (/30)")),Keys.ENTER);
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Trunk Name ");
+
+		Thread.sleep(5000);
+		WaitforElementtobeclickable(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "NNI WAN IPv6 Address Range"));
+		Clear(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "NNI WAN IPv6 Address Range")));
+		SendKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "NNI WAN IPv6 Address Range")),"10.7.235.24/2");
+		SendkeaboardKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "NNI WAN IPv6 Address Range")),Keys.ENTER);
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Trunk Name ");
+
+		Thread.sleep(5000);
+		WaitforElementtobeclickable(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Public IPv4 Address Range for NAT Side"));
+		Clear(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Public IPv4 Address Range for NAT Side")));
+		SendKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Public IPv4 Address Range for NAT Side")),"2");
+		SendkeaboardKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Public IPv4 Address Range for NAT Side")),Keys.ENTER);
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Trunk Name ");
+
+		Thread.sleep(5000);
+		WaitforElementtobeclickable(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "VLAN Start / End Range"));
+		Clear(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "VLAN Start / End Range")));
+		SendKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "VLAN Start / End Range")),"2");
+		SendkeaboardKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "VLAN Start / End Range")),Keys.ENTER);
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Trunk Name ");
+		
+		Thread.sleep(5000);
+		WaitforElementtobeclickable(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "VLAN ID"));
+		Clear(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "VLAN ID")));
+		SendKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "VLAN ID")),"2");
+		SendkeaboardKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "VLAN ID")),Keys.ENTER);
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Trunk Name ");
+		
+		Thread.sleep(5000);
+		WaitforElementtobeclickable(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "AS Number"));
+		Clear(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "AS Number")));
+		SendKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "AS Number")),"1");
+		SendkeaboardKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "AS Number")),Keys.ENTER);
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Trunk Name ");
+
+		Thread.sleep(5000);
+		WaitforElementtobeclickable(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Colt Host Equipment IPv4 Address"));
+		Clear(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Colt Host Equipment IPv4 Address")));
+		SendKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Colt Host Equipment IPv4 Address")),"10.7.235.24/2");
+		SendkeaboardKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Colt Host Equipment IPv4 Address")),Keys.ENTER);
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Trunk Name ");
+
+		Thread.sleep(5000);
+		WaitforElementtobeclickable(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Colt Host Equipment IPv6 Address"));
+		Clear(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Colt Host Equipment IPv6 Address")));
+		SendKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Colt Host Equipment IPv6 Address")),"10.7.235.24/2");
+		SendkeaboardKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Colt Host Equipment IPv6 Address")),Keys.ENTER);
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Trunk Name ");
+		
+		WaitforElementtobeclickable(xml.getlocator("//locators/SIP/AddmissionInput").replace("Value", "Maximum Number of Simultaneous Calls"));
+		Clear(getwebelement(xml.getlocator("//locators/SIP/AddmissionInput").replace("Value", "Maximum Number of Simultaneous Calls")));
+		SendKeys(getwebelement(xml.getlocator("//locators/SIP/AddmissionInput").replace("Value", "Maximum Number of Simultaneous Calls")),"4");
+		SendkeaboardKeys(getwebelement(xml.getlocator("//locators/SIP/AddmissionInput").replace("Value", "Maximum Number of Simultaneous Calls")),Keys.ENTER);
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Trunk Name ");
+
+		//Update
+		WaitforElementtobeclickable(xml.getlocator("//locators/SIP/AddmissionDropdown").replace("Value", "Inbound Outbound Split"));
+		Clickon(getwebelement(xml.getlocator("//locators/SIP/AddmissionDropdown").replace("Value", "Inbound Outbound Split")));
+		Clickon(getwebelement(xml.getlocator("//locators/SIP/AddmissionDrodownValue").replace("Value", "No")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Connection Type : No");
+		
+		
+		WaitforElementtobeclickable(xml.getlocator("//locators/SIP/AddmissionInput").replace("Value", "Maximum Inbound Calls"));
+		Clear(getwebelement(xml.getlocator("//locators/SIP/AddmissionInput").replace("Value", "Maximum Inbound Calls")));
+		SendKeys(getwebelement(xml.getlocator("//locators/SIP/AddmissionInput").replace("Value", "Maximum Inbound Calls")),"1");
+		SendkeaboardKeys(getwebelement(xml.getlocator("//locators/SIP/AddmissionInput").replace("Value", "Maximum Inbound Calls")),Keys.ENTER);
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Trunk Name ");
+
+		WaitforElementtobeclickable(xml.getlocator("//locators/SIP/AddmissionInput").replace("Value", "Overall Call limit for Trunk"));
+		Clear(getwebelement(xml.getlocator("//locators/SIP/AddmissionInput").replace("Value", "Overall Call limit for Trunk")));
+		SendKeys(getwebelement(xml.getlocator("//locators/SIP/AddmissionInput").replace("Value", "Overall Call limit for Trunk")),"1");
+		SendkeaboardKeys(getwebelement(xml.getlocator("//locators/SIP/AddmissionInput").replace("Value", "Overall Call limit for Trunk")),Keys.ENTER);
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Trunk Name ");
+		
+		WaitforElementtobeclickable(xml.getlocator("//locators/SIP/AddmissionInput").replace("Value", "In Call Limit for Trunk"));
+		Clear(getwebelement(xml.getlocator("//locators/SIP/AddmissionInput").replace("Value", "In Call Limit for Trunk")));
+		SendKeys(getwebelement(xml.getlocator("//locators/SIP/AddmissionInput").replace("Value", "In Call Limit for Trunk")),"10");
+		SendkeaboardKeys(getwebelement(xml.getlocator("//locators/SIP/AddmissionInput").replace("Value", "In Call Limit for Trunk")),Keys.ENTER);
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Trunk Name ");
+		
+		WaitforElementtobeclickable(xml.getlocator("//locators/SIP/AddmissionInput").replace("Value", "Out Call limit for Trunk"));
+		Clear(getwebelement(xml.getlocator("//locators/SIP/AddmissionInput").replace("Value", "Out Call limit for Trunk")));
+		SendKeys(getwebelement(xml.getlocator("//locators/SIP/AddmissionInput").replace("Value", "Out Call limit for Trunk")),"1");
+		SendkeaboardKeys(getwebelement(xml.getlocator("//locators/SIP/AddmissionInput").replace("Value", "Out Call limit for Trunk")),Keys.ENTER);
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Trunk Name ");
+					
+		WaitforElementtobeclickable(xml.getlocator("//locators/SIP/AddmissionDropdown").replace("Value", "Type of CAC"));
+		Clickon(getwebelement(xml.getlocator("//locators/SIP/AddmissionDropdown").replace("Value", "Type of CAC")));
+		Clickon(getwebelement(xml.getlocator("//locators/SIP/AddmissionDrodownValue").replace("Value", "Individual Trunk CAC")));
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Connection Type : Individual Trunk CAC");
+		
+		Thread.sleep(10000);
+
+		ClickHereSave();
+	}
+	
 	public void VoiceConfigTab(Object[] Inputdata) throws Exception 
 	{
 		if (Inputdata[8].toString().equals("Voice Line V")) 
@@ -1852,9 +2134,9 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		{
 		case "Ethernet Line": 
 		{
-			WaveLineMidleApplet(Inputdata);//Update With Excel
-			addSiteADetails(Inputdata);// Updated With Excel
-			addSiteBDetails(Inputdata);// Updated With Excel
+			//WaveLineMidleApplet(Inputdata);//Update With Excel
+			//addSiteADetails(Inputdata);// Updated With Excel
+			//addSiteBDetails(Inputdata);// Updated With Excel
 			WaveLineSiteEntries(Inputdata);
 			break;
 		}
@@ -1866,9 +2148,108 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			WaveLineSiteEntries(Inputdata);
 			break;
 		}
+		case "Dark Fibre": 
+		{
+			waitForpageload();
+			waitforPagetobeenable();
+			alertPopUp();
+			OperationalAttributeUltra(Inputdata);
+			alertPopUp();
+			waitforPagetobeenable();
+			middleAppletDarkFibre(Inputdata);
+			ShowfullInfo();
+			DiversityCircuitEntry(Inputdata);
+			Save();
+			SiteAServiceParty(Inputdata);
+			PickServiceParty(Inputdata);
+			SiteBServiceParty(Inputdata);
+			PickServiceParty(Inputdata);
+			SiteASiteContact(Inputdata);
+			PickSiteContactParty(Inputdata);
+			SiteBSiteContact(Inputdata);
+			PickSiteContactParty(Inputdata);
+			ClickHereSave();
+			SearchSiteA(Inputdata);
+			SearchSiteAEntry(Inputdata);
+			SearchSiteB(Inputdata);
+			SearchSiteBEntry(Inputdata);
+			AEndSitePUD(Inputdata);
+			BEndSitePUD(Inputdata);
+			SiteAInstallationTimePUD(Inputdata); //as per Aman's
+			SiteBInstallationTimePUD(Inputdata);
+			SiteATerminationTimePUD(Inputdata);
+			SiteBTerminationTimePUD(Inputdata);
+			SiteAAccessPortPUD(Inputdata);
+			SiteBAccessPortPUD(Inputdata);
+			ClickHereSave();
+			waitForpageload();
+	    	waitforPagetobeenable();
+			//GetReference();
+			ClickHereSave();
+			waitForpageload();
+	    	waitforPagetobeenable();
+			break;
+		}
+		case "DCA Ethernet": {
+			PrivateEthernetMiddleAplet(Inputdata);
+			ShowfullInfo();
+			PrivateEthernetEntry(Inputdata);
+			DiversityCircuitEntry(Inputdata);
+			Save();
+			//GetReference();
+			Save();
+			SiteAServiceParty(Inputdata);
+			PickServiceParty(Inputdata);
+			SiteBServiceParty(Inputdata);
+			PickServiceParty(Inputdata);
+			SiteASiteContact(Inputdata);
+			PickSiteContactParty(Inputdata);
+			SiteBSiteContact(Inputdata);
+			PickSiteContactParty(Inputdata);
+			ClickHereSave();
+			SearchSiteA(Inputdata);
+			SearchSiteAEntry(Inputdata);
+			SearchSiteB(Inputdata);
+			SearchSiteBEntry(Inputdata);
+			System.out.println("Site A Starting");
+			AEndSite(Inputdata);
+			System.out.println("Site A Entred");
+			System.out.println("Site B Starting");
+			BEndSite(Inputdata);
+			System.out.println("Site B Entrede");
+			savePage();
+			waitforPagetobeenable();
+			SiteASettingClick();
+			CSPInterconnectSiteAEntry();
+			savePage();
+			waitforPagetobeenable();
+			SiteBSettingClick();
+			CSPInterconnectSiteBEntry();
+			/*
+			 * SiteADiversityCircuitConfig(Inputdata);
+			 * SiteBDiversityCircuitConfig(Inputdata); ClickHereSave();
+			 */
+			SiteAInstallationTime(Inputdata);
+			SiteBInstallationTime(Inputdata);
+			ClickHereSave();
+			SiteATerminationTime(Inputdata);
+			SiteBTerminationTime(Inputdata);
+			ClickHereSave();
+			SiteAAccessPort(Inputdata);
+			SiteBAccessPort(Inputdata);
+			ClickHereSave();
+			SiteAVLan(Inputdata);
+			SiteBVLan(Inputdata);
+			ClickHereSave();
+			SiteBDedicatedCloudAccess(Inputdata);
+			ClickHereSave();
+			GetReference();
+			ClickHereSave();
+			break;
+		}
 		case "Private Ethernet": 
 		{
-			PrivateEthernetMiddleAplet(Inputdata);
+			/*PrivateEthernetMiddleAplet(Inputdata);
 			ShowfullInfo();
 			PrivateEthernetEntry(Inputdata);
 			DiversityCircuitEntry(Inputdata);
@@ -1888,28 +2269,13 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			SearchSiteBEntry(Inputdata);
 			savePage();
 			waitforPagetobeenable();
-			System.out.println("Sites Search and Entered");
+			System.out.println("Sites Search and Entered");*/
 			AEndPrivateEthernet(Inputdata);
 			ClickHereSave();
 			BEndPrivateEthernet(Inputdata);
 			ClickHereSave();
-			GetReference();
-			/*AEndSite(Inputdata);
-			BEndSite(Inputdata);
-			System.out.println("Site A & B Filled");
-			savePage();
-			waitforPagetobeenable();
-			SiteAInstallationTime(Inputdata);
-			SiteBInstallationTime(Inputdata);
-			ClickHereSave();
-			SiteATerminationTime(Inputdata);
-			SiteBTerminationTime(Inputdata);
-			ClickHereSave();
-			SiteAAccessPort(Inputdata);
-			SiteBAccessPort(Inputdata);
-			ClickHereSave();
-			GetReference();
-			ClickHereSave();*/
+			//GetReference();
+			
 			break;
 		}
 		case "CPE Solutions Site": 
@@ -2064,105 +2430,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			middleAppletManagedDedicatedFirewall(Inputdata);
 			break;
 		}
-		case "Dark Fibre": 
-		{
-			waitForpageload();
-			waitforPagetobeenable();
-			alertPopUp();
-			OperationalAttributeUltra(Inputdata);
-			alertPopUp();
-			waitforPagetobeenable();
-			middleAppletDarkFibre(Inputdata);
-			ShowfullInfo();
-			DiversityCircuitEntry(Inputdata);
-			Save();
-			SiteAServiceParty(Inputdata);
-			PickServiceParty(Inputdata);
-			SiteBServiceParty(Inputdata);
-			PickServiceParty(Inputdata);
-			SiteASiteContact(Inputdata);
-			PickSiteContactParty(Inputdata);
-			SiteBSiteContact(Inputdata);
-			PickSiteContactParty(Inputdata);
-			ClickHereSave();
-			SearchSiteA(Inputdata);
-			SearchSiteAEntry(Inputdata);
-			SearchSiteB(Inputdata);
-			SearchSiteBEntry(Inputdata);
-			AEndSitePUD(Inputdata);
-			BEndSitePUD(Inputdata);
-			SiteAInstallationTimePUD(Inputdata); //as per Aman's
-			SiteBInstallationTimePUD(Inputdata);
-			SiteATerminationTimePUD(Inputdata);
-			SiteBTerminationTimePUD(Inputdata);
-			SiteAAccessPortPUD(Inputdata);
-			SiteBAccessPortPUD(Inputdata);
-			ClickHereSave();
-			waitForpageload();
-	    	waitforPagetobeenable();
-			GetReference();
-			ClickHereSave();
-			waitForpageload();
-	    	waitforPagetobeenable();
-			break;
-		}
-		case "DCA Ethernet": {
-			PrivateEthernetMiddleAplet(Inputdata);
-			ShowfullInfo();
-			PrivateEthernetEntry(Inputdata);
-			DiversityCircuitEntry(Inputdata);
-			Save();
-			GetReference();
-			Save();
-			SiteAServiceParty(Inputdata);
-			PickServiceParty(Inputdata);
-			SiteBServiceParty(Inputdata);
-			PickServiceParty(Inputdata);
-			SiteASiteContact(Inputdata);
-			PickSiteContactParty(Inputdata);
-			SiteBSiteContact(Inputdata);
-			PickSiteContactParty(Inputdata);
-			ClickHereSave();
-			SearchSiteA(Inputdata);
-			SearchSiteAEntry(Inputdata);
-			SearchSiteB(Inputdata);
-			SearchSiteBEntry(Inputdata);
-			System.out.println("Site A Starting");
-			AEndSite(Inputdata);
-			System.out.println("Site A Entred");
-			System.out.println("Site B Starting");
-			BEndSite(Inputdata);
-			System.out.println("Site B Entrede");
-			savePage();
-			waitforPagetobeenable();
-			SiteASettingClick();
-			CSPInterconnectSiteAEntry();
-			savePage();
-			waitforPagetobeenable();
-			SiteBSettingClick();
-			CSPInterconnectSiteBEntry();
-			/*
-			 * SiteADiversityCircuitConfig(Inputdata);
-			 * SiteBDiversityCircuitConfig(Inputdata); ClickHereSave();
-			 */
-			SiteAInstallationTime(Inputdata);
-			SiteBInstallationTime(Inputdata);
-			ClickHereSave();
-			SiteATerminationTime(Inputdata);
-			SiteBTerminationTime(Inputdata);
-			ClickHereSave();
-			SiteAAccessPort(Inputdata);
-			SiteBAccessPort(Inputdata);
-			ClickHereSave();
-			SiteAVLan(Inputdata);
-			SiteBVLan(Inputdata);
-			ClickHereSave();
-			SiteBDedicatedCloudAccess(Inputdata);
-			ClickHereSave();
-			GetReference();
-			ClickHereSave();
-			break;
-		}
+		
 		/* Start Of SIP Gauri Update Trunking */
 		case "SIP Trunking": 
 		{
@@ -2220,279 +2488,22 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			Thread.sleep(2500);
 			Clickon(getwebelement(xml.getlocator("//locators/R4/InsideDropdownValues").replace("Data", "London")));			
 			Thread.sleep(5000);
-			Clickon(getwebelement(xml.getlocator("//locators/CloseSymbol")));
-			Thread.sleep(5000);
+			closePopUp();
 			Clickon(getwebelement(xml.getlocator("//locators/Save")));
 			Thread.sleep(10000);
-			
-			// Assert.assertTrue("SIP Trunking", true);
 			ExtentTestManager.getTest().log(LogStatus.PASS, " SIP Trunking Middle Applet Success ");
-			// assert equals("SIP Trunking");
-
-			/*-------------Voice Config with Trunk 1--------*/
-		  
-			waitForpageload();
-			waitforPagetobeenable();
-			WaitforElementtobeclickable(xml.getlocator("//locators/SIPVoiceConfigExpandSymbol"));
-			Clickon(getwebelement(xml.getlocator("//locators/SIPVoiceConfigExpandSymbol")));
-
-			Thread.sleep(5000);
-			
-			WaitforElementtobeclickable(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Trunk Sequence"));
-			Clear(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Trunk Sequence")));
-			SendKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Trunk Sequence")),"1");
-			SendkeaboardKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Trunk Sequence")),Keys.ENTER);
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Trunk Sequence ");
-
-			Thread.sleep(5000);
-			Random rand = new Random();
-			int rand_int1 = rand.nextInt(10000);
-			
-			String trunkName="TR_"+Integer.toString(rand_int1);
-			WaitforElementtobeclickable(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Trunk Name"));
-			Clear(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Trunk Name")));
-			SendKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Trunk Name")),trunkName);
-			SendkeaboardKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Trunk Name")),Keys.ENTER);
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Trunk Name ");
-			Thread.sleep(3000);
-			
-
-			WaitforElementtobeclickable(xml.getlocator("//locators/SIP/TrunkConfigDropdown").replace("Value", "Access Line Type"));
-			Clickon(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigDropdown").replace("Value", "Access Line Type")));
-			Clickon(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigDrodownValue").replace("Value", "Colt Access")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Connection Type : Colt Access" );
-			
-			Thread.sleep(5000);
-			waitforPagetobeenable();
-			waitForpageload();
-			WaitforElementtobeclickable(xml.getlocator("//locators/AccessServiceIdlookup"));
-			Clickon(getwebelement(xml.getlocator("//locators/AccessServiceIdlookup")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Access Service Idlookup ");
-			waitForpageload();
-			waitforPagetobeenable();
-			Thread.sleep(2000);
-			
-			Thread.sleep(2000);
-			WaitforElementtobeclickable(xml.getlocator("//locators/R4/PickAccountDropdown"));
-			Clickon(getwebelement(xml.getlocator("//locators/R4/PickAccountDropdown")));
-			Clickon(getwebelement(xml.getlocator("//locators/DarkFiber/AList").replace("Value", "Service Id")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Field : Service Id");
-			
-			WaitforElementtobeclickable(xml.getlocator("//locators/R4/PickAccountValue"));
-			Clickon(getwebelement(xml.getlocator("//locators/R4/PickAccountValue")));
-			Clear(getwebelement(xml.getlocator("//locators/R4/PickAccountValue")));
-			SendKeys(getwebelement(xml.getlocator("//locators/R4/PickAccountValue")), "120702272");
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter value : IP Access" );
-
-			Thread.sleep(10000);
-			WaitforElementtobeclickable(xml.getlocator("//locators/SearchServiceIdOKButton"));
-			Clickon(getwebelement(xml.getlocator("//locators/SearchServiceIdOKButton")));
-			Thread.sleep(5000);
-
-			// SendKeys(getwebelement(xml.getlocator("//locators/ExternalAccessServiceRef")),Inputdata[11].toString());
-			// ExtentTestManager.getTest().log(LogStatus.PASS, "Enter external access
-			// Service reference");
-			
-			Thread.sleep(5000);
-			WaitforElementtobeclickable(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "External Access Service Reference"));
-			Clear(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "External Access Service Reference")));
-			SendKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "External Access Service Reference")),"10.7.235.29/24");
-			SendkeaboardKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "External Access Service Reference")),Keys.ENTER);
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Trunk Name ");
-			
-			Thread.sleep(5000);
-			WaitforElementtobeclickable(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Customer Originating IPv4 Address Range"));
-			Clear(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Customer Originating IPv4 Address Range")));
-			SendKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Customer Originating IPv4 Address Range")),"10.7.235.29/24");
-			SendkeaboardKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Customer Originating IPv4 Address Range")),Keys.ENTER);
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Trunk Name ");
-			
-			Thread.sleep(5000);
-			WaitforElementtobeclickable(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Customer Terminating IPv4 Address"));
-			Clear(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Customer Terminating IPv4 Address")));
-			SendKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Customer Terminating IPv4 Address")),"10.7.235.29/24");
-			SendkeaboardKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Customer Terminating IPv4 Address")),Keys.ENTER);
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Trunk Name ");
-			
-			Thread.sleep(5000);
-			WaitforElementtobeclickable(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Customer Originating IPv6 Address Range"));
-			Clear(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Customer Originating IPv6 Address Range")));
-			SendKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Customer Originating IPv6 Address Range")),"10.7.235.29/24");
-			SendkeaboardKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Customer Originating IPv6 Address Range")),Keys.ENTER);
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Trunk Name ");
-			
-			Thread.sleep(5000);
-			WaitforElementtobeclickable(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Customer Terminating IPv6 Address"));
-			Clear(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Customer Terminating IPv6 Address")));
-			SendKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Customer Terminating IPv6 Address")),"10.7.235.29/24");
-			SendkeaboardKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Customer Terminating IPv6 Address")),Keys.ENTER);
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Trunk Name ");
-			
-			Thread.sleep(3000);
-			WaitforElementtobeclickable(xml.getlocator("//locators/SIPCustomerTerminatingIPv6"));
-			Clickon(getwebelement(xml.getlocator("//locators/SIPCustomerTerminatingIPv6")));
-			Clear(getwebelement(xml.getlocator("//locators/SIPCustomerTerminatingIPv6")));
-			SendKeys(getwebelement(xml.getlocator("//locators/SIPCustomerTerminatingIPv6")), "10.7.235.2/24");
-			ExtentTestManager.getTest().log(LogStatus.PASS, "Enter Customer Terminating IPv6 ");
-			Thread.sleep(5000);
-
-			WaitforElementtobeclickable(xml.getlocator("//locators/SIP/TrunkConfigDropdown").replace("Value", "Signalling Transport Protocol"));
-			Clickon(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigDropdown").replace("Value", "Signalling Transport Protocol")));
-			Clickon(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigDrodownValue").replace("Value", "TCP")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Connection Type : TCP" );
-			
-			Thread.sleep(5000);
-			WaitforElementtobeclickable(xml.getlocator("//locators/SIP/TrunkConfigDropdown").replace("Value", "VoIP Protocol"));
-			Clickon(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigDropdown").replace("Value", "VoIP Protocol")));
-			Clickon(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigDrodownValue").replace("Value", "SIP")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Connection Type : SIP" );
-			Thread.sleep(5000);
-			ExtentTestManager.getTest().log(LogStatus.PASS, "Enter SIPvoIPProtocol");			// Clickon(getwebelement(xml.getlocator("//locators/SIPvoIPProtocol")));
-			Thread.sleep(5000);
-
-			WaitforElementtobeclickable(xml.getlocator("//locators/SIP/TrunkConfigDropdown").replace("Value", "Encryption Type"));
-			Clickon(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigDropdown").replace("Value", "Encryption Type")));
-			Clickon(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigDrodownValue").replace("Value", "TLS on, SRTP off")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Connection Type : TLS on, SRTP off" );
-			Thread.sleep(5000);
-
-			Thread.sleep(5000);
-			WaitforElementtobeclickable(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Proportion%"));
-			Clear(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Proportion%")));
-			SendKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Proportion%")),"20");
-			SendkeaboardKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Proportion%")),Keys.ENTER);
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Trunk Name ");
-
-			Thread.sleep(5000);
-			WaitforElementtobeclickable(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Trunk Site Name Alias"));
-			Clear(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Trunk Site Name Alias")));
-			SendKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Trunk Site Name Alias")),"Alias1");
-			SendkeaboardKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Trunk Site Name Alias")),Keys.ENTER);
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Trunk Name ");
-			
-			WaitforElementtobeclickable(xml.getlocator("//locators/SIP/TrunkConfigDropdown").replace("Value", "NAT Required?"));
-			Clickon(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigDropdown").replace("Value", "NAT Required?")));
-			Clickon(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigDrodownValue").replace("Value", "N")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Connection Type : N");
-
-			Thread.sleep(5000);
-			WaitforElementtobeclickable(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "NNI WAN IPv4 Address Range (/30)"));
-			Clear(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "NNI WAN IPv4 Address Range (/30)")));
-			SendKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "NNI WAN IPv4 Address Range (/30)")),"10.7.235.24/2");
-			SendkeaboardKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "NNI WAN IPv4 Address Range (/30)")),Keys.ENTER);
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Trunk Name ");
-
-			Thread.sleep(5000);
-			WaitforElementtobeclickable(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "NNI WAN IPv6 Address Range"));
-			Clear(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "NNI WAN IPv6 Address Range")));
-			SendKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "NNI WAN IPv6 Address Range")),"10.7.235.24/2");
-			SendkeaboardKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "NNI WAN IPv6 Address Range")),Keys.ENTER);
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Trunk Name ");
-
-			Thread.sleep(5000);
-			WaitforElementtobeclickable(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Public IPv4 Address Range for NAT Side"));
-			Clear(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Public IPv4 Address Range for NAT Side")));
-			SendKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Public IPv4 Address Range for NAT Side")),"2");
-			SendkeaboardKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Public IPv4 Address Range for NAT Side")),Keys.ENTER);
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Trunk Name ");
-
-			Thread.sleep(5000);
-			WaitforElementtobeclickable(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "VLAN Start / End Range"));
-			Clear(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "VLAN Start / End Range")));
-			SendKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "VLAN Start / End Range")),"2");
-			SendkeaboardKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "VLAN Start / End Range")),Keys.ENTER);
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Trunk Name ");
-			
-			Thread.sleep(5000);
-			WaitforElementtobeclickable(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "VLAN ID"));
-			Clear(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "VLAN ID")));
-			SendKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "VLAN ID")),"2");
-			SendkeaboardKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "VLAN ID")),Keys.ENTER);
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Trunk Name ");
-			
-			Thread.sleep(5000);
-			WaitforElementtobeclickable(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "AS Number"));
-			Clear(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "AS Number")));
-			SendKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "AS Number")),"1");
-			SendkeaboardKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "AS Number")),Keys.ENTER);
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Trunk Name ");
-
-			Thread.sleep(5000);
-			WaitforElementtobeclickable(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Colt Host Equipment IPv4 Address"));
-			Clear(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Colt Host Equipment IPv4 Address")));
-			SendKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Colt Host Equipment IPv4 Address")),"10.7.235.24/2");
-			SendkeaboardKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Colt Host Equipment IPv4 Address")),Keys.ENTER);
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Trunk Name ");
-
-			Thread.sleep(5000);
-			WaitforElementtobeclickable(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Colt Host Equipment IPv6 Address"));
-			Clear(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Colt Host Equipment IPv6 Address")));
-			SendKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Colt Host Equipment IPv6 Address")),"10.7.235.24/2");
-			SendkeaboardKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Colt Host Equipment IPv6 Address")),Keys.ENTER);
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Trunk Name ");
-			
-			WaitforElementtobeclickable(xml.getlocator("//locators/SIP/AddmissionInput").replace("Value", "Maximum Number of Simultaneous Calls"));
-			Clear(getwebelement(xml.getlocator("//locators/SIP/AddmissionInput").replace("Value", "Maximum Number of Simultaneous Calls")));
-			SendKeys(getwebelement(xml.getlocator("//locators/SIP/AddmissionInput").replace("Value", "Maximum Number of Simultaneous Calls")),"4");
-			SendkeaboardKeys(getwebelement(xml.getlocator("//locators/SIP/AddmissionInput").replace("Value", "Maximum Number of Simultaneous Calls")),Keys.ENTER);
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Trunk Name ");
-
-			//Update
-			WaitforElementtobeclickable(xml.getlocator("//locators/SIP/AddmissionDropdown").replace("Value", "Inbound Outbound Split"));
-			Clickon(getwebelement(xml.getlocator("//locators/SIP/AddmissionDropdown").replace("Value", "Inbound Outbound Split")));
-			Clickon(getwebelement(xml.getlocator("//locators/SIP/AddmissionDrodownValue").replace("Value", "No")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Connection Type : No");
 			
 			
-			WaitforElementtobeclickable(xml.getlocator("//locators/SIP/AddmissionInput").replace("Value", "Maximum Inbound Calls"));
-			Clear(getwebelement(xml.getlocator("//locators/SIP/AddmissionInput").replace("Value", "Maximum Inbound Calls")));
-			SendKeys(getwebelement(xml.getlocator("//locators/SIP/AddmissionInput").replace("Value", "Maximum Inbound Calls")),"1");
-			SendkeaboardKeys(getwebelement(xml.getlocator("//locators/SIP/AddmissionInput").replace("Value", "Maximum Inbound Calls")),Keys.ENTER);
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Trunk Name ");
-
-			WaitforElementtobeclickable(xml.getlocator("//locators/SIP/AddmissionInput").replace("Value", "Overall Call limit for Trunk"));
-			Clear(getwebelement(xml.getlocator("//locators/SIP/AddmissionInput").replace("Value", "Overall Call limit for Trunk")));
-			SendKeys(getwebelement(xml.getlocator("//locators/SIP/AddmissionInput").replace("Value", "Overall Call limit for Trunk")),"1");
-			SendkeaboardKeys(getwebelement(xml.getlocator("//locators/SIP/AddmissionInput").replace("Value", "Overall Call limit for Trunk")),Keys.ENTER);
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Trunk Name ");
-			
-			WaitforElementtobeclickable(xml.getlocator("//locators/SIP/AddmissionInput").replace("Value", "In Call Limit for Trunk"));
-			Clear(getwebelement(xml.getlocator("//locators/SIP/AddmissionInput").replace("Value", "In Call Limit for Trunk")));
-			SendKeys(getwebelement(xml.getlocator("//locators/SIP/AddmissionInput").replace("Value", "In Call Limit for Trunk")),"10");
-			SendkeaboardKeys(getwebelement(xml.getlocator("//locators/SIP/AddmissionInput").replace("Value", "In Call Limit for Trunk")),Keys.ENTER);
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Trunk Name ");
-			
-			WaitforElementtobeclickable(xml.getlocator("//locators/SIP/AddmissionInput").replace("Value", "Out Call limit for Trunk"));
-			Clear(getwebelement(xml.getlocator("//locators/SIP/AddmissionInput").replace("Value", "Out Call limit for Trunk")));
-			SendKeys(getwebelement(xml.getlocator("//locators/SIP/AddmissionInput").replace("Value", "Out Call limit for Trunk")),"1");
-			SendkeaboardKeys(getwebelement(xml.getlocator("//locators/SIP/AddmissionInput").replace("Value", "Out Call limit for Trunk")),Keys.ENTER);
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Trunk Name ");
-						
-			WaitforElementtobeclickable(xml.getlocator("//locators/SIP/AddmissionDropdown").replace("Value", "Type of CAC"));
-			Clickon(getwebelement(xml.getlocator("//locators/SIP/AddmissionDropdown").replace("Value", "Type of CAC")));
-			Clickon(getwebelement(xml.getlocator("//locators/SIP/AddmissionDrodownValue").replace("Value", "Individual Trunk CAC")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Connection Type : Individual Trunk CAC");
-			
-		
-			Thread.sleep(10000);
-
-			ClickHereSave();
+			TrunkEntries();
+			//CustomerIPBoxEntries();
 			
 			OpenTab("Customer IP PBX");
-
-			//WaitforElementtobeclickable(xml.getlocator("//locators/SIPCustomerIPPbxIdTab"));
-			//Clickon(getwebelement(xml.getlocator("//locators/SIPCustomerIPPbxIdTab")));
-
 			waitForpageload();
 			waitforPagetobeenable();
 			Thread.sleep(5000);
 			
 			WaitforElementtobeclickable(xml.getlocator("//locators/SIP/CustomerMenu").replace("Value", "New"));
 			Clickon(getwebelement(xml.getlocator("//locators/SIP/CustomerMenu").replace("Value", "New")));
-
-			//Clickon(getwebelement(xml.getlocator("//locators/SIPAddrecordSymbolIPPBX")));
-			//Thread.sleep(5000);
-			
 			WaitforElementtobeclickable(xml.getlocator("//locators/SIPIPPBXAliasName"));
 			Clickon(getwebelement(xml.getlocator("//locators/SIPIPPBXAliasName")));
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click IPPBX Alias Name Field");
@@ -5345,13 +5356,13 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		SendKeys(getwebelement(xml.getlocator("//locators/ContractRenewalFlag")), Inputdata[22].toString());
 		// System.out.println("contract renewal flag");
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Contract Renewal Flag");
-		 SendkeaboardKeys(getwebelement(xml.getlocator("//locators/ContractRenewalFlag")),
-		 Keys.TAB);
+		SendkeaboardKeys(getwebelement(xml.getlocator("//locators/ContractRenewalFlag")),Keys.TAB);
 		Thread.sleep(4000);
 		WaitforElementtobeclickable((xml.getlocator("//locators/ContractTerm")));
 		Clear(getwebelement(xml.getlocator("//locators/ContractTerm")));
-		SendKeys(getwebelement(xml.getlocator("//locators/ContractTerm")), Inputdata[21].toString());
-		Clickon(getwebelement(xml.getlocator("//locators/SelectContractTerm")));
+		SendKeys(getwebelement(xml.getlocator("//locators/ContractTerm")), "12");
+		SendkeaboardKeys(getwebelement(xml.getlocator("//locators/ContractTerm")),Keys.TAB);
+		//Clickon(getwebelement(xml.getlocator("//locators/SelectContractTerm")));
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Contract Term");
 		Thread.sleep(8000);
 
@@ -6491,13 +6502,13 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			}
 		}
 		WaitforElementtobeclickable(xml.getlocator("//locators/InputServiceOrder"));
-		SendKeys(getwebelement(xml.getlocator("//locators/InputServiceOrder")), "211883468/200511-0114");
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter value in service order :    211883468/200511-0114");
+		SendKeys(getwebelement(xml.getlocator("//locators/InputServiceOrder")), "872965888/200601-0029");
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter value in service order :    872965888/200601-0029");
 		Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderGo")));
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on go button");
 		Thread.sleep(6000);
 		Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderClickOn")));
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on service order :   211883468/200511-0114");
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on service order :   872965888/200601-0029");
 
 	}
 
@@ -6652,7 +6663,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			
 			Thread.sleep(2000);
 			
-			siteSearchByID("AMS0000105521/001");
+			siteSearchByID("MAD03420/001");
 			
 			waitForpageload();
 			/*List<String> list = new ArrayList<String>(); 
@@ -6787,7 +6798,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Search Address SiteB");
 			
 			waitForpageload();
-			siteSearchByID("AMS0000105521/001");
+			siteSearchByID("MAD03420/001");
 			
 			/*List<String> list = new ArrayList<String>(); 
 			list.add("Van Goorstraat 12");
@@ -7455,8 +7466,11 @@ public class NewOrderOnnetHelper extends DriverHelper {
 	 * platform as legacy and get refernce no checked
 	 */
 	public void getReferenceNo(Object[] Inputdata) throws Exception, Exception {
-		if (Inputdata[8].toString().equalsIgnoreCase("Wave")
-				|| Inputdata[8].toString().equalsIgnoreCase("Ethernet Line")) {
+		if (Inputdata[8].toString().equalsIgnoreCase("Wave")|| Inputdata[8].toString().equalsIgnoreCase("Ethernet Line")||
+			Inputdata[8].toString().equalsIgnoreCase("Dark Fibre")|| Inputdata[8].toString().equalsIgnoreCase("DCA Ethernet")||
+			Inputdata[8].toString().equalsIgnoreCase("DCA Ethernet")|| Inputdata[8].toString().equalsIgnoreCase("Private Wave Service")||
+			Inputdata[8].toString().equalsIgnoreCase("Private Wave Node")||Inputdata[8].toString().equalsIgnoreCase("Private Ethernet")) 
+		{
 			waitforPagetobeenable();
 			savePage();
 			waitforPagetobeenable();
@@ -8676,15 +8690,15 @@ public class NewOrderOnnetHelper extends DriverHelper {
 	{
 		waitForpageload();
 		
-		//siteSearchByID("AMS0000105521/001");
+		siteSearchByID("MAD03420/001");
 		
-		List<String> list = new ArrayList<String>(); 
+		/*List<String> list = new ArrayList<String>(); 
 		list.add("Schmidtstrasse");
 		list.add("Germany");
 		list.add("Cologne");
 		list.add("94234");
 		list.add("16");
-		siteSearchEnterAndSelection(list);
+		siteSearchEnterAndSelection(list);*/
 		
 		/*WaitforElementtobeclickable(xml.getlocator("//locators/R4/SearchInput").replace("Value", "Street Name"));
 		Clear(getwebelement(xml.getlocator("//locators/R4/SearchInput").replace("Value", "Street Name")));
@@ -8918,15 +8932,15 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		
 		waitForpageload();
 		
-		//siteSearchByID("AMS0000105521/001");
+		siteSearchByID("MAD03420/001");
 		
-		List<String> list = new ArrayList<String>(); 
+		/*List<String> list = new ArrayList<String>(); 
 		list.add("Schmidtstrasse");
 		list.add("Germany");
 		list.add("Cologne");
 		list.add("94234");
 		list.add("16");
-		siteSearchEnterAndSelection(list);
+		siteSearchEnterAndSelection(list);*/
 		/*WaitforElementtobeclickable(xml.getlocator("//locators/R4/SearchInput").replace("Value", "Street Name"));
 		Clear(getwebelement(xml.getlocator("//locators/R4/SearchInput").replace("Value", "Street Name")));
 		SendKeys(getwebelement(xml.getlocator("//locators/R4/SearchInput").replace("Value", "Street Name")),
@@ -9626,7 +9640,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			else
 			{
 				BEndDropdownSelection("Access Type",InputData[42].toString());
-				BEndDropdownSelection("Access Technology","Ethernet over Fibre"/*InputData[119].toString()*/);
+				//BEndDropdownSelection("Access Technology","Ethernet over Fibre"/*InputData[119].toString()*/);
 				BEndDropdownSelection("Building Type",InputData[45].toString());
 				BEndDropdownSelection("Customer Site Pop Status","NA"/*InputData[94].toString()*/);
 				BEndInputEnter("Site Name Alias","NA"/*InputData[60].toString()*/);	
@@ -10710,6 +10724,10 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		waitforPagetobeenable();
 		ExtentTestManager.getTest().log(LogStatus.PASS, "SiteA <-------- Entry Started -------->");
 		String ProductName = InputData[8].toString();
+		System.out.println("enter into offnet part of A end site" +InputData[74].toString());
+		System.out.println("enter into offnet part of A end site" +InputData[42].toString());
+		System.out.println("enter into offnet part of A end site" +InputData[43].toString());
+		System.out.println("enter into offnet part of A end site" +InputData[44].toString());
 		if (ProductName.equalsIgnoreCase("DCA Ethernet") || ProductName.equalsIgnoreCase("Ethernet Access") || ProductName.equalsIgnoreCase("Private Ethernet"))
 		{
 			if(InputData[74].toString().equalsIgnoreCase("offnet"))
@@ -10778,9 +10796,9 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			WaitforElementtobeclickable(xml.getlocator("//locators/DarkFiber/AEndSiteDropDown").replace("Value", "Access Type"));
 			Clickon(getwebelement(xml.getlocator("//locators/DarkFiber/AEndSiteDropDown").replace("Value", "Access Type")));
 
-			WaitforElementtobeclickable(xml.getlocator("//locators/DarkFiber/AList").replace("Value", InputData[43].toString()));
-			Clickon(getwebelement(xml.getlocator("//locators/DarkFiber/AList").replace("Value", InputData[43].toString())));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Access Type : " + InputData[43].toString());
+			WaitforElementtobeclickable(xml.getlocator("//locators/DarkFiber/AList").replace("Value", InputData[42].toString()));
+			Clickon(getwebelement(xml.getlocator("//locators/DarkFiber/AList").replace("Value", InputData[42].toString())));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Select Access Type : " + InputData[42].toString());
 
 			// Access Tech
 			if (!ProductName.equalsIgnoreCase("Private Ethernet")) 
