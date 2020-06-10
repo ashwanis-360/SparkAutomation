@@ -34,7 +34,7 @@ public class CancelHelper extends DriverHelper{
 	Clickon(getwebelement(xml.getlocator("//locators/StatusReasonDropdown")));
 	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on status reason dropdown");
 	Thread.sleep(10000);
-	Clickon(getwebelement(xml.getlocator("//locators/StatusReasonValue").replace("value",InputData[74].toString())));
+	Clickon(getwebelement(xml.getlocator("//locators/StatusReasonValue").replace("value","Abandoned, Order not needed"/*InputData[74].toString()*/)));
 	Thread.sleep(4000);
 	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Clicked on Cancel status reason");
 	
