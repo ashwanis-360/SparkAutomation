@@ -22,6 +22,7 @@ public String getlocator(String nodepath) throws DocumentException
 	Document doc=xmlreader.read(Inputfile);
 	locator=doc.selectSingleNode(nodepath).getText();
 	//Log.info(locator);
+	System.out.println(locator);
 	return locator;
 	
 }

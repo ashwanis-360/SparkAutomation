@@ -569,9 +569,9 @@
   <PickSite>//button[text()='Pick Site']</PickSite> 
   <InsideDropdownValues>//li[text()='Data']</InsideDropdownValues>
   <CoverageEthernetAccess>//span[text()='Coverage']/..//input/following-sibling::span</CoverageEthernetAccess>
-  
-<SaveEthernetAccess>//div[@id='colt-s-order-connection-header']//a[text()='Save']</SaveEthernetAccess> // added by Ayush
-<ServiceTypeEthernetAccess>(//span[text()='Service Type'])[2]/following-sibling::span</ServiceTypeEthernetAccess>
+  <DropOptions>//li[@class='ui-menu-item']</DropOptions>
+  <SaveEthernetAccess>//div[@id='colt-s-order-connection-header']//a[text()='Save']</SaveEthernetAccess> // added by Ayush
+  <ServiceTypeEthernetAccess>(//span[text()='Service Type'])[2]/following-sibling::span</ServiceTypeEthernetAccess>
   <PickAccountValue>//div[contains(@style,'block')]//input[@aria-labelledby='PopupQuerySrchspec_Label']</PickAccountValue>
   <PickAccountGo>(//div[contains(@style,'block')]//button[@title='Pick Account:Go'])[2]</PickAccountGo>
   <PickContactOk>//div[contains(@style,'block')]//button[@title='Pick Contact:OK']</PickContactOk>

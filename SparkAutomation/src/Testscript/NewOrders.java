@@ -119,19 +119,6 @@ public class NewOrders extends DriverTestcase {
 	}
 
 	@Test(dataProviderClass = DataReader.class, dataProvider = "CeaseExisting")
-	public void ModcomExisting(Object[] Data) throws Exception {
-
-		Login.get().Login("Sieble");
-		Cease.get().openExistingServiceOrder(Data[0].toString());
-		//Cease.get().CeaseExistingService(Data[0].toString());
-		newOrderOnnnet.get().SelectAttachmentTab(Data[1].toString());
-		newOrderOnnnet.get().UploadDocument(Data[1].toString());
-		Cease.get().CeaseCommercialValidation(Data[1].toString()); 
-		Cease.get().DeliveryValidation(Data[1].toString());
-		Cease.get().CeaseCompletedValidation();
-	}
-
-	@Test(dataProviderClass = DataReader.class, dataProvider = "CeaseExisting")
 	public void CeaseExisting(Object[] Data) throws Exception {
 
 		Login.get().Login("Sieble");
@@ -142,6 +129,33 @@ public class NewOrders extends DriverTestcase {
 		Cease.get().CeaseCommercialValidation(Data[1].toString()); 
 		Cease.get().DeliveryValidation(Data[1].toString());
 		Cease.get().CeaseCompletedValidation();
+	}
+	
+	@Test(dataProviderClass = DataReader.class, dataProvider = "ModComExisting")
+	public void ModcomExisting(Object[] Data) throws Throwable 
+	{
+		String Product=Data[9].toString().trim();
+		String SubProduct=Data[10].toString().trim();
+		Login.get().Login("Sieble");
+		newOrderOnnnet.get().ModComExisting(Data);
+		newOrderOnnnet.get().installationTimeUpdate(Data);
+		newOrderOnnnet.get().EnterDateInFooter(Data);
+		if (Product.equalsIgnoreCase("Ethernet Spoke")) 
+		{
+			newOrderOnnnet.get().ColtPromissDate(Data);
+		}
+		newOrderOnnnet.get().EnterBillingDateInFooter(Data);
+		newOrderOnnnet.get().EnterServiceChargeInFooter(Data, "4");
+		if (SubProduct.equalsIgnoreCase("IP VPN Access")||SubProduct.equalsIgnoreCase("IP VPN Plus")||SubProduct.equalsIgnoreCase("IP VPN Wholesale")||SubProduct.equalsIgnoreCase("PrizmNet"))
+		{
+			newOrderOnnnet.get().ServiceChargeforIPVPNSite(Data, "4");
+		}
+		newOrderOnnnet.get().CommercialValidation(Data);
+		modHelper.get().ProductSpecificCompleted(Data);
+		if (!SubProduct.equalsIgnoreCase("IP VPN Access")&&!SubProduct.equalsIgnoreCase("IP VPN Plus") &&!SubProduct.equalsIgnoreCase("IP VPN Wholesale")&&!SubProduct.equalsIgnoreCase("PrizmNet"))
+		{
+			newOrderOnnnet.get().CompletedValidation(Data);// updated
+		}
 	}
 	
 	@Test(dataProviderClass = DataReader.class, dataProvider = "Abandoned")

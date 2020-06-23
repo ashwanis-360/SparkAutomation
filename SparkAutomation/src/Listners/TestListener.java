@@ -17,7 +17,8 @@ import Reporter.ExtentTestManager;
 
 public class TestListener extends DriverTestcase implements ITestListener { 
 	
-	  private static String getTestMethodName(ITestResult iTestResult) {
+	  private static String getTestMethodName(ITestResult iTestResult) 
+	  {
 	        return iTestResult.getMethod().getConstructorOrMethod().getName();
 	    }
 	    
@@ -52,6 +53,8 @@ public class TestListener extends DriverTestcase implements ITestListener {
 	        //Extentreports log operation for passed tests.
 	      ExtentTestManager.getTest().log(LogStatus.PASS, getTestMethodName(iTestResult)+" : Test Method has been passed");
 	      ExtentTestManager.endTest();
+	      //ExtentTestManager.endTest();
+	      ExtentManager.getReporter().flush();
 	    }
 	 
 	    public void onTestFailure(ITestResult iTestResult) {
