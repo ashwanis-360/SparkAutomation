@@ -13,7 +13,7 @@
 			</class>
 		</classes>	
 	</test> 
-<!-- 	<test name="Siebel Cease" junit="false" preserve-order="true">
+	<test name="Siebel Cease" junit="false" preserve-order="true">
 		<classes>
 			<class name="Testscript.NewOrders">	
 				<methods>
@@ -166,6 +166,6 @@
 			  	</methods>	
 			</class>
 		</classes>	
-	</test>  -->
+	</test>
 
 </suite>
