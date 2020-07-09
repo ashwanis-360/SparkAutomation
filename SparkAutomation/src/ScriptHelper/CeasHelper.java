@@ -195,15 +195,17 @@ public class CeasHelper extends DriverHelper {
 		Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderArrow")));
 	}
 	
-	public void CeaseExistingService(String ExistingOrder) throws Exception 
+	public void CeaseExistingService(Object[] InputData) throws Exception 
 	{
-		
+		String ExistingOrder=InputData[0].toString();
 		String[] billerror= {"BILLING ERROR","DOWNSTREAM SYSTEM ERRO"};
 		boolean billing = false;
 		String BillingStatus = null;
 		for (int i = 0; i < 35; i++) 
 		{
-			Thread.sleep(3 * 10000);
+			//Thread.sleep(3 * 10000);
+			waitforPagetobeenable();
+			waitForpageload();
 			WaitforElementtobeclickable(xml.getlocator("//locators/ServiceOrderArrow"));
 			Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderArrow")));
 			waitforPagetobeenable();
@@ -256,6 +258,10 @@ public class CeasHelper extends DriverHelper {
 		waitforPagetobeenable();
 		SiebelCeaseOrdernumber.set(Gettext(getwebelement(xml.getlocator("//locators/ServiceOrderModifyNumber']"))));
 		ExtentTestManager.getTest().log(LogStatus.PASS," Step: Generated Service Order Reference No: " + SiebelCeaseOrdernumber.get());
+		
+		SendKeys(getwebelement(xml.getlocator("//locators/OpportunityNo")), InputData[4].toString());
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Opportunity as : "+InputData[4].toString());
+		
 		SendKeys(getwebelement(xml.getlocator("//locators/RequestReceivedDate")), CurrentDate());
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Request Received Date");
 

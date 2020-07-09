@@ -507,14 +507,21 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			waitforPagetobeenable();
 			Thread.sleep(3000);
 		} 
-		else if (InputData[9].toString().equals("Ethernet Spoke") || InputData[9].toString().equals("Dark Fibre")|| InputData[9].toString().equals("Private Wave Node")||InputData[9].toString().equals("Ethernet VPN Access")) 
+		else if ( InputData[9].toString().equals("Dark Fibre")|| InputData[9].toString().equals("Private Wave Node")||InputData[9].toString().equals("Ethernet VPN Access")) 
 		{
-			addNetwork(InputData[121].toString());
+			addNetwork(InputData[33].toString());
 		} 
-		else if (InputData[9].toString().equals("HNS")) 
+		else if (InputData[9].toString().equals("HNS")||InputData[9].toString().equals("Ethernet Spoke")) 
 		{
-			SendKeys(getwebelement(xml.getlocator("//locators/InputNetworkReference")), HubNetworkReference.get());
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Network reference from New Hub");
+			if(HubNetworkReference.get()!=null)
+			{
+				SendKeys(getwebelement(xml.getlocator("//locators/InputNetworkReference")), HubNetworkReference.get());
+				ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Network reference from New Hub");
+			}
+			else
+			{
+				addNetwork(InputData[33].toString());
+			}
 
 		}
 		String[] nonNetworkProducts=new String[] {"Cloud Unified Communications","IP Voice Solutions","Professional Services","Wave",
@@ -527,9 +534,6 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		{
 			addNetwork();
 		}
-				
-	
-		
 		Thread.sleep(6000);
 	
 		/* Voice Line maintenance party is mandatory in New OMP so i am commenting if  condition*/
@@ -1812,8 +1816,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		{
 		waitForpageload();
 		waitforPagetobeenable();
-		Random rand = new Random();
-		int rand_int1 = rand.nextInt(1000);
+		
 		// A End And B End Site Entries Start
 		//Access type
 		
@@ -1824,8 +1827,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			AEndDropdownSelection("Third Party Access Provider",InputData[102].toString());
 			AEndDropdownSelection("Building Type",InputData[93].toString());
 			AEndDropdownSelection("Customer Site Pop Status",InputData[94].toString());
-			rand_int1 = rand.nextInt(1000);
-			AEndInputEnter("3rd Party Connection Reference",Integer.toString(rand_int1));
+			
+			AEndInputEnter("3rd Party Connection Reference",Integer.toString(GetRandomNumber(1000)));
 			AEndInputEnter("BCP Reference",InputData[94].toString());
 			AEndInputEnter("Site Name Alias",InputData[60].toString());
 			AEndDropdownSelection("Third Party SLA Tier",InputData[35].toString());
@@ -1835,8 +1838,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			BEndDropdownSelection("Third Party Access Provider",InputData[102].toString());
 			BEndDropdownSelection("Building Type",InputData[93].toString());
 			BEndDropdownSelection("Customer Site Pop Status",InputData[94].toString());
-			rand_int1 = rand.nextInt(1000);
-			BEndInputEnter("3rd Party Connection Reference",Integer.toString(rand_int1));
+			
+			BEndInputEnter("3rd Party Connection Reference",Integer.toString(GetRandomNumber(1000)));
 			BEndInputEnter("BCP Reference",InputData[94].toString());
 			BEndInputEnter("Site Name Alias",InputData[60].toString());
 			BEndDropdownSelection("Third Party SLA Tier",InputData[35].toString());
@@ -1860,17 +1863,17 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			waitForpageload();
 		    waitforPagetobeenable();
 		    //A End And B End CPE Information Entries Start
-		    rand_int1 = rand.nextInt(1000);
-		    AEndInputEnter("Cabinet ID",Integer.toString(rand_int1));
-		    AEndDropdownSelection("Cabinet Type",InputData[96].toString());
-		    rand_int1 = rand.nextInt(1000);
-		    AEndInputEnter("Shelf ID",Integer.toString(rand_int1));
 		    
-		    rand_int1 = rand.nextInt(1000);
-		    BEndInputEnter("Cabinet ID",Integer.toString(rand_int1));
+		    AEndInputEnter("Cabinet ID",Integer.toString(GetRandomNumber(1000)));
+		    AEndDropdownSelection("Cabinet Type",InputData[96].toString());
+		    
+		    AEndInputEnter("Shelf ID",Integer.toString(GetRandomNumber(1000)));
+		    
+		    
+		    BEndInputEnter("Cabinet ID",Integer.toString(GetRandomNumber(1000)));
 		    BEndDropdownSelection("Cabinet Type",InputData[113].toString());
-		    rand_int1 = rand.nextInt(1000);
-		    BEndInputEnter("Shelf ID",Integer.toString(rand_int1));
+		   
+		    BEndInputEnter("Shelf ID",Integer.toString(GetRandomNumber(1000)));
 		    
 		  //A End And B End CPE Information Entries Ended
 		    savePage();
@@ -1878,19 +1881,19 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		    waitforPagetobeenable();
 		    
 		    //A End And B End CPE Access Port Entries Start
-		    rand_int1 = rand.nextInt(1000);
-		    AEndInputEnter("Slot ID",Integer.toString(rand_int1));
-		    rand_int1 = rand.nextInt(1000);
-		    AEndInputEnter("Physical Port ID",Integer.toString(rand_int1));
+		    
+		    AEndInputEnter("Slot ID",Integer.toString(GetRandomNumber(1000)));
+		   
+		    AEndInputEnter("Physical Port ID",Integer.toString(GetRandomNumber(1000)));
 		    AEndDropdownSelection("Presentation Interface",InputData[99].toString());
 		    AEndDropdownSelection("Connector Type",InputData[54].toString());
 		    AEndDropdownSelection("Fibre Type",InputData[55].toString());
 		    AEndDropdownSelection("Port Role",InputData[98].toString());
 		    
-		    rand_int1 = rand.nextInt(1000);
-		    BEndInputEnter("Slot ID",Integer.toString(rand_int1));
-		    rand_int1 = rand.nextInt(1000);
-		    BEndInputEnter("Physical Port ID",Integer.toString(rand_int1));
+		  
+		    BEndInputEnter("Slot ID",Integer.toString(GetRandomNumber(1000)));
+		  
+		    BEndInputEnter("Physical Port ID",Integer.toString(GetRandomNumber(1000)));
 		    BEndDropdownSelection("Presentation Interface",InputData[116].toString());
 		    BEndDropdownSelection("Connector Type",InputData[56].toString());
 		    BEndDropdownSelection("Fibre Type",InputData[58].toString());
@@ -1904,28 +1907,28 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		AEndDropdownSelection("Access Technology",InputData[54].toString());
 		AEndDropdownSelection("Building Type",InputData[56].toString());
 		AEndDropdownSelection("Customer Site Pop Status",InputData[57].toString());
-		rand_int1 = rand.nextInt(1000);
-		AEndInputEnter("3rd Party Connection Reference",Integer.toString(rand_int1));
-		rand_int1 = rand.nextInt(1000);
+		
+		AEndInputEnter("3rd Party Connection Reference",Integer.toString(GetRandomNumber(1000)));
+		
 		//AEndInputEnter("BCP Reference",InputData[94].toString());
-		AEndInputEnter("BCP Reference",Integer.toString(rand_int1));
-		rand_int1 = rand.nextInt(1000);
+		AEndInputEnter("BCP Reference",Integer.toString(GetRandomNumber(1000)));
+		
 		//AEndInputEnter("Site Name Alias",InputData[60].toString());
-		AEndInputEnter("Site Name Alias",Integer.toString(rand_int1));
+		AEndInputEnter("Site Name Alias",Integer.toString(GetRandomNumber(1000)));
 		
 		BEndDropdownSelection("Access Type",InputData[80].toString());
 		BEndDropdownSelection("Access Technology",InputData[81].toString());
 		BEndDropdownSelection("Building Type",InputData[83].toString());
 		BEndDropdownSelection("Customer Site Pop Status",InputData[84].toString());
 		
-		rand_int1 = rand.nextInt(1000);
-		BEndInputEnter("3rd Party Connection Reference",Integer.toString(rand_int1));
+		
+		BEndInputEnter("3rd Party Connection Reference",Integer.toString(GetRandomNumber(1000)));
 		//BEndInputEnter("BCP Reference",InputData[121].toString());
-		rand_int1 = rand.nextInt(1000);
-		BEndInputEnter("BCP Reference",Integer.toString(rand_int1));
-		rand_int1 = rand.nextInt(1000);
+		
+		BEndInputEnter("BCP Reference",Integer.toString(GetRandomNumber(1000)));
+		
 		//BEndInputEnter("Site Name Alias",InputData[122].toString());
-		BEndInputEnter("Site Name Alias",Integer.toString(rand_int1));
+		BEndInputEnter("Site Name Alias",Integer.toString(GetRandomNumber(1000)));
 		
 		//A End And B End Site Entries Ended
 		waitForpageload();
@@ -1947,17 +1950,17 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		waitForpageload();
 	    waitforPagetobeenable();
 	    //A End And B End CPE Information Entries Start
-	    rand_int1 = rand.nextInt(1000);
-	    AEndInputEnter("Cabinet ID",Integer.toString(rand_int1));
-	    AEndDropdownSelection("Cabinet Type",InputData[70].toString());
-	    rand_int1 = rand.nextInt(1000);
-	    AEndInputEnter("Shelf ID",Integer.toString(rand_int1));
 	    
-	    rand_int1 = rand.nextInt(1000);
-	    BEndInputEnter("Cabinet ID",Integer.toString(rand_int1));
+	    AEndInputEnter("Cabinet ID",Integer.toString(GetRandomNumber(1000)));
+	    AEndDropdownSelection("Cabinet Type",InputData[70].toString());
+	    
+	    AEndInputEnter("Shelf ID",Integer.toString(GetRandomNumber(1000)));
+	    
+	    
+	    BEndInputEnter("Cabinet ID",Integer.toString(GetRandomNumber(1000)));
 	    BEndDropdownSelection("Cabinet Type",InputData[97].toString());
-	    rand_int1 = rand.nextInt(1000);
-	    BEndInputEnter("Shelf ID",Integer.toString(rand_int1));
+	   
+	    BEndInputEnter("Shelf ID",Integer.toString(GetRandomNumber(1000)));
 	    
 	  //A End And B End CPE Information Entries Ended
 	    savePage();
@@ -1965,19 +1968,19 @@ public class NewOrderOnnetHelper extends DriverHelper {
 	    waitforPagetobeenable();
 	    
 	    //A End And B End CPE Access Port Entries Start
-	    rand_int1 = rand.nextInt(1000);
-	    AEndInputEnter("Slot ID",Integer.toString(rand_int1));
-	    rand_int1 = rand.nextInt(1000);
-	    AEndInputEnter("Physical Port ID",Integer.toString(rand_int1));
+	 
+	    AEndInputEnter("Slot ID",Integer.toString(GetRandomNumber(1000)));
+	   
+	    AEndInputEnter("Physical Port ID",Integer.toString(GetRandomNumber(1000)));
 	    AEndDropdownSelection("Presentation Interface",InputData[75].toString());
 	    AEndDropdownSelection("Connector Type",InputData[76].toString());
 	    AEndDropdownSelection("Fibre Type",InputData[77].toString());
 	    AEndDropdownSelection("Port Role",InputData[78].toString());
 	    
-	    rand_int1 = rand.nextInt(1000);
-	    BEndInputEnter("Slot ID",Integer.toString(rand_int1));
-	    rand_int1 = rand.nextInt(1000);
-	    BEndInputEnter("Physical Port ID",Integer.toString(rand_int1));
+	   
+	    BEndInputEnter("Slot ID",Integer.toString(GetRandomNumber(1000)));
+	    
+	    BEndInputEnter("Physical Port ID",Integer.toString(GetRandomNumber(1000)));
 	    BEndDropdownSelection("Presentation Interface",InputData[102].toString());
 	    BEndDropdownSelection("Connector Type",InputData[103].toString());
 	    BEndDropdownSelection("Fibre Type",InputData[104].toString());
@@ -2521,6 +2524,48 @@ public class NewOrderOnnetHelper extends DriverHelper {
 	    waitforPagetobeenable();
 	}
 
+	public void EthernetSpokeSiteEntries(Object[] InputData) throws Exception
+	{
+		Random rnd=new Random();
+		int rnd_int=0;
+		if(InputData[32].toString().equalsIgnoreCase("offnet"))
+		{
+			//
+		}
+		else
+		{
+		BEndDropdownSelection("Access Type",InputData[51].toString());
+		BEndDropdownSelection("Access Technology",InputData[52].toString());
+		BEndDropdownSelection("Building Type",InputData[53].toString());
+		BEndDropdownSelection("Customer Site Pop Status",InputData[54].toString());
+		BEndInputEnter("3rd Party Connection Reference",Integer.toString(rnd.nextInt(1000)));
+		BEndInputEnter("BCP Reference",Integer.toString(rnd.nextInt(1000)));
+		BEndInputEnter("Site Name Alias",Integer.toString(rnd.nextInt(1000)));
+		
+		//CPE Information
+		rnd_int = rnd.nextInt(1000);
+		BEndInputEnter("Cabinet ID",Integer.toString(rnd.nextInt(1000)));
+		BEndDropdownSelection("Cabinet Type",InputData[55].toString());
+		BEndInputEnter("Shelf ID",Integer.toString(rnd.nextInt(1000)));
+		
+		BEndInputEnter("Slot ID",Integer.toString(rnd.nextInt(1000)));
+		BEndInputEnter("Physical Port ID",Integer.toString(rnd.nextInt(1000)));
+		BEndDropdownSelection("Presentation Interface",InputData[56].toString());
+		BEndDropdownSelection("Connector Type",InputData[57].toString());
+		BEndDropdownSelection("Fibre Type",InputData[58].toString());
+		
+		//Install Time
+		BEndDropdownSelection("Install Time",InputData[59].toString());
+		BEndInputEnter("VLAN Tag ID",Integer.toString(rnd.nextInt(1000)));
+		
+	    }
+	    waitForpageload();
+	    waitforPagetobeenable();
+	    ClickHereSave();
+	    waitForpageload();
+	    waitforPagetobeenable();
+	}
+	
 	public void EthernetHubSiteEntries(Object[] InputData) throws Exception
 	{
 		Random rnd=new Random();
@@ -2561,13 +2606,37 @@ public class NewOrderOnnetHelper extends DriverHelper {
 	    waitForpageload();
 	    waitforPagetobeenable();
 	}
-	
 	public void enterMandatoryDetailsInMiddleApplet(Object[] InputData) throws Exception {
 		
 		Random rndm = new Random();
 		int rand_int1 = rndm.nextInt(1000);
 		switch (InputData[9].toString()) 
 		{
+		case "Ethernet Spoke": 
+		{
+			System.out.println("Enter Gurdian Middle Applet");	
+			/*MiddleAppDropdown("Coverage",InputData[47].toString());
+			MiddleAppDropdown("Resilience Option",InputData[48].toString());
+			MiddleAppDropdown("Service Bandwidth",InputData[49].toString());
+			MiddleAppDropdown("OSS Platform Flag",InputData[50].toString());
+			
+			Save();*/
+			
+			/*Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "HUB Service Id")));
+			WaitforElementtobeclickable(xml.getlocator("//locators/IPVPNSite/HubTableIDSelect"));
+			Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/HubTableIDSelect")));
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Select HubID");
+			Thread.sleep(3000);
+			Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/HubTableOK")));
+			Thread.sleep(3000);
+			
+			ClickHereSave();*/
+			//addSiteBDetails(InputData);
+			EthernetSpokeSiteEntries(InputData);
+
+			break;
+		}
+
 		case "IP Guardian": 
 		{
 			System.out.println("Enter Gurdian Middle Applet");	
@@ -5778,7 +5847,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 	 */
 	public void Check(Object[] InputData) throws Exception {
 		Thread.sleep(10000);
-		ServiceOrder.set("877366176/200622-0052");
+		ServiceOrder.set("877391766/200709-0058");
 		do {
 			Pagerefresh();
 			System.out.println("Page to be refresed");
@@ -6545,7 +6614,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		String Product=InputData[9].toString();
 		if (Product.equalsIgnoreCase("Wave")|| Product.equalsIgnoreCase("Ethernet Line")||Product.equalsIgnoreCase("Ethernet VPN Access")
 			||Product.equalsIgnoreCase("Dark Fibre")||Product.equalsIgnoreCase("Ultra Low Latency")||Product.equalsIgnoreCase("Private Ethernet")
-			||Product.equalsIgnoreCase("DCA Ethernet")||Product.equalsIgnoreCase("Ethernet Hub")||Product.equalsIgnoreCase("IP Access"))
+			||Product.equalsIgnoreCase("DCA Ethernet")||Product.equalsIgnoreCase("Ethernet Hub")||Product.equalsIgnoreCase("IP Access")
+			||Product.equalsIgnoreCase("Ethernet Spoke"))
 		{
 			waitforPagetobeenable();
 			savePage();
@@ -7211,8 +7281,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 	waitforPagetobeenable();
 
 	
-	Clickon(getwebelement(
-			xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "HUB Service Id")));
+	Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/ClickDropdown").replace("Value", "HUB Service Id")));
 	WaitforElementtobeclickable(xml.getlocator("//locators/IPVPNSite/HubTableIDSelect"));
 	Clickon(getwebelement(xml.getlocator("//locators/IPVPNSite/HubTableIDSelect")));
 	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Select HubID");
