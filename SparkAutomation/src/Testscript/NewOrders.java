@@ -389,7 +389,6 @@ public class NewOrders extends DriverTestcase {
 			newOrderOnnnet.get().clickOnManualValidationA();
 			newOrderOnnnet.get().EnterInstallationChargeInFooter(Data);
 			newOrderOnnnet.get().CompletedValidation(Data); //updated
-
 		}
 		Login.get().Login("OMP");
 		OmpMOdOrder.get().verficationOfProduct(Data);
