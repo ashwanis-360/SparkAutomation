@@ -65,7 +65,8 @@ public class CancelHelper extends DriverHelper{
 	Clickon(getwebelement(xml.getlocator("//locators/OrderComplete")));
 	ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click Order Complete");
 	waitforPagetobeenable();
-	Thread.sleep(5000);
+	
+	Thread.sleep(15000);
 	savePage();
 	waitforPagetobeenable();
 	Thread.sleep(7000);
