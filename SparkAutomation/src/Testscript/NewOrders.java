@@ -13,7 +13,7 @@ public class NewOrders extends DriverTestcase {
 	public void EndtoEndOrderOnnet(Object[] Data) throws Exception {
 
 		Login.get().Login("Sieble");
-		// newOrderOnnnet.get().Check(Data);
+		newOrderOnnnet.get().Check(Data);
 		newOrderOnnnet.get().accountTabDetails(Data);
 		newOrderOnnnet.get().createCustomerOrder(Data);
 		newOrderOnnnet.get().productSelectionHelper(Data);
@@ -44,7 +44,6 @@ public class NewOrders extends DriverTestcase {
 		}
 		newOrderOnnnet.get().CompletedValidation(Data);
 		newOrderOnnnet.get().WriteServiceOrderNumber(Data);
-
 	}
 
 	@Test(dataProviderClass = DataReader.class, dataProvider = "Cease")

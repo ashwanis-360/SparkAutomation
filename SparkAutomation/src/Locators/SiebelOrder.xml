@@ -19,7 +19,7 @@
   <PartySearchPopupDropdown>//*[@class='siebui-popup-button']//*[@class='siebui-icon-dropdown applet-form-combo applet-list-combo']</PartySearchPopupDropdown> 
   <PartyName>//*[@class='ui-menu-item'][text()='Party Name']</PartyName> 
   <InputPartyname>//input[@aria-labelledby='PopupQuerySrchspec_Label']</InputPartyname> 
-  <PickAccntOk>//button[@title="Pick Account:OK"]</PickAccntOk> 
+  <PickAccntOk>//div[contains(@style,'block')]//button[@title="Pick Account:OK"]</PickAccntOk> 
   <PopupYes>//button[text()='Yes']</PopupYes>
   <UnassignedPortRow>//div[@name='popup']//td[text()='PortName']/parent::tr</UnassignedPortRow>
   <OrderingParty>//*[(@aria-labelledby='Ordering_Party_Label')]</OrderingParty> 
@@ -642,13 +642,16 @@
 <CrossButton>(//button[@title='Close'])[4]</CrossButton>
 <CrossButtonVLV>(//button[@title='Close'])[5]</CrossButtonVLV>
 <TrunkName>(//input[@class='colt-attribute-input siebui-ctrl-input'])[4]</TrunkName>
+<TrunkInput>//div[@class='colt-trunk-wrapper']//span[text()='Value']/parent::div/input</TrunkInput>
+<TrunkAccessLine>//div[@class='colt-trunk-wrapper']//span[text()='Access Line Type']/parent::div/span[2]</TrunkAccessLine>
+<TrunkAccessID>//div[@class='colt-trunk-wrapper']//span[text()='Access Service ID']/parent::div/span[@class='siebui-icon-pick']</TrunkAccessID>
 <AccessLineTypeDropDown>(//span[text()='Access Line Type']/..//span)[3]</AccessLineTypeDropDown>
 <AccessLineType>//li[text()='Colt Access']</AccessLineType>
 <AccessServiceIdlookup>(//span[@class='siebui-icon-pick'])[2]</AccessServiceIdlookup>
 <PickServiceSubmit>//button[@title='Pick Service:OK']</PickServiceSubmit>
 <showfullinfo>//a[text()='Show full info']</showfullinfo>
 <TrunkConfigurationplus>(//span[@class='colt-site-component-collapse fa fa-plus-square-o'])[2]</TrunkConfigurationplus>
-<outsidebuissnesshourinstallation>(//span[@class='colt-component-check-available fa fa-circle-o'])[2]</outsidebuissnesshourinstallation>
+<outsidebuissnesshourinstallation>//span[text()='Outside Business Hours Installation']/parent::*/span[@class='colt-component-check-available fa fa-circle-o']</outsidebuissnesshourinstallation>
 <TrunckConfigplus>(//span[@class='colt-site-component-collapse fa fa-plus-square-o'])[1]</TrunckConfigplus>
 <OperationAttribute>//span[@class='colt-oa-btn colt-oa-std-btn']</OperationAttribute>
 <AttributeNew>//button[@aria-label ='Operational Attributes:New']</AttributeNew>
@@ -755,7 +758,7 @@
 <CallDistribution>//*[@id="1_s_1_l_Call_Distribution"]</CallDistribution>
 <callDistributioninput>//input[@class='siebui-list-ctrl siebui-ctrl-select siebui-input-popup siebui-align-left siebui-input-align-left ui-autocomplete-input']</callDistributioninput>
 <CallDistributionDropDown>//span[@class='siebui-icon-dropdown']</CallDistributionDropDown>
-<CallDistributionValue>//li[text()='Load Sharing']</CallDistributionValue>
+<CallDistributionValue>//li[text()='Sequential']</CallDistributionValue>
 <AssignedPortNew>//button[@aria-label='Assigned ISDN Port:New']</AssignedPortNew>
 <Unassignedport>//button[@aria-label='Unassigned Ports:OK']</Unassignedport>
 <NumberRangeTab>//a[ text()='Number Range']</NumberRangeTab>
@@ -866,6 +869,14 @@
 <CeosUsername>//*[@id="username-id"]</CeosUsername>
 <CeosPwd>//input[@name='pwd']</CeosPwd>
 <CeosLoginButton>//input[@name='login']</CeosLoginButton>
+<VoiceLineV>
+<Dropdown>//div[contains(@style,'block')]//div[contains(@id,'interactive_item')]//div[contains(@class,'colt-component-wrapper port_1')]//span[text()='Value']/following-sibling::span</Dropdown>
+<TextBox>//div[contains(@style,'block')]//div[contains(@id,'interactive_item')]//div[contains(@class,'colt-component-wrapper port_1')]//span[text()='Value']/parent::div/input</TextBox>
+<DestinationNumber>//div[contains(@style,'block')]//div[contains(@class,'colt-component-wrapper port_1')]//span[text()='Value']/parent::div/input</DestinationNumber>
+<leftShowFullInfo>(//a[text()='Show full info'])[1]</leftShowFullInfo>
+<RigthShowFullInfo>(//a[text()='Show full info'])[2]</RigthShowFullInfo>
+<SIPTDM>//div[contains(@class,'colt-component-wrapper colt-empty port_1')]//span[text()='SIP TDM Gateway']/preceding-sibling::span</SIPTDM>
+</VoiceLineV>
 <Ceos>
 <Username>//*[@id='username-id']</Username>
 <Password>//*[@id="pwd-id"]</Password>
@@ -1081,7 +1092,8 @@
 <PopDropdownClick>//div[contains(@style,'block')]//span[text()='Value']/following-sibling::span</PopDropdownClick>
 
 <PopInput>//div[contains(@style,'block')]//span[text()='Value']/parent::div/input</PopInput>
-
+<PopupInputPick>//div[contains(@style,'block')]//span[text()='Site Contact']/parent::div/span[@class='siebui-icon-pick applet-form-pick applet-list-pick']</PopupInputPick>
+<PopUpOk>//div[contains(@style,'block')]//span[text()="OK"]//parent::button</PopUpOk>
 <PopClose>//div[contains(@style,'block')]//button[@title='Close']</PopClose>
 
 <Save>//div[@id='colt-s-order-connection-header']//a[text()='Save']</Save>
