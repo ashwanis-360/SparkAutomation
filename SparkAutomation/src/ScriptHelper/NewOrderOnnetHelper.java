@@ -4933,10 +4933,11 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		int index=Arrays.asList(AttachementProduct).indexOf(InputData[9].toString());
 		if (index>=0) 
 		{
-			Select(getwebelement(xmlIP.getlocator("//locators/tabDropdown")), "Attachments");
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Attachments Tab Selected");
-			Clickon(getwebelement(xmlIP.getlocator("//locators/AttachmentTabSelection")));
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Attachments Tab Clicked");
+			OpenTab("Attachments");
+			//Select(getwebelement(xmlIP.getlocator("//locators/tabDropdown")), "Attachments");
+			//ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Attachments Tab Selected");
+			//Clickon(getwebelement(xmlIP.getlocator("//locators/AttachmentTabSelection")));
+			//ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Attachments Tab Clicked");
 			Thread.sleep(10000);
 		}
 	}
@@ -4963,23 +4964,67 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			uploadafile(xml.getlocator("//locators//FileUpload"), "test.txt");
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Test File Uploaded");
 			Thread.sleep(10000);
-			Clickon(getwebelement(xml.getlocator("//locators/DocumnetTypeOther")));
+			
+			uploadafile(xml.getlocator("//locators//FileUpload"), "test1.txt");
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Test File Uploaded");
+			Thread.sleep(10000);
+			
+			String trtd="//div[@id='a_3']//table[@id='s_3_l']//tr[contains(@class,'jqgrow')]//td[ind]";
+			List<WebElement> HeaderList = GetWebElements("//div[@id='a_3']//table[@class='ui-jqgrid-htable']//th");
+			int thIndex = -1;
+			int i = 0;
+			for (WebElement ele : HeaderList) {
+				javascriptexecutor(ele);
+				String Text = ele.getText().trim();
+
+				System.out.println("Column : " + Text);
+				if (Text.equalsIgnoreCase("Created By")) 
+				{
+					thIndex = i;
+					break;
+				}
+				i++;
+			}
+			thIndex=thIndex+1;
+			
+			List<WebElement> otherList=GetWebElements(xml.getlocator("//locators/DocumnetTypeOther"));
+			WebElement ele1=otherList.get(0);
+			
+			Clickon(ele1);
+			waitForpageload();			
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Other File Type Clicked");
 			Clickon(getwebelement(xml.getlocator("//locators/DownArrow")));
 			Clickon(getwebelement(xml.getlocator("//locators/DocumentTypeCallBaringForm")));
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: CallBarring Form File Type Selected");
 			System.out.println(xml.getlocator("//locators//FileUpload"));
-			// WaitforElementtobeclickable(xmlIP.getlocator("//locators//FileUpload"));
-			uploadafile(xml.getlocator("//locators//FileUpload"), "test1.txt");
-			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Test File Uploaded");
 			Thread.sleep(10000);
+			
+			trtd=trtd.replace("ind",Integer.toString(thIndex));
+			List<WebElement> td=GetWebElements(trtd);
+			ele1=td.get(0);
+			
+			Clickon(ele1);
+			
+			// WaitforElementtobeclickable(xmlIP.getlocator("//locators//FileUpload"));
+			List<WebElement> otherList2=GetWebElements(xml.getlocator("//locators/DocumnetTypeOther"));
+			ele1=otherList2.get(0);
+			
+			Clickon(ele1);
+			waitForpageload();
+			
 			Clickon(getwebelement(xml.getlocator("//locators/DocumnetTypeOther")));
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Other File Type Clicked");
 			Clickon(getwebelement(xml.getlocator("//locators/DownArrow")));
 			Clickon(getwebelement(xml.getlocator("//locators/DocumentTypeDisaster")));
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Disaster File Type Selected");
+			trtd=trtd.replace("ind",Integer.toString(thIndex));
+			List<WebElement> td1=GetWebElements(trtd);
+			ele1=td1.get(0);
+			
+			Clickon(ele1);
 
-		} else {
+		} 
+		else {
 
 			System.out.println(xmlIP.getlocator("//locators//FileUpload"));
 
@@ -5188,8 +5233,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		 * 
 		 * Thread.sleep(5000); }
 		 */
-		if (Inputdata[8].toString().equals("Voice Line V")||Inputdata[8].toString().equals("Number Hosting")
-				||Inputdata[8].toString().equals("Interconnect")||Inputdata[8].toString().equals("SIP Trunking")) 
+		if (Inputdata[9].toString().equals("Voice Line V")||Inputdata[9].toString().equals("Number Hosting")
+				||Inputdata[9].toString().equals("Interconnect")||Inputdata[9].toString().equals("SIP Trunking")) 
 		{
 		try {
 			if (isElementPresent(xml.getlocator("//locators/manualvalidation2"))) {
@@ -5831,7 +5876,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 	 */
 	public void Check(Object[] InputData) throws Exception {
 		Thread.sleep(10000);
-		ServiceOrder.set("877395880/200713-0073");
+		ServiceOrder.set("877397451/200714-0078");
 		do {
 			Pagerefresh();
 			System.out.println("Page to be refresed");

@@ -1092,7 +1092,7 @@
 <PopDropdownClick>//div[contains(@style,'block')]//span[text()='Value']/following-sibling::span</PopDropdownClick>
 
 <PopInput>//div[contains(@style,'block')]//span[text()='Value']/parent::div/input</PopInput>
-<PopupInputPick>//div[contains(@style,'block')]//span[text()='Site Contact']/parent::div/span[@class='siebui-icon-pick applet-form-pick applet-list-pick']</PopupInputPick>
+<PopupInputPick>//div[contains(@style,'block')]//span[text()='Value']/parent::div/span[@class='siebui-icon-pick applet-form-pick applet-list-pick']</PopupInputPick>
 <PopUpOk>//div[contains(@style,'block')]//span[text()="OK"]//parent::button</PopUpOk>
 <PopClose>//div[contains(@style,'block')]//button[@title='Close']</PopClose>
 
