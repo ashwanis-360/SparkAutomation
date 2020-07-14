@@ -10,6 +10,7 @@ import org.apache.log4j.xml.DOMConfigurator;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.SessionId;
@@ -250,10 +251,13 @@ public class DriverTestcase {
 			ChromeOptions options = new ChromeOptions();
 			options.setExperimentalOption("prefs", prefs);
 			capabilities.setCapability(CapabilityType.PAGE_LOAD_STRATEGY, "none");
+			//capabilities.setCapability(InternetExplorerDriver.IE_ENSURE_CLEAN_SESSION, true);
+			//capabilities.setCapability(chrome, "none");
 			capabilities.setCapability(ChromeOptions.CAPABILITY, options);
 			System.setProperty("webdriver.chrome.driver", ".\\lib\\chromedriver.exe");
 			dr = new ChromeDriver(capabilities);
 			dr.manage().timeouts().implicitlyWait(2,TimeUnit.SECONDS );
+			dr.manage().deleteAllCookies();
 		} else if (targatedbrowser.equals("ie")) {
 			Log.info("For IE inprogress");
 		}

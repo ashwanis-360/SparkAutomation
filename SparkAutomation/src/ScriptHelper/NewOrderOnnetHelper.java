@@ -535,11 +535,14 @@ public class NewOrderOnnetHelper extends DriverHelper
 
 	public void VoiceFeatureTab(Object[] Inputdata) throws Exception {
 		//ClickHereSave();
-		if (Inputdata[8].toString().equals("Voice Line V")) {
-			Thread.sleep(5000);
-			Clickon(getwebelement(xml.getlocator("//locators/VoicefeaturesTab")));
+		if (Inputdata[8].toString().equals("Voice Line V")) 
+		{
 			waitforPagetobeenable();
-			Thread.sleep(35000);
+			OpenTab("Voice Features");
+			Thread.sleep(5000);
+			//Clickon(getwebelement(xml.getlocator("//locators/VoicefeaturesTab")));
+			waitforPagetobeenable();
+			//Thread.sleep(35000);
 			Clickon(getwebelement(xml.getlocator("//locators/showfullinfo")));
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Show full Info");
 			Thread.sleep(5000);
@@ -1581,8 +1584,7 @@ public class NewOrderOnnetHelper extends DriverHelper
 			//898998
 			Random rand = new Random();
 			int rand_int1 = rand.nextInt((999999-100000)+1)+100000;
-			
-			Clickon(getwebelement(xml.getlocator("//locators/TrunkName")));
+			/*Clickon(getwebelement(xml.getlocator("//locators/TrunkName")));
 			//SendKeys(getwebelement(xml.getlocator("//locators/TrunkName")), "Trunk" + timeStamp + "");
 			SendKeys(getwebelement(xml.getlocator("//locators/TrunkName")), "Trunk" + Integer.toString(rand_int1));
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on TrunkName");
@@ -1602,7 +1604,7 @@ public class NewOrderOnnetHelper extends DriverHelper
 			Clickon(getwebelement(xml.getlocator("//locators/PickServiceSubmit")));
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on  Submit Pick Service");
 			Thread.sleep(5000);
-			waitforPagetobeenable();
+			waitforPagetobeenable();*/
 			Clickon(getwebelement(xml.getlocator("//locators/showfullinfo")));
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Show full info");
 			waitForpageload();
@@ -1614,9 +1616,9 @@ public class NewOrderOnnetHelper extends DriverHelper
 			Clickon(getwebelement(xml.getlocator("//locators/outsidebuissnesshourinstallation")));
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on outside buissness hour installation");
 			Thread.sleep(5000);
-			Clickon(getwebelement(xml.getlocator("//locators/Crossbutton")));
+			//closePopUp();
 			Thread.sleep(5000);
-			Clickon(getwebelement(xml.getlocator("//locators/SaveButtonClick")));
+			Save();
 			Thread.sleep(5000);
 			waitForpageload();
 			waitforPagetobeenable();
@@ -2699,10 +2701,8 @@ public class NewOrderOnnetHelper extends DriverHelper
 			break;
 
 		}
-
-		/* End Of SIP Gauri Update Trunking */
-
-		case "Voice Line V": {
+		case "Voice Line V": 
+		{
 			//4444
 			waitForpageload();
 			waitforPagetobeenable();
@@ -5411,6 +5411,7 @@ public class NewOrderOnnetHelper extends DriverHelper
 	///////////// SERVICE CHARGE
 	public void EnterServiceChargeInFooter(Object[] Inputdata, String Amount) throws Exception {
 		ClickHereSave();
+		 int firstrow=1;
 		if ((Inputdata[8].toString().equalsIgnoreCase("IP VPN Service")&& (Inputdata[11].toString().equalsIgnoreCase("IP VPN Access"))))
 		{
 				WaitforElementtobeclickable(xml.getlocator("//locators/ExpandAllButton"));
@@ -5427,7 +5428,7 @@ public class NewOrderOnnetHelper extends DriverHelper
 					int RowCount = getwebelementscount((xml.getlocator("//locators/BillingRow"))) - 1;
 					System.out.println(RowCount);
 
-					for (int i = 1; i <= RowCount; i++) {
+					for (int i = 1; i <= RowCount; i++)  {
 
 						Clickon(getwebelement(xml.getlocator("//locators/BillingRowAmount").replace("Value", String.valueOf(i)).replace("Amt", String.valueOf(AmountIndex))));
 						waitforPagetobeenable();
@@ -5474,6 +5475,7 @@ public class NewOrderOnnetHelper extends DriverHelper
 					Clickon(getwebelement(xml.getlocator("//locators/ClickNextPage")));
 					waitforPagetobeenable();
 					Thread.sleep(5000);
+					//firstrow=RowCount-1;
 				}
 			}
 		if (!Inputdata[8].toString().equalsIgnoreCase("IP VPN Service")&& !Inputdata[8].toString().equalsIgnoreCase("Ethernet Access")) 
@@ -5492,7 +5494,7 @@ public class NewOrderOnnetHelper extends DriverHelper
 				int RowCount = getwebelementscount((xml.getlocator("//locators/BillingRow"))) - 1;
 				System.out.println(RowCount);
 
-				for (int i = 1; i <= RowCount; i++) 
+				for (int i = 1; i <= RowCount; i++)
 				{
 
 					Clickon(getwebelement(xml.getlocator("//locators/BillingRowAmount").replace("Value", String.valueOf(i)).replace("Amt", String.valueOf(AmountIndex))));
@@ -5539,6 +5541,7 @@ public class NewOrderOnnetHelper extends DriverHelper
 				Clickon(getwebelement(xml.getlocator("//locators/ClickNextPage")));
 				waitforPagetobeenable();
 				Thread.sleep(5000);
+				//firstrow=RowCount-1;
 			}
 		}
 		else if (Inputdata[8].toString().equalsIgnoreCase("IP VPN Service")) 
@@ -5557,7 +5560,7 @@ public class NewOrderOnnetHelper extends DriverHelper
 				int RowCount = getwebelementscount((xml.getlocator("//locators/BillingRow"))) - 1;
 				System.out.println(RowCount);
 
-				for (int i = 1; i <= RowCount; i++) 
+				for (int i = 1; i <= RowCount; i++)
 				{
 
 					Clickon(getwebelement(xml.getlocator("//locators/BillingRowAmount").replace("Value", String.valueOf(i)).replace("Amt", String.valueOf(AmountIndex))));
@@ -5604,6 +5607,7 @@ public class NewOrderOnnetHelper extends DriverHelper
 				Clickon(getwebelement(xml.getlocator("//locators/ClickNextPage")));
 				waitforPagetobeenable();
 				Thread.sleep(5000);
+				//firstrow=RowCount-1;
 			}
 		}
 		// }
@@ -6503,8 +6507,8 @@ public class NewOrderOnnetHelper extends DriverHelper
 			}
 		}
 		WaitforElementtobeclickable(xml.getlocator("//locators/InputServiceOrder"));
-		SendKeys(getwebelement(xml.getlocator("//locators/InputServiceOrder")), "872965888/200601-0029");
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter value in service order :    872965888/200601-0029");
+		SendKeys(getwebelement(xml.getlocator("//locators/InputServiceOrder")), "212158855/200709-0015");
+		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: enter value in service order :    212158855/200709-0015");
 		Clickon(getwebelement(xml.getlocator("//locators/ServiceOrderGo")));
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on go button");
 		Thread.sleep(6000);

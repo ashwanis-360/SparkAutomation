@@ -112,7 +112,7 @@ public class DriverHelper
 	public DriverHelper(WebDriver dr)
 	{
 		driver = dr;
-		wait = new FluentWait<WebDriver>(driver).withTimeout(180, TimeUnit.SECONDS) // as per Ayush
+		wait = new FluentWait<WebDriver>(driver).withTimeout(90, TimeUnit.SECONDS) // as per Ayush
 				.pollingEvery(20, TimeUnit.SECONDS).ignoring(NoSuchElementException.class)
 				.ignoring(StaleElementReferenceException.class);
 		// workitemcounter.set(1);

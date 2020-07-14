@@ -17,12 +17,13 @@ import Reporter.ExtentTestManager;
 
 public class TestListener extends DriverTestcase implements ITestListener { 
 	
-	  private static String getTestMethodName(ITestResult iTestResult) {
+	  private static String getTestMethodName(ITestResult iTestResult)
+	  {
 	        return iTestResult.getMethod().getConstructorOrMethod().getName();
 	    }
 	    
 	    //Before starting all tests, below method runs.
-	    public void onStart(ITestContext iTestContext) {
+	       public void onStart(ITestContext iTestContext) {
 	        Log.info("I am on Start method " + iTestContext.getName());
 	        
 	        iTestContext.setAttribute("WebDriver", this.getwebdriver());
