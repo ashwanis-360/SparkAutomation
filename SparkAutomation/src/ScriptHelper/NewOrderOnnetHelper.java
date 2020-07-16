@@ -1260,13 +1260,15 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			//888
 			String Ok="//div[contains(@style,'block') and contains(@class,'ui-draggable ui-resizable')]//button[contains(@title,'OK')]";
 			String loc="//table[@id='s_1_l']//tr[@id='1']/td[ind]";
+			String span="//table[@id='s_1_l']//tr[@id='1']/td[ind]//span";
+			String input="//table[@id='s_1_l']//tr[@id='1']/td[ind]//input";
 			//Number Plan
 			int Index =NumberTabIndex("Number Plan");
 			System.out.println(Index);
 			String newloc=loc.replaceAll("ind", Integer.toString(Index));
 			Clickon(getwebelement(newloc));
-			String temp="//table[@id='s_1_l']//tr[@id='1']/td[ind]//span";
-			newloc=temp.replaceAll("ind", Integer.toString(Index));
+			//String temp="//table[@id='s_1_l']//tr[@id='1']/td[ind]//span";
+			newloc=span.replaceAll("ind", Integer.toString(Index));
 			Clickon(getwebelement(newloc));
 			Clickon(getwebelement(xml.getlocator("//locators/SelectValueDropdown").replace("Value", "New Colt Numbers")));
 			
@@ -1275,8 +1277,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			System.out.println(Index);
 			newloc=loc.replaceAll("ind", Integer.toString(Index));
 			Clickon(getwebelement(newloc));
-			temp="//table[@id='s_1_l']//tr[@id='1']/td[ind]//input";
-			newloc=temp.replaceAll("ind", Integer.toString(Index));
+			//temp="//table[@id='s_1_l']//tr[@id='1']/td[ind]//input";
+			newloc=input.replaceAll("ind", Integer.toString(Index));
 			ClearSendKeys(getwebelement(newloc), "10");
 			
 			//Main Number
@@ -1284,8 +1286,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			System.out.println(Index);
 			newloc=loc.replaceAll("ind", Integer.toString(Index));
 			Clickon(getwebelement(newloc));
-			temp="//table[@id='s_1_l']//tr[@id='1']/td[ind]//input";
-			newloc=temp.replaceAll("ind", Integer.toString(Index));
+			//temp="//table[@id='s_1_l']//tr[@id='1']/td[ind]//input";
+			newloc=input.replaceAll("ind", Integer.toString(Index));
 			ClearSendKeys(getwebelement(newloc), "10");
 			
 			
@@ -1294,8 +1296,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			System.out.println(Index);
 			newloc=loc.replaceAll("ind", Integer.toString(Index));
 			Clickon(getwebelement(newloc));
-			temp="//table[@id='s_1_l']//tr[@id='1']/td[ind]//input";
-			newloc=temp.replaceAll("ind", Integer.toString(Index));
+			//temp="//table[@id='s_1_l']//tr[@id='1']/td[ind]//input";
+			newloc=input.replaceAll("ind", Integer.toString(Index));
 			ClearSendKeys(getwebelement(newloc), "12");
 			
 			//Number Range Start
@@ -1303,8 +1305,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			System.out.println(Index);
 			newloc=loc.replaceAll("ind", Integer.toString(Index));
 			Clickon(getwebelement(newloc));
-			temp="//table[@id='s_1_l']//tr[@id='1']/td[ind]//input";
-			newloc=temp.replaceAll("ind", Integer.toString(Index));
+			//temp="//table[@id='s_1_l']//tr[@id='1']/td[ind]//input";
+			newloc=input.replaceAll("ind", Integer.toString(Index));
 			ClearSendKeys(getwebelement(newloc), "10");
 			
 			//Number Range End
@@ -1312,8 +1314,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			System.out.println(Index);
 			newloc=loc.replaceAll("ind", Integer.toString(Index));
 			Clickon(getwebelement(newloc));
-			temp="//table[@id='s_1_l']//tr[@id='1']/td[ind]//input";
-			newloc=temp.replaceAll("ind", Integer.toString(Index));
+			//temp="//table[@id='s_1_l']//tr[@id='1']/td[ind]//input";
+			newloc=input.replaceAll("ind", Integer.toString(Index));
 			ClearSendKeys(getwebelement(newloc), "12");
 			
 			//Number Range Status
@@ -1321,8 +1323,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			System.out.println(Index);
 			newloc=loc.replaceAll("ind", Integer.toString(Index));
 			Clickon(getwebelement(newloc));
-			temp="//table[@id='s_1_l']//tr[@id='1']/td[ind]//span";
-			newloc=temp.replaceAll("ind", Integer.toString(Index));
+			//temp="//table[@id='s_1_l']//tr[@id='1']/td[ind]//span";
+			newloc=span.replaceAll("ind", Integer.toString(Index));
 			Clickon(getwebelement(newloc));
 			Clickon(getwebelement(xml.getlocator("//locators/SelectValueDropdown").replace("Value", "Allocate")));
 			
@@ -1332,8 +1334,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			
 			newloc=loc.replaceAll("ind", Integer.toString(Index));
 			Clickon(getwebelement(newloc));
-			temp="//table[@id='s_1_l']//tr[@id='1']/td[ind]//span";
-			newloc=temp.replaceAll("ind", Integer.toString(Index));
+			//temp="//table[@id='s_1_l']//tr[@id='1']/td[ind]//span";
+			newloc=span.replaceAll("ind", Integer.toString(Index));
 			Clickon(getwebelement(newloc));
 			waitForpageload();
 			Clickon(getwebelement(Ok));
@@ -1344,8 +1346,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			System.out.println(Index);
 			newloc=loc.replaceAll("ind", Integer.toString(Index));
 			Clickon(getwebelement(newloc));
-			temp="//table[@id='s_1_l']//tr[@id='1']/td[ind]//span";
-			newloc=temp.replaceAll("ind", Integer.toString(Index));
+			//temp="//table[@id='s_1_l']//tr[@id='1']/td[ind]//span";
+			newloc=span.replaceAll("ind", Integer.toString(Index));
 			Clickon(getwebelement(newloc));
 			waitForpageload();
 			Clickon(getwebelement(Ok));
@@ -1355,23 +1357,23 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			System.out.println(Index);
 			newloc=loc.replaceAll("ind", Integer.toString(Index));
 			Clickon(getwebelement(newloc));
-			temp="//table[@id='s_1_l']//tr[@id='1']/td[ind]//span";
-			newloc=temp.replaceAll("ind", Integer.toString(Index));
+			//temp="//table[@id='s_1_l']//tr[@id='1']/td[ind]//span";
+			newloc=span.replaceAll("ind", Integer.toString(Index));
 			Clickon(getwebelement(newloc));
 			
 			Thread.sleep(5000);
 			WaitforElementtobeclickable(xml.getlocator("//locators/StreetNameAccess"));
-			SendKeys(getwebelement(xml.getlocator("//locators/StreetNameAccess")), "parker");
+			SendKeys(getwebelement(xml.getlocator("//locators/StreetNameAccess")), Inputdata[37].toString());
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Street Name");
 			WaitforElementtobeclickable(xml.getlocator("//locators/CountryAccess"));
 			
-			SendKeys(getwebelement(xml.getlocator("//locators/CountryAccess")), "United Kingdom");
+			SendKeys(getwebelement(xml.getlocator("//locators/CountryAccess")), Inputdata[38].toString());
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Country");
-			SendKeys(getwebelement(xml.getlocator("//locators/CityTownAccess")), "London");
+			SendKeys(getwebelement(xml.getlocator("//locators/CityTownAccess")), Inputdata[39].toString());
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter City");
-			SendKeys(getwebelement(xml.getlocator("//locators/PostalCodeAccess")), "E16 2DJ");
+			SendKeys(getwebelement(xml.getlocator("//locators/PostalCodeAccess")), Inputdata[40].toString());
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Postal Code");
-			SendKeys(getwebelement(xml.getlocator("//locators/PremisesAccess")), "1");
+			SendKeys(getwebelement(xml.getlocator("//locators/PremisesAccess")), Inputdata[41].toString());
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Premises");
 			Clickon(getwebelement(xml.getlocator("//locators/SearchButtonAccess")));
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Search");
@@ -1390,7 +1392,6 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			Clickon(getwebelement(xml.getlocator("//locators/NumberManagementTab")));
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on NumberManagementTab");
 			Thread.sleep(5000);
-			
 			Clickon(getwebelement(xml.getlocator("//locators/NumberRangeListNew")));
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on NumberRangeListNew");
 			Thread.sleep(10000);
@@ -1399,13 +1400,15 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			//888
 			String Ok="//div[contains(@style,'block') and contains(@class,'ui-draggable ui-resizable')]//button[contains(@title,'OK')]";
 			String loc="//table[@id='s_1_l']//tr[@id='1']/td[ind]";
+			String span="//table[@id='s_1_l']//tr[@id='1']/td[ind]//span";
+			String input="//table[@id='s_1_l']//tr[@id='1']/td[ind]//input";
 			//Number Plan
 			int Index =NumberTabIndex("Number Plan");
 			System.out.println(Index);
 			String newloc=loc.replaceAll("ind", Integer.toString(Index));
 			Clickon(getwebelement(newloc));
-			String temp="//table[@id='s_1_l']//tr[@id='1']/td[ind]//span";
-			newloc=temp.replaceAll("ind", Integer.toString(Index));
+			
+			newloc=loc.replaceAll("ind", Integer.toString(Index));
 			Clickon(getwebelement(newloc));
 			Clickon(getwebelement(xml.getlocator("//locators/SelectValueDropdown").replace("Value", "New Colt Numbers")));
 			
@@ -1414,8 +1417,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			System.out.println(Index);
 			newloc=loc.replaceAll("ind", Integer.toString(Index));
 			Clickon(getwebelement(newloc));
-			temp="//table[@id='s_1_l']//tr[@id='1']/td[ind]//input";
-			newloc=temp.replaceAll("ind", Integer.toString(Index));
+			newloc=input.replaceAll("ind", Integer.toString(Index));
 			ClearSendKeys(getwebelement(newloc), "10");
 			
 			//Main Number
@@ -1423,8 +1425,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			System.out.println(Index);
 			newloc=loc.replaceAll("ind", Integer.toString(Index));
 			Clickon(getwebelement(newloc));
-			temp="//table[@id='s_1_l']//tr[@id='1']/td[ind]//input";
-			newloc=temp.replaceAll("ind", Integer.toString(Index));
+			newloc=input.replaceAll("ind", Integer.toString(Index));
 			ClearSendKeys(getwebelement(newloc), "10");
 			
 			
@@ -1433,8 +1434,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			System.out.println(Index);
 			newloc=loc.replaceAll("ind", Integer.toString(Index));
 			Clickon(getwebelement(newloc));
-			temp="//table[@id='s_1_l']//tr[@id='1']/td[ind]//input";
-			newloc=temp.replaceAll("ind", Integer.toString(Index));
+			newloc=input.replaceAll("ind", Integer.toString(Index));
 			ClearSendKeys(getwebelement(newloc), "12");
 			
 			//Number Range Start
@@ -1442,8 +1442,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			System.out.println(Index);
 			newloc=loc.replaceAll("ind", Integer.toString(Index));
 			Clickon(getwebelement(newloc));
-			temp="//table[@id='s_1_l']//tr[@id='1']/td[ind]//input";
-			newloc=temp.replaceAll("ind", Integer.toString(Index));
+			newloc=input.replaceAll("ind", Integer.toString(Index));
 			ClearSendKeys(getwebelement(newloc), "10");
 			
 			//Number Range End
@@ -1451,8 +1450,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			System.out.println(Index);
 			newloc=loc.replaceAll("ind", Integer.toString(Index));
 			Clickon(getwebelement(newloc));
-			temp="//table[@id='s_1_l']//tr[@id='1']/td[ind]//input";
-			newloc=temp.replaceAll("ind", Integer.toString(Index));
+			newloc=input.replaceAll("ind", Integer.toString(Index));
 			ClearSendKeys(getwebelement(newloc), "12");
 			
 			//Number Range Status
@@ -1460,31 +1458,16 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			System.out.println(Index);
 			newloc=loc.replaceAll("ind", Integer.toString(Index));
 			Clickon(getwebelement(newloc));
-			temp="//table[@id='s_1_l']//tr[@id='1']/td[ind]//span";
-			newloc=temp.replaceAll("ind", Integer.toString(Index));
+			newloc=input.replaceAll("ind", Integer.toString(Index));
 			Clickon(getwebelement(newloc));
 			Clickon(getwebelement(xml.getlocator("//locators/SelectValueDropdown").replace("Value", "Allocate")));
-			
-			//Port GroupID
-			/*Index =NumberTabIndex("Port Group ID");
-			System.out.println(Index);
-			
-			newloc=loc.replaceAll("ind", Integer.toString(Index));
-			Clickon(getwebelement(newloc));
-			temp="//table[@id='s_1_l']//tr[@id='1']/td[ind]//span";
-			newloc=temp.replaceAll("ind", Integer.toString(Index));
-			Clickon(getwebelement(newloc));
-			waitForpageload();
-			Clickon(getwebelement(Ok));*/
-			
 			
 			//BCN
 			Index =NumberTabIndex("BCN");
 			System.out.println(Index);
 			newloc=loc.replaceAll("ind", Integer.toString(Index));
 			Clickon(getwebelement(newloc));
-			temp="//table[@id='s_1_l']//tr[@id='1']/td[ind]//span";
-			newloc=temp.replaceAll("ind", Integer.toString(Index));
+			newloc=span.replaceAll("ind", Integer.toString(Index));
 			Clickon(getwebelement(newloc));
 			waitForpageload();
 			Clickon(getwebelement(Ok));
@@ -1494,23 +1477,22 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			System.out.println(Index);
 			newloc=loc.replaceAll("ind", Integer.toString(Index));
 			Clickon(getwebelement(newloc));
-			temp="//table[@id='s_1_l']//tr[@id='1']/td[ind]//span";
-			newloc=temp.replaceAll("ind", Integer.toString(Index));
+			newloc=span.replaceAll("ind", Integer.toString(Index));
 			Clickon(getwebelement(newloc));
 			
 			Thread.sleep(5000);
 			WaitforElementtobeclickable(xml.getlocator("//locators/StreetNameAccess"));
-			SendKeys(getwebelement(xml.getlocator("//locators/StreetNameAccess")), "parker");
+			SendKeys(getwebelement(xml.getlocator("//locators/StreetNameAccess")), Inputdata[37].toString());
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Street Name");
 			WaitforElementtobeclickable(xml.getlocator("//locators/CountryAccess"));
 			
-			SendKeys(getwebelement(xml.getlocator("//locators/CountryAccess")), "United Kingdom");
+			SendKeys(getwebelement(xml.getlocator("//locators/CountryAccess")), Inputdata[38].toString());
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Country");
-			SendKeys(getwebelement(xml.getlocator("//locators/CityTownAccess")), "London");
+			SendKeys(getwebelement(xml.getlocator("//locators/CityTownAccess")), Inputdata[39].toString());
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter City");
-			SendKeys(getwebelement(xml.getlocator("//locators/PostalCodeAccess")), "E16 2DJ");
+			SendKeys(getwebelement(xml.getlocator("//locators/PostalCodeAccess")), Inputdata[40].toString());
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Postal Code");
-			SendKeys(getwebelement(xml.getlocator("//locators/PremisesAccess")), "1");
+			SendKeys(getwebelement(xml.getlocator("//locators/PremisesAccess")),Inputdata[41].toString());
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter Premises");
 			Clickon(getwebelement(xml.getlocator("//locators/SearchButtonAccess")));
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Click on Search");
@@ -1522,14 +1504,27 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			ClickHereSave();
 		}
 	}
-	public void TrunkEntries() throws Exception
+	public void ExpnadTrunk() throws InterruptedException, DocumentException
+	{
+		waitForpageload();
+		waitforPagetobeenable();
+		List<WebElement> explist=GetWebElements(xml.getlocator("//locators/SIPVoiceConfigExpandSymbol"));
+		if(explist.size()>0)
+		{
+			WebElement ele1=explist.get(0);
+			Clickon(ele1);
+			waitForpageload();
+			waitforPagetobeenable();
+		}
+	}
+	
+	public void TrunkEntries(String ServiceID) throws Exception
 	{
 
 		waitForpageload();
 		waitforPagetobeenable();
-		WaitforElementtobeclickable(xml.getlocator("//locators/SIPVoiceConfigExpandSymbol"));
-		Clickon(getwebelement(xml.getlocator("//locators/SIPVoiceConfigExpandSymbol")));
-
+		
+		ExpnadTrunk();
 		Thread.sleep(5000);
 		
 		WaitforElementtobeclickable(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Trunk Sequence"));
@@ -1568,19 +1563,9 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		waitForpageload();
 		waitforPagetobeenable();
 		Thread.sleep(2000);
-		
-		/*WaitforElementtobeclickable(xml.getlocator("//locators/AccessServiceIdlookup"));
-		Clickon(getwebelement(xml.getlocator("//locators/AccessServiceIdlookup")));
-		ExtentTestManager.getTest().log(LogStatus.PASS, " Access Service Idlookup ");
-		waitForpageload();
-		waitforPagetobeenable();
-		Thread.sleep(2000);*/
-		
-		AccessServiceID("Access Service ID","Service Id","010300126");
+		AccessServiceID("Access Service ID","Service Id",ServiceID);
 
-		// SendKeys(getwebelement(xml.getlocator("//locators/ExternalAccessServiceRef")),Inputdata[11].toString());
-		// ExtentTestManager.getTest().log(LogStatus.PASS, "Enter external access
-		// Service reference");
+		
 		
 		Thread.sleep(5000);
 		WaitforElementtobeclickable(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "External Access Service Reference"));
@@ -1602,6 +1587,8 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		SendKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Customer Terminating IPv4 Address")),"10.7.235.29/24");
 		SendkeaboardKeys(getwebelement(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Customer Terminating IPv4 Address")),Keys.ENTER);
 		ExtentTestManager.getTest().log(LogStatus.PASS, " Trunk Name ");
+		
+		ExpnadTrunk();
 		
 		Thread.sleep(5000);
 		WaitforElementtobeclickable(xml.getlocator("//locators/SIP/TrunkConfigInput").replace("Value", "Customer Originating IPv6 Address Range"));
@@ -1766,6 +1753,7 @@ public class NewOrderOnnetHelper extends DriverHelper {
 
 		ClickHereSave();
 	}
+	
 	
 	public void VoiceConfigTab(Object[] InputData) throws Exception {
 		if (InputData[9].toString().equals("Voice Line V")) 
@@ -3171,27 +3159,27 @@ public class NewOrderOnnetHelper extends DriverHelper {
 		case "SIP Trunking": 
 		{
 			//8888
-			/*ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter SIP Trunking information Middle Applet");
+			ExtentTestManager.getTest().log(LogStatus.PASS, " Step: Enter SIP Trunking information Middle Applet");
 			waitForpageload();
 			waitforPagetobeenable();
-			MiddleAppDropdown("Voice Service Country","United Kingdom");
-			MiddleAppTextBox("Call Admission Control (Number of Channels)","12");
+			MiddleAppDropdown("Voice Service Country",InputData[47].toString());
+			MiddleAppTextBox("Call Admission Control (Number of Channels)",InputData[48].toString());
 			Thread.sleep(5000);
-			MiddleAppTextBox("Number of Signalling Trunks","1");
-			MiddleAppDropdown("Egress Number Format","E.164 All International with +");
-			MiddleAppDropdown("Invalid CLI treatment","Allow");
-			MiddleAppTextBox("Total Number of DDIs","1");
-			MiddleAppDropdown("Incoming DDI Digits","10");
-			MiddleAppTextBox("Voice Configuration Reference","NA");
-			MiddleAppDropdown("Routing Sequence","Sequential");
-			MiddleAppDropdown("First Codec","G.722.1");
+			MiddleAppTextBox("Number of Signalling Trunks",InputData[49].toString());
+			MiddleAppDropdown("Egress Number Format",InputData[50].toString());
+			MiddleAppDropdown("Invalid CLI treatment",InputData[51].toString());
+			MiddleAppTextBox("Total Number of DDIs",InputData[52].toString());
+			MiddleAppDropdown("Incoming DDI Digits",InputData[53].toString());
+			MiddleAppTextBox("Voice Configuration Reference",InputData[54].toString());
+			MiddleAppDropdown("Routing Sequence",InputData[55].toString());
+			MiddleAppDropdown("First Codec",InputData[56].toString());
 			Clickon(getwebelement(xml.getlocator("//locators/ClickLink").replace("Value", "Show More")));
 			Thread.sleep(3000);
-			MiddleAppDropdown("Second Codec","G.722.1");
-			MiddleAppDropdown("Third Codec","G.722.1");
-			MiddleAppDropdown("Fourth Codec","G.722.1");
-			MiddleAppDropdown("Fifth Codec","G.722.1");
-			MiddleAppDropdown("Sixth Codec","G.722.1");
+			MiddleAppDropdown("Second Codec",InputData[57].toString());
+			MiddleAppDropdown("Third Codec",InputData[58].toString());
+			MiddleAppDropdown("Fourth Codec",InputData[59].toString());
+			MiddleAppDropdown("Fifth Codec",InputData[60].toString());
+			MiddleAppDropdown("Sixth Codec",InputData[61].toString());
 			Thread.sleep(5000);
 			waitforPagetobeenable();
 			Save();
@@ -3224,22 +3212,22 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			WaitforElementtobeclickable(xml.getlocator("//locators/R4/PopDropdownClick").replace("Value", "Delivery Team Country"));
 			Clickon(getwebelement(xml.getlocator("//locators/R4/PopDropdownClick").replace("Value", "Delivery Team Country")));
 			Thread.sleep(2500);
-			Clickon(getwebelement(xml.getlocator("//locators/R4/InsideDropdownValues").replace("Data","United Kingdom")));
+			Clickon(getwebelement(xml.getlocator("//locators/R4/InsideDropdownValues").replace("Data",InputData[47].toString())));
 			
 			WaitforElementtobeclickable(xml.getlocator("//locators/R4/PopDropdownClick").replace("Value", "Delivery Team City"));
 			Clickon(getwebelement(xml.getlocator("//locators/R4/PopDropdownClick").replace("Value", "Delivery Team City")));
 			Thread.sleep(2500);
-			Clickon(getwebelement(xml.getlocator("//locators/R4/InsideDropdownValues").replace("Data", "London")));			
+			Clickon(getwebelement(xml.getlocator("//locators/R4/InsideDropdownValues").replace("Data", InputData[62].toString())));			
 			Thread.sleep(5000);
 			
 			closePopUp();
 			
 			Save();
 			Thread.sleep(10000);
-			ExtentTestManager.getTest().log(LogStatus.PASS, " SIP Trunking Middle Applet Success ");*/
+			ExtentTestManager.getTest().log(LogStatus.PASS, " SIP Trunking Middle Applet Success ");
 			
 			
-			TrunkEntries();
+			TrunkEntries(InputData[63].toString());
 			//CustomerIPBoxEntries();
 			
 			OpenTab("Customer IP PBX");
@@ -3251,10 +3239,10 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			waitForpageload();
 			waitforPagetobeenable();
 			Thread.sleep(5000);
-			String Ok="//div[contains(@style,'block') and contains(@class,'ui-draggable ui-resizable')]//button[contains(@title,'OK')]";
-			String loc="//table[@id='s_2_l']//tr[@id='1']/td[ind]";
-			String span="//table[@id='s_2_l']//tr[@id='1']/td[ind]//span";
-			String input="//table[@id='s_2_l']//tr[@id='1']/td[ind]//input";
+			String Ok=xml.getlocator("//locators/SIP/Ok");//"//div[contains(@style,'block') and contains(@class,'ui-draggable ui-resizable')]//button[contains(@title,'OK')]";
+			String loc=xml.getlocator("//locators/SIP/loc");//"//table[@id='s_2_l']//tr[@id='1']/td[ind]";
+			String span=xml.getlocator("//locators/SIP/Span");//"//table[@id='s_2_l']//tr[@id='1']/td[ind]//span";
+			String input=xml.getlocator("//locators/SIP/Input");//"//table[@id='s_2_l']//tr[@id='1']/td[ind]//input";
 			
 			//IP PBX Alias Name
 			int Index =CustomerIPPBXIndex("IP PBX Alias Name");
@@ -3299,8 +3287,6 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			waitForpageload();
 			Clickon(getwebelement(Ok));
 			
-			
-			
 			//Address UID
 			Index =CustomerIPPBXIndex("Address UID");
 			System.out.println(Index);
@@ -3313,14 +3299,14 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			WaitforElementtobeclickable(xml.getlocator("//locators/SIPIPPBXAddressUIDStreetName"));
 			Clickon(getwebelement(xml.getlocator("//locators/SIPIPPBXAddressUIDStreetName")));
 			// Thread.sleep(3000);
-			SendKeys(getwebelement(xml.getlocator("//locators/SIPIPPBXAddressUIDStreetName")), "Parker");
+			SendKeys(getwebelement(xml.getlocator("//locators/SIPIPPBXAddressUIDStreetName")),InputData[37].toString());
 			ExtentTestManager.getTest().log(LogStatus.PASS, "Enter Street Name ");
 			Thread.sleep(5000);
 
 			WaitforElementtobeclickable(xml.getlocator("//locators/SIPIPPBXAddressUIDCountryName"));
 			Clickon(getwebelement(xml.getlocator("//locators/SIPIPPBXAddressUIDCountryName")));
 			// Thread.sleep(3000);
-			SendKeys(getwebelement(xml.getlocator("//locators/SIPIPPBXAddressUIDCountryName")), "United Kingdom");
+			SendKeys(getwebelement(xml.getlocator("//locators/SIPIPPBXAddressUIDCountryName")), InputData[38].toString());
 			// SendkeaboardKeys(getwebelement(xml.getlocator("//locators/SIPIPPBXAddressUIDCountryName")),
 			// Keys.TAB);
 			ExtentTestManager.getTest().log(LogStatus.PASS, "Enter Country");
@@ -3329,21 +3315,21 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			WaitforElementtobeclickable(xml.getlocator("//locators/SIPIPPBXAddressUIDCityName"));
 			Clickon(getwebelement(xml.getlocator("//locators/SIPIPPBXAddressUIDCityName")));
 			// Thread.sleep(3000);
-			SendKeys(getwebelement(xml.getlocator("//locators/SIPIPPBXAddressUIDCityName")), "London");
+			SendKeys(getwebelement(xml.getlocator("//locators/SIPIPPBXAddressUIDCityName")), InputData[39].toString());
 			ExtentTestManager.getTest().log(LogStatus.PASS, "Enter City");
 			Thread.sleep(3000);
 
 			WaitforElementtobeclickable(xml.getlocator("//locators/SIPIPPBXAddressUIDPostalCode"));
 			Clickon(getwebelement(xml.getlocator("//locators/SIPIPPBXAddressUIDPostalCode")));
 			// Thread.sleep(2000);
-			SendKeys(getwebelement(xml.getlocator("//locators/SIPIPPBXAddressUIDPostalCode")), "16");
+			SendKeys(getwebelement(xml.getlocator("//locators/SIPIPPBXAddressUIDPostalCode")), InputData[40].toString());
 			ExtentTestManager.getTest().log(LogStatus.PASS, "Enter Postal Code");
 			Thread.sleep(3000);
 
 			WaitforElementtobeclickable(xml.getlocator("//locators/SIPIPPBXAddressUIDPremiseCode"));
 			Clickon(getwebelement(xml.getlocator("//locators/SIPIPPBXAddressUIDPremiseCode")));
 			// Thread.sleep(2000);
-			SendKeys(getwebelement(xml.getlocator("//locators/SIPIPPBXAddressUIDPremiseCode")), "1");
+			SendKeys(getwebelement(xml.getlocator("//locators/SIPIPPBXAddressUIDPremiseCode")), InputData[41].toString());
 			ExtentTestManager.getTest().log(LogStatus.PASS, "Enter Premise Code");
 			Thread.sleep(3000);
 
@@ -3363,10 +3349,6 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			WaitforElementtobeclickable(xml.getlocator("//locators/SIPPickAddressButtonForUID"));
 			Clickon(getwebelement(xml.getlocator("//locators/SIPPickAddressButtonForUID")));
 			ExtentTestManager.getTest().log(LogStatus.PASS, "Click Pick Address button ");
-			Thread.sleep(5000);
-
-			
-
 			Thread.sleep(10000);
 
 			savePage(); // saving IP PBX details
@@ -3431,17 +3413,17 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			waitForpageload();
 			waitforPagetobeenable();
 			Random rand = new Random();
-			String DDI=Integer.toString(GetRandomNumber(100000));
+			String DDI=Integer.toString(GetRandomNumber(100));
 			
-			MiddleAppDropdown("Voice Service Country","United Kingdom");
-			MiddleAppTextBox("Number of Signalling Trunks","1");
-			MiddleAppDropdown("Egress Number Format","DDI");
-			MiddleAppDropdown("Topology","Multi-Site");
-			MiddleAppDropdown("Invalid CLI treatment","Allow");
+			MiddleAppDropdown("Voice Service Country",InputData[47].toString());
+			MiddleAppTextBox("Number of Signalling Trunks",InputData[48].toString());
+			MiddleAppDropdown("Egress Number Format",InputData[49].toString());
+			MiddleAppDropdown("Topology",InputData[50].toString());
+			MiddleAppDropdown("Invalid CLI treatment",InputData[51].toString());
 			MiddleAppTextBox("Total Number of DDIs",DDI);
 			
-			MiddleAppDropdown("Incoming DDI Digits","NA");
-			rand_int1 = rand.nextInt(10000);
+			MiddleAppDropdown("Incoming DDI Digits",InputData[52].toString());
+			rand_int1 = rand.nextInt(10);
 			DDI=Integer.toString(rand_int1);
 			MiddleAppTextBox("Customer Default Number",DDI);
 			
@@ -3477,12 +3459,12 @@ public class NewOrderOnnetHelper extends DriverHelper {
 			WaitforElementtobeclickable(xml.getlocator("//locators/R4/PopDropdownClick").replace("Value", "Delivery Team Country"));
 			Clickon(getwebelement(xml.getlocator("//locators/R4/PopDropdownClick").replace("Value", "Delivery Team Country")));
 			Thread.sleep(2500);
-			Clickon(getwebelement(xml.getlocator("//locators/R4/InsideDropdownValues").replace("Data","United Kingdom"/*InputData[78].toString()*/)));
+			Clickon(getwebelement(xml.getlocator("//locators/R4/InsideDropdownValues").replace("Data",InputData[47].toString())));
 			
 			WaitforElementtobeclickable(xml.getlocator("//locators/R4/PopDropdownClick").replace("Value", "Delivery Team City"));
 			Clickon(getwebelement(xml.getlocator("//locators/R4/PopDropdownClick").replace("Value", "Delivery Team City")));
 			Thread.sleep(2500);
-			Clickon(getwebelement(xml.getlocator("//locators/R4/InsideDropdownValues").replace("Data", "London")));			
+			Clickon(getwebelement(xml.getlocator("//locators/R4/InsideDropdownValues").replace("Data", InputData[53].toString())));			
 			Thread.sleep(5000);
 			
 			// Assert.assertTrue("SIP Trunking", true);

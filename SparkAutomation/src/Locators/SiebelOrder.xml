@@ -888,6 +888,11 @@
 <AddmissionDrodownValue>//ul[contains(@style,'block')]//li[text()='Value']</AddmissionDrodownValue>
 <CustomerMenu>//div[text()='Customer IP PBX List']/following-sibling::div//span[text()='Value']/parent::*</CustomerMenu>
 <BCN>//td[@aria-labelledby=' s_1_l_Out_of_Hours_Porting_Charge_BCN s_1_l_altpick']</BCN>
+<Ok>//div[contains(@style,'block') and contains(@class,'ui-draggable ui-resizable')]//button[contains(@title,'OK')]</Ok>
+<loc>//table[@id='s_2_l']//tr[@id='1']/td[ind]</loc>
+<Span>//table[@id='s_2_l']//tr[@id='1']/td[ind]//span</Span>
+<Input>//table[@id='s_2_l']//tr[@id='1']/td[ind]//input</Input>
+
 
 </SIP>
 
@@ -1238,7 +1243,7 @@
  <ClickDropdown>(//span[text()='Value']/parent::*//span)[3]</ClickDropdown>
  <SelectValueDropdown>(//li[text()='Value'])</SelectValueDropdown>
 <TextInput>//span[text()='Value']/parent::*//input</TextInput>
-<SIPVoiceConfigExpandSymbol>(//*[@class='colt-site-component-collapse fa fa-plus-square-o'])</SIPVoiceConfigExpandSymbol>
+<SIPVoiceConfigExpandSymbol>//span[@class='colt-site-component-collapse fa fa-plus-square-o']</SIPVoiceConfigExpandSymbol>
 <SIPTrunkSequence>((//*[@class='colt-attribute-input siebui-ctrl-input colt-attribute-validate'])[4])</SIPTrunkSequence>
 <SIPTrunkName>((//*[@class='colt-attribute-input siebui-ctrl-input'])[4])</SIPTrunkName>
 <SIPAccessLineType>((//*[@class='colt-attribute-input siebui-ctrl-input ui-autocomplete-input'])[12])</SIPAccessLineType>
