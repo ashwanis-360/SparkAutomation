@@ -645,6 +645,7 @@
 <TrunkInput>//div[@class='colt-trunk-wrapper']//span[text()='Value']/parent::div/input</TrunkInput>
 <TrunkAccessLine>//div[@class='colt-trunk-wrapper']//span[text()='Access Line Type']/parent::div/span[2]</TrunkAccessLine>
 <TrunkAccessID>//div[@class='colt-trunk-wrapper']//span[text()='Access Service ID']/parent::div/span[@class='siebui-icon-pick']</TrunkAccessID>
+<TrunkIPPBX>//div[@class='colt-trunk-wrapper']//span[text()='IP PBX ID']/parent::div/span[@class='siebui-icon-pick']</TrunkIPPBX>
 <AccessLineTypeDropDown>(//span[text()='Access Line Type']/..//span)[3]</AccessLineTypeDropDown>
 <AccessLineType>//li[text()='Colt Access']</AccessLineType>
 <AccessServiceIdlookup>(//span[@class='siebui-icon-pick'])[2]</AccessServiceIdlookup>
@@ -877,6 +878,19 @@
 <RigthShowFullInfo>(//a[text()='Show full info'])[2]</RigthShowFullInfo>
 <SIPTDM>//div[contains(@class,'colt-component-wrapper colt-empty port_1')]//span[text()='SIP TDM Gateway']/preceding-sibling::span</SIPTDM>
 </VoiceLineV>
+
+<SIP>
+<TrunkConfigInput>//div[@class='colt-trunk-wrapper']//span[text()='Value']/parent::*//input</TrunkConfigInput>
+<TrunkConfigDropdown>//div[@class='colt-trunk-wrapper']//span[text()='Value']/parent::*/span[2]</TrunkConfigDropdown>
+<TrunkConfigDrodownValue>//ul[contains(@style,'block')]//li[text()='Value']</TrunkConfigDrodownValue>
+<AddmissionInput>//div[@class='colt-component-attr-wrapper']//span[text()='Value']/parent::*//input</AddmissionInput>
+<AddmissionDropdown>//div[@class='colt-component-attr-wrapper']//span[text()='Value']/parent::*/span[2]</AddmissionDropdown>
+<AddmissionDrodownValue>//ul[contains(@style,'block')]//li[text()='Value']</AddmissionDrodownValue>
+<CustomerMenu>//div[text()='Customer IP PBX List']/following-sibling::div//span[text()='Value']/parent::*</CustomerMenu>
+<BCN>//td[@aria-labelledby=' s_1_l_Out_of_Hours_Porting_Charge_BCN s_1_l_altpick']</BCN>
+
+</SIP>
+
 <Ceos>
 <Username>//*[@id='username-id']</Username>
 <Password>//*[@id="pwd-id"]</Password>
