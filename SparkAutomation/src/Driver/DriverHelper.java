@@ -10,6 +10,7 @@ import java.util.Base64;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 import java.util.Set;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
@@ -1042,12 +1043,33 @@ public class DriverHelper
 	{
 		System.out.println("------Future date is :"+FutureDate(2)+"-------" );
 	}
+	
 	public String TimeStamp()
 	{
 		String timeStamp = new SimpleDateFormat("yyyyMMddHHmm'.txt'").format(new Date());
 		return timeStamp;
 	}
 
+	public int GetRandomNumber(int limit)
+	{
+		Random rndm = new Random();
+		return (rndm.nextInt(limit));
+	}
+	
+	public String GetRandomString(int length)
+	{
+		String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        StringBuilder salt = new StringBuilder();
+        Random rnd = new Random();
+        while (salt.length() < length) 
+        { 
+            int index =  GetRandomNumber(SALTCHARS.length());
+            salt.append(SALTCHARS.charAt(index));
+        }
+        String saltStr = salt.toString();
+        return saltStr;
+
+	}
 	/*
 	 * Created by: Ashwani
 	 */
